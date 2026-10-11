@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sonrisa Imperial, clínica dental</title>
+  <meta name="description" content="Clínica dental Sonrisa Imperial. Pide tu primera visita: exploración completa y presupuesto por escrito antes de empezar.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* Datos de marca: cambia estos valores para cada clínica */
+    :root {
+      --enamel: #eef0ec;      /* fondo: esmalte frío */
+      --white: #ffffff;       /* dientes y paneles */
+      --gum: #e8a9b2;         /* encía */
+      --rose: #b8405a;        /* acción principal */
+      --rose-dark: #962f47;
+      --plum: #2b1a2f;        /* texto y bandas oscuras */
+      --mauve: #6b5870;       /* texto secundario */
+      --line: #d9d6d9;
+      --error: #a3242f;
+      color-scheme: light;
+      --display: "Gloock", Georgia, serif;
+      --sans: "Figtree", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font: 400 1.0625rem/1.6 var(--sans);
+      background: var(--enamel);
+      color: var(--plum);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--rose); outline-offset: 2px; border-radius: 4px; }
+
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font: 600 1rem var(--sans);
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: 0;
+      background: var(--rose);
+      color: var(--white);
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .btn:hover { background: var(--rose-dark); }
+    .btn:disabled { opacity: .7; cursor: progress; }
+
+    /* Cabecera */
+    .site-header { background: var(--gum); }
+    .site-header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: 18px;
+      padding-bottom: 6px;
+    }
+    .logo { font: 400 1.5rem/1 var(--display); text-decoration: none; }
+    .header-actions { display: flex; align-items: center; gap: 20px; }
+    .header-tel { font-weight: 600; text-decoration: none; }
+    .header-tel:hover { text-decoration: underline; }
+    .header-actions .btn { padding: 10px 20px; font-size: .95rem; }
+
+    /* Arcada */
+    .arch { display: block; width: 100%; height: auto; margin-top: -1px; }
+    .arch .gum { fill: var(--gum); }
+    .arch .tooth {
+      fill: var(--white);
+      stroke: rgba(43, 26, 47, .14);
+      stroke-width: 1.2;
+      transform-box: fill-box;
+      transform-origin: top;
+      animation: erupt .7s cubic-bezier(.2, .8, .2, 1) both;
+    }
+    @keyframes erupt {
+      from { transform: scaleY(.15); opacity: 0; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* Hero */
+    .hero { padding: 40px 0 96px; }
+    .hero .wrap {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 72px;
+      align-items: start;
+    }
+    h1 {
+      font: 400 clamp(2.5rem, 5.4vw, 4.25rem)/1.04 var(--display);
+      letter-spacing: -.015em;
+      max-width: 11em;
+      margin: 24px 0 24px;
+    }
+    .lead { font-size: 1.1875rem; color: var(--mauve); max-width: 32em; margin-bottom: 32px; }
+    .includes { list-style: none; display: grid; gap: 12px; max-width: 32em; }
+    .includes li { display: flex; gap: 12px; align-items: baseline; }
+    .includes li::before {
+      content: "";
+      flex: none;
+      width: 10px;
+      height: 12px;
+      border-radius: 2px 2px 6px 6px;
+      background: var(--rose);
+      transform: translateY(1px);
+    }
+
+    /* Formulario */
+    .booking {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 1px 0 var(--line), 0 24px 48px -32px rgba(43, 26, 47, .35);
+      scroll-margin-top: 24px;
+    }
+    .booking h2 { font: 400 2rem/1.1 var(--display); margin-bottom: 8px; }
+    .booking-intro { color: var(--mauve); margin-bottom: 24px; }
+    form { display: grid; gap: 18px; }
+    label { display: block; font-size: .9375rem; font-weight: 600; margin-bottom: 6px; }
+    .optional { font-weight: 400; color: var(--mauve); }
+    input, select {
+      width: 100%;
+      font: 400 1.0625rem var(--sans);
+      color: var(--plum);
+      background: var(--enamel);
+      border: 1.5px solid transparent;
+      border-radius: 12px;
+      padding: 13px 14px;
+    }
+    input:focus, select:focus { outline: none; border-color: var(--rose); background: var(--white); }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .875rem; font-weight: 400; color: var(--mauve); margin: 0; }
+    .consent input { width: 18px; height: 18px; flex: none; margin-top: 2px; accent-color: var(--rose); }
+    form .btn { width: 100%; padding: 16px; font-size: 1.0625rem; }
+    .form-error { font-size: .9375rem; color: var(--error); }
+
+    .success { display: none; }
+    .success h2 { margin-bottom: 12px; }
+    .success p { color: var(--mauve); }
+    .booking.done form, .booking.done .booking-head { display: none; }
+    .booking.done .success { display: block; }
+
+    /* Secciones */
+    .section { padding: 96px 0; }
+    .section-title { font: 400 clamp(2rem, 3.6vw, 2.75rem)/1.1 var(--display); max-width: 16em; margin-bottom: 48px; }
+
+    .steps { background: var(--white); }
+    .steps ol { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+    .steps li { border-top: 2px solid var(--gum); padding-top: 20px; }
+    .step-num { display: block; font: 400 3rem/1 var(--display); color: var(--rose); margin-bottom: 16px; }
+    .steps h3 { font-size: 1.1875rem; font-weight: 600; margin-bottom: 6px; }
+    .steps p { color: var(--mauve); max-width: 24em; }
+
+    .treatments dl { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+    .treatments dl > div { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .treatments dt { font: 400 1.5rem/1.2 var(--display); margin-bottom: 4px; }
+    .treatments dd { color: var(--mauve); max-width: 30em; }
+
+    .visit { padding-top: 0; }
+    .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+    .visit h2 { font: 400 1.75rem/1.2 var(--display); margin-bottom: 16px; }
+    .visit address { font-style: normal; }
+    .visit p + p { margin-top: 8px; }
+    .hours { border-collapse: collapse; width: 100%; max-width: 380px; }
+    .hours th, .hours td { text-align: left; padding: 8px 0; border-bottom: 1px solid var(--line); }
+    .hours th { font-weight: 500; }
+    .hours td { text-align: right; font-variant-numeric: tabular-nums; }
+
+    .closing { background: var(--plum); color: var(--enamel); padding: 88px 0; }
+    .closing .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 32px; }
+    .closing h2 { font: 400 clamp(2rem, 3.6vw, 2.75rem)/1.1 var(--display); max-width: 14em; }
+    .closing-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+    .closing-actions a:not(.btn) { font-weight: 600; }
+
+    footer { background: var(--plum); color: #c9bccb; border-top: 1px solid #45304a; padding: 28px 0; font-size: .9375rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 28px; justify-content: space-between; }
+    footer nav { display: flex; gap: 24px; }
+
+    /* Barra fija en móvil */
+    .mobile-bar { display: none; }
+
+    @media (max-width: 960px) {
+      .hero .wrap { grid-template-columns: 1fr; gap: 48px; }
+      .booking { max-width: 560px; }
+      .steps ol { grid-template-columns: 1fr; gap: 32px; }
+      .treatments dl, .visit .wrap { grid-template-columns: 1fr; gap: 0; }
+      .visit .wrap { gap: 48px; }
+      .section { padding: 72px 0; }
+      .visit { padding-top: 0; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      .header-actions { display: none; }
+      .arch { height: 96px; }
+      .hero { padding: 24px 0 64px; }
+      .booking { padding: 28px 20px; border-radius: 20px; }
+      body { padding-bottom: 76px; }
+      .mobile-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+        background: var(--white);
+        border-top: 1px solid var(--line);
+        z-index: 10;
+      }
+      .mobile-bar .btn { padding: 13px 10px; }
+      .mobile-bar .btn-call { background: var(--enamel); color: var(--plum); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .arch .tooth { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a href="#" class="logo">Sonrisa Imperial</a>
+      <div class="header-actions">
+        <a class="header-tel" href="tel:+34600000000">600 000 000</a>
+        <a href="#reserva" class="btn">Solicitar cita</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Arcada superior generada por el script del final -->
+  <svg class="arch" id="arch" viewBox="0 0 1000 170" preserveAspectRatio="xMidYMin slice" aria-hidden="true"></svg>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Empieza por una revisión sin prisas</h1>
+          <p class="lead">En tu primera visita exploramos tu boca con calma, te explicamos lo que vemos y te damos el presupuesto por escrito antes de empezar cualquier tratamiento.</p>
+          <ul class="includes">
+            <li>Exploración completa y radiografía si la necesitas</li>
+            <li>Presupuesto por escrito, sin compromiso</li>
+            <li>Citas de mañana y de tarde, también los sábados</li>
+          </ul>
+        </div>
+
+        <div class="booking" id="reserva">
+          <div class="booking-head">
+            <h2>Solicita tu cita</h2>
+            <p class="booking-intro">Déjanos tu nombre y tu teléfono. Te llamamos en menos de 24 horas laborables para darte día y hora.</p>
+          </div>
+
+          <form id="booking-form" novalidate>
+            <div>
+              <label for="name">Nombre</label>
+              <input id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="phone">Teléfono</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required>
+            </div>
+            <div>
+              <label for="reason">¿Qué te trae? <span class="optional">(opcional)</span></label>
+              <select id="reason" name="reason">
+                <option>Aún no lo sé</option>
+                <option>Revisión y limpieza</option>
+                <option>Ortodoncia</option>
+                <option>Implantes</option>
+                <option>Estética y blanqueamiento</option>
+                <option>Tengo dolor</option>
+              </select>
+            </div>
+            <label class="consent">
+              <input type="checkbox" name="consent" required>
+              <span>Acepto que Sonrisa Imperial use mis datos solo para gestionar mi cita, según la <a href="#privacidad">política de privacidad</a>.</span>
+            </label>
+            <button type="submit" class="btn">Solicitar cita</button>
+            <p class="form-error" id="form-error" role="alert" hidden>No se ha podido enviar la solicitud. Revisa tu conexión y vuelve a intentarlo, o llámanos al 600 000 000.</p>
+          </form>
+
+          <div class="success" role="status" aria-live="polite">
+            <h2>Solicitud enviada</h2>
+            <p>Te llamaremos en menos de 24 horas laborables para darte día y hora. Si es urgente, llámanos al <a href="tel:+34600000000">600 000 000</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section steps">
+      <div class="wrap">
+        <h2 class="section-title">Qué pasa después de solicitar tu cita</h2>
+        <ol>
+          <li>
+            <span class="step-num">1</span>
+            <h3>Te llamamos</h3>
+            <p>Buscamos contigo el día y la hora que mejor te vengan.</p>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <h3>Primera visita</h3>
+            <p>Revisamos tu boca, hacemos las pruebas necesarias y te contamos qué vemos.</p>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <h3>Tu plan por escrito</h3>
+            <p>Te llevas el tratamiento y el presupuesto detallados. Decides tú, sin presión.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section treatments">
+      <div class="wrap">
+        <h2 class="section-title">Lo que tratamos</h2>
+        <dl>
+          <div>
+            <dt>Revisión y limpieza</dt>
+            <dd>Una vez al año para detectar a tiempo caries y problemas de encías.</dd>
+          </div>
+          <div>
+            <dt>Ortodoncia</dt>
+            <dd>Brackets o alineadores transparentes, para adultos y niños.</dd>
+          </div>
+          <div>
+            <dt>Implantes</dt>
+            <dd>Para reponer uno o varios dientes con una pieza fija.</dd>
+          </div>
+          <div>
+            <dt>Estética y blanqueamiento</dt>
+            <dd>Carillas y blanqueamiento supervisado por el dentista.</dd>
+          </div>
+          <div>
+            <dt>Endodoncia</dt>
+            <dd>Tratamos el nervio para salvar el diente en lugar de extraerlo.</dd>
+          </div>
+          <div>
+            <dt>Urgencias</dt>
+            <dd>Si tienes dolor, llámanos y te vemos en el mismo día.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section visit">
+      <div class="wrap">
+        <div>
+          <h2>Dónde estamos</h2>
+          <address>
+            <p>Calle Ejemplo 123, 28000 Ciudad</p>
+            <p><a href="tel:+34600000000">600 000 000</a></p>
+          </address>
+        </div>
+        <div>
+          <h2>Horario</h2>
+          <table class="hours">
+            <tr><th scope="row">Lunes a viernes</th><td>9:00 a 20:00</td></tr>
+            <tr><th scope="row">Sábados</th><td>10:00 a 14:00</td></tr>
+            <tr><th scope="row">Domingos</th><td>Cerrado</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <h2>¿Te llamamos para darte cita?</h2>
+        <div class="closing-actions">
+          <a href="#reserva" class="btn">Solicitar cita</a>
+          <a href="tel:+34600000000">o llama al 600 000 000</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> Sonrisa Imperial</span>
+      <nav>
+        <a href="#privacidad" id="privacidad">Política de privacidad</a>
+        <a href="#aviso-legal">Aviso legal</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a href="tel:+34600000000" class="btn btn-call">Llamar</a>
+    <a href="#reserva" class="btn">Solicitar cita</a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dibuja la arcada superior: 7 dientes por lado, del incisivo central al segundo molar.
+    (function drawArch() {
+      const svg = document.getElementById('arch');
+      const NS = 'http://www.w3.org/2000/svg';
+      const W = 1000, CENTER = 500, TOP = 10, GAP = 5;
+      const widths = [1, .8, .86, .7, .68, .8, .74];
+      const lengths = [138, 118, 126, 108, 102, 94, 86];
+      const gumY = 40, papillaY = 62;
+
+      let x = 0;
+      const half = widths.map((w, k) => {
+        const tw = 60 * w * (1 - k * .06);
+        const t = { k, x0: x, w: tw, h: lengths[k] };
+        x += tw + GAP;
+        return t;
+      });
+      const scale = 480 / (x - GAP);
+
+      const teeth = [];
+      half.forEach(t => {
+        const w = t.w * scale;
+        const offset = GAP / 2 + t.x0 * scale;
+        teeth.push({ ...t, left: CENTER + offset, w });
+        teeth.push({ ...t, left: CENTER - offset - w, w });
+      });
+      teeth.sort((a, b) => a.left - b.left);
+
+      teeth.forEach(t => {
+        const l = t.left, r = t.left + t.w, b = TOP + t.h;
+        const R = t.w * (t.k < 2 ? .2 : .42);
+        const p = document.createElementNS(NS, 'path');
+        p.setAttribute('class', 'tooth');
+        p.setAttribute('d', `M${l},${TOP} H${r} V${b - R} Q${r},${b} ${r - R},${b} H${l + R} Q${l},${b} ${l},${b - R} Z`);
+        p.style.animationDelay = `${t.k * 70}ms`;
+        svg.appendChild(p);
+      });
+
+      // Encía con festón: sube sobre cada diente y baja en la papila entre dientes.
+      let d = `M0,0 H${W} V${papillaY - 8} L${teeth[teeth.length - 1].left + teeth[teeth.length - 1].w},${papillaY}`;
+      for (let i = teeth.length - 1; i >= 0; i--) {
+        const t = teeth[i];
+        d += ` Q${t.left + t.w / 2},${2 * gumY - papillaY} ${t.left},${papillaY}`;
+        if (i > 0) d += ` L${teeth[i - 1].left + teeth[i - 1].w},${papillaY}`;
+      }
+      d += ` L0,${papillaY - 8} Z`;
+      const gum = document.createElementNS(NS, 'path');
+      gum.setAttribute('class', 'gum');
+      gum.setAttribute('d', d);
+      svg.appendChild(gum);
+    })();
+
+    // Pon aquí la URL de tu servicio de formularios (Formspree, Getform, tu backend...).
+    // Si se deja vacía, el formulario solo muestra el mensaje de confirmación.
+    const FORM_ENDPOINT = '';
+
+    const form = document.getElementById('booking-form');
+    const booking = document.getElementById('reserva');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const button = form.querySelector('button');
+      const error = document.getElementById('form-error');
+      error.hidden = true;
+      button.disabled = true;
+      button.textContent = 'Enviando…';
+
+      try {
+        if (FORM_ENDPOINT) {
+          const res = await fetch(FORM_ENDPOINT, {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: new FormData(form),
+          });
+          if (!res.ok) throw new Error('Error al enviar');
+        }
+        booking.classList.add('done');
+      } catch {
+        button.disabled = false;
+        button.textContent = 'Solicitar cita';
+        error.hidden = false;
+      }
+    });
+  </script>
+</body>
+</html>
