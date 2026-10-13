@@ -4,6 +4,9 @@
 import "./components/site-header.js";
 import "./components/site-footer.js";
 import { CHATBOT_URL } from "./config.js";
+import { initStardust } from "./stardust.js";
+
+initStardust();
 
 // El asistente solo aparece cuando su Worker está desplegado
 if (CHATBOT_URL) {

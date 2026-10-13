@@ -19,9 +19,15 @@ class SiteFooter extends HTMLElement {
               <li><a href="${REPO}">Código de esta web</a></li>
             </ul>
           </nav>
+          <p class="site-footer__stardust">
+            Fragmentos de estrella recogidos: <strong data-stardust-count>0</strong>
+            <span class="muted">Pasa el cursor por las estrellas de colores que flotan en la página.</span>
+          </p>
           <p class="site-footer__legal">© ${year} Marc Calatayud</p>
         </div>
       </footer>`;
+    // Avisa al contador de fragmentos de que ya puede pintarse aquí
+    document.dispatchEvent(new Event("stardust:footer"));
   }
 }
 

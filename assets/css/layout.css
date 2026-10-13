@@ -221,6 +221,11 @@ site-footer {
   fill: var(--star);
 }
 
+/* Variante en espejo para alternar el sentido del vuelo */
+.trajectory--flip {
+  transform: scaleX(-1);
+}
+
 /* Donde el navegador lo permite, la estrella recorre el trazo al hacer scroll */
 @supports (animation-timeline: view()) {
   .trajectory .trajectory__star {
@@ -449,4 +454,45 @@ site-footer {
 .chat-form input:focus {
   border-color: var(--link);
   outline: none;
+}
+
+/* --- Fragmentos de estrella --- */
+.stardust {
+  position: absolute;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  margin: -8px 0 0 -8px; /* el área para recogerlo es más grande que la estrella */
+  cursor: pointer;
+  animation: drift 4s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  to {
+    transform: translateY(-8px) rotate(25deg);
+  }
+}
+
+.stardust.is-collected {
+  pointer-events: none;
+  animation: collect .45s var(--ease-out) forwards;
+}
+
+@keyframes collect {
+  to {
+    opacity: 0;
+    transform: translateY(-36px) scale(1.8) rotate(160deg);
+  }
+}
+
+.site-footer__stardust strong {
+  font-family: var(--font-display);
+  color: var(--star);
+}
+
+.site-footer__stardust .muted {
+  display: block;
+  font-size: var(--step--1);
 }
