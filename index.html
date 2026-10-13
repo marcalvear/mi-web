@@ -1,238 +1,46 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <!-- Metadatos básicos -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Marc Calatayud, IA y marketing digital</title>
-  <meta name="description" content="Web personal de Marc Calatayud, estudiante de 1º DAM en el IES Simarro. Aprendo inteligencia artificial para automatizar el marketing creativo.">
+  <title>Marc Calatayud, IA para startups e infoproductores</title>
+  <meta name="description" content="Soy Marc Calatayud, estudiante de 1º DAM en València. Aprendo inteligencia artificial para ayudar a startups e infoproductores a dar vida a sus proyectos.">
+  <meta name="theme-color" content="#141a4a">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 
-  <!-- Tipografías (Google Fonts) -->
+  <!-- Aplica el tema guardado antes de pintar para evitar parpadeos -->
+  <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=Saira+Extra+Condensed:wght@700;800&display=swap" rel="stylesheet">
-
-  <!-- Estilos y script propios -->
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <script type="module" src="assets/js/main.js"></script>
 </head>
 <body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <site-header current="inicio"></site-header>
 
-  <!-- Enlace para saltar la cabecera con teclado -->
-  <a class="skip" href="#sobre-mi">Saltar al contenido</a>
-
-  <!-- CABECERA: navegación, nombre, frase y minijuego -->
-  <header class="hero">
-
-    <!-- Navegación principal -->
-    <nav class="nav wrap" aria-label="Principal">
-      <a class="nav__home" href="#">MC</a>
-      <ul class="nav__links">
-        <li><a href="#sobre-mi">Sobre mí</a></li>
-        <li><a href="#lo-que-he-hecho">Lo que he hecho</a></li>
-        <li><a href="#me-gusta">Me gusta</a></li>
-        <li><a href="#pokedex">Pokédex</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-
-    <div class="hero__body wrap">
-
-      <!-- Presentación: nombre + frase -->
-      <div class="hero__intro">
-        <h1 class="name"><span>Marc</span> <span>Calatayud</span></h1>
-        <p class="hero__phrase">Aprendo inteligencia artificial para automatizar el marketing creativo de empresas y marcas personales.</p>
-        <p class="hero__meta">Estudiante de 1º DAM en el IES Simarro</p>
-        <div class="actions">
-          <a class="btn" href="#lo-que-he-hecho">Ver lo que he hecho</a>
-          <a class="link" href="#contacto">Contactar</a>
-        </div>
-      </div>
-
-      <!-- Minijuego Breach Protocol (se muestra solo si hay JavaScript) -->
-      <section class="breach" id="breach" aria-labelledby="breach-title" hidden>
-        <h2 id="breach-title">Hackea mi perfil</h2>
-        <p class="breach__rules">Consigue la secuencia. Empieza en la fila de arriba y después alterna: columna, fila, columna…</p>
-
-        <!-- Secuencia que hay que conseguir -->
-        <div class="breach__row">
-          <span class="breach__label">Secuencia</span>
-          <ol class="codes" id="breach-target"></ol>
-        </div>
-
-        <!-- Matriz de códigos (la rellena script.js) -->
-        <div class="matrix" id="breach-grid" aria-label="Matriz de códigos"></div>
-
-        <!-- Memoria donde se guardan los códigos elegidos -->
-        <div class="breach__row">
-          <span class="breach__label">Memoria</span>
-          <ol class="codes codes--buffer" id="breach-buffer"></ol>
-        </div>
-
-        <!-- Mensajes del juego y botón de reinicio -->
-        <p class="breach__status" id="breach-status" aria-live="polite"></p>
-        <button class="link link--light" type="button" id="breach-reset">Nueva partida</button>
-      </section>
-    </div>
-  </header>
-
-  <!-- CONTENIDO PRINCIPAL -->
-  <main>
-
-    <!-- SECCIÓN: Sobre mí -->
-    <section class="section wrap" id="sobre-mi" aria-labelledby="t-sobre-mi">
-      <h2 class="heading" id="t-sobre-mi">Sobre mí</h2>
-
-      <div class="about">
-        <!-- Texto de presentación -->
-        <div class="prose">
-          <p>Soy Marc Calatayud y estudio 1º de Desarrollo de Aplicaciones Multiplataforma (DAM) en el IES Simarro.</p>
-          <p>Quiero especializarme en inteligencia artificial para automatizar la parte creativa del marketing digital: textos, imágenes y campañas para empresas y marcas personales.</p>
-          <p>Estoy empezando, pero ya construyo cosas reales. Mi primer trabajo es una landing page pensada para conseguir citas.</p>
-        </div>
-
-        <!-- Ficha de personaje al estilo del juego -->
-        <aside class="sheet" aria-labelledby="t-ficha">
-          <h3 id="t-ficha">Ficha de personaje</h3>
-          <dl>
-            <div><dt>Nivel</dt><dd>1º DAM</dd></div>
-            <div><dt>Clase</dt><dd>Netrunner en formación</dd></div>
-            <div><dt>Origen</dt><dd>IES Simarro</dd></div>
-            <div><dt>Misión principal</dt><dd>Dominar la IA para automatizar el marketing creativo</dd></div>
-          </dl>
-        </aside>
-      </div>
+  <main id="contenido">
+    <section class="section wrap">
+      <h1>Marc Calatayud</h1>
+      <p class="prose muted">Web en obras: aquí llega la v2.</p>
     </section>
 
-    <!-- SECCIÓN: Lo que he hecho (portfolio) -->
-    <section class="section wrap" id="lo-que-he-hecho" aria-labelledby="t-hecho">
-      <h2 class="heading" id="t-hecho">Lo que he hecho</h2>
+    <svg class="trajectory" viewBox="0 0 1000 100" aria-hidden="true">
+      <path d="M 0 10 C 300 110, 700 -10, 1000 70"/>
+      <path class="trajectory__star" d="M0,-9 L2.6,-3.6 L8.6,-2.8 L4.2,1.4 L5.3,7.3 L0,4.5 L-5.3,7.3 L-4.2,1.4 L-8.6,-2.8 L-2.6,-3.6 Z"/>
+    </svg>
 
-      <!-- Trabajo 1: primera landing page -->
-      <article class="gig">
-
-        <!-- Vista previa en vivo de la landing -->
-        <div class="gig__preview">
-          <iframe src="proyectos/sonrisa-imperial/index2.html" title="Vista previa de la landing Sonrisa Imperial" loading="lazy" tabindex="-1"></iframe>
-        </div>
-
-        <!-- Descripción del trabajo -->
-        <div class="gig__body">
-          <p class="gig__status">Trabajo completado</p>
-          <h3>Sonrisa Imperial, mi primera landing page</h3>
-          <p>Página para una clínica dental ficticia con un único objetivo: que quien la visite pida cita. Formulario corto, pensada primero para móvil y hecha en un solo fichero HTML.</p>
-
-          <!-- Datos del trabajo -->
-          <dl class="gig__facts">
-            <div><dt>Cliente</dt><dd>Clínica dental (ficticia)</dd></div>
-            <div><dt>Objetivo</dt><dd>Conseguir citas</dd></div>
-            <div><dt>Hecho con</dt><dd>HTML, CSS y JavaScript</dd></div>
-          </dl>
-
-          <!-- Enlaces al trabajo -->
-          <div class="actions">
-            <a class="btn" href="proyectos/sonrisa-imperial/index2.html">Abrir la landing</a>
-            <a class="link link--light" href="https://sonrisa-imperial-rho-three.vercel.app" target="_blank" rel="noopener">Ver la versión online</a>
-          </div>
-        </div>
-      </article>
-    </section>
-
-    <!-- SECCIÓN: Me gusta (pestañas tipo "shard" de datos) -->
-    <section class="section wrap" id="me-gusta" aria-labelledby="t-gusta">
-      <h2 class="heading" id="t-gusta">Me gusta</h2>
-
-      <div class="shards">
-        <!-- Pestañas -->
-        <div class="shards__tabs" role="tablist" aria-label="Aficiones">
-          <button role="tab" id="tab-juegos" aria-controls="shard-juegos" aria-selected="true">Videojuegos</button>
-          <button role="tab" id="tab-anime" aria-controls="shard-anime" aria-selected="false" tabindex="-1">Anime y manga</button>
-          <button role="tab" id="tab-marketing" aria-controls="shard-marketing" aria-selected="false" tabindex="-1">Marketing digital</button>
-        </div>
-
-        <!-- Contenido de cada pestaña -->
-        <div class="shard" role="tabpanel" id="shard-juegos" aria-labelledby="tab-juegos">
-          <h3>Cyberpunk 2077, mi favorito</h3>
-          <p>Night City, los netrunners y su interfaz son la inspiración directa de esta web. El minijuego de la cabecera imita el Breach Protocol del juego.</p>
-        </div>
-        <div class="shard" role="tabpanel" id="shard-anime" aria-labelledby="tab-anime">
-          <h3>Anime y manga</h3>
-          <p>Historias con una identidad visual muy marcada. Me fijo en cómo usan el encuadre y el color para contar cosas sin palabras.</p>
-        </div>
-        <div class="shard" role="tabpanel" id="shard-marketing" aria-labelledby="tab-marketing">
-          <h3>Marketing digital</h3>
-          <p>Cómo consigue una marca que te pares a mirarla. Quiero usar la IA para automatizar esa parte creativa sin perder la personalidad de cada marca.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECCIÓN: Pokédex (datos de la PokéAPI) -->
-    <section class="section wrap" id="pokedex" aria-labelledby="t-pokedex">
-      <h2 class="heading" id="t-pokedex">Pokédex</h2>
-      <p class="prose">Escanea cualquier Pokémon por su nombre o número. Los datos llegan en directo desde la <a class="link--light" href="https://pokeapi.co" target="_blank" rel="noopener">PokéAPI</a>.</p>
-
-      <!-- Buscador -->
-      <form class="scan" id="poke-form" role="search">
-        <label class="scan__label" for="poke-input">Nombre o número</label>
-        <div class="scan__row">
-          <input class="scan__input" id="poke-input" name="pokemon" type="text" placeholder="pikachu, 25…" autocomplete="off" required>
-          <button class="btn" type="submit">Escanear</button>
-          <button class="link link--light" type="button" id="poke-random">Uno al azar</button>
-        </div>
-      </form>
-
-      <!-- Mensajes (cargando, error…) -->
-      <p class="scan__status" id="poke-status" aria-live="polite"></p>
-
-      <!-- Ficha del Pokémon (la rellena script.js) -->
-      <article class="poke" id="poke-card" hidden>
-        <div class="poke__media">
-          <!-- Cambio de vista: imagen o modelo 3D -->
-          <div class="view" role="group" aria-label="Vista del Pokémon">
-            <button type="button" class="view__btn" data-view="img" aria-pressed="true">Imagen</button>
-            <button type="button" class="view__btn" data-view="3d" aria-pressed="false">3D</button>
-          </div>
-
-          <!-- Vista 1: ilustración oficial -->
-          <div class="poke__img" id="poke-view-img">
-            <img id="poke-img" src="" alt="" width="240" height="240">
-          </div>
-
-          <!-- Vista 2: modelo 3D interactivo (Pokémon 3D API + model-viewer) -->
-          <div class="poke__3d" id="poke-view-3d" hidden>
-            <model-viewer id="poke-model" camera-controls auto-rotate autoplay shadow-intensity="1" touch-action="pan-y"></model-viewer>
-            <p class="poke__3d-status" id="poke-3d-status" aria-live="polite"></p>
-            <button class="link link--light" type="button" id="poke-shiny" aria-pressed="false">Ver versión shiny</button>
-          </div>
-        </div>
-        <div class="poke__body">
-          <p class="poke__id" id="poke-id"></p>
-          <h3 class="poke__name" id="poke-name"></h3>
-          <ul class="poke__types" id="poke-types"></ul>
-          <dl class="gig__facts" id="poke-facts"></dl>
-          <ul class="stats" id="poke-stats"></ul>
-        </div>
-      </article>
+    <section class="section wrap">
+      <h2>Sección de prueba</h2>
+      <p class="prose">Texto de prueba para revisar la tipografía, los enlaces <a href="#">como este</a> y los botones.</p>
+      <p><a class="btn" href="#">Ponte en contacto conmigo</a> <a class="btn btn--ghost" href="#">Secundario</a></p>
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA: contacto -->
-  <footer class="footer" id="contacto">
-    <div class="wrap">
-      <h2 class="heading">Contacto</h2>
-      <p class="footer__intro">Si tienes un proyecto de marketing o quieres hablar de IA, escríbeme.</p>
-
-      <!-- Datos de contacto: sustituye los valores de ejemplo por los tuyos -->
-      <address class="contact">
-        <a class="btn" href="mailto:tu-email@ejemplo.com">Escribirme un email</a>
-        <a class="link link--light" href="https://github.com/tu-usuario" target="_blank" rel="noopener">GitHub</a>
-        <a class="link link--light" href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
-      </address>
-
-      <!-- Créditos -->
-      <p class="footer__legal">© <span id="year">2026</span> Marc Calatayud. Hecho con HTML, CSS y JavaScript.</p>
-    </div>
-  </footer>
-
+  <site-footer></site-footer>
 </body>
 </html>
