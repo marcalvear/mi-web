@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sonrisa Imperial, caso de estudio de Marc Calatayud</title>
+  <meta name="description" content="Cómo diseñé y programé Sonrisa Imperial, una landing page para que una clínica dental consiga citas desde el móvil: problema, solución y resultado con métricas.">
+  <meta name="theme-color" content="#141a4a">
+  <link rel="canonical" href="https://marcalvear.github.io/mi-web/proyectos/sonrisa-imperial/">
+  <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Marc Calatayud">
+  <meta property="og:title" content="Sonrisa Imperial, caso de estudio">
+  <meta property="og:description" content="Landing page para que una clínica dental consiga citas desde el móvil. Problema, solución y resultado.">
+  <meta property="og:url" content="https://marcalvear.github.io/mi-web/proyectos/sonrisa-imperial/">
+  <meta property="og:image" content="https://marcalvear.github.io/mi-web/assets/img/proyectos/sonrisa-imperial.webp">
+  <meta property="og:image:alt" content="Portada de la landing Sonrisa Imperial con su formulario de cita">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/css/tokens.css">
+  <link rel="stylesheet" href="../../assets/css/base.css">
+  <link rel="stylesheet" href="../../assets/css/layout.css">
+  <link rel="stylesheet" href="../../assets/css/pages/proyecto.css">
+  <script type="module" src="../../assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <site-header current="hecho"></site-header>
+
+  <main id="contenido" class="wrap case">
+    <header class="case__header">
+      <p class="case__back"><a href="../../#lo-que-he-hecho">Volver a lo que he hecho</a></p>
+      <h1>Sonrisa Imperial</h1>
+      <p class="case__summary">Landing page para que una clínica dental (ficticia) consiga citas de personas que llegan desde el móvil.</p>
+      <dl class="case__meta">
+        <div><dt>Mi papel</dt><dd>Diseño y desarrollo</dd></div>
+        <div><dt>Fecha</dt><dd>Septiembre de 2026</dd></div>
+        <div><dt>Hecho con</dt><dd>HTML, CSS y JavaScript, sin librerías</dd></div>
+      </dl>
+    </header>
+
+    <div class="case__layout">
+      <!-- Demo grabada: el recorrido completo de una persona pidiendo cita -->
+      <figure class="case__demo">
+        <div class="phone">
+          <video controls muted playsinline preload="none" width="390" height="844" poster="../../assets/video/sonrisa-imperial-poster.webp" aria-describedby="demo-caption">
+            <source src="../../assets/video/sonrisa-imperial-demo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption id="demo-caption">Demo de 17 segundos en un móvil: la página carga, se recorre y se pide cita con el formulario.</figcaption>
+      </figure>
+
+      <div class="case__story">
+        <section aria-labelledby="problema">
+          <h2 id="problema">El problema</h2>
+          <p>Una clínica dental necesita llenar su agenda, y la mayoría de la gente la busca desde el móvil. Si para pedir cita hay que rellenar muchos campos o buscar el botón, una parte se va sin terminar.</p>
+        </section>
+
+        <section aria-labelledby="solucion">
+          <h2 id="solucion">La solución</h2>
+          <ul class="decisions" role="list">
+            <li><strong>Un solo objetivo.</strong> Todos los botones de la página llevan al mismo formulario.</li>
+            <li><strong>Formulario corto.</strong> Solo dos campos obligatorios: nombre y teléfono. El motivo de la visita es opcional.</li>
+            <li><strong>Pensada primero para móvil.</strong> Una barra fija abajo con «Llamar» y «Solicitar cita», siempre a mano del pulgar.</li>
+            <li><strong>Confianza antes de pedir datos.</strong> Presupuesto por escrito y los tres pasos que vienen después de pedir cita.</li>
+            <li><strong>Identidad propia.</strong> La arcada dental de la cabecera se dibuja en SVG con JavaScript, con colores de esmalte y encía.</li>
+            <li><strong>Ligera.</strong> Un único fichero HTML de 19 KB.</li>
+          </ul>
+        </section>
+
+        <section aria-labelledby="resultado">
+          <h2 id="resultado">El resultado</h2>
+          <ul class="metrics" role="list">
+            <li><span class="metrics__value">94</span> Rendimiento</li>
+            <li><span class="metrics__value">100</span> Accesibilidad</li>
+            <li><span class="metrics__value">96</span> Buenas prácticas</li>
+            <li><span class="metrics__value">100</span> SEO</li>
+            <li><span class="metrics__value">58 KB</span> Peso total</li>
+            <li><span class="metrics__value">0</span> Saltos de diseño (CLS)</li>
+          </ul>
+          <p class="muted">Lighthouse en modo móvil, medido el 13 de octubre de 2026. La clínica es ficticia, así que no hay datos reales de citas conseguidas.</p>
+        </section>
+
+        <section aria-labelledby="aprendido">
+          <h2 id="aprendido">Lo que haría distinto</h2>
+          <p>Conectaría el formulario a un servicio de envío real y probaría con personas de verdad cuánto tardan en pedir cita. Es lo que estoy aplicando en el formulario de contacto de esta web.</p>
+        </section>
+
+        <p class="case__links">
+          <a class="btn" href="landing.html">Abrir la landing</a>
+          <a class="btn btn--ghost" href="https://github.com/marcalvear/mi-web/blob/main/proyectos/sonrisa-imperial/landing.html">Ver el código</a>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>
