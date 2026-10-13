@@ -34,6 +34,7 @@
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/pages/inicio.css">
   <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/contacto.js"></script>
 </head>
 <body>
   <a class="skip" href="#contenido">Saltar al contenido</a>
@@ -215,6 +216,48 @@
           <li><a href="https://www.linkedin.com/in/marccalatayud">LinkedIn</a></li>
         </ul>
       </div>
+
+      <!-- Formulario: FormSubmit lo reenvía a mi correo y responde solo al remitente.
+           La respuesta automática exige envío normal (no fetch) y captcha activado. -->
+      <form class="contact-form" id="contact-form" action="https://formsubmit.co/mcalatayud07alvear@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde tu web">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://marcalvear.github.io/mi-web/gracias.html">
+        <input type="hidden" name="_autoresponse" value="¡Gracias por escribirme! He recibido tu mensaje y te responderé en menos de 48 horas. Mientras tanto, puedes ver mis proyectos en https://marcalvear.github.io/mi-web/. Marc Calatayud">
+        <!-- Trampa para bots: las personas no ven este campo -->
+        <div class="contact-form__trap" aria-hidden="true">
+          <label for="honey">No rellenes este campo</label>
+          <input type="text" id="honey" name="_honey" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="field">
+          <label for="cf-name">Nombre</label>
+          <input id="cf-name" name="nombre" type="text" autocomplete="name" required maxlength="80" aria-describedby="cf-name-error">
+          <p class="field__error" id="cf-name-error"></p>
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="120" aria-describedby="cf-email-hint cf-email-error">
+          <p class="field__hint" id="cf-email-hint">Te llegará una copia de tu mensaje.</p>
+          <p class="field__error" id="cf-email-error"></p>
+        </div>
+        <div class="field">
+          <label for="cf-topic">¿Qué necesitas? <span class="field__optional">(opcional)</span></label>
+          <select id="cf-topic" name="tema">
+            <option>Aún no lo sé</option>
+            <option>Automatizar algo con IA</option>
+            <option>Una web o landing page</option>
+            <option>Otra cosa</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="cf-message">Mensaje</label>
+          <textarea id="cf-message" name="mensaje" rows="5" required minlength="20" maxlength="2000" aria-describedby="cf-message-error"></textarea>
+          <p class="field__error" id="cf-message-error"></p>
+        </div>
+        <p class="contact-form__privacy">Solo usaré tus datos para responderte.</p>
+        <button class="btn" type="submit">Enviar mensaje</button>
+      </form>
     </section>
   </main>
 
