@@ -1,0 +1,380 @@
+/* ==========================================================
+   Portada: hero, sobre mí, lo que he hecho, me gusta, contacto
+   ========================================================== */
+
+/* --- 1. Hero: el único momento animado de la página --- */
+.hero {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-6) var(--space-4);
+}
+
+.hero__name {
+  font-size: var(--step-hero);
+  line-height: .95;
+  letter-spacing: -.03em;
+}
+
+/* Cada palabra «cae» por la gravedad del planeta y rebota al llegar */
+.hero__name span {
+  display: block;
+  animation: fall .9s var(--ease-gravity) both;
+}
+
+.hero__name span + span {
+  animation-delay: .14s;
+}
+
+@keyframes fall {
+  from {
+    opacity: 0;
+    transform: translateY(-0.6em) rotate(-3deg);
+  }
+}
+
+.hero__phrase {
+  max-width: 30ch;
+  margin-block: var(--space-3) var(--space-4);
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.hero__planet {
+  width: min(100%, 460px);
+  justify-self: center;
+  overflow: visible;
+  animation: arrive 1.2s var(--ease-out) both;
+}
+
+@keyframes arrive {
+  from {
+    opacity: 0;
+    transform: scale(.85) rotate(-8deg);
+  }
+}
+
+.hero__orbit {
+  fill: none;
+  stroke: var(--surface-line);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 8;
+  stroke-linecap: round;
+}
+
+.hero__ring {
+  fill: none;
+  stroke: var(--oro);
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.hero__ring--back {
+  opacity: .45;
+}
+
+.hero__star {
+  fill: var(--oro);
+  stroke: var(--oro);
+  stroke-width: 8;
+  stroke-linejoin: round;
+}
+
+.hero__sparkles {
+  fill: var(--text);
+  opacity: .7;
+}
+
+/* La luna gira despacio alrededor del planeta */
+.hero__moon {
+  transform-origin: 240px 250px;
+  animation: orbit 40s linear infinite;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 860px) {
+  .hero {
+    grid-template-columns: 1.15fr 1fr;
+    min-height: min(78vh, 720px);
+  }
+}
+
+/* --- 2. Sobre mí --- */
+.about {
+  display: grid;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+/* La foto es un planeta: círculo con un anillo de órbita alrededor */
+.about__photo {
+  position: relative;
+  isolation: isolate;
+  width: 220px;
+  justify-self: center;
+}
+
+.about__photo img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px var(--bg), 0 0 0 8px var(--oro);
+}
+
+.about__photo::after {
+  content: "";
+  position: absolute;
+  inset: -18%;
+  border: 2px dashed var(--surface-line);
+  border-radius: 50%;
+  transform: rotateX(68deg) rotateZ(-14deg);
+  pointer-events: none;
+  z-index: -1; /* la órbita pasa por detrás de la foto */
+}
+
+.about__lead {
+  font-size: clamp(1.2rem, 1rem + 1vw, var(--step-1));
+  line-height: 1.45;
+}
+
+@media (min-width: 760px) {
+  .about {
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-8);
+  }
+
+  .about__photo {
+    width: 280px;
+  }
+}
+
+/* --- 3. Lo que he hecho --- */
+.project {
+  display: grid;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+.project__media {
+  display: block;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  box-shadow: 0 0 0 1px var(--surface-line), 0 30px 60px -30px rgba(0, 0, 0, .6);
+  transition: transform .4s var(--ease-gravity);
+}
+
+.project__media:hover {
+  transform: translateY(-4px) rotate(-.5deg);
+}
+
+.project__body > * + * {
+  margin-top: var(--space-2);
+}
+
+.project__body h3 {
+  font-size: var(--step-2);
+}
+
+.project__body p {
+  max-width: 48ch;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@media (min-width: 860px) {
+  .project {
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-6);
+  }
+}
+
+/* Hechos sueltos: sin cajas, separados por una línea de órbita */
+.facts {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-8);
+}
+
+.fact {
+  padding-top: var(--space-2);
+  border-top: 2px dotted var(--surface-line);
+}
+
+.fact__kind {
+  display: block;
+  margin-bottom: .25rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.fact h3 {
+  margin-bottom: var(--space-1);
+}
+
+.fact p {
+  color: var(--text-muted);
+  max-width: 34ch;
+}
+
+@media (min-width: 760px) {
+  .facts {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+/* --- 4. Me gusta --- */
+.likes {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.like__icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--space-2);
+  fill: none;
+  stroke: var(--star);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.like__icon .fill {
+  fill: var(--star);
+  stroke: none;
+}
+
+.like h3 {
+  margin-bottom: var(--space-1);
+}
+
+.like p {
+  max-width: 34ch;
+  color: var(--text-muted);
+}
+
+.likes__more {
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 760px) {
+  .likes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --- 5. Contacto --- */
+.contact {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-4);
+  font-weight: 700;
+}
+
+.contact__links a {
+  display: inline-block;
+  padding-block: .5rem;
+}
+
+@media (min-width: 860px) {
+  .contact {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+}
+
+/* Formulario de contacto */
+.contact-form {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--surface-line);
+}
+
+.contact-form__trap {
+  position: absolute;
+  left: -9999px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: .375rem;
+  font-weight: 700;
+}
+
+.field__optional {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: .625rem .875rem;
+  border: 2px solid var(--surface-line);
+  border-radius: var(--radius-s);
+  background: var(--bg);
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--link);
+  outline: none;
+}
+
+.field [aria-invalid="true"] {
+  border-color: var(--error);
+}
+
+.field__hint {
+  margin-top: .375rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.field__error {
+  margin-top: .375rem;
+  font-size: var(--step--1);
+  font-weight: 700;
+  color: var(--error);
+}
+
+.field__error:empty {
+  display: none;
+}
+
+.contact-form__privacy {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.contact-form .btn {
+  justify-self: start;
+}

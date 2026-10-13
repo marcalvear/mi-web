@@ -1,0 +1,51 @@
+<!doctype html>
+<!-- Plantilla de la imagen Open Graph (1200x630).
+     Se convierte en PNG con Chrome sin interfaz:
+     "Google Chrome" --headless=new --window-size=1200,630 --screenshot=assets/img/og.png docs/og/tarjeta.html -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400&family=Unbounded:wght@700&display=block">
+  <style>
+    html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+    body {
+      display: grid;
+      grid-template-columns: 1fr 460px;
+      align-items: center;
+      padding: 0 72px;
+      box-sizing: border-box;
+      color: #eef0ff;
+      background:
+        radial-gradient(1.5px 1.5px at 20% 30%, rgba(238,240,255,.55) 50%, transparent 51%) 0 0 / 220px 220px,
+        radial-gradient(1px 1px at 70% 80%, rgba(238,240,255,.55) 50%, transparent 51%) 0 0 / 160px 160px,
+        radial-gradient(900px 600px at 90% -10%, rgba(127,87,255,.35), transparent 70%),
+        linear-gradient(#141a4a, #0d1138);
+      font-family: "Atkinson Hyperlegible Next", sans-serif;
+    }
+    h1 { margin: 0; font: 700 96px/.95 "Unbounded", sans-serif; letter-spacing: -.03em; }
+    p { margin: 28px 0 0; max-width: 24ch; font-size: 34px; line-height: 1.35; color: #b4bbe6; }
+    svg { width: 460px; }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Marc<br>Calatayud</h1>
+    <p>IA para dar vida a startups e infoproductos</p>
+  </div>
+  <svg viewBox="0 0 480 480">
+    <defs>
+      <radialGradient id="c" cx="36%" cy="30%" r="78%"><stop offset="0" stop-color="#e3d9ff"/><stop offset=".5" stop-color="#8f6cf5"/><stop offset="1" stop-color="#3b2a7a"/></radialGradient>
+      <clipPath id="k"><circle cx="240" cy="250" r="150"/></clipPath>
+    </defs>
+    <ellipse cx="240" cy="250" rx="232" ry="54" fill="none" stroke="#ffcf3f" stroke-width="12" opacity=".45" transform="rotate(-14 240 250)"/>
+    <circle cx="240" cy="250" r="150" fill="url(#c)"/>
+    <g clip-path="url(#k)">
+      <ellipse cx="240" cy="190" rx="220" ry="34" fill="#c9b8ff" opacity=".35" transform="rotate(-14 240 250)"/>
+      <circle cx="178" cy="292" r="22" fill="#3b2a7a" opacity=".4"/>
+      <circle cx="292" cy="214" r="12" fill="#3b2a7a" opacity=".3"/>
+    </g>
+    <path d="M8 250 A232 54 0 0 0 472 250" fill="none" stroke="#ffcf3f" stroke-width="12" stroke-linecap="round" transform="rotate(-14 240 250)"/>
+    <path d="M336.2,66.7 L340.4,86.6 L359.8,92.9 L342.1,103.0 L342.2,123.4 L327.1,109.7 L307.7,116.1 L316.1,97.5 L304.0,81.0 L324.3,83.2 Z" fill="#ffcf3f" stroke="#ffcf3f" stroke-width="8" stroke-linejoin="round"/>
+  </svg>
+</body>
+</html>

@@ -1,0 +1,505 @@
+/* ==========================================================
+   Layout común: cabecera, menú, pie y trayectorias entre
+   secciones. Lo comparten todas las páginas.
+   ========================================================== */
+
+/* Reserva el alto antes de que el JS pinte los componentes (evita saltos) */
+site-header {
+  display: block;
+  min-height: 72px;
+}
+
+site-footer {
+  display: block;
+  min-height: 160px;
+}
+
+/* --- Cabecera --- */
+.site-header {
+  position: relative;
+  z-index: 20;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 72px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .625rem;
+  margin-right: auto;
+  font: 700 var(--step--1)/1 var(--font-display);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand img {
+  transition: transform .5s var(--ease-gravity);
+}
+
+.brand:hover img {
+  transform: rotate(-14deg);
+}
+
+.site-nav ul {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.site-nav a {
+  display: inline-block;
+  padding-block: .75rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  background: linear-gradient(var(--oro), var(--oro)) no-repeat 0 85% / 0 3px;
+  transition: background-size .25s var(--ease-out);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  background-size: 100% 3px;
+}
+
+.theme-toggle,
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0 .75rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+  background: var(--surface);
+}
+
+.theme-toggle svg {
+  transition: transform .5s var(--ease-gravity);
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(40deg);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Tres barras que se convierten en una X al abrir */
+.menu-toggle__bars,
+.menu-toggle__bars::before,
+.menu-toggle__bars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .25s var(--ease-out), opacity .2s;
+}
+
+.menu-toggle__bars {
+  position: relative;
+}
+
+.menu-toggle__bars::before,
+.menu-toggle__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-toggle__bars::before {
+  top: -6px;
+}
+
+.menu-toggle__bars::after {
+  top: 6px;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars {
+  background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 760px) {
+  /* El nombre se oculta a la vista, pero no a los lectores de pantalla:
+     así el enlace del logo sigue teniendo nombre */
+  .brand span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    order: 2;
+  }
+
+  .theme-toggle {
+    order: 1;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: var(--gutter);
+    right: var(--gutter);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-m);
+    background: var(--surface);
+    box-shadow: 0 0 0 1px var(--surface-line), 0 24px 48px -24px rgba(0, 0, 0, .5);
+    /* Cerrado: invisible y fuera del orden de tabulación */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity .2s, transform .25s var(--ease-out), visibility 0s .25s;
+  }
+
+  .site-nav.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: opacity .2s, transform .25s var(--ease-out);
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-nav li + li {
+    border-top: 1px solid var(--surface-line);
+  }
+
+  .site-nav a {
+    display: block;
+    padding-block: 1rem;
+    background: none;
+  }
+
+  .site-nav a[aria-current="page"] {
+    color: var(--star);
+  }
+}
+
+/* --- Trayectoria entre secciones (como el vuelo de una estrella lanzadera) --- */
+.trajectory {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10 / 1;
+  color: var(--surface-line);
+  overflow: visible;
+}
+
+.trajectory path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-dasharray: 2 10;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.trajectory .trajectory__star {
+  fill: var(--star);
+}
+
+/* Variante en espejo para alternar el sentido del vuelo */
+.trajectory--flip {
+  transform: scaleX(-1);
+}
+
+/* Donde el navegador lo permite, la estrella recorre el trazo al hacer scroll */
+@supports (animation-timeline: view()) {
+  .trajectory .trajectory__star {
+    offset-path: path("M 0 10 C 300 110, 700 -10, 1000 70");
+    offset-rotate: 0deg;
+    animation: fly linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 60%;
+  }
+
+  @keyframes fly {
+    from {
+      offset-distance: 0%;
+    }
+
+    to {
+      offset-distance: 100%;
+    }
+  }
+}
+
+/* --- Pie --- */
+.site-footer {
+  margin-top: var(--space-12);
+  padding-block: var(--space-8) var(--space-4);
+  border-top: 1px solid var(--surface-line);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.site-footer__quote {
+  max-width: 34ch;
+  font: 500 var(--step-1)/1.35 var(--font-display);
+  text-wrap: balance;
+}
+
+.site-footer__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.site-footer__legal {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* --- Asistente (chat-bot) --- */
+.chat-launcher {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--space-3);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 52px;
+  padding: .5rem 1.25rem .5rem .875rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  color: var(--cta-text);
+  background: var(--cta-bg);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .5);
+  cursor: pointer;
+  transition: transform .25s var(--ease-gravity);
+}
+
+.chat-launcher:hover {
+  transform: translateY(-3px);
+}
+
+.chat-launcher[aria-expanded="true"] {
+  visibility: hidden;
+}
+
+.chat-panel {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--space-3);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  width: min(24rem, calc(100vw - 2 * var(--gutter)));
+  height: min(34rem, calc(100dvh - 2 * var(--space-3)));
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  box-shadow: 0 0 0 1px var(--surface-line), 0 30px 60px -20px rgba(0, 0, 0, .6);
+  animation: chat-open .35s var(--ease-gravity);
+}
+
+.chat-panel[hidden] {
+  display: none;
+}
+
+@keyframes chat-open {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(.97);
+  }
+}
+
+.chat-panel__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-2) var(--space-2) var(--space-3);
+  border-bottom: 1px solid var(--surface-line);
+}
+
+.chat-panel__head h2 {
+  font-size: var(--step-0);
+}
+
+.chat-panel__head p {
+  margin-top: .25rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.chat-panel__close {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.chat-panel__close:hover {
+  background: var(--bg);
+}
+
+.chat-log {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  overflow-y: auto;
+  list-style: none;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: .625rem .875rem;
+  border-radius: 16px;
+  font-size: var(--step--1);
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.chat-msg--assistant {
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+  background: var(--bg);
+}
+
+.chat-msg--user {
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  color: var(--cta-text);
+  background: var(--cta-bg);
+}
+
+.chat-msg.is-pending {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.chat-msg.is-error {
+  color: var(--error);
+}
+
+.chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .375rem;
+  padding: 0 var(--space-3) var(--space-2);
+}
+
+.chat-suggestions[hidden] {
+  display: none;
+}
+
+.chat-suggestions button {
+  min-height: 36px;
+  padding: .25rem .75rem;
+  border: 1px solid var(--surface-line);
+  border-radius: var(--radius-pill);
+  font-size: var(--step--1);
+  background: transparent;
+  cursor: pointer;
+}
+
+.chat-suggestions button:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.chat-form {
+  display: flex;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-top: 1px solid var(--surface-line);
+}
+
+.chat-form input {
+  flex: 1;
+  min-width: 0;
+  min-height: 48px;
+  padding: .5rem 1rem;
+  border: 2px solid var(--surface-line);
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+}
+
+.chat-form input:focus {
+  border-color: var(--link);
+  outline: none;
+}
+
+/* --- Fragmentos de estrella --- */
+.stardust {
+  position: absolute;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  margin: -8px 0 0 -8px; /* el área para recogerlo es más grande que la estrella */
+  cursor: pointer;
+  animation: drift 4s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  to {
+    transform: translateY(-8px) rotate(25deg);
+  }
+}
+
+.stardust.is-collected {
+  pointer-events: none;
+  animation: collect .45s var(--ease-out) forwards;
+}
+
+@keyframes collect {
+  to {
+    opacity: 0;
+    transform: translateY(-36px) scale(1.8) rotate(160deg);
+  }
+}
+
+.site-footer__stardust strong {
+  font-family: var(--font-display);
+  color: var(--star);
+}
+
+.site-footer__stardust .muted {
+  display: block;
+  font-size: var(--step--1);
+}

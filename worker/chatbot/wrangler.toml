@@ -1,0 +1,10 @@
+name = "marc-chatbot"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+# Workers AI: el modelo se usa con env.AI, sin claves en el código
+[ai]
+binding = "AI"
+
+[observability]
+enabled = true

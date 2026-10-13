@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mensaje enviado, Marc Calatayud</title>
+  <meta name="description" content="Tu mensaje ha llegado. Te he enviado una copia por correo.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#141a4a">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+  <!-- Fuentes propias: se piden pronto porque el titular depende de ellas -->
+  <link rel="preload" href="assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/aviso.css">
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <site-header></site-header>
+
+  <main id="contenido" class="wrap notice">
+    <!-- Una estrella aterriza en su planeta: el mensaje ha llegado -->
+    <svg class="notice__art" viewBox="0 0 240 200" aria-hidden="true" data-stardust>
+      <circle class="notice__planet" cx="120" cy="150" r="70"/>
+      <path class="notice__trail" d="M20 20 C 60 30, 100 50, 118 86"/>
+      <path class="notice__star notice__star--land" d="M120,52 L127.6,67.4 L144.7,69.9 L132.4,81.9 L135.3,98.9 L120,90.9 L104.7,98.9 L107.6,81.9 L95.3,69.9 L112.4,67.4 Z"/>
+    </svg>
+    <h1>Mensaje enviado</h1>
+    <p class="notice__text">Te he enviado una copia a tu correo. Te responderé en menos de 48 horas.</p>
+    <p class="notice__actions">
+      <a class="btn" href="./">Volver al inicio</a>
+      <a class="btn btn--ghost" href="me-gusta.html">Mientras, explora la Pokédex</a>
+    </p>
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>
