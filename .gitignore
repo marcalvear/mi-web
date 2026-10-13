@@ -1,2 +1,5 @@
 .DS_Store
 .claude/
+
+# Originales con metadatos (la foto lleva GPS): nunca se suben
+recursos/
