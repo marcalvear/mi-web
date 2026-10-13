@@ -143,8 +143,15 @@ site-footer {
 }
 
 @media (max-width: 760px) {
+  /* El nombre se oculta a la vista, pero no a los lectores de pantalla:
+     así el enlace del logo sigue teniendo nombre */
   .brand span {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 
   .menu-toggle {
