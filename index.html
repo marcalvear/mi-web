@@ -26,9 +26,10 @@
   <!-- Aplica el tema guardado antes de pintar para evitar parpadeos -->
   <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@500;700&display=swap">
+  <!-- Fuentes propias: se piden pronto porque el titular depende de ellas -->
+  <link rel="preload" href="assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/atkinson-hyperlegible-next.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/layout.css">
@@ -127,7 +128,7 @@
 
       <article class="project">
         <a class="project__media" href="proyectos/sonrisa-imperial/" tabindex="-1" aria-hidden="true">
-          <img src="assets/img/proyectos/sonrisa-imperial.webp" width="960" height="600" alt="" loading="lazy" decoding="async">
+          <img src="assets/img/proyectos/sonrisa-imperial.webp" srcset="assets/img/proyectos/sonrisa-imperial-480.webp 480w, assets/img/proyectos/sonrisa-imperial.webp 960w" sizes="(min-width: 860px) 600px, 100vw" width="960" height="600" alt="" loading="lazy" decoding="async">
         </a>
         <div class="project__body">
           <h3>Sonrisa Imperial</h3>
