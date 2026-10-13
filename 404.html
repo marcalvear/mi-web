@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- GitHub Pages sirve esta página en cualquier ruta que no exista, así que
+       las rutas relativas fallarían. La base apunta a la raíz de la web:
+       /mi-web/ publicada y / en local. -->
+  <script>
+    var base = document.createElement("base");
+    base.href = location.hostname.endsWith("github.io") ? "/mi-web/" : "/";
+    document.head.appendChild(base);
+  </script>
+  <title>Página no encontrada, Marc Calatayud</title>
+  <meta name="description" content="Esta página no existe o se ha movido. Vuelve al inicio para seguir explorando.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#141a4a">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/aviso.css">
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <site-header></site-header>
+
+  <main id="contenido" class="wrap notice">
+    <!-- Una estrella se ha salido de su órbita y se aleja de su planeta -->
+    <svg class="notice__art notice__art--lost" viewBox="0 0 240 200" aria-hidden="true" data-stardust>
+      <circle class="notice__planet" cx="70" cy="140" r="46"/>
+      <circle class="notice__orbit" cx="70" cy="140" r="70"/>
+      <path class="notice__trail" d="M120 96 C 150 80, 170 60, 196 36"/>
+      <path class="notice__star notice__star--adrift" d="M200,14 L205.6,25.3 L218.1,27.1 L209.1,35.9 L211.2,48.4 L200,42.5 L188.8,48.4 L190.9,35.9 L181.9,27.1 L194.4,25.3 Z"/>
+    </svg>
+    <h1>Perdido en el espacio</h1>
+    <p class="notice__text">Esta página no existe o se ha movido. Vuelve al inicio para seguir explorando.</p>
+    <p class="notice__actions">
+      <a class="btn" href="./">Volver al inicio</a>
+      <a class="btn btn--ghost" href="./#contacto">Avisarme del enlace roto</a>
+    </p>
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>
