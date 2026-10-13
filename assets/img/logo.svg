@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="t">
+  <title id="t">Marc Calatayud</title>
+  <defs>
+    <radialGradient id="planeta" cx="38%" cy="32%" r="75%">
+      <stop offset="0" stop-color="#c9b8ff"/>
+      <stop offset=".55" stop-color="#7a5cf0"/>
+      <stop offset="1" stop-color="#3b2a7a"/>
+    </radialGradient>
+  </defs>
+  <!-- Anillo: mitad de atrás, planeta y mitad de delante -->
+  <ellipse cx="32" cy="36" rx="28" ry="8" fill="none" stroke="#ffcf3f" stroke-width="3.5" transform="rotate(-20 32 36)" opacity=".55"/>
+  <circle cx="32" cy="36" r="18" fill="url(#planeta)"/>
+  <circle cx="25" cy="42" r="3.2" fill="#3b2a7a" opacity=".45"/>
+  <circle cx="38" cy="29" r="2" fill="#3b2a7a" opacity=".35"/>
+  <path d="M4 36 A28 8 0 0 0 60 36" fill="none" stroke="#ffcf3f" stroke-width="3.5" stroke-linecap="round" transform="rotate(-20 32 36)"/>
+  <!-- Estrella con las puntas redondeadas -->
+  <path d="M52.0,4.0 L54.2,8.9 L59.6,9.5 L55.6,13.2 L56.7,18.5 L52.0,15.8 L47.3,18.5 L48.4,13.2 L44.4,9.5 L49.8,8.9 Z" fill="#ffcf3f" stroke="#ffcf3f" stroke-width="2" stroke-linejoin="round"/>
+</svg>
