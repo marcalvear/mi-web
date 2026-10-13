@@ -1,0 +1,272 @@
+/* ==========================================================
+   Layout común: cabecera, menú, pie y trayectorias entre
+   secciones. Lo comparten todas las páginas.
+   ========================================================== */
+
+/* Reserva el alto antes de que el JS pinte los componentes (evita saltos) */
+site-header {
+  display: block;
+  min-height: 72px;
+}
+
+site-footer {
+  display: block;
+  min-height: 160px;
+}
+
+/* --- Cabecera --- */
+.site-header {
+  position: relative;
+  z-index: 20;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 72px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .625rem;
+  margin-right: auto;
+  font: 700 var(--step--1)/1 var(--font-display);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand img {
+  transition: transform .5s var(--ease-gravity);
+}
+
+.brand:hover img {
+  transform: rotate(-14deg);
+}
+
+.site-nav ul {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.site-nav a {
+  display: inline-block;
+  padding-block: .75rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  background: linear-gradient(var(--oro), var(--oro)) no-repeat 0 85% / 0 3px;
+  transition: background-size .25s var(--ease-out);
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  background-size: 100% 3px;
+}
+
+.theme-toggle,
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-width: 48px;
+  min-height: 48px;
+  padding: 0 .75rem;
+  border: 0;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  color: var(--text);
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-toggle:hover,
+.menu-toggle:hover {
+  background: var(--surface);
+}
+
+.theme-toggle svg {
+  transition: transform .5s var(--ease-gravity);
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(40deg);
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Tres barras que se convierten en una X al abrir */
+.menu-toggle__bars,
+.menu-toggle__bars::before,
+.menu-toggle__bars::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform .25s var(--ease-out), opacity .2s;
+}
+
+.menu-toggle__bars {
+  position: relative;
+}
+
+.menu-toggle__bars::before,
+.menu-toggle__bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.menu-toggle__bars::before {
+  top: -6px;
+}
+
+.menu-toggle__bars::after {
+  top: 6px;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars {
+  background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .menu-toggle__bars::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 760px) {
+  .brand span {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    order: 2;
+  }
+
+  .theme-toggle {
+    order: 1;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: 100%;
+    left: var(--gutter);
+    right: var(--gutter);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-m);
+    background: var(--surface);
+    box-shadow: 0 0 0 1px var(--surface-line), 0 24px 48px -24px rgba(0, 0, 0, .5);
+    /* Cerrado: invisible y fuera del orden de tabulación */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity .2s, transform .25s var(--ease-out), visibility 0s .25s;
+  }
+
+  .site-nav.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: opacity .2s, transform .25s var(--ease-out);
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .site-nav li + li {
+    border-top: 1px solid var(--surface-line);
+  }
+
+  .site-nav a {
+    display: block;
+    padding-block: 1rem;
+    background: none;
+  }
+
+  .site-nav a[aria-current="page"] {
+    color: var(--star);
+  }
+}
+
+/* --- Trayectoria entre secciones (como el vuelo de una estrella lanzadera) --- */
+.trajectory {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 10 / 1;
+  color: var(--surface-line);
+  overflow: visible;
+}
+
+.trajectory path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-dasharray: 2 10;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.trajectory .trajectory__star {
+  fill: var(--star);
+}
+
+/* Donde el navegador lo permite, la estrella recorre el trazo al hacer scroll */
+@supports (animation-timeline: view()) {
+  .trajectory .trajectory__star {
+    offset-path: path("M 0 10 C 300 110, 700 -10, 1000 70");
+    offset-rotate: 0deg;
+    animation: fly linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 60%;
+  }
+
+  @keyframes fly {
+    from {
+      offset-distance: 0%;
+    }
+
+    to {
+      offset-distance: 100%;
+    }
+  }
+}
+
+/* --- Pie --- */
+.site-footer {
+  margin-top: var(--space-12);
+  padding-block: var(--space-8) var(--space-4);
+  border-top: 1px solid var(--surface-line);
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.site-footer__quote {
+  max-width: 34ch;
+  font: 500 var(--step-1)/1.35 var(--font-display);
+  text-wrap: balance;
+}
+
+.site-footer__nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.site-footer__legal {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
