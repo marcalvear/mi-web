@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Me gusta: videojuegos, anime y biohacking, de Marc Calatayud</title>
+  <meta name="description" content="Lo que me gusta, con datos en directo: una Pokédex, el compendio de Zelda: Breath of the Wild, frases de Naruto y JoJo, y los productos de biohacking que sigo.">
+  <meta name="theme-color" content="#141a4a">
+  <link rel="canonical" href="https://marcalvear.github.io/mi-web/me-gusta.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Marc Calatayud">
+  <meta property="og:title" content="Me gusta: videojuegos, anime y biohacking">
+  <meta property="og:description" content="Una Pokédex, el compendio de Zelda, frases de anime y mi radar de biohacking, con datos en directo de APIs.">
+  <meta property="og:url" content="https://marcalvear.github.io/mi-web/me-gusta.html">
+  <meta property="og:image" content="https://marcalvear.github.io/mi-web/assets/img/og.jpg">
+  <meta property="og:image:alt" content="Marc Calatayud junto a un planeta morado con anillo dorado">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script>try{var t=localStorage.getItem("tema");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://pokeapi.co">
+  <link rel="preconnect" href="https://api.hyrule-compendium.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,700;1,400&family=Unbounded:wght@500;700&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/pages/me-gusta.css">
+  <script type="module" src="assets/js/main.js"></script>
+  <script type="module" src="assets/js/me-gusta/index.js"></script>
+</head>
+<body>
+  <a class="skip" href="#contenido">Saltar al contenido</a>
+  <site-header current="me-gusta"></site-header>
+
+  <main id="contenido">
+    <header class="wrap likes-header">
+      <h1>Me gusta</h1>
+      <p class="likes-header__intro">Lo que hago cuando no estoy estudiando, con datos en directo de APIs públicas.</p>
+      <nav class="likes-nav" aria-label="Secciones de Me gusta">
+        <ul role="list">
+          <li><a href="#videojuegos">Videojuegos</a></li>
+          <li><a href="#anime">Anime y manga</a></li>
+          <li><a href="#biohacking">Biohacking</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- VIDEOJUEGOS -->
+    <section class="section wrap" id="videojuegos" aria-labelledby="videojuegos-title">
+      <h2 class="section__title" id="videojuegos-title">Videojuegos</h2>
+      <p class="prose">Mis tres favoritos son Zelda: Breath of the Wild, Bloodborne y Pokémon. Bloodborne no tiene API pública, así que los otros dos tienen aquí su propio explorador.</p>
+
+      <!-- Pokédex -->
+      <article class="explorer" aria-labelledby="pokedex-title">
+        <div class="explorer__head">
+          <h3 id="pokedex-title">Pokédex</h3>
+          <p class="muted">Busca cualquier Pokémon por nombre o número. Datos de la <a href="https://pokeapi.co">PokéAPI</a> y modelos de la <a href="https://github.com/Pokemon-3D-api">Pokémon 3D API</a>.</p>
+        </div>
+
+        <form class="search" id="poke-form" role="search" aria-label="Buscar Pokémon">
+          <label for="poke-input">Nombre o número</label>
+          <div class="search__row">
+            <input id="poke-input" name="pokemon" type="text" placeholder="pikachu, 25…" autocomplete="off" required>
+            <button class="btn" type="submit">Buscar</button>
+            <button class="btn btn--ghost" type="button" id="poke-random">Uno al azar</button>
+          </div>
+        </form>
+        <p class="search__status" id="poke-status" aria-live="polite"></p>
+
+        <div class="entry" id="poke-card" hidden>
+          <div class="entry__media">
+            <div class="segmented" role="group" aria-label="Vista del Pokémon">
+              <button type="button" data-poke-view="img" aria-pressed="true">Imagen</button>
+              <button type="button" data-poke-view="3d" aria-pressed="false">3D</button>
+            </div>
+            <div class="entry__img" id="poke-view-img">
+              <img id="poke-img" src="data:," alt="" width="240" height="240">
+            </div>
+            <div class="entry__3d" id="poke-view-3d" hidden>
+              <model-viewer id="poke-model" camera-controls auto-rotate shadow-intensity="1" touch-action="pan-y"></model-viewer>
+              <p class="entry__note" id="poke-3d-status" aria-live="polite"></p>
+              <button class="btn btn--ghost" type="button" id="poke-shiny" aria-pressed="false">Ver versión shiny</button>
+            </div>
+          </div>
+          <div class="entry__body">
+            <p class="entry__id" id="poke-id"></p>
+            <h4 class="entry__name" id="poke-name"></h4>
+            <ul class="tags" id="poke-types" role="list"></ul>
+            <dl class="facts-list" id="poke-facts"></dl>
+            <ul class="stats" id="poke-stats" role="list"></ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- Compendio de Hyrule -->
+      <article class="explorer" aria-labelledby="hyrule-title">
+        <div class="explorer__head">
+          <h3 id="hyrule-title">Compendio de Hyrule</h3>
+          <p class="muted">Las 389 entradas del compendio de Breath of the Wild: criaturas, monstruos, materiales, equipo y tesoros. Datos de la <a href="https://github.com/gadhagod/Hyrule-Compendium-API">Hyrule Compendium API</a>, en inglés.</p>
+        </div>
+
+        <form class="search" id="hyrule-form" role="search" aria-label="Buscar en el compendio">
+          <label for="hyrule-input">Nombre en inglés o número de entrada</label>
+          <div class="search__row">
+            <input id="hyrule-input" name="entrada" type="text" placeholder="lynel, master sword, 1…" autocomplete="off" list="hyrule-names" required>
+            <datalist id="hyrule-names"></datalist>
+            <button class="btn" type="submit">Buscar</button>
+            <button class="btn btn--ghost" type="button" id="hyrule-random">Una al azar</button>
+          </div>
+        </form>
+        <p class="search__status" id="hyrule-status" aria-live="polite"></p>
+
+        <div class="entry" id="hyrule-card" hidden>
+          <div class="entry__media">
+            <div class="entry__img">
+              <img id="hyrule-img" src="data:," alt="" width="240" height="240" loading="lazy">
+            </div>
+          </div>
+          <div class="entry__body">
+            <p class="entry__id" id="hyrule-id"></p>
+            <h4 class="entry__name" id="hyrule-name"></h4>
+            <ul class="tags" role="list"><li id="hyrule-category"></li></ul>
+            <p class="entry__description" id="hyrule-description" lang="en"></p>
+            <dl class="facts-list" id="hyrule-facts" lang="en"></dl>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ANIME Y MANGA -->
+    <section class="section wrap" id="anime" aria-labelledby="anime-title">
+      <h2 class="section__title" id="anime-title">Anime y manga</h2>
+      <p class="prose">Mis obras favoritas son Naruto Shippuden y JoJo's Bizarre Adventure. Pide una frase al azar de cualquiera de las dos; vienen de <a href="https://animechan.io">Animechan</a>, en inglés.</p>
+
+      <div class="quote-box">
+        <div class="segmented" role="group" aria-label="Elige una serie">
+          <button type="button" data-anime="Naruto" aria-pressed="false">Frase de Naruto</button>
+          <button type="button" data-anime="JoJo's Bizarre Adventure" aria-pressed="false">Frase de JoJo</button>
+        </div>
+        <p class="search__status" id="anime-status" aria-live="polite">Elige una serie para ver una frase.</p>
+        <figure class="quote" id="anime-quote" hidden>
+          <blockquote lang="en"><p id="anime-text"></p></blockquote>
+          <figcaption><span id="anime-character"></span>, en <cite id="anime-series"></cite></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- BIOHACKING -->
+    <section class="section wrap" id="biohacking" aria-labelledby="bio-title">
+      <h2 class="section__title" id="bio-title">Biohacking</h2>
+      <p class="prose">Me fascina usar la tecnología para sacar el máximo partido a nuestro cuerpo según lo que buscamos. Estos son los productos que tengo en el radar.</p>
+
+      <div class="bio-filters" id="bio-filters" hidden>
+        <div class="segmented" role="group" aria-label="Filtrar por objetivo">
+          <button type="button" data-goal-filter="todos" aria-pressed="true">Todos</button>
+          <button type="button" data-goal-filter="sueno" aria-pressed="false">Sueño</button>
+          <button type="button" data-goal-filter="recuperacion" aria-pressed="false">Recuperación</button>
+          <button type="button" data-goal-filter="piel" aria-pressed="false">Piel</button>
+        </div>
+        <p class="bio-filters__count" id="bio-count" aria-live="polite"></p>
+      </div>
+
+      <ul class="products" role="list">
+        <li class="product" data-goals="piel">
+          <svg class="product__art" viewBox="0 0 160 120" aria-hidden="true">
+            <path class="line" d="M32 64c0-28 20-52 48-52s48 24 48 52-20 48-48 48-48-20-48-48Z"/>
+            <path class="line" d="M32 60H12M128 60h20"/>
+            <ellipse class="cut" cx="64" cy="54" rx="11" ry="6"/>
+            <ellipse class="cut" cx="96" cy="54" rx="11" ry="6"/>
+            <g class="leds">
+              <circle cx="80" cy="30" r="2.4"/><circle cx="68" cy="34" r="2.4"/><circle cx="92" cy="34" r="2.4"/>
+              <circle cx="80" cy="42" r="2.4"/><circle cx="56" cy="40" r="2.4"/><circle cx="104" cy="40" r="2.4"/>
+              <circle cx="80" cy="56" r="2.4"/><circle cx="80" cy="70" r="2.4"/>
+              <circle cx="58" cy="72" r="2.4"/><circle cx="102" cy="72" r="2.4"/><circle cx="46" cy="64" r="2.4"/><circle cx="114" cy="64" r="2.4"/>
+              <circle cx="66" cy="86" r="2.4"/><circle cx="94" cy="86" r="2.4"/><circle cx="80" cy="98" r="2.4"/>
+            </g>
+          </svg>
+          <p class="product__brand">Therabody</p>
+          <h3>TheraFace Mask Glo</h3>
+          <p>Mascarilla LED sin cables con luz roja, infrarroja y azul. Sesiones de 4 a 12 minutos al día.</p>
+          <p class="product__price">299 €</p>
+          <a href="https://www.therabody.eu/es-es/products/theraface-mask-glo-led-light-mask">Ver en Therabody</a>
+        </li>
+
+        <li class="product" data-goals="recuperacion">
+          <svg class="product__art" viewBox="0 0 160 120" aria-hidden="true">
+            <path class="line" d="M60 8h34v76c0 8 8 12 22 16 10 3 10 12 0 12H60Z"/>
+            <path class="chamber" d="M60 28h34M60 46h34M60 64h34M60 82h36"/>
+            <path class="line" d="M94 18c18 0 22 8 22 18"/>
+            <rect class="pump" x="106" y="36" width="20" height="14" rx="4"/>
+          </svg>
+          <p class="product__brand">Therabody</p>
+          <h3>JetBoots Prime</h3>
+          <p>Botas de compresión con cuatro cámaras de aire y cuatro niveles de presión para recuperar las piernas.</p>
+          <p class="product__price">449 €</p>
+          <a href="https://www.therabody.eu/es-es/products/jetboots-prime-regular">Ver en Therabody</a>
+        </li>
+
+        <li class="product" data-goals="sueno recuperacion">
+          <svg class="product__art" viewBox="0 0 160 120" aria-hidden="true">
+            <path class="line" d="M14 70 82 48l64 18-68 24Z"/>
+            <path class="line" d="M14 70v12l64 20v-12M78 102l68-24V66"/>
+            <path class="line" d="M80 49 79 90"/>
+            <path class="cold" d="M30 40c6-6 12 6 18 0s12 6 18 0"/>
+            <path class="cold" d="M36 28c6-6 12 6 18 0"/>
+            <path class="warm" d="M94 38c6-6 12 6 18 0s12 6 18 0"/>
+            <path class="warm" d="M100 26c6-6 12 6 18 0"/>
+          </svg>
+          <p class="product__brand">Eight Sleep</p>
+          <h3>Pod 6</h3>
+          <p>Funda de colchón que enfría o calienta cada lado de la cama entre 12 y 43 °C y mide el sueño sin llevar nada puesto.</p>
+          <p class="product__price">Desde 2.199 €</p>
+          <a href="https://www.eightsleep.com/es/pod-cover">Ver en Eight Sleep</a>
+        </li>
+
+        <li class="product" data-goals="sueno">
+          <svg class="product__art" viewBox="0 0 160 120" aria-hidden="true">
+            <ellipse class="ring" cx="80" cy="62" rx="46" ry="30"/>
+            <ellipse class="line" cx="80" cy="62" rx="34" ry="20"/>
+            <circle class="sensor" cx="72" cy="81" r="3"/>
+            <circle class="sensor" cx="88" cy="81" r="3"/>
+            <path class="pulse" d="M8 20h18l6-10 8 20 6-10h16"/>
+          </svg>
+          <p class="product__brand">Oura</p>
+          <h3>Oura Ring</h3>
+          <p>Anillo que mide sueño, frecuencia cardíaca, temperatura y actividad. La batería dura de 6 a 9 días.</p>
+          <p class="product__price">Desde 429 €</p>
+          <a href="https://ouraring.com/es">Ver en Oura</a>
+        </li>
+      </ul>
+      <p class="muted bio-note">Precios consultados el 13 de octubre de 2026 en las webs oficiales. No gano nada si compras.</p>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>
