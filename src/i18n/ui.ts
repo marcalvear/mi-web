@@ -30,6 +30,7 @@ export const ui = {
     "footer.made": "Hecho en València. Que la IA haga el trabajo aburrido; las ideas, mejor nuestras.",
     "footer.code": "Código en GitHub",
     "footer.top": "Volver arriba",
+    "footer.privacy": "Privacidad",
   },
   en: {
     "site.title": "Marc Calatayud",
@@ -55,6 +56,7 @@ export const ui = {
     "footer.made": "Made in València. Let AI do the boring work; the ideas are better left to us.",
     "footer.code": "Code on GitHub",
     "footer.top": "Back to top",
+    "footer.privacy": "Privacy",
   },
 } as const;
 

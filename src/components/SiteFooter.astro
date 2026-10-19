@@ -1,11 +1,13 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Logo from "./Logo.astro";
 import { useTranslations, type Lang } from "../i18n/ui";
 
 interface Props {
   lang: Lang;
 }
-const t = useTranslations(Astro.props.lang);
+const { lang } = Astro.props;
+const t = useTranslations(lang);
 const year = new Date().getFullYear();
 ---
 
@@ -19,6 +21,7 @@ const year = new Date().getFullYear();
     <p class="meta label">
       <span>{t("footer.notebook")}</span>
       <a href="https://github.com/marcalvear/mi-web">{t("footer.code")}</a>
+      <a href={getRelativeLocaleUrl(lang, "privacidad/")}>{t("footer.privacy")}</a>
       <a href="#main">{t("footer.top")} ↑</a>
     </p>
   </div>
