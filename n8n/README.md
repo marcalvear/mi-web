@@ -15,8 +15,8 @@ El flujo vive en mi n8n Cloud (proyecto personal) con el nombre
 POST https://bludinvestments.app.n8n.cloud/webhook/mi-web/contacto
 ```
 
-Está **sin publicar** hasta tener las credenciales: mientras tanto, la URL
-devuelve 404 y el formulario dice que algo ha fallado.
+Publicado el 19/10/2026 con sus credenciales y probado de punta a punta
+desde la web local (usuario creado, mensaje clasificado y correo recibido).
 
 ## Puesta en marcha (una sola vez)
 
@@ -54,14 +54,15 @@ un aviso; en cada uno, **Credential → Create new credential**:
 
 | Credencial | Nodos | Qué poner |
 |---|---|---|
-| **Supabase mi-web** (Supabase API) | Crear usuario si no existe, Buscar perfil, Guardar mensaje, Guardar evento | **Host:** `https://batfjflsekdaqdtaqlyo.supabase.co`. **Service Role Secret:** la *Secret key* de Supabase (*Project Settings → API Keys*). Se salta RLS: solo aquí. |
-| **Turnstile: clave secreta** | Comprobar captcha | Plantilla `{"body": {"secret": "{{secret}}"}}` y, como valor de `secret`, la Secret key de Turnstile. |
+| **Supabase mi-web** (Supabase API) | Crear usuario si no existe, Buscar perfil, Guardar mensaje, Guardar evento | **Host:** `https://batfjflsekdaqdtaqlyo.supabase.co`. **Secret Key:** una clave propia para n8n (*Project Settings → API Keys → Add new secret key*, yo la llamé `n8n_key`), así se puede revocar sin tocar nada más. **Allowed HTTP Request Domains:** *Specific Domains* con `batfjflsekdaqdtaqlyo.supabase.co`, para que la clave no se pueda mandar a otro sitio. Se salta RLS: solo aquí. |
+| **Turnstile: clave secreta** (Simplified Custom Auth) | Comprobar captcha | En *Edit setup*: **Auth template** `{"body": {"secret": "{{secret}}"}}`; en el campo que aparece, **Label** `Secret Key` y un **Hint** (la clave **no** va aquí). Test URL vacía. Con la flecha **←** se vuelve a la vista normal y ahí se pega la Secret key de Turnstile. |
 | **Correo SMTP** (SMTP) | Enviar respuesta | Usuario y contraseña de Brevo (paso 2), host `smtp-relay.brevo.com`, puerto `587`, SSL/TLS desactivado (usa STARTTLS). |
 | **Claude** | Clasificar con IA | Ya tiene **Gateway credits**: los créditos de IA gratis de n8n. No hay que hacer nada. |
 
-> Si la credencial de plantilla de Turnstile te resulta rara, vale también una
-> **Custom Auth** con `{"body": {"secret": "LA_CLAVE"}}`: cambia en el nodo
-> *Generic Auth Type* a *Custom Auth*.
+> Ojo con *Label* y *Hint* en Turnstile: son el nombre y la ayuda del campo y
+> se guardan como texto visible. Si se pega ahí la clave, bórrala.
+> Alternativa: **Custom Auth** con `{"body": {"secret": "LA_CLAVE"}}`
+> (en el nodo, *Generic Auth Type → Custom Auth*).
 
 Después, en el nodo **Enviar respuesta**, cambia **From Email** por
 `Marc Calatayud <mi-email-verificado-en-brevo>`.
