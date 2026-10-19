@@ -58,7 +58,7 @@ export const contact = {
           title: "Qué datos",
           body: [
             "Tu email, tu nombre si lo escribes y tus mensajes, con su fecha. Si entras en tu espacio, también cuándo entras.",
-            "Tu IP solo pasa por Cloudflare para la comprobación anti-spam. No la guardo.",
+            "Tu IP pasa por Cloudflare para la comprobación anti-spam y queda, con el mensaje, en el registro técnico de n8n, que se borra solo pasado un tiempo. En la base de datos no la guardo.",
           ],
         },
         {
@@ -156,7 +156,7 @@ export const contact = {
           title: "What data",
           body: [
             "Your email, your name if you give it, and your messages with their date. If you sign in to your space, also when you sign in.",
-            "Your IP address only goes through Cloudflare for the spam check. I don't store it.",
+            "Your IP address goes through Cloudflare for the spam check and stays, with the message, in n8n's technical log, which is deleted automatically after a while. I don't keep it in the database.",
           ],
         },
         {
