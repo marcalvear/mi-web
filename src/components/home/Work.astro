@@ -6,8 +6,10 @@ import { Picture } from "astro:assets";
 import Button from "../Button.astro";
 import Entry from "../Entry.astro";
 import Figure from "../Figure.astro";
+import Metrics from "../Metrics.astro";
 import screenshot from "../../assets/img/proyectos/sonrisa-imperial.webp";
 import type { HomeContent } from "../../i18n/home";
+import { sonrisaImperial } from "../../i18n/projects";
 import type { Lang } from "../../i18n/ui";
 
 interface Props {
@@ -16,6 +18,7 @@ interface Props {
 }
 const { lang, content } = Astro.props;
 const { project } = content;
+const data = sonrisaImperial[lang];
 const caseUrl = getRelativeLocaleUrl(lang, "proyectos/sonrisa-imperial/");
 const landingUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}proyectos/sonrisa-imperial/landing.html`;
 ---
@@ -34,9 +37,9 @@ const landingUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}proyectos/so
     </Figure>
 
     <div class="body">
-      <p class="label">{project.label}</p>
-      <h3 id="project-title">{project.name}</h3>
-      <p class="summary">{project.summary}</p>
+      <p class="label">{data.label}</p>
+      <h3 id="project-title">{data.name}</h3>
+      <p class="summary">{data.summary}</p>
 
       <ol class="steps" role="list">
         {
@@ -56,17 +59,7 @@ const landingUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}proyectos/so
     </div>
 
     <div class="metrics">
-      <dl>
-        {
-          project.metrics.map((m) => (
-            <div>
-              <dt class="label">{m.label}</dt>
-              <dd>{m.value}</dd>
-            </div>
-          ))
-        }
-      </dl>
-      <p class="note">{project.metricsNote}</p>
+      <Metrics metrics={data.metrics} note={data.metricsNote} />
     </div>
   </article>
 
@@ -154,35 +147,6 @@ const landingUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}proyectos/so
     padding-block: 0.6rem;
   }
 
-  .metrics dl {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
-    border: 1.5px solid var(--ink);
-    background: var(--sheet);
-  }
-
-  .metrics dl div {
-    display: grid;
-    gap: 0.1rem;
-    padding: var(--space-2);
-    border: 0.5px solid var(--rule);
-  }
-
-  .metrics dd {
-    margin: 0;
-    font-family: var(--font-mono);
-    font-size: var(--step-2);
-    font-weight: 600;
-    line-height: 1.1;
-  }
-
-  .note {
-    margin-block-start: var(--space-1);
-    color: var(--ink-soft);
-    font-size: var(--step--1);
-    font-style: italic;
-  }
-
   .log-title {
     margin-block: var(--space-6) var(--space-2);
     font-size: var(--step-2);
@@ -217,10 +181,6 @@ const landingUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}proyectos/so
 
     .metrics {
       grid-column: 1 / -1;
-    }
-
-    .metrics dl {
-      grid-template-columns: repeat(6, 1fr);
     }
 
     .log li {
