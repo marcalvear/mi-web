@@ -8,6 +8,8 @@ export default defineConfig({
   site: "https://marcalvear.github.io",
   base: "/mi-web",
   trailingSlash: "always",
+  // El CSS es pequeño: va dentro del HTML y no bloquea el primer pintado
+  build: { inlineStylesheets: "always" },
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],

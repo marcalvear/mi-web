@@ -1,82 +1,75 @@
-# Decisiones de diseño
+# Diseño de la v3: cuaderno de laboratorio
 
-## La idea
+La v3 se presenta como mi **cuaderno de laboratorio**: el sitio donde apunto lo que
+aprendo de IA, los experimentos que hago y lo que sale de ellos. La v1 (Cyberpunk 2077)
+y la v2 (Super Mario Galaxy) partían de un videojuego. Esta parte de lo que hago: aprender
+probando, y para eso se usa un cuaderno.
 
-Mi web es un pequeño **sistema planetario**. Cada bloque es un planetoide con su
-propia gravedad y una **trayectoria** de puntos los une, como los viajes con la
-estrella lanzadera de Super Mario Galaxy. Todo está dibujado por mí en SVG; no hay
-logos, personajes ni músicas de Nintendo.
+El muestrario con todas las piezas está en [`/sistema/`](https://marcalvear.github.io/mi-web/sistema/)
+(`src/pages/sistema.astro`).
 
-Elegí esta referencia porque es un juego que me gusta y porque su lenguaje
-(planetas pequeños, gravedad, estrellas que se recogen) da recursos visuales
-concretos, no solo «fondo de estrellas».
+## Decisiones y por qué
 
-## Lo que descarté
+| Decisión | Por qué |
+|---|---|
+| **Papel cuadriculado** de 24 px como fondo | Es lo primero que dice «cuaderno técnico». La cuadrícula también marca el ritmo: todos los espacios son múltiplos de 8 px |
+| **Línea roja de margen** (solo en pantallas anchas) | Detalle de libreta que separa el margen de anotaciones del texto. En móvil se quita para no robar ancho |
+| **Newsreader** (serif) para leer | Diseñada para textos largos en pantalla y con ajuste óptico: los títulos grandes salen finos y elegantes y el texto pequeño, robusto. Mi web es sobre todo texto con voz propia |
+| **JetBrains Mono** para datos | Fechas, números de entrada, etiquetas y diagramas van «a máquina», como las anotaciones técnicas. Separa lo que es dato de lo que es relato |
+| **Un solo color fuerte**: rotulador rojo | Se reserva para una acción por pantalla (el CTA), los números de entrada y las notas al margen. Si todo es rojo, nada destaca |
+| **Tinta azul** para los enlaces | El azul de bolígrafo de toda la vida: se reconoce como enlace sin explicarlo |
+| **Entradas numeradas** (`01 · Marca`) | Cada bloque de la pauta es una entrada del cuaderno. Da orden y ayuda a hablar de la web en la defensa («en la entrada 3…») |
+| **Figuras con cinta adhesiva** (`Fig. 1`) | Las capturas y diagramas parecen pegados en la libreta. Un pie numerado obliga a explicar cada imagen |
+| **Sombras duras** en los botones | Como una tarjeta de cartulina pegada; al pulsar se «hunde». Microinteracción con sentido físico, sin desenfoques |
+| **Logo**: la M como flujo de cinco nodos | Una M hecha de nodos conectados, como los flujos de IA que monto. El nodo rojo del centro es la IA, el punto donde el trabajo aburrido cambia de manos. Es SVG propio y hereda el color del tema |
+| **Diagramas SVG animados** | Los cables se dibujan al entrar en pantalla y un punto rojo recorre el flujo como un dato. Explican cómo funcionan las cosas (contacto, chatbot) en vez de decorar |
+| **Modo oscuro**: la libreta de noche | Papel grafito, tinta crema y el rojo más claro para mantener el contraste. Sigue al sistema y se puede fijar a mano |
 
-- **La v1 (Cyberpunk 2077):** tenía personalidad, pero muchos elementos
-  llamativos competían entre sí, el amarillo aparecía fuera de su sitio y todo
-  eran cajas iguales.
-- **El «tema espacial» por defecto:** fondo negro, estrellas y un acento dorado.
-  Es lo primero que sale al pensar en «espacio» y no dice nada de mí. Lo cambié
-  por un índigo con varios tonos pastel y la metáfora de planetoides con gravedad.
+## Paleta
 
-## Color
+| Token | Claro | Oscuro | Uso | Contraste (claro / oscuro) |
+|---|---|---|---|---|
+| `--paper` | `#f6f1e6` | `#14171d` | Fondo | — |
+| `--sheet` | `#fbf8f1` | `#1b1f27` | Tarjetas, formularios | — |
+| `--ink` | `#1c1f26` | `#ece6d8` | Texto | 14,6 / 14,4 |
+| `--ink-soft` | `#4a4f5c` | `#a9aebb` | Texto secundario | 7,3 / 8,1 |
+| `--accent` | `#b3261e` | `#ff8a70` | CTA, anotaciones | 5,8 / 7,8 |
+| `--link` | `#1e4fb3` | `#8db2ff` | Enlaces | 6,6 / 8,5 |
+| `--mark` | `#fbe38e` | `#5c4a12` | Resaltado | tinta sobre él: 12,9 / 6,9 |
 
-| Nombre | Hex | Uso |
-|---|---|---|
-| Espacio | `#141a4a` | Fondo. Índigo y no negro: más cálido, como el cielo del juego |
-| Nebulosa | `#3b2a7a` | Planetas y superficies |
-| Oro estrella | `#ffcf3f` | Acción principal (botones) y estrellas |
-| Cometa | `#7fe3ff` | Enlaces y foco: todo lo que se puede usar |
-| Luma rosa | `#ff9ecf` | Acento secundario, en pequeñas dosis |
-| Polvo estelar | `#eef0ff` | Texto |
-
-Cada color tiene **una sola función**, así se aprende rápido qué es clicable.
-Todos los textos cumplen contraste **AA** en los dos temas (el más justo, 5,5:1).
-El tema claro «Observatorio de día» usa los mismos nombres de variable con otros
-valores; el oro nunca se usa como texto en claro porque no llega al contraste.
-
-## Tipografía
-
-- **Unbounded** para títulos: ancha y redondeada, recuerda a los rótulos del juego
-  sin copiarlos.
-- **Atkinson Hyperlegible Next** para leer: diseñada por el Braille Institute para
-  que las letras parecidas (l, I, 1) no se confundan.
-- Escala de **cuarta justa (1,333)** sobre 18 px, definida una sola vez en
-  `tokens.css`. Líneas de texto de 62 caracteres como máximo.
-- Las fuentes se sirven desde la propia web (licencia OFL) para no depender de
-  Google al cargar.
-
-## Composición
-
-- Texto **alineado a la izquierda**; solo las páginas de aviso (mensaje enviado,
-  404) van centradas porque son un único mensaje.
-- **Pocas cajas.** Los hechos de «Lo que he hecho» se separan con líneas de órbita
-  punteadas en lugar de tarjetas; solo los resultados de las APIs y el formulario
-  tienen fondo, porque son zonas de interacción.
-- La foto de «Sobre mí» es un planeta: círculo, anillo dorado y una órbita que
-  pasa por detrás.
+Todos los pares de texto pasan **AA** (4,5:1) y la mayoría AAA. La cuadrícula y la línea de
+margen son decorativas y no llevan información.
 
 ## Movimiento
 
-Solo **un momento animado automático**: al cargar, mi nombre cae con la gravedad
-del planeta y rebota (`cubic-bezier(.34, 1.56, .64, 1)`). La luna gira muy despacio
-como fondo. El resto del movimiento responde a lo que hace la persona: la estrella
-que recorre la trayectoria al hacer scroll, los resultados que «aterrizan», el
-menú y el chat al abrirse. Con `prefers-reduced-motion` todo se detiene.
+- Duraciones con nombre: `--fast` (160 ms) para hover y foco, `--slow` (420 ms) para
+  apariciones y `--draw` (1,4 s) para trazar diagramas.
+- Los diagramas solo se animan cuando se ven (`IntersectionObserver`) y se paran fuera de
+  pantalla.
+- Con `prefers-reduced-motion` todo aparece ya dibujado y quieto.
 
-## Microinteracciones
+## Accesibilidad
 
-- **Fragmentos de estrella:** como en el juego, se recogen pasando el cursor. El
-  contador se guarda entre visitas y se ve en el pie. Es un guiño que premia
-  explorar la web.
-- **Tema claro/oscuro** con memoria.
-- Botones que se elevan un poco al pasar por encima, como si flotaran.
+- Foco visible con el rotulador rojo en todos los elementos.
+- Objetivos táctiles de 44 px como mínimo en la cabecera y los botones.
+- Selector de idioma con el nombre completo para lectores de pantalla («English»), no solo «EN».
+- El botón de tema anuncia el tema actual.
+- Los diagramas son `role="img"` con un `<title>` que cuenta el recorrido entero.
+- En móvil los diagramas mantienen un tamaño de letra legible y se desplazan dentro de su caja,
+  sin scroll horizontal en la página.
 
-## Textos
+## Rendimiento
 
-- Escritos en primera persona a partir de mis respuestas, sin adjetivos de relleno.
-- Los botones dicen lo que pasa: «Ponte en contacto conmigo», «Enviar mensaje» y,
-  al llegar, «Mensaje enviado».
-- Los errores explican qué ha pasado y qué hacer («Revisa que tenga la forma
-  nombre@correo.com»), sin pedir perdón.
+- Fuentes variables servidas desde la web (paquetes `@fontsource-variable`), con `preload`
+  del subconjunto latino.
+- CSS dentro del HTML (`inlineStylesheets: "always"`): no bloquea el primer pintado.
+- Lighthouse en móvil sobre la compilación de este bloque: rendimiento 97, accesibilidad 100,
+  buenas prácticas 100, SEO 100 y CLS 0.
+
+## Herramientas
+
+El punto de partida salió de la skill **UI/UX Pro Max** (`--design-system` para «portfolio
+editorial técnico»). Propuso brutalismo y Caveat + Quicksand. Me quedé con la idea de
+cuadrícula visible, bordes marcados y contraste alto, y cambié la tipografía por una
+pareja serif + mono («Minimalist Monochrome Editorial» de la misma skill, simplificada a
+dos familias), porque la escrita a mano no encajaba con un cuaderno técnico.
