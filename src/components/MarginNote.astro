@@ -1,0 +1,39 @@
+---
+// Anotación al margen escrita con el rotulador rojo. En pantallas anchas se
+// cuelga a la derecha del texto; en móvil queda en línea.
+interface Props {
+  label?: string;
+}
+const { label } = Astro.props;
+---
+
+<aside class="margin-note">
+  {label && <p class="label">{label}</p>}
+  <div><slot /></div>
+</aside>
+
+<style>
+  .margin-note {
+    max-width: 34ch;
+    padding: var(--space-1) var(--space-2);
+    border-inline-start: 2px solid var(--accent);
+    color: var(--ink-soft);
+    font-style: italic;
+    font-size: var(--step--1);
+    line-height: 1.5;
+  }
+
+  .margin-note .label {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  @media (min-width: 72rem) {
+    .margin-note {
+      float: right;
+      clear: right;
+      width: 30ch;
+      margin-inline: var(--space-4) calc(var(--space-6) * -1);
+    }
+  }
+</style>

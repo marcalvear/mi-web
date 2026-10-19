@@ -1,0 +1,62 @@
+---
+// Figura numerada con pie: «Fig. 3 — …». Los medios van en el slot.
+interface Props {
+  number: number;
+  caption: string;
+  /** "sheet" pega la figura en una hoja con cinta adhesiva. */
+  frame?: "none" | "sheet";
+}
+const { number, caption, frame = "sheet" } = Astro.props;
+---
+
+<figure class:list={["figure", frame]}>
+  <slot />
+  <figcaption>
+    <span class="label">Fig. {number}</span>
+    <span>{caption}</span>
+  </figcaption>
+</figure>
+
+<style>
+  .figure {
+    position: relative;
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .sheet {
+    padding: var(--space-2);
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 0 var(--rule), 0 10px 24px -18px rgb(0 0 0 / 0.4);
+    transform: rotate(-0.4deg);
+  }
+
+  /* Trozo de cinta adhesiva */
+  .sheet::before {
+    content: "";
+    position: absolute;
+    inset-block-start: -10px;
+    inset-inline-start: 50%;
+    width: 84px;
+    height: 22px;
+    translate: -50% 0;
+    rotate: 2deg;
+    background: color-mix(in srgb, var(--mark) 65%, transparent);
+    pointer-events: none;
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25em 0.75em;
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  figcaption .label {
+    font-style: normal;
+    color: var(--accent);
+  }
+</style>

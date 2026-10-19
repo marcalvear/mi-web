@@ -1,0 +1,77 @@
+---
+// Botón que alterna Sistema → Claro → Oscuro. El tema elegido se guarda en
+// localStorage; el script de <head> en Base.astro lo aplica antes de pintar.
+import { useTranslations, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const t = useTranslations(Astro.props.lang);
+const labels = { auto: t("theme.auto"), light: t("theme.light"), dark: t("theme.dark") };
+---
+
+<button class="theme-toggle label" type="button" data-labels={JSON.stringify(labels)}>
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+    <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+    <path d="M8 1.75a6.25 6.25 0 0 1 0 12.5Z" fill="currentColor"></path>
+  </svg>
+  <span class="visually-hidden">{t("theme.toggle")}:</span>
+  <span data-theme-label>{labels.auto}</span>
+</button>
+
+<script>
+  const order = ["auto", "light", "dark"] as const;
+  type Theme = (typeof order)[number];
+
+  function read(): Theme {
+    try {
+      const saved = localStorage.getItem("theme");
+      return saved === "light" || saved === "dark" ? saved : "auto";
+    } catch {
+      return "auto";
+    }
+  }
+
+  function apply(theme: Theme) {
+    const root = document.documentElement;
+    if (theme === "auto") root.removeAttribute("data-theme");
+    else root.dataset.theme = theme;
+    try {
+      if (theme === "auto") localStorage.removeItem("theme");
+      else localStorage.setItem("theme", theme);
+    } catch {
+      /* Sin almacenamiento el tema dura lo que la página */
+    }
+  }
+
+  for (const button of document.querySelectorAll<HTMLButtonElement>(".theme-toggle")) {
+    const labels = JSON.parse(button.dataset.labels ?? "{}") as Record<Theme, string>;
+    const label = button.querySelector("[data-theme-label]")!;
+    let current = read();
+    label.textContent = labels[current];
+
+    button.addEventListener("click", () => {
+      current = order[(order.indexOf(current) + 1) % order.length];
+      apply(current);
+      label.textContent = labels[current];
+    });
+  }
+</script>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 44px;
+    padding-inline: var(--space-1);
+    border: 0;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .theme-toggle:hover {
+    color: var(--accent);
+  }
+</style>

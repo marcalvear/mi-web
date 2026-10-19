@@ -1,0 +1,194 @@
+---
+// Diagrama de flujo dibujado a tinta: los cables se trazan al entrar en
+// pantalla y luego un punto rojo recorre el flujo, como un dato que pasa de
+// un nodo a otro. Con movimiento reducido se muestra ya dibujado y quieto.
+
+export interface FlowNode {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+  /** Nodo destacado con el rotulador rojo (p. ej. la IA). */
+  accent?: boolean;
+}
+
+interface Props {
+  nodes: FlowNode[];
+  edges: [string, string][];
+  /** Descripción para lectores de pantalla. */
+  title: string;
+  width?: number;
+  height?: number;
+}
+
+const { nodes, edges, title, width = 640, height = 220 } = Astro.props;
+const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+const W = 128; // ancho de cada nodo
+const H = 44;
+
+// Cable en S entre el borde derecho de un nodo y el izquierdo del siguiente
+const wires = edges.map(([from, to], i) => {
+  const a = byId[from];
+  const b = byId[to];
+  const x1 = a.x + W / 2;
+  const x2 = b.x - W / 2;
+  const mid = (x1 + x2) / 2;
+  return { d: `M${x1},${a.y} C${mid},${a.y} ${mid},${b.y} ${x2},${b.y}`, i };
+});
+const titleId = `flow-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class="flow-scroll">
+<svg
+  class="flow"
+  viewBox={`0 0 ${width} ${height}`}
+  role="img"
+  aria-labelledby={titleId}
+>
+  <title id={titleId}>{title}</title>
+
+  {
+    wires.map((w) => (
+      <path class="wire" d={w.d} pathLength="1" style={`--i: ${w.i}`} />
+    ))
+  }
+
+  {
+    nodes.map((n, i) => (
+      <g class:list={["node", { accent: n.accent }]} style={`--i: ${i}`}>
+        <rect x={n.x - W / 2} y={n.y - H / 2} width={W} height={H} rx="3" />
+        <text x={n.x} y={n.y} dy="0.35em" text-anchor="middle">
+          {n.label}
+        </text>
+      </g>
+    ))
+  }
+
+  {
+    wires.map((w) => (
+      <circle class="pulse" r="4" style={`offset-path: path("${w.d}"); --i: ${w.i}`} />
+    ))
+  }
+</svg>
+</div>
+
+<script>
+  // Empieza a dibujar cuando el diagrama entra en pantalla y se para fuera de ella
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        entry.target.classList.add("is-drawn");
+        entry.target.classList.toggle("is-paused", !entry.isIntersecting);
+      }
+    },
+    { threshold: 0.4 },
+  );
+  document.querySelectorAll(".flow").forEach((el) => io.observe(el));
+</script>
+
+<style>
+  /* En móvil el diagrama mantiene un ancho legible y se desplaza dentro de su caja */
+  .flow-scroll {
+    overflow-x: auto;
+    padding-block: var(--space-1);
+  }
+
+  .flow {
+    width: 100%;
+    min-width: 34rem;
+    overflow: visible;
+    font-family: var(--font-mono);
+  }
+
+  .wire {
+    fill: none;
+    stroke: var(--ink);
+    stroke-width: 1.5;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .node rect {
+    fill: var(--sheet);
+    stroke: var(--ink);
+    stroke-width: 1.5;
+  }
+
+  .node text {
+    fill: var(--ink);
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .node.accent rect {
+    fill: var(--accent);
+    stroke: var(--accent);
+  }
+
+  .node.accent text {
+    fill: var(--on-accent);
+  }
+
+  .node {
+    opacity: 0;
+  }
+
+  .pulse {
+    fill: var(--accent);
+    opacity: 0;
+  }
+
+  .is-drawn .node {
+    animation: appear var(--slow) var(--ease-out) forwards;
+    animation-delay: calc(var(--i) * 180ms);
+  }
+
+  .is-drawn .wire {
+    animation: draw var(--draw) var(--ease-out) forwards;
+    animation-delay: calc(300ms + var(--i) * 220ms);
+  }
+
+  .is-drawn .pulse {
+    animation: travel 2.6s ease-in-out infinite;
+    animation-delay: calc(var(--draw) + 400ms + var(--i) * 650ms);
+  }
+
+  .is-paused .pulse {
+    animation-play-state: paused;
+  }
+
+  @keyframes appear {
+    from { opacity: 0; translate: 0 6px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* El dato recorre el cable y se desvanece al llegar al siguiente nodo */
+  @keyframes travel {
+    0% { offset-distance: 0%; opacity: 0; }
+    10% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .node,
+    .is-drawn .node {
+      opacity: 1;
+      animation: none;
+    }
+
+    .wire,
+    .is-drawn .wire {
+      stroke-dashoffset: 0;
+      animation: none;
+    }
+
+    .pulse {
+      display: none;
+    }
+  }
+</style>

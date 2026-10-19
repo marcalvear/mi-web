@@ -1,0 +1,90 @@
+/*
+ * Tokens del cuaderno de laboratorio. Es el único sitio con valores de color,
+ * tipografía y espacio: los componentes solo usan variables.
+ *
+ * Claro: papel crema con cuadrícula azul, tinta casi negra, rojo de margen.
+ * Oscuro: la misma libreta de noche, tinta clara sobre papel grafito.
+ * Todos los pares de texto pasan AA (ver docs/diseno.md).
+ */
+
+:root {
+  color-scheme: light;
+
+  /* Papel y tinta */
+  --paper: #f6f1e6;        /* fondo de la página */
+  --sheet: #fbf8f1;        /* hojas sueltas: tarjetas, formularios */
+  --ink: #1c1f26;          /* texto principal (14,6:1) */
+  --ink-soft: #4a4f5c;     /* texto secundario (7,3:1) */
+  --grid: #d5dee8;         /* cuadrícula, decorativa */
+  --rule: #c9c2b3;         /* líneas de separación */
+  --margin: #e4a9a0;       /* línea roja del margen, decorativa */
+
+  /* Acentos: un solo color fuerte y el azul de los enlaces */
+  --accent: #b3261e;       /* rotulador rojo: CTA y anotaciones (5,8:1) */
+  --on-accent: #ffffff;    /* (6,5:1) */
+  --link: #1e4fb3;         /* tinta azul (6,6:1) */
+  --mark: #fbe38e;         /* fluorescente para <mark> */
+
+  /* Tipografía */
+  --font-serif: "Newsreader Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
+  --step-0: clamp(1.06rem, 1rem + 0.3vw, 1.19rem);
+  --step-1: clamp(1.3rem, 1.2rem + 0.5vw, 1.55rem);
+  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.1rem);
+  --step-3: clamp(2rem, 1.6rem + 2vw, 3rem);
+  --step-4: clamp(2.6rem, 1.8rem + 4vw, 4.8rem);
+
+  /* Espacio: múltiplos de la cuadrícula (8 px) */
+  --cell: 8px;
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4.5rem;
+  --space-7: 7rem;
+
+  --measure: 66ch;         /* ancho cómodo de lectura */
+  --page: 72rem;           /* ancho máximo de la página */
+  --radius: 3px;           /* esquinas casi rectas, como el papel */
+
+  /* Movimiento */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --fast: 160ms;
+  --slow: 420ms;
+  --draw: 1400ms;          /* trazado de los diagramas */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #14171d;
+    --sheet: #1b1f27;
+    --ink: #ece6d8;
+    --ink-soft: #a9aebb;
+    --grid: #232a35;
+    --rule: #3a4150;
+    --margin: #5a2e2a;
+    --accent: #ff8a70;
+    --on-accent: #14171d;
+    --link: #8db2ff;
+    --mark: #5c4a12;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #14171d;
+  --sheet: #1b1f27;
+  --ink: #ece6d8;
+  --ink-soft: #a9aebb;
+  --grid: #232a35;
+  --rule: #3a4150;
+  --margin: #5a2e2a;
+  --accent: #ff8a70;
+  --on-accent: #14171d;
+  --link: #8db2ff;
+  --mark: #5c4a12;
+}
