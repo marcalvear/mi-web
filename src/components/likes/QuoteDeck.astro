@@ -15,10 +15,10 @@ const filters = ["all", "naruto", "jojo"] as const;
 ---
 
 <div class="deck" data-deck data-src={`${base}datos/frases-anime.json`} data-text={JSON.stringify(text)}>
-  <div class="filters" role="group" aria-label={text.filters.label}>
+  <div class="chips" role="group" aria-label={text.filters.label}>
     {
       filters.map((f) => (
-        <button type="button" class="filter label" data-filter={f} aria-pressed={f === "all" ? "true" : "false"}>
+        <button type="button" class="chip" data-filter={f} aria-pressed={f === "all" ? "true" : "false"}>
           {text.filters[f]}
         </button>
       ))
@@ -212,33 +212,6 @@ const filters = ["all", "naruto", "jojo"] as const;
     display: grid;
     gap: var(--space-3);
     max-width: 44rem;
-  }
-
-  .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1);
-  }
-
-  .filter {
-    min-height: 44px;
-    padding-inline: var(--space-2);
-    border: 1.5px solid var(--rule);
-    border-radius: 999px;
-    background: transparent;
-    color: var(--ink);
-    cursor: pointer;
-    transition: border-color var(--fast) var(--ease-out);
-  }
-
-  .filter:hover {
-    border-color: var(--ink);
-  }
-
-  .filter[aria-pressed="true"] {
-    border-color: var(--accent);
-    background: var(--accent);
-    color: var(--on-accent);
   }
 
   /* Ficha de cartulina con renglones, como una tarjeta de estudio */

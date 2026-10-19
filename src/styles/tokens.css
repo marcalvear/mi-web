@@ -24,6 +24,7 @@
   --on-accent: #ffffff;    /* (6,5:1) */
   --link: #1e4fb3;         /* tinta azul (6,6:1) */
   --mark: #fbe38e;         /* fluorescente para <mark> */
+  --photo: #f8f3e9;        /* fondo de las fotos de producto, igual en los dos temas */
 
   /* Tipografía */
   --font-serif: "Newsreader Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;

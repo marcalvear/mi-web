@@ -10,6 +10,9 @@ export default defineConfig({
   trailingSlash: "always",
   // El CSS es pequeño: va dentro del HTML y no bloquea el primer pintado
   build: { inlineStylesheets: "always" },
+  // La ilustración del primer Pokémon se descarga al compilar y se sirve
+  // optimizada desde la propia web en vez de desde GitHub
+  image: { domains: ["raw.githubusercontent.com"] },
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],
