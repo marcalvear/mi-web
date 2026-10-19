@@ -1,11 +1,13 @@
 // Descarga una sola vez todas las frases de Naruto y JoJo de Animechan y las
 // guarda en src/data/frases-anime.json. La web las baraja desde ese fichero,
 // así no gasta el límite de 100 peticiones al día de la API ni repite frases.
+// Cada frase lleva su traducción en `es`; al volver a descargar se conservan
+// las que ya había y se avisa de las nuevas que faltan por traducir.
 //
 // Uso: node scripts/descargar-frases.mjs
 // Docs de la API: https://animechan.io/docs
 
-import { writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 
 const API = "https://api.animechan.io/v1/quotes";
@@ -23,6 +25,10 @@ async function fetchPage(anime, page) {
   return JSON.parse(text).data ?? [];
 }
 
+// Traducciones que ya había, por frase original
+const previous = JSON.parse(await readFile(OUT, "utf8").catch(() => "[]"));
+const translations = new Map(previous.filter((q) => q.es).map((q) => [q.text, q.es]));
+
 const quotes = [];
 const seen = new Set();
 
@@ -35,7 +41,8 @@ for (const [key, anime] of Object.entries(SERIES)) {
       const text = q.content.replace(/\s+/g, " ").trim();
       if (seen.has(text)) continue;
       seen.add(text);
-      quotes.push({ anime: key, series: q.anime.name, character: q.character.name, text });
+      const es = translations.get(text);
+      quotes.push({ anime: key, series: q.anime.name, character: q.character.name, text, ...(es && { es }) });
       count++;
     }
     await sleep(300); // sin prisa: es un servicio gratuito
@@ -45,3 +52,5 @@ for (const [key, anime] of Object.entries(SERIES)) {
 
 await writeFile(OUT, JSON.stringify(quotes, null, 2) + "\n");
 console.log(`Guardadas ${quotes.length} frases en ${fileURLToPath(OUT)}`);
+const missing = quotes.filter((q) => !q.es).length;
+if (missing) console.log(`Faltan ${missing} por traducir: en la web ES saldrán en inglés hasta que tengan su campo "es".`);
