@@ -46,6 +46,14 @@ body {
   }
 }
 
+/* Listas de diseño: sin viñetas, pero los lectores de pantalla las siguen
+   anunciando como lista gracias a role="list" */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
 img,
 svg,
 video {

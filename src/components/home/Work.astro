@@ -1,0 +1,230 @@
+---
+// Lo que he hecho: el proyecto contado como problema → solución → resultado,
+// con sus métricas, y una bitácora con el resto de pruebas.
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { Picture } from "astro:assets";
+import Button from "../Button.astro";
+import Entry from "../Entry.astro";
+import Figure from "../Figure.astro";
+import screenshot from "../../assets/img/proyectos/sonrisa-imperial.webp";
+import type { HomeContent } from "../../i18n/home";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  content: HomeContent["work"];
+}
+const { lang, content } = Astro.props;
+const { project } = content;
+const caseUrl = getRelativeLocaleUrl(lang, "proyectos/sonrisa-imperial/");
+const landingUrl = `${import.meta.env.BASE_URL.replace(/\/?$/, "/")}proyectos/sonrisa-imperial/landing.html`;
+---
+
+<Entry id="hecho" number={2} kicker={content.kicker} title={content.title}>
+  <article class="project" aria-labelledby="project-title">
+    <Figure number={3} caption={project.caption}>
+      <Picture
+        src={screenshot}
+        alt={project.imageAlt}
+        formats={["avif", "webp"]}
+        widths={[320, 480, 640, 960]}
+        sizes="(min-width: 60rem) 34rem, calc(100vw - 4rem)"
+        loading="lazy"
+      />
+    </Figure>
+
+    <div class="body">
+      <p class="label">{project.label}</p>
+      <h3 id="project-title">{project.name}</h3>
+      <p class="summary">{project.summary}</p>
+
+      <ol class="steps" role="list">
+        {
+          project.steps.map((step) => (
+            <li>
+              <span class="label">{step.label}</span>
+              <p>{step.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="links">
+        <Button href={caseUrl} variant="ghost">{project.caseLink}</Button>
+        <a href={landingUrl}>{project.landingLink}</a>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <dl>
+        {
+          project.metrics.map((m) => (
+            <div>
+              <dt class="label">{m.label}</dt>
+              <dd>{m.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <p class="note">{project.metricsNote}</p>
+    </div>
+  </article>
+
+  <h3 class="log-title">{content.logTitle}</h3>
+  <ol class="log" role="list">
+    {
+      content.log.map((item) => (
+        <li>
+          <span class="label type">{item.type}</span>
+          <div>
+            <h4>{item.title}</h4>
+            <p>
+              {item.text}
+              {item.href && (
+                <>
+                  {" "}
+                  <a href={item.href}>{item.linkText}</a>
+                </>
+              )}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</Entry>
+
+<style>
+  .project {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .project :global(.figure) {
+    align-self: start;
+  }
+
+  .body {
+    display: grid;
+    gap: var(--space-2);
+    align-content: start;
+  }
+
+  .summary {
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+
+  .steps {
+    display: grid;
+    gap: var(--space-2);
+    margin-block: var(--space-1);
+    padding: 0;
+    counter-reset: step;
+  }
+
+  .steps li {
+    display: grid;
+    gap: 0.15rem;
+    padding-inline-start: var(--space-2);
+    border-inline-start: 2px solid var(--rule);
+  }
+
+  .steps li:last-child {
+    border-color: var(--accent);
+  }
+
+  .steps .label {
+    color: var(--ink);
+  }
+
+  .steps li:last-child .label {
+    color: var(--accent);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
+    margin-block-start: var(--space-2);
+  }
+
+  .links > a:not(.button) {
+    padding-block: 0.6rem;
+  }
+
+  .metrics dl {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+  }
+
+  .metrics dl div {
+    display: grid;
+    gap: 0.1rem;
+    padding: var(--space-2);
+    border: 0.5px solid var(--rule);
+  }
+
+  .metrics dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--step-2);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .note {
+    margin-block-start: var(--space-1);
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  .log-title {
+    margin-block: var(--space-6) var(--space-2);
+    font-size: var(--step-2);
+  }
+
+  .log {
+    padding: 0;
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .log li {
+    display: grid;
+    gap: 0.25rem var(--space-3);
+    max-width: none;
+    padding-block: var(--space-2);
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .log h4 {
+    font-size: var(--step-1);
+  }
+
+  .type {
+    padding-block-start: 0.35rem;
+  }
+
+  @media (min-width: 60rem) {
+    .project {
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-4) var(--space-5);
+    }
+
+    .metrics {
+      grid-column: 1 / -1;
+    }
+
+    .metrics dl {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .log li {
+      grid-template-columns: 10rem 1fr;
+    }
+  }
+</style>

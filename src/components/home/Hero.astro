@@ -1,0 +1,103 @@
+---
+// Cabecera: quién soy, a qué me dedico y la acción principal. El diagrama
+// resume la motivación de toda la web en un dibujo.
+import Button from "../Button.astro";
+import Figure from "../Figure.astro";
+import FlowDiagram from "../FlowDiagram.astro";
+import type { HomeContent } from "../../i18n/home";
+
+interface Props {
+  content: HomeContent["hero"];
+}
+const { content } = Astro.props;
+const [a, b, c] = content.flow.inputs;
+
+const flow = {
+  title: content.flowTitle,
+  width: 420,
+  height: 330,
+  fontSize: 16,
+  minWidth: "0",
+  direction: "vertical" as const,
+  nodes: [
+    { id: "a", label: a, x: 70, y: 40 },
+    { id: "b", label: b, x: 210, y: 40 },
+    { id: "c", label: c, x: 350, y: 40 },
+    { id: "ai", label: content.flow.ai, x: 210, y: 165, accent: true },
+    { id: "out", label: content.flow.output, x: 210, y: 290 },
+  ],
+  edges: [
+    ["a", "ai"],
+    ["b", "ai"],
+    ["c", "ai"],
+    ["ai", "out"],
+  ] as [string, string][],
+};
+---
+
+<section class="hero wrap" aria-labelledby="hero-title">
+  <div class="intro">
+    <p class="label">{content.kicker}</p>
+    <h1 id="hero-title">Marc <span>Calatayud</span></h1>
+    <p class="tagline">{content.tagline}</p>
+    <div class="actions">
+      <Button href="#contacto">{content.cta}</Button>
+      <Button href="#hecho" variant="ghost">{content.secondary}</Button>
+    </div>
+  </div>
+
+  <Figure number={1} caption={content.figure}>
+    <FlowDiagram {...flow} />
+  </Figure>
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    gap: var(--space-5);
+    align-items: center;
+    padding-block: var(--space-6) var(--space-7);
+  }
+
+  .intro {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  h1 {
+    font-size: clamp(3rem, 1.8rem + 6vw, 6.5rem);
+    line-height: 0.95;
+  }
+
+  h1 span {
+    display: block;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .tagline {
+    max-width: 30ch;
+    font-size: var(--step-2);
+    line-height: 1.3;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: var(--space-2);
+  }
+
+  .hero :global(.figure) {
+    max-width: 30rem;
+    justify-self: center;
+    width: 100%;
+  }
+
+  @media (min-width: 60rem) {
+    .hero {
+      grid-template-columns: 1.25fr 1fr;
+      min-height: min(78vh, 46rem);
+    }
+  }
+</style>
