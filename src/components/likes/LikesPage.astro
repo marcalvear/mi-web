@@ -1,0 +1,55 @@
+---
+// Página Me gusta: cada afición es una entrada del cuaderno con datos reales.
+import Base from "../../layouts/Base.astro";
+import Entry from "../Entry.astro";
+import Biohacking from "./Biohacking.astro";
+import Pokedex from "./Pokedex.astro";
+import QuoteDeck from "./QuoteDeck.astro";
+import { likes } from "../../i18n/likes";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = likes[lang];
+---
+
+<Base lang={lang} title={c.meta.title} description={c.meta.description} path="me-gusta/">
+  <div class="wrap">
+    <header class="intro">
+      <p class="label">{c.kicker}</p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.lead}</p>
+    </header>
+
+    <Entry id="pokedex" number={1} kicker={c.games.kicker} title={c.games.title}>
+      <p>{c.games.intro}</p>
+      <Pokedex lang={lang} text={c.pokedex} />
+    </Entry>
+
+    <Entry id="frases" number={2} kicker={c.deck.kicker} title={c.deck.title}>
+      <p>{c.deck.intro}</p>
+      <QuoteDeck text={c.deck} />
+    </Entry>
+
+    <Entry id="biohacking" number={3} kicker={c.bio.kicker} title={c.bio.title}>
+      <p>{c.bio.intro}</p>
+      <Biohacking text={c.bio} />
+    </Entry>
+  </div>
+</Base>
+
+<style>
+  .intro {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .lead {
+    max-width: 40ch;
+    font-size: var(--step-2);
+    line-height: 1.3;
+  }
+</style>

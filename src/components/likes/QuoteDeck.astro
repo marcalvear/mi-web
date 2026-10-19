@@ -1,0 +1,315 @@
+---
+// Mazo de frases de anime. Las frases vienen de /datos/frases-anime.json
+// (descargadas una vez de Animechan); el orden barajado y las ya vistas se
+// guardan en localStorage para no repetir ninguna hasta agotar el mazo.
+// El botón «en vivo» pregunta a la API real y dice si la frase era nueva.
+import Button from "../Button.astro";
+import type { DeckText } from "../../i18n/likes";
+
+interface Props {
+  text: DeckText;
+}
+const { text } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const filters = ["all", "naruto", "jojo"] as const;
+---
+
+<div class="deck" data-deck data-src={`${base}datos/frases-anime.json`} data-text={JSON.stringify(text)}>
+  <div class="chips" role="group" aria-label={text.filters.label}>
+    {
+      filters.map((f) => (
+        <button type="button" class="chip" data-filter={f} aria-pressed={f === "all" ? "true" : "false"}>
+          {text.filters[f]}
+        </button>
+      ))
+    }
+  </div>
+
+  <figure class="card" aria-live="polite" aria-busy="true">
+    <p class="label source" data-source>{text.fromDeck}</p>
+    <blockquote lang="en">
+      <p data-quote>{text.loading}</p>
+    </blockquote>
+    <figcaption>
+      <span data-character></span>
+      <cite data-series></cite>
+    </figcaption>
+  </figure>
+
+  <div class="actions">
+    <Button variant="ghost" arrow={false} data-next disabled>{text.next}</Button>
+    <button type="button" class="live" data-live>{text.live} ↗</button>
+  </div>
+
+  <p class="label count" data-count></p>
+  <p class="status" role="status" data-status></p>
+  <p class="credit">{text.source}</p>
+</div>
+
+<script>
+  type Quote = { anime: "naruto" | "jojo"; series: string; character: string; text: string };
+  type Filter = "all" | "naruto" | "jojo";
+  type State = { order: number[]; seen: number[]; filter: Filter; current: number | null };
+
+  const KEY = "mazo-frases-v1";
+  const API = "https://api.animechan.io/v1/quotes/random?anime=";
+
+  // Fisher-Yates: cada orden posible tiene la misma probabilidad
+  function shuffle(n: number): number[] {
+    const a = Array.from({ length: n }, (_, i) => i);
+    for (let i = n - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function load(total: number): State {
+    try {
+      const s = JSON.parse(localStorage.getItem(KEY) ?? "null") as State | null;
+      // Si el mazo cambió de tamaño (se volvió a descargar), se baraja de nuevo
+      if (s && s.order.length === total) return s;
+    } catch {
+      /* sin almacenamiento: el mazo dura lo que la página */
+    }
+    return { order: shuffle(total), seen: [], filter: "all", current: null };
+  }
+
+  function save(state: State) {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(state));
+    } catch {
+      /* no pasa nada si no se puede guardar */
+    }
+  }
+
+  function fill(template: string, values: Record<string, number>) {
+    return template.replace(/\{(\w+)\}/g, (_, k) => String(values[k]));
+  }
+
+  async function init(root: HTMLElement) {
+    const t = JSON.parse(root.dataset.text!);
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+    const card = $("figure");
+    const nextBtn = $<HTMLButtonElement>("[data-next]");
+    const liveBtn = $<HTMLButtonElement>("[data-live]");
+    const status = $("[data-status]");
+    const filterBtns = [...root.querySelectorAll<HTMLButtonElement>("[data-filter]")];
+
+    let quotes: Quote[];
+    try {
+      const res = await fetch(root.dataset.src!);
+      quotes = await res.json();
+    } catch {
+      $("[data-quote]").textContent = "";
+      status.textContent = t.error;
+      return;
+    }
+
+    const state = load(quotes.length);
+    const known = new Set(quotes.map((q) => q.text));
+    const matches = (i: number) => state.filter === "all" || quotes[i].anime === state.filter;
+
+    function show(q: Quote, source: string) {
+      $("[data-quote]").textContent = q.text;
+      $("[data-character]").textContent = q.character;
+      $("[data-series]").textContent = q.series;
+      $("[data-source]").textContent = source;
+      card.setAttribute("aria-busy", "false");
+      card.classList.remove("flip");
+      void card.offsetWidth; // reinicia la animación
+      card.classList.add("flip");
+    }
+
+    function updateCount() {
+      const total = state.order.filter(matches).length;
+      const seen = state.seen.filter(matches).length;
+      $("[data-count]").textContent =
+        `${fill(t.count, { seen, total })} · ${fill(t.left, { left: total - seen })}`;
+    }
+
+    function draw() {
+      status.textContent = "";
+      const seen = new Set(state.seen);
+      let next = state.order.find((i) => matches(i) && !seen.has(i));
+      if (next === undefined) {
+        // Mazo agotado para esta serie: se olvidan sus vistas y se baraja otra vez
+        state.seen = state.seen.filter((i) => !matches(i));
+        state.order = shuffle(quotes.length);
+        // Que la primera del mazo nuevo no sea la que acabas de leer
+        next = state.order.find((i) => matches(i) && i !== state.current) ?? state.order.find(matches)!;
+        status.textContent = t.reshuffled;
+      }
+      state.seen.push(next);
+      state.current = next;
+      save(state);
+      show(quotes[next], t.fromDeck);
+      updateCount();
+    }
+
+    async function live() {
+      liveBtn.disabled = true;
+      status.textContent = t.liveLoading;
+      const pool = state.filter === "all" ? (Math.random() < 0.5 ? "naruto" : "jojo") : state.filter;
+      try {
+        const res = await fetch(API + pool);
+        if (res.status === 429) throw new Error(t.limit);
+        if (!res.ok) throw new Error(t.liveError);
+        const raw = (await res.text()).replace(/[\u0000-\u001f]+/g, " ");
+        const { data } = JSON.parse(raw);
+        const text = data.content.replace(/\s+/g, " ").trim();
+        show(
+          { anime: pool, series: data.anime.name, character: data.character.name, text },
+          known.has(text) ? t.liveKnown : t.liveNew,
+        );
+        status.textContent = "";
+      } catch (err) {
+        status.textContent = err instanceof Error && err.message !== "Failed to fetch" ? err.message : t.liveError;
+      } finally {
+        liveBtn.disabled = false;
+      }
+    }
+
+    function setFilter(f: Filter) {
+      state.filter = f;
+      filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === f)));
+      draw();
+    }
+
+    filterBtns.forEach((b) =>
+      b.addEventListener("click", () => setFilter(b.dataset.filter as Filter)),
+    );
+    nextBtn.addEventListener("click", draw);
+    liveBtn.addEventListener("click", live);
+
+    // Al volver, se ve la última frase que salió; si no hay, se saca una
+    filterBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.filter === state.filter)));
+    if (state.current !== null) {
+      show(quotes[state.current], t.fromDeck);
+      updateCount();
+    } else {
+      draw();
+    }
+    nextBtn.disabled = false;
+  }
+
+  // El mazo solo se descarga cuando está a punto de verse
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        io.unobserve(entry.target);
+        init(entry.target as HTMLElement);
+      }
+    },
+    { rootMargin: "300px" },
+  );
+  document.querySelectorAll<HTMLElement>("[data-deck]").forEach((el) => io.observe(el));
+</script>
+
+<style>
+  .deck {
+    display: grid;
+    gap: var(--space-3);
+    max-width: 44rem;
+  }
+
+  /* Ficha de cartulina con renglones, como una tarjeta de estudio */
+  .card {
+    position: relative;
+    display: grid;
+    gap: var(--space-2);
+    min-height: 15rem;
+    padding: var(--space-4) var(--space-4) var(--space-3) var(--space-5);
+    background:
+      linear-gradient(90deg, transparent calc(var(--space-4) - 1px), var(--margin) calc(var(--space-4) - 1px), var(--margin) calc(var(--space-4) + 1px), transparent calc(var(--space-4) + 1px)),
+      repeating-linear-gradient(transparent 0 calc(1.6em - 1px), var(--grid) calc(1.6em - 1px) 1.6em),
+      var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: 4px 4px 0 var(--rule);
+  }
+
+  .card.flip {
+    animation: flip var(--slow) var(--ease-out);
+  }
+
+  @keyframes flip {
+    from { opacity: 0; transform: translateY(8px) rotate(-0.6deg); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .source {
+    color: var(--accent);
+  }
+
+  blockquote p {
+    font-size: var(--step-1);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: none;
+  }
+
+  blockquote p::before { content: "“"; }
+  blockquote p::after { content: "”"; }
+
+  /* Mientras se baraja no hay cita: sin comillas */
+  .card[aria-busy="true"] blockquote p::before,
+  .card[aria-busy="true"] blockquote p::after {
+    content: none;
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.5em;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  figcaption span:not(:empty)::before {
+    content: "— ";
+  }
+
+  cite {
+    font-style: normal;
+    color: var(--ink-soft);
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+  }
+
+  .live {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font-size: var(--step-0);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+  }
+
+  .live:disabled {
+    color: var(--ink-soft);
+    cursor: wait;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .status {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .credit {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+</style>

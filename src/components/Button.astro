@@ -1,21 +1,33 @@
 ---
-// Enlace con aspecto de botón. «primary» es el rotulador rojo y solo debe
-// haber uno por pantalla; «ghost» es tinta sobre papel.
+// Botón del cuaderno. Con href es un enlace que navega; sin href es un
+// <button> para acciones en la página. «primary» es el rotulador rojo y solo
+// debe haber uno por pantalla; «ghost» es tinta sobre papel.
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"a"> {
-  href: string;
+type Props = (HTMLAttributes<"a"> | HTMLAttributes<"button">) & {
+  href?: string;
   variant?: "primary" | "ghost";
-}
-const { variant = "primary", class: className, ...rest } = Astro.props;
+  /** Sin flecha para acciones que no llevan a otro sitio. */
+  arrow?: boolean;
+};
+const { variant = "primary", arrow = true, class: className, ...rest } = Astro.props;
+const Tag = rest.href ? "a" : "button";
 ---
 
-<a class:list={["button", variant, className]} {...rest}>
+<Tag
+  class:list={["button", variant, className]}
+  {...(Tag === "button" ? { type: "button" } : {})}
+  {...rest}
+>
   <slot />
-  <svg class="arrow" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true">
-    <path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6"></path>
-  </svg>
-</a>
+  {
+    arrow && (
+      <svg class="arrow" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true">
+        <path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" />
+      </svg>
+    )
+  }
+</Tag>
 
 <style>
   .button {
@@ -32,6 +44,7 @@ const { variant = "primary", class: className, ...rest } = Astro.props;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
+    cursor: pointer;
     /* Sombra dura, como una tarjeta pegada en la libreta */
     box-shadow: 3px 3px 0 var(--ink);
     transition:
@@ -53,6 +66,12 @@ const { variant = "primary", class: className, ...rest } = Astro.props;
   .button:hover {
     transform: translate(-1px, -1px);
     box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .button:disabled {
+    opacity: 0.55;
+    cursor: wait;
+    transform: none;
   }
 
   .button:active {

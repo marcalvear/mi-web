@@ -51,6 +51,7 @@ cd worker/chatbot && npm test
 - [ADR 0002: El chatbot pasa por un Cloudflare Worker](docs/adr/0002-chatbot-con-worker.md)
 - [ADR 0003: Formulario con envío normal para tener respuesta automática](docs/adr/0003-formulario-envio-normal.md)
 - [ADR 0004: Astro con GitHub Actions](docs/adr/0004-astro-con-github-actions.md)
+- [ADR 0005: Las frases de anime van en un mazo guardado en la web](docs/adr/0005-mazo-de-frases-local.md)
 
 ## Historial
 
