@@ -1,22 +1,5 @@
 ---
-import Base from "../layouts/Base.astro";
-import { useTranslations } from "../i18n/ui";
-
-const t = useTranslations("es");
+import Home from "../components/home/Home.astro";
 ---
 
-<Base lang="es">
-  <div class="wrap wip">
-    <p class="label">Cuaderno nº 3</p>
-    <h1>{t("wip.title")}</h1>
-    <p>{t("wip.body")}</p>
-  </div>
-</Base>
-
-<style>
-  .wip {
-    display: grid;
-    gap: var(--space-2);
-    padding-block: var(--space-7);
-  }
-</style>
+<Home lang="es" />

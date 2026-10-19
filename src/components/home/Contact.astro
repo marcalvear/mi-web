@@ -1,0 +1,95 @@
+---
+// Contacto: un clic y apareces. El formulario conectado a n8n llega en #30.
+import Entry from "../Entry.astro";
+import type { HomeContent } from "../../i18n/home";
+
+interface Props {
+  content: HomeContent["contact"];
+}
+const { content } = Astro.props;
+---
+
+<Entry id="contacto" number={4} kicker={content.kicker} title={content.title}>
+  <p class="lead">{content.lead}</p>
+  <ul class="channels" role="list">
+    {
+      content.channels.map((c) => (
+        <li>
+          <a href={c.href} rel="me">
+            <span class="name">{c.name}</span>
+            <span class="label handle">{c.handle}</span>
+            <svg class="arrow" width="28" height="18" viewBox="0 0 28 18" aria-hidden="true">
+              <path d="M0 9h25M18 2l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" />
+            </svg>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <slot />
+</Entry>
+
+<style>
+  .lead {
+    max-width: 34ch;
+    font-size: var(--step-2);
+    line-height: 1.3;
+  }
+
+  .channels {
+    margin-block-start: var(--space-4);
+    padding: 0;
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .channels li {
+    max-width: none;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .channels a {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+      "name arrow"
+      "handle arrow";
+    align-items: center;
+    column-gap: var(--space-2);
+    padding-block: var(--space-2);
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .name {
+    grid-area: name;
+    font-size: var(--step-3);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+
+  .handle {
+    grid-area: handle;
+  }
+
+  .arrow {
+    grid-area: arrow;
+    transition: transform var(--fast) var(--ease-out);
+  }
+
+  .channels a:hover .name {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .channels a:hover .arrow {
+    transform: translateX(6px);
+    color: var(--accent);
+  }
+
+  @media (min-width: 48rem) {
+    .channels a {
+      grid-template-columns: 14rem 1fr auto;
+      grid-template-areas: "name handle arrow";
+    }
+  }
+</style>

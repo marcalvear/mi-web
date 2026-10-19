@@ -19,31 +19,58 @@ interface Props {
   title: string;
   width?: number;
   height?: number;
+  /** Tamaño de letra en unidades del dibujo; los nodos crecen con él. */
+  fontSize?: number;
+  /** Ancho mínimo en pantalla antes de desplazarse dentro de su caja. */
+  minWidth?: string;
+  /** Hacia dónde corre el flujo: los cables salen por la derecha o por abajo. */
+  direction?: "horizontal" | "vertical";
 }
 
-const { nodes, edges, title, width = 640, height = 220 } = Astro.props;
-const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
-const W = 128; // ancho de cada nodo
-const H = 44;
+const {
+  nodes,
+  edges,
+  title,
+  width = 640,
+  height = 220,
+  fontSize = 13,
+  minWidth = "34rem",
+  direction = "horizontal",
+} = Astro.props;
 
-// Cable en S entre el borde derecho de un nodo y el izquierdo del siguiente
+// Cada nodo mide lo que su texto (la mono tiene un ancho de unos 0,62 em)
+const H = fontSize * 3.4;
+const sized = nodes.map((n) => ({
+  ...n,
+  w: Math.max(fontSize * 6, n.label.length * fontSize * 0.62 + fontSize * 2),
+}));
+const byId = Object.fromEntries(sized.map((n) => [n.id, n]));
+
+// Cable en S: de derecha a izquierda en horizontal, de abajo arriba en vertical
 const wires = edges.map(([from, to], i) => {
   const a = byId[from];
   const b = byId[to];
-  const x1 = a.x + W / 2;
-  const x2 = b.x - W / 2;
+  if (direction === "vertical") {
+    const y1 = a.y + H / 2;
+    const y2 = b.y - H / 2;
+    const mid = (y1 + y2) / 2;
+    return { d: `M${a.x},${y1} C${a.x},${mid} ${b.x},${mid} ${b.x},${y2}`, i };
+  }
+  const x1 = a.x + a.w / 2;
+  const x2 = b.x - b.w / 2;
   const mid = (x1 + x2) / 2;
   return { d: `M${x1},${a.y} C${mid},${a.y} ${mid},${b.y} ${x2},${b.y}`, i };
 });
 const titleId = `flow-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<div class="flow-scroll">
+<div class="flow-scroll" style={`--flow-min: ${minWidth}`}>
 <svg
   class="flow"
   viewBox={`0 0 ${width} ${height}`}
   role="img"
   aria-labelledby={titleId}
+  style={`--flow-font: ${fontSize}px`}
 >
   <title id={titleId}>{title}</title>
 
@@ -54,9 +81,9 @@ const titleId = `flow-${Math.random().toString(36).slice(2, 8)}`;
   }
 
   {
-    nodes.map((n, i) => (
+    sized.map((n, i) => (
       <g class:list={["node", { accent: n.accent }]} style={`--i: ${i}`}>
-        <rect x={n.x - W / 2} y={n.y - H / 2} width={W} height={H} rx="3" />
+        <rect x={n.x - n.w / 2} y={n.y - H / 2} width={n.w} height={H} rx="3" />
         <text x={n.x} y={n.y} dy="0.35em" text-anchor="middle">
           {n.label}
         </text>
@@ -66,7 +93,7 @@ const titleId = `flow-${Math.random().toString(36).slice(2, 8)}`;
 
   {
     wires.map((w) => (
-      <circle class="pulse" r="4" style={`offset-path: path("${w.d}"); --i: ${w.i}`} />
+      <circle class="pulse" r={fontSize * 0.32} style={`offset-path: path("${w.d}"); --i: ${w.i}`} />
     ))
   }
 </svg>
@@ -95,7 +122,7 @@ const titleId = `flow-${Math.random().toString(36).slice(2, 8)}`;
 
   .flow {
     width: 100%;
-    min-width: 34rem;
+    min-width: var(--flow-min);
     overflow: visible;
     font-family: var(--font-mono);
   }
@@ -116,7 +143,7 @@ const titleId = `flow-${Math.random().toString(36).slice(2, 8)}`;
 
   .node text {
     fill: var(--ink);
-    font-size: 13px;
+    font-size: var(--flow-font);
     font-weight: 500;
   }
 

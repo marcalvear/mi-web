@@ -1,0 +1,28 @@
+---
+// La portada entera para un idioma. Sigue los bloques de la pauta: cabecera,
+// sobre mí, lo que he hecho, me gusta y contacto (el pie va en Base.astro).
+import Base from "../../layouts/Base.astro";
+import Hero from "./Hero.astro";
+import About from "./About.astro";
+import Work from "./Work.astro";
+import Likes from "./Likes.astro";
+import Contact from "./Contact.astro";
+import { home } from "../../i18n/home";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = home[lang];
+---
+
+<Base lang={lang} fullTitle={c.meta.title} description={c.meta.description}>
+  <Hero content={c.hero} />
+  <div class="wrap">
+    <About content={c.about} />
+    <Work lang={lang} content={c.work} />
+    <Likes lang={lang} content={c.likes} />
+    <Contact content={c.contact} />
+  </div>
+</Base>
