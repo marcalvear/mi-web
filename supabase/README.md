@@ -71,7 +71,9 @@ En **Authentication**:
 > con la plantilla de serie. Para probar me vale. Antes de abrir el formulario
 > al público (#30) hay que poner un SMTP propio en **Emails → SMTP Settings**.
 > Brevo tiene plan gratuito y basta con verificar mi email como remitente;
-> Resend pide tener un dominio propio para escribir a otras personas.
+> Resend pide tener un dominio propio para escribir a otras personas. Los
+> pasos de Brevo están en [`n8n/README.md`](../n8n/README.md), que usa el
+> mismo SMTP para la respuesta automática.
 
 ### 4. Mi cuenta de administrador
 

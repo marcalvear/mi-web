@@ -1,6 +1,6 @@
 # ADR 0003: Formulario con envío normal para tener respuesta automática
 
-- **Estado:** aceptada
+- **Estado:** sustituida por la [ADR 0007](0007-contacto-con-n8n.md) en la v3
 - **Fecha:** 13/10/2026
 
 ## Contexto
