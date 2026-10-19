@@ -56,16 +56,22 @@ En **Authentication**:
    - **Redirect URLs** (*Add URL*, una por una):
      - `https://marcalvear.github.io/mi-web/**`
      - `http://localhost:4321/mi-web/**`
-3. **Emails → Templates → Magic link:**
+3. **Emails → Templates → Magic link:** con el correo que trae Supabase la
+   plantilla **no se puede editar** (*Set up custom SMTP to edit templates*).
+   Mientras tanto llega la de serie, que solo trae el **enlace**: se entra
+   pulsándolo, y `/entrar/` lo acepta igual que el código.
+
+   Cuando haya SMTP propio (ver abajo), se pega aquí la plantilla con código
+   y enlace:
    - **Subject:** `Tu código para entrar · Your sign-in code`
-   - **Body:** pega [`templates/magic-link.html`](templates/magic-link.html).
-     Lleva el código y el enlace, y la página acepta los dos.
+   - **Body** (pestaña *Source*): [`templates/magic-link.html`](templates/magic-link.html).
 
 > **Correo de verdad:** el servidor de correo que trae Supabase solo envía a
-> los emails del equipo del proyecto (o sea, al mío) y unos pocos por hora.
-> Para probar me vale. Antes de abrir el formulario al público (#30) hay que
-> poner un SMTP propio en **Emails → SMTP Settings** (Resend o Brevo tienen
-> plan gratuito).
+> los emails del equipo del proyecto (o sea, al mío), unos pocos por hora y
+> con la plantilla de serie. Para probar me vale. Antes de abrir el formulario
+> al público (#30) hay que poner un SMTP propio en **Emails → SMTP Settings**.
+> Brevo tiene plan gratuito y basta con verificar mi email como remitente;
+> Resend pide tener un dominio propio para escribir a otras personas.
 
 ### 4. Mi cuenta de administrador
 
@@ -107,8 +113,8 @@ Las dos públicas van en:
 npm run dev
 ```
 
-Abre http://localhost:4321/mi-web/entrar/, escribe mi email, copia el código
-del correo y entra: tiene que decir *Rol: administrador*. En **Table Editor →
+Abre http://localhost:4321/mi-web/entrar/, escribe mi email y entra con el
+código del correo (o con el enlace, si aún uso la plantilla de serie): tiene que decir *Rol: administrador*. En **Table Editor →
 events** aparece una fila `entrar`.
 
 ## Si cambio el esquema
