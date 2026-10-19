@@ -25,12 +25,7 @@ export interface HomeContent {
     kicker: string;
     title: string;
     project: {
-      label: string;
-      name: string;
-      summary: string;
       steps: { label: string; text: string }[];
-      metrics: { value: string; label: string }[];
-      metricsNote: string;
       imageAlt: string;
       caption: string;
       caseLink: string;
@@ -92,10 +87,6 @@ export const home: Record<Lang, HomeContent> = {
       kicker: "Qué sé hacer",
       title: "Lo que he hecho",
       project: {
-        label: "Proyecto · Septiembre de 2026",
-        name: "Sonrisa Imperial",
-        summary:
-          "Landing page para que una clínica dental (ficticia) consiga citas de personas que llegan desde el móvil.",
         steps: [
           {
             label: "Problema",
@@ -110,15 +101,6 @@ export const home: Record<Lang, HomeContent> = {
             text: "Un único HTML de 19 KB que carga rápido y se usa bien en el móvil.",
           },
         ],
-        metrics: [
-          { value: "94", label: "Rendimiento" },
-          { value: "100", label: "Accesibilidad" },
-          { value: "96", label: "Buenas prácticas" },
-          { value: "100", label: "SEO" },
-          { value: "58 KB", label: "Peso total" },
-          { value: "0", label: "CLS" },
-        ],
-        metricsNote: "Lighthouse en móvil, 13 de octubre de 2026.",
         imageAlt:
           "Primera pantalla de la landing de Sonrisa Imperial: una arcada dental dibujada en la cabecera, el titular «Empieza por una revisión sin prisas» y el formulario para pedir cita.",
         caption: "La arcada dental se dibuja en SVG y el formulario se ve sin hacer scroll.",
@@ -225,10 +207,6 @@ export const home: Record<Lang, HomeContent> = {
       kicker: "What I can do",
       title: "What I've done",
       project: {
-        label: "Project · September 2026",
-        name: "Sonrisa Imperial",
-        summary:
-          "A landing page that helps a (fictional) dental clinic book appointments from people arriving on their phones.",
         steps: [
           {
             label: "Problem",
@@ -243,15 +221,6 @@ export const home: Record<Lang, HomeContent> = {
             text: "A single 19 KB HTML file that loads fast and works well on a phone.",
           },
         ],
-        metrics: [
-          { value: "94", label: "Performance" },
-          { value: "100", label: "Accessibility" },
-          { value: "96", label: "Best practices" },
-          { value: "100", label: "SEO" },
-          { value: "58 KB", label: "Total weight" },
-          { value: "0", label: "CLS" },
-        ],
-        metricsNote: "Lighthouse, mobile, 13 October 2026.",
         imageAlt:
           "First screen of the Sonrisa Imperial landing page: a row of teeth drawn across the header, the headline “Empieza por una revisión sin prisas” and the booking form.",
         caption: "The teeth are drawn in SVG and the form is visible without scrolling.",
