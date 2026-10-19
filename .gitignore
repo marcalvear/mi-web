@@ -8,3 +8,8 @@ recursos/
 node_modules/
 dist/
 .astro/
+
+# Variables de entorno locales (ver .env.example)
+.env
+.env.*
+!.env.example
