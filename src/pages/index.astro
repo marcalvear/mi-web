@@ -1,0 +1,11 @@
+---
+import Base from "../layouts/Base.astro";
+import { useTranslations } from "../i18n/ui";
+
+const t = useTranslations("es");
+---
+
+<Base lang="es">
+  <h1>{t("wip.title")}</h1>
+  <p>{t("wip.body")}</p>
+</Base>

@@ -1,0 +1,52 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { otherLang, useTranslations, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  description?: string;
+  /** Ruta de la página sin idioma ni base, p. ej. "me-gusta/". */
+  path?: string;
+  /** Para la 404: sin canonical ni versiones en otros idiomas. */
+  noindex?: boolean;
+}
+
+const { lang, title, description, path = "", noindex = false } = Astro.props;
+const t = useTranslations(lang);
+const alt = otherLang(lang);
+const pageTitle = title ? `${title} · ${t("site.title")}` : t("site.title");
+const canonical = new URL(getRelativeLocaleUrl(lang, path), Astro.site);
+const alternate = (l: Lang) => new URL(getRelativeLocaleUrl(l, path), Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description ?? t("site.description")} />
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <>
+          <link rel="canonical" href={canonical} />
+          <link rel="alternate" hreflang="es" href={alternate("es")} />
+          <link rel="alternate" hreflang="en" href={alternate("en")} />
+          <link rel="alternate" hreflang="x-default" href={alternate("es")} />
+        </>
+      )
+    }
+  </head>
+  <body>
+    <a class="skip" href="#main">{t("skip")}</a>
+    <header>
+      <a href={getRelativeLocaleUrl(alt, path)} hreflang={alt} lang={alt}>{t("lang.switch")}</a>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+  </body>
+</html>

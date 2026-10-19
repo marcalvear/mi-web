@@ -1,0 +1,16 @@
+---
+// GitHub Pages sirve esta página para cualquier ruta que no exista, también
+// las de /en/. Como Astro genera rutas absolutas con la base, no hace falta
+// el <base> dinámico de la v2.
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Base from "../layouts/Base.astro";
+import { useTranslations } from "../i18n/ui";
+
+const t = useTranslations("es");
+---
+
+<Base lang="es" title={t("404.title")} noindex>
+  <h1>{t("404.title")}</h1>
+  <p>{t("404.body")}</p>
+  <p><a href={getRelativeLocaleUrl("es")}>{t("404.back")}</a></p>
+</Base>
