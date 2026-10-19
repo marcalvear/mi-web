@@ -30,7 +30,7 @@ const c = likes[lang];
 
     <Entry id="frases" number={2} kicker={c.deck.kicker} title={c.deck.title}>
       <p>{c.deck.intro}</p>
-      <QuoteDeck text={c.deck} />
+      <QuoteDeck lang={lang} text={c.deck} />
     </Entry>
 
     <Entry id="biohacking" number={3} kicker={c.bio.kicker} title={c.bio.title}>
