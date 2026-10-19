@@ -28,6 +28,12 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        # Datos públicos de Supabase (ADR 0006): van en Settings → Secrets and
+        # variables → Actions → Variables. Si faltan, /entrar/ avisa de que el
+        # acceso aún no está conectado. La clave service_role nunca va aquí.
+        env:
+          PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL }}
+          PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY }}
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:

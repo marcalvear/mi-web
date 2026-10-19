@@ -17,8 +17,10 @@ IES Dr. Lluís Simarro.
 │   ├── pages/              una ruta por fichero; en/ para el inglés
 │   ├── layouts/            plantilla común (Base.astro)
 │   ├── i18n/ui.ts          textos de la interfaz en los dos idiomas
+│   ├── lib/supabase.ts     cliente de Supabase (solo la clave pública)
 │   └── assets/img/         imágenes que Astro optimiza
 ├── public/                 ficheros que se copian tal cual (vídeo, landing)
+├── supabase/               esquema, reglas RLS con sus pruebas y correo de acceso
 ├── worker/chatbot/         Cloudflare Worker del asistente (con pruebas)
 ├── .github/workflows/      compilación y publicación en GitHub Pages
 └── docs/
@@ -39,6 +41,10 @@ npm run dev
 y abrir http://localhost:4321/mi-web/. Para compilar como en GitHub Pages:
 `npm run build` y `npm run preview`.
 
+Para que funcione `/entrar/`, copia `.env.example` como `.env` y pon la URL y
+la clave pública de Supabase. Cómo crear el proyecto y probar las reglas:
+[supabase/README.md](supabase/README.md).
+
 Pruebas del Worker del chatbot:
 
 ```bash
@@ -52,6 +58,7 @@ cd worker/chatbot && npm test
 - [ADR 0003: Formulario con envío normal para tener respuesta automática](docs/adr/0003-formulario-envio-normal.md)
 - [ADR 0004: Astro con GitHub Actions](docs/adr/0004-astro-con-github-actions.md)
 - [ADR 0005: Las frases de anime van en un mazo guardado en la web](docs/adr/0005-mazo-de-frases-local.md)
+- [ADR 0006: Usuarios y mensajes en Supabase, protegidos con RLS](docs/adr/0006-supabase-con-rls.md)
 
 ## Historial
 

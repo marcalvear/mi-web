@@ -1,0 +1,417 @@
+---
+// Página Entrar: acceso sin contraseña con Supabase Auth (ADR 0006).
+// Tres pasos en la misma ficha: email → código → dentro. Todo pasa en el
+// navegador: GitHub Pages solo sirve ficheros, así que no hay servidor propio.
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Base from "../../layouts/Base.astro";
+import Button from "../Button.astro";
+import MarginNote from "../MarginNote.astro";
+import { auth } from "../../i18n/auth";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = auth[lang];
+const contact = `${getRelativeLocaleUrl(lang)}#contacto`;
+// Solo lo que necesita el script
+const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
+---
+
+<Base lang={lang} title={c.meta.title} description={c.meta.description} path="entrar/">
+  <div class="wrap">
+    <header class="intro">
+      <p class="label">{c.kicker}</p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.lead}</p>
+    </header>
+
+    <MarginNote label={c.noteLabel}>{c.note}</MarginNote>
+
+    <div class="card" data-signin data-text={JSON.stringify(text)}>
+      <noscript><p>{c.noscript}</p></noscript>
+
+      <p class="label" data-panel="loading" hidden>{c.loading}</p>
+      <p data-panel="setup" hidden>{c.setup}</p>
+
+      <form class="step" data-panel="email" hidden novalidate>
+        <label class="label" for={`signin-email-${lang}`}>{c.email.label}</label>
+        <input
+          id={`signin-email-${lang}`}
+          name="email"
+          type="email"
+          placeholder={c.email.placeholder}
+          autocomplete="email"
+          autocapitalize="none"
+          spellcheck="false"
+          required
+          data-focus
+        />
+        <p class="help">{c.email.help}</p>
+        <div class="row">
+          <Button type="submit" data-submit>{c.email.submit}</Button>
+        </div>
+        <p class="help">
+          {c.email.noAccount} <a href={contact}>{c.email.noAccountLink}</a>{" "}
+          {c.email.noAccountEnd}
+        </p>
+      </form>
+
+      <form class="step" data-panel="code" hidden novalidate>
+        <h2 tabindex="-1" data-focus>{c.code.title}</h2>
+        <p data-code-lead></p>
+        <label class="label" for={`signin-code-${lang}`}>{c.code.label}</label>
+        <input
+          id={`signin-code-${lang}`}
+          class="code"
+          name="code"
+          type="text"
+          inputmode="numeric"
+          autocomplete="one-time-code"
+          pattern="[0-9]*"
+          maxlength="10"
+          required
+        />
+        <div class="row">
+          <Button type="submit" data-submit>{c.code.submit}</Button>
+          <Button variant="ghost" arrow={false} data-resend>{c.code.resend}</Button>
+        </div>
+        <button type="button" class="text-button" data-change>{c.code.change}</button>
+      </form>
+
+      <div class="step" data-panel="in" hidden>
+        <h2 tabindex="-1" data-focus>{c.in.title}</h2>
+        <dl class="facts">
+          <div>
+            <dt class="label">{c.in.as}</dt>
+            <dd data-who></dd>
+          </div>
+          <div>
+            <dt class="label">{c.in.role}</dt>
+            <dd data-role>—</dd>
+          </div>
+        </dl>
+        <p>{c.in.soon}</p>
+        <div class="row">
+          <Button variant="ghost" arrow={false} data-signout>{c.in.signOut}</Button>
+        </div>
+      </div>
+
+      <p class="status" role="status" data-status></p>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { isAuthError, type User } from "@supabase/supabase-js";
+  import { emailLink, supabase } from "../../lib/supabase";
+  import type { AuthText } from "../../i18n/auth";
+
+  type Text = Pick<AuthText, "email" | "code" | "in" | "errors">;
+  type Step = "loading" | "setup" | "email" | "code" | "in";
+
+  const COOLDOWN = 60; // Supabase no deja pedir otro código antes de 60 s
+  // Errores que salen cuando el email no tiene cuenta (ver sendCode)
+  const NO_ACCOUNT = ["otp_disabled", "signup_disabled", "user_not_found"];
+
+  const root = document.querySelector<HTMLElement>("[data-signin]");
+  if (root) init(root);
+
+  async function init(root: HTMLElement) {
+    const t = JSON.parse(root.dataset.text!) as Text;
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+    const panels = root.querySelectorAll<HTMLElement>("[data-panel]");
+    const status = $("[data-status]");
+    const emailForm = $<HTMLFormElement>('[data-panel="email"]');
+    const codeForm = $<HTMLFormElement>('[data-panel="code"]');
+    const emailInput = emailForm.elements.namedItem("email") as HTMLInputElement;
+    const codeInput = codeForm.elements.namedItem("code") as HTMLInputElement;
+    const resend = $<HTMLButtonElement>("[data-resend]");
+
+    let email = "";
+    let timer = 0;
+
+    function show(step: Step, focus = true) {
+      panels.forEach((p) => (p.hidden = p.dataset.panel !== step));
+      if (focus) root.querySelector<HTMLElement>(`[data-panel="${step}"] [data-focus]`)?.focus();
+    }
+
+    function say(message = "", error = false) {
+      status.textContent = message;
+      status.classList.toggle("error", error);
+    }
+
+    function busy(form: HTMLFormElement, on: boolean, label: string) {
+      const button = form.querySelector<HTMLButtonElement>("[data-submit]")!;
+      button.disabled = on;
+      // Cambia solo el texto y deja la flecha
+      const textNode = [...button.childNodes].find((n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim());
+      if (textNode) textNode.textContent = label;
+    }
+
+    function explain(error: unknown): string {
+      if (!error) return t.errors.generic;
+      if (!isAuthError(error)) return t.errors.network;
+      if (error.status === 0 || error.name === "AuthRetryableFetchError") return t.errors.network;
+      if (error.status === 429 || error.code?.startsWith("over_")) return t.errors.rate;
+      if (error.code === "otp_expired") return t.errors.badCode;
+      if (error.code === "email_address_not_authorized") return t.errors.mailOff;
+      return t.errors.generic;
+    }
+
+    // Tras pedir un código hay que esperar un minuto para pedir otro
+    function startCooldown() {
+      let left = COOLDOWN;
+      const tick = () => {
+        resend.disabled = left > 0;
+        resend.textContent = left > 0 ? t.code.resendIn.replace("{s}", String(left)) : t.code.resend;
+        if (left-- <= 0) clearInterval(timer);
+      };
+      clearInterval(timer);
+      tick();
+      timer = window.setInterval(tick, 1000);
+    }
+
+    async function sendCode(): Promise<boolean> {
+      const { error } = await supabase!.auth.signInWithOtp({
+        email,
+        options: {
+          // Las cuentas las crea n8n al recibir el formulario, no esta página
+          shouldCreateUser: false,
+          // El enlace del correo vuelve a esta misma página (ES o EN)
+          emailRedirectTo: location.origin + location.pathname,
+        },
+      });
+      // Si el email no tiene cuenta, Supabase da error, pero la página
+      // responde igual que si la tuviera: así nadie puede averiguar
+      // quién me ha escrito probando emails.
+      if (error && !NO_ACCOUNT.includes(error.code ?? "")) {
+        say(explain(error), true);
+        return false;
+      }
+      startCooldown();
+      return true;
+    }
+
+    async function signedIn(user: User, focus = true) {
+      $("[data-who]").textContent = user.email ?? "";
+      show("in", focus);
+      // RLS: aunque la consulta no filtrase, solo volvería su propio perfil
+      // (o todos, si es admin; por eso se pide por id)
+      const { data } = await supabase!
+        .from("profiles")
+        .select("name, email, role")
+        .eq("id", user.id)
+        .maybeSingle();
+      if (data) {
+        $("[data-who]").textContent = data.name ? `${data.name} · ${data.email}` : data.email;
+        $("[data-role]").textContent = t.in.roles[data.role];
+      }
+    }
+
+    // Queda en events para el panel de administrador (#32)
+    async function logSignIn(user: User, via: "codigo" | "enlace") {
+      await supabase!
+        .from("events")
+        .insert({ user_id: user.id, type: "entrar", data: { via, lang: document.documentElement.lang } });
+    }
+
+    emailForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (!emailInput.checkValidity()) {
+        say(t.errors.invalidEmail, true);
+        emailInput.focus();
+        return;
+      }
+      email = emailInput.value.trim().toLowerCase();
+      say();
+      busy(emailForm, true, t.email.sending);
+      const ok = await sendCode();
+      busy(emailForm, false, t.email.submit);
+      if (!ok) return;
+      $("[data-code-lead]").textContent = t.code.lead.replace("{email}", email);
+      codeForm.reset();
+      show("code");
+    });
+
+    codeForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const token = codeInput.value.replace(/\s/g, "");
+      if (!/^\d{6,10}$/.test(token)) {
+        say(t.errors.invalidCode, true);
+        codeInput.focus();
+        return;
+      }
+      say();
+      busy(codeForm, true, t.code.checking);
+      const { data, error } = await supabase!.auth.verifyOtp({ email, token, type: "email" });
+      busy(codeForm, false, t.code.submit);
+      if (error || !data.user) {
+        say(explain(error), true);
+        codeInput.select();
+        return;
+      }
+      clearInterval(timer);
+      await logSignIn(data.user, "codigo");
+      signedIn(data.user);
+    });
+
+    resend.addEventListener("click", async () => {
+      say();
+      if (await sendCode()) say(t.code.resent);
+    });
+
+    $("[data-change]").addEventListener("click", () => {
+      say();
+      show("email");
+    });
+
+    $("[data-signout]").addEventListener("click", async () => {
+      // Solo en este navegador; si ha entrado en el móvil, ahí sigue dentro
+      await supabase!.auth.signOut({ scope: "local" });
+      emailForm.reset();
+      show("email");
+      say(t.in.signedOut);
+    });
+
+    // Arranque ----------------------------------------------------------------
+    if (!supabase) {
+      show("setup", false);
+      return;
+    }
+    show("loading", false);
+
+    // Si cierra sesión en otra pestaña, esta también vuelve al principio
+    supabase.auth.onAuthStateChange((event) => {
+      if (event === "SIGNED_OUT" && !root.querySelector<HTMLElement>('[data-panel="in"]')!.hidden) {
+        show("email", false);
+      }
+    });
+
+    // getSession espera a que el cliente lea el #hash del enlace del correo
+    const { data } = await supabase.auth.getSession();
+    if (emailLink) history.replaceState(null, "", location.pathname + location.search);
+    const user = data.session?.user;
+    if (user) {
+      if (emailLink === "session") await logSignIn(user, "enlace");
+      signedIn(user, false);
+    } else {
+      show("email", false);
+      if (emailLink === "error") say(t.errors.linkExpired, true);
+    }
+  }
+</script>
+
+<style>
+  .intro {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .lead {
+    max-width: 40ch;
+    font-size: var(--step-2);
+    line-height: 1.3;
+  }
+
+  /* Ficha suelta grapada en la libreta, como la de la Pokédex */
+  .card {
+    max-width: 36rem;
+    margin-block: var(--space-3) var(--space-7);
+    padding: var(--space-4) var(--space-3);
+    background: var(--sheet);
+    border: 1.5px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--rule);
+  }
+
+  .step {
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  /* Sin esto, el display: grid de arriba ganaría al atributo hidden */
+  [hidden] {
+    display: none !important;
+  }
+
+  .step h2 {
+    font-size: var(--step-2);
+  }
+
+  .step h2:focus {
+    outline: none;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-block: var(--space-2);
+  }
+
+  input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--paper);
+    font-family: var(--font-mono);
+  }
+
+  /* El código se lee como en una calculadora: cifras grandes y separadas */
+  .code {
+    max-width: 14ch;
+    font-size: var(--step-2);
+    letter-spacing: 0.3em;
+  }
+
+  .help {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .text-button {
+    justify-self: start;
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+  }
+
+  .facts {
+    display: grid;
+    gap: var(--space-2);
+    margin-block: var(--space-2);
+    padding-block: var(--space-2);
+    border-block: 1px dashed var(--rule);
+  }
+
+  .facts dd {
+    margin: 0;
+    font-size: var(--step-1);
+    overflow-wrap: anywhere;
+  }
+
+  .status {
+    margin-block-start: var(--space-2);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .status.error {
+    color: var(--accent);
+  }
+</style>
