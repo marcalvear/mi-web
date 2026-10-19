@@ -38,7 +38,7 @@ validado antes en el navegador con `contacto.js`, y página propia
   recibe confirmación en su correo.
 - `_next` se calcula en JavaScript desde la página actual, para que funcione
   igual en local y en GitHub Pages.
-- Mi email aparece en el `action` hasta que active el formulario; después lo
-  cambio por el alias aleatorio que da FormSubmit.
+- El `action` usa el alias aleatorio que da FormSubmit al activar el
+  formulario, no mi email, para que los bots que rastrean webs no lo encuentren.
 - Anti-spam: campo trampa `_honey` (invisible para las personas) además del
   captcha.
