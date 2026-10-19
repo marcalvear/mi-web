@@ -1,20 +1,23 @@
 ---
-// Mazo de frases de anime. Las frases vienen de /datos/frases-anime.json
-// (descargadas una vez de Animechan); el orden barajado y las ya vistas se
-// guardan en localStorage para no repetir ninguna hasta agotar el mazo.
-// El botón «en vivo» pregunta a la API real y dice si la frase era nueva.
+// Mazo de frases de anime. Las frases vienen de /datos/frases-anime.<idioma>.json
+// (descargadas una vez de Animechan y traducidas al español); el orden barajado
+// y las ya vistas se guardan en localStorage para no repetir ninguna hasta
+// agotar el mazo. El botón «en vivo» pregunta a la API real y dice si la frase
+// era nueva; si ya estaba en el mazo, se enseña la versión del mazo.
 import Button from "../Button.astro";
+import type { Lang } from "../../i18n/ui";
 import type { DeckText } from "../../i18n/likes";
 
 interface Props {
+  lang: Lang;
   text: DeckText;
 }
-const { text } = Astro.props;
+const { lang, text } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
 const filters = ["all", "naruto", "jojo"] as const;
 ---
 
-<div class="deck" data-deck data-src={`${base}datos/frases-anime.json`} data-text={JSON.stringify(text)}>
+<div class="deck" data-deck data-src={`${base}datos/frases-anime.${lang}.json`} data-text={JSON.stringify(text)}>
   <div class="chips" role="group" aria-label={text.filters.label}>
     {
       filters.map((f) => (
@@ -27,7 +30,7 @@ const filters = ["all", "naruto", "jojo"] as const;
 
   <figure class="card" aria-live="polite" aria-busy="true">
     <p class="label source" data-source>{text.fromDeck}</p>
-    <blockquote lang="en">
+    <blockquote>
       <p data-quote>{text.loading}</p>
     </blockquote>
     <figcaption>
@@ -47,7 +50,16 @@ const filters = ["all", "naruto", "jojo"] as const;
 </div>
 
 <script>
-  type Quote = { anime: "naruto" | "jojo"; series: string; character: string; text: string };
+  // `original` es la frase en inglés (solo en el mazo traducido) y `lang` marca
+  // las que se quedan en inglés porque aún no tienen traducción
+  type Quote = {
+    anime: "naruto" | "jojo";
+    series: string;
+    character: string;
+    text: string;
+    original?: string;
+    lang?: string;
+  };
   type Filter = "all" | "naruto" | "jojo";
   type State = { order: number[]; seen: number[]; filter: Filter; current: number | null };
 
@@ -107,11 +119,16 @@ const filters = ["all", "naruto", "jojo"] as const;
     }
 
     const state = load(quotes.length);
-    const known = new Set(quotes.map((q) => q.text));
+    // Frase original de Animechan → su sitio en el mazo
+    const known = new Map(quotes.map((q, i) => [q.original ?? q.text, i]));
+    const quoteEl = $("[data-quote]");
     const matches = (i: number) => state.filter === "all" || quotes[i].anime === state.filter;
 
     function show(q: Quote, source: string) {
-      $("[data-quote]").textContent = q.text;
+      quoteEl.textContent = q.text;
+      // El lector de pantalla pronuncia bien las frases que siguen en inglés
+      if (q.lang) quoteEl.lang = q.lang;
+      else quoteEl.removeAttribute("lang");
       $("[data-character]").textContent = q.character;
       $("[data-series]").textContent = q.series;
       $("[data-source]").textContent = source;
@@ -158,10 +175,13 @@ const filters = ["all", "naruto", "jojo"] as const;
         const raw = (await res.text()).replace(/[\u0000-\u001f]+/g, " ");
         const { data } = JSON.parse(raw);
         const text = data.content.replace(/\s+/g, " ").trim();
-        show(
-          { anime: pool, series: data.anime.name, character: data.character.name, text },
-          known.has(text) ? t.liveKnown : t.liveNew,
-        );
+        const i = known.get(text);
+        if (i !== undefined) show(quotes[i], t.liveKnown);
+        else
+          show(
+            { anime: pool, series: data.anime.name, character: data.character.name, text, lang: "en" },
+            t.liveNew,
+          );
         status.textContent = "";
       } catch (err) {
         status.textContent = err instanceof Error && err.message !== "Failed to fetch" ? err.message : t.liveError;
