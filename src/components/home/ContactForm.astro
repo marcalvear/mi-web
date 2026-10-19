@@ -1,0 +1,471 @@
+---
+// Formulario de contacto (#30). Envía el mensaje al webhook de n8n, que
+// comprueba el captcha, crea el usuario en Supabase si no existe, guarda el
+// mensaje y responde por correo (ADR 0007). Aquí no hay ninguna clave
+// secreta: la URL del webhook y la clave de sitio de Turnstile son públicas.
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Button from "../Button.astro";
+import { contact } from "../../i18n/contact";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = contact[lang].form;
+const MAX = 5000;
+
+// En local, sin .env, se usa la clave de pruebas de Turnstile, que siempre pasa
+const TEST_SITE_KEY = "1x00000000000000000000AA";
+const endpoint = import.meta.env.PUBLIC_N8N_CONTACT_URL ?? "";
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY || (import.meta.env.DEV ? TEST_SITE_KEY : "");
+const ready = Boolean(endpoint && siteKey);
+
+const privacy = getRelativeLocaleUrl(lang, "privacidad/");
+const id = (field: string) => `contact-${field}-${lang}`;
+// Solo lo que necesita el script
+const text = { submit: t.submit, sending: t.sending, count: t.message.count, done: t.done, errors: t.errors };
+---
+
+<section class="card" id="formulario" aria-labelledby={id("title")}>
+  <p class="label tag">{t.label}</p>
+  <h3 id={id("title")}>{t.title}</h3>
+
+  {
+    ready ? (
+      <div
+        data-contact
+        data-endpoint={endpoint}
+        data-sitekey={siteKey}
+        data-lang={lang}
+        data-max={MAX}
+        data-text={JSON.stringify(text)}
+      >
+        <form class="fields" data-panel="form" novalidate>
+          <p class="lead">{t.lead}</p>
+
+          <div class="field">
+            <label class="label" for={id("name")}>
+              {t.name.label} <span class="optional">({t.name.optional})</span>
+            </label>
+            <input id={id("name")} name="name" type="text" maxlength="120" autocomplete="name" placeholder={t.name.placeholder} />
+          </div>
+
+          <div class="field">
+            <label class="label" for={id("email")}>{t.email.label}</label>
+            <input
+              id={id("email")}
+              name="email"
+              type="email"
+              autocomplete="email"
+              autocapitalize="none"
+              spellcheck="false"
+              required
+              aria-describedby={id("email-help")}
+            />
+            <p class="help" id={id("email-help")}>{t.email.help}</p>
+          </div>
+
+          <div class="field">
+            <label class="label" for={id("message")}>{t.message.label}</label>
+            <textarea
+              id={id("message")}
+              name="message"
+              rows="6"
+              maxlength={MAX}
+              required
+              placeholder={t.message.placeholder}
+              aria-describedby={id("count")}
+            />
+            <p class="help count" id={id("count")} data-count>
+              {t.message.count.replace("{n}", "0").replace("{max}", String(MAX))}
+            </p>
+          </div>
+
+          {/* Campo trampa: invisible para las personas; los bots lo rellenan */}
+          <div class="trap" aria-hidden="true">
+            <label>
+              Web <input name="website" type="text" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+
+          <label class="consent">
+            <input name="consent" type="checkbox" required />
+            <span>
+              {t.consent.before} <a href={privacy}>{t.consent.link}</a> {t.consent.after}
+            </span>
+          </label>
+
+          {/* Turnstile y su nota van juntos: el widget no ocupa sitio salvo que dude */}
+          <div class="check">
+            <div data-captcha />
+            <p class="help">{t.captcha}</p>
+          </div>
+
+          <div class="row">
+            <Button type="submit" data-submit>{t.submit}</Button>
+          </div>
+        </form>
+
+        <div class="done" data-panel="done" hidden>
+          <h4 tabindex="-1" data-focus>{t.done.title}</h4>
+          <p data-done-body />
+          <Button variant="ghost" arrow={false} data-again>{t.done.again}</Button>
+        </div>
+
+        <p class="status" role="status" data-status />
+      </div>
+    ) : (
+      <p class="off">{t.off}</p>
+    )
+  }
+</section>
+
+<script>
+  import type { ContactFormText } from "../../i18n/contact";
+
+  type Text = Pick<ContactFormText, "submit" | "sending" | "count" | "done" | "errors">;
+  type Turnstile = {
+    render: (el: HTMLElement, options: Record<string, unknown>) => string;
+    reset: (id: string) => void;
+  };
+  type Window = typeof window & { turnstile?: Turnstile };
+
+  const SCRIPT = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+  const root = document.querySelector<HTMLElement>("[data-contact]");
+  if (root) init(root);
+
+  function init(root: HTMLElement) {
+    const t = JSON.parse(root.dataset.text!) as Text;
+    const max = Number(root.dataset.max);
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+    const form = $<HTMLFormElement>('[data-panel="form"]');
+    const done = $('[data-panel="done"]');
+    const status = $("[data-status]");
+    const submit = $<HTMLButtonElement>("[data-submit]");
+    const message = form.elements.namedItem("message") as HTMLTextAreaElement;
+    const count = $("[data-count]");
+
+    let token = "";
+    let widget = "";
+    let loaded = false;
+    let waiting: ((token: string) => void) | null = null;
+
+    function say(text = "", error = false) {
+      status.textContent = text;
+      status.classList.toggle("error", error);
+    }
+
+    function busy(on: boolean) {
+      submit.disabled = on;
+      // Cambia solo el texto y deja la flecha
+      const label = [...submit.childNodes].find((n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim());
+      if (label) label.textContent = on ? t.sending : t.submit;
+    }
+
+    // Turnstile ---------------------------------------------------------------
+    // El script de Cloudflare solo se descarga cuando el formulario está cerca
+    // de verse. En modo «interaction-only» no ocupa sitio salvo que dude.
+    function loadCaptcha() {
+      if (loaded) return;
+      loaded = true;
+      const w = window as Window;
+      const render = () => {
+        const theme = document.documentElement.dataset.theme;
+        widget = w.turnstile!.render($("[data-captcha]"), {
+          sitekey: root.dataset.sitekey,
+          language: root.dataset.lang,
+          theme: theme === "light" || theme === "dark" ? theme : "auto",
+          appearance: "interaction-only",
+          callback: (value: string) => {
+            token = value;
+            waiting?.(value);
+            waiting = null;
+          },
+          "expired-callback": () => (token = ""),
+          "error-callback": () => {
+            token = "";
+            return false; // que Turnstile siga reintentando por su cuenta
+          },
+        });
+      };
+      if (w.turnstile) return render();
+      const script = document.createElement("script");
+      script.src = SCRIPT;
+      script.async = true;
+      script.onload = render;
+      script.onerror = () => {
+        loaded = false; // se reintenta en el siguiente envío
+        script.remove();
+        say(t.errors.captchaLoad, true);
+        waiting?.("");
+        waiting = null;
+      };
+      document.head.append(script);
+    }
+
+    // Si aún no hay token, espera un poco a que Turnstile termine
+    function getToken(): Promise<string> {
+      if (token) return Promise.resolve(token);
+      return new Promise((resolve) => {
+        waiting = resolve;
+        setTimeout(() => resolve(token), 8000);
+      });
+    }
+
+    function resetCaptcha() {
+      token = "";
+      const w = window as Window;
+      if (widget && w.turnstile) w.turnstile.reset(widget);
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        loadCaptcha();
+      },
+      { rootMargin: "400px" },
+    );
+    io.observe(form);
+
+    // Formulario --------------------------------------------------------------
+    message.addEventListener("input", () => {
+      count.textContent = t.count.replace("{n}", String(message.value.length)).replace("{max}", String(max));
+    });
+
+    // Los campos se marcan como erróneos solo después de intentar enviar
+    form.addEventListener("invalid", () => form.classList.add("tried"), true);
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      say();
+      if (!form.checkValidity()) {
+        form.classList.add("tried");
+        say(t.errors.invalid, true);
+        form.querySelector<HTMLElement>(":invalid")?.focus();
+        return;
+      }
+
+      busy(true);
+      loadCaptcha(); // por si se envía antes de que el formulario llegase a verse
+      const captcha = await getToken();
+      if (!captcha) {
+        busy(false);
+        say(loaded ? t.errors.captchaWait : t.errors.captchaLoad, true);
+        return;
+      }
+
+      const data = new FormData(form);
+      const email = String(data.get("email")).trim();
+      try {
+        const res = await fetch(root.dataset.endpoint!, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name: String(data.get("name") ?? "").trim(),
+            email,
+            message: String(data.get("message") ?? "").trim(),
+            lang: root.dataset.lang,
+            consent: data.get("consent") === "on",
+            website: String(data.get("website") ?? ""),
+            captcha,
+          }),
+        });
+        if (res.ok) {
+          form.hidden = true;
+          done.hidden = false;
+          $("[data-done-body]").textContent = t.done.body.replace("{email}", email);
+          $("[data-focus]").focus();
+        } else if (res.status === 400) {
+          say(t.errors.invalid, true);
+        } else if (res.status === 403) {
+          say(t.errors.captcha, true);
+        } else {
+          say(t.errors.server, true);
+        }
+      } catch {
+        say(t.errors.network, true);
+      } finally {
+        busy(false);
+        // Cada token de Turnstile sirve una sola vez
+        resetCaptcha();
+      }
+    });
+
+    $("[data-again]").addEventListener("click", () => {
+      form.reset();
+      form.classList.remove("tried");
+      message.dispatchEvent(new Event("input"));
+      done.hidden = true;
+      form.hidden = false;
+      say();
+      form.querySelector<HTMLElement>("input:not([tabindex='-1'])")?.focus();
+    });
+  }
+</script>
+
+<style>
+  /* Ficha suelta grapada en la libreta, como la de Entrar */
+  .card {
+    position: relative;
+    max-width: 40rem;
+    margin-block-start: var(--space-5);
+    padding: var(--space-4) var(--space-3);
+    background: var(--sheet);
+    border: 1.5px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--rule);
+    scroll-margin-block-start: var(--space-5);
+  }
+
+  .tag {
+    color: var(--accent);
+  }
+
+  h3 {
+    margin-block: var(--space-1) var(--space-2);
+    font-size: var(--step-2);
+  }
+
+  .fields {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  /* Sin esto, el display: grid de arriba ganaría al atributo hidden */
+  [hidden] {
+    display: none !important;
+  }
+
+  .lead {
+    color: var(--ink-soft);
+  }
+
+  .field {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .optional {
+    color: var(--ink-soft);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  input:not([type="checkbox"]),
+  textarea {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--step-0);
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 9rem;
+    /* Renglones de libreta dentro del cuadro */
+    line-height: 1.6;
+  }
+
+  ::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.8;
+  }
+
+  /* El error se marca en rojo solo tras intentar enviar */
+  .tried :invalid:not(form) {
+    border-color: var(--accent);
+    box-shadow: inset 0 0 0 1px var(--accent);
+  }
+
+  .help {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .count {
+    justify-self: end;
+    font-family: var(--font-mono);
+  }
+
+  .consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    min-height: 44px;
+    cursor: pointer;
+  }
+
+  .consent input {
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-block-start: 0.2rem;
+    accent-color: var(--accent);
+  }
+
+  .tried .consent input:invalid {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .check {
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .done {
+    display: grid;
+    gap: var(--space-2);
+    justify-items: start;
+  }
+
+  .done h4 {
+    font-size: var(--step-2);
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .done h4:focus {
+    outline: none;
+  }
+
+  .status {
+    margin-block-start: var(--space-2);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .status.error {
+    color: var(--accent);
+  }
+
+  .off {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+</style>

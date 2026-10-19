@@ -7,6 +7,7 @@ import About from "./About.astro";
 import Work from "./Work.astro";
 import Likes from "./Likes.astro";
 import Contact from "./Contact.astro";
+import ContactForm from "./ContactForm.astro";
 import { home } from "../../i18n/home";
 import type { Lang } from "../../i18n/ui";
 
@@ -23,6 +24,8 @@ const c = home[lang];
     <About content={c.about} />
     <Work lang={lang} content={c.work} />
     <Likes lang={lang} content={c.likes} />
-    <Contact content={c.contact} />
+    <Contact content={c.contact}>
+      <ContactForm lang={lang} />
+    </Contact>
   </div>
 </Base>

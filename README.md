@@ -21,6 +21,7 @@ IES Dr. Lluís Simarro.
 │   └── assets/img/         imágenes que Astro optimiza
 ├── public/                 ficheros que se copian tal cual (vídeo, landing)
 ├── supabase/               esquema, reglas RLS con sus pruebas y correo de acceso
+├── n8n/                    flujo del formulario de contacto y su guía
 ├── worker/chatbot/         Cloudflare Worker del asistente (con pruebas)
 ├── .github/workflows/      compilación y publicación en GitHub Pages
 └── docs/
@@ -43,7 +44,9 @@ y abrir http://localhost:4321/mi-web/. Para compilar como en GitHub Pages:
 
 Para que funcione `/entrar/`, copia `.env.example` como `.env` y pon la URL y
 la clave pública de Supabase. Cómo crear el proyecto y probar las reglas:
-[supabase/README.md](supabase/README.md).
+[supabase/README.md](supabase/README.md). El formulario de contacto necesita
+además la URL del webhook de n8n y la clave de sitio de Turnstile:
+[n8n/README.md](n8n/README.md).
 
 Pruebas del Worker del chatbot:
 
@@ -55,10 +58,11 @@ cd worker/chatbot && npm test
 
 - [ADR 0001: Web Components sin herramientas de build](docs/adr/0001-web-components-sin-build.md) (v2, sustituida)
 - [ADR 0002: El chatbot pasa por un Cloudflare Worker](docs/adr/0002-chatbot-con-worker.md)
-- [ADR 0003: Formulario con envío normal para tener respuesta automática](docs/adr/0003-formulario-envio-normal.md)
+- [ADR 0003: Formulario con envío normal para tener respuesta automática](docs/adr/0003-formulario-envio-normal.md) (v2, sustituida)
 - [ADR 0004: Astro con GitHub Actions](docs/adr/0004-astro-con-github-actions.md)
 - [ADR 0005: Las frases de anime van en un mazo guardado en la web](docs/adr/0005-mazo-de-frases-local.md)
 - [ADR 0006: Usuarios y mensajes en Supabase, protegidos con RLS](docs/adr/0006-supabase-con-rls.md)
+- [ADR 0007: El formulario de contacto pasa por un flujo de n8n](docs/adr/0007-contacto-con-n8n.md)
 
 ## Historial
 
