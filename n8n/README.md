@@ -5,6 +5,7 @@ Por qué n8n y qué hace cada paso: [ADR 0007](../docs/adr/0007-contacto-con-n8n
 ```
 n8n/
 ├── contacto.workflow.ts  el flujo «mi-web · Contacto» con el Workflow SDK de n8n
+├── aviso.workflow.ts     el flujo «mi-web · Aviso de respuesta» (#32)
 └── README.md             esta guía
 ```
 
@@ -105,6 +106,34 @@ correo (pasos en [`supabase/README.md`](../supabase/README.md)).
      `category` y el evento `formulario` en `events`;
    - en el correo: la respuesta automática con el botón a *Entrar*.
 4. Repite con el mismo email: no se crea otro usuario, se añade el mensaje.
+
+## El segundo flujo: aviso de respuesta (#32)
+
+**mi-web · Aviso de respuesta** avisa por correo cuando contesto desde el
+panel. Está publicado en:
+
+```
+POST https://bludinvestments.app.n8n.cloud/webhook/mi-web/aviso
+Authorization: Bearer <token de mi sesión de Supabase>
+{ "message_id": 12 }
+```
+
+1. **¿Quién llama?** Llama a `is_admin()` de Supabase **con el token que le
+   llega**. Si el token es falso, ha caducado o no es de un admin, responde
+   403 y no hace nada más. Así nadie puede usarlo para mandar correos.
+2. Busca el mensaje (tiene que ser mío, `author = admin`) con el nombre y el
+   email de la persona, y su idioma en Supabase Auth.
+3. Redacta el correo en su idioma, con mi respuesta escapada y el botón a
+   *Mi espacio*, y lo envía con **Correo SMTP**.
+
+Usa las mismas credenciales que el contacto (**Supabase mi-web** y **Correo
+SMTP**), así que no hay que crear ninguna nueva. Solo hace falta la variable
+pública `PUBLIC_N8N_REPLY_URL` en GitHub y en `.env`.
+
+Respuestas: 200 avisado, 400 petición incompleta, 403 sin permiso, 404 no
+existe esa respuesta, 500 error de Supabase, 502 el correo falló. El panel
+guarda la respuesta antes de llamar aquí: si el aviso falla, la respuesta ya
+está en su espacio.
 
 ## Si cambio el flujo
 
