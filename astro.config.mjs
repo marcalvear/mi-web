@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig } from "astro/config";
+import sitemap from "@astrojs/sitemap";
 
 // GitHub Pages publica el repositorio en /mi-web/, así que todas las rutas
 // cuelgan de esa base. El español es el idioma por defecto y va sin prefijo;
@@ -13,6 +14,15 @@ export default defineConfig({
   // La ilustración del primer Pokémon se descarga al compilar y se sirve
   // optimizada desde la propia web en vez de desde GitHub
   image: { domains: ["raw.githubusercontent.com"] },
+  // Mapa del sitio para los buscadores, con cada página enlazada a su versión
+  // en el otro idioma. Fuera las que llevan noindex: las privadas (Mi espacio,
+  // panel) y las internas (sistema de diseño)
+  integrations: [
+    sitemap({
+      i18n: { defaultLocale: "es", locales: { es: "es-ES", en: "en-GB" } },
+      filter: (page) => !/\/(mi-espacio|panel|sistema)\/$/.test(page),
+    }),
+  ],
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],

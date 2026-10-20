@@ -11,6 +11,7 @@
     "chatbot:test": "node --test worker/chatbot/test/"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@fontsource-variable/newsreader": "^5.3.0",
     "@supabase/supabase-js": "^2.118.0",
