@@ -9,6 +9,8 @@ interface ImportMetaEnv {
   readonly PUBLIC_TURNSTILE_SITE_KEY?: string;
   /** Webhook de n8n que avisa por correo de mis respuestas (#32) */
   readonly PUBLIC_N8N_REPLY_URL?: string;
+  /** Worker de Cloudflare del asistente «Marc IA» (#33) */
+  readonly PUBLIC_CHATBOT_URL?: string;
 }
 
 interface ImportMeta {
