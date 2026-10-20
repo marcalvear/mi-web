@@ -26,6 +26,11 @@
   --mark: #fbe38e;         /* fluorescente para <mark> */
   --photo: #f8f3e9;        /* fondo de las fotos de producto, igual en los dos temas */
 
+  /* Laboratorio (compendio de biohacking): verde de reactivo para datos y
+     evidencia. Solo se usa en esa página, junto al rojo y el azul de siempre */
+  --lab: #1f6b4f;          /* (5,7:1 sobre el papel) */
+  --lab-soft: #e1ede5;     /* fondo de los datos destacados; tinta encima 13:1 */
+
   /* Tipografía */
   --font-serif: "Newsreader Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -72,6 +77,8 @@
     --on-accent: #14171d;
     --link: #8db2ff;
     --mark: #5c4a12;
+    --lab: #6fd3a8;
+    --lab-soft: #1c2d27;
   }
 }
 
@@ -88,4 +95,6 @@
   --on-accent: #14171d;
   --link: #8db2ff;
   --mark: #5c4a12;
+  --lab: #6fd3a8;
+  --lab-soft: #1c2d27;
 }

@@ -1,0 +1,67 @@
+{
+  "nombre": { "es": "Jengibre", "en": "Ginger" },
+  "tipo": { "es": "Raíz en cápsulas", "en": "Root, in capsules" },
+  "evidencia": "preliminar",
+  "porQue": {
+    "es": "Los estudios miden que el estómago se vacía antes, pero en los dos ensayos las molestias no cambiaron.",
+    "en": "Studies measure a faster-emptying stomach, but in both trials the discomfort didn't change."
+  },
+  "zona": "antro",
+  "resumen": {
+    "es": "Hace que el estómago se vacíe antes. En los ensayos eso no se tradujo en menos molestias.",
+    "en": "It makes the stomach empty sooner. In the trials, that didn't translate into less discomfort."
+  },
+  "mecanismo": {
+    "es": "El jengibre aumenta las contracciones del antro, la parte baja del estómago que empuja la comida hacia el intestino. En personas sanas, el estómago tardó la mitad en vaciarse a medias.",
+    "en": "Ginger increases contractions in the antrum, the lower part of the stomach that pushes food into the gut. In healthy people, the stomach took half as long to empty by half."
+  },
+  "dosis": {
+    "es": "1,2 g en cápsulas, una sola toma",
+    "en": "1.2 g in capsules, a single dose"
+  },
+  "cuando": { "es": "Una hora antes de comer", "en": "An hour before eating" },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 24 personas sanas, el estómago tardó 13 minutos en vaciarse a la mitad con jengibre y 27 con placebo. Las molestias fueron las mismas.",
+        "en": "In 24 healthy people, the stomach took 13 minutes to empty by half with ginger and 27 with placebo. Discomfort was the same."
+      },
+      "fuente": "18403946"
+    },
+    {
+      "texto": {
+        "es": "En 11 pacientes con dispepsia funcional, el estómago también se vació antes (12 minutos frente a 16), pero los síntomas no cambiaron.",
+        "en": "In 11 patients with functional dyspepsia, the stomach also emptied sooner (12 minutes versus 16), but symptoms didn't change."
+      },
+      "fuente": "21218090"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "En dosis altas puede dar ardor de estómago.",
+      "en": "High doses can cause heartburn."
+    },
+    {
+      "es": "Puede sumarse al efecto de los anticoagulantes. Si los tomas, consulta antes.",
+      "en": "It can add to the effect of blood thinners. If you take them, check first."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Wu KL, Rayner CK, Chuah SK, et al.",
+      "anio": 2008,
+      "titulo": "Effects of ginger on gastric emptying and motility in healthy humans",
+      "revista": "Eur J Gastroenterol Hepatol 20(5):436-440",
+      "pmid": "18403946",
+      "doi": "10.1097/MEG.0b013e3282f4b224"
+    },
+    {
+      "autores": "Hu ML, Rayner CK, Wu KL, et al.",
+      "anio": 2011,
+      "titulo": "Effect of ginger on gastric motility and symptoms of functional dyspepsia",
+      "revista": "World J Gastroenterol 17(1):105-110",
+      "pmid": "21218090",
+      "doi": "10.3748/wjg.v17.i1.105"
+    }
+  ]
+}

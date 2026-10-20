@@ -1,0 +1,28 @@
+{
+  "orden": 1,
+  "nombre": { "es": "Digestiones pesadas", "en": "Heavy digestion" },
+  "titular": {
+    "es": "¿Acabas de comer y el estómago te pesa como una piedra?",
+    "en": "Just eaten and your stomach feels like a rock?"
+  },
+  "intro": {
+    "es": "Pesadez, hinchazón, sentirte lleno a los pocos bocados. Cuando se repite y el médico no encuentra una causa, se llama dispepsia funcional, y es justo lo que han estudiado los ensayos de esta ficha.",
+    "en": "Heaviness, bloating, feeling full after a few bites. When it keeps happening and a doctor can't find a cause, it's called functional dyspepsia, which is exactly what the trials on this page studied."
+  },
+  "queOcurre": {
+    "es": "Digerir es partir la comida en piezas que el intestino pueda absorber. Lo hacen las enzimas, con ayuda de la bilis para las grasas, mientras el estómago se contrae para ir pasando la comida al intestino. Si alguna de esas piezas va lenta, la comida se queda más tiempo arriba y aparecen la pesadez y los gases. Cada suplemento de aquí actúa en un punto distinto de ese recorrido.",
+    "en": "Digestion means breaking food into pieces the gut can absorb. Enzymes do the work, with bile helping on fat, while the stomach contracts to pass food along into the gut. If any of those steps is slow, food stays up there longer and heaviness and gas follow. Each supplement here acts at a different point along that route."
+  },
+  "combinar": {
+    "es": "Ningún ensayo de esta ficha probó dos suplementos juntos. Si quieres probar, empieza por uno y espera unas semanas antes de añadir otro, así sabrás cuál te funciona.",
+    "en": "None of the trials on this page tested two supplements together. If you want to try, start with one and wait a few weeks before adding another, so you know which one works for you."
+  },
+  "alarma": [
+    { "es": "Pierdes peso sin buscarlo", "en": "You're losing weight without trying" },
+    { "es": "Vomitas a menudo", "en": "You vomit often" },
+    { "es": "Te cuesta tragar o te duele", "en": "Swallowing is hard or painful" },
+    { "es": "Ves heces negras o sangre", "en": "You see black stools or blood" },
+    { "es": "Tienes más de 55 años y los síntomas son nuevos", "en": "You're over 55 and the symptoms are new" }
+  ],
+  "suplementos": ["enzimas-digestivas", "menta-alcaravea", "alcachofa", "jengibre"]
+}

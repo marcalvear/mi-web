@@ -1,0 +1,533 @@
+---
+// Compendio de biohacking: se entra por problemas y cada problema reúne las
+// fichas de los suplementos estudiados para él. El contenido sale de
+// src/content/compendio/ y aquí solo se pinta.
+import { getCollection, getEntries } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import Entry from "../Entry.astro";
+import DigestiveMap, { type MapMarker } from "./DigestiveMap.astro";
+import SupplementCard from "./SupplementCard.astro";
+import { compendio } from "../../i18n/compendio";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = compendio[lang];
+
+const problems = (await getCollection("problemas")).sort((a, b) => a.data.orden - b.data.orden);
+const sections = await Promise.all(
+  problems.map(async (p) => ({ problem: p, supplements: await getEntries(p.data.suplementos) })),
+);
+
+// Cifras de la cabecera, contadas del contenido real
+const allSupplements = new Map(sections.flatMap((s) => s.supplements.map((x) => [x.id, x])));
+const studies = new Set([...allSupplements.values()].flatMap((s) => s.data.fuentes.map((f) => f.pmid)));
+const products = [...allSupplements.values()].reduce((n, s) => n + (s.data.productos?.length ?? 0), 0);
+const stats = [
+  [problems.length, c.stats.problems],
+  [allSupplements.size, c.stats.supplements],
+  [studies.size, c.stats.studies],
+  [products, c.stats.products],
+] as const;
+const levels = ["fuerte", "moderada", "preliminar"] as const;
+---
+
+<Base lang={lang} title={c.meta.title} description={c.meta.description} path="biohacking/" noindex>
+  <div class="wrap compendio">
+    <header class="intro">
+      <p class="label">{c.kicker}</p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.lead}</p>
+      <dl class="stats">
+        {
+          stats.map(([n, label]) => (
+            <div>
+              <dt class="label">{label}</dt>
+              <dd>{String(n).padStart(2, "0")}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </header>
+
+    <aside class="disclaimer" aria-labelledby="aviso">
+      <p class="label" id="aviso">{c.disclaimer.title}</p>
+      <p>{c.disclaimer.text}</p>
+    </aside>
+
+    <nav class="problem-nav" aria-label={c.problemsLabel}>
+      <p class="label">{c.problemsLabel}</p>
+      <ul role="list">
+        {
+          problems.map((p) => (
+            <li>
+              <a href={`#${p.id}`}>
+                <span class="label">{String(p.data.orden).padStart(2, "0")}</span>
+                {p.data.nombre[lang]}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="soon">{c.soon}</p>
+    </nav>
+
+    {
+      sections.map(({ problem, supplements }) => {
+        const p = problem.data;
+        const markers: MapMarker[] = supplements.map((s, i) => ({
+          id: s.id,
+          n: i + 1,
+          zone: s.data.zona,
+          name: s.data.nombre[lang],
+          zoneName: c.map.zones[s.data.zona as keyof typeof c.map.zones] ?? s.data.zona,
+        }));
+        const counts = Object.fromEntries(levels.map((l) => [l, supplements.filter((s) => s.data.evidencia === l).length]));
+        return (
+          <Entry id={problem.id} number={p.orden} kicker={p.nombre[lang]} title={p.titular[lang]}>
+            <p class="problem-intro">{p.intro[lang]}</p>
+
+            <section class="body-text" aria-labelledby={`${problem.id}-cuerpo`}>
+              <h3 class="label" id={`${problem.id}-cuerpo`}>{c.whatHappens}</h3>
+              <p>{p.queOcurre[lang]}</p>
+            </section>
+
+            <div class="bench" data-bench data-count-one={c.count.one} data-count-many={c.count.many}>
+              <div class="bench-side">
+                <div class="sticky">
+                  <DigestiveMap markers={markers} text={c.map} />
+                </div>
+              </div>
+
+              <div class="bench-main">
+                <div class="toolbar">
+                  <div class="chips" role="group" aria-label={c.filter.label}>
+                    <button type="button" class="chip" data-level="all" aria-pressed="true">
+                      {c.filter.all}
+                    </button>
+                    {levels
+                      .filter((l) => counts[l] > 0)
+                      .map((l) => (
+                        <button type="button" class="chip" data-level={l} aria-pressed="false">
+                          {c.evidence[l]} <span class="chip-n">{counts[l]}</span>
+                        </button>
+                      ))}
+                  </div>
+                  <p class="label count" role="status" data-count>
+                    {c.count.many.replace("{n}", String(supplements.length))}
+                  </p>
+                </div>
+
+                <details class="legend">
+                  <summary class="label">{c.legend.title}</summary>
+                  <dl>
+                    {levels.map((l) => (
+                      <div>
+                        <dt>{c.evidence[l]}</dt>
+                        <dd>{c.legend[l]}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </details>
+
+                <ol class="sheets" role="list">
+                  {supplements.map((s, i) => (
+                    <SupplementCard entry={s} n={i + 1} lang={lang} text={c} />
+                  ))}
+                </ol>
+
+                <section class="combine" aria-labelledby={`${problem.id}-combinar`}>
+                  <h3 class="label" id={`${problem.id}-combinar`}>{c.combine}</h3>
+                  <p>{p.combinar[lang]}</p>
+                </section>
+
+                <section class="alarm" aria-labelledby={`${problem.id}-alarma`}>
+                  <h3 class="label" id={`${problem.id}-alarma`}>{c.alarm}</h3>
+                  <ul role="list">
+                    {p.alarma.map((a) => (
+                      <li>{a[lang]}</li>
+                    ))}
+                  </ul>
+                </section>
+              </div>
+            </div>
+          </Entry>
+        );
+      })
+    }
+  </div>
+</Base>
+
+<script>
+  // Mesa de trabajo de cada problema: filtro por evidencia y enlace entre las
+  // fichas y el esquema. Pasar por una ficha la enciende en el esquema; pulsar
+  // un número del esquema lleva a su ficha.
+  function setup(bench: HTMLElement) {
+    const map = bench.querySelector<HTMLElement>("[data-map]");
+    const sheets = [...bench.querySelectorAll<HTMLElement>("[data-sheet]")];
+    const chips = [...bench.querySelectorAll<HTMLButtonElement>("[data-level]")];
+    const picks = [...bench.querySelectorAll<HTMLButtonElement>("[data-pick]")];
+    const count = bench.querySelector<HTMLElement>("[data-count]");
+    let pinned: string | null = null;
+
+    function highlight(id: string | null) {
+      const sheet = sheets.find((s) => s.dataset.sheet === id);
+      const zone = sheet?.dataset.zone;
+      sheets.forEach((s) => s.classList.toggle("on", s.dataset.sheet === id));
+      picks.forEach((p) => p.setAttribute("aria-pressed", String(p.dataset.pick === id)));
+      if (!map) return;
+      if (id) map.dataset.active = id;
+      else delete map.dataset.active;
+      map.querySelectorAll<SVGGElement>("[data-marker]").forEach((m) => m.classList.toggle("on", m.dataset.marker === id));
+      map.querySelectorAll<SVGGElement>("[data-zone-shape]").forEach((z) =>
+        z.classList.toggle("on", !!zone && z.dataset.zoneShape === zone),
+      );
+    }
+
+    const release = () => highlight(pinned);
+
+    sheets.forEach((s) => {
+      s.addEventListener("pointerenter", () => highlight(s.dataset.sheet!));
+      s.addEventListener("pointerleave", release);
+      s.addEventListener("focusin", () => highlight(s.dataset.sheet!));
+    });
+
+    // Leyenda del esquema: fija la ficha encendida y la lleva a la vista
+    function pick(id: string, scroll: boolean) {
+      pinned = pinned === id ? null : id;
+      highlight(pinned);
+      if (pinned && scroll) {
+        const sheet = sheets.find((s) => s.dataset.sheet === id);
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        sheet?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+      }
+    }
+    picks.forEach((p) => p.addEventListener("click", () => pick(p.dataset.pick!, true)));
+    map?.querySelectorAll<SVGGElement>("[data-marker]").forEach((m) =>
+      m.addEventListener("click", () => pick(m.dataset.marker!, true)),
+    );
+
+    // En móvil el esquema está arriba: este botón sube hasta él con la ficha encendida
+    bench.querySelectorAll<HTMLButtonElement>("[data-to-map]").forEach((b) =>
+      b.addEventListener("click", () => {
+        pinned = b.dataset.toMap!;
+        highlight(pinned);
+        const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+        map?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      }),
+    );
+
+    // Filtro por nivel de evidencia
+    chips.forEach((chip) =>
+      chip.addEventListener("click", () => {
+        const level = chip.dataset.level!;
+        chips.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+        let visible = 0;
+        sheets.forEach((s) => {
+          const show = level === "all" || s.dataset.evidence === level;
+          s.hidden = !show;
+          if (show) visible++;
+          map?.querySelector(`[data-marker="${s.dataset.sheet}"]`)?.classList.toggle("off", !show);
+          const p = picks.find((x) => x.dataset.pick === s.dataset.sheet);
+          if (p) p.closest("li")!.hidden = !show;
+        });
+        if (count) {
+          const t = visible === 1 ? bench.dataset.countOne! : bench.dataset.countMany!;
+          count.textContent = t.replace("{n}", String(visible));
+        }
+        if (pinned && sheets.find((s) => s.dataset.sheet === pinned)?.hidden) pinned = null;
+        highlight(pinned);
+      }),
+    );
+
+    // El esquema se dibuja cuando entra en pantalla
+    if (map) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            map.classList.add("drawn");
+            io.disconnect();
+          }
+        },
+        { threshold: 0.25 },
+      );
+      io.observe(map);
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-bench]").forEach(setup);
+</script>
+
+<style>
+  .intro {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-6) var(--space-3);
+  }
+
+  .lead {
+    max-width: 44ch;
+    font-size: var(--step-2);
+    line-height: 1.3;
+  }
+
+  /* Lectura de instrumento: cifras grandes en mono, como un panel de laboratorio */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 40rem;
+    margin: var(--space-2) 0 0;
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+  }
+
+  .stats div {
+    display: grid;
+    gap: 2px;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .stats div + div {
+    border-left: 1px dashed var(--rule);
+  }
+
+  .stats dt {
+    order: 2;
+    color: var(--ink-soft);
+  }
+
+  .stats dd {
+    margin: 0;
+    color: var(--lab);
+    font-family: var(--font-mono);
+    font-size: var(--step-3);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .disclaimer {
+    display: grid;
+    gap: var(--space-1);
+    max-width: 52rem;
+    padding: var(--space-2) var(--space-3);
+    border: 1.5px dashed var(--accent);
+    background: var(--sheet);
+  }
+
+  .disclaimer .label {
+    color: var(--accent);
+  }
+
+  .problem-nav {
+    display: grid;
+    gap: var(--space-1);
+    padding-block: var(--space-4);
+  }
+
+  .problem-nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .problem-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    min-height: 44px;
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--lab);
+    border-radius: 999px;
+    background: var(--lab-soft);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--lab);
+    transition: transform var(--fast) var(--ease-out), box-shadow var(--fast) var(--ease-out);
+  }
+
+  .problem-nav a:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--lab);
+  }
+
+  .problem-nav a .label {
+    color: var(--lab);
+  }
+
+  .soon {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  .problem-intro {
+    max-width: 62ch;
+    font-size: var(--step-1);
+    line-height: 1.45;
+  }
+
+  /* Mesa de trabajo: esquema a un lado (fijo al bajar) y fichas al otro */
+  .bench {
+    display: grid;
+    gap: var(--space-4);
+    margin-block-start: var(--space-3);
+  }
+
+  .sticky {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .body-text {
+    display: grid;
+    gap: var(--space-1);
+    max-width: 62ch;
+    margin-block-start: var(--space-3);
+    padding-inline-start: var(--space-2);
+    border-left: 2px solid var(--lab);
+  }
+
+  .body-text h3 {
+    color: var(--lab);
+  }
+
+  .bench-main {
+    display: grid;
+    gap: var(--space-3);
+    align-content: start;
+  }
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-2);
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+
+  .chip-n {
+    margin-inline-start: 0.35em;
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+    opacity: 0.75;
+  }
+
+  .count {
+    color: var(--ink-soft);
+  }
+
+  .legend summary {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    color: var(--link);
+    cursor: pointer;
+  }
+
+  .legend dl {
+    display: grid;
+    gap: var(--space-1);
+    margin: 0;
+    padding: var(--space-2);
+    border: 1px solid var(--rule);
+    background: var(--sheet);
+  }
+
+  .legend dl div {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: var(--space-1);
+  }
+
+  .legend dt {
+    color: var(--lab);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-transform: uppercase;
+  }
+
+  .legend dd {
+    margin: 0;
+  }
+
+  .sheets {
+    display: grid;
+    gap: var(--space-4);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .combine,
+  .alarm {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-2) var(--space-3);
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+  }
+
+  .combine h3 {
+    color: var(--lab);
+  }
+
+  .alarm {
+    border-color: var(--accent);
+  }
+
+  .alarm h3 {
+    color: var(--accent);
+  }
+
+  .alarm ul {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding-inline-start: 1.2em;
+  }
+
+  @media (min-width: 64rem) {
+    /* La columna del esquema ocupa todo el alto de la mesa para que pueda
+       quedarse fija mientras bajan las fichas */
+    .bench {
+      grid-template-columns: minmax(18rem, 24rem) 1fr;
+      align-items: stretch;
+    }
+
+    .sticky {
+      position: sticky;
+      top: var(--space-3);
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .stats div:nth-child(3) {
+      border-left: 0;
+    }
+
+    .stats div:nth-child(n + 3) {
+      border-top: 1px dashed var(--rule);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .problem-nav a {
+      transition: none;
+    }
+  }
+</style>

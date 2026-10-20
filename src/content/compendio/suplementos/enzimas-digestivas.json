@@ -1,0 +1,143 @@
+{
+  "nombre": { "es": "Enzimas digestivas", "en": "Digestive enzymes" },
+  "tipo": { "es": "Complejo enzimático", "en": "Enzyme blend" },
+  "evidencia": "moderada",
+  "porQue": {
+    "es": "Dos ensayos con placebo en dispepsia funcional salen a favor, pero son pequeños y uno lo firma el fabricante del complejo que se probó.",
+    "en": "Two placebo-controlled trials in functional dyspepsia come out in favour, but they're small and one is by the maker of the blend that was tested."
+  },
+  "zona": "estomago",
+  "resumen": {
+    "es": "Cápsulas con las mismas enzimas que fabrica tu cuerpo para partir la comida: amilasa, proteasas, lipasa y lactasa, entre otras.",
+    "en": "Capsules with the same enzymes your body makes to break food down: amylase, proteases, lipase and lactase, among others."
+  },
+  "mecanismo": {
+    "es": "Se toman con la comida y empiezan a trabajar en el estómago, antes de que lleguen las enzimas del páncreas. Cada una rompe un tipo de alimento: la amilasa, el almidón del pan o la pasta; las proteasas, la carne y el huevo; la lipasa, las grasas; la lactasa, el azúcar de la leche, y la alfa-galactosidasa, los azúcares de las legumbres que fermentan y dan gases. Lo que llega al intestino ya va medio partido.",
+    "en": "You take them with food and they start working in the stomach, before the pancreas adds its own. Each one breaks down one kind of food: amylase handles the starch in bread or pasta, proteases handle meat and eggs, lipase handles fat, lactase handles milk sugar, and alpha-galactosidase handles the bean sugars that ferment and cause gas. What reaches the gut is already half broken down."
+  },
+  "dosis": {
+    "es": "50 mg tres veces al día, o 2 cápsulas de 200 mg al día, durante 2 meses",
+    "en": "50 mg three times a day, or 2 × 200 mg capsules a day, for 2 months"
+  },
+  "cuando": { "es": "Al empezar a comer", "en": "As you start eating" },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 40 personas con dispepsia funcional, un complejo de enzimas durante 60 días mejoró todos los cuestionarios de síntomas frente a placebo, sin efectos adversos.",
+        "en": "In 40 people with functional dyspepsia, an enzyme blend taken for 60 days improved every symptom questionnaire compared with placebo, with no side effects."
+      },
+      "fuente": "30156436"
+    },
+    {
+      "texto": {
+        "es": "En 120 personas, 2 cápsulas al día durante 2 meses mejoraron la calidad de vida, el dolor y hasta el sueño frente a placebo.",
+        "en": "In 120 people, 2 capsules a day for 2 months improved quality of life, pain and even sleep compared with placebo."
+      },
+      "fuente": "37976892"
+    },
+    {
+      "texto": {
+        "es": "En 16 personas sanas, 280 mg de lipasa antes de una comida con un 55 % de grasa redujeron la sensación de estómago lleno.",
+        "en": "In 16 healthy people, 280 mg of lipase before a meal that was 55% fat reduced the feeling of a full stomach."
+      },
+      "fuente": "25287168"
+    },
+    {
+      "texto": {
+        "es": "Con un plato de 420 g de alubias, 1200 GalU de alfa-galactosidasa redujeron los gases y la flatulencia en 8 voluntarios.",
+        "en": "With a 420 g plate of beans, 1200 GalU of alpha-galactosidase reduced gas and flatulence in 8 volunteers."
+      },
+      "fuente": "17151807"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "No sustituyen a la pancreatina que receta el médico cuando el páncreas no fabrica suficientes enzimas.",
+      "en": "They don't replace the pancreatin a doctor prescribes when the pancreas can't make enough enzymes."
+    },
+    {
+      "es": "Muchas fórmulas llevan bromelina (de la piña) o papaína (de la papaya). Evítalas si eres alérgico a esas frutas.",
+      "en": "Many blends contain bromelain (from pineapple) or papain (from papaya). Avoid them if you're allergic to those fruits."
+    },
+    {
+      "es": "La bromelina puede sumarse al efecto de los anticoagulantes. Si los tomas, consulta antes.",
+      "en": "Bromelain can add to the effect of blood thinners. If you take them, check first."
+    },
+    {
+      "es": "Algunas versiones llevan además betaína HCl, que no se recomienda si tienes úlcera.",
+      "en": "Some versions also contain betaine HCl, which isn't recommended if you have an ulcer."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Majeed M, Majeed S, Nagabhushanam K, et al.",
+      "anio": 2018,
+      "titulo": "Evaluation of the Safety and Efficacy of a Multienzyme Complex in Patients with Functional Dyspepsia: A Randomized, Double-Blind, Placebo-Controlled Study",
+      "revista": "J Med Food 21(11):1120-1128",
+      "pmid": "30156436",
+      "doi": "10.1089/jmf.2017.4172"
+    },
+    {
+      "autores": "Ullah H, Di Minno A, Piccinocchi R, et al.",
+      "anio": 2023,
+      "titulo": "Efficacy of digestive enzyme supplementation in functional dyspepsia: A monocentric, randomized, double-blind, placebo-controlled, clinical trial",
+      "revista": "Biomed Pharmacother 169:115858",
+      "pmid": "37976892",
+      "doi": "10.1016/j.biopha.2023.115858"
+    },
+    {
+      "autores": "Levine ME, Koch SY, Koch KL",
+      "anio": 2015,
+      "titulo": "Lipase Supplementation before a High-Fat Meal Reduces Perceptions of Fullness in Healthy Subjects",
+      "revista": "Gut Liver 9(4):464-469",
+      "pmid": "25287168",
+      "doi": "10.5009/gnl14005"
+    },
+    {
+      "autores": "Di Stefano M, Miceli E, Gotti S, et al.",
+      "anio": 2007,
+      "titulo": "The effect of oral alpha-galactosidase on intestinal gas production and gas-related symptoms",
+      "revista": "Dig Dis Sci 52(1):78-83",
+      "pmid": "17151807",
+      "doi": "10.1007/s10620-006-9296-9"
+    }
+  ],
+  "productos": [
+    {
+      "id": "sports-research",
+      "marca": "Sports Research",
+      "nombre": "Digestive Enzymes + Probiotic",
+      "foto": "sports-research-digestive-enzymes.webp",
+      "alt": {
+        "es": "Bote negro de Digestive Enzymes de Sports Research.",
+        "en": "Black bottle of Sports Research Digestive Enzymes."
+      },
+      "url": "https://www.sportsresearch.com/products/digestive-enzymes",
+      "pais": { "es": "Estados Unidos", "en": "United States" },
+      "datos": [
+        { "k": { "es": "Lleva", "en": "Contains" }, "v": { "es": "15 enzimas, probiótico y jengibre", "en": "15 enzymes, probiotic and ginger" } },
+        { "k": { "es": "Toma", "en": "Dose" }, "v": { "es": "1 cápsula antes de comer", "en": "1 capsule before a meal" } },
+        { "k": { "es": "Bote", "en": "Bottle" }, "v": { "es": "90 cápsulas", "en": "90 capsules" } }
+      ],
+      "precio": { "es": "22,95 $", "en": "$22.95" }
+    },
+    {
+      "id": "pure-encapsulations",
+      "marca": "Pure Encapsulations",
+      "nombre": "Digestive Enzymes Ultra",
+      "foto": "pure-encapsulations-digestive-enzymes-ultra.webp",
+      "alt": {
+        "es": "Bote blanco de Digestive Enzymes Ultra de Pure Encapsulations.",
+        "en": "White bottle of Pure Encapsulations Digestive Enzymes Ultra."
+      },
+      "url": "https://www.pureencapsulationspro.com/digestive-enzymes-ultra.html",
+      "pais": { "es": "Estados Unidos", "en": "United States" },
+      "datos": [
+        { "k": { "es": "Lleva", "en": "Contains" }, "v": { "es": "Proteasas, lipasa, amilasa, lactasa y enzimas para la fibra", "en": "Proteases, lipase, amylase, lactase and fibre enzymes" } },
+        { "k": { "es": "Toma", "en": "Dose" }, "v": { "es": "2 cápsulas con cada comida", "en": "2 capsules with each meal" } },
+        { "k": { "es": "Bote", "en": "Bottle" }, "v": { "es": "90 o 180 cápsulas", "en": "90 or 180 capsules" } }
+      ],
+      "precio": { "es": "38 $ (90 cápsulas)", "en": "$38 (90 capsules)" }
+    }
+  ]
+}
