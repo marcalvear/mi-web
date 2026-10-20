@@ -76,8 +76,9 @@ borde de tinta y sombra dura), el **rotulador rojo** para lo importante y la
 - Fuentes variables servidas desde la web (paquetes `@fontsource-variable`), con `preload`
   del subconjunto latino.
 - CSS dentro del HTML (`inlineStylesheets: "always"`): no bloquea el primer pintado.
-- Lighthouse en móvil sobre la compilación de este bloque: rendimiento 97, accesibilidad 100,
-  buenas prácticas 100, SEO 100 y CLS 0.
+- Lighthouse en móvil sobre la compilación de este bloque (#25): rendimiento 97, accesibilidad 100,
+  buenas prácticas 100, SEO 100 y CLS 0. Las mediciones de todas las páginas de la v3 están en
+  [lighthouse.md](lighthouse.md).
 
 ## Herramientas
 

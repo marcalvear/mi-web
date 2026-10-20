@@ -59,5 +59,6 @@ Web (GitHub Pages) ──POST { messages }──► Worker ──env.AI.run()─
   cuaderno, en los dos idiomas, y manda el idioma de la página para contestar
   en el mismo. La conversación dura lo que la pestaña (`sessionStorage`).
 - El Worker acepta la web en local con Astro (`localhost:4321` y `4322`).
+- Las pruebas pasan de 6 a 8: se añaden el idioma y el origen local.
 - La URL va en `PUBLIC_CHATBOT_URL` (antes `assets/js/config.js`).
 

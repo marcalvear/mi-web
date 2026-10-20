@@ -1,11 +1,11 @@
 // Graba el vídeo de demo de Sonrisa Imperial con Chrome sin interfaz.
-// Uso (con la web servida en http://localhost:8081 y ffmpeg instalado):
+// Uso (con la web en marcha con `npm run dev` y ffmpeg instalado):
 //   npm install puppeteer-core && node docs/video/grabar-demo.mjs
 // Genera un .webm que luego se convierte a MP4 (ver README de esta carpeta).
 
 import puppeteer from "puppeteer-core";
 
-const URL = process.env.DEMO_URL || "http://localhost:8081/proyectos/sonrisa-imperial/landing.html";
+const URL = process.env.DEMO_URL || "http://localhost:4321/mi-web/proyectos/sonrisa-imperial/landing.html";
 const OUT = process.env.DEMO_OUT || "sonrisa-imperial-demo.webm";
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 
