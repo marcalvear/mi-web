@@ -1,7 +1,8 @@
 # Vídeo de demo de Sonrisa Imperial
 
 El vídeo se graba solo con Chrome sin interfaz, así se puede repetir igual
-cada vez que cambie la landing.
+cada vez que cambie la landing (`public/proyectos/sonrisa-imperial/landing.html`).
+Con la web en marcha (`npm run dev`):
 
 ```bash
 npm install puppeteer-core

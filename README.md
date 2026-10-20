@@ -60,7 +60,7 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
 │   ├── lib/                cliente de Supabase (solo la clave pública), Pokémon
 │   ├── data/               las 200 frases de anime con su traducción
 │   └── styles/             tokens del diseño y estilos base
-├── public/                 ficheros que se copian tal cual (vídeo, landing)
+├── public/                 ficheros que se copian tal cual (vídeo, landing, imágenes para compartir)
 ├── scripts/                descargar las frases y generar el contexto del chat
 ├── supabase/               migraciones, 27 pruebas de RLS y correo de acceso
 ├── n8n/                    los dos flujos (contacto y aviso) y su guía
@@ -132,6 +132,8 @@ pequeños en español. Las órdenes que le di a la IA están en
 
 ## Historial
 
-- `v1`: primera versión, una página con estética Cyberpunk 2077.
-- `v2`: rediseño espacial inspirado en Super Mario Galaxy, con Web Components sin build.
-- `v3`: cuaderno de laboratorio con Astro, dos idiomas, usuarios, Mi espacio, panel de administrador, chatbot con IA y paleta ⌘K.
+Cada versión tiene su etiqueta y su release en GitHub:
+
+- [`v1`](https://github.com/marcalvear/mi-web/releases/tag/v1): primera versión, una página con estética Cyberpunk 2077.
+- [`v2`](https://github.com/marcalvear/mi-web/releases/tag/v2): rediseño espacial inspirado en Super Mario Galaxy, con Web Components sin build ([#19](https://github.com/marcalvear/mi-web/pull/19)).
+- [`v3`](https://github.com/marcalvear/mi-web/releases/tag/v3): cuaderno de laboratorio con Astro, dos idiomas, usuarios, Mi espacio, panel de administrador, chatbot con IA y paleta ⌘K ([#21](https://github.com/marcalvear/mi-web/issues/21), [#51](https://github.com/marcalvear/mi-web/pull/51)).
