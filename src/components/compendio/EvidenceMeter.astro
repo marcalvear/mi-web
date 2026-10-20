@@ -1,0 +1,53 @@
+---
+// Medidor de evidencia: tres barras, como un indicador de laboratorio.
+// Fuerte llena las tres, moderada dos y preliminar una. El nivel también va
+// escrito, para no depender solo del dibujo.
+interface Props {
+  level: "fuerte" | "moderada" | "preliminar";
+  label: string;
+  /** Texto del nivel ya traducido (Fuerte, Moderada…) */
+  value: string;
+}
+const { level, label, value } = Astro.props;
+const filled = { fuerte: 3, moderada: 2, preliminar: 1 }[level];
+---
+
+<p class="meter" data-level={level}>
+  <span class="bars" aria-hidden="true">
+    {[1, 2, 3].map((i) => <span class:list={["bar", { on: i <= filled }]} />)}
+  </span>
+  <span class="label"><span class="visually-hidden">{label}: </span>{value}</span>
+</p>
+
+<style>
+  .meter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    margin: 0;
+  }
+
+  .bars {
+    display: inline-flex;
+    align-items: flex-end;
+    gap: 3px;
+  }
+
+  .bar {
+    width: 7px;
+    border: 1.5px solid var(--lab);
+    border-radius: 1px;
+  }
+
+  .bar:nth-child(1) { height: 9px; }
+  .bar:nth-child(2) { height: 14px; }
+  .bar:nth-child(3) { height: 19px; }
+
+  .bar.on {
+    background: var(--lab);
+  }
+
+  .label {
+    color: var(--lab);
+  }
+</style>

@@ -16,11 +16,12 @@ export default defineConfig({
   image: { domains: ["raw.githubusercontent.com"] },
   // Mapa del sitio para los buscadores, con cada página enlazada a su versión
   // en el otro idioma. Fuera las que llevan noindex: las privadas (Mi espacio,
-  // panel) y las internas (sistema de diseño)
+  // panel), las internas (sistema de diseño) y el compendio mientras es un
+  // prototipo (#64)
   integrations: [
     sitemap({
       i18n: { defaultLocale: "es", locales: { es: "es-ES", en: "en-GB" } },
-      filter: (page) => !/\/(mi-espacio|panel|sistema)\/$/.test(page),
+      filter: (page) => !/\/(mi-espacio|panel|sistema|biohacking)\/$/.test(page),
     }),
   ],
   i18n: {

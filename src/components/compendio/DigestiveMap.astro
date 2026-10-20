@@ -1,0 +1,299 @@
+---
+// Esquema del aparato digestivo para el problema «digestiones pesadas».
+// Cada suplemento lleva un marcador numerado en la zona donde actúa. Al pasar
+// por una ficha (o pulsar su botón en la leyenda), la zona se enciende en verde
+// de laboratorio. Los trazos se dibujan al entrar en pantalla.
+import type { CompendioText } from "../../i18n/compendio";
+
+export interface MapMarker {
+  id: string;
+  n: number;
+  zone: string;
+  name: string;
+  zoneName: string;
+}
+
+interface Props {
+  markers: MapMarker[];
+  text: CompendioText["map"];
+}
+const { markers, text } = Astro.props;
+
+// Punto de cada zona donde van los marcadores; si hay varios, se reparten en fila
+const anchors: Record<string, [number, number]> = {
+  estomago: [236, 168],
+  antro: [160, 236],
+  higado: [92, 104],
+  pancreas: [244, 284],
+  intestino: [180, 362],
+};
+const byZone: Record<string, number> = {};
+const placed = markers.map((m) => {
+  const k = byZone[m.zone] ?? 0;
+  byZone[m.zone] = k + 1;
+  const [x, y] = anchors[m.zone] ?? [190, 200];
+  return { ...m, x: x + k * 27, y };
+});
+const ids = { title: "mapa-titulo", desc: "mapa-desc" };
+---
+
+<figure class="map" data-map>
+  <svg viewBox="0 0 380 440" role="img" aria-labelledby={`${ids.title} ${ids.desc}`}>
+    <title id={ids.title}>{text.title}</title>
+    <desc id={ids.desc}>{text.desc}</desc>
+
+    <g class="organs" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
+      <g data-zone-shape="boca">
+        <path pathLength="1" d="M200 18 L200 95" />
+      </g>
+      <g data-zone-shape="higado">
+        <path pathLength="1" class="fill" d="M28 96 C44 62 140 58 176 86 C168 124 118 146 66 142 C40 140 22 122 28 96 Z" />
+        <ellipse pathLength="1" class="fill" cx="112" cy="158" rx="11" ry="16" />
+        <path pathLength="1" d="M112 174 C114 196 118 214 124 232" stroke-dasharray="3 4" />
+      </g>
+      <g data-zone-shape="estomago">
+        <path pathLength="1" class="fill" d="M200 95 C250 86 290 130 280 186 C272 234 230 260 186 256 C160 253 146 242 136 230 C150 222 172 222 190 220 C224 214 244 188 236 150 C230 124 214 110 200 106 Z" />
+      </g>
+      <g data-zone-shape="antro">
+        <path pathLength="1" d="M136 230 C150 222 172 222 190 220" stroke-width="3.2" />
+      </g>
+      <g data-zone-shape="intestino">
+        <path pathLength="1" d="M136 230 C112 234 104 260 114 284 C124 306 158 310 176 298" />
+        <path pathLength="1" d="M176 298 C160 330 120 330 112 352 C104 376 140 388 172 378 C204 368 238 374 242 394 C246 416 204 426 160 420" />
+      </g>
+      <g data-zone-shape="pancreas">
+        <path pathLength="1" class="fill" d="M178 292 C206 284 242 276 282 262 C294 258 300 270 290 276 C254 294 214 306 180 306 Z" />
+      </g>
+    </g>
+
+    <g class="names" font-size="11">
+      <text x="212" y="26">{text.zones.boca}</text>
+      <text x="290" y="160">{text.zones.estomago}</text>
+      <line x1="150" y1="226" x2="58" y2="226" />
+      <text x="18" y="216">{text.zones.antro}</text>
+      <text x="18" y="50">{text.zones.higado}</text>
+      <text x="300" y="300">{text.zones.pancreas}</text>
+      <text x="252" y="400">{text.zones.intestino}</text>
+    </g>
+
+    <g class="markers" aria-hidden="true">
+      {
+        placed.map((m) => (
+          <g class="marker" data-marker={m.id} data-zone={m.zone} transform={`translate(${m.x} ${m.y})`}>
+            <circle r="11" />
+            <text y="4" text-anchor="middle">{m.n}</text>
+          </g>
+        ))
+      }
+    </g>
+  </svg>
+
+  <figcaption>
+    <p class="hint">{text.hint}</p>
+    <ol class="legend" role="list">
+      {
+        markers.map((m) => (
+          <li>
+            <button type="button" class="pick" data-pick={m.id} aria-pressed="false">
+              <span class="n" aria-hidden="true">{m.n}</span>
+              <span>{m.name}</span>
+              <span class="zone">{m.zoneName}</span>
+            </button>
+          </li>
+        ))
+      }
+    </ol>
+  </figcaption>
+</figure>
+
+<style>
+  .map {
+    margin: 0;
+    padding: var(--space-2);
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 16px 16px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 16px 16px,
+      var(--sheet);
+    border: 1.5px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--rule);
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(24rem, 55vh);
+    color: var(--ink);
+  }
+
+  /* Trazos: se dibujan al entrar en pantalla */
+  .organs path,
+  .organs ellipse {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition:
+      stroke-dashoffset var(--draw) var(--ease-out),
+      stroke var(--fast),
+      fill var(--fast),
+      opacity var(--fast);
+  }
+
+  .organs path[stroke-dasharray="3 4"] {
+    stroke-dasharray: 0.02 0.03;
+  }
+
+  .map.drawn .organs path,
+  .map.drawn .organs ellipse {
+    stroke-dashoffset: 0;
+  }
+
+  .organs .fill {
+    fill: transparent;
+  }
+
+  .names {
+    font-family: var(--font-mono);
+    fill: var(--ink-soft);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .names line {
+    stroke: var(--ink-soft);
+    stroke-width: 0.8;
+    stroke-dasharray: 2 3;
+  }
+
+  .marker circle {
+    fill: var(--sheet);
+    stroke: var(--lab);
+    stroke-width: 1.8;
+    transition: fill var(--fast), r var(--fast);
+  }
+
+  .marker text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--lab);
+  }
+
+  .marker {
+    cursor: pointer;
+  }
+
+  /* Una ficha activa: su zona y su marcador se encienden, el resto se apaga */
+  .map[data-active] [data-zone-shape] {
+    opacity: 0.35;
+  }
+
+  .map [data-zone-shape].on {
+    opacity: 1;
+    color: var(--lab);
+  }
+
+  .map [data-zone-shape].on .fill {
+    fill: var(--lab-soft);
+  }
+
+  .map[data-active] .marker {
+    opacity: 0.4;
+  }
+
+  .map .marker.on {
+    opacity: 1;
+  }
+
+  .marker.on circle {
+    fill: var(--lab);
+    r: 13;
+  }
+
+  .marker.on text {
+    fill: var(--sheet);
+  }
+
+  .marker.off {
+    display: none;
+  }
+
+  figcaption {
+    display: grid;
+    gap: var(--space-1);
+    margin-block-start: var(--space-2);
+  }
+
+  .hint {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .legend {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .pick {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.6em;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--step--1);
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .pick:hover,
+  .pick[aria-pressed="true"] {
+    border-color: var(--lab);
+    background: var(--lab-soft);
+  }
+
+  .pick[hidden] {
+    display: none;
+  }
+
+  .n {
+    display: inline-grid;
+    place-items: center;
+    width: 1.7em;
+    height: 1.7em;
+    border: 1.5px solid var(--lab);
+    border-radius: 50%;
+    color: var(--lab);
+    font-family: var(--font-mono);
+    font-weight: 700;
+  }
+
+  .pick[aria-pressed="true"] .n {
+    background: var(--lab);
+    color: var(--sheet);
+  }
+
+  .zone {
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .organs path,
+    .organs ellipse {
+      stroke-dashoffset: 0;
+      transition: none;
+    }
+  }
+</style>
