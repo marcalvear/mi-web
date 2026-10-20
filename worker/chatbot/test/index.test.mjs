@@ -77,3 +77,21 @@ test("limpia los mensajes: roles, longitud y últimos turnos", () => {
   assert.equal(cleaned.length, 10);
   assert.equal(cleaned.at(-1).content, "última");
 });
+
+test("las instrucciones llevan el contenido real de la web y el idioma de la página", async () => {
+  const env = fakeEnv();
+  await worker.fetch(post({ lang: "en", messages: [{ role: "user", content: "hi" }] }), env);
+  const system = env.calls[0].input.messages[0].content;
+  assert.match(system, /Sonrisa Imperial/i);
+  assert.match(system, /IES Dr\. Lluís Simarro/);
+  assert.match(system, /está en inglés\.$/);
+});
+
+test("acepta la web en local con Astro (puertos 4321 y 4322)", async () => {
+  for (const origin of ["http://localhost:4321", "http://localhost:4322"]) {
+    const res = await worker.fetch(post({ messages: [{ role: "user", content: "hola" }] }, origin), fakeEnv());
+    assert.equal(res.status, 200);
+  }
+  const old = await worker.fetch(post({ messages: [{ role: "user", content: "hola" }] }, "http://localhost:8080"), fakeEnv());
+  assert.equal(old.status, 403);
+});
