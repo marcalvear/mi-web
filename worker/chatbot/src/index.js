@@ -10,12 +10,13 @@ export const MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct";
 
 const ALLOWED_ORIGINS = [
   "https://marcalvear.github.io",
-  "http://localhost:8080",
-  "http://localhost:8081",
+  "http://localhost:4321", // astro dev
+  "http://localhost:4322", // astro preview
 ];
 
 const MAX_MESSAGES = 10;     // solo se envían los últimos turnos
 const MAX_CHARS = 800;       // por mensaje del usuario
+const LANGS = { es: "español", en: "inglés" };
 
 function cors(origin) {
   return {
@@ -72,8 +73,11 @@ export default {
     }
 
     try {
+      // El idioma de la página ayuda cuando la pregunta es corta («hi», «¿?»)
+      const lang = LANGS[body?.lang] ?? LANGS.es;
+      const system = `${SYSTEM_PROMPT}\n\nLa página desde la que te escriben está en ${lang}.`;
       const result = await env.AI.run(MODEL, {
-        messages: [{ role: "system", content: SYSTEM_PROMPT }, ...messages],
+        messages: [{ role: "system", content: system }, ...messages],
         max_tokens: 350,
         temperature: 0.4,
       });

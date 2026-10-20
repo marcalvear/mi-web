@@ -9,6 +9,7 @@ import "../styles/tokens.css";
 import "../styles/base.css";
 import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
+import MarcIA from "../components/chat/MarcIA.astro";
 import { useTranslations, type Lang } from "../i18n/ui";
 
 interface Props {
@@ -70,5 +71,6 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
       <slot />
     </main>
     <SiteFooter lang={lang} />
+    <MarcIA lang={lang} />
   </body>
 </html>

@@ -1,0 +1,393 @@
+---
+// Asistente «Marc IA» (#33): un botón fijo que abre un chat. Las preguntas van
+// al Worker de Cloudflare (worker/chatbot, ADR 0002), que guarda las
+// instrucciones y llama al modelo; en la web no hay ninguna clave. Solo se
+// pinta si PUBLIC_CHATBOT_URL está configurada, para no enseñar un chat roto.
+import { chat } from "../../i18n/chat";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = chat[lang];
+const endpoint = import.meta.env.PUBLIC_CHATBOT_URL ?? "";
+const id = `marc-ia-${lang}`;
+---
+
+{
+  endpoint && (
+    <div class="marc-ia" data-marc-ia data-endpoint={endpoint} data-lang={lang} data-text={JSON.stringify(t)}>
+      <button type="button" class="launcher" data-launcher aria-expanded="false" aria-controls={id}>
+        <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M2 3h14v9H8l-4 3v-3H2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+        </svg>
+        {t.open}
+      </button>
+
+      <section class="panel" id={id} role="dialog" aria-labelledby={`${id}-title`} hidden>
+        <header class="head">
+          <div>
+            <h2 id={`${id}-title`}>{t.title}</h2>
+            <p class="note">{t.note}</p>
+          </div>
+          <button type="button" class="close" data-close aria-label={t.close}>×</button>
+        </header>
+
+        <ol class="log" role="log" aria-label={t.label} aria-live="polite" data-log>
+          <li class="msg bot">{t.hello}</li>
+        </ol>
+
+        <div class="suggestions" data-suggestions>
+          {
+            t.suggestions.map((s) => (
+              <button type="button" class="chip" data-suggestion>
+                {s}
+              </button>
+            ))
+          }
+        </div>
+
+        <form class="ask" data-form>
+          <label class="visually-hidden" for={`${id}-input`}>{t.input}</label>
+          <input id={`${id}-input`} name="q" type="text" maxlength="800" autocomplete="off" placeholder={t.placeholder} required />
+          <button type="submit" class="send">{t.send}</button>
+        </form>
+        <button type="button" class="clear" data-clear hidden>{t.clear}</button>
+      </section>
+    </div>
+  )
+}
+
+<script>
+  import type { ChatText } from "../../i18n/chat";
+
+  type Turn = { role: "user" | "assistant"; content: string };
+  const KEY = "marc-ia-v1"; // la conversación dura lo que la pestaña
+  const MAX_TURNS = 10;
+
+  const root = document.querySelector<HTMLElement>("[data-marc-ia]");
+  if (root) init(root);
+
+  function init(root: HTMLElement) {
+    const t = JSON.parse(root.dataset.text!) as ChatText;
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+    const launcher = $<HTMLButtonElement>("[data-launcher]");
+    const panel = $(".panel");
+    const log = $("[data-log]");
+    const form = $<HTMLFormElement>("[data-form]");
+    const input = form.elements.namedItem("q") as HTMLInputElement;
+    const send = form.querySelector<HTMLButtonElement>(".send")!;
+    const suggestions = $("[data-suggestions]");
+    const clear = $<HTMLButtonElement>("[data-clear]");
+    const hello = log.firstElementChild!.cloneNode(true);
+
+    let turns: Turn[] = [];
+    try {
+      turns = JSON.parse(sessionStorage.getItem(KEY) ?? "[]");
+    } catch {
+      /* sin almacenamiento: la conversación dura lo que la página */
+    }
+
+    const save = () => {
+      try {
+        sessionStorage.setItem(KEY, JSON.stringify(turns.slice(-MAX_TURNS * 2)));
+      } catch {
+        /* no pasa nada si no se puede guardar */
+      }
+    };
+
+    // Todo con textContent: lo que contesta el modelo nunca se lee como HTML
+    function bubble(role: Turn["role"] | "error", text: string) {
+      const li = document.createElement("li");
+      li.className = `msg ${role === "user" ? "user" : role === "error" ? "error" : "bot"}`;
+      const who = document.createElement("span");
+      who.className = "visually-hidden";
+      who.textContent = `${role === "user" ? t.you : t.bot}: `;
+      li.append(who, text);
+      log.append(li);
+      log.scrollTop = log.scrollHeight;
+      return li;
+    }
+
+    function render() {
+      log.replaceChildren(hello.cloneNode(true));
+      turns.forEach((m) => bubble(m.role, m.content));
+      suggestions.hidden = turns.length > 0;
+      clear.hidden = turns.length === 0;
+    }
+
+    function setOpen(open: boolean) {
+      panel.hidden = !open;
+      launcher.setAttribute("aria-expanded", String(open));
+      if (open) {
+        render();
+        input.focus();
+      } else {
+        launcher.focus();
+      }
+    }
+
+    async function ask(question: string) {
+      const q = question.trim();
+      if (!q) return;
+      turns.push({ role: "user", content: q });
+      save();
+      bubble("user", q);
+      suggestions.hidden = true;
+      input.value = "";
+      input.disabled = send.disabled = true;
+      const thinking = bubble("assistant", t.thinking);
+      thinking.classList.add("thinking");
+
+      try {
+        const res = await fetch(root.dataset.endpoint!, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ lang: root.dataset.lang, messages: turns.slice(-MAX_TURNS) }),
+        });
+        const data = await res.json().catch(() => ({}));
+        thinking.remove();
+        if (res.ok && data.reply) {
+          turns.push({ role: "assistant", content: data.reply });
+          save();
+          bubble("assistant", data.reply);
+        } else {
+          // La pregunta sin respuesta no se guarda: así se puede repetir
+          turns.pop();
+          save();
+          bubble("error", res.status === 503 ? t.errors.busy : t.errors.generic);
+        }
+      } catch {
+        thinking.remove();
+        turns.pop();
+        save();
+        bubble("error", t.errors.network);
+      } finally {
+        input.disabled = send.disabled = false;
+        clear.hidden = turns.length === 0;
+        input.focus();
+      }
+    }
+
+    launcher.addEventListener("click", () => setOpen(panel.hidden));
+    $("[data-close]").addEventListener("click", () => setOpen(false));
+    root.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !panel.hidden) setOpen(false);
+    });
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      ask(input.value);
+    });
+    root.querySelectorAll<HTMLButtonElement>("[data-suggestion]").forEach((b) =>
+      b.addEventListener("click", () => ask(b.textContent ?? "")),
+    );
+    clear.addEventListener("click", () => {
+      turns = [];
+      save();
+      render();
+      input.focus();
+    });
+  }
+</script>
+
+<style>
+  .marc-ia {
+    position: fixed;
+    right: var(--space-3);
+    bottom: var(--space-3);
+    z-index: 50;
+    /* El botón queda abajo y el chat se abre encima, sin moverlo */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: end;
+    gap: var(--space-2);
+  }
+
+  /* Sin esto, los display de abajo ganarían al atributo hidden */
+  [hidden] {
+    display: none !important;
+  }
+
+  /* El botón es una etiqueta de cuaderno con el rotulador rojo */
+  .launcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    min-height: 48px;
+    padding: 0.6rem 1.1rem;
+    border: 1.5px solid var(--accent);
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0 var(--ink);
+    cursor: pointer;
+    transition: transform var(--fast) var(--ease-out);
+  }
+
+  .launcher:hover {
+    transform: translate(-1px, -1px);
+  }
+
+  .launcher[aria-expanded="true"] {
+    background: var(--sheet);
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto auto auto;
+    gap: var(--space-2);
+    width: min(24rem, calc(100vw - 2 * var(--space-3)));
+    height: min(34rem, calc(100dvh - 7rem));
+    padding: var(--space-3);
+    background: var(--sheet);
+    border: 1.5px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--rule);
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: var(--space-2);
+    padding-block-end: var(--space-2);
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .head h2 {
+    font-size: var(--step-1);
+  }
+
+  .note {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .close {
+    min-width: 44px;
+    min-height: 44px;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .log {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    list-style: none;
+  }
+
+  .log :global(.msg) {
+    max-width: 88%;
+    padding: 0.5rem 0.75rem;
+    border-left: 2px solid var(--accent);
+    background: var(--paper);
+    font-size: var(--step--1);
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .log :global(.msg.user) {
+    align-self: end;
+    border-left: 0;
+    border-right: 2px solid var(--ink);
+  }
+
+  .log :global(.msg.error) {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .log :global(.msg.thinking) {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .suggestions .chip {
+    font-size: var(--step--1);
+  }
+
+  .ask {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .ask input {
+    flex: 1;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .send {
+    min-height: 44px;
+    padding: 0 0.9rem;
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: var(--on-accent);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .send:disabled,
+  .ask input:disabled {
+    opacity: 0.6;
+    cursor: wait;
+  }
+
+  .clear {
+    justify-self: start;
+    min-height: 32px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  @media (max-width: 30rem) {
+    .marc-ia {
+      right: var(--space-2);
+      bottom: var(--space-2);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .launcher {
+      transition: none;
+    }
+  }
+</style>
