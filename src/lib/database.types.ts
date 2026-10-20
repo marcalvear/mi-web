@@ -77,6 +77,8 @@ export interface Database {
     Views: { [_ in never]: never };
     Functions: {
       is_admin: { Args: Record<PropertyKey, never>; Returns: boolean };
+      /** Marca como leídas mis respuestas en el hilo de quien llama (#31) */
+      mark_replies_read: { Args: Record<PropertyKey, never>; Returns: number };
     };
     Enums: { [_ in never]: never };
     CompositeTypes: { [_ in never]: never };
