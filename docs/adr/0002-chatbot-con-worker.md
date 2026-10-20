@@ -48,3 +48,16 @@ Web (GitHub Pages) ──POST { messages }──► Worker ──env.AI.run()─
 - Si se agota el cupo diario, el Worker responde 503 y el widget lo explica.
 - El botón «Pregúntame» solo aparece cuando `CHATBOT_URL` está configurada,
   para no enseñar un chat roto.
+
+## Actualización v3 (20/10/2026, issue #33)
+
+- **El contexto se genera** desde los textos de la web (`npm run
+  chatbot:contexto` → `worker/chatbot/src/context.js`). Antes era un texto
+  escrito a mano que se quedaba viejo; ahora sabe exactamente lo que dice la
+  web, incluido Mi espacio y cómo está hecha.
+- **El widget** es un componente de Astro (`MarcIA.astro`) con el estilo del
+  cuaderno, en los dos idiomas, y manda el idioma de la página para contestar
+  en el mismo. La conversación dura lo que la pestaña (`sessionStorage`).
+- El Worker acepta la web en local con Astro (`localhost:4321` y `4322`).
+- La URL va en `PUBLIC_CHATBOT_URL` (antes `assets/js/config.js`).
+
