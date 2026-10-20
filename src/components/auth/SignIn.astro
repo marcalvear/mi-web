@@ -16,6 +16,7 @@ const { lang } = Astro.props;
 const c = auth[lang];
 const contact = `${getRelativeLocaleUrl(lang)}#contacto`;
 const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
+const adminPanel = getRelativeLocaleUrl(lang, "panel/");
 // Solo lo que necesita el script
 const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
 ---
@@ -30,7 +31,7 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
 
     <MarginNote label={c.noteLabel}>{c.note}</MarginNote>
 
-    <div class="card" data-signin data-space={mySpace} data-text={JSON.stringify(text)}>
+    <div class="card" data-signin data-space={mySpace} data-panel-url={adminPanel} data-text={JSON.stringify(text)}>
       <noscript><p>{c.noscript}</p></noscript>
 
       <p class="label" data-panel="loading" hidden>{c.loading}</p>
@@ -212,6 +213,12 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
       }
     }
 
+    // Recién entrado, cada uno va a lo suyo: yo al panel (#32), el resto a su espacio (#31)
+    async function home(user: User) {
+      const { data } = await supabase!.from("profiles").select("role").eq("id", user.id).maybeSingle();
+      return data?.role === "admin" ? root.dataset.panelUrl! : root.dataset.space!;
+    }
+
     // Queda en events para el panel de administrador (#32)
     async function logSignIn(user: User, via: "codigo" | "enlace") {
       await supabase!
@@ -257,7 +264,7 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
       clearInterval(timer);
       await logSignIn(data.user, "codigo");
       // Recién entrado, directo a su conversación (#31)
-      location.assign(root.dataset.space!);
+      location.assign(await home(data.user));
     });
 
     resend.addEventListener("click", async () => {
@@ -300,7 +307,7 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
       if (emailLink === "session") {
         // Viene del enlace del correo: directo a su conversación (#31)
         await logSignIn(user, "enlace");
-        location.replace(root.dataset.space!);
+        location.replace(await home(user));
         return;
       }
       signedIn(user, false);

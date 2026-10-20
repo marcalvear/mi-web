@@ -16,6 +16,7 @@ const { lang } = Astro.props;
 const c = space[lang];
 const MAX = 5000;
 const signIn = getRelativeLocaleUrl(lang, "entrar/");
+const adminPanel = getRelativeLocaleUrl(lang, "panel/");
 const id = (field: string) => `space-${field}-${lang}`;
 ---
 
@@ -95,7 +96,7 @@ const id = (field: string) => `space-${field}-${lang}`;
             <dd data-since></dd>
           </div>
         </dl>
-        <p class="admin" data-admin hidden>{c.profile.admin}</p>
+        <p class="admin" data-admin hidden>{c.profile.admin} <a href={adminPanel}>{c.profile.panel}</a></p>
         <Button variant="ghost" arrow={false} data-signout>{c.profile.signOut}</Button>
       </aside>
     </div>
