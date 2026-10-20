@@ -29,3 +29,25 @@ de Blueprint (Bryan Johnson), y WHOOP.
   Blueprint son fotos de estudio, que llenan el marco (`cover`).
 - **Marc IA** se regenera (`npm run chatbot:contexto`) para que sepa de los
   productos nuevos. Hay que volver a desplegar el Worker al publicar.
+
+## Después: las fotos se veían poco definidas
+
+> me parece que las imágenes de cada producto de biohacking, en general todas,
+> se ven a demasiada baja resolución [...] se ve un poco poco profesional.
+
+En una pantalla de densidad 2 (la de casi todos los Mac y móviles), cada hueco
+de foto mide 430 px y necesita una imagen de 860 px. La web servía 560 px como
+mucho, y tres originales (TheraFace, JetBoots y Eight Sleep) solo tenían 650-670
+px.
+
+- **Tamaños**: el componente genera versiones de 440, 880 y 1320 px, en vez de
+  320 y 560. Ahora se sirven 880 px en un escritorio de densidad 2 y 1320 px en
+  un móvil de densidad 3. Las 8 fotos de 880 px en AVIF pesan unos 96 KB entre
+  todas, y se cargan al bajar.
+- **Originales nuevos** de las webs oficiales:
+  - TheraFace y JetBoots: la misma foto, a 1424 px.
+  - Eight Sleep: su foto principal, a 1600 px (la funda sobre el colchón con
+    la base al pie), en lugar de un recorte pequeño.
+  - Blueprint: a tamaño completo (1024-1200 px).
+- **Las fotos de Therabody llenan el marco** (`cover`). Traen su propio fondo
+  beis, y con `contain` se veía un rectángulo de otro tono dentro del marco.
