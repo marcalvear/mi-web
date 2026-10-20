@@ -306,6 +306,12 @@ const id = (field: string) => `space-${field}-${lang}`;
 </script>
 
 <style>
+  /* Lo que se ve depende de la sesión y lo pinta JavaScript al cargar: con
+     este alto mínimo el pie no salta cuando aparece (CLS) */
+  .wrap {
+    min-height: 80vh;
+  }
+
   .intro {
     display: grid;
     gap: var(--space-2);

@@ -58,6 +58,19 @@ margen son decorativas y no llevan información.
 - En móvil los diagramas mantienen un tamaño de letra legible y se desplazan dentro de su caja,
   sin scroll horizontal en la página.
 
+## Piezas interactivas (bloques #30 a #34)
+
+Todas reutilizan las mismas piezas del cuaderno: la **ficha** (fondo `--sheet`,
+borde de tinta y sombra dura), el **rotulador rojo** para lo importante y la
+**etiqueta** monoespaciada en mayúsculas.
+
+| Pieza | Patrón | Accesibilidad |
+|---|---|---|
+| Formulario F-1 | Ficha con campos de tinta; el error se marca en rojo solo después de intentar enviar | Etiquetas visibles, el foco va al primer campo erróneo, mensajes en `role="status"` |
+| Mi espacio y panel | Cada mensaje es una entrada del cuaderno; las mías llevan el margen rojo | Hilos en listas ordenadas, textos con `textContent`, la conversación abierta recibe el foco |
+| Marc IA | Botón-etiqueta fijo; el chat se abre encima sin moverlo | `role="log"` con `aria-live`, Escape cierra y devuelve el foco |
+| Paleta ⌘K | Ficha que cae sobre la página con el fondo atenuado | `<dialog>` modal (foco atrapado), combobox + listbox con `aria-activedescendant` |
+
 ## Rendimiento
 
 - Fuentes variables servidas desde la web (paquetes `@fontsource-variable`), con `preload`
