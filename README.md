@@ -5,9 +5,48 @@ IES Dr. Lluís Simarro.
 
 **Publicada en:** https://marcalvear.github.io/mi-web/
 
-> **v3 en obras.** Se está rehaciendo desde cero en la rama `v3`
-> ([issue #21](https://github.com/marcalvear/mi-web/issues/21)). Mientras tanto
-> sigue publicada la v2. La documentación completa llega en #35.
+## Qué tiene
+
+Tercera versión, con estética de **cuaderno de laboratorio**: papel
+cuadriculado, Newsreader y JetBrains Mono, rotulador rojo y diagramas SVG que
+se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema.
+
+- **Portada**: quién soy, lo que he hecho, lo que me gusta y contacto.
+- **Caso de estudio** de Sonrisa Imperial, contado como un informe de laboratorio.
+- **Me gusta**: Pokédex con modelos 3D, mazo de 200 frases de anime traducidas
+  y mi radar de biohacking con fotos.
+- **Formulario de contacto** conectado a n8n: captcha, crea la cuenta de quien
+  escribe, clasifica el mensaje con IA y responde por correo.
+- **Mi espacio**: cada persona ve su conversación conmigo, entrando sin
+  contraseña con un código por email.
+- **Panel de administrador**: bandeja con sin leer y sin responder, respuestas
+  que avisan por correo, usuarios y su actividad.
+- **Marc IA**: asistente con IA que responde con lo que dice la web.
+- **Paleta de comandos** con ⌘K o Ctrl+K.
+
+## Cómo está hecha
+
+```
+                 GitHub Pages (Astro, estática)
+        ┌────────────────┬───────────────┬────────────────┐
+        │ formulario     │ Mi espacio /  │ Marc IA        │
+        │                │ panel         │                │
+        ▼                ▼               ▼                │
+   n8n (webhooks)   Supabase          Cloudflare Worker   │
+   captcha, IA,     Postgres + Auth   Workers AI          │
+   correo (Brevo)   reglas RLS        (Mistral)           │
+        │                ▲                                │
+        └── clave secreta┘     ninguna clave secreta en la web
+```
+
+- **Astro 7** compila páginas estáticas en los dos idiomas; **GitHub Actions**
+  las publica en GitHub Pages ([ADR 0004](docs/adr/0004-astro-con-github-actions.md)).
+- **Supabase** guarda usuarios, mensajes y actividad. Lo que protege los datos
+  son las reglas RLS de Postgres, probadas con 27 pruebas ([ADR 0006](docs/adr/0006-supabase-con-rls.md)).
+- **n8n** recibe el formulario y avisa de mis respuestas; es el único sitio
+  con la clave secreta de Supabase ([ADR 0007](docs/adr/0007-contacto-con-n8n.md)).
+- **Cloudflare Workers AI** responde al chat sin claves en la web
+  ([ADR 0002](docs/adr/0002-chatbot-con-worker.md)).
 
 ## Estructura
 
@@ -15,19 +54,24 @@ IES Dr. Lluís Simarro.
 ├── astro.config.mjs        base /mi-web/ e idiomas (es, en)
 ├── src/
 │   ├── pages/              una ruta por fichero; en/ para el inglés
-│   ├── layouts/            plantilla común (Base.astro)
-│   ├── i18n/ui.ts          textos de la interfaz en los dos idiomas
-│   ├── lib/supabase.ts     cliente de Supabase (solo la clave pública)
-│   └── assets/img/         imágenes que Astro optimiza
+│   ├── layouts/Base.astro  plantilla común: cabecera, pie, chat y paleta
+│   ├── components/         home/, case/, likes/, auth/, space/, panel/, chat/…
+│   ├── i18n/               todos los textos en los dos idiomas
+│   ├── lib/                cliente de Supabase (solo la clave pública), Pokémon
+│   ├── data/               las 200 frases de anime con su traducción
+│   └── styles/             tokens del diseño y estilos base
 ├── public/                 ficheros que se copian tal cual (vídeo, landing)
-├── supabase/               esquema, reglas RLS con sus pruebas y correo de acceso
-├── n8n/                    flujo del formulario de contacto y su guía
-├── worker/chatbot/         Cloudflare Worker del asistente (con pruebas)
+├── scripts/                descargar las frases y generar el contexto del chat
+├── supabase/               migraciones, 27 pruebas de RLS y correo de acceso
+├── n8n/                    los dos flujos (contacto y aviso) y su guía
+├── worker/chatbot/         Cloudflare Worker de Marc IA (con pruebas)
 ├── .github/workflows/      compilación y publicación en GitHub Pages
 └── docs/
     ├── adr/                decisiones de arquitectura
-    ├── prompts/            órdenes que le di a la IA
-    └── video/              script para regenerar la demo
+    ├── diseno.md           el sistema de diseño y sus contrastes
+    ├── lighthouse.md       mediciones de cada página
+    ├── prompts/            las órdenes que le di a la IA, bloque a bloque
+    └── video/              script para regenerar la demo de Sonrisa Imperial
 ```
 
 ## Verlo en local
@@ -42,18 +86,39 @@ npm run dev
 y abrir http://localhost:4321/mi-web/. Para compilar como en GitHub Pages:
 `npm run build` y `npm run preview`.
 
-Para que funcione `/entrar/`, copia `.env.example` como `.env` y pon la URL y
-la clave pública de Supabase. Cómo crear el proyecto y probar las reglas:
-[supabase/README.md](supabase/README.md). El formulario de contacto necesita
-además la URL del webhook de n8n y la clave de sitio de Turnstile:
-[n8n/README.md](n8n/README.md). El panel (`/panel/`) usa además la URL del
-aviso de respuesta, `PUBLIC_N8N_REPLY_URL`.
+Sin `.env` la web funciona, pero sin las partes conectadas. Copia
+`.env.example` como `.env` y rellénalo; **todas las variables son públicas**
+(acaban en el JavaScript de la web):
 
-Pruebas del Worker del chatbot:
+| Variable | Para qué | Guía |
+|---|---|---|
+| `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY` | Entrar, Mi espacio y panel | [supabase/README.md](supabase/README.md) |
+| `PUBLIC_N8N_CONTACT_URL`, `PUBLIC_TURNSTILE_SITE_KEY` | Formulario de contacto | [n8n/README.md](n8n/README.md) |
+| `PUBLIC_N8N_REPLY_URL` | Aviso por correo de mis respuestas | [n8n/README.md](n8n/README.md) |
+| `PUBLIC_CHATBOT_URL` | Marc IA | [worker/chatbot/README.md](worker/chatbot/README.md) |
+
+En GitHub van en *Settings → Secrets and variables → Actions → Variables*.
+
+Otros comandos:
 
 ```bash
-cd worker/chatbot && npm test
+npm run chatbot:test        # pruebas del Worker de Marc IA
+npm run chatbot:contexto    # regenera lo que sabe Marc IA a partir de src/i18n
+node scripts/descargar-frases.mjs   # vuelve a descargar las frases de Animechan
 ```
+
+## Calidad
+
+Lighthouse en móvil, en todas las páginas: ver [docs/lighthouse.md](docs/lighthouse.md).
+Accesibilidad AA (contrastes en [docs/diseno.md](docs/diseno.md)), navegable con
+teclado y con `prefers-reduced-motion`.
+
+## Cómo se ha trabajado
+
+Cada bloque tiene su issue, su rama desde `v3` y su pull request, con commits
+pequeños en español. Las órdenes que le di a la IA están en
+[docs/prompts/](docs/prompts/). La issue que lo agrupa todo es la
+[#21](https://github.com/marcalvear/mi-web/issues/21).
 
 ## Decisiones de arquitectura
 
@@ -69,4 +134,4 @@ cd worker/chatbot && npm test
 
 - `v1`: primera versión, una página con estética Cyberpunk 2077.
 - `v2`: rediseño espacial inspirado en Super Mario Galaxy, con Web Components sin build.
-- `v3` (en curso): cuaderno de laboratorio con Astro, dos idiomas, usuarios y panel de administrador.
+- `v3`: cuaderno de laboratorio con Astro, dos idiomas, usuarios, Mi espacio, panel de administrador, chatbot con IA y paleta ⌘K.
