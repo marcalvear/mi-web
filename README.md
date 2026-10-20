@@ -103,6 +103,7 @@ Otros comandos:
 
 ```bash
 npm run chatbot:test        # pruebas del Worker de Marc IA
+npm run check:enlaces       # tras compilar: los enlaces externos se abren en otra pestaña
 npm run chatbot:contexto    # regenera lo que sabe Marc IA a partir de src/i18n
 node scripts/descargar-frases.mjs   # vuelve a descargar las frases de Animechan
 ```
