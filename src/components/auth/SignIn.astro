@@ -15,6 +15,7 @@ interface Props {
 const { lang } = Astro.props;
 const c = auth[lang];
 const contact = `${getRelativeLocaleUrl(lang)}#contacto`;
+const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
 // Solo lo que necesita el script
 const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
 ---
@@ -29,7 +30,7 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
 
     <MarginNote label={c.noteLabel}>{c.note}</MarginNote>
 
-    <div class="card" data-signin data-text={JSON.stringify(text)}>
+    <div class="card" data-signin data-space={mySpace} data-text={JSON.stringify(text)}>
       <noscript><p>{c.noscript}</p></noscript>
 
       <p class="label" data-panel="loading" hidden>{c.loading}</p>
@@ -92,8 +93,9 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
             <dd data-role>—</dd>
           </div>
         </dl>
-        <p>{c.in.soon}</p>
+        <p>{c.in.spaceLead}</p>
         <div class="row">
+          <Button href={mySpace}>{c.in.space}</Button>
           <Button variant="ghost" arrow={false} data-signout>{c.in.signOut}</Button>
         </div>
       </div>
@@ -254,7 +256,8 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
       }
       clearInterval(timer);
       await logSignIn(data.user, "codigo");
-      signedIn(data.user);
+      // Recién entrado, directo a su conversación (#31)
+      location.assign(root.dataset.space!);
     });
 
     resend.addEventListener("click", async () => {
@@ -294,7 +297,12 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
     if (emailLink) history.replaceState(null, "", location.pathname + location.search);
     const user = data.session?.user;
     if (user) {
-      if (emailLink === "session") await logSignIn(user, "enlace");
+      if (emailLink === "session") {
+        // Viene del enlace del correo: directo a su conversación (#31)
+        await logSignIn(user, "enlace");
+        location.replace(root.dataset.space!);
+        return;
+      }
       signedIn(user, false);
     } else {
       show("email", false);

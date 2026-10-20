@@ -21,6 +21,7 @@ const year = new Date().getFullYear();
     <p class="meta label">
       <span>{t("footer.notebook")}</span>
       <a href="https://github.com/marcalvear/mi-web">{t("footer.code")}</a>
+      <a href={getRelativeLocaleUrl(lang, "mi-espacio/")}>{t("footer.space")}</a>
       <a href={getRelativeLocaleUrl(lang, "privacidad/")}>{t("footer.privacy")}</a>
       <a href="#main">{t("footer.top")} ↑</a>
     </p>
