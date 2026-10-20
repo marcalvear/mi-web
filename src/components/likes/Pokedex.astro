@@ -181,6 +181,8 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
       void card.offsetWidth;
       card.classList.add("flip");
       loadedModel = null;
+      // Cada Pokémon vuelve a poder pedir su shiny
+      shinyBtn.disabled = false;
       if (view === "3d") loadModel();
     }
 
@@ -224,10 +226,34 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
       });
     }
 
+    function setShiny(value: boolean) {
+      shiny = value;
+      shinyBtn.setAttribute("aria-pressed", String(shiny));
+      shinyBtn.textContent = shiny ? t.normal : t.shiny;
+    }
+
+    // Carga la versión pedida del Pokémon actual. Devuelve si lo consiguió, o
+    // null si mientras tanto se pidió otro modelo y este ya no importa
+    async function showModel(entry: PokemonEntry, wantShiny: boolean, request: number) {
+      const key = `${entry.id}-${wantShiny ? "shiny" : "regular"}`;
+      if (loadedModel === key) return true;
+      // Algunos Pokémon tienen el modelo separado por género (p. ej. 521-M.glb)
+      const folder = MODELS + (wantShiny ? "shiny/" : "regular/");
+      for (const file of [`${entry.id}.glb`, `${entry.id}-M.glb`]) {
+        const ok = await tryModel(folder + file);
+        if (request !== modelRequest) return null;
+        if (ok) {
+          loadedModel = key;
+          return true;
+        }
+      }
+      return false;
+    }
+
     async function loadModel() {
       if (!current) return;
-      const key = `${current.id}-${shiny ? "shiny" : "regular"}`;
-      if (loadedModel === key) return;
+      const entry = current;
+      if (loadedModel === `${entry.id}-${shiny ? "shiny" : "regular"}`) return;
       const request = ++modelRequest;
       status3d.textContent = t.loading3d;
       try {
@@ -237,20 +263,32 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
         status3d.textContent = t.viewerError;
         return;
       }
-      // Algunos Pokémon tienen el modelo separado por género (p. ej. 521-M.glb)
-      const folder = MODELS + (shiny ? "shiny/" : "regular/");
-      for (const file of [`${current.id}.glb`, `${current.id}-M.glb`]) {
-        const ok = await tryModel(folder + file);
-        if (request !== modelRequest) return; // mientras tanto se pidió otro Pokémon
-        if (ok) {
-          loadedModel = key;
-          model.setAttribute("alt", t.modelAlt.replace("{name}", current.name));
-          status3d.textContent = t.ready3d;
-          return;
-        }
+      // Lo que hubiera en el visor deja de valer hasta que cargue el nuevo: si
+      // falla, así no se queda apuntado como cargado y se puede volver a pedir
+      loadedModel = null;
+      let ok = await showModel(entry, shiny, request);
+      if (ok === null) return;
+      let note = t.ready3d;
+      if (!ok && shiny) {
+        // Sin shiny: se vuelve al modelo normal, que se puede seguir girando,
+        // y el botón se apaga hasta que se elija otro Pokémon
+        setShiny(false);
+        shinyBtn.disabled = true;
+        ok = await showModel(entry, false, request);
+        if (ok === null) return;
+        note = t.noShiny;
       }
-      model.removeAttribute("src");
-      status3d.textContent = shiny ? t.noShiny : t.no3d;
+      if (ok) {
+        model.setAttribute("alt", t.modelAlt.replace("{name}", entry.name));
+        model.removeAttribute("data-empty");
+        status3d.textContent = note;
+      } else {
+        // Sin modelo: el visor se vacía. Quitar el src no basta, porque se
+        // seguiría viendo el último fotograma del Pokémon anterior
+        model.removeAttribute("src");
+        model.setAttribute("data-empty", "");
+        status3d.textContent = t.no3d;
+      }
     }
 
     function selectView(name: "img" | "3d") {
@@ -263,9 +301,7 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
 
     viewBtns.forEach((b) => b.addEventListener("click", () => selectView(b.dataset.view as "img" | "3d")));
     shinyBtn.addEventListener("click", () => {
-      shiny = !shiny;
-      shinyBtn.setAttribute("aria-pressed", String(shiny));
-      shinyBtn.textContent = shiny ? t.normal : t.shiny;
+      setShiny(!shiny);
       loadModel();
     });
     form.addEventListener("submit", (e) => {
@@ -388,6 +424,11 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
     --poster-color: transparent;
   }
 
+  /* Sin modelo: se guarda el hueco para que la ficha no salte */
+  model-viewer[data-empty] {
+    visibility: hidden;
+  }
+
   .note {
     padding-inline: var(--space-2);
     color: var(--ink-soft);
@@ -397,6 +438,11 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
   .model .chip {
     justify-self: start;
     margin-inline: var(--space-2);
+  }
+
+  .model .chip:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   .body {
