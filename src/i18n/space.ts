@@ -29,7 +29,8 @@ export const space = {
       saved: "Nombre guardado.",
       email: "Email",
       since: "Desde",
-      admin: "Eres el administrador. Los mensajes de todo el mundo estarán en el panel.",
+      admin: "Eres el administrador. Los mensajes de todo el mundo están en el panel.",
+      panel: "Ir al panel",
       signOut: "Cerrar sesión",
     },
     thread: {
@@ -85,7 +86,8 @@ export const space = {
       saved: "Name saved.",
       email: "Email",
       since: "Since",
-      admin: "You're the admin. Everyone's messages will be in the dashboard.",
+      admin: "You're the admin. Everyone's messages are in the dashboard.",
+      panel: "Go to the dashboard",
       signOut: "Sign out",
     },
     thread: {
