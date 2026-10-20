@@ -10,6 +10,7 @@ export const ui = {
     "site.title": "Marc Calatayud",
     "site.description":
       "Aprendo inteligencia artificial para ayudar a startups e infoproductores a dar vida a sus proyectos.",
+    "og.alt": "Marc Calatayud, cuaderno nº 3: aprendo inteligencia artificial para ayudar a startups e infoproductores.",
     "skip": "Saltar al contenido",
     "lang.switch": "Read in English",
     "404.title": "Página no encontrada",
@@ -37,6 +38,7 @@ export const ui = {
     "site.title": "Marc Calatayud",
     "site.description":
       "I study artificial intelligence to help startups and creators bring their projects to life.",
+    "og.alt": "Marc Calatayud, notebook no. 3: I study artificial intelligence to help startups and creators.",
     "skip": "Skip to content",
     "lang.switch": "Leer en español",
     "404.title": "Page not found",
