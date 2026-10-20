@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "chatbot:contexto": "node scripts/contexto-chatbot.mjs",
+    "chatbot:test": "node --test worker/chatbot/test/"
   },
   "dependencies": {
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
