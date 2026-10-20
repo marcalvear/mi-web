@@ -46,7 +46,8 @@ Para que funcione `/entrar/`, copia `.env.example` como `.env` y pon la URL y
 la clave pública de Supabase. Cómo crear el proyecto y probar las reglas:
 [supabase/README.md](supabase/README.md). El formulario de contacto necesita
 además la URL del webhook de n8n y la clave de sitio de Turnstile:
-[n8n/README.md](n8n/README.md).
+[n8n/README.md](n8n/README.md). El panel (`/panel/`) usa además la URL del
+aviso de respuesta, `PUBLIC_N8N_REPLY_URL`.
 
 Pruebas del Worker del chatbot:
 
