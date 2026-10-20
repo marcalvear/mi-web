@@ -2,6 +2,7 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Logo from "./Logo.astro";
 import ThemeToggle from "./ThemeToggle.astro";
+import { palette } from "../i18n/palette";
 import { languages, useTranslations, type Lang } from "../i18n/ui";
 
 interface Props {
@@ -55,10 +56,25 @@ const links = [
           </li>
         ))}
       </ul>
+      <button type="button" class="palette-open" data-palette-open aria-keyshortcuts="Meta+K Control+K">
+        <svg width="16" height="16" viewBox="0 0 18 18" aria-hidden="true">
+          <circle cx="7.5" cy="7.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M11.5 11.5 16 16" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <span class="palette-label">{palette[lang].open}</span>
+        <kbd class="palette-kbd" data-kbd>Ctrl K</kbd>
+      </button>
       <ThemeToggle lang={lang} />
     </div>
   </div>
 </header>
+
+<script>
+  // En Mac el atajo se escribe ⌘K; en el resto, Ctrl K
+  if (/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) {
+    document.querySelectorAll("[data-kbd]").forEach((k) => (k.textContent = "⌘K"));
+  }
+</script>
 
 <style>
   .site-header {
@@ -190,4 +206,56 @@ const links = [
       gap: var(--space-3);
     }
   }
+
+  /* Abre la paleta de comandos (#34); en móvil solo queda la lupa */
+  .palette-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: none;
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    cursor: pointer;
+  }
+
+  .palette-open:hover {
+    border-color: var(--ink);
+  }
+
+  .palette-kbd {
+    padding: 0.05rem 0.35rem;
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.75em;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 40rem) {
+    /* El texto se oculta a la vista, no al lector de pantalla */
+    .palette-label {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    .palette-kbd {
+      display: none;
+    }
+
+    .palette-open {
+      justify-content: center;
+      padding: 0;
+    }
+  }
 </style>
+

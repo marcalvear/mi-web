@@ -55,6 +55,15 @@ const labels = { auto: t("theme.auto"), light: t("theme.light"), dark: t("theme.
       apply(current);
       label.textContent = labels[current];
     });
+
+    // La paleta de comandos (#34) elige un tema concreto con este evento
+    document.addEventListener("theme:set", (e) => {
+      const theme = (e as CustomEvent<Theme>).detail;
+      if (!order.includes(theme)) return;
+      current = theme;
+      apply(current);
+      label.textContent = labels[current];
+    });
   }
 </script>
 
