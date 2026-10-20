@@ -39,6 +39,8 @@ jobs:
           PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.PUBLIC_TURNSTILE_SITE_KEY }}
           PUBLIC_N8N_REPLY_URL: ${{ vars.PUBLIC_N8N_REPLY_URL }}
           PUBLIC_CHATBOT_URL: ${{ vars.PUBLIC_CHATBOT_URL }}
+      # Todos los enlaces a otras webs se abren en otra pestaña (#53)
+      - run: npm run check:enlaces
       - if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v5
         with:
