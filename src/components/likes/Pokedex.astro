@@ -203,32 +203,46 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
       return Promise.race([img.decode().catch(() => {}), timeout]);
     }
 
+    // Solo cuenta la última búsqueda: PokéAPI tarda entre 0,2 y 1,7 s, y si una
+    // respuesta vieja llegara después de la nueva, pisaría la ficha. La anterior
+    // se cancela y, por si ya había llegado, se comprueba el turno antes de pintar
+    let searchRequest = 0;
+    let searchAbort: AbortController | null = null;
+
     async function search(query: string | number, { quiet = false } = {}) {
       const id = String(query).trim().toLowerCase();
       if (!id) return;
+      searchAbort?.abort();
+      const abort = (searchAbort = new AbortController());
+      const request = ++searchRequest;
+      const stale = () => request !== searchRequest;
       if (!quiet) {
         status.textContent = t.searching;
         setBusy(true);
       }
       try {
-        let res: Response;
+        let data: unknown;
         try {
-          res = await fetch(POKE_API + encodeURIComponent(id));
+          const res = await fetch(POKE_API + encodeURIComponent(id), { signal: abort.signal });
+          if (stale()) return;
+          if (res.status === 404) {
+            status.textContent = t.notFound;
+            return;
+          }
+          if (!res.ok) {
+            status.textContent = t.down;
+            return;
+          }
+          data = await res.json();
         } catch {
-          status.textContent = t.network;
+          // Cancelada porque se pidió otro Pokémon: no es un error que enseñar
+          if (!stale()) status.textContent = t.network;
           return;
         }
-        if (res.status === 404) {
-          status.textContent = t.notFound;
-          return;
-        }
-        if (!res.ok) {
-          status.textContent = t.down;
-          return;
-        }
-        render(toEntry(await res.json(), lang));
+        if (stale()) return;
+        render(toEntry(data as Parameters<typeof toEntry>[0], lang));
         if (!quiet) await imageReady();
-        status.textContent = "";
+        if (!stale()) status.textContent = "";
       } finally {
         if (!quiet) setBusy(false);
       }

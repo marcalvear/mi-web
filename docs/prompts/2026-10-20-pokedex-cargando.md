@@ -32,3 +32,15 @@ segunda vez que se ve un Pokémon es instantáneo, por la caché del navegador.
 - **Quedan fuera:** cargar la imagen en paralelo, tener preparado el siguiente
   Pokémon aleatorio y evitar que una respuesta vieja pise a la nueva. Esto
   último se vio en la prueba: buscando 1, 4 y 7 seguidos se quedó Bulbasaur.
+
+## Después: la respuesta lenta que pisaba a la nueva (#59)
+
+> Yes, open an issue and fix the bug where a slow reply overwrites the newer
+> Pokémon.
+
+- **Cada búsqueda tiene su turno** (`searchRequest`), igual que el visor 3D:
+  solo pinta la última. Antes de pintar, se comprueba si sigue siendo su turno.
+- **La petición anterior se cancela** con `AbortController`, así no se gasta
+  red en lo que ya no hace falta. Cancelarla no enseña «error de red».
+- Probado buscando seguido «1, 4, 7», «300…303», «150, mew, 9», «258,
+  noexiste, 133» y tres veces «Uno al azar»: siempre queda el último.
