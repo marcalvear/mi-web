@@ -1,0 +1,74 @@
+{
+  "nombre": { "es": "Extracto de hoja de alcachofa", "en": "Artichoke leaf extract" },
+  "tipo": { "es": "Extracto vegetal", "en": "Plant extract" },
+  "evidencia": "moderada",
+  "porQue": {
+    "es": "Lo respalda un ensayo grande, de 247 pacientes en varios hospitales, más un estudio que mide cómo sube la bilis. Falta que otros grupos lo repitan.",
+    "en": "It's backed by a large trial of 247 patients across several centres, plus a study that measures the rise in bile. Other groups still need to repeat it."
+  },
+  "zona": "higado",
+  "resumen": {
+    "es": "Hace que el hígado suelte más bilis, que es lo que necesitas para digerir las grasas.",
+    "en": "It makes the liver release more bile, which is what you need to digest fat."
+  },
+  "mecanismo": {
+    "es": "La hoja de alcachofa tiene cinarina y otros compuestos que aumentan la bilis que el hígado envía al intestino. La bilis trata la grasa como el jabón: la parte en gotas pequeñas para que la lipasa pueda romperla. En un estudio, la bilis subió un 151 % una hora después de tomar el extracto.",
+    "en": "Artichoke leaf contains cynarin and other compounds that increase the bile the liver sends into the gut. Bile treats fat the way soap does, splitting it into small droplets so lipase can break it down. In one study, bile went up 151% an hour after taking the extract."
+  },
+  "dosis": {
+    "es": "2 cápsulas de 320 mg, 3 veces al día (1.920 mg al día), durante 6 semanas",
+    "en": "2 × 320 mg capsules, three times a day (1,920 mg a day), for 6 weeks"
+  },
+  "cuando": { "es": "Con las comidas", "en": "With meals" },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 247 pacientes con dispepsia funcional, los síntomas mejoraron más con el extracto que con placebo durante las 6 semanas del ensayo.",
+        "en": "In 247 patients with functional dyspepsia, symptoms improved more with the extract than with placebo over the 6-week trial."
+      },
+      "fuente": "14653829"
+    },
+    {
+      "texto": {
+        "es": "La calidad de vida, medida con un cuestionario de dispepsia, mejoró 41 puntos con alcachofa y 25 con placebo.",
+        "en": "Quality of life, measured with a dyspepsia questionnaire, improved 41 points with artichoke and 25 with placebo."
+      },
+      "fuente": "14653829"
+    },
+    {
+      "texto": {
+        "es": "En 20 voluntarios, la bilis que llega al intestino subió un 151 % a la hora de tomar 1,92 g de extracto, mucho más que con placebo.",
+        "en": "In 20 volunteers, bile reaching the gut rose 151% an hour after 1.92 g of extract, far more than with placebo."
+      },
+      "fuente": "23195882"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "No la tomes si tienes piedras en la vesícula o las vías biliares obstruidas: más bilis puede provocar un cólico.",
+      "en": "Don't take it if you have gallstones or blocked bile ducts, because more bile can trigger an attack."
+    },
+    {
+      "es": "Si tienes alergia a las margaritas, la manzanilla o la ambrosía, puedes tenerla también a la alcachofa: son de la misma familia.",
+      "en": "If you're allergic to daisies, chamomile or ragweed, you may react to artichoke too, as they're the same plant family."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Holtmann G, Adam B, Haag S, et al.",
+      "anio": 2003,
+      "titulo": "Efficacy of artichoke leaf extract in the treatment of patients with functional dyspepsia: a six-week placebo-controlled, double-blind, multicentre trial",
+      "revista": "Aliment Pharmacol Ther 18(11-12):1099-1105",
+      "pmid": "14653829",
+      "doi": "10.1046/j.1365-2036.2003.01767.x"
+    },
+    {
+      "autores": "Kirchhoff R, Beckers C, Kirchhoff GM, et al.",
+      "anio": 1994,
+      "titulo": "Increase in choleresis by means of artichoke extract",
+      "revista": "Phytomedicine 1(2):107-115",
+      "pmid": "23195882",
+      "doi": "10.1016/S0944-7113(11)80027-9"
+    }
+  ]
+}
