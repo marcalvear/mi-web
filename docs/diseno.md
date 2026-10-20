@@ -54,6 +54,9 @@ margen son decorativas y no llevan información.
 - Objetivos táctiles de 44 px como mínimo en la cabecera y los botones.
 - Selector de idioma con el nombre completo para lectores de pantalla («English»), no solo «EN».
 - El botón de tema anuncia el tema actual.
+- Los enlaces a otras webs se abren en otra pestaña y lo avisan: una flecha en diagonal (↗) a la
+  vista y «(se abre en otra pestaña)» para lectores de pantalla. Las flechas rectas (→) se quedan
+  en la web. `npm run check:enlaces` lo comprueba en cada despliegue (#53).
 - Los diagramas son `role="img"` con un `<title>` que cuenta el recorrido entero.
 - En móvil los diagramas mantienen un tamaño de letra legible y se desplazan dentro de su caja,
   sin scroll horizontal en la página.

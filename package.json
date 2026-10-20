@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "chatbot:contexto": "node scripts/contexto-chatbot.mjs",
+    "check:enlaces": "node scripts/comprobar-enlaces.mjs",
     "chatbot:test": "node --test worker/chatbot/test/"
   },
   "dependencies": {

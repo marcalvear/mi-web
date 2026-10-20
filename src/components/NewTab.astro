@@ -1,0 +1,10 @@
+---
+// Aviso para lectores de pantalla de que el enlace se abre en otra pestaña.
+// Va dentro del <a>, al final, para que forme parte de su nombre accesible.
+// El idioma sale de la URL de la página, así sirve en cualquier componente.
+import { useTranslations, defaultLang, type Lang } from "../i18n/ui";
+
+const t = useTranslations((Astro.currentLocale as Lang | undefined) ?? defaultLang);
+---
+
+<span class="visually-hidden"> {t("link.newTab")}</span>

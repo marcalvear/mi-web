@@ -1,6 +1,7 @@
 ---
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Logo from "./Logo.astro";
+import NewTab from "./NewTab.astro";
 import { useTranslations, type Lang } from "../i18n/ui";
 
 interface Props {
@@ -20,7 +21,7 @@ const year = new Date().getFullYear();
     <p class="made">{t("footer.made")}</p>
     <p class="meta label">
       <span>{t("footer.notebook")}</span>
-      <a href="https://github.com/marcalvear/mi-web">{t("footer.code")}</a>
+      <a href="https://github.com/marcalvear/mi-web" target="_blank" rel="noopener">{t("footer.code")} <span aria-hidden="true">↗</span><NewTab /></a>
       <a href={getRelativeLocaleUrl(lang, "mi-espacio/")}>{t("footer.space")}</a>
       <a href={getRelativeLocaleUrl(lang, "privacidad/")}>{t("footer.privacy")}</a>
       <a href="#main">{t("footer.top")} ↑</a>
