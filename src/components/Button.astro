@@ -3,30 +3,41 @@
 // <button> para acciones en la página. «primary» es el rotulador rojo y solo
 // debe haber uno por pantalla; «ghost» es tinta sobre papel.
 import type { HTMLAttributes } from "astro/types";
+import NewTab from "./NewTab.astro";
 
 type Props = (HTMLAttributes<"a"> | HTMLAttributes<"button">) & {
   href?: string;
   variant?: "primary" | "ghost";
   /** Sin flecha para acciones que no llevan a otro sitio. */
   arrow?: boolean;
+  /** Enlace a otra web: se abre en otra pestaña y la flecha va en diagonal. */
+  external?: boolean;
 };
-const { variant = "primary", arrow = true, class: className, ...rest } = Astro.props;
+const { variant = "primary", arrow = true, external = false, class: className, ...rest } = Astro.props;
 const Tag = rest.href ? "a" : "button";
+const newTab = external && Tag === "a" ? { target: "_blank", rel: "noopener" } : {};
 ---
 
 <Tag
   class:list={["button", variant, className]}
   {...(Tag === "button" ? { type: "button" } : {})}
+  {...newTab}
   {...rest}
 >
   <slot />
   {
-    arrow && (
-      <svg class="arrow" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true">
-        <path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" />
-      </svg>
-    )
+    arrow &&
+      (external ? (
+        <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true">
+          <path d="M1 11 11 1M3.5 1H11v7.5" fill="none" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+      ) : (
+        <svg class="arrow" width="18" height="12" viewBox="0 0 18 12" aria-hidden="true">
+          <path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" />
+        </svg>
+      ))
   }
+  {external && <NewTab />}
 </Tag>
 
 <style>

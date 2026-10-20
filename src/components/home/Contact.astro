@@ -2,6 +2,7 @@
 // Contacto: un clic y apareces. Debajo va el formulario conectado a n8n
 // (ContactForm), que llega por el slot.
 import Entry from "../Entry.astro";
+import NewTab from "../NewTab.astro";
 import type { HomeContent } from "../../i18n/home";
 
 interface Props {
@@ -16,12 +17,13 @@ const { content } = Astro.props;
     {
       content.channels.map((c) => (
         <li>
-          <a href={c.href} rel="me">
+          <a href={c.href} target="_blank" rel="me noopener">
             <span class="name">{c.name}</span>
             <span class="label handle">{c.handle}</span>
-            <svg class="arrow" width="28" height="18" viewBox="0 0 28 18" aria-hidden="true">
-              <path d="M0 9h25M18 2l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.8" />
+            <svg class="arrow" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M2 18 17 3M6 2.5h11.5V14" fill="none" stroke="currentColor" stroke-width="1.8" />
             </svg>
+            <NewTab />
           </a>
         </li>
       ))
@@ -82,8 +84,9 @@ const { content } = Astro.props;
     color: var(--accent);
   }
 
+  /* La flecha sale en diagonal: estos enlaces llevan fuera de la web */
   .channels a:hover .arrow {
-    transform: translateX(6px);
+    transform: translate(4px, -4px);
     color: var(--accent);
   }
 

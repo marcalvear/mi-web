@@ -9,6 +9,7 @@ import jetboots from "../../assets/img/biohacking/jetboots-prime.webp";
 import eightsleep from "../../assets/img/biohacking/eight-sleep-pod.webp";
 import oura from "../../assets/img/biohacking/oura-ring.webp";
 import type { BioText, Goal } from "../../i18n/likes";
+import NewTab from "../NewTab.astro";
 
 interface Props {
   text: BioText;
@@ -71,8 +72,8 @@ const goals = Object.keys(text.goals) as Goal[];
                 <li class="label">#{text.goals[g as Goal].toLowerCase()}</li>
               ))}
             </ul>
-            <a class="link" href={p.href} rel="noopener">
-              {text.linkPrefix} {p.brand} ↗
+            <a class="link" href={p.href} target="_blank" rel="noopener">
+              {text.linkPrefix} {p.brand} <span aria-hidden="true">↗</span><NewTab />
             </a>
           </div>
         </li>
