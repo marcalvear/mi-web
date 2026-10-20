@@ -33,14 +33,14 @@ export const compendio = {
       title: "Dónde actúa cada suplemento",
       hint: "Pulsa un suplemento para ver dónde actúa.",
       zones: {
-        boca: "Boca",
+        boca: "Esófago",
         estomago: "Estómago",
         antro: "Antro",
         higado: "Hígado y vesícula",
         pancreas: "Páncreas",
         intestino: "Intestino delgado",
       },
-      desc: "Esquema del aparato digestivo de arriba abajo: boca, estómago con su parte baja (el antro), hígado y vesícula, páncreas e intestino delgado. Las enzimas y el aceite de menta y alcaravea actúan en el estómago, el jengibre en el antro y la alcachofa en el hígado, que suelta la bilis.",
+      desc: "Esquema del aparato digestivo de arriba abajo: esófago, hígado y vesícula, estómago con su parte baja (el antro), duodeno, páncreas e intestino delgado. Las enzimas y el aceite de menta y alcaravea actúan en el estómago, el jengibre en el antro y la alcachofa en el hígado, que suelta la bilis.",
     },
     card: {
       id: "Ficha",
@@ -94,14 +94,14 @@ export const compendio = {
       title: "Where each supplement works",
       hint: "Tap a supplement to see where it works.",
       zones: {
-        boca: "Mouth",
+        boca: "Oesophagus",
         estomago: "Stomach",
         antro: "Antrum",
         higado: "Liver and gallbladder",
         pancreas: "Pancreas",
         intestino: "Small intestine",
       },
-      desc: "Diagram of the digestive system from top to bottom: mouth, stomach with its lower part (the antrum), liver and gallbladder, pancreas and small intestine. Enzymes and peppermint and caraway oil work in the stomach, ginger in the antrum and artichoke in the liver, which releases bile.",
+      desc: "Diagram of the digestive system from top to bottom: oesophagus, liver and gallbladder, stomach with its lower part (the antrum), duodenum, pancreas and small intestine. Enzymes and peppermint and caraway oil work in the stomach, ginger in the antrum and artichoke in the liver, which releases bile.",
     },
     card: {
       id: "Sheet",

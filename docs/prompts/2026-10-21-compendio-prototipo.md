@@ -55,3 +55,20 @@ de favoritos.
 
 Más problemas, favoritos con estrella y registro abierto, Mi espacio y panel
 con favoritos, e integración en el menú, ⌘K y Marc IA.
+
+## Después: un esquema mejor dibujado
+
+> El dibujo está mejorable, la verdad. No sé si sería recomendable, en vez de
+> un dibujo, poner una imagen o poner ahí un dibujo de Excalidraw
+
+- **Imagen externa, descartada.** Perdería la interacción (el órgano que se
+  enciende con cada ficha) y el estilo del cuaderno.
+- **Estilo Excalidraw con rough.js**, la misma librería que usa Excalidraw. La
+  anatomía está redibujada: hígado grande con la vesícula y el conducto biliar,
+  esófago, estómago en J con su antro, la C del duodeno abrazando al páncreas
+  e intestino delgado con sus asas. El relleno es de rayas, como en Excalidraw.
+- **Se genera al compilar**, con semilla fija para que el dibujo sea siempre el
+  mismo, así que no carga JavaScript en el navegador. Las coordenadas van con
+  un decimal: el SVG pasa de 58 a 22 KB.
+- La etiqueta de arriba pasa de «Boca» a «Esófago», que es lo que se dibuja.
+- Lighthouse en móvil sigue en 96 / 100 / 100.

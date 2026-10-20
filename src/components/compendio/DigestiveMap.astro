@@ -1,8 +1,11 @@
 ---
-// Esquema del aparato digestivo para el problema «digestiones pesadas».
-// Cada suplemento lleva un marcador numerado en la zona donde actúa. Al pasar
-// por una ficha (o pulsar su botón en la leyenda), la zona se enciende en verde
-// de laboratorio. Los trazos se dibujan al entrar en pantalla.
+// Esquema del aparato digestivo para el problema «digestiones pesadas»,
+// dibujado a mano alzada como en Excalidraw: rough.js (la misma librería que
+// usa Excalidraw) convierte cada órgano en trazos irregulares y relleno de
+// rayas al compilar, así que en el navegador no hace falta JavaScript para
+// pintarlo. Cada órgano es una zona: al pasar por una ficha se enciende en
+// verde de laboratorio la zona donde actúa ese suplemento.
+import rough from "roughjs";
 import type { CompendioText } from "../../i18n/compendio";
 
 export interface MapMarker {
@@ -19,61 +22,135 @@ interface Props {
 }
 const { markers, text } = Astro.props;
 
+// Órganos vistos de frente (el lado derecho del cuerpo queda a la izquierda,
+// como en un atlas). Cada uno es una forma cerrada y algunos llevan detalles.
+const organs: { zone: string; shapes: string[]; details?: string[]; hachure?: boolean }[] = [
+  {
+    zone: "boca",
+    // Esófago: el tubo que baja de la boca al estómago
+    shapes: ["M206 14 C208 46 211 80 216 112 L230 108 C226 76 222 44 220 14 Z"],
+    hachure: false,
+  },
+  {
+    zone: "higado",
+    shapes: [
+      // Hígado: grande, arriba a la izquierda, con el lóbulo izquierdo hacia el centro
+      "M34 98 C50 62 138 50 204 66 C216 70 214 90 200 96 C176 110 170 140 146 160 C120 180 76 176 52 156 C32 138 24 116 34 98 Z",
+      // Vesícula biliar, bajo el hígado
+      "M108 162 C98 176 102 198 118 202 C134 204 138 184 132 166 C126 156 114 154 108 162 Z",
+    ],
+    // Conducto biliar: lleva la bilis al duodeno
+    details: ["M120 202 C124 222 132 238 146 252"],
+  },
+  {
+    zone: "estomago",
+    // Estómago en forma de J: fondo arriba, curvatura mayor a la derecha
+    shapes: [
+      "M216 110 C222 88 256 78 282 90 C312 104 326 146 318 188 C310 228 274 252 232 250 C210 249 194 244 180 238 L184 212 C204 212 222 204 232 186 C242 166 240 138 232 118 Z",
+    ],
+    // Pliegues de la mucosa
+    details: ["M256 112 C270 130 276 156 270 180", "M282 118 C294 140 298 166 290 194"],
+  },
+  {
+    zone: "antro",
+    // Antro: la parte baja del estómago que empuja la comida al duodeno
+    shapes: ["M180 238 C194 244 210 249 232 250 C246 249 256 246 266 240 L254 206 C242 212 226 214 208 214 L184 212 Z"],
+  },
+  {
+    zone: "intestino",
+    shapes: [
+      // Duodeno: la C que abraza al páncreas
+      "M184 214 C152 212 130 232 128 260 C126 294 140 320 166 330 C194 340 226 332 240 312 L226 302 C216 316 192 320 172 314 C152 306 146 286 148 260 C150 240 164 232 186 238 Z",
+      // Intestino delgado: las asas enrolladas de abajo
+      "M118 356 C108 396 128 444 190 452 C252 460 314 440 322 394 C328 358 302 336 262 338 C230 340 214 348 196 342 C170 334 128 334 118 356 Z",
+    ],
+    details: [
+      "M236 312 C246 322 252 330 258 338",
+      "M146 374 C168 362 190 384 212 370 C234 358 256 382 278 368 C292 360 302 372 306 384",
+      "M136 404 C158 392 180 414 202 400 C226 388 248 412 270 400 C288 392 300 404 306 412",
+      "M156 432 C178 422 196 440 218 428 C238 418 258 436 280 426",
+    ],
+  },
+  {
+    zone: "pancreas",
+    // Páncreas: cabeza dentro de la C del duodeno y cola hacia la derecha
+    shapes: [
+      "M160 264 C170 250 200 254 230 252 C262 250 300 238 330 234 C346 234 350 248 338 256 C306 270 270 278 238 286 C212 292 188 298 170 292 C158 286 154 274 160 264 Z",
+    ],
+  },
+];
+
+// Mismo dibujo en cada compilación: semilla fija
+const gen = rough.generator();
+// rough.js da coordenadas con muchos decimales: con uno basta y el SVG pesa la mitad
+const toPath = (set: Parameters<typeof gen.opsToPath>[0]) =>
+  gen.opsToPath(set).replace(/-?\d+\.\d+/g, (n) => String(Math.round(Number(n) * 10) / 10));
+const base = { seed: 11, roughness: 1.2, bowing: 1.1, stroke: "currentColor", strokeWidth: 1.6 };
+const drawn = organs.map((o, i) => {
+  const outline: string[] = [];
+  const hachure: string[] = [];
+  o.shapes.forEach((d, j) => {
+    const fill = o.hachure === false ? {} : { fill: "currentColor", fillStyle: "hachure", hachureGap: 6.5, hachureAngle: -41, fillWeight: 0.7 };
+    const drawable = gen.path(d, { ...base, ...fill, seed: base.seed + i * 7 + j });
+    for (const set of drawable.sets) {
+      const path = toPath(set);
+      if (set.type === "fillSketch") hachure.push(path);
+      else if (set.type === "path") outline.push(path);
+    }
+  });
+  const details = (o.details ?? []).map((d, j) => toPath(gen.path(d, { ...base, strokeWidth: 1.1, seed: 90 + i * 5 + j }).sets[0]));
+  return { zone: o.zone, outline, hachure, details };
+});
+
 // Punto de cada zona donde van los marcadores; si hay varios, se reparten en fila
 const anchors: Record<string, [number, number]> = {
-  estomago: [236, 168],
-  antro: [160, 236],
-  higado: [92, 104],
-  pancreas: [244, 284],
-  intestino: [180, 362],
+  estomago: [268, 150],
+  antro: [222, 231],
+  higado: [96, 112],
+  pancreas: [296, 252],
+  intestino: [212, 396],
 };
 const byZone: Record<string, number> = {};
 const placed = markers.map((m) => {
   const k = byZone[m.zone] ?? 0;
   byZone[m.zone] = k + 1;
-  const [x, y] = anchors[m.zone] ?? [190, 200];
-  return { ...m, x: x + k * 27, y };
+  const [x, y] = anchors[m.zone] ?? [200, 200];
+  return { ...m, x: x + k * 28, y };
 });
 const ids = { title: "mapa-titulo", desc: "mapa-desc" };
 ---
 
 <figure class="map" data-map>
-  <svg viewBox="0 0 380 440" role="img" aria-labelledby={`${ids.title} ${ids.desc}`}>
+  <svg viewBox="0 0 400 476" role="img" aria-labelledby={`${ids.title} ${ids.desc}`}>
     <title id={ids.title}>{text.title}</title>
     <desc id={ids.desc}>{text.desc}</desc>
 
-    <g class="organs" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round">
-      <g data-zone-shape="boca">
-        <path pathLength="1" d="M200 18 L200 95" />
-      </g>
-      <g data-zone-shape="higado">
-        <path pathLength="1" class="fill" d="M28 96 C44 62 140 58 176 86 C168 124 118 146 66 142 C40 140 22 122 28 96 Z" />
-        <ellipse pathLength="1" class="fill" cx="112" cy="158" rx="11" ry="16" />
-        <path pathLength="1" d="M112 174 C114 196 118 214 124 232" stroke-dasharray="3 4" />
-      </g>
-      <g data-zone-shape="estomago">
-        <path pathLength="1" class="fill" d="M200 95 C250 86 290 130 280 186 C272 234 230 260 186 256 C160 253 146 242 136 230 C150 222 172 222 190 220 C224 214 244 188 236 150 C230 124 214 110 200 106 Z" />
-      </g>
-      <g data-zone-shape="antro">
-        <path pathLength="1" d="M136 230 C150 222 172 222 190 220" stroke-width="3.2" />
-      </g>
-      <g data-zone-shape="intestino">
-        <path pathLength="1" d="M136 230 C112 234 104 260 114 284 C124 306 158 310 176 298" />
-        <path pathLength="1" d="M176 298 C160 330 120 330 112 352 C104 376 140 388 172 378 C204 368 238 374 242 394 C246 416 204 426 160 420" />
-      </g>
-      <g data-zone-shape="pancreas">
-        <path pathLength="1" class="fill" d="M178 292 C206 284 242 276 282 262 C294 258 300 270 290 276 C254 294 214 306 180 306 Z" />
-      </g>
+    <g class="organs" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      {
+        drawn.map((o) => (
+          <g data-zone-shape={o.zone}>
+            {o.hachure.map((d) => (
+              <path class="hachure" d={d} />
+            ))}
+            {o.details.map((d) => (
+              <path class="detail" d={d} pathLength="1" />
+            ))}
+            {o.outline.map((d) => (
+              <path class="outline" d={d} pathLength="1" />
+            ))}
+          </g>
+        ))
+      }
     </g>
 
     <g class="names" font-size="11">
-      <text x="212" y="26">{text.zones.boca}</text>
-      <text x="290" y="160">{text.zones.estomago}</text>
-      <line x1="150" y1="226" x2="58" y2="226" />
-      <text x="18" y="216">{text.zones.antro}</text>
-      <text x="18" y="50">{text.zones.higado}</text>
-      <text x="300" y="300">{text.zones.pancreas}</text>
-      <text x="252" y="400">{text.zones.intestino}</text>
+      <text x="236" y="22">{text.zones.boca}</text>
+      <text x="22" y="42">{text.zones.higado}</text>
+      <text x="326" y="98">{text.zones.estomago}</text>
+      <line x1="262" y1="232" x2="324" y2="222" />
+      <text x="328" y="224">{text.zones.antro}</text>
+      <text x="300" y="296">{text.zones.pancreas}</text>
+      <text x="200" y="472" text-anchor="middle">{text.zones.intestino}</text>
     </g>
 
     <g class="markers" aria-hidden="true">
@@ -122,33 +199,53 @@ const ids = { title: "mapa-titulo", desc: "mapa-desc" };
     display: block;
     width: 100%;
     height: auto;
-    max-height: min(24rem, 55vh);
+    max-height: min(28rem, 62vh);
     color: var(--ink);
   }
 
-  /* Trazos: se dibujan al entrar en pantalla */
-  .organs path,
-  .organs ellipse {
+  /* Trazos a mano alzada: el contorno se dibuja al entrar en pantalla y las
+     rayas del relleno aparecen después, como al sombrear con lápiz */
+  .organs {
+    color: var(--ink);
+  }
+
+  .organs .outline,
+  .organs .detail {
+    stroke: currentColor;
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     transition:
       stroke-dashoffset var(--draw) var(--ease-out),
-      stroke var(--fast),
-      fill var(--fast),
       opacity var(--fast);
   }
 
-  .organs path[stroke-dasharray="3 4"] {
-    stroke-dasharray: 0.02 0.03;
+  .organs .outline {
+    stroke-width: 1.6;
   }
 
-  .map.drawn .organs path,
-  .map.drawn .organs ellipse {
+  .organs .detail {
+    stroke-width: 1.1;
+    opacity: 0.6;
+  }
+
+  .organs .hachure {
+    stroke: currentColor;
+    stroke-width: 0.7;
+    opacity: 0;
+    transition: opacity var(--slow) var(--ease-out) var(--draw);
+  }
+
+  .map.drawn .organs .outline,
+  .map.drawn .organs .detail {
     stroke-dashoffset: 0;
   }
 
-  .organs .fill {
-    fill: transparent;
+  .map.drawn .organs .hachure {
+    opacity: 0.22;
+  }
+
+  .organs [data-zone-shape] {
+    transition: color var(--fast), opacity var(--fast);
   }
 
   .names {
@@ -192,8 +289,9 @@ const ids = { title: "mapa-titulo", desc: "mapa-desc" };
     color: var(--lab);
   }
 
-  .map [data-zone-shape].on .fill {
-    fill: var(--lab-soft);
+  .map.drawn [data-zone-shape].on .hachure {
+    opacity: 0.75;
+    transition-delay: 0s;
   }
 
   .map[data-active] .marker {
@@ -290,9 +388,14 @@ const ids = { title: "mapa-titulo", desc: "mapa-desc" };
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .organs path,
-    .organs ellipse {
+    .organs .outline,
+    .organs .detail {
       stroke-dashoffset: 0;
+      transition: none;
+    }
+
+    .organs .hachure {
+      opacity: 0.22;
       transition: none;
     }
   }
