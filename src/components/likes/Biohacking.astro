@@ -8,6 +8,10 @@ import theraface from "../../assets/img/biohacking/theraface-mask-glo.webp";
 import jetboots from "../../assets/img/biohacking/jetboots-prime.webp";
 import eightsleep from "../../assets/img/biohacking/eight-sleep-pod.webp";
 import oura from "../../assets/img/biohacking/oura-ring.webp";
+import whoop from "../../assets/img/biohacking/whoop-5.webp";
+import lasercap from "../../assets/img/biohacking/blueprint-laser-cap.webp";
+import facialserum from "../../assets/img/biohacking/blueprint-facial-serum.webp";
+import antioxidants from "../../assets/img/biohacking/blueprint-advanced-antioxidants.webp";
 import type { BioText, Goal } from "../../i18n/likes";
 import NewTab from "../NewTab.astro";
 
@@ -18,10 +22,14 @@ const { text } = Astro.props;
 
 // Cómo encaja cada foto en su marco: las de fondo liso se ven enteras
 const photos: Record<string, { src: ImageMetadata; fit: "contain" | "cover" }> = {
-  theraface: { src: theraface, fit: "contain" },
-  jetboots: { src: jetboots, fit: "contain" },
+  theraface: { src: theraface, fit: "cover" },
+  jetboots: { src: jetboots, fit: "cover" },
   eightsleep: { src: eightsleep, fit: "cover" },
   oura: { src: oura, fit: "contain" },
+  whoop: { src: whoop, fit: "contain" },
+  lasercap: { src: lasercap, fit: "cover" },
+  facialserum: { src: facialserum, fit: "cover" },
+  antioxidants: { src: antioxidants, fit: "cover" },
 };
 const goals = Object.keys(text.goals) as Goal[];
 ---
@@ -49,8 +57,8 @@ const goals = Object.keys(text.goals) as Goal[];
               src={photos[p.id].src}
               alt={p.alt}
               formats={["avif", "webp"]}
-              widths={[320, 560]}
-              sizes="(min-width: 52rem) 28rem, 90vw"
+              widths={[440, 880, 1320]}
+              sizes="(min-width: 52rem) 27rem, 90vw"
               loading="lazy"
             />
             <span class="label tag">C-{i + 1}</span>
