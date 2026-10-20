@@ -51,3 +51,15 @@ px.
   - Blueprint: a tamaño completo (1024-1200 px).
 - **Las fotos de Therabody llenan el marco** (`cover`). Traen su propio fondo
   beis, y con `contain` se veía un rectángulo de otro tono dentro del marco.
+
+## Después: el sérum facial en lugar del capilar
+
+> Quiero que reemplaces el producto, el serum de péptidos capilares, por el
+> serum facial que te acabo de pasar. Es de la misma marca [...] fíjate también
+> en que la calidad de la imagen sea buena.
+
+- El **SFC Facial Serum** de Blueprint (SFC, NMN y ácido hialurónico; mañana y
+  noche; 68,02 € al mes) sustituye al Peptide Hair Serum.
+- Va en **Piel**, junto a la TheraFace. **Pelo** se queda solo con la Laser Cap.
+- La foto es la de producto de la web oficial, a 1200 px, con el mismo estilo
+  de estudio que las otras de Blueprint.
