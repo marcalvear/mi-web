@@ -138,24 +138,6 @@
         { "k": { "es": "Bote", "en": "Bottle" }, "v": { "es": "90 o 180 cápsulas", "en": "90 or 180 capsules" } }
       ],
       "precio": { "es": "38 $ (90 cápsulas)", "en": "$38 (90 capsules)" }
-    },
-    {
-      "id": "alfa-herbal",
-      "marca": "Alfa Herbal",
-      "nombre": "Enzyme Digest",
-      "foto": "alfa-herbal-enzyme-digest.webp",
-      "alt": {
-        "es": "Bote azul de Enzyme Digest de Alfa Herbal.",
-        "en": "Blue bottle of Alfa Herbal Enzyme Digest."
-      },
-      "url": "https://alfaherbal.es/producto/enzyme-digest/",
-      "pais": { "es": "España", "en": "Spain" },
-      "datos": [
-        { "k": { "es": "Lleva", "en": "Contains" }, "v": { "es": "8 enzimas, lactasa incluida, y Arrowprotease", "en": "8 enzymes, lactase included, plus Arrowprotease" } },
-        { "k": { "es": "Toma", "en": "Dose" }, "v": { "es": "1 cápsula con cada comida", "en": "1 capsule with each meal" } },
-        { "k": { "es": "Bote", "en": "Bottle" }, "v": { "es": "60 cápsulas", "en": "60 capsules" } }
-      ],
-      "precio": { "es": "25 €", "en": "€25" }
     }
   ]
 }

@@ -44,8 +44,9 @@ de favoritos.
 - **Productos de enzimas** con datos y fotos de las webs oficiales:
   - Sports Research: Digestive Enzymes + Probiotic.
   - Pure Encapsulations: Digestive Enzymes Ultra.
-  - Alfa Herbal (Vilobí del Penedès): Enzyme Digest. Es la marca española
-    que se encontró con ese producto.
+  - Alfa Herbal (Vilobí del Penedès): Enzyme Digest, la marca española que se
+    encontró con ese producto. Se quitó antes de fusionar, a petición de Marc
+    («me gustaría que quitaras [...] el de Alpha Herbal»).
 - **Señales de alarma** y aviso de que es divulgación, no consejo médico.
 - **Copy** escrito con la skill *copywriting* instalada en el proyecto: sin
   cifras que no estén en los estudios y en la voz de Marc.
