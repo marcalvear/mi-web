@@ -1,0 +1,487 @@
+---
+// Pokédex: busca cualquier Pokémon en la PokéAPI y lo enseña como una ficha
+// del cuaderno, con su modelo 3D de la Pokémon 3D API. Pikachu se pide al
+// compilar, así la primera ficha ya está en el HTML aunque no haya JavaScript.
+import { Picture } from "astro:assets";
+import Button from "../Button.astro";
+import { POKE_API, toEntry, type PokemonEntry } from "../../lib/pokemon";
+import type { PokedexText } from "../../i18n/likes";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  text: PokedexText;
+}
+const { lang, text } = Astro.props;
+
+let initial: PokemonEntry | null = null;
+try {
+  const res = await fetch(`${POKE_API}25`);
+  if (res.ok) initial = toEntry(await res.json(), lang);
+} catch {
+  // Sin red al compilar: la ficha la rellena el navegador al cargar
+}
+const alt = (name: string) => text.artAlt.replace("{name}", name);
+---
+
+<div class="pokedex" data-pokedex data-lang={lang} data-text={JSON.stringify(text)} data-initial={initial ? "" : "25"}>
+  <form class="search" role="search" aria-label={text.search} data-form>
+    <label class="label" for={`poke-input-${lang}`}>{text.label}</label>
+    <div class="row">
+      <input
+        id={`poke-input-${lang}`}
+        name="pokemon"
+        type="text"
+        placeholder={text.placeholder}
+        autocomplete="off"
+        autocapitalize="none"
+        spellcheck="false"
+        required
+      />
+      <Button variant="primary" arrow={false} type="submit">{text.submit}</Button>
+      <Button variant="ghost" arrow={false} data-random>{text.random}</Button>
+    </div>
+    <p class="status" role="status" data-status></p>
+  </form>
+
+  <article class="card" data-card data-type={initial?.mainType}>
+    <div class="visual">
+      <div class="chips" role="group" aria-label={text.view}>
+        <button type="button" class="chip" data-view="img" aria-pressed="true">{text.image}</button>
+        <button type="button" class="chip" data-view="3d" aria-pressed="false">{text.model}</button>
+      </div>
+
+      <div class="art" data-view-img>
+        {
+          initial ? (
+            <Picture
+              data-img
+              src={initial.image}
+              alt={alt(initial.name)}
+              width={300}
+              height={300}
+              widths={[300, 600]}
+              sizes="(min-width: 52rem) 22rem, 80vw"
+              formats={["avif", "webp"]}
+              loading="eager"
+              fetchpriority="high"
+            />
+          ) : (
+            <img data-img src="" alt="" width="300" height="300" />
+          )
+        }
+      </div>
+
+      <div class="model" data-view-3d hidden>
+        <model-viewer data-model camera-controls auto-rotate shadow-intensity="1" touch-action="pan-y"></model-viewer>
+        <p class="note" role="status" data-status-3d></p>
+        <button type="button" class="chip" data-shiny aria-pressed="false">{text.shiny}</button>
+      </div>
+    </div>
+
+    <div class="body">
+      <p class="label number" data-number>{initial?.number}</p>
+      <h3 class="name" data-name>{initial?.name}</h3>
+      <ul class="types" role="list" data-types>
+        {initial?.types.map((type) => <li>{type}</li>)}
+      </ul>
+      <dl class="facts" data-facts>
+        {
+          initial?.facts.map(([dt, dd]) => (
+            <div>
+              <dt class="label">{dt}</dt>
+              <dd>{dd}</dd>
+            </div>
+          ))
+        }
+      </dl>
+      <h4 class="label stats-title">{text.stats}</h4>
+      <ul class="stats" role="list" data-stats>
+        {
+          initial?.stats.map((s) => (
+            <li>
+              <span class="stat-name">{s.label}</span>
+              <span class="stat-value">{s.value}</span>
+              <span class="bar" aria-hidden="true">
+                <span style={`width: ${s.pct}%`} />
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </article>
+</div>
+
+<script>
+  import { MODELS, MODEL_VIEWER, POKE_API, POKE_TOTAL, toEntry, type PokemonEntry } from "../../lib/pokemon";
+  import type { Lang } from "../../i18n/ui";
+
+  function el(tag: string, text?: string | number, className?: string) {
+    const node = document.createElement(tag);
+    if (text !== undefined) node.textContent = String(text);
+    if (className) node.className = className;
+    return node;
+  }
+
+  function init(root: HTMLElement) {
+    const lang = root.dataset.lang as Lang;
+    const t = JSON.parse(root.dataset.text!);
+    const $ = <T extends HTMLElement = HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+    const form = $<HTMLFormElement>("[data-form]");
+    const input = $<HTMLInputElement>("input");
+    const status = $("[data-status]");
+    const status3d = $("[data-status-3d]");
+    const card = $("[data-card]");
+    const model = $<HTMLElement & { src?: string; alt?: string }>("[data-model]");
+    const shinyBtn = $<HTMLButtonElement>("[data-shiny]");
+    const viewBtns = [...root.querySelectorAll<HTMLButtonElement>("[data-view]")];
+
+    let current: PokemonEntry | null = null;
+    let view: "img" | "3d" = "img";
+    let shiny = false;
+    let loadedModel: string | null = null; // «25-regular»: para no cargar dos veces lo mismo
+    let modelRequest = 0; // evita que un modelo antiguo pise al nuevo
+    let viewerReady: Promise<unknown> | null = null;
+
+    function render(entry: PokemonEntry) {
+      current = entry;
+      card.dataset.type = entry.mainType;
+      const img = $<HTMLImageElement>("img[data-img]");
+      // La primera ilustración viene optimizada en <picture>: sus <source>
+      // mandarían sobre el src nuevo, así que se quitan
+      img.closest("picture")?.querySelectorAll("source").forEach((s) => s.remove());
+      img.removeAttribute("srcset");
+      img.removeAttribute("sizes");
+      img.src = entry.image;
+      img.alt = t.artAlt.replace("{name}", entry.name);
+      $("[data-number]").textContent = entry.number;
+      $("[data-name]").textContent = entry.name;
+      $("[data-types]").replaceChildren(...entry.types.map((type) => el("li", type)));
+      $("[data-facts]").replaceChildren(
+        ...entry.facts.map(([dt, dd]) => {
+          const row = el("div");
+          row.append(el("dt", dt, "label"), el("dd", dd));
+          return row;
+        }),
+      );
+      $("[data-stats]").replaceChildren(
+        ...entry.stats.map((s) => {
+          const li = el("li");
+          const bar = el("span", undefined, "bar");
+          bar.setAttribute("aria-hidden", "true");
+          const fill = el("span");
+          fill.style.width = `${s.pct}%`;
+          bar.append(fill);
+          li.append(el("span", s.label, "stat-name"), el("span", s.value, "stat-value"), bar);
+          return li;
+        }),
+      );
+      card.classList.remove("flip");
+      void card.offsetWidth;
+      card.classList.add("flip");
+      loadedModel = null;
+      if (view === "3d") loadModel();
+    }
+
+    async function search(query: string | number) {
+      const id = String(query).trim().toLowerCase();
+      if (!id) return;
+      status.textContent = t.searching;
+      let res: Response;
+      try {
+        res = await fetch(POKE_API + encodeURIComponent(id));
+      } catch {
+        status.textContent = t.network;
+        return;
+      }
+      if (res.status === 404) {
+        status.textContent = t.notFound;
+        return;
+      }
+      if (!res.ok) {
+        status.textContent = t.down;
+        return;
+      }
+      render(toEntry(await res.json(), lang));
+      status.textContent = "";
+    }
+
+    // Prueba un .glb y espera a que model-viewer diga si ha cargado
+    function tryModel(url: string) {
+      if (model.getAttribute("src") === url) return Promise.resolve(true);
+      return new Promise<boolean>((resolve) => {
+        const done = (ok: boolean) => {
+          model.removeEventListener("load", onLoad);
+          model.removeEventListener("error", onError);
+          resolve(ok);
+        };
+        const onLoad = () => done(true);
+        const onError = () => done(false);
+        model.addEventListener("load", onLoad);
+        model.addEventListener("error", onError);
+        model.setAttribute("src", url);
+      });
+    }
+
+    async function loadModel() {
+      if (!current) return;
+      const key = `${current.id}-${shiny ? "shiny" : "regular"}`;
+      if (loadedModel === key) return;
+      const request = ++modelRequest;
+      status3d.textContent = t.loading3d;
+      try {
+        viewerReady ??= import(/* @vite-ignore */ MODEL_VIEWER);
+        await viewerReady;
+      } catch {
+        status3d.textContent = t.viewerError;
+        return;
+      }
+      // Algunos Pokémon tienen el modelo separado por género (p. ej. 521-M.glb)
+      const folder = MODELS + (shiny ? "shiny/" : "regular/");
+      for (const file of [`${current.id}.glb`, `${current.id}-M.glb`]) {
+        const ok = await tryModel(folder + file);
+        if (request !== modelRequest) return; // mientras tanto se pidió otro Pokémon
+        if (ok) {
+          loadedModel = key;
+          model.setAttribute("alt", t.modelAlt.replace("{name}", current.name));
+          status3d.textContent = t.ready3d;
+          return;
+        }
+      }
+      model.removeAttribute("src");
+      status3d.textContent = shiny ? t.noShiny : t.no3d;
+    }
+
+    function selectView(name: "img" | "3d") {
+      view = name;
+      viewBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.view === name)));
+      $("[data-view-img]").hidden = name !== "img";
+      $("[data-view-3d]").hidden = name !== "3d";
+      if (name === "3d") loadModel();
+    }
+
+    viewBtns.forEach((b) => b.addEventListener("click", () => selectView(b.dataset.view as "img" | "3d")));
+    shinyBtn.addEventListener("click", () => {
+      shiny = !shiny;
+      shinyBtn.setAttribute("aria-pressed", String(shiny));
+      shinyBtn.textContent = shiny ? t.normal : t.shiny;
+      loadModel();
+    });
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      search(input.value);
+    });
+    $("[data-random]").addEventListener("click", () => {
+      const n = 1 + Math.floor(Math.random() * POKE_TOTAL);
+      input.value = String(n);
+      search(n);
+    });
+
+    // La ficha de Pikachu viene del HTML; solo hace falta saber su número
+    if (root.dataset.initial) search(root.dataset.initial);
+    else current = { id: 25, name: $("[data-name]").textContent ?? "pikachu" } as PokemonEntry;
+  }
+
+  document.querySelectorAll<HTMLElement>("[data-pokedex]").forEach(init);
+</script>
+
+<style>
+  .pokedex {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .search {
+    display: grid;
+    gap: var(--space-1);
+    max-width: 44rem;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  input {
+    flex: 1 1 14rem;
+    min-height: 48px;
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--sheet);
+    font-family: var(--font-mono);
+  }
+
+  .status:empty,
+  .note:empty {
+    display: none;
+  }
+
+  .status {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* Ficha de especie: dibujo a la izquierda, datos a la derecha */
+  .card {
+    display: grid;
+    gap: var(--space-4);
+    padding: var(--space-3);
+    background: var(--sheet);
+    border: 1.5px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--rule);
+  }
+
+  .card.flip {
+    animation: flip var(--slow) var(--ease-out);
+  }
+
+  @keyframes flip {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .visual {
+    display: grid;
+    gap: var(--space-2);
+    align-content: start;
+  }
+
+  .art,
+  .model {
+    position: relative;
+    aspect-ratio: 1;
+    border: 1px dashed var(--rule);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+
+  .art img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: var(--space-2);
+    filter: drop-shadow(4px 6px 0 color-mix(in srgb, var(--ink) 12%, transparent));
+  }
+
+  .model {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    gap: var(--space-1);
+    aspect-ratio: auto;
+    padding-block-end: var(--space-1);
+  }
+
+  .model[hidden] {
+    display: none;
+  }
+
+  model-viewer {
+    width: 100%;
+    aspect-ratio: 1;
+    height: auto;
+    --poster-color: transparent;
+  }
+
+  .note {
+    padding-inline: var(--space-2);
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .model .chip {
+    justify-self: start;
+    margin-inline: var(--space-2);
+  }
+
+  .body {
+    display: grid;
+    gap: var(--space-2);
+    align-content: start;
+  }
+
+  .name {
+    font-size: var(--step-3);
+    text-transform: capitalize;
+  }
+
+  .types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1);
+  }
+
+  .types :global(li) {
+    padding: 0.15rem 0.7rem;
+    border: 1.5px solid var(--ink);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  .facts {
+    display: grid;
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .facts :global(div) {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: var(--space-2);
+    padding-block: 0.4rem;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .facts :global(dd) {
+    margin: 0;
+  }
+
+  .stats-title {
+    margin-block-start: var(--space-2);
+  }
+
+  .stats {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .stats :global(li) {
+    display: grid;
+    grid-template-columns: 8.5rem 2.5rem 1fr;
+    align-items: center;
+    gap: var(--space-1);
+    max-width: none;
+    font-size: var(--step--1);
+  }
+
+  .stats :global(.stat-value) {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    text-align: end;
+  }
+
+  .stats :global(.bar) {
+    height: 10px;
+    border: 1px solid var(--ink);
+  }
+
+  .stats :global(.bar span) {
+    display: block;
+    height: 100%;
+    background: var(--accent);
+    transition: width var(--slow) var(--ease-out);
+  }
+
+  @media (min-width: 52rem) {
+    .card {
+      grid-template-columns: minmax(16rem, 22rem) 1fr;
+      gap: var(--space-5);
+      padding: var(--space-4);
+    }
+  }
+</style>

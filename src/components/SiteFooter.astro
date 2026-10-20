@@ -1,0 +1,66 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Logo from "./Logo.astro";
+import { useTranslations, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap foot">
+    <p class="sign">
+      <Logo size={22} />
+      <span>Marc Calatayud · {year}</span>
+    </p>
+    <p class="made">{t("footer.made")}</p>
+    <p class="meta label">
+      <span>{t("footer.notebook")}</span>
+      <a href="https://github.com/marcalvear/mi-web">{t("footer.code")}</a>
+      <a href={getRelativeLocaleUrl(lang, "mi-espacio/")}>{t("footer.space")}</a>
+      <a href={getRelativeLocaleUrl(lang, "privacidad/")}>{t("footer.privacy")}</a>
+      <a href="#main">{t("footer.top")} ↑</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-block-start: var(--space-7);
+    border-top: 1px solid var(--rule);
+    background: var(--sheet);
+  }
+
+  .foot {
+    display: grid;
+    gap: var(--space-1);
+    padding-block: var(--space-4);
+  }
+
+  .sign {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  .made {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+  }
+
+  .meta a {
+    display: inline-block;
+    padding-block: 0.6rem;
+  }
+</style>

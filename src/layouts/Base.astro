@@ -1,0 +1,78 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n";
+import "@fontsource-variable/newsreader/opsz.css";
+import "@fontsource-variable/newsreader/opsz-italic.css";
+import "@fontsource-variable/jetbrains-mono/wght.css";
+import newsreader from "@fontsource-variable/newsreader/files/newsreader-latin-opsz-normal.woff2?url";
+import mono from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
+import "../styles/tokens.css";
+import "../styles/base.css";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import MarcIA from "../components/chat/MarcIA.astro";
+import CommandPalette from "../components/CommandPalette.astro";
+import { useTranslations, type Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  title?: string;
+  /** Título completo de la pestaña, sin añadir el nombre del sitio. */
+  fullTitle?: string;
+  description?: string;
+  /** Ruta de la página sin idioma ni base, p. ej. "me-gusta/". */
+  path?: string;
+  /** Para la 404: sin canonical ni versiones en otros idiomas. */
+  noindex?: boolean;
+}
+
+const { lang, title, fullTitle, description, path = "", noindex = false } = Astro.props;
+const t = useTranslations(lang);
+const pageTitle = fullTitle ?? (title ? `${title} · ${t("site.title")}` : t("site.title"));
+const canonical = new URL(getRelativeLocaleUrl(lang, path), Astro.site);
+const alternate = (l: Lang) => new URL(getRelativeLocaleUrl(l, path), Astro.site);
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description ?? t("site.description")} />
+    <meta name="theme-color" content="#f6f1e6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14171d" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml" />
+    <link rel="preload" href={newsreader} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={mono} as="font" type="font/woff2" crossorigin />
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <>
+          <link rel="canonical" href={canonical} />
+          <link rel="alternate" hreflang="es" href={alternate("es")} />
+          <link rel="alternate" hreflang="en" href={alternate("en")} />
+          <link rel="alternate" hreflang="x-default" href={alternate("es")} />
+        </>
+      )
+    }
+    <!-- Aplica el tema guardado antes de pintar, para que no parpadee -->
+    <script is:inline>
+      try {
+        const theme = localStorage.getItem("theme");
+        if (theme === "light" || theme === "dark") document.documentElement.dataset.theme = theme;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#main">{t("skip")}</a>
+    <SiteHeader lang={lang} path={path} />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <SiteFooter lang={lang} />
+    <MarcIA lang={lang} />
+    <CommandPalette lang={lang} path={path} />
+  </body>
+</html>

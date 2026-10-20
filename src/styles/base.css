@@ -1,0 +1,228 @@
+/* Reset, papel cuadriculado, tipografía y estados comunes. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: var(--space-5);
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--paper);
+  /* Cuadrícula de 24 px, como una libreta de laboratorio */
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: calc(var(--cell) * 3) calc(var(--cell) * 3);
+  background-position: -1px -1px;
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: var(--step-0);
+  font-optical-sizing: auto;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+}
+
+/* Línea roja del margen, solo cuando hay sitio */
+@media (min-width: 64rem) {
+  body::before {
+    content: "";
+    position: fixed;
+    inset-block: 0;
+    inset-inline-start: calc(var(--cell) * 9);
+    width: 2px;
+    background: var(--margin);
+    pointer-events: none;
+  }
+}
+
+/* Listas de diseño: sin viñetas, pero los lectores de pantalla las siguen
+   anunciando como lista gracias a role="list" */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+}
+
+img,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+h1 { font-size: var(--step-4); font-weight: 500; letter-spacing: -0.03em; }
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-2); }
+h4 { font-size: var(--step-1); }
+
+p,
+li {
+  max-width: var(--measure);
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-thickness var(--fast) var(--ease-out);
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+mark {
+  background: var(--mark);
+  color: inherit;
+  padding-inline: 0.15em;
+}
+
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+kbd {
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  border-radius: var(--radius);
+  padding: 0.05em 0.35em;
+  background: var(--sheet);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+/* Etiqueta monoespaciada: fechas, números de entrada, datos */
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Píldora que se puede activar (aria-pressed): filtros y vistas */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--space-2);
+  border: 1.5px solid var(--rule);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color var(--fast) var(--ease-out);
+}
+
+.chip:hover {
+  border-color: var(--ink);
+}
+
+.chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+.wrap {
+  width: min(100% - 2 * var(--space-2), var(--page));
+  margin-inline: auto;
+}
+
+@media (min-width: 64rem) {
+  /* Deja libre el margen rojo */
+  .wrap {
+    width: min(100% - 2 * var(--space-2) - var(--cell) * 12, var(--page));
+    margin-inline-start: max(calc(var(--cell) * 12), calc((100% - var(--page)) / 2));
+  }
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  inset-inline-start: var(--space-2);
+  inset-block-start: -10rem;
+  z-index: 10;
+  padding: var(--space-1) var(--space-2);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+}
+
+.skip:focus {
+  inset-block-start: var(--space-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

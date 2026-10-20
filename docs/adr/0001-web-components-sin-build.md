@@ -1,6 +1,6 @@
 # ADR 0001: Web Components sin herramientas de build
 
-- **Estado:** aceptada
+- **Estado:** sustituida por la [ADR 0004](0004-astro-con-github-actions.md) en la v3
 - **Fecha:** 13/10/2026
 
 ## Contexto

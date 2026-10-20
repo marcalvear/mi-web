@@ -1,0 +1,231 @@
+---
+// Radar de biohacking: cada producto es una ficha con su foto, datos clave y
+// enlace oficial. Sin JavaScript se ven todos; el filtro por objetivo solo
+// oculta los que no encajan.
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import theraface from "../../assets/img/biohacking/theraface-mask-glo.webp";
+import jetboots from "../../assets/img/biohacking/jetboots-prime.webp";
+import eightsleep from "../../assets/img/biohacking/eight-sleep-pod.webp";
+import oura from "../../assets/img/biohacking/oura-ring.webp";
+import type { BioText, Goal } from "../../i18n/likes";
+
+interface Props {
+  text: BioText;
+}
+const { text } = Astro.props;
+
+// Cómo encaja cada foto en su marco: las de fondo liso se ven enteras
+const photos: Record<string, { src: ImageMetadata; fit: "contain" | "cover" }> = {
+  theraface: { src: theraface, fit: "contain" },
+  jetboots: { src: jetboots, fit: "contain" },
+  eightsleep: { src: eightsleep, fit: "cover" },
+  oura: { src: oura, fit: "contain" },
+};
+const goals = Object.keys(text.goals) as Goal[];
+---
+
+<div class="bio" data-bio data-text={JSON.stringify({ one: text.countOne, many: text.countMany })}>
+  <div class="filters" data-filters hidden>
+    <div class="chips" role="group" aria-label={text.filterLabel}>
+      {
+        goals.map((g) => (
+          <button type="button" class="chip" data-goal={g} aria-pressed={g === "todos" ? "true" : "false"}>
+            {text.goals[g]}
+          </button>
+        ))
+      }
+    </div>
+    <p class="label count" role="status" data-count></p>
+  </div>
+
+  <ul class="products" role="list">
+    {
+      text.products.map((p, i) => (
+        <li class="product" data-goals={p.goals.join(" ")}>
+          <div class:list={["photo", photos[p.id].fit]}>
+            <Picture
+              src={photos[p.id].src}
+              alt={p.alt}
+              formats={["avif", "webp"]}
+              widths={[320, 560]}
+              sizes="(min-width: 52rem) 28rem, 90vw"
+              loading="lazy"
+            />
+            <span class="label tag">C-{i + 1}</span>
+          </div>
+          <div class="info">
+            <p class="label brand">{p.brand}</p>
+            <h3>{p.name}</h3>
+            <p>{p.text}</p>
+            <dl class="specs">
+              {p.specs.map(([dt, dd]) => (
+                <div>
+                  <dt class="label">{dt}</dt>
+                  <dd>{dd}</dd>
+                </div>
+              ))}
+            </dl>
+            <ul class="goal-tags" role="list">
+              {p.goals.map((g) => (
+                <li class="label">#{text.goals[g as Goal].toLowerCase()}</li>
+              ))}
+            </ul>
+            <a class="link" href={p.href} rel="noopener">
+              {text.linkPrefix} {p.brand} ↗
+            </a>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="note">{text.note}</p>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-bio]").forEach((root) => {
+    const t = JSON.parse(root.dataset.text!);
+    const buttons = [...root.querySelectorAll<HTMLButtonElement>("[data-goal]")];
+    const products = [...root.querySelectorAll<HTMLElement>("[data-goals]")];
+    const count = root.querySelector("[data-count]")!;
+
+    function apply(goal: string) {
+      let visible = 0;
+      products.forEach((p) => {
+        const match = goal === "todos" || p.dataset.goals!.split(" ").includes(goal);
+        p.hidden = !match;
+        if (match) visible++;
+      });
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.goal === goal)));
+      count.textContent = visible === 1 ? t.one : t.many.replace("{n}", String(visible));
+    }
+
+    buttons.forEach((b) => b.addEventListener("click", () => apply(b.dataset.goal!)));
+    root.querySelector<HTMLElement>("[data-filters]")!.hidden = false;
+    apply("todos");
+  });
+</script>
+
+<style>
+  .bio {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-3);
+  }
+
+  .filters[hidden] {
+    display: none;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 24rem), 1fr));
+    gap: var(--space-5) var(--space-4);
+  }
+
+  .product {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    max-width: none;
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 0 var(--rule), 0 14px 28px -22px rgb(0 0 0 / 0.5);
+  }
+
+  .product[hidden] {
+    display: none;
+  }
+
+  /* Foto sobre cartulina clara, como una muestra pegada en la ficha */
+  .photo {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--photo);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .photo :global(img) {
+    width: 100%;
+    height: 100%;
+    transition: transform var(--slow) var(--ease-out);
+  }
+
+  .contain :global(img) {
+    object-fit: contain;
+    padding: var(--space-2);
+  }
+
+  .cover :global(img) {
+    object-fit: cover;
+  }
+
+  .product:hover .photo :global(img) {
+    transform: scale(1.04);
+  }
+
+  .tag {
+    position: absolute;
+    inset-block-start: var(--space-2);
+    inset-inline-start: var(--space-2);
+    padding: 0.1rem 0.5rem;
+    background: var(--photo);
+    border: 1.5px solid #b3261e;
+    color: #b3261e;
+  }
+
+  .info {
+    display: grid;
+    gap: var(--space-1);
+    align-content: start;
+    padding: var(--space-3);
+  }
+
+  .brand {
+    color: var(--accent);
+  }
+
+  .info h3 {
+    font-size: var(--step-2);
+  }
+
+  .specs {
+    margin-block: var(--space-1);
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .specs div {
+    display: grid;
+    grid-template-columns: 7.5rem 1fr;
+    gap: var(--space-1);
+    padding-block: 0.35rem;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .specs dd {
+    margin: 0;
+  }
+
+  .goal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-2);
+  }
+
+  .link {
+    justify-self: start;
+    padding-block: 0.6rem;
+  }
+
+  .note {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+</style>

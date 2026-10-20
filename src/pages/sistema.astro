@@ -1,0 +1,187 @@
+---
+// Muestrario del sistema de diseño: colores, tipografía y componentes en un
+// solo sitio, para revisarlos juntos y para la defensa del proyecto.
+import Base from "../layouts/Base.astro";
+import Button from "../components/Button.astro";
+import Entry from "../components/Entry.astro";
+import Figure from "../components/Figure.astro";
+import FlowDiagram from "../components/FlowDiagram.astro";
+import Logo from "../components/Logo.astro";
+import MarginNote from "../components/MarginNote.astro";
+
+const colors = [
+  ["--paper", "Papel", "Fondo de la página"],
+  ["--sheet", "Hoja", "Tarjetas y formularios"],
+  ["--ink", "Tinta", "Texto principal"],
+  ["--ink-soft", "Lápiz", "Texto secundario"],
+  ["--accent", "Rotulador", "Una acción por pantalla y anotaciones"],
+  ["--link", "Tinta azul", "Enlaces"],
+  ["--mark", "Fluorescente", "Resaltar"],
+  ["--grid", "Cuadrícula", "Decorativo"],
+];
+
+const steps = [
+  ["--step-4", "Título de página"],
+  ["--step-3", "Entrada"],
+  ["--step-2", "Subtítulo"],
+  ["--step-1", "Destacado"],
+  ["--step-0", "Texto"],
+  ["--step--1", "Etiqueta"],
+];
+
+const contactFlow = {
+  title:
+    "Recorrido de un mensaje de contacto: formulario, n8n, clasificación con IA, Supabase y email de respuesta.",
+  nodes: [
+    { id: "form", label: "Formulario", x: 72, y: 110 },
+    { id: "n8n", label: "n8n", x: 232, y: 110 },
+    { id: "ai", label: "IA clasifica", x: 400, y: 50, accent: true },
+    { id: "db", label: "Supabase", x: 400, y: 170 },
+    { id: "mail", label: "Email", x: 566, y: 110 },
+  ],
+  edges: [
+    ["form", "n8n"],
+    ["n8n", "ai"],
+    ["n8n", "db"],
+    ["ai", "mail"],
+    ["db", "mail"],
+  ] as [string, string][],
+};
+---
+
+<Base lang="es" title="Sistema de diseño" noindex>
+  <div class="wrap">
+    <header class="intro">
+      <p class="label">Cuaderno nº 3 · Anexo A</p>
+      <h1>Sistema de diseño</h1>
+      <p class="lead">
+        Un cuaderno de laboratorio: papel cuadriculado, tinta, un rotulador rojo y diagramas
+        dibujados a mano. Aquí están todas las piezas que usa la web.
+      </p>
+    </header>
+
+    <Entry id="marca" number={1} kicker="Marca" title="Logo">
+      <MarginNote label="Por qué">
+        La M de Marc dibujada como un flujo de cinco nodos. El nodo rojo del centro es la IA:
+        el punto donde el trabajo aburrido cambia de manos.
+      </MarginNote>
+      <div class="logos">
+        <Logo size={96} />
+        <Logo size={48} />
+        <Logo size={24} />
+      </div>
+    </Entry>
+
+    <Entry id="color" number={2} kicker="Color" title="Paleta" meta="Todos los textos pasan AA">
+      <ul class="swatches" role="list">
+        {
+          colors.map(([token, name, use]) => (
+            <li>
+              <span class="chip" style={`background: var(${token})`} />
+              <strong>{name}</strong>
+              <code>{token}</code>
+              <span class="use">{use}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </Entry>
+
+    <Entry id="tipo" number={3} kicker="Tipografía" title="Newsreader y JetBrains Mono">
+      <MarginNote label="Por qué">
+        Una serif de periódico para leer a gusto y una mono para los datos, como las anotaciones
+        a máquina de un cuaderno técnico. Solo dos familias, servidas desde la web.
+      </MarginNote>
+      <ul class="scale" role="list">
+        {
+          steps.map(([token, use]) => (
+            <li>
+              <span class="label">{token}</span>
+              <span style={`font-size: var(${token})`}>{use}: aprendo IA para dar vida a proyectos</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p>
+        Texto corrido con <a href="#tipo">un enlace</a>, <em>una cursiva</em>,
+        <mark>algo resaltado</mark>, <code>código</code> y un atajo <kbd>⌘</kbd> <kbd>K</kbd>.
+      </p>
+    </Entry>
+
+    <Entry id="componentes" number={4} kicker="Componentes" title="Piezas reutilizables">
+      <div class="buttons">
+        <Button href="#componentes">Ponte en contacto conmigo</Button>
+        <Button href="#componentes" variant="ghost">Ver el caso</Button>
+      </div>
+      <Figure number={1} caption="Recorrido de un mensaje de contacto (bloque #30).">
+        <FlowDiagram {...contactFlow} />
+      </Figure>
+    </Entry>
+  </div>
+</Base>
+
+<style>
+  .intro {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .lead {
+    font-size: var(--step-1);
+    color: var(--ink-soft);
+  }
+
+  .logos {
+    display: flex;
+    align-items: end;
+    gap: var(--space-4);
+    color: var(--ink);
+  }
+
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr));
+    gap: var(--space-2);
+    padding: 0;
+  }
+
+  .swatches li {
+    display: grid;
+    gap: 0.15rem;
+    padding: var(--space-2);
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+  }
+
+  .chip {
+    height: 3.5rem;
+    margin-block-end: var(--space-1);
+    border: 1px solid var(--rule);
+  }
+
+  .use {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .scale {
+    display: grid;
+    gap: var(--space-2);
+    padding: 0;
+  }
+
+  .scale li {
+    display: grid;
+    gap: 0.2rem;
+    max-width: none;
+    line-height: 1.15;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-end: var(--space-5);
+  }
+</style>

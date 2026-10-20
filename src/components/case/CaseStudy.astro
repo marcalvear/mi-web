@@ -1,0 +1,226 @@
+---
+// Caso de estudio con forma de informe de laboratorio: planteamiento,
+// método, resultados y conclusiones, con la demo grabada siempre a la vista.
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Base from "../../layouts/Base.astro";
+import Button from "../Button.astro";
+import Entry from "../Entry.astro";
+import Figure from "../Figure.astro";
+import FlowDiagram from "../FlowDiagram.astro";
+import Metrics from "../Metrics.astro";
+import type { Project } from "../../i18n/projects";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  project: Project;
+}
+
+const { lang, project } = Astro.props;
+const cs = project.caseStudy;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+const path = `proyectos/${project.slug}/`;
+const landingUrl = `${base}${path}landing.html`;
+
+// El recorrido de la persona, de arriba abajo; el último paso en rojo
+const step = 80;
+const journey = {
+  title: cs.solution.journeyTitle,
+  width: 320,
+  height: step * cs.solution.journey.length,
+  fontSize: 16,
+  minWidth: "0",
+  direction: "vertical" as const,
+  nodes: cs.solution.journey.map((label, i, all) => ({
+    id: `s${i}`,
+    label,
+    x: 160,
+    y: 40 + i * step,
+    accent: i === all.length - 1,
+  })),
+  edges: cs.solution.journey.slice(1).map((_, i) => [`s${i}`, `s${i + 1}`]) as [string, string][],
+};
+---
+
+<Base lang={lang} fullTitle={cs.title} description={project.summary} path={path}>
+  <div class="wrap">
+    <header class="case-head">
+      <a class="back label" href={`${getRelativeLocaleUrl(lang)}#hecho`}>← {cs.back}</a>
+      <p class="label">{project.label}</p>
+      <h1>{project.name}</h1>
+      <p class="summary">{project.summary}</p>
+      <dl class="meta">
+        {
+          cs.meta.map((m) => (
+            <div>
+              <dt class="label">{m.label}</dt>
+              <dd>{m.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </header>
+
+    <div class="layout">
+      <aside class="demo">
+        <Figure number={1} caption={cs.demo.caption}>
+          <div class="phone">
+            <video
+              controls
+              muted
+              playsinline
+              preload="none"
+              width="390"
+              height="844"
+              poster={`${base}${cs.demo.poster}`}
+            >
+              <source src={`${base}${cs.demo.src}`} type="video/mp4" />
+            </video>
+          </div>
+        </Figure>
+      </aside>
+
+      <div class="story">
+        <Entry id="problema" number={1} kicker={cs.problem.kicker} title={cs.problem.title}>
+          <p class="lead">{cs.problem.text}</p>
+        </Entry>
+
+        <Entry id="solucion" number={2} kicker={cs.solution.kicker} title={cs.solution.title}>
+          <ul class="decisions" role="list">
+            {
+              cs.solution.decisions.map((d) => (
+                <li>
+                  <strong>{d.title}</strong> {d.text}
+                </li>
+              ))
+            }
+          </ul>
+          <div class="journey">
+            <Figure number={2} caption={cs.solution.journeyCaption}>
+              <FlowDiagram {...journey} />
+            </Figure>
+          </div>
+        </Entry>
+
+        <Entry id="resultado" number={3} kicker={cs.result.kicker} title={cs.result.title}>
+          <Metrics metrics={project.metrics} note={`${project.metricsNote} ${cs.result.honest}`} />
+        </Entry>
+
+        <Entry id="conclusiones" number={4} kicker={cs.next.kicker} title={cs.next.title}>
+          <p>{cs.next.text}</p>
+          <div class="links">
+            <Button href={landingUrl}>{cs.links.landing}</Button>
+            <Button href={cs.links.codeUrl} variant="ghost">{cs.links.code}</Button>
+          </div>
+        </Entry>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .case-head {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-5) var(--space-4);
+  }
+
+  .back {
+    justify-self: start;
+    padding-block: 0.6rem;
+    color: var(--link);
+    text-decoration: none;
+  }
+
+  .back:hover {
+    text-decoration: underline;
+  }
+
+  .summary {
+    max-width: 40ch;
+    font-size: var(--step-2);
+    line-height: 1.3;
+  }
+
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    margin-block-start: var(--space-2);
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .meta div {
+    padding: var(--space-1) var(--space-2) var(--space-1) 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .meta dd {
+    margin: 0;
+  }
+
+  .layout {
+    display: grid;
+    gap: var(--space-4);
+    margin-block-start: var(--space-4);
+  }
+
+  .demo :global(.figure) {
+    max-width: 20rem;
+    margin-inline: auto;
+  }
+
+  .phone {
+    overflow: hidden;
+    border: 10px solid var(--ink);
+    border-radius: 2rem;
+    background: var(--ink);
+  }
+
+  .phone video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 390 / 844;
+    background: var(--sheet);
+  }
+
+  .lead {
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .decisions {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .decisions li {
+    padding-inline-start: var(--space-3);
+    background: linear-gradient(var(--accent), var(--accent)) 0 0.8em / 0.9em 2px no-repeat;
+  }
+
+  .journey {
+    max-width: 22rem;
+    margin-block-start: var(--space-5);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-block-start: var(--space-4);
+  }
+
+  @media (min-width: 60rem) {
+    .layout {
+      grid-template-columns: 20rem 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .demo {
+      position: sticky;
+      inset-block-start: var(--space-4);
+      padding-block-start: var(--space-6);
+    }
+  }
+</style>

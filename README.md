@@ -1,92 +1,137 @@
 # Marc Calatayud, web personal
 
 Web personal y portfolio de Marc Calatayud, estudiante de 1º de DAM en el
-IES Dr. Lluís Simarro. Diseño espacial inspirado en Super Mario Galaxy.
+IES Dr. Lluís Simarro.
 
 **Publicada en:** https://marcalvear.github.io/mi-web/
 
-## Páginas
+## Qué tiene
 
-| Página | Ruta | Qué hace |
-|---|---|---|
-| Inicio | `index.html` | Los seis bloques de la pauta: cabecera, sobre mí, lo que he hecho, me gusta, contacto y pie |
-| Caso de estudio | `proyectos/sonrisa-imperial/` | Sonrisa Imperial: problema, solución, resultado y vídeo de demo |
-| Landing | `proyectos/sonrisa-imperial/landing.html` | El proyecto en sí |
-| Me gusta | `me-gusta.html` | Pokédex, compendio de Zelda, frases de anime y radar de biohacking |
-| Mensaje enviado | `gracias.html` | Destino del formulario de contacto |
-| 404 | `404.html` | «Perdido en el espacio» |
+Tercera versión, con estética de **cuaderno de laboratorio**: papel
+cuadriculado, Newsreader y JetBrains Mono, rotulador rojo y diagramas SVG que
+se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema.
+
+- **Portada**: quién soy, lo que he hecho, lo que me gusta y contacto.
+- **Caso de estudio** de Sonrisa Imperial, contado como un informe de laboratorio.
+- **Me gusta**: Pokédex con modelos 3D, mazo de 200 frases de anime traducidas
+  y mi radar de biohacking con fotos.
+- **Formulario de contacto** conectado a n8n: captcha, crea la cuenta de quien
+  escribe, clasifica el mensaje con IA y responde por correo.
+- **Mi espacio**: cada persona ve su conversación conmigo, entrando sin
+  contraseña con un código por email.
+- **Panel de administrador**: bandeja con sin leer y sin responder, respuestas
+  que avisan por correo, usuarios y su actividad.
+- **Marc IA**: asistente con IA que responde con lo que dice la web.
+- **Paleta de comandos** con ⌘K o Ctrl+K.
+
+## Cómo está hecha
+
+```
+                 GitHub Pages (Astro, estática)
+        ┌────────────────┬───────────────┬────────────────┐
+        │ formulario     │ Mi espacio /  │ Marc IA        │
+        │                │ panel         │                │
+        ▼                ▼               ▼                │
+   n8n (webhooks)   Supabase          Cloudflare Worker   │
+   captcha, IA,     Postgres + Auth   Workers AI          │
+   correo (Brevo)   reglas RLS        (Mistral)           │
+        │                ▲                                │
+        └── clave secreta┘     ninguna clave secreta en la web
+```
+
+- **Astro 7** compila páginas estáticas en los dos idiomas; **GitHub Actions**
+  las publica en GitHub Pages ([ADR 0004](docs/adr/0004-astro-con-github-actions.md)).
+- **Supabase** guarda usuarios, mensajes y actividad. Lo que protege los datos
+  son las reglas RLS de Postgres, probadas con 27 pruebas ([ADR 0006](docs/adr/0006-supabase-con-rls.md)).
+- **n8n** recibe el formulario y avisa de mis respuestas; es el único sitio
+  con la clave secreta de Supabase ([ADR 0007](docs/adr/0007-contacto-con-n8n.md)).
+- **Cloudflare Workers AI** responde al chat sin claves en la web
+  ([ADR 0002](docs/adr/0002-chatbot-con-worker.md)).
 
 ## Estructura
 
 ```
-├── index.html, me-gusta.html, gracias.html, 404.html
-├── proyectos/sonrisa-imperial/   caso de estudio + landing
-├── assets/
-│   ├── css/
-│   │   ├── fonts.css      @font-face de las fuentes propias
-│   │   ├── tokens.css     colores, tipografía y espaciado (único sitio con valores)
-│   │   ├── base.css       reset, fondo, tipografía y botones
-│   │   ├── layout.css     cabecera, pie, trayectorias, chat y fragmentos
-│   │   └── pages/         un fichero por tipo de página
-│   ├── js/
-│   │   ├── main.js        entrada común
-│   │   ├── components/    <site-header>, <site-footer>, <chat-bot>
-│   │   ├── lib/           getJSON (APIs) y ayudas del DOM
-│   │   ├── me-gusta/      un módulo por API
-│   │   ├── contacto.js, theme.js, stardust.js, config.js
-│   ├── fonts/  img/  video/
-├── worker/chatbot/        Cloudflare Worker del asistente (con pruebas)
+├── astro.config.mjs        base /mi-web/ e idiomas (es, en)
+├── src/
+│   ├── pages/              una ruta por fichero; en/ para el inglés
+│   ├── layouts/Base.astro  plantilla común: cabecera, pie, chat y paleta
+│   ├── components/         home/, case/, likes/, auth/, space/, panel/, chat/…
+│   ├── i18n/               todos los textos en los dos idiomas
+│   ├── lib/                cliente de Supabase (solo la clave pública), Pokémon
+│   ├── data/               las 200 frases de anime con su traducción
+│   └── styles/             tokens del diseño y estilos base
+├── public/                 ficheros que se copian tal cual (vídeo, landing)
+├── scripts/                descargar las frases y generar el contexto del chat
+├── supabase/               migraciones, 27 pruebas de RLS y correo de acceso
+├── n8n/                    los dos flujos (contacto y aviso) y su guía
+├── worker/chatbot/         Cloudflare Worker de Marc IA (con pruebas)
+├── .github/workflows/      compilación y publicación en GitHub Pages
 └── docs/
-    ├── adr/               decisiones de arquitectura
-    ├── diseno.md          por qué el diseño es como es
-    ├── lighthouse.md      resultados medidos
-    ├── prompts/           órdenes que le di a la IA
-    ├── og/  video/        plantillas y scripts para regenerar medios
+    ├── adr/                decisiones de arquitectura
+    ├── diseno.md           el sistema de diseño y sus contrastes
+    ├── lighthouse.md       mediciones de cada página
+    ├── prompts/            las órdenes que le di a la IA, bloque a bloque
+    └── video/              script para regenerar la demo de Sonrisa Imperial
 ```
-
-## Servicios externos
-
-| Servicio | Para qué |
-|---|---|
-| GitHub Pages | Alojamiento |
-| FormSubmit | Envío del formulario y respuesta automática por correo |
-| Cloudflare Workers AI | Asistente con IA (Mistral Small 3.1) |
-| PokéAPI y Pokémon 3D API | Pokédex y modelos 3D |
-| Hyrule Compendium API | Compendio de Zelda: Breath of the Wild |
-| Animechan | Frases de Naruto y JoJo |
-| jsDelivr | `<model-viewer>` de Google para los modelos 3D |
-
-## Decisiones de arquitectura
-
-- [ADR 0001: Web Components sin herramientas de build](docs/adr/0001-web-components-sin-build.md)
-- [ADR 0002: El chatbot pasa por un Cloudflare Worker](docs/adr/0002-chatbot-con-worker.md)
-- [ADR 0003: Formulario con envío normal para tener respuesta automática](docs/adr/0003-formulario-envio-normal.md)
-
-## Calidad
-
-Lighthouse en móvil: rendimiento 98-100 y accesibilidad 100 en todas las
-páginas ([detalle](docs/lighthouse.md)). Contraste AA en los dos temas,
-foco visible, menú y chat usables con teclado, y `prefers-reduced-motion`
-respetado.
 
 ## Verlo en local
 
-Hace falta un servidor (los módulos ES no funcionan abriendo el fichero):
+Hace falta Node 22.22 o superior.
 
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
-y abrir http://localhost:8080.
+y abrir http://localhost:4321/mi-web/. Para compilar como en GitHub Pages:
+`npm run build` y `npm run preview`.
 
-Pruebas del Worker del chatbot:
+Sin `.env` la web funciona, pero sin las partes conectadas. Copia
+`.env.example` como `.env` y rellénalo; **todas las variables son públicas**
+(acaban en el JavaScript de la web):
+
+| Variable | Para qué | Guía |
+|---|---|---|
+| `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY` | Entrar, Mi espacio y panel | [supabase/README.md](supabase/README.md) |
+| `PUBLIC_N8N_CONTACT_URL`, `PUBLIC_TURNSTILE_SITE_KEY` | Formulario de contacto | [n8n/README.md](n8n/README.md) |
+| `PUBLIC_N8N_REPLY_URL` | Aviso por correo de mis respuestas | [n8n/README.md](n8n/README.md) |
+| `PUBLIC_CHATBOT_URL` | Marc IA | [worker/chatbot/README.md](worker/chatbot/README.md) |
+
+En GitHub van en *Settings → Secrets and variables → Actions → Variables*.
+
+Otros comandos:
 
 ```bash
-cd worker/chatbot && npm test
+npm run chatbot:test        # pruebas del Worker de Marc IA
+npm run chatbot:contexto    # regenera lo que sabe Marc IA a partir de src/i18n
+node scripts/descargar-frases.mjs   # vuelve a descargar las frases de Animechan
 ```
+
+## Calidad
+
+Lighthouse en móvil, en todas las páginas: ver [docs/lighthouse.md](docs/lighthouse.md).
+Accesibilidad AA (contrastes en [docs/diseno.md](docs/diseno.md)), navegable con
+teclado y con `prefers-reduced-motion`.
+
+## Cómo se ha trabajado
+
+Cada bloque tiene su issue, su rama desde `v3` y su pull request, con commits
+pequeños en español. Las órdenes que le di a la IA están en
+[docs/prompts/](docs/prompts/). La issue que lo agrupa todo es la
+[#21](https://github.com/marcalvear/mi-web/issues/21).
+
+## Decisiones de arquitectura
+
+- [ADR 0001: Web Components sin herramientas de build](docs/adr/0001-web-components-sin-build.md) (v2, sustituida)
+- [ADR 0002: El chatbot pasa por un Cloudflare Worker](docs/adr/0002-chatbot-con-worker.md)
+- [ADR 0003: Formulario con envío normal para tener respuesta automática](docs/adr/0003-formulario-envio-normal.md) (v2, sustituida)
+- [ADR 0004: Astro con GitHub Actions](docs/adr/0004-astro-con-github-actions.md)
+- [ADR 0005: Las frases de anime van en un mazo guardado en la web](docs/adr/0005-mazo-de-frases-local.md)
+- [ADR 0006: Usuarios y mensajes en Supabase, protegidos con RLS](docs/adr/0006-supabase-con-rls.md)
+- [ADR 0007: El formulario de contacto pasa por un flujo de n8n](docs/adr/0007-contacto-con-n8n.md)
 
 ## Historial
 
 - `v1`: primera versión, una página con estética Cyberpunk 2077.
-- `v2`: este rediseño. Cada bloque se hizo en su rama con su issue y su
-  pull request ([issues](https://github.com/marcalvear/mi-web/issues?q=label%3Av2)).
+- `v2`: rediseño espacial inspirado en Super Mario Galaxy, con Web Components sin build.
+- `v3`: cuaderno de laboratorio con Astro, dos idiomas, usuarios, Mi espacio, panel de administrador, chatbot con IA y paleta ⌘K.

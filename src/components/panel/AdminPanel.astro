@@ -1,0 +1,835 @@
+---
+// Panel de administrador (#32). Lee todos los perfiles, mensajes y eventos con
+// la clave pública: solo funciona porque las reglas RLS dejan al rol admin
+// verlo todo (ADR 0006). A cualquier otro usuario la base de datos le devuelve
+// solo lo suyo, y esta página le dice que no es para él.
+// Al responder, un flujo de n8n avisa por correo (ADR 0007, n8n/README.md).
+import { getRelativeLocaleUrl } from "astro:i18n";
+import Base from "../../layouts/Base.astro";
+import Button from "../Button.astro";
+import { panel } from "../../i18n/panel";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const c = panel[lang];
+const MAX = 5000;
+const signIn = getRelativeLocaleUrl(lang, "entrar/");
+const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
+const notifyUrl = import.meta.env.PUBLIC_N8N_REPLY_URL ?? "";
+const id = (field: string) => `panel-${field}-${lang}`;
+const stats = ["users", "messages", "unread", "pending"] as const;
+const filters = ["all", "unread", "pending"] as const;
+---
+
+<Base lang={lang} title={c.meta.title} description={c.meta.description} path="panel/" noindex>
+  <div
+    class="wrap"
+    data-panel-root
+    data-lang={lang}
+    data-max={MAX}
+    data-notify={notifyUrl}
+    data-text={JSON.stringify(c)}
+  >
+    <header class="intro">
+      <p class="label">{c.kicker}</p>
+      <h1>{c.title}</h1>
+      <p class="lead">{c.lead}</p>
+    </header>
+
+    <noscript><p>{c.noscript}</p></noscript>
+    <p class="label" data-view="loading" hidden>{c.loading}</p>
+    <p data-view="setup" hidden>{c.setup}</p>
+
+    <section class="card note" data-view="out" hidden>
+      <h2>{c.out.title}</h2>
+      <Button href={signIn}>{c.out.cta}</Button>
+    </section>
+
+    <section class="card note" data-view="denied" hidden>
+      <h2>{c.denied.title}</h2>
+      <p>{c.denied.body}</p>
+      <Button href={mySpace}>{c.denied.cta}</Button>
+    </section>
+
+    <div class="board" data-view="in" hidden>
+      <dl class="stats">
+        {
+          stats.map((s) => (
+            <div>
+              <dt class="label">{c.stats[s]}</dt>
+              <dd data-stat={s}>0</dd>
+            </div>
+          ))
+        }
+      </dl>
+
+      <div class="chips views" role="group" aria-label={c.views.label}>
+        <button type="button" class="chip" data-tab="inbox" aria-pressed="true">{c.views.inbox}</button>
+        <button type="button" class="chip" data-tab="users" aria-pressed="false">{c.views.users}</button>
+      </div>
+
+      <!-- Bandeja: lista de conversaciones y la conversación abierta -->
+      <div class="inbox" data-tabpanel="inbox">
+        <section class="list" aria-labelledby={id("list")}>
+          <h2 class="visually-hidden" id={id("list")}>{c.inbox.label}</h2>
+          <div class="chips" role="group" aria-label={c.filters.label}>
+            {
+              filters.map((f) => (
+                <button type="button" class="chip" data-filter={f} aria-pressed={f === "all" ? "true" : "false"}>
+                  {c.filters[f]}
+                </button>
+              ))
+            }
+          </div>
+          <ul class="threads" role="list" data-threads></ul>
+          <p class="empty" data-threads-empty hidden>{c.inbox.empty}</p>
+        </section>
+
+        <section class="thread" aria-live="polite" data-thread>
+          <p class="empty" data-pick>{c.inbox.pick}</p>
+          <div data-open hidden>
+            <header class="thread-head">
+              <h2 tabindex="-1" data-who></h2>
+              <p class="label" data-whoinfo></p>
+            </header>
+            <ol class="messages" role="list" data-messages></ol>
+            <form class="compose" data-reply novalidate>
+              <label class="label" for={id("reply")} data-reply-label></label>
+              <textarea id={id("reply")} name="body" rows="5" maxlength={MAX} required placeholder={c.reply.placeholder} aria-describedby={id("count")}></textarea>
+              <div class="compose-foot">
+                <p class="help" id={id("count")} data-count>
+                  {c.reply.count.replace("{n}", "0").replace("{max}", String(MAX))}
+                </p>
+                <Button type="submit" data-submit>{c.reply.submit}</Button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <!-- Usuarios: tabla y la actividad del que se abra -->
+      <section class="users" data-tabpanel="users" aria-labelledby={id("users")} hidden>
+        <h2 class="visually-hidden" id={id("users")}>{c.users.label}</h2>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">{c.users.name}</th>
+                <th scope="col">{c.users.email}</th>
+                <th scope="col">{c.users.role}</th>
+                <th scope="col">{c.users.since}</th>
+                <th scope="col">{c.users.messages}</th>
+                <th scope="col">{c.users.last}</th>
+              </tr>
+            </thead>
+            <tbody data-users></tbody>
+          </table>
+        </div>
+        <section class="card activity" data-activity hidden>
+          <header class="thread-head">
+            <h3 tabindex="-1" data-activity-title></h3>
+            <button type="button" class="text-button" data-activity-close>{c.users.close}</button>
+          </header>
+          <ol class="events" role="list" data-events></ol>
+        </section>
+      </section>
+
+      <p class="status" role="status" data-status></p>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import type { Session } from "@supabase/supabase-js";
+  import { supabase, type AppEvent, type Message, type Profile } from "../../lib/supabase";
+  import type { PanelText } from "../../i18n/panel";
+
+  type View = "loading" | "setup" | "out" | "denied" | "in";
+  type Filter = "all" | "unread" | "pending";
+  type Thread = { profile: Profile; messages: Message[]; last: Message; unread: number; pending: boolean };
+
+  const root = document.querySelector<HTMLElement>("[data-panel-root]");
+  if (root) init(root);
+
+  async function init(root: HTMLElement) {
+    const t = JSON.parse(root.dataset.text!) as PanelText;
+    const lang = root.dataset.lang!;
+    const max = Number(root.dataset.max);
+    const notifyUrl = root.dataset.notify ?? "";
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+    const status = $("[data-status]");
+    const when = new Intl.DateTimeFormat(lang, { dateStyle: "medium", timeStyle: "short" });
+    const day = new Intl.DateTimeFormat(lang, { dateStyle: "medium" });
+    const reply = $<HTMLFormElement>("[data-reply]");
+    const replyBody = reply.elements.namedItem("body") as HTMLTextAreaElement;
+    const submit = reply.querySelector<HTMLButtonElement>("[data-submit]")!;
+
+    let session: Session;
+    let profiles = new Map<string, Profile>();
+    let messages: Message[] = [];
+    let events: AppEvent[] = [];
+    let filter: Filter = "all";
+    let selected: string | null = null;
+
+    const show = (v: View) =>
+      root.querySelectorAll<HTMLElement>("[data-view]").forEach((el) => (el.hidden = el.dataset.view !== v));
+    const fill = (s: string, k: string, v: string | number) => s.replace(`{${k}}`, String(v));
+    const nameOf = (p: Profile) => p.name || p.email;
+    const el = <K extends keyof HTMLElementTagNameMap>(tag: K, cls = "", text = "") => {
+      const e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text) e.textContent = text;
+      return e;
+    };
+
+    function say(text = "", error = false) {
+      status.textContent = text;
+      status.classList.toggle("error", error);
+    }
+
+    // Una conversación por persona que me ha escrito, la más reciente arriba
+    function threads(): Thread[] {
+      const byUser = new Map<string, Message[]>();
+      for (const m of messages) byUser.set(m.user_id, [...(byUser.get(m.user_id) ?? []), m]);
+      return [...byUser]
+        .filter(([uid]) => profiles.has(uid))
+        .map(([uid, msgs]) => {
+          const last = msgs[msgs.length - 1];
+          return {
+            profile: profiles.get(uid)!,
+            messages: msgs,
+            last,
+            unread: msgs.filter((m) => m.author === "user" && !m.read_at).length,
+            pending: last.author === "user",
+          };
+        })
+        .sort((a, b) => b.last.created_at.localeCompare(a.last.created_at));
+    }
+
+    // Resumen -----------------------------------------------------------------
+    function renderStats(all: Thread[]) {
+      const values = {
+        users: [...profiles.values()].filter((p) => p.role !== "admin").length,
+        messages: messages.filter((m) => m.author === "user").length,
+        unread: all.reduce((n, th) => n + th.unread, 0),
+        pending: all.filter((th) => th.pending).length,
+      };
+      for (const [k, v] of Object.entries(values)) $(`[data-stat="${k}"]`).textContent = String(v);
+    }
+
+    // Bandeja ---------------------------------------------------------------
+    function renderList() {
+      const all = threads();
+      renderStats(all);
+      const shown = all.filter((th) => filter === "all" || (filter === "unread" ? th.unread > 0 : th.pending));
+      const list = $("[data-threads]");
+      list.replaceChildren(
+        ...shown.map((th) => {
+          const li = el("li");
+          const button = el("button", "thread-item");
+          button.type = "button";
+          button.dataset.user = th.profile.id;
+          button.setAttribute("aria-current", String(th.profile.id === selected));
+          const top = el("span", "item-top");
+          top.append(el("span", "item-name", nameOf(th.profile)), el("span", "label", day.format(new Date(th.last.created_at))));
+          const snippet = el("span", "item-snippet", th.last.body.length > 90 ? `${th.last.body.slice(0, 90)}…` : th.last.body);
+          const tags = el("span", "item-tags");
+          if (th.unread) tags.append(el("span", "tag unread", fill(t.inbox.unread, "n", th.unread)));
+          // La categoría de su último mensaje clasificado (los de Mi espacio no pasan por la IA)
+          const category = [...th.messages].reverse().find((m) => m.author === "user" && m.category)?.category;
+          if (category) tags.append(el("span", "tag", t.thread.categories[category as keyof typeof t.thread.categories] ?? category));
+          if (!th.pending) tags.append(el("span", "tag done", `✓ ${t.inbox.answered}`));
+          button.append(top, snippet, tags);
+          button.addEventListener("click", () => open(th.profile.id));
+          li.append(button);
+          return li;
+        }),
+      );
+      $("[data-threads-empty]").hidden = shown.length > 0;
+    }
+
+    function entry(m: Message) {
+      const li = el("li", `message ${m.author}`);
+      const head = el("p", "label meta");
+      const time = el("time", "", when.format(new Date(m.created_at)));
+      time.dateTime = m.created_at;
+      const who = m.author === "admin" ? t.thread.you : nameOf(profiles.get(m.user_id)!);
+      head.append(el("span", "who", who), " · ", time);
+      if (m.author === "user" && m.category) {
+        head.append(" ", el("span", "tag", t.thread.categories[m.category as keyof typeof t.thread.categories] ?? m.category));
+      }
+      if (m.author === "admin") {
+        head.append(" ", el("span", m.read_at ? "tag done" : "tag", m.read_at ? `✓ ${t.thread.read}` : t.thread.unreadByUser));
+      }
+      li.append(head, el("p", "body", m.body));
+      return li;
+    }
+
+    function renderThread() {
+      const p = selected ? profiles.get(selected) : null;
+      $("[data-pick]").hidden = Boolean(p);
+      $("[data-open]").hidden = !p;
+      if (!p) return;
+      $("[data-who]").textContent = nameOf(p);
+      $("[data-whoinfo]").textContent = `${p.email} · ${fill(t.thread.since, "date", day.format(new Date(p.created_at)))}`;
+      $("[data-reply-label]").textContent = fill(t.reply.label, "name", p.name || p.email);
+      $("[data-messages]").replaceChildren(...messages.filter((m) => m.user_id === p.id).map(entry));
+    }
+
+    async function open(userId: string) {
+      selected = userId;
+      say();
+      renderThread();
+      renderList();
+      $("[data-who]").focus();
+      if (matchMedia("(max-width: 59.99rem)").matches) $("[data-thread]").scrollIntoView({ block: "start" });
+
+      // Lo que me ha escrito queda leído al abrir la conversación
+      const unread = messages.filter((m) => m.user_id === userId && m.author === "user" && !m.read_at);
+      if (!unread.length) return;
+      const now = new Date().toISOString();
+      const { error } = await supabase!
+        .from("messages")
+        .update({ read_at: now })
+        .eq("user_id", userId)
+        .eq("author", "user")
+        .is("read_at", null);
+      if (!error) {
+        unread.forEach((m) => (m.read_at = now));
+        renderList();
+      }
+    }
+
+    root.querySelectorAll<HTMLButtonElement>("[data-filter]").forEach((b) =>
+      b.addEventListener("click", () => {
+        filter = b.dataset.filter as Filter;
+        root.querySelectorAll("[data-filter]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+        renderList();
+      }),
+    );
+
+    // Responder -------------------------------------------------------------
+    replyBody.addEventListener("input", () => {
+      $("[data-count]").textContent = fill(fill(t.reply.count, "n", replyBody.value.length), "max", max);
+    });
+
+    function busy(on: boolean) {
+      submit.disabled = on;
+      const label = [...submit.childNodes].find((n) => n.nodeType === Node.TEXT_NODE && n.textContent?.trim());
+      if (label) label.textContent = on ? t.reply.sending : t.reply.submit;
+    }
+
+    // n8n comprueba con el token de mi sesión que quien pide el aviso es admin
+    async function notify(messageId: number): Promise<boolean | null> {
+      if (!notifyUrl) return null;
+      try {
+        const res = await fetch(notifyUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
+          body: JSON.stringify({ message_id: messageId }),
+        });
+        return res.ok;
+      } catch {
+        return false;
+      }
+    }
+
+    reply.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const text = replyBody.value.trim();
+      if (!selected) return;
+      if (!text) {
+        say(t.errors.empty, true);
+        replyBody.focus();
+        return;
+      }
+      say();
+      busy(true);
+      const { data, error } = await supabase!
+        .from("messages")
+        .insert({ user_id: selected, author: "admin", body: text })
+        .select()
+        .single();
+      if (error || !data) {
+        busy(false);
+        say(t.errors.send, true);
+        return;
+      }
+      messages.push(data);
+      reply.reset();
+      replyBody.dispatchEvent(new Event("input"));
+      renderThread();
+      renderList();
+      const mailed = await notify(data.id);
+      busy(false);
+      say(mailed === null ? t.reply.sentMailOff : mailed ? t.reply.sent : t.reply.sentNoMail, mailed === false);
+    });
+
+    // Usuarios y actividad --------------------------------------------------
+    function describe(e: AppEvent) {
+      const label = t.users.events[e.type as keyof typeof t.users.events] ?? e.type;
+      const via = (e.data as { via?: string } | null)?.via;
+      return via && via in t.users.via ? `${label} ${t.users.via[via as keyof typeof t.users.via]}` : label;
+    }
+
+    function renderUsers() {
+      const rows = [...profiles.values()]
+        .sort((a, b) => b.created_at.localeCompare(a.created_at))
+        .map((p) => {
+          const tr = el("tr");
+          const nameCell = el("td");
+          const button = el("button", "text-button", nameOf(p));
+          button.type = "button";
+          button.addEventListener("click", () => showActivity(p));
+          nameCell.append(button);
+          const last = events.find((e) => e.user_id === p.id);
+          tr.append(
+            nameCell,
+            el("td", "mono", p.email),
+            el("td", "", t.users.roles[p.role]),
+            el("td", "", day.format(new Date(p.created_at))),
+            el("td", "num", String(messages.filter((m) => m.user_id === p.id && m.author === "user").length)),
+            el("td", "", last ? when.format(new Date(last.created_at)) : t.users.never),
+          );
+          return tr;
+        });
+      $("[data-users]").replaceChildren(...rows);
+    }
+
+    function showActivity(p: Profile) {
+      const box = $("[data-activity]");
+      box.hidden = false;
+      $("[data-activity-title]").textContent = fill(t.users.activity, "name", nameOf(p));
+      const mine = events.filter((e) => e.user_id === p.id).slice(0, 50);
+      const items = mine.map((e) => {
+        const li = el("li");
+        const time = el("time", "label", when.format(new Date(e.created_at)));
+        time.dateTime = e.created_at;
+        li.append(time, el("span", "", describe(e)));
+        return li;
+      });
+      $("[data-events]").replaceChildren(...(items.length ? items : [el("li", "empty", t.users.noActivity)]));
+      $("[data-activity-title]").focus();
+    }
+
+    $("[data-activity-close]").addEventListener("click", () => ($("[data-activity]").hidden = true));
+
+    root.querySelectorAll<HTMLButtonElement>("[data-tab]").forEach((b) =>
+      b.addEventListener("click", () => {
+        root.querySelectorAll("[data-tab]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+        root.querySelectorAll<HTMLElement>("[data-tabpanel]").forEach((p) => (p.hidden = p.dataset.tabpanel !== b.dataset.tab));
+      }),
+    );
+
+    // Arranque --------------------------------------------------------------
+    if (!supabase) return show("setup");
+    show("loading");
+    const { data } = await supabase.auth.getSession();
+    if (!data.session) return show("out");
+    session = data.session;
+    supabase.auth.onAuthStateChange((event, s) => {
+      if (event === "SIGNED_OUT") show("out");
+      if (s) session = s;
+    });
+
+    const me = await supabase.from("profiles").select("role").eq("id", session.user.id).maybeSingle();
+    if (me.data?.role !== "admin") return show("denied");
+
+    const [p, m, ev] = await Promise.all([
+      supabase.from("profiles").select("*").order("created_at", { ascending: false }),
+      supabase.from("messages").select("*").order("created_at", { ascending: true }),
+      supabase.from("events").select("*").order("created_at", { ascending: false }).limit(1000),
+    ]);
+    if (p.error || m.error || ev.error) {
+      show("in");
+      return say(t.errors.load, true);
+    }
+    profiles = new Map(p.data.map((x) => [x.id, x]));
+    messages = m.data;
+    events = ev.data;
+    renderList();
+    renderUsers();
+    show("in");
+  }
+</script>
+
+<style>
+  /* Lo que se ve depende de la sesión y lo pinta JavaScript al cargar: con
+     este alto mínimo el pie no salta cuando aparece (CLS) */
+  .wrap {
+    min-height: 80vh;
+  }
+
+  .intro {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .lead {
+    max-width: 46ch;
+    font-size: var(--step-1);
+  }
+
+  /* Sin esto, los display de abajo ganarían al atributo hidden */
+  [hidden] {
+    display: none !important;
+  }
+
+  .card {
+    padding: var(--space-4) var(--space-3);
+    background: var(--sheet);
+    border: 1.5px solid var(--ink);
+    box-shadow: 5px 5px 0 var(--rule);
+  }
+
+  .note {
+    display: grid;
+    justify-items: start;
+    gap: var(--space-2);
+    max-width: 36rem;
+    margin-block-end: var(--space-7);
+  }
+
+  .note h2 {
+    font-size: var(--step-2);
+  }
+
+  .board {
+    display: grid;
+    gap: var(--space-4);
+    margin-block-end: var(--space-7);
+  }
+
+  /* Cuatro cifras arriba, como la cabecera de un registro */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+  }
+
+  .stats div {
+    padding: var(--space-2) var(--space-3);
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .stats div:nth-child(odd) {
+    border-right: 1px dashed var(--rule);
+  }
+
+  .stats dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--step-3);
+    font-weight: 600;
+  }
+
+  @media (min-width: 48rem) {
+    .stats {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .stats div {
+      border-bottom: 0;
+      border-right: 1px dashed var(--rule);
+    }
+
+    .stats div:last-child {
+      border-right: 0;
+    }
+  }
+
+  .inbox {
+    display: grid;
+    gap: var(--space-4);
+  }
+
+  @media (min-width: 60rem) {
+    .inbox {
+      grid-template-columns: 22rem minmax(0, 1fr);
+      align-items: start;
+    }
+  }
+
+  .list {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .threads {
+    display: grid;
+    padding: 0;
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .threads :global(.thread-item) {
+    display: grid;
+    gap: 0.3rem;
+    width: 100%;
+    padding: var(--space-2);
+    border: 0;
+    border-bottom: 1px dashed var(--rule);
+    background: none;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .threads :global(.thread-item:hover),
+  .threads :global(.thread-item[aria-current="true"]) {
+    background: var(--sheet);
+  }
+
+  .threads :global(.thread-item[aria-current="true"]) {
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+
+  .threads :global(.item-top) {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-1);
+  }
+
+  .threads :global(.item-name) {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .threads :global(.item-snippet) {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    overflow-wrap: anywhere;
+  }
+
+  .threads :global(.item-tags) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  .board :global(.tag) {
+    padding: 0.1em 0.5em;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  .board :global(.tag.unread) {
+    border-color: var(--mark);
+    background: var(--mark);
+    color: var(--ink);
+  }
+
+  .board :global(.tag.done) {
+    color: var(--ink-soft);
+  }
+
+  .empty {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .thread-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-3);
+    padding-block-end: var(--space-2);
+    border-bottom: 1.5px solid var(--ink);
+  }
+
+  .thread-head h2,
+  .thread-head h3 {
+    font-size: var(--step-2);
+    overflow-wrap: anywhere;
+  }
+
+  .thread-head :is(h2, h3):focus {
+    outline: none;
+  }
+
+  .messages {
+    display: grid;
+    gap: var(--space-3);
+    margin: var(--space-3) 0;
+    padding: 0;
+  }
+
+  /* Las mismas entradas de cuaderno que en Mi espacio: las mías en rojo */
+  .messages :global(.message) {
+    padding: var(--space-2) var(--space-3);
+    border-left: 2px solid var(--ink);
+    background: var(--sheet);
+  }
+
+  .messages :global(.message.admin) {
+    border-left-color: var(--accent);
+    box-shadow: 3px 3px 0 var(--rule);
+  }
+
+  .messages :global(.meta) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4em;
+    color: var(--ink-soft);
+  }
+
+  .messages :global(.message.admin .who) {
+    color: var(--accent);
+  }
+
+  .messages :global(.body) {
+    margin-block-start: 0.4rem;
+    max-width: none;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .compose {
+    display: grid;
+    gap: 0.4rem;
+    padding-block-start: var(--space-3);
+    border-top: 1px dashed var(--rule);
+  }
+
+  textarea {
+    width: 100%;
+    min-height: 8rem;
+    padding: 0.6rem 0.9rem;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--step-0);
+    line-height: 1.6;
+    resize: vertical;
+  }
+
+  .compose-foot {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .help {
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+
+  /* La tabla se desplaza dentro de su caja en móvil, no la página */
+  .table-scroll {
+    overflow-x: auto;
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+  }
+
+  table {
+    width: 100%;
+    min-width: 44rem;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 0.6rem var(--space-2);
+    border-bottom: 1px dashed var(--rule);
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  th {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  .users :global(.mono) {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    overflow-wrap: anywhere;
+  }
+
+  .users :global(.num) {
+    font-family: var(--font-mono);
+    text-align: right;
+  }
+
+  .activity {
+    margin-block-start: var(--space-4);
+  }
+
+  .events {
+    display: grid;
+    gap: var(--space-1);
+    margin-block-start: var(--space-2);
+    padding: 0;
+  }
+
+  .events :global(li) {
+    display: grid;
+    gap: 0.2rem;
+    padding-block: var(--space-1);
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  @media (min-width: 48rem) {
+    .events :global(li) {
+      grid-template-columns: 14rem 1fr;
+    }
+  }
+
+  .text-button {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font: inherit;
+    text-align: left;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+  }
+
+  .users :global(.text-button) {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font: inherit;
+    text-align: left;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+  }
+
+  .status {
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .status:empty {
+    display: none;
+  }
+
+  .status.error {
+    color: var(--accent);
+  }
+</style>

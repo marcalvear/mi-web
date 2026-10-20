@@ -1,0 +1,96 @@
+---
+import { Picture } from "astro:assets";
+import Entry from "../Entry.astro";
+import Figure from "../Figure.astro";
+import photo from "../../assets/img/marc/marc.jpg";
+import type { HomeContent } from "../../i18n/home";
+
+interface Props {
+  content: HomeContent["about"];
+}
+const { content } = Astro.props;
+---
+
+<Entry id="sobre-mi" number={1} kicker={content.kicker} title={content.title}>
+  <div class="about">
+    <div class="text">
+      {content.paragraphs.map((p) => <p>{p}</p>)}
+      <dl class="facts">
+        {
+          content.facts.map((f) => (
+            <div>
+              <dt class="label">{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+
+    <Figure number={2} caption={content.photoCaption}>
+      <Picture
+        src={photo}
+        alt={content.photoAlt}
+        formats={["avif", "webp"]}
+        widths={[360, 720]}
+        sizes="(min-width: 60rem) 360px, 85vw"
+        loading="lazy"
+      />
+    </Figure>
+  </div>
+</Entry>
+
+<style>
+  .about {
+    display: grid;
+    gap: var(--space-5);
+    align-items: start;
+  }
+
+  .text {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .text > p:first-child {
+    font-size: var(--step-1);
+    line-height: 1.5;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    margin-block-start: var(--space-3);
+    border-top: 1.5px solid var(--ink);
+  }
+
+  .facts div {
+    padding: var(--space-1) var(--space-2) var(--space-1) 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .facts dd {
+    margin: 0;
+  }
+
+  /* La foto entera, sin recortar: vertical 3:4, como se hizo */
+  .about :global(.figure) {
+    max-width: 24rem;
+    justify-self: center;
+    transform: rotate(1.2deg);
+  }
+
+  .about :global(img) {
+    width: 100%;
+    height: auto;
+    filter: saturate(0.9);
+  }
+
+  @media (min-width: 60rem) {
+    .about {
+      grid-template-columns: 1fr 22.5rem;
+      align-items: start;
+      gap: var(--space-6);
+    }
+  }
+</style>

@@ -3,3 +3,13 @@
 
 # Originales con metadatos (la foto lleva GPS): nunca se suben
 recursos/
+
+# Astro
+node_modules/
+dist/
+.astro/
+
+# Variables de entorno locales (ver .env.example)
+.env
+.env.*
+!.env.example

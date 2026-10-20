@@ -1,0 +1,60 @@
+---
+// Una entrada del cuaderno: cada bloque de la página va numerado como en una
+// libreta de laboratorio («Entrada 02 · Sobre mí»).
+interface Props {
+  id: string;
+  number: number;
+  kicker: string;
+  title: string;
+  /** Nota corta a la derecha del título: fecha, estado… */
+  meta?: string;
+}
+const { id, number, kicker, title, meta } = Astro.props;
+const n = String(number).padStart(2, "0");
+---
+
+<section class="entry" id={id} aria-labelledby={`${id}-title`}>
+  <header class="entry-head">
+    <p class="label">
+      <span class="num">{n}</span>
+      <span>{kicker}</span>
+    </p>
+    <h2 id={`${id}-title`}>{title}</h2>
+    {meta && <p class="label meta">{meta}</p>}
+  </header>
+  <div class="entry-body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .entry {
+    padding-block: var(--space-6);
+    border-top: 1px dashed var(--rule);
+  }
+
+  .entry-head {
+    display: grid;
+    gap: var(--space-1);
+    margin-block-end: var(--space-4);
+  }
+
+  .num {
+    display: inline-block;
+    min-width: 2.6em;
+    margin-inline-end: 0.6em;
+    padding: 0.1em 0.45em;
+    border: 1.5px solid var(--accent);
+    border-radius: 999px;
+    color: var(--accent);
+    text-align: center;
+  }
+
+  .meta {
+    color: var(--ink-soft);
+  }
+
+  .entry-body > :global(* + *) {
+    margin-block-start: var(--space-2);
+  }
+</style>

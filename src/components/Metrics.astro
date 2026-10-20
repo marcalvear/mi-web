@@ -1,0 +1,75 @@
+---
+// Tabla de métricas medidas (Lighthouse, peso…) con su nota de cómo y cuándo
+// se midieron. La usan la portada y los casos de estudio.
+import type { Metric } from "../i18n/projects";
+
+interface Props {
+  metrics: Metric[];
+  note?: string;
+}
+const { metrics, note } = Astro.props;
+---
+
+<div class="metrics">
+  <dl>
+    {
+      metrics.map((m) => (
+        <div>
+          <dt class="label">{m.label}</dt>
+          <dd>{m.value}</dd>
+        </div>
+      ))
+    }
+  </dl>
+  {note && <p class="note">{note}</p>}
+</div>
+
+<style>
+  /* Las columnas dependen del hueco que tenga el componente, no de la pantalla:
+     2 en móvil, 3 en una columna de texto y 6 a lo ancho. Así nunca queda
+     una métrica sola en la última fila. */
+  .metrics {
+    container-type: inline-size;
+  }
+
+  dl {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+  }
+
+  dl div {
+    display: grid;
+    gap: 0.1rem;
+    padding: var(--space-2);
+    border: 0.5px solid var(--rule);
+  }
+
+  dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--step-2);
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  @container (min-width: 30rem) {
+    dl {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @container (min-width: 54rem) {
+    dl {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .note {
+    margin-block-start: var(--space-1);
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+</style>
