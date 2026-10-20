@@ -31,8 +31,10 @@ Usar **[Supabase](https://supabase.com)** (Postgres + Auth + API REST) con
   crearse el usuario en Auth.
 - **Reglas RLS en la propia base de datos:** cada usuario lee solo sus filas,
   el rol `admin` lee y escribe todo, y un usuario puede añadir sus mensajes
-  y eventos pero no cambiar su rol (otro trigger lo impide). Hay 24 pruebas
-  en `supabase/tests/rls.sql`.
+  y eventos pero no cambiar su rol (otro trigger lo impide). Para que Mi
+  espacio (#31) marque mis respuestas como leídas sin poder tocar su texto,
+  hay una función aparte, `mark_replies_read()`. Hay 27 pruebas en
+  `supabase/tests/rls.sql`.
 - **Acceso sin contraseña:** el usuario escribe su email y recibe un código de
   un solo uso y un enlace (sirve cualquiera de los dos). La página `/entrar/`
   no crea cuentas (`shouldCreateUser: false`, y el registro está desactivado

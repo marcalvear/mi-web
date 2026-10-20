@@ -1,4 +1,5 @@
 -- Pruebas de las reglas RLS de supabase/migrations/20261019120000_usuarios_mensajes_eventos.sql
+-- y de la función de 20261020090000_leer_respuestas.sql (pruebas 25 a 27).
 --
 -- Cómo ejecutarlas: Supabase → SQL Editor → pegar este fichero → Run.
 -- Todo pasa dentro de una transacción que se deshace al final, así que no
@@ -287,10 +288,51 @@ exception when insufficient_privilege then
   raise notice 'ok 24 · sin sesión no se puede escribir nada';
 end $$;
 
+do $$
+begin
+  perform public.mark_replies_read();
+  raise exception 'FALLA 25: alguien sin sesión puede marcar respuestas como leídas';
+exception when insufficient_privilege then
+  raise notice 'ok 25 · sin sesión no se puede marcar nada como leído';
+end $$;
+
+
+-- 5. Marcar como leídas mis respuestas (Mi espacio) ---------------------------
+
+reset role;
+set local role authenticated;
+select set_config('request.jwt.claims', '{"sub": "00000000-0000-4000-8000-00000000a7a0", "role": "authenticated"}', true);
+
+do $$
+declare n int;
+begin
+  n := public.mark_replies_read();
+  if n <> 1 then raise exception 'FALLA 26: Ana tenía 1 respuesta sin leer y se han marcado %', n; end if;
+  if public.mark_replies_read() <> 0 then
+    raise exception 'FALLA 26: la segunda vez no tenía que marcar nada';
+  end if;
+  raise notice 'ok 26 · Ana marca como leída mi respuesta, y solo una vez';
+end $$;
+
+reset role;
+
+do $$
+begin
+  if exists (select 1 from public.messages
+             where user_id = '00000000-0000-4000-8000-00000000b2b0' and author = 'admin' and read_at is not null) then
+    raise exception 'FALLA 27: Ana ha marcado como leída mi respuesta a Bruno';
+  end if;
+  if exists (select 1 from public.messages
+             where user_id = '00000000-0000-4000-8000-00000000a7a0' and author = 'user' and read_at is not null) then
+    raise exception 'FALLA 27: se han marcado mensajes de Ana, no solo mis respuestas';
+  end if;
+  raise notice 'ok 27 · solo se marcan mis respuestas, y solo en su hilo';
+end $$;
+
 
 -- Fin: se deshace todo y, si se ha llegado hasta aquí, todo ha pasado --------
 
 reset role;
 rollback;
 
-select 'OK: las 24 pruebas de RLS pasan' as resultado;
+select 'OK: las 27 pruebas de RLS pasan' as resultado;

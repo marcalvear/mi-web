@@ -31,6 +31,7 @@ export const ui = {
     "footer.code": "Código en GitHub",
     "footer.top": "Volver arriba",
     "footer.privacy": "Privacidad",
+    "footer.space": "Mi espacio",
   },
   en: {
     "site.title": "Marc Calatayud",
@@ -57,6 +58,7 @@ export const ui = {
     "footer.code": "Code on GitHub",
     "footer.top": "Back to top",
     "footer.privacy": "Privacy",
+    "footer.space": "My space",
   },
 } as const;
 

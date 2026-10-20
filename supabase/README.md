@@ -5,7 +5,7 @@ Por qué Supabase y cómo viaja el dato: [ADR 0006](../docs/adr/0006-supabase-co
 ```
 supabase/
 ├── migrations/   el esquema: tablas, triggers y reglas RLS (se ejecuta una vez)
-├── tests/rls.sql 24 pruebas de las reglas, se pueden repetir cuando quieras
+├── tests/rls.sql 27 pruebas de las reglas, se pueden repetir cuando quieras
 └── templates/    el correo con el código de acceso
 ```
 
@@ -36,11 +36,13 @@ la que más adelante pegue en n8n (#30).
 1. Menú izquierdo → **SQL Editor** → **New query**.
 2. Pega todo [`migrations/20261019120000_usuarios_mensajes_eventos.sql`](migrations/20261019120000_usuarios_mensajes_eventos.sql)
    y pulsa **Run**. Debe decir *Success. No rows returned*.
-3. Nueva consulta, pega [`tests/rls.sql`](tests/rls.sql) y **Run**. Debe
-   devolver una fila: `OK: las 24 pruebas de RLS pasan`. Si sale
+3. Igual con [`migrations/20261020090000_leer_respuestas.sql`](migrations/20261020090000_leer_respuestas.sql)
+   (Mi espacio, #31): la función que marca mis respuestas como leídas.
+4. Nueva consulta, pega [`tests/rls.sql`](tests/rls.sql) y **Run**. Debe
+   devolver una fila: `OK: las 27 pruebas de RLS pasan`. Si sale
    `FALLA nn: …`, la regla de esa prueba no está bien. Las pruebas no dejan
    datos: todo se deshace al final.
-4. En **Table Editor** tienen que aparecer `profiles`, `messages` y `events`
+5. En **Table Editor** tienen que aparecer `profiles`, `messages` y `events`
    sin el aviso rojo de *RLS disabled*.
 
 ### 3. Acceso sin contraseña
