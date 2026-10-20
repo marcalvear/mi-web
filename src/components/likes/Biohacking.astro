@@ -8,6 +8,10 @@ import theraface from "../../assets/img/biohacking/theraface-mask-glo.webp";
 import jetboots from "../../assets/img/biohacking/jetboots-prime.webp";
 import eightsleep from "../../assets/img/biohacking/eight-sleep-pod.webp";
 import oura from "../../assets/img/biohacking/oura-ring.webp";
+import whoop from "../../assets/img/biohacking/whoop-5.webp";
+import lasercap from "../../assets/img/biohacking/blueprint-laser-cap.webp";
+import peptideserum from "../../assets/img/biohacking/blueprint-peptide-serum.webp";
+import antioxidants from "../../assets/img/biohacking/blueprint-advanced-antioxidants.webp";
 import type { BioText, Goal } from "../../i18n/likes";
 import NewTab from "../NewTab.astro";
 
@@ -22,6 +26,10 @@ const photos: Record<string, { src: ImageMetadata; fit: "contain" | "cover" }> =
   jetboots: { src: jetboots, fit: "contain" },
   eightsleep: { src: eightsleep, fit: "cover" },
   oura: { src: oura, fit: "contain" },
+  whoop: { src: whoop, fit: "contain" },
+  lasercap: { src: lasercap, fit: "cover" },
+  peptideserum: { src: peptideserum, fit: "cover" },
+  antioxidants: { src: antioxidants, fit: "cover" },
 };
 const goals = Object.keys(text.goals) as Goal[];
 ---
