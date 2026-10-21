@@ -1,0 +1,103 @@
+---
+// Esquema de la recuperación tras entrenar (#90): la sesión, la hora de después,
+// la curva de las agujetas de los días siguientes (que pican a las 24-72 horas)
+// y una barra de lo que se toma todos los días. Cada suplemento se coloca donde
+// actúa, dibujado a mano alzada como el resto de esquemas del compendio.
+import rough from "roughjs";
+import type { CompendioText } from "../../i18n/compendio";
+import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
+
+interface Props {
+  markers: MapMarker[];
+  text: CompendioText["recovery"];
+}
+const { markers, text } = Astro.props;
+
+const AXIS = 214;
+// Dónde va cada momento en el dibujo: [x0, x1, y0, y1]
+const zones: Record<string, [number, number, number, number]> = {
+  despues: [78, 134, 120, 204],
+  dias: [150, 376, 120, 204],
+  semanas: [24, 376, 234, 268],
+};
+
+const gen = rough.generator();
+const toPath = (set: Parameters<typeof gen.opsToPath>[0]) =>
+  gen.opsToPath(set).replace(/-?\d+\.\d+/g, (n) => String(Math.round(Number(n) * 10) / 10));
+const base = { roughness: 1.1, bowing: 1, stroke: "currentColor", strokeWidth: 1.6 };
+function draw(d: string, seed: number, fill = true) {
+  const outline: string[] = [];
+  const fills: string[] = [];
+  const opts = fill ? { fill: "currentColor", fillStyle: "hachure", hachureGap: 7, fillWeight: 0.6, hachureAngle: -41 + seed * 7 } : {};
+  for (const set of gen.path(d, { ...base, ...opts, seed }).sets) {
+    if (set.type === "fillSketch") fills.push(toPath(set));
+    else if (set.type === "path") outline.push(toPath(set));
+  }
+  return { outline, fills };
+}
+const line = (d: string, seed: number, strokeWidth = 1.2) => toPath(gen.path(d, { ...base, strokeWidth, seed }).sets[0]);
+
+// Mancuerna: la sesión de entreno, al principio del eje
+const bell = [
+  draw("M28 150 L36 150 L36 178 L28 178 Z", 3),
+  draw("M60 150 L68 150 L68 178 L60 178 Z", 4),
+  draw("M20 156 L28 156 L28 172 L20 172 Z", 5),
+  draw("M68 156 L76 156 L76 172 L68 172 Z", 6),
+];
+const bar = line("M36 164 L60 164", 7, 2);
+// Las agujetas: suben hasta las 48 horas y se van hacia las 96
+const doms = line("M150 196 C190 194 210 132 250 128 C290 126 320 176 376 194", 8, 2.4);
+const axis = [
+  line(`M16 ${AXIS} L386 ${AXIS}`, 9),
+  line(`M378 ${AXIS - 6} L388 ${AXIS} L378 ${AXIS + 6}`, 10),
+  ...[48, 106, 150, 210, 270, 330].map((x, i) => line(`M${x} ${AXIS - 5} L${x} ${AXIS + 5}`, 20 + i)),
+];
+const ticks = [
+  { x: 48, key: "session" },
+  { x: 106, key: "h1" },
+  { x: 150, key: "h24" },
+  { x: 250, key: "h48" },
+  { x: 370, key: "h96" },
+] as const;
+
+const groups: SketchGroup[] = [
+  ...Object.entries(zones).map(([zone, [x0, x1, y0, y1]], i) => {
+    const z = draw(`M${x0} ${y0} L${x1} ${y0} L${x1} ${y1} L${x0} ${y1} Z`, 30 + i);
+    return { zone, outline: z.outline, hachure: z.fills, details: [] };
+  }),
+  {
+    outline: bell.flatMap((b) => b.outline),
+    hachure: bell.flatMap((b) => b.fills),
+    details: [bar, doms, ...axis],
+  },
+];
+
+// Marcadores: arriba, en el centro de su momento; abajo, en fila sobre la barra
+const byZone: Record<string, number> = {};
+const placed = markers.map((m) => {
+  const k = byZone[m.zone] ?? 0;
+  byZone[m.zone] = k + 1;
+  const [x0, x1, y0, y1] = zones[m.zone] ?? [180, 220, 120, 200];
+  const total = markers.filter((x) => x.zone === m.zone).length;
+  const cx = m.zone === "semanas" ? 200 + (k - (total - 1) / 2) * 60 : (x0 + x1) / 2 + (k - (total - 1) / 2) * 28;
+  // En «los días siguientes», por debajo de la curva para no taparla
+  const cy = m.zone === "semanas" ? (y0 + y1) / 2 : m.zone === "dias" ? y1 - 22 : y0 + 26;
+  return { ...m, x: cx, y: cy };
+});
+---
+
+<SketchMap viewBox="0 0 400 290" idPrefix="recuperacion" groups={groups} placed={placed} markers={markers} text={text}>
+  <g class="names" font-size="11">
+    {
+      ticks.map((t) => (
+        <text x={t.x} y={AXIS + 16} text-anchor="middle">
+          {text.ticks[t.key]}
+        </text>
+      ))
+    }
+    <text x="106" y="110" text-anchor="middle">{text.zones.despues}</text>
+    <text x="263" y="110" text-anchor="middle">{text.zones.dias}</text>
+    <text x="318" y="148">{text.doms}</text>
+    <text x="200" y="284" text-anchor="middle">{text.zones.semanas}</text>
+  </g>
+</SketchMap>

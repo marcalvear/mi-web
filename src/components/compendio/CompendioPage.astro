@@ -10,6 +10,7 @@ import DigestiveMap, { type MapMarker } from "./DigestiveMap.astro";
 import SleepClock from "./SleepClock.astro";
 import FocusTimeline from "./FocusTimeline.astro";
 import CortisolCurve from "./CortisolCurve.astro";
+import RecoveryChart from "./RecoveryChart.astro";
 import SupplementCard from "./SupplementCard.astro";
 import SharedSheet from "./SharedSheet.astro";
 import ProductList from "./ProductList.astro";
@@ -105,7 +106,9 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
               ? c.timeline.zones
               : p.mapa === "cortisol"
                 ? c.cortisol.zones
-                : c.map.zones;
+                : p.mapa === "agujetas"
+                  ? c.recovery.zones
+                  : c.map.zones;
         const markers: MapMarker[] = supplements.map((s, i) => ({
           id: s.id,
           n: i + 1,
@@ -158,6 +161,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                       <FocusTimeline markers={markers} text={c.timeline} />
                     ) : p.mapa === "cortisol" ? (
                       <CortisolCurve markers={markers} text={c.cortisol} />
+                    ) : p.mapa === "agujetas" ? (
+                      <RecoveryChart markers={markers} text={c.recovery} />
                     ) : (
                       <DigestiveMap markers={markers} text={c.map} />
                     )}
