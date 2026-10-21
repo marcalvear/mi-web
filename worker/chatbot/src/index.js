@@ -4,7 +4,7 @@
 // intermediario: recibe la conversación, añade mis instrucciones y llama
 // a Workers AI con el binding env.AI, que no necesita ninguna clave.
 
-import { SYSTEM_PROMPT } from "./prompt.js";
+import { BOTICARIO_PROMPT, SYSTEM_PROMPT } from "./prompt.js";
 
 export const MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct";
 
@@ -17,6 +17,12 @@ const ALLOWED_ORIGINS = [
 const MAX_MESSAGES = 10;     // solo se envían los últimos turnos
 const MAX_CHARS = 800;       // por mensaje del usuario
 const LANGS = { es: "español", en: "inglés" };
+// Dentro del compendio hace de «boticario» (#69): otras instrucciones y algo
+// más de espacio para la evidencia, la dosis y las precauciones
+const MODES = {
+  general: { prompt: SYSTEM_PROMPT, maxTokens: 350 },
+  boticario: { prompt: BOTICARIO_PROMPT, maxTokens: 450 },
+};
 
 function cors(origin) {
   return {
@@ -75,10 +81,12 @@ export default {
     try {
       // El idioma de la página ayuda cuando la pregunta es corta («hi», «¿?»)
       const lang = LANGS[body?.lang] ?? LANGS.es;
-      const system = `${SYSTEM_PROMPT}\n\nLa página desde la que te escriben está en ${lang}.`;
+      // Un modo desconocido no da error: se queda en el general
+      const mode = Object.hasOwn(MODES, body?.mode) ? MODES[body.mode] : MODES.general;
+      const system = `${mode.prompt}\n\nLa página desde la que te escriben está en ${lang}.`;
       const result = await env.AI.run(MODEL, {
         messages: [{ role: "system", content: system }, ...messages],
-        max_tokens: 350,
+        max_tokens: mode.maxTokens,
         temperature: 0.4,
       });
       // Según el modelo, el texto llega en `response` o en formato chat.completion

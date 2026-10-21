@@ -95,3 +95,32 @@ test("acepta la web en local con Astro (puertos 4321 y 4322)", async () => {
   const old = await worker.fetch(post({ messages: [{ role: "user", content: "hola" }] }, "http://localhost:8080"), fakeEnv());
   assert.equal(old.status, 403);
 });
+
+test("en el compendio usa las instrucciones del boticario con todo el compendio", async () => {
+  const env = fakeEnv();
+  await worker.fetch(post({ mode: "boticario", messages: [{ role: "user", content: "Tengo digestiones pesadas" }] }), env);
+  const { messages, max_tokens } = env.calls[0].input;
+  assert.match(messages[0].content, /modo «boticario»/);
+  assert.match(messages[0].content, /FICHA: Jengibre/);
+  assert.match(messages[0].content, /PMID \d+/);
+  assert.match(messages[0].content, /no consejo médico/);
+  assert.equal(max_tokens, 450);
+});
+
+test("sin modo, o con uno desconocido, se queda en el asistente general", async () => {
+  for (const mode of [undefined, "otro", "__proto__", "constructor"]) {
+    const env = fakeEnv();
+    const res = await worker.fetch(post({ mode, messages: [{ role: "user", content: "hola" }] }), env);
+    assert.equal(res.status, 200);
+    const system = env.calls[0].input.messages[0].content;
+    assert.match(system, /Respondes a visitantes que quieren saber quién es Marc/);
+    assert.doesNotMatch(system, /FICHA:/);
+    assert.equal(env.calls[0].input.max_tokens, 350);
+  }
+});
+
+test("el asistente general sabe que existe el compendio", async () => {
+  const env = fakeEnv();
+  await worker.fetch(post({ messages: [{ role: "user", content: "¿Qué es el compendio?" }] }), env);
+  assert.match(env.calls[0].input.messages[0].content, /COMPENDIO DE BIOHACKING/);
+});
