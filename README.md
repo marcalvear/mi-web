@@ -13,8 +13,13 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
 
 - **Portada**: quién soy, lo que he hecho, lo que me gusta y contacto.
 - **Caso de estudio** de Sonrisa Imperial, contado como un informe de laboratorio.
-- **Me gusta**: Pokédex con modelos 3D, mazo de 200 frases de anime traducidas
-  y mi radar de biohacking con fotos.
+- **Me gusta**, en tres páginas a las que se entra desde las tarjetas de la
+  portada:
+  - **Videojuegos**: Zelda, Bloodborne y Pokémon, con arte oficial y una
+    Pokédex con modelos 3D.
+  - **Anime y manga**: Naruto y JoJo maquetados como páginas de manga, con un
+    mazo de 200 frases traducidas.
+  - **Biohacking**: mi radar de aparatos.
 - **Compendio de biohacking**: suplementos ordenados por problemas, con su nivel
   de evidencia, la dosis estudiada, las precauciones y cada estudio de PubMed
   enlazado. Las fichas se guardan con una estrella en Mi espacio, y dentro

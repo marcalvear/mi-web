@@ -1,5 +1,26 @@
 # Lighthouse
 
+## Me gusta en tres páginas (21/10/2026, #71)
+
+Mismo método. Las páginas nuevas llevan arte oficial, y en la primera medición
+dos bajaban de 90: Videojuegos (88) y Anime y manga (85). Con conexión lenta,
+todas las imágenes de la página competían con las fuentes antes del primer
+pintado.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS |
+|---|---|---|---|---|---|
+| Inicio | 95 | 100 | 100 | 100 | 0 |
+| Me gusta (índice) | 93 | 100 | 100 | 100 | 0 |
+| Videojuegos (ES y EN) | 90 | 100 | 100 | 100 | 0 |
+| Anime y manga | 93 | 100 | 100 | 100 | 0 |
+| Biohacking | 95 | 100 | 100 | 100 | 0 |
+
+| Problema detectado | Arreglo | Efecto |
+|---|---|---|
+| Las secciones de más abajo descargaban sus fotos al entrar | `content-visibility: auto` en Bloodborne, Pokémon, JoJo y el mazo | Anime y manga: 678 → 491 KB y 85 → 93 |
+| La imagen inicial de la Pokédex se pedía con prioridad alta, aunque ahora va al final | Carga diferida | Videojuegos: 88 → 90 |
+| En Biohacking, el adelanto del compendio era un h3 justo debajo del h1 | Pasa a h2 | Accesibilidad 99 → 100 |
+
 ## Compendio publicado (21/10/2026, #69)
 
 Mismo método. El compendio ya no lleva `noindex`. En la primera medición, el
