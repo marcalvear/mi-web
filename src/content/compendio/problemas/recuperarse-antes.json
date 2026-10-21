@@ -1,0 +1,48 @@
+{
+  "orden": 6,
+  "nombre": {
+    "es": "Recuperarse antes",
+    "en": "Recovering faster"
+  },
+  "titular": {
+    "es": "¿Entrenas y al día siguiente no puedes ni moverte?",
+    "en": "Do you train and the next day you can barely move?"
+  },
+  "intro": {
+    "es": "Agujetas que duran días, piernas que no rinden en el siguiente entreno o la sensación de no progresar. Lo que más recupera es dormir, comer suficiente proteína y no entrenar a tope todos los días. Estas fichas ayudan con el resto, y la creatina es la que tiene más pruebas.",
+    "en": "Soreness that lasts days, legs that won't perform in the next session or the feeling of not making progress. What helps recovery most is sleep, enough protein and not going all-out every day. These sheets help with the rest, and creatine is the one with the most evidence."
+  },
+  "queOcurre": {
+    "es": "Al entrenar fuerte, sobre todo al frenar un peso o bajar cuestas, las fibras del músculo se rompen un poco. El cuerpo las inflama para limpiarlas y después las repara más fuertes: eso es progresar. Las agujetas no aparecen al momento, sino a las 24-72 horas, que es cuando más duele. El esquema de al lado marca qué suplemento actúa justo después, cuál en los días siguientes y cuál hay que tomar todos los días.",
+    "en": "When you train hard, especially when braking a weight or running downhill, muscle fibres tear slightly. The body inflames them to clear them out and then repairs them stronger: that's progress. Soreness doesn't appear right away, but at 24–72 hours, when it hurts most. The diagram beside it shows which supplement acts right after, which over the following days and which needs taking every day."
+  },
+  "combinar": {
+    "es": "La creatina y la proteína sí se suelen tomar juntas, en el batido de después de entrenar, y no hay problema. La cereza y los omega-3 bajan la inflamación: úsalos para competiciones o semanas muy duras, no siempre, porque un poco de inflamación es parte de cómo el músculo se adapta.",
+    "en": "Creatine and protein are often taken together, in the post-workout shake, and that's fine. Tart cherry and omega-3 lower inflammation: use them for competitions or very hard weeks, not all the time, because a bit of inflammation is part of how muscle adapts."
+  },
+  "alarma": [
+    {
+      "es": "La orina sale oscura, como coca-cola, después de un entreno muy duro (puede ser rabdomiólisis: urgencias)",
+      "en": "Your urine is dark, like cola, after a very hard workout (it may be rhabdomyolysis: go to A&E)"
+    },
+    {
+      "es": "El dolor es en un punto concreto, aparece de golpe o no deja apoyar",
+      "en": "The pain is in one specific spot, comes on suddenly or stops you putting weight on it"
+    },
+    {
+      "es": "Las agujetas duran más de una semana o vienen con hinchazón grande",
+      "en": "Soreness lasts more than a week or comes with a lot of swelling"
+    },
+    {
+      "es": "Te notas cansado y sin rendir durante semanas aunque descanses",
+      "en": "You feel tired and can't perform for weeks even when you rest"
+    }
+  ],
+  "suplementos": [
+    "creatina",
+    "proteina-suero",
+    "cereza-acida",
+    "omega-3"
+  ],
+  "mapa": "agujetas"
+}

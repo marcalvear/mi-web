@@ -1,0 +1,80 @@
+{
+  "nombre": {
+    "es": "Omega-3 (EPA y DHA)",
+    "en": "Omega-3 (EPA and DHA)"
+  },
+  "tipo": {
+    "es": "Ácidos grasos del pescado",
+    "en": "Fish fatty acids"
+  },
+  "evidencia": "preliminar",
+  "zona": "semanas",
+  "porQue": {
+    "es": "Los metaanálisis salen a favor en las agujetas, pero uno dice que el efecto es tan pequeño que no se nota, y el más reciente avisa de fallos de método en casi todos los ensayos.",
+    "en": "Meta-analyses come out in favour for soreness, but one says the effect is so small it's not noticeable, and the most recent warns of method flaws in almost all trials."
+  },
+  "resumen": {
+    "es": "Son las grasas del pescado azul. Tomadas a diario durante semanas, bajan algo las agujetas y la inflamación después de un esfuerzo que daña el músculo.",
+    "en": "They're the fats in oily fish. Taken daily for weeks, they slightly lower soreness and inflammation after effort that damages the muscle."
+  },
+  "mecanismo": {
+    "es": "El EPA y el DHA se meten en las membranas de las células y cambian las señales de inflamación que sueltan cuando se dañan. Para que eso pase tienen que acumularse, y eso lleva semanas: no sirven tomados solo el día del entreno.",
+    "en": "EPA and DHA build into cell membranes and change the inflammation signals cells release when damaged. For that to happen they have to build up, which takes weeks: they don't work taken only on training day."
+  },
+  "dosis": {
+    "es": "De 2 a 3 g al día de EPA más DHA",
+    "en": "2 to 3 g a day of EPA plus DHA"
+  },
+  "cuando": {
+    "es": "Con una comida con grasa, todos los días",
+    "en": "With a meal that has fat, every day"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 12 ensayos, los omega-3 bajaron las agujetas tras ejercicio excéntrico, pero menos de lo que una persona llega a notar, y no mejoraron la fuerza. La calidad de las pruebas es baja.",
+        "en": "In 12 trials, omega-3 lowered soreness after eccentric exercise, but by less than a person can notice, and didn't improve strength. The quality of evidence is low."
+      },
+      "fuente": "32382573"
+    },
+    {
+      "texto": {
+        "es": "Con 9 ensayos con placebo, en 2026 los omega-3 bajaron las agujetas, la hinchazón y un marcador de daño muscular, y mejoraron la fuerza en el peor momento. Los autores avisan de fallos de método en casi todo lo publicado.",
+        "en": "With 9 placebo-controlled trials, in 2026 omega-3 lowered soreness, swelling and a muscle damage marker, and improved strength at the worst point. The authors warn of method flaws in almost everything published."
+      },
+      "fuente": "42124047"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tomas anticoagulantes o te van a operar, consúltalo: a dosis altas puede aumentar el sangrado.",
+      "en": "If you take blood thinners or are having surgery, check first: at high doses it can increase bleeding."
+    },
+    {
+      "es": "Puede repetir a pescado; tomado con comida se nota menos.",
+      "en": "It can repeat on you with a fishy taste; taken with food it's less noticeable."
+    },
+    {
+      "es": "Si eres alérgico al pescado, busca omega-3 de algas.",
+      "en": "If you're allergic to fish, look for algae-based omega-3."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Lv ZT, Zhang JM, Zhu WT",
+      "anio": 2020,
+      "titulo": "Omega-3 Polyunsaturated Fatty Acid Supplementation for Reducing Muscle Soreness after Eccentric Exercise: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "revista": "Biomed Res Int 2020:8062017",
+      "pmid": "32382573",
+      "doi": "10.1155/2020/8062017"
+    },
+    {
+      "autores": "Yaghoobi E, Pashaei F, Allsopp GL, et al.",
+      "anio": 2026,
+      "titulo": "Effects of LC n-3 PUFA Supplementation on Muscle Pain, Function, and Damage Markers in Healthy Young to Middle-Aged Adults Following Acute or Chronic Exercise: A Systematic Review and Meta-Analysis",
+      "revista": "Nutrients 18(9):1447",
+      "pmid": "42124047",
+      "doi": "10.3390/nu18091447"
+    }
+  ]
+}
