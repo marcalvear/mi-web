@@ -1,5 +1,6 @@
 -- Pruebas de las reglas RLS de supabase/migrations/20261019120000_usuarios_mensajes_eventos.sql
--- y de la función de 20261020090000_leer_respuestas.sql (pruebas 25 a 27).
+-- y de la función de 20261020090000_leer_respuestas.sql (pruebas 25 a 27)
+-- y de los favoritos de 20261021120000_favoritos.sql (pruebas 28 a 39).
 --
 -- Cómo ejecutarlas: Supabase → SQL Editor → pegar este fichero → Run.
 -- Todo pasa dentro de una transacción que se deshace al final, así que no
@@ -13,7 +14,7 @@
 --
 -- Personajes:
 --   Ana    usuaria normal, con un mensaje, mi respuesta y un evento
---   Bruno  usuario normal, con un mensaje y un evento
+--   Bruno  usuario normal, con un mensaje, un evento y un favorito
 --   Marc   admin
 
 begin;
@@ -330,9 +331,144 @@ begin
 end $$;
 
 
+-- 6. Favoritos del compendio (#67) -------------------------------------------
+-- Bruno ya tiene guardado el jengibre (insertado como postgres).
+
+insert into public.favorites (user_id, supplement) values ('00000000-0000-4000-8000-00000000b2b0', 'jengibre');
+
+set local role authenticated;
+select set_config('request.jwt.claims', '{"sub": "00000000-0000-4000-8000-00000000a7a0", "role": "authenticated"}', true);
+
+do $$
+begin
+  insert into public.favorites (user_id, supplement) values
+    ('00000000-0000-4000-8000-00000000a7a0', 'jengibre'),
+    ('00000000-0000-4000-8000-00000000a7a0', 'alcachofa');
+  raise notice 'ok 28 · Ana puede guardar fichas';
+end $$;
+
+do $$
+begin
+  insert into public.favorites (user_id, supplement) values ('00000000-0000-4000-8000-00000000a7a0', 'jengibre');
+  raise exception 'FALLA 29: Ana ha guardado dos veces la misma ficha';
+exception when unique_violation then
+  raise notice 'ok 29 · la misma ficha no se guarda dos veces';
+end $$;
+
+do $$
+begin
+  insert into public.favorites (user_id, supplement) values ('00000000-0000-4000-8000-00000000b2b0', 'alcachofa');
+  raise exception 'FALLA 30: Ana ha guardado una ficha a nombre de Bruno';
+exception when insufficient_privilege then
+  raise notice 'ok 30 · Ana no puede guardar a nombre de otro';
+end $$;
+
+do $$
+begin
+  if (select count(*) from public.favorites) <> 2
+    or exists (select 1 from public.favorites where user_id <> '00000000-0000-4000-8000-00000000a7a0') then
+    raise exception 'FALLA 31: Ana ve favoritos de otro';
+  end if;
+  raise notice 'ok 31 · Ana solo ve sus favoritos';
+end $$;
+
+do $$
+begin
+  insert into public.favorites (user_id, supplement) values ('00000000-0000-4000-8000-00000000a7a0', 'Jengibre''; drop table x');
+  raise exception 'FALLA 32: se ha guardado un id de ficha con forma rara';
+exception when check_violation then
+  raise notice 'ok 32 · el id de la ficha tiene que tener forma de id';
+end $$;
+
+do $$
+declare n int;
+begin
+  delete from public.favorites where supplement = 'alcachofa';
+  get diagnostics n = row_count;
+  if n <> 1 then raise exception 'FALLA 33: Ana no ha podido quitar su favorito'; end if;
+  delete from public.favorites where user_id = '00000000-0000-4000-8000-00000000b2b0';
+  get diagnostics n = row_count;
+  if n <> 0 then raise exception 'FALLA 33: Ana ha quitado un favorito de Bruno'; end if;
+  raise notice 'ok 33 · Ana quita sus favoritos, y solo los suyos';
+end $$;
+
+do $$
+begin
+  update public.favorites set supplement = 'alcachofa';
+  raise exception 'FALLA 34: Ana ha podido editar un favorito';
+exception when insufficient_privilege then
+  raise notice 'ok 34 · un favorito no se edita: se guarda o se quita';
+end $$;
+
+do $$
+begin
+  -- Ana tiene 1 (el jengibre): con estas 99 llega a 100
+  insert into public.favorites (user_id, supplement)
+  select '00000000-0000-4000-8000-00000000a7a0', 'ficha-' || n from generate_series(2, 100) as n;
+  begin
+    insert into public.favorites (user_id, supplement) values ('00000000-0000-4000-8000-00000000a7a0', 'la-ciento-una');
+    raise exception 'FALLA 35: Ana ha pasado de 100 favoritos';
+  exception when check_violation then
+    null;
+  end;
+  delete from public.favorites where supplement like 'ficha-%';
+  raise notice 'ok 35 · nadie pasa de 100 favoritos';
+end $$;
+
+select set_config('request.jwt.claims', '{"sub": "00000000-0000-4000-8000-00000000b2b0", "role": "authenticated"}', true);
+
+do $$
+begin
+  if (select count(*) from public.favorites) <> 1
+    or exists (select 1 from public.favorites where user_id <> '00000000-0000-4000-8000-00000000b2b0') then
+    raise exception 'FALLA 36: Bruno ve favoritos de Ana';
+  end if;
+  raise notice 'ok 36 · Bruno solo ve los suyos (y la prueba 33 no le quitó nada)';
+end $$;
+
+select set_config('request.jwt.claims', '{"sub": "00000000-0000-4000-8000-00000000c3c0", "role": "authenticated"}', true);
+
+do $$
+begin
+  if (select count(*) from public.favorites
+      where user_id in (select id from public.profiles where email like '%@prueba.test')) <> 2 then
+    raise exception 'FALLA 37: el admin no ve todos los favoritos';
+  end if;
+  raise notice 'ok 37 · el admin ve los favoritos de todos';
+end $$;
+
+reset role;
+set local role anon;
+select set_config('request.jwt.claims', '{"role": "anon"}', true);
+
+do $$
+begin
+  perform count(*) from public.favorites;
+  raise exception 'FALLA 38: alguien sin sesión puede leer favoritos';
+exception when insufficient_privilege then
+  begin
+    insert into public.favorites (user_id, supplement) values ('00000000-0000-4000-8000-00000000a7a0', 'menta-alcaravea');
+    raise exception 'FALLA 38: alguien sin sesión puede guardar favoritos';
+  exception when insufficient_privilege then
+    raise notice 'ok 38 · sin sesión no se leen ni se guardan favoritos';
+  end;
+end $$;
+
+reset role;
+
+do $$
+begin
+  delete from auth.users where id = '00000000-0000-4000-8000-00000000b2b0';
+  if exists (select 1 from public.favorites where user_id = '00000000-0000-4000-8000-00000000b2b0') then
+    raise exception 'FALLA 39: al borrar la cuenta de Bruno quedan sus favoritos';
+  end if;
+  raise notice 'ok 39 · al borrar una cuenta se borran sus favoritos';
+end $$;
+
+
 -- Fin: se deshace todo y, si se ha llegado hasta aquí, todo ha pasado --------
 
 reset role;
 rollback;
 
-select 'OK: las 27 pruebas de RLS pasan' as resultado;
+select 'OK: las 39 pruebas de RLS pasan' as resultado;

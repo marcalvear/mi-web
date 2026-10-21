@@ -5,7 +5,7 @@ Por qué Supabase y cómo viaja el dato: [ADR 0006](../docs/adr/0006-supabase-co
 ```
 supabase/
 ├── migrations/   el esquema: tablas, triggers y reglas RLS (se ejecuta una vez)
-├── tests/rls.sql 27 pruebas de las reglas, se pueden repetir cuando quieras
+├── tests/rls.sql 39 pruebas de las reglas, se pueden repetir cuando quieras
 └── templates/    el correo con el código de acceso
 ```
 
@@ -38,21 +38,26 @@ la que más adelante pegue en n8n (#30).
    y pulsa **Run**. Debe decir *Success. No rows returned*.
 3. Igual con [`migrations/20261020090000_leer_respuestas.sql`](migrations/20261020090000_leer_respuestas.sql)
    (Mi espacio, #31): la función que marca mis respuestas como leídas.
-4. Nueva consulta, pega [`tests/rls.sql`](tests/rls.sql) y **Run**. Debe
-   devolver una fila: `OK: las 27 pruebas de RLS pasan`. Si sale
+4. Igual con [`migrations/20261021120000_favoritos.sql`](migrations/20261021120000_favoritos.sql)
+   (compendio, #67): la tabla de favoritos con sus reglas.
+5. Nueva consulta, pega [`tests/rls.sql`](tests/rls.sql) y **Run**. Debe
+   devolver una fila: `OK: las 39 pruebas de RLS pasan`. Si sale
    `FALLA nn: …`, la regla de esa prueba no está bien. Las pruebas no dejan
    datos: todo se deshace al final.
-5. En **Table Editor** tienen que aparecer `profiles`, `messages` y `events`
-   sin el aviso rojo de *RLS disabled*.
+6. En **Table Editor** tienen que aparecer `profiles`, `messages`, `events`
+   y `favorites` sin el aviso rojo de *RLS disabled*.
 
 ### 3. Acceso sin contraseña
 
 En **Authentication**:
 
 1. **Sign In / Providers → Email:** activado.
-   - Desactiva **Allow new users to sign up** (en *User Signups*). Las cuentas
-     las crea n8n cuando alguien escribe por el formulario (#30) o yo a mano;
-     nadie puede crearse una desde la web.
+   - **Allow new users to sign up** (en *User Signups*): **activado** desde
+     los favoritos del compendio (#67). Cualquiera se crea una cuenta en
+     `/entrar/` con su email. Hasta entonces estaba desactivado y las cuentas
+     solo las creaba n8n al recibir el formulario (#30).
+   - **Confirm email:** activado. Con el código o el enlace del correo ya se
+     confirma que el email es suyo.
 2. **URL Configuration:**
    - **Site URL:** `https://marcalvear.github.io/mi-web/`
    - **Redirect URLs** (*Add URL*, una por una):
@@ -67,6 +72,12 @@ En **Authentication**:
    y enlace:
    - **Subject:** `Tu código para entrar · Your sign-in code`
    - **Body** (pestaña *Source*): [`templates/magic-link.html`](templates/magic-link.html).
+
+4. **Rate Limits:** con el registro abierto, cualquiera puede hacer que la
+   web mande un correo a un email. Supabase lo frena por hora y por IP. Me
+   valen los valores de serie: unos 30 correos por hora en total y 30 accesos
+   o registros cada 5 minutos por IP. Si un día llegan correos raros, se bajan
+   aquí. El plan gratuito de Brevo envía 300 al día.
 
 > **Correo de verdad:** el servidor de correo que trae Supabase solo envía a
 > los emails del equipo del proyecto (o sea, al mío), unos pocos por hora y
