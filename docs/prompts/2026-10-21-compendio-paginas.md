@@ -29,3 +29,12 @@ Conversación con Claude Code (Claude Opus 5.5) del 21 de octubre de 2026.
   - Índice: 93/100/100/100, 381 KB.
   - Dormir mejor: 94/100/100/100, 407 KB.
   - Antes, la página única daba 90 y pesaba 504 KB.
+
+## Boticario desde el índice (#107)
+
+> Vale, haz lo que me acabas de decir.
+
+- Cada problema lleva `claves`: palabras sin tildes en los dos idiomas, como «dormir», «agujetas», «resfri» o «libido».
+- El Worker junta las claves con los nombres de las fichas propias del problema y elige el problema que más coincide con las tres últimas preguntas. Si no encaja ninguno, se queda con el índice.
+- Ojo con las palabras que viven dentro de otras: «edad» va como « edad» porque «ansiedad» la lleva dentro, y «vista» como « vista» por «revista».
+- También se cambia «poco deseo» por «poca libido» en Testosterona, a petición de Marc.
