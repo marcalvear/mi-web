@@ -61,5 +61,48 @@
       "pmid": "40718787",
       "doi": "10.7717/peerj.19715"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-soy-isoflavones",
+      "marca": "NOW Foods",
+      "nombre": "Soy Isoflavones",
+      "foto": "now-soy-isoflavones.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Soy Isoflavones de NOW.",
+        "en": "White bottle with orange label of NOW Soy Isoflavones."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/soy-isoflavones-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "60 mg de isoflavonas por toma",
+            "en": "60 mg of isoflavones per serving"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "120 cápsulas",
+            "en": "120 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "39,99 $",
+        "en": "$39.99"
+      }
+    }
   ]
 }

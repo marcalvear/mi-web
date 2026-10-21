@@ -61,5 +61,58 @@
       "pmid": "36703143",
       "doi": "10.1186/s12958-023-01055-z"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-inositol-powder",
+      "marca": "NOW Foods",
+      "nombre": "Inositol Powder",
+      "foto": "now-inositol.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Inositol Powder de NOW.",
+        "en": "White tub with orange label of NOW Inositol Powder."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/inositol-powder",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Mio-inositol puro: 730 mg por cuarto de cucharadita",
+            "en": "Pure myo-inositol: 730 mg per quarter teaspoon"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "Para 2 a 4 g, de 3/4 a 1 1/4 cucharaditas al día",
+            "en": "For 2 to 4 g, 3/4 to 1 1/4 teaspoons a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "57 g, 113 g, 227 g o 454 g",
+            "en": "57 g, 113 g, 227 g or 454 g"
+          }
+        }
+      ],
+      "precio": {
+        "es": "Desde 12,99 $",
+        "en": "From $12.99"
+      }
+    }
   ]
 }

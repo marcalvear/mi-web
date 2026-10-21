@@ -76,5 +76,58 @@
       "pmid": "41736325",
       "doi": "10.47391/JPMA.22068"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-iron-36",
+      "marca": "NOW Foods",
+      "nombre": "Iron 36 mg (Ferrochel)",
+      "foto": "now-iron.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Iron 36 mg de NOW.",
+        "en": "White bottle with orange label of NOW Iron 36 mg."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/iron-36-mg-double-strength-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "36 mg de hierro en bisglicinato, que estriñe menos",
+            "en": "36 mg of iron as bisglycinate, which is less constipating"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "Lo que diga tu médico según la ferritina",
+            "en": "Whatever your doctor says based on ferritin"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "90 cápsulas",
+            "en": "90 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "15,99 $",
+        "en": "$15.99"
+      }
+    }
   ]
 }

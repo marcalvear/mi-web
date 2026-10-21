@@ -61,5 +61,58 @@
       "pmid": "36091835",
       "doi": "10.3389/fphar.2022.883251"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-coq10-100",
+      "marca": "NOW Foods",
+      "nombre": "CoQ10 100 mg",
+      "foto": "now-coq10.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de CoQ10 100 mg de NOW.",
+        "en": "White bottle with orange label of NOW CoQ10 100 mg."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/coq10-100-mg-softgels",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "100 mg de coenzima Q10 por cápsula",
+            "en": "100 mg of coenzyme Q10 per softgel"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 o 2 cápsulas al día con comida",
+            "en": "1 or 2 softgels a day with food"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "50 cápsulas",
+            "en": "50 softgels"
+          }
+        }
+      ],
+      "precio": {
+        "es": "21,99 $",
+        "en": "$21.99"
+      }
+    }
   ]
 }

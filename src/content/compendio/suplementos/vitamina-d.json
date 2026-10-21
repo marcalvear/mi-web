@@ -91,5 +91,58 @@
       "pmid": "42451097",
       "doi": "10.3390/nu18132090"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-vitamin-d3-2000",
+      "marca": "NOW Foods",
+      "nombre": "Vitamin D3 2000 IU",
+      "foto": "now-vitamin-d3.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Vitamin D3 2000 IU de NOW.",
+        "en": "White bottle with orange label of NOW Vitamin D3 2000 IU."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "2.000 UI (50 µg) de vitamina D3 por cápsula",
+            "en": "2,000 IU (50 µg) of vitamin D3 per softgel"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula al día con comida",
+            "en": "1 softgel a day with food"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "30, 120 o 240 cápsulas",
+            "en": "30, 120 or 240 softgels"
+          }
+        }
+      ],
+      "precio": {
+        "es": "4,99 $ (30) o 8,99 $ (120)",
+        "en": "$4.99 (30) or $8.99 (120)"
+      }
+    }
   ]
 }
