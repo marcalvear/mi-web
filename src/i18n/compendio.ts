@@ -53,6 +53,13 @@ export const compendio = {
         acostarse: "Al acostarte",
       },
     },
+    timeline: {
+      title: "Cuánto tarda en notarse cada suplemento",
+      hint: "Pulsa un suplemento para ver cuánto tarda en notarse.",
+      desc: "Línea de tiempo de izquierda a derecha, con saltos de escala: de 30 minutos a 2 horas está la cafeína con L-teanina; de 1 a 4 semanas, la creatina y la melena de león; y hacia las 12 semanas, la bacopa.",
+      ticks: { m30: "30 min", h2: "2 h", w1: "1 sem", w4: "4 sem", w12: "12 sem" },
+      zones: { minutos: "Minutos", semanas: "Semanas", meses: "Meses" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -138,6 +145,13 @@ export const compendio = {
         previa: "2-3 h before",
         acostarse: "At bedtime",
       },
+    },
+    timeline: {
+      title: "How long each supplement takes to notice",
+      hint: "Tap a supplement to see how long it takes to notice.",
+      desc: "Timeline from left to right, with jumps in scale: from 30 minutes to 2 hours is caffeine with L-theanine; from 1 to 4 weeks, creatine and lion's mane; and around 12 weeks, bacopa.",
+      ticks: { m30: "30 min", h2: "2 h", w1: "1 wk", w4: "4 wk", w12: "12 wk" },
+      zones: { minutos: "Minutes", semanas: "Weeks", meses: "Months" },
     },
     card: {
       id: "Sheet",
