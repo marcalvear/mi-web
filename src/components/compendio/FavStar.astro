@@ -1,0 +1,111 @@
+---
+// Estrella para guardar algo del compendio (#67): una ficha de suplemento o un
+// producto que junta varios (#81). Sale oculta y la enseña el script de
+// CompendioPage si Supabase está conectado; ese script busca los [data-fav].
+import type { CompendioText } from "../../i18n/compendio";
+
+interface Props {
+  /** Lo que se guarda en favorites.supplement: el id de la ficha o del producto */
+  id: string;
+  name: string;
+  text: CompendioText["fav"];
+}
+const { id, name, text } = Astro.props;
+---
+
+<button type="button" class="star" data-fav={id} aria-pressed="false" aria-label={text.label.replace("{name}", name)} hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 2.8l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 16.8l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z" />
+  </svg>
+  <span class="when-off" aria-hidden="true">{text.save}</span>
+  <span class="when-on" aria-hidden="true">{text.saved}</span>
+</button>
+
+<style>
+  .star {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 44px;
+    padding: 0 0.7rem;
+    border: 1.5px solid var(--lab);
+    border-radius: 999px;
+    background: var(--sheet);
+    color: var(--lab);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition:
+      background var(--fast) var(--ease-out),
+      color var(--fast) var(--ease-out),
+      transform var(--fast) var(--ease-out);
+  }
+
+  /* Se hunde un poco al pulsar, como los botones (#79) */
+  .star:active {
+    transform: scale(0.97);
+  }
+
+  .star[hidden] {
+    display: none;
+  }
+
+  .star path {
+    fill: transparent;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linejoin: round;
+    transition: fill var(--fast) var(--ease-out);
+  }
+
+  .star:hover {
+    background: var(--lab-soft);
+  }
+
+  .star[aria-pressed="true"] {
+    background: var(--lab);
+    color: var(--sheet);
+  }
+
+  .star[aria-pressed="true"] path {
+    fill: currentColor;
+  }
+
+  /* Al guardar, la estrella da un pequeño salto, como un sello */
+  .star.stamp svg {
+    animation: stamp var(--mid) var(--ease-out);
+  }
+
+  @keyframes stamp {
+    40% { transform: scale(1.35) rotate(-12deg); }
+    to { transform: none; }
+  }
+
+  .star .when-on,
+  .star[aria-pressed="true"] .when-off {
+    display: none;
+  }
+
+  .star[aria-pressed="true"] .when-on {
+    display: inline;
+  }
+
+  .star[aria-busy="true"] {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .star,
+    .star path {
+      transition: none;
+    }
+
+    .star.stamp svg {
+      animation: none;
+    }
+  }
+</style>
