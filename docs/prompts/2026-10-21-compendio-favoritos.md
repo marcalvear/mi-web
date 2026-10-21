@@ -50,11 +50,21 @@ registro con Supabase»).
 - **Copy** con la skill *copywriting*. Mantiene la voz de los textos que ya
   había y solo cambia lo que el registro abierto deja de hacer cierto.
 
+## Un fallo en Supabase que no salía en local
+
+Al ejecutar las pruebas en Supabase, Marc vio «FALLA 34: Ana ha podido editar
+un favorito». En Supabase, cada tabla nueva de `public` nace con todos los
+permisos para `authenticated`, también UPDATE, y la migración no los quitaba.
+Las reglas RLS ya impedían cambiar ninguna fila, pero la prueba pide que ni
+siquiera se pueda intentar. Arreglo: una migración nueva
+(`20261021130000_favoritos_sin_editar.sql`), porque la anterior ya estaba
+ejecutada. El Postgres local de las pruebas ahora imita esos permisos de serie.
+
 ## Lo que hace Marc en Supabase
 
 Está en el PR y en `supabase/README.md`:
 
-1. Ejecutar la migración `20261021120000_favoritos.sql` y las pruebas.
+1. Ejecutar las migraciones `20261021120000_favoritos.sql` y `20261021130000_favoritos_sin_editar.sql`, y las pruebas.
 2. Activar *Allow new users to sign up*.
 3. Revisar los límites de envío.
 

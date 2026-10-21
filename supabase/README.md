@@ -39,7 +39,9 @@ la que más adelante pegue en n8n (#30).
 3. Igual con [`migrations/20261020090000_leer_respuestas.sql`](migrations/20261020090000_leer_respuestas.sql)
    (Mi espacio, #31): la función que marca mis respuestas como leídas.
 4. Igual con [`migrations/20261021120000_favoritos.sql`](migrations/20261021120000_favoritos.sql)
-   (compendio, #67): la tabla de favoritos con sus reglas.
+   (compendio, #67): la tabla de favoritos con sus reglas, y después
+   [`migrations/20261021130000_favoritos_sin_editar.sql`](migrations/20261021130000_favoritos_sin_editar.sql),
+   que le quita el permiso de editar que Supabase da de serie.
 5. Nueva consulta, pega [`tests/rls.sql`](tests/rls.sql) y **Run**. Debe
    devolver una fila: `OK: las 39 pruebas de RLS pasan`. Si sale
    `FALLA nn: …`, la regla de esa prueba no está bien. Las pruebas no dejan
