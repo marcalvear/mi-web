@@ -17,7 +17,9 @@ export const palette = {
       work: { label: "Lo que he hecho", keywords: "proyectos trabajo bitácora" },
       case: { label: "Caso de estudio: Sonrisa Imperial", keywords: "proyecto landing clínica dental" },
       likes: { label: "Me gusta", keywords: "aficiones gustos" },
+      games: { label: "Videojuegos", keywords: "zelda bloodborne pokémon juegos" },
       pokedex: { label: "Pokédex", keywords: "pokemon juegos 3d" },
+      anime: { label: "Anime y manga", keywords: "naruto jojo manga" },
       quotes: { label: "Frases de anime", keywords: "naruto jojo mazo" },
       compendio: {
         label: "Compendio de biohacking",
@@ -54,7 +56,9 @@ export const palette = {
       work: { label: "What I've done", keywords: "projects work log" },
       case: { label: "Case study: Sonrisa Imperial", keywords: "project landing dental clinic" },
       likes: { label: "Things I like", keywords: "hobbies" },
+      games: { label: "Video games", keywords: "zelda bloodborne pokémon games" },
       pokedex: { label: "Pokédex", keywords: "pokemon games 3d" },
+      anime: { label: "Anime and manga", keywords: "naruto jojo manga" },
       quotes: { label: "Anime quotes", keywords: "naruto jojo deck" },
       compendio: {
         label: "Biohacking compendium",
