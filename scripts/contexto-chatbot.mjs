@@ -80,48 +80,97 @@ const lines = [
   "- Cada bloque de la web tiene su issue, su rama y su pull request en github.com/marcalvear/mi-web.",
 ];
 
-// El compendio entero, para el modo boticario
-const evidence = (level) => `${c.evidence[level]} (${c.legend[level].replace(/\.$/, "")})`;
-const compendioLines = [
-  `${c.title.toUpperCase()}: ${PAGE}`,
-  `Aviso de la página: ${c.disclaimer.text}`,
-  "",
-  ...problems.flatMap((pr) => [
-    `PROBLEMA: ${pr.nombre.es.toUpperCase()} (${PAGE}#${pr.id})`,
-    `- ${pr.intro.es}`,
-    `- Qué pasa en el cuerpo: ${pr.queOcurre.es}`,
-    `- Combinarlos: ${pr.combinar.es}`,
-    `- Ve al médico antes que a un suplemento si además: ${pr.alarma.map((a) => a.es.toLowerCase()).join("; ")}.`,
+// El compendio entero, para el modo boticario, en los dos idiomas: el Worker
+// elige el de la página para que no mezcle datos en español en una respuesta
+// en inglés
+const LABELS = {
+  es: {
+    notice: "Aviso de la página",
+    problem: "PROBLEMA",
+    body: "Qué pasa en el cuerpo",
+    combine: "Combinarlos",
+    alarm: "Ve al médico antes que a un suplemento si además",
+    sheet: "FICHA",
+    what: "Qué es",
+    evidence: "Evidencia",
+    why: "Por qué este nivel",
+    how: "Cómo funciona",
+    dose: "Dosis estudiada",
+    when: "Cuándo",
+    found: "Qué encontraron los estudios",
+    cautions: "Precauciones",
+    products: "Productos que miraría Marc",
+    price: "precio",
+  },
+  en: {
+    notice: "Notice on the page",
+    problem: "PROBLEM",
+    body: "What's going on in the body",
+    combine: "Combining them",
+    alarm: "See a doctor before trying a supplement if you also",
+    sheet: "SHEET",
+    what: "What it is",
+    evidence: "Evidence",
+    why: "Why this level",
+    how: "How it works",
+    dose: "Dose studied",
+    when: "When",
+    found: "What the studies found",
+    cautions: "Cautions",
+    products: "Products Marc would look at",
+    price: "price",
+  },
+};
+
+function compendioFor(lang) {
+  const t = compendio[lang];
+  const L = LABELS[lang];
+  const page = lang === "es" ? PAGE : PAGE.replace("/mi-web/", "/mi-web/en/");
+  const noDot = (text) => text.replace(/\.$/, "");
+  const evidence = (level) => `${t.evidence[level]} (${noDot(t.legend[level])})`;
+  return [
+    `${t.title.toUpperCase()}: ${page}`,
+    `${L.notice}: ${t.disclaimer.text}`,
     "",
-    ...pr.suplementos.flatMap((id) => {
-      const s = supplements.get(id);
-      if (!s) return [];
-      return [
-        `FICHA: ${s.nombre.es} (${s.tipo.es}) · ${PAGE}#${id}`,
-        `- Qué es: ${s.resumen.es}`,
-        `- Evidencia: ${evidence(s.evidencia)}. Por qué este nivel: ${s.porQue.es}`,
-        `- Cómo funciona: ${s.mecanismo.es}`,
-        `- Dosis estudiada: ${s.dosis.es}. Cuándo: ${s.cuando.es}.`,
-        "- Qué encontraron los estudios:",
-        ...s.hallazgos.map((h) => {
-          const f = s.fuentes.find((x) => x.pmid === h.fuente);
-          return `  - ${h.texto.es} [${f ? `${f.autores.split(",")[0]} et al., ${f.anio}, ${f.revista}, ` : ""}PMID ${h.fuente}]`;
-        }),
-        `- Precauciones: ${s.precauciones.map((x) => x.es).join(" ")}`,
-        ...(s.productos?.length
-          ? [
-              `- Productos que miraría Marc (${c.card.productsNote}):`,
-              ...s.productos.map(
-                (x) =>
-                  `  - ${x.marca}, ${x.nombre}${x.pais ? ` (${x.pais.es})` : ""}: ${x.datos.map((d) => `${d.k.es.toLowerCase()} ${d.v.es}`).join("; ")}; precio ${x.precio.es}. ${x.url}`,
-              ),
-            ]
-          : []),
-        "",
-      ];
-    }),
-  ]),
-];
+    ...problems.flatMap((pr) => [
+      `${L.problem}: ${pr.nombre[lang].toUpperCase()} (${page}#${pr.id})`,
+      `- ${pr.intro[lang]}`,
+      `- ${L.body}: ${pr.queOcurre[lang]}`,
+      `- ${L.combine}: ${pr.combinar[lang]}`,
+      `- ${L.alarm}: ${pr.alarma.map((a) => a[lang].toLowerCase()).join("; ")}.`,
+      "",
+      ...pr.suplementos.flatMap((id) => {
+        const s = supplements.get(id);
+        if (!s) return [];
+        return [
+          `${L.sheet}: ${s.nombre[lang]} (${s.tipo[lang]}) · ${page}#${id}`,
+          `- ${L.what}: ${s.resumen[lang]}`,
+          `- ${L.evidence}: ${evidence(s.evidencia)}. ${L.why}: ${s.porQue[lang]}`,
+          `- ${L.how}: ${s.mecanismo[lang]}`,
+          `- ${L.dose}: ${noDot(s.dosis[lang])}. ${L.when}: ${noDot(s.cuando[lang])}.`,
+          `- ${L.found}:`,
+          ...s.hallazgos.map((h) => {
+            const f = s.fuentes.find((x) => x.pmid === h.fuente);
+            return `  - ${h.texto[lang]} [${f ? `${f.autores.split(",")[0]} et al., ${f.anio}, ${f.revista}, ` : ""}PMID ${h.fuente}]`;
+          }),
+          `- ${L.cautions}: ${s.precauciones.map((x) => x[lang]).join(" ")}`,
+          ...(s.productos?.length
+            ? [
+                `- ${L.products} (${t.card.productsNote}):`,
+                ...s.productos.map(
+                  (x) =>
+                    `  - ${x.marca}, ${x.nombre}${x.pais ? ` (${x.pais[lang]})` : ""}: ${x.datos.map((d) => `${d.k[lang].toLowerCase()} ${d.v[lang]}`).join("; ")}; ${L.price} ${x.precio[lang]}. ${x.url}`,
+                ),
+              ]
+            : []),
+          "",
+        ];
+      }),
+    ]),
+  ];
+}
+const compendioEs = compendioFor("es");
+const compendioEn = compendioFor("en");
 
 const clean = (l) => l.join("\n").replaceAll("`", "'").replaceAll("${", "$ {");
 const file = `// GENERADO por scripts/contexto-chatbot.mjs a partir de src/i18n y
@@ -130,9 +179,13 @@ const file = `// GENERADO por scripts/contexto-chatbot.mjs a partir de src/i18n 
 
 export const CONTEXT = \`${clean(lines)}\`;
 
-export const COMPENDIO = \`${clean(compendioLines)}\`;
+// El compendio entero para el modo boticario (#69), en el idioma de la página
+export const COMPENDIO = {
+  es: \`${clean(compendioEs)}\`,
+  en: \`${clean(compendioEn)}\`,
+};
 `;
 await writeFile(OUT, file);
 console.log(
-  `Contexto del asistente: ${lines.length} líneas; compendio: ${compendioLines.length} líneas → ${fileURLToPath(OUT)}`,
+  `Contexto del asistente: ${lines.length} líneas; compendio: ${compendioEs.length} líneas por idioma → ${fileURLToPath(OUT)}`,
 );

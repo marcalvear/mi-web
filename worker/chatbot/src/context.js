@@ -56,7 +56,9 @@ ESTA WEB
 - Usa Supabase para los usuarios y los mensajes (con reglas de seguridad por fila), n8n para el formulario (captcha, crear la cuenta, clasificar el mensaje con IA y responder por correo) y este asistente en un Cloudflare Worker con Workers AI.
 - Cada bloque de la web tiene su issue, su rama y su pull request en github.com/marcalvear/mi-web.`;
 
-export const COMPENDIO = `COMPENDIO DE BIOHACKING: https://marcalvear.github.io/mi-web/biohacking/
+// El compendio entero para el modo boticario (#69), en el idioma de la página
+export const COMPENDIO = {
+  es: `COMPENDIO DE BIOHACKING: https://marcalvear.github.io/mi-web/biohacking/
 Aviso de la página: Esto es divulgación, no consejo médico. Lo escribo leyendo estudios, no como profesional sanitario. Si tomas medicación, estás embarazada o los síntomas no se van, habla antes con tu médico o tu farmacéutico.
 
 PROBLEMA: DIGESTIONES PESADAS (https://marcalvear.github.io/mi-web/biohacking/#digestiones-pesadas)
@@ -110,4 +112,60 @@ FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/bioh
   - En 24 personas sanas, el estómago tardó 13 minutos en vaciarse a la mitad con jengibre y 27 con placebo. Las molestias fueron las mismas. [Wu KL et al., 2008, Eur J Gastroenterol Hepatol 20(5):436-440, PMID 18403946]
   - En 11 pacientes con dispepsia funcional, el estómago también se vació antes (12 minutos frente a 16), pero los síntomas no cambiaron. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
 - Precauciones: En dosis altas puede dar ardor de estómago. Puede sumarse al efecto de los anticoagulantes. Si los tomas, consulta antes.
-`;
+`,
+  en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
+Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
+
+PROBLEM: HEAVY DIGESTION (https://marcalvear.github.io/mi-web/en/biohacking/#digestiones-pesadas)
+- Heaviness, bloating, feeling full after a few bites. When it keeps happening and a doctor can't find a cause, it's called functional dyspepsia, which is exactly what the trials on this page studied.
+- What's going on in the body: Digestion means breaking food into pieces the gut can absorb. Enzymes do the work, with bile helping on fat, while the stomach contracts to pass food along into the gut. If any of those steps is slow, food stays up there longer and heaviness and gas follow. Each supplement here acts at a different point along that route.
+- Combining them: None of the trials on this page tested two supplements together. If you want to try, start with one and wait a few weeks before adding another, so you know which one works for you.
+- See a doctor before trying a supplement if you also: you're losing weight without trying; you vomit often; swallowing is hard or painful; you see black stools or blood; you're over 55 and the symptoms are new.
+
+SHEET: Digestive enzymes (Enzyme blend) · https://marcalvear.github.io/mi-web/en/biohacking/#enzimas-digestivas
+- What it is: Capsules with the same enzymes your body makes to break food down: amylase, proteases, lipase and lactase, among others.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: Two placebo-controlled trials in functional dyspepsia come out in favour, but they're small and one is by the maker of the blend that was tested.
+- How it works: You take them with food and they start working in the stomach, before the pancreas adds its own. Each one breaks down one kind of food: amylase handles the starch in bread or pasta, proteases handle meat and eggs, lipase handles fat, lactase handles milk sugar, and alpha-galactosidase handles the bean sugars that ferment and cause gas. What reaches the gut is already half broken down.
+- Dose studied: 50 mg three times a day, or 2 × 200 mg capsules a day, for 2 months. When: As you start eating.
+- What the studies found:
+  - In 40 people with functional dyspepsia, an enzyme blend taken for 60 days improved every symptom questionnaire compared with placebo, with no side effects. [Majeed M et al., 2018, J Med Food 21(11):1120-1128, PMID 30156436]
+  - In 120 people, 2 capsules a day for 2 months improved quality of life, pain and even sleep compared with placebo. [Ullah H et al., 2023, Biomed Pharmacother 169:115858, PMID 37976892]
+  - In 16 healthy people, 280 mg of lipase before a meal that was 55% fat reduced the feeling of a full stomach. [Levine ME et al., 2015, Gut Liver 9(4):464-469, PMID 25287168]
+  - With a 420 g plate of beans, 1200 GalU of alpha-galactosidase reduced gas and flatulence in 8 volunteers. [Di Stefano M et al., 2007, Dig Dis Sci 52(1):78-83, PMID 17151807]
+- Cautions: They don't replace the pancreatin a doctor prescribes when the pancreas can't make enough enzymes. Many blends contain bromelain (from pineapple) or papain (from papaya). Avoid them if you're allergic to those fruits. Bromelain can add to the effect of blood thinners. If you take them, check first. Some versions also contain betaine HCl, which isn't recommended if you have an ulcer.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Sports Research, Digestive Enzymes + Probiotic (United States): contains 15 enzymes, probiotic and ginger; dose 1 capsule before a meal; bottle 90 capsules; price $22.95. https://www.sportsresearch.com/products/digestive-enzymes
+  - Pure Encapsulations, Digestive Enzymes Ultra (United States): contains Proteases, lipase, amylase, lactase and fibre enzymes; dose 2 capsules with each meal; bottle 90 or 180 capsules; price $38 (90 capsules). https://www.pureencapsulationspro.com/digestive-enzymes-ultra.html
+
+SHEET: Peppermint and caraway oil (Essential oils in an enteric-coated capsule) · https://marcalvear.github.io/mi-web/en/biohacking/#menta-alcaravea
+- What it is: The combination with the clearest trial against pressure and heaviness after eating.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A 96-patient placebo-controlled trial shows a clear improvement with large numbers, but it's a single trial at this dose.
+- How it works: The menthol in peppermint relaxes the muscle of the gut, so the stomach stops clenching and the spasm eases. Caraway, a seed similar to cumin, helps move gas along. The enteric-coated capsule opens further down instead of in the stomach, so the peppermint doesn't come back up as burps.
+- Dose studied: 90 mg peppermint oil and 50 mg caraway oil, twice a day, for 4 weeks. When: Morning and evening, without chewing the capsule.
+- What the studies found:
+  - In 96 patients with functional dyspepsia, pressure, heaviness and fullness dropped 43% with the combination and 22% with placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
+  - Pain dropped 40% versus 22% with placebo, and doctors rated 67% of patients much better, versus 21% with placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
+- Cautions: Peppermint can make heartburn worse if you have reflux. The enteric coating reduces this but doesn't remove it. Don't open or chew the capsule, or the peppermint is released in the stomach. During pregnancy or breastfeeding, only if your doctor says so.
+
+SHEET: Artichoke leaf extract (Plant extract) · https://marcalvear.github.io/mi-web/en/biohacking/#alcachofa
+- What it is: It makes the liver release more bile, which is what you need to digest fat.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: It's backed by a large trial of 247 patients across several centres, plus a study that measures the rise in bile. Other groups still need to repeat it.
+- How it works: Artichoke leaf contains cynarin and other compounds that increase the bile the liver sends into the gut. Bile treats fat the way soap does, splitting it into small droplets so lipase can break it down. In one study, bile went up 151% an hour after taking the extract.
+- Dose studied: 2 × 320 mg capsules, three times a day (1,920 mg a day), for 6 weeks. When: With meals.
+- What the studies found:
+  - In 247 patients with functional dyspepsia, symptoms improved more with the extract than with placebo over the 6-week trial. [Holtmann G et al., 2003, Aliment Pharmacol Ther 18(11-12):1099-1105, PMID 14653829]
+  - Quality of life, measured with a dyspepsia questionnaire, improved 41 points with artichoke and 25 with placebo. [Holtmann G et al., 2003, Aliment Pharmacol Ther 18(11-12):1099-1105, PMID 14653829]
+  - In 20 volunteers, bile reaching the gut rose 151% an hour after 1.92 g of extract, far more than with placebo. [Kirchhoff R et al., 1994, Phytomedicine 1(2):107-115, PMID 23195882]
+- Cautions: Don't take it if you have gallstones or blocked bile ducts, because more bile can trigger an attack. If you're allergic to daisies, chamomile or ragweed, you may react to artichoke too, as they're the same plant family.
+
+SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/biohacking/#jengibre
+- What it is: It makes the stomach empty sooner. In the trials, that didn't translate into less discomfort.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: Studies measure a faster-emptying stomach, but in both trials the discomfort didn't change.
+- How it works: Ginger increases contractions in the antrum, the lower part of the stomach that pushes food into the gut. In healthy people, the stomach took half as long to empty by half.
+- Dose studied: 1.2 g in capsules, a single dose. When: An hour before eating.
+- What the studies found:
+  - In 24 healthy people, the stomach took 13 minutes to empty by half with ginger and 27 with placebo. Discomfort was the same. [Wu KL et al., 2008, Eur J Gastroenterol Hepatol 20(5):436-440, PMID 18403946]
+  - In 11 patients with functional dyspepsia, the stomach also emptied sooner (12 minutes versus 16), but symptoms didn't change. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
+- Cautions: High doses can cause heartburn. It can add to the effect of blood thinners. If you take them, check first.
+`,
+};
