@@ -54,6 +54,13 @@ export const likes = {
         pelo: "Pelo",
         longevidad: "Longevidad",
       },
+      // Adelanto del compendio (#69)
+      teaser: {
+        label: "Anexo C · Compendio",
+        title: "¿Buscas suplementos con estudios detrás?",
+        text: "El radar es lo que sigo por curiosidad. En el compendio voy al revés: eliges lo que te pasa y te cuento qué se ha estudiado para eso, con su nivel de evidencia y cada estudio enlazado.",
+        cta: "Abrir el compendio",
+      },
       countOne: "1 producto",
       countMany: "{n} productos",
       linkPrefix: "Ver en",
@@ -214,6 +221,12 @@ export const likes = {
         piel: "Skin",
         pelo: "Hair",
         longevidad: "Longevity",
+      },
+      teaser: {
+        label: "Appendix C · Compendium",
+        title: "Looking for supplements with studies behind them?",
+        text: "The radar is what I follow out of curiosity. The compendium works the other way round: you pick what's bothering you and I show you what's been studied for it, with its level of evidence and every study linked.",
+        cta: "Open the compendium",
       },
       countOne: "1 product",
       countMany: "{n} products",
