@@ -37,7 +37,7 @@ LO QUE LE GUSTA
 - Anime y manga: Naruto Shippuden, JoJo's Bizarre Adventure.
 - Biohacking: TheraFace Mask Glo, JetBoots Prime, Eight Sleep Pod, Oura Ring.
 - Me fascina usar la tecnología para sacar el máximo partido a nuestro cuerpo según lo que buscamos. Estos son los productos que tengo en el radar.
-- Productos de biohacking que sigue: TheraFace Mask Glo (Therabody): Mascarilla LED sin cables para la piel. JetBoots Prime (Therabody): Botas de compresión para recuperar las piernas. Pod 6 (Eight Sleep): Funda de colchón que enfría o calienta cada lado de la cama y mide el sueño sin llevar nada puesto. Oura Ring (Oura): Anillo que mide sueño, frecuencia cardíaca, temperatura y actividad. WHOOP 5.0 (WHOOP): Pulsera sin pantalla que mide el sueño, el esfuerzo y la recuperación, y te dice cuánto entrenar cada día. 302 Laser Cap (Blueprint): Gorra con 302 láseres rojos que estimulan el folículo para frenar la caída del pelo y ayudar a que vuelva a crecer. SFC Facial Serum (Blueprint): Sérum facial con SFC, NMN y ácido hialurónico para una piel más firme y frenar las señales del envejecimiento. Advanced Antioxidants (Blueprint): Cápsulas con licopeno, astaxantina, luteína y vitaminas K contra el estrés oxidativo de las células.
+- Productos de biohacking que sigue: TheraFace Mask Glo (Therabody): Mascarilla LED sin cables para la piel. JetBoots Prime (Therabody): Botas de compresión para recuperar las piernas. Pod 6 (Eight Sleep): Funda de colchón que enfría o calienta cada lado de la cama y mide el sueño sin llevar nada puesto. Oura Ring (Oura): Anillo que mide sueño, frecuencia cardíaca, temperatura y actividad. WHOOP 5.0 (WHOOP): Pulsera sin pantalla que mide el sueño, el esfuerzo y la recuperación, y te dice cuánto entrenar cada día. 302 Laser Cap (Blueprint): Gorra con 302 láseres rojos que estimulan el folículo para frenar la caída del pelo y ayudar a que vuelva a crecer. SFC Facial Serum (Blueprint): Sérum facial con SFC, NMN y ácido hialurónico para una piel más firme y frenar las señales del envejecimiento.
 - «Me gusta» tiene tres páginas: Videojuegos (con una Pokédex con modelos 3D), Anime y manga (con un mazo de frases de Naruto y JoJo traducidas) y Biohacking (su radar de aparatos y la entrada al compendio). Se entra a cada una desde su tarjeta de la portada.
 - The Legend of Zelda: Breath of the Wild (año 2017, estudio Nintendo EPD, consola Nintendo Switch y Wii U): Nadie te dice por dónde ir. Ves una torre a lo lejos, decides subir y por el camino te encuentras tres cosas que no buscabas. Le he echado más de 300 horas, y lo mejor sigue siendo el final: la batalla contra Ganon. Horas jugadas: Unas 320. Su momento favorito: La batalla final contra Ganon.
 - Bloodborne (año 2015, estudio FromSoftware, consola PlayStation 4): Lo que me tiene ganado es Yharnam: el estilo gótico y un mapa espectacular en el que todo acaba conectando, de Yharnam Central a la catedral. Es difícil a propósito, y cada jefe que cae se nota. El que más recuerdo es Ludwig, en el DLC: medio caballo, medio bestia, y con una espada de luz de luna preciosa. Horas jugadas: Unas 240. Su momento favorito: Empezar en Yharnam Central y la pelea contra Ludwig.
@@ -48,6 +48,7 @@ LO QUE LE GUSTA
 COMPENDIO DE BIOHACKING
 - Elige lo que te pasa y te cuento qué suplementos se han estudiado para eso, cómo actúan en tu cuerpo y qué encontraron los estudios, con cada fuente enlazada. Está en https://marcalvear.github.io/mi-web/biohacking/ (en inglés, /mi-web/en/biohacking/). Esto es divulgación, no consejo médico. Lo escribo leyendo estudios, no como profesional sanitario. Si tomas medicación, estás embarazada o los síntomas no se van, habla antes con tu médico o tu farmacéutico.
 - Digestiones pesadas: Enzimas digestivas, Aceite de menta y alcaravea, Extracto de hoja de alcachofa, Jengibre.
+- Envejecer mejor: Luteína y zeaxantina, Astaxantina, Licopeno, Vitamina K (K1 y K2).
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -117,6 +118,58 @@ FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/bioh
   - En 24 personas sanas, el estómago tardó 13 minutos en vaciarse a la mitad con jengibre y 27 con placebo. Las molestias fueron las mismas. [Wu KL et al., 2008, Eur J Gastroenterol Hepatol 20(5):436-440, PMID 18403946]
   - En 11 pacientes con dispepsia funcional, el estómago también se vació antes (12 minutos frente a 16), pero los síntomas no cambiaron. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
 - Precauciones: En dosis altas puede dar ardor de estómago. Puede sumarse al efecto de los anticoagulantes. Si los tomas, consulta antes.
+
+PROBLEMA: ENVEJECER MEJOR (https://marcalvear.github.io/mi-web/biohacking/#envejecer-mejor)
+- Casi todas las cápsulas «antienvejecimiento» son antioxidantes. Para vivir más, los ensayos grandes dicen que no sirven. Para cosas concretas, como la vista, la piel al sol o los huesos, algunos sí tienen estudios, y eso es lo que recoge este problema.
+- Qué pasa en el cuerpo: Al usar oxígeno para sacar energía, las células fabrican radicales libres, moléculas que dañan lo que tocan. El cuerpo tiene sus propias defensas, y los antioxidantes de la comida ayudan. Tomarlos en cápsulas parecía lógico, pero una revisión de 78 ensayos con casi 300.000 personas no encontró que alargaran la vida, y en los ensayos más fiables el betacaroteno y la vitamina E la acortaron un poco. Por eso aquí cada ficha va a lo concreto: qué se midió, en quién y con qué dosis.
+- Combinarlos: Advanced Antioxidants junta los cuatro en una cápsula, pero no hay ningún estudio de esa mezcla: cada ficha habla de su ingrediente por separado, y a veces con otra dosis. Lleva mucha vitamina K, así que si tomas anticoagulantes no es para ti sin hablar antes con tu médico.
+- Ve al médico antes que a un suplemento si además: ves peor de repente, o las líneas rectas se te ven torcidas; te ha salido un lunar nuevo, o uno ha cambiado de forma o de color; te has roto un hueso con un golpe flojo; tomas anticoagulantes como el Sintrom.
+- Fuente: Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320
+
+FICHA: Luteína y zeaxantina (Carotenoides) · https://marcalvear.github.io/mi-web/biohacking/#luteina-zeaxantina
+- Qué es: Son los pigmentos amarillos de la mácula, el centro de la retina. En gente con degeneración macular se usan para frenarla, y en gente sana suben ese pigmento.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: El ensayo grande (AREDS2, 4.203 personas) es en gente que ya tiene degeneración macular, y su análisis principal no salió significativo. En gente sana suben el pigmento de la mácula, pero con estudios pequeños.
+- Cómo funciona: La luteína y la zeaxantina se acumulan en la mácula, la parte de la retina con la que lees y reconoces caras. Allí filtran la luz azul y frenan los radicales libres antes de que dañen las células. El cuerpo no las fabrica: vienen de la comida, como las espinacas, la col rizada o la yema de huevo.
+- Dosis estudiada: 10 mg de luteína y 2 mg de zeaxantina al día. Cuándo: Con una comida que lleve algo de grasa.
+- Qué encontraron los estudios:
+  - En 4.203 personas de 50 a 85 años con degeneración macular intermedia, a los 5 años la enfermedad había avanzado en el 29 % con luteína y zeaxantina y en el 31 % con placebo. La diferencia no fue significativa. [Age-Related Eye Disease Study 2 Research Group et al., 2013, JAMA 309(19):2005-2015, PMID 23644932]
+  - A los 10 años, frente al betacaroteno de la fórmula antigua, la luteína y la zeaxantina redujeron un 15 % el riesgo de degeneración avanzada. El betacaroteno casi duplicó el riesgo de cáncer de pulmón; con la luteína no subió de forma significativa. [Chew EY et al., 2022, JAMA Ophthalmol 140(7):692-698, PMID 35653117]
+  - En 59 adultos sanos, 12 mg de luteína al día durante 16 semanas subieron el pigmento de la mácula y mejoraron la visión con poco contraste y con deslumbramiento frente a placebo. Lo firma en parte una empresa de suplementos. [Machida N et al., 2020, Nutrients 12(10):2966, PMID 32998324]
+- Precauciones: Si tienes degeneración macular, lo estudiado es la fórmula AREDS2 completa (con vitaminas C y E, zinc y cobre), y la decide tu oftalmólogo. No sustituyen la revisión de la vista: si ves peor, ve al oftalmólogo.
+
+FICHA: Astaxantina (Carotenoide de microalga) · https://marcalvear.github.io/mi-web/biohacking/#astaxantina
+- Qué es: El pigmento rojo del salmón y las gambas. En ensayos pequeños, la piel aguantó mejor el sol y retuvo mejor el agua.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay ensayos con placebo a favor, pero son pequeños, casi todos en mujeres japonesas y muchos pagados por fabricantes, como avisa la revisión que los reúne.
+- Cómo funciona: Es un carotenoide que se coloca en las membranas de las células y frena la oxidación que provoca la luz ultravioleta. En la piel, los estudios lo miden como menos rojez después del sol y una barrera que pierde menos agua.
+- Dosis estudiada: De 3 a 6 mg al día (4 mg en el ensayo con sol). Cuándo: Con una comida, durante unas 10 semanas o más.
+- Qué encontraron los estudios:
+  - En 23 personas sanas, 4 mg al día durante 10 semanas aumentaron la cantidad de sol necesaria para que la piel se pusiera roja y redujeron la pérdida de agua de la piel expuesta frente a placebo. Lo financió FUJIFILM, la empresa de los autores. [Ito N et al., 2018, Nutrients 10(7):817, PMID 29941810]
+  - Una revisión de 11 estudios (6 con placebo) vio mejoras en arrugas, textura e hidratación con 3 a 6 mg al día, pero con muestras pequeñas, casi todas de mujeres japonesas. [Ng QX et al., 2021, J Diet Suppl 18(2):169-182, PMID 32202443]
+- Precauciones: No sustituye la crema solar. Para la piel no hay datos con más de 6 mg al día. Advanced Antioxidants lleva 12 mg. En el embarazo y la lactancia no se ha estudiado: consulta antes.
+
+FICHA: Licopeno (Carotenoide del tomate) · https://marcalvear.github.io/mi-web/biohacking/#licopeno
+- Qué es: El rojo del tomate. Tomado a diario durante unas semanas, la piel se enrojece menos con el sol.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los ensayos salen a favor, pero son pequeños (20 personas en el que tiene placebo) y el efecto es más claro con tomate que con licopeno solo.
+- Cómo funciona: El licopeno se acumula en la piel y absorbe parte de la energía de la luz ultravioleta, que si no oxidaría las células. Es una protección pequeña y lenta: tarda semanas en notarse y no llega a la de una crema solar.
+- Dosis estudiada: De 10 a 16 mg al día durante 12 semanas. Cuándo: Con una comida con aceite: se absorbe mejor con grasa.
+- Qué encontraron los estudios:
+  - En 20 mujeres, 55 g de tomate concentrado al día (16 mg de licopeno) durante 12 semanas protegieron la piel del sol mejor que el aceite de oliva solo: hizo falta más sol para que enrojeciera, medido con un aparato, y hubo menos daño en el ADN de las mitocondrias. [Rizwan M et al., 2011, Br J Dermatol 164(1):154-162, PMID 20854436]
+  - Con unos 10 mg al día durante 12 semanas, la rojez después del sol bajó un 25 % con licopeno sintético y entre un 38 % y un 48 % con extracto de tomate, frente a cómo estaba al empezar. [Aust O et al., 2005, Int J Vitam Nutr Res 75(1):54-60, PMID 15830922]
+- Precauciones: No sustituye la crema solar. El efecto más claro se vio con tomate: otros carotenoides del tomate también absorben la luz ultravioleta, y una cápsula de licopeno solo no los lleva.
+
+FICHA: Vitamina K (K1 y K2) (Vitamina liposoluble) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-k
+- Qué es: Ayuda a que el calcio se quede en el hueso. En mujeres después de la menopausia, un ensayo de tres años frenó la pérdida de hueso; para evitar fracturas, las pruebas no bastan.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un ensayo de 3 años con placebo sale a favor en la densidad del hueso, pero la revisión de 36 ensayos concluye que no hay pruebas suficientes para las fracturas.
+- Cómo funciona: El cuerpo usa la vitamina K para activar proteínas que manejan el calcio: la osteocalcina lo fija al hueso y otras evitan que se pegue a las arterias. La K1 viene de las verduras de hoja y la K2 (menaquinonas, como la MK-4 y la MK-7) de alimentos fermentados y de origen animal. La MK-7 dura más en sangre.
+- Dosis estudiada: 180 mcg de MK-7 al día durante 3 años (en el ensayo que sale a favor). Cuándo: Con una comida.
+- Qué encontraron los estudios:
+  - En 244 mujeres sanas después de la menopausia, 180 mcg de MK-7 al día durante 3 años frenaron la pérdida de hueso en la columna y el cuello del fémur frente a placebo. [Knapen MH et al., 2013, Osteoporos Int 24(9):2499-2507, PMID 23525894]
+  - En 440 mujeres con osteopenia, 5 mg de vitamina K1 al día no cambiaron la densidad del hueso en 2 años, aunque hubo menos fracturas (9 frente a 20). El ensayo no estaba pensado para medir fracturas. [Cheung AM et al., 2008, PLoS Med 5(10):e196, PMID 18922041]
+  - En mujeres después de la menopausia o con osteoporosis, una revisión de 36 ensayos no encontró efecto en la densidad del hueso ni en las fracturas de vértebra. Puede que reduzca otras fracturas, pero las pruebas no bastan para confirmarlo. [Mott A et al., 2019, Osteoporos Int 30(8):1543-1559, PMID 31076817]
+- Precauciones: Contrarresta los anticoagulantes como el Sintrom o la warfarina. Si los tomas, no la tomes sin hablar antes con tu médico. Lo estudiado es sobre todo en mujeres después de la menopausia. En hombres y en jóvenes hay muy pocos datos.
+
+Producto que junta varios suplementos de este problema (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Blueprint, Advanced Antioxidants (Estados Unidos): carotenoides Luteína 10 mg, zeaxantina 2 mg, licopeno 15 mg y astaxantina 12 mg; vitamina K K1 1.500 mcg (12,5 veces la cantidad diaria), K2 MK-4 5 mg y MK-7 600 mcg; toma 1 cápsula al día con comida; bote 30 cápsulas; precio 56,49 € (30 cápsulas). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -172,5 +225,57 @@ SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/bioh
   - In 24 healthy people, the stomach took 13 minutes to empty by half with ginger and 27 with placebo. Discomfort was the same. [Wu KL et al., 2008, Eur J Gastroenterol Hepatol 20(5):436-440, PMID 18403946]
   - In 11 patients with functional dyspepsia, the stomach also emptied sooner (12 minutes versus 16), but symptoms didn't change. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
 - Cautions: High doses can cause heartburn. It can add to the effect of blood thinners. If you take them, check first.
+
+PROBLEM: AGEING WELL (https://marcalvear.github.io/mi-web/en/biohacking/#envejecer-mejor)
+- Almost every "anti-ageing" capsule is an antioxidant. For living longer, the big trials say they don't work. For specific things, like eyesight, skin in the sun or bones, some do have studies, and that's what this page covers.
+- What's going on in the body: When cells use oxygen to make energy, they produce free radicals, molecules that damage whatever they touch. The body has its own defences, and antioxidants from food help. Taking them as capsules seemed logical, but a review of 78 trials with almost 300,000 people found they didn't make people live longer, and in the most reliable trials beta-carotene and vitamin E shortened life slightly. That's why each sheet here sticks to specifics: what was measured, in whom and at what dose.
+- Combining them: Advanced Antioxidants puts all four in one capsule, but there's no study of that blend: each sheet covers its ingredient on its own, sometimes at a different dose. It has a lot of vitamin K, so if you take blood thinners it isn't for you without talking to your doctor first.
+- See a doctor before trying a supplement if you also: your vision suddenly gets worse, or straight lines look wavy; a new mole has appeared, or one has changed shape or colour; you've broken a bone from a minor knock; you take blood thinners such as warfarin.
+- Source: Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320
+
+SHEET: Lutein and zeaxanthin (Carotenoids) · https://marcalvear.github.io/mi-web/en/biohacking/#luteina-zeaxantina
+- What it is: They're the yellow pigments of the macula, the centre of the retina. In people with macular degeneration they're used to slow it down, and in healthy people they raise that pigment.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: The big trial (AREDS2, 4,203 people) is in people who already have macular degeneration, and its main analysis wasn't significant. In healthy people they raise macular pigment, but in small studies.
+- How it works: Lutein and zeaxanthin build up in the macula, the part of the retina you use to read and recognise faces. There they filter blue light and stop free radicals before they damage cells. The body doesn't make them: they come from food, such as spinach, kale or egg yolk.
+- Dose studied: 10 mg of lutein and 2 mg of zeaxanthin a day. When: With a meal that has some fat in it.
+- What the studies found:
+  - In 4,203 people aged 50 to 85 with intermediate macular degeneration, after 5 years the disease had progressed in 29% with lutein and zeaxanthin and in 31% with placebo. The difference wasn't significant. [Age-Related Eye Disease Study 2 Research Group et al., 2013, JAMA 309(19):2005-2015, PMID 23644932]
+  - After 10 years, compared with the beta-carotene in the old formula, lutein and zeaxanthin cut the risk of advanced degeneration by 15%. Beta-carotene nearly doubled the risk of lung cancer; with lutein it didn't rise significantly. [Chew EY et al., 2022, JAMA Ophthalmol 140(7):692-698, PMID 35653117]
+  - In 59 healthy adults, 12 mg of lutein a day for 16 weeks raised macular pigment and improved vision at low contrast and under glare compared with placebo. It's partly authored by a supplement company. [Machida N et al., 2020, Nutrients 12(10):2966, PMID 32998324]
+- Cautions: If you have macular degeneration, what was studied is the full AREDS2 formula (with vitamins C and E, zinc and copper), and your eye doctor decides on it. They don't replace an eye check: if your vision gets worse, see an eye doctor.
+
+SHEET: Astaxanthin (Microalgae carotenoid) · https://marcalvear.github.io/mi-web/en/biohacking/#astaxantina
+- What it is: The red pigment in salmon and prawns. In small trials, skin held up better in the sun and kept its moisture better.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: There are placebo-controlled trials in favour, but they're small, almost all in Japanese women and many paid for by manufacturers, as the review that pools them warns.
+- How it works: It's a carotenoid that sits in cell membranes and slows the oxidation caused by ultraviolet light. In skin, studies measure this as less redness after sun exposure and a barrier that loses less water.
+- Dose studied: 3 to 6 mg a day (4 mg in the sun trial). When: With a meal, for about 10 weeks or more.
+- What the studies found:
+  - In 23 healthy people, 4 mg a day for 10 weeks raised the amount of sun needed to redden the skin and reduced water loss from the exposed skin compared with placebo. It was funded by FUJIFILM, the authors' company. [Ito N et al., 2018, Nutrients 10(7):817, PMID 29941810]
+  - A review of 11 studies (6 placebo-controlled) saw improvements in wrinkles, texture and moisture with 3 to 6 mg a day, but with small samples, almost all Japanese women. [Ng QX et al., 2021, J Diet Suppl 18(2):169-182, PMID 32202443]
+- Cautions: It doesn't replace sunscreen. There's no skin data above 6 mg a day. Advanced Antioxidants has 12 mg. It hasn't been studied in pregnancy or breastfeeding: check first.
+
+SHEET: Lycopene (Tomato carotenoid) · https://marcalvear.github.io/mi-web/en/biohacking/#licopeno
+- What it is: The red in tomatoes. Taken daily for a few weeks, skin reddens less in the sun.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: The trials come out in favour, but they're small (20 people in the placebo-controlled one) and the effect is clearer with tomato than with lycopene alone.
+- How it works: Lycopene builds up in the skin and absorbs some of the energy of ultraviolet light that would otherwise oxidise cells. It's small, slow protection: it takes weeks to show and doesn't come close to sunscreen.
+- Dose studied: 10 to 16 mg a day for 12 weeks. When: With a meal that has oil: it's absorbed better with fat.
+- What the studies found:
+  - In 20 women, 55 g of tomato paste a day (16 mg of lycopene) for 12 weeks protected the skin from the sun better than olive oil alone: it took more sun for it to redden, measured with an instrument, and there was less damage to mitochondrial DNA. [Rizwan M et al., 2011, Br J Dermatol 164(1):154-162, PMID 20854436]
+  - With about 10 mg a day for 12 weeks, redness after sun exposure fell by 25% with synthetic lycopene and by 38% to 48% with tomato extract, compared with the start. [Aust O et al., 2005, Int J Vitam Nutr Res 75(1):54-60, PMID 15830922]
+- Cautions: It doesn't replace sunscreen. The clearest effect came with tomato: other carotenoids in tomatoes also absorb ultraviolet light, and a lycopene-only capsule doesn't have them.
+
+SHEET: Vitamin K (K1 and K2) (Fat-soluble vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-k
+- What it is: It helps calcium stay in bone. In women after menopause, a three-year trial slowed bone loss; for preventing fractures, the evidence falls short.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A 3-year placebo-controlled trial comes out in favour on bone density, but the review of 36 trials concludes there isn't enough evidence on fractures.
+- How it works: The body uses vitamin K to switch on proteins that handle calcium: osteocalcin fixes it in bone and others stop it sticking to arteries. K1 comes from leafy greens and K2 (menaquinones, such as MK-4 and MK-7) from fermented and animal foods. MK-7 lasts longer in the blood.
+- Dose studied: 180 mcg of MK-7 a day for 3 years (in the trial that came out in favour). When: With a meal.
+- What the studies found:
+  - In 244 healthy women after menopause, 180 mcg of MK-7 a day for 3 years slowed bone loss in the spine and the femoral neck compared with placebo. [Knapen MH et al., 2013, Osteoporos Int 24(9):2499-2507, PMID 23525894]
+  - In 440 women with osteopenia, 5 mg of vitamin K1 a day didn't change bone density over 2 years, though there were fewer fractures (9 versus 20). The trial wasn't designed to measure fractures. [Cheung AM et al., 2008, PLoS Med 5(10):e196, PMID 18922041]
+  - In women after menopause or with osteoporosis, a review of 36 trials found no effect on bone density or on vertebral fractures. It may reduce other fractures, but the evidence isn't enough to confirm it. [Mott A et al., 2019, Osteoporos Int 30(8):1543-1559, PMID 31076817]
+- Cautions: It counteracts blood thinners such as warfarin. If you take them, don't take it without talking to your doctor first. What's been studied is mostly in women after menopause. There's very little data in men and in younger people.
+
+Product that combines several supplements in this problem (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Blueprint, Advanced Antioxidants (United States): carotenoids Lutein 10 mg, zeaxanthin 2 mg, lycopene 15 mg and astaxanthin 12 mg; vitamin K K1 1,500 mcg (12.5 times the daily value), K2 MK-4 5 mg and MK-7 600 mcg; dose 1 capsule a day with food; bottle 30 capsules; price €56.49 (30 capsules). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
 `,
 };
