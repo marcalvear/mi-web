@@ -201,7 +201,15 @@ const refId = (pmid: string) => `${entry.id}-ref-${pmid}`;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background var(--fast) var(--ease-out), color var(--fast) var(--ease-out);
+    transition:
+      background var(--fast) var(--ease-out),
+      color var(--fast) var(--ease-out),
+      transform var(--fast) var(--ease-out);
+  }
+
+  /* Se hunde un poco al pulsar, como los botones (#79) */
+  .star:active {
+    transform: scale(0.97);
   }
 
   .star[hidden] {

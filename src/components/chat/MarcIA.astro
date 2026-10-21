@@ -233,7 +233,9 @@ const id = `marc-ia-${lang}`;
     text-transform: uppercase;
     box-shadow: 3px 3px 0 var(--ink);
     cursor: pointer;
-    transition: transform var(--fast) var(--ease-out);
+    transition:
+      transform var(--fast) var(--ease-out),
+      box-shadow var(--fast) var(--ease-out);
   }
 
   /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
@@ -241,6 +243,12 @@ const id = `marc-ia-${lang}`;
     .launcher:hover {
       transform: translate(-1px, -1px);
     }
+  }
+
+  /* Al pulsar se hunde sobre su sombra, como los botones (#79) */
+  .launcher:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
   }
 
   .launcher[aria-expanded="true"] {
