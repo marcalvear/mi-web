@@ -1,0 +1,82 @@
+{
+  "nombre": {
+    "es": "Vitamina C",
+    "en": "Vitamin C"
+  },
+  "tipo": {
+    "es": "Vitamina",
+    "en": "Vitamin"
+  },
+  "evidencia": "moderada",
+  "porQue": {
+    "es": "La revisión Cochrane, con decenas de ensayos, es sólida para los resfriados, pero el efecto es pequeño. Para vivir más, los ensayos de antioxidantes no encuentran nada.",
+    "en": "The Cochrane review, with dozens of trials, is solid for colds, but the effect is small. For living longer, antioxidant trials find nothing."
+  },
+  "resumen": {
+    "es": "El cuerpo la necesita para fabricar colágeno y no la puede hacer. Tomada a diario no evita los resfriados, pero los acorta un poco, y protege a quien hace esfuerzos muy duros.",
+    "en": "The body needs it to make collagen and can't make it itself. Taken daily it doesn't prevent colds, but it shortens them a little, and it protects people doing very hard exertion."
+  },
+  "mecanismo": {
+    "es": "La vitamina C es la herramienta que usan las células para dar firmeza al colágeno: sin ella sale débil, que es lo que pasaba con el escorbuto. También es un antioxidante que se gasta rápido cuando hay infección o mucho esfuerzo. Lo que sobra se elimina por la orina, así que tomar mucho más no da más.",
+    "en": "Vitamin C is the tool cells use to make collagen firm: without it collagen comes out weak, which is what happened with scurvy. It's also an antioxidant that runs out fast during infection or heavy exertion. What's left over goes out in the urine, so taking much more doesn't give more."
+  },
+  "dosis": {
+    "es": "De 200 mg a 1 g al día. Con fruta y verdura ya se llega a lo necesario",
+    "en": "From 200 mg to 1 g a day. Fruit and vegetables already cover what you need"
+  },
+  "cuando": {
+    "es": "Con una comida; si tomas colágeno, a la vez",
+    "en": "With a meal; if you take collagen, at the same time"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 29 comparaciones con 11.306 personas, tomarla a diario no redujo cuántos resfriados se cogían. En maratonianos, esquiadores y soldados en el frío los redujo a la mitad.",
+        "en": "In 29 comparisons with 11,306 people, taking it daily didn't reduce how many colds people caught. In marathon runners, skiers and soldiers in the cold it halved them."
+      },
+      "fuente": "23440782"
+    },
+    {
+      "texto": {
+        "es": "Tomada a diario, acortó los resfriados un 8 % en adultos y un 14 % en niños. Empezar a tomarla cuando ya estás resfriado no mostró un efecto claro.",
+        "en": "Taken daily, it shortened colds by 8% in adults and 14% in children. Starting it once you already have a cold showed no clear effect."
+      },
+      "fuente": "23440782"
+    },
+    {
+      "texto": {
+        "es": "En la revisión de 78 ensayos de antioxidantes con casi 300.000 personas, la vitamina C no alargó la vida.",
+        "en": "In the review of 78 antioxidant trials with almost 300,000 people, vitamin C didn't make people live longer."
+      },
+      "fuente": "22419320"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Por encima de 1 g al día puede dar diarrea, y en algunas personas, piedras en el riñón.",
+      "en": "Above 1 g a day it can cause diarrhoea, and in some people, kidney stones."
+    },
+    {
+      "es": "Si tienes hemocromatosis (exceso de hierro), no la tomes en cápsula sin hablar con tu médico: sube la absorción del hierro.",
+      "en": "If you have haemochromatosis (iron overload), don't take it as a capsule without talking to your doctor: it increases iron absorption."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Hemilä H, Chalker E",
+      "anio": 2013,
+      "titulo": "Vitamin C for preventing and treating the common cold",
+      "revista": "Cochrane Database Syst Rev (1):CD000980",
+      "pmid": "23440782",
+      "doi": "10.1002/14651858.CD000980.pub4"
+    },
+    {
+      "autores": "Bjelakovic G, Nikolova D, Gluud LL, et al.",
+      "anio": 2012,
+      "titulo": "Antioxidant supplements for prevention of mortality in healthy participants and patients with various diseases",
+      "revista": "Cochrane Database Syst Rev (3):CD007176",
+      "pmid": "22419320",
+      "doi": "10.1002/14651858.CD007176.pub2"
+    }
+  ]
+}

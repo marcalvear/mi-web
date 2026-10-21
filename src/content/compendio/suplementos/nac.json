@@ -1,0 +1,79 @@
+{
+  "nombre": {
+    "es": "NAC (N-acetilcisteína)",
+    "en": "NAC (N-acetylcysteine)"
+  },
+  "tipo": {
+    "es": "Aminoácido antioxidante",
+    "en": "Antioxidant amino acid"
+  },
+  "evidencia": "preliminar",
+  "porQue": {
+    "es": "El ensayo a favor es pequeño (24 personas mayores) y lo firma el grupo que patentó la mezcla. Otro ensayo, más grande y de una empresa distinta, no encontró el efecto principal.",
+    "en": "The trial in favour is small (24 older people) and comes from the group that patented the blend. Another, larger trial from a different company didn't find the main effect."
+  },
+  "resumen": {
+    "es": "Es la forma en cápsula de la cisteína, una de las piezas del glutatión, el antioxidante que fabrica el propio cuerpo. Se estudia sobre todo junto a la glicina, en la mezcla llamada GlyNAC.",
+    "en": "It's the capsule form of cysteine, one of the building blocks of glutathione, the antioxidant the body makes itself. It's mostly studied together with glycine, in the blend called GlyNAC."
+  },
+  "mecanismo": {
+    "es": "En vez de dar un antioxidante de fuera, la NAC da material para que las células fabriquen el suyo: el glutatión, que se hace con cisteína, glicina y glutamato. Con la edad hay menos glutatión, y la idea es que falta cisteína y glicina para fabricarlo. Por eso la NAC se toma con glicina.",
+    "en": "Instead of supplying an outside antioxidant, NAC gives cells material to make their own: glutathione, which is made from cysteine, glycine and glutamate. With age there's less glutathione, and the idea is that cysteine and glycine run short. That's why NAC is taken with glycine."
+  },
+  "dosis": {
+    "es": "En GlyNAC, unos 100 mg de NAC y 100 mg de glicina por kilo de peso al día; en el ensayo más grande, de 1,2 a 3,6 g de cada uno",
+    "en": "In GlyNAC, about 100 mg of NAC and 100 mg of glycine per kilo of body weight a day; in the larger trial, 1.2 to 3.6 g of each"
+  },
+  "cuando": {
+    "es": "Repartida en las comidas",
+    "en": "Split across meals"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 24 personas mayores, 16 semanas de GlyNAC frente a placebo subieron el glutatión, bajaron el daño oxidativo y la inflamación y mejoraron la fuerza y la velocidad al andar. Es pequeño y lo firman los creadores de la mezcla.",
+        "en": "In 24 older people, 16 weeks of GlyNAC compared with placebo raised glutathione, lowered oxidative damage and inflammation and improved strength and walking speed. It's small and authored by the blend's creators."
+      },
+      "fuente": "35975308"
+    },
+    {
+      "texto": {
+        "es": "En 114 adultos mayores sanos, dos semanas de GlyNAC a tres dosis no subieron el glutatión frente a placebo, que era el objetivo principal. Solo subió en quienes empezaban con más daño oxidativo y menos glutatión. Lo firma Nestlé.",
+        "en": "In 114 healthy older adults, two weeks of GlyNAC at three doses didn't raise glutathione compared with placebo, which was the main goal. It only rose in people who started with more oxidative damage and less glutathione. It's authored by Nestlé."
+      },
+      "fuente": "35821844"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Puede dar náuseas, ardor o gases; tomada con comida se tolera mejor.",
+      "en": "It can cause nausea, heartburn or wind; taken with food it's easier to tolerate."
+    },
+    {
+      "es": "Si tomas nitroglicerina para el corazón, no la tomes sin hablar con tu médico.",
+      "en": "If you take nitroglycerin for your heart, don't take it without talking to your doctor."
+    },
+    {
+      "es": "En España la NAC también es un medicamento para la mucosidad: no la sumes a un mucolítico que ya tomes.",
+      "en": "In Spain NAC is also a mucus medicine: don't add it to a mucolytic you already take."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Kumar P, Liu C, Suliburk J, et al.",
+      "anio": 2023,
+      "titulo": "Supplementing Glycine and N-Acetylcysteine (GlyNAC) in Older Adults Improves Glutathione Deficiency, Oxidative Stress, Mitochondrial Dysfunction, Inflammation, Physical Function, and Aging Hallmarks: A Randomized Clinical Trial",
+      "revista": "J Gerontol A Biol Sci Med Sci 78(1):75-89",
+      "pmid": "35975308",
+      "doi": "10.1093/gerona/glac135"
+    },
+    {
+      "autores": "Lizzo G, Migliavacca E, Lamers D, et al.",
+      "anio": 2022,
+      "titulo": "A Randomized Controlled Clinical Trial in Healthy Older Adults to Determine Efficacy of Glycine and N-Acetylcysteine Supplementation on Glutathione Redox Status and Oxidative Damage",
+      "revista": "Front Aging 3:852569",
+      "pmid": "35821844",
+      "doi": "10.3389/fragi.2022.852569"
+    }
+  ]
+}
