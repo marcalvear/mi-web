@@ -39,7 +39,9 @@ const year = new Date().getFullYear();
   .foot {
     display: grid;
     gap: var(--space-1);
-    padding-block: var(--space-4);
+    /* Abajo deja sitio para el botón fijo del chat, que si no tapa la
+       última fila de enlaces (#77) */
+    padding-block: var(--space-4) var(--space-7);
   }
 
   .sign {

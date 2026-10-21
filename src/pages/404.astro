@@ -1,16 +1,54 @@
 ---
 // GitHub Pages sirve esta página para cualquier ruta que no exista, también
 // las de /en/. Como Astro genera rutas absolutas con la base, no hace falta
-// el <base> dinámico de la v2.
+// el <base> dinámico de la v2. Solo hay una 404, así que lleva debajo una
+// línea en inglés para quien venía de /en/ (#77).
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Base from "../layouts/Base.astro";
 import { useTranslations } from "../i18n/ui";
 
 const t = useTranslations("es");
+const en = useTranslations("en");
 ---
 
 <Base lang="es" title={t("404.title")} noindex>
-  <h1>{t("404.title")}</h1>
-  <p>{t("404.body")}</p>
-  <p><a href={getRelativeLocaleUrl("es")}>{t("404.back")}</a></p>
+  <div class="wrap">
+    <header class="intro">
+      <p class="label">{t("404.kicker")}</p>
+      <h1>{t("404.title")}</h1>
+      <p class="lead">{t("404.body")}</p>
+    </header>
+
+    <p><a href={getRelativeLocaleUrl("es")}>← {t("404.back")}</a></p>
+    <p class="other" lang="en">
+      {en("404.body")} <a href={getRelativeLocaleUrl("en")}>{en("404.back")}</a>
+    </p>
+  </div>
 </Base>
+
+<style>
+  .wrap {
+    display: grid;
+    gap: var(--space-2);
+    padding-block-end: var(--space-7);
+  }
+
+  .intro {
+    display: grid;
+    gap: var(--space-2);
+    padding-block: var(--space-6) var(--space-2);
+  }
+
+  .lead {
+    max-width: 40ch;
+    font-size: var(--step-2);
+    line-height: 1.3;
+  }
+
+  .other {
+    padding-block-start: var(--space-2);
+    border-top: 1px dashed var(--rule);
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+</style>

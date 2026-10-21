@@ -154,8 +154,11 @@ const photo = (name: string) => photos[`../../assets/img/${name}.webp`]?.default
     outline-offset: 4px;
   }
 
+  /* La fila de la lista se estira para alinear los enlaces de abajo, pero
+     las líneas de la lista no: van juntas arriba (#77) */
   .items {
     display: grid;
+    align-content: start;
     gap: 0.3rem;
     margin-block-start: var(--space-1);
     padding: 0;
