@@ -842,9 +842,12 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
   }
 
   /* Miga de pan y paso a los problemas de al lado */
+  /* Centradas: el enlace y la página actual llevan relleno para el dedo y el
+     separador no, y sin esto se quedaba arriba */
   .crumbs {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.5em;
     padding-block: var(--space-4) 0;
     font-family: var(--font-mono);
