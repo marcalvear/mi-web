@@ -68,7 +68,7 @@ const catalog = Object.fromEntries(
             <h2 id={id("favorites")}>{c.favorites.title}</h2>
             <p class="label" data-fav-count></p>
           </header>
-          <p class="help">{c.favorites.lead}</p>
+          <p class="help" data-fav-lead>{c.favorites.lead}</p>
           <ul class="fav-list" role="list" data-fav-list></ul>
         <p class="empty" data-fav-empty hidden>
           {c.favorites.empty} <a href={compendioUrl}>{c.favorites.cta} <span aria-hidden="true">→</span></a>
@@ -223,6 +223,7 @@ const catalog = Object.fromEntries(
     function renderFavorites() {
       const n = favorites.length;
       $("[data-fav-empty]").hidden = n > 0;
+      $("[data-fav-lead]").hidden = n === 0;
       $("[data-fav-count]").textContent = n === 1 ? t.favorites.one : t.favorites.count.replace("{n}", String(n));
       $("[data-fav-list]").replaceChildren(
         ...favorites.map((fav) => {

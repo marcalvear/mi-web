@@ -128,6 +128,28 @@ const stats = [
     line-height: 1;
   }
 
+  /* En móvil no caben tres etiquetas en fila: una cifra por línea */
+  @media (max-width: 39.99rem) {
+    .stats {
+      grid-template-columns: 1fr;
+    }
+
+    .stats div {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-1);
+    }
+
+    .stats div + div {
+      border-left: 0;
+      border-top: 1px dashed var(--rule);
+    }
+
+    .stats dd {
+      font-size: var(--step-2);
+    }
+  }
+
   @media (min-width: 52rem) {
     .teaser {
       grid-template-columns: 1fr 18rem;

@@ -692,7 +692,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
   .toast {
     position: fixed;
     inset-inline: var(--space-2);
-    bottom: var(--space-2);
+    /* Por encima del botón de Marc IA, que también va fijo abajo a la derecha */
+    bottom: calc(var(--space-3) + 4rem);
     z-index: 20;
     display: flex;
     flex-wrap: wrap;
