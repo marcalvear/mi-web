@@ -1,5 +1,16 @@
 # Lighthouse
 
+## Arreglos de la revisión de diseño (21/10/2026, #77)
+
+Mismo método. La 404 no se puede medir: Lighthouse no puntúa páginas que
+responden con estado 404.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS |
+|---|---|---|---|---|---|
+| Inicio | 96 | 100 | 100 | 100 | 0 |
+| Compendio | 94 | 100 | 100 | 100 | 0 |
+| Entrar | 93 | 100 | 100 | 100 | 0 |
+
 ## Compendio con «Envejecer mejor» (21/10/2026, #73)
 
 Mismo método, con el segundo problema y sin el esquema digestivo en él.
