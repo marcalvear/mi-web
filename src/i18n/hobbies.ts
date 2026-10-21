@@ -29,6 +29,8 @@ export type Series = {
   text: string[];
   facts: [string, string][];
   arc?: string;
+  /** Si la obra no va por arcos (JoJo va por partes) */
+  arcLabel?: string;
   character?: string;
   credit: string;
   panels: Shot[];
@@ -79,13 +81,15 @@ export const hobbies: Record<Lang, HobbiesText> = {
           kicker: "Nintendo · 2017",
           text: [
             "Nadie te dice por dónde ir. Ves una torre a lo lejos, decides subir y por el camino te encuentras tres cosas que no buscabas.",
-            "Todo lo que ves se puede escalar, y casi todo se puede usar para resolver un problema de otra manera.",
+            "Le he echado más de 300 horas, y lo mejor sigue siendo el final: la batalla contra Ganon.",
           ],
           facts: [
             ["Año", "2017"],
             ["Estudio", "Nintendo EPD"],
             ["Consola", "Nintendo Switch y Wii U"],
           ],
+          hours: "Unas 320",
+          moment: "La batalla final contra Ganon",
           credit: "© Nintendo",
           hero: {
             file: "zelda-1",
@@ -102,14 +106,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
           short: "Bloodborne",
           kicker: "FromSoftware · 2015",
           text: [
-            "Es difícil a propósito, y cada jefe que cae se nota. Yharnam es una ciudad gótica de callejones que acaban conectando entre sí.",
-            "Descubrir un atajo que te devuelve al principio es casi tan bueno como ganar un combate.",
+            "Lo que me tiene ganado es Yharnam: el estilo gótico y un mapa espectacular en el que todo acaba conectando, de Yharnam Central a la catedral.",
+            "Es difícil a propósito, y cada jefe que cae se nota. El que más recuerdo es Ludwig, en el DLC: medio caballo, medio bestia, y con una espada de luz de luna preciosa.",
           ],
           facts: [
             ["Año", "2015"],
             ["Estudio", "FromSoftware"],
             ["Consola", "PlayStation 4"],
           ],
+          hours: "Unas 240",
+          moment: "Empezar en Yharnam Central y la pelea contra Ludwig",
           credit: "© Sony Interactive Entertainment · FromSoftware",
           hero: {
             file: "bloodborne-1",
@@ -126,13 +132,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
           short: "Pokémon",
           kicker: "Game Freak · desde 1996",
           text: [
+            "Mi favorito es Leyendas Pokémon: Arceus, el de las zonas abiertas que exploras a tu aire. Y mi Pokémon, con diferencia, Mewtwo.",
             "Más de mil especies, cada una con sus tipos y sus estadísticas. Por eso le he hecho una Pokédex: busca cualquiera y verás sus datos y su modelo en 3D.",
           ],
           facts: [
             ["Desde", "1996"],
             ["Estudio", "Game Freak"],
-            ["En las fotos", "Pokémon Escarlata (2022)"],
+            ["Mi juego", "Leyendas Pokémon: Arceus (2022)"],
+            ["Mi Pokémon", "Mewtwo"],
           ],
+          hours: "Unas 110",
           credit: "© Nintendo · Creatures Inc. · GAME FREAK inc.",
           hero: {
             file: "pokemon-1",
@@ -164,12 +173,15 @@ export const hobbies: Record<Lang, HobbiesText> = {
           kicker: "Masashi Kishimoto · Studio Pierrot",
           text: [
             "Naruto empieza siendo el que nadie toma en serio y acaba cargando con todo. En Shippuden cada combate pesa, porque detrás hay una historia que ya conoces.",
+            "Para mí ninguno pesa tanto como Sasuke contra Itachi.",
           ],
           facts: [
             ["Manga", "1999-2014"],
             ["Anime", "2007-2017"],
             ["Episodios", "500"],
           ],
+          arc: "Sasuke contra Itachi",
+          character: "Sasuke Uchiha",
           credit: "© Masashi Kishimoto · Scott / Shueisha, TV Tokyo, Pierrot",
           panels: [
             {
@@ -200,12 +212,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
           kicker: "Hirohiko Araki · David Production",
           text: [
             "Cada parte cambia de protagonista, de época y casi de género. Los combates se ganan pensando más que pegando, y las poses ya son marca de la casa.",
+            "Mi parte es la quinta, Golden Wind, la de Italia. Y mi personaje es su villano, Diavolo.",
           ],
           facts: [
             ["Manga", "desde 1987"],
             ["Anime", "desde 2012"],
             ["Revista", "Shōnen Jump y Ultra Jump"],
           ],
+          arc: "La 5, Golden Wind",
+          arcLabel: "Mi parte",
+          character: "Diavolo",
           credit: "© LUCKY LAND COMMUNICATIONS / Shueisha · JoJo's Animation Project",
           panels: [
             {
@@ -262,13 +278,15 @@ export const hobbies: Record<Lang, HobbiesText> = {
           kicker: "Nintendo · 2017",
           text: [
             "Nobody tells you where to go. You spot a tower in the distance, decide to climb it and find three things you weren't looking for on the way.",
-            "Everything you see can be climbed, and almost everything can be used to solve a problem some other way.",
+            "I've put over 300 hours into it, and the best part is still the ending: the fight against Ganon.",
           ],
           facts: [
             ["Year", "2017"],
             ["Studio", "Nintendo EPD"],
             ["Console", "Nintendo Switch and Wii U"],
           ],
+          hours: "About 320",
+          moment: "The final battle against Ganon",
           credit: "© Nintendo",
           hero: {
             file: "zelda-1",
@@ -285,14 +303,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
           short: "Bloodborne",
           kicker: "FromSoftware · 2015",
           text: [
-            "It's hard on purpose, and every boss you take down feels like it. Yharnam is a gothic city of alleys that end up connecting to each other.",
-            "Finding a shortcut that takes you back to the start is almost as good as winning a fight.",
+            "Yharnam won me over: the gothic style and a stunning map where everything ends up connecting, from Central Yharnam to the cathedral.",
+            "It's hard on purpose, and every boss you take down feels like it. The one I remember most is Ludwig, in the DLC: half horse, half beast, with a beautiful moonlight sword.",
           ],
           facts: [
             ["Year", "2015"],
             ["Studio", "FromSoftware"],
             ["Console", "PlayStation 4"],
           ],
+          hours: "About 240",
+          moment: "Starting out in Central Yharnam, and the fight against Ludwig",
           credit: "© Sony Interactive Entertainment · FromSoftware",
           hero: {
             file: "bloodborne-1",
@@ -309,13 +329,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
           short: "Pokémon",
           kicker: "Game Freak · since 1996",
           text: [
+            "My favourite is Pokémon Legends: Arceus, the one with open areas you explore at your own pace. And my Pokémon, by far, is Mewtwo.",
             "Over a thousand species, each with its own types and stats. That's why I built a Pokédex: look any of them up and see its data and its 3D model.",
           ],
           facts: [
             ["Since", "1996"],
             ["Studio", "Game Freak"],
-            ["In the pictures", "Pokémon Scarlet (2022)"],
+            ["My game", "Pokémon Legends: Arceus (2022)"],
+            ["My Pokémon", "Mewtwo"],
           ],
+          hours: "About 110",
           credit: "© Nintendo · Creatures Inc. · GAME FREAK inc.",
           hero: {
             file: "pokemon-1",
@@ -346,12 +369,15 @@ export const hobbies: Record<Lang, HobbiesText> = {
           kicker: "Masashi Kishimoto · Studio Pierrot",
           text: [
             "Naruto starts out as the one nobody takes seriously and ends up carrying everything. In Shippuden every fight matters, because there's a story behind it you already know.",
+            "For me, none matters as much as Sasuke versus Itachi.",
           ],
           facts: [
             ["Manga", "1999-2014"],
             ["Anime", "2007-2017"],
             ["Episodes", "500"],
           ],
+          arc: "Sasuke versus Itachi",
+          character: "Sasuke Uchiha",
           credit: "© Masashi Kishimoto · Scott / Shueisha, TV Tokyo, Pierrot",
           panels: [
             {
@@ -382,12 +408,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
           kicker: "Hirohiko Araki · David Production",
           text: [
             "Every part changes its hero, its era and almost its genre. Fights are won by thinking more than punching, and the poses are a trademark by now.",
+            "My part is the fifth, Golden Wind, the one set in Italy. And my character is its villain, Diavolo.",
           ],
           facts: [
             ["Manga", "since 1987"],
             ["Anime", "since 2012"],
             ["Magazine", "Shōnen Jump and Ultra Jump"],
           ],
+          arc: "Part 5, Golden Wind",
+          arcLabel: "My part",
+          character: "Diavolo",
           credit: "© LUCKY LAND COMMUNICATIONS / Shueisha · JoJo's Animation Project",
           panels: [
             {

@@ -62,7 +62,7 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
                 ))}
                 {s.arc && (
                   <div>
-                    <dt class="label">{c.factLabels.arc}</dt>
+                    <dt class="label">{s.arcLabel ?? c.factLabels.arc}</dt>
                     <dd>{s.arc}</dd>
                   </div>
                 )}
