@@ -17,13 +17,15 @@ interface Props {
   home: CollectionEntry<"problemas">;
   /** Problema en el que se pinta esta copia */
   problemId: string;
+  /** Zona en el esquema de este problema, que puede no ser la de la ficha */
+  zone?: string;
 }
-const { entry, n, lang, text, home, problemId } = Astro.props;
+const { entry, n, lang, text, home, problemId, zone } = Astro.props;
 const s = entry.data;
 const id = `${problemId}-${entry.id}`;
 ---
 
-<li class="sheet shared" id={id} data-sheet={entry.id} data-evidence={s.evidencia} data-zone={s.zona}>
+<li class="sheet shared" id={id} data-sheet={entry.id} data-evidence={s.evidencia} data-zone={zone ?? s.zona}>
   <article aria-labelledby={`${id}-name`}>
     <p class="label code"><span class="badge">{n}</span> {text.card.id} · {s.tipo[lang]}</p>
     <h3 id={`${id}-name`}>{s.nombre[lang]}</h3>

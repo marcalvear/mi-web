@@ -43,6 +43,13 @@
         "en": "In 60 stressed healthy adults, 250 and 600 mg a day for 8 weeks lowered stress and cortisol compared with placebo, and improved sleep quality. At 600 mg the effect was larger."
       },
       "fuente": "32021735"
+    },
+    {
+      "texto": {
+        "es": "En 43 hombres de 40 a 70 años con sobrepeso y algo de cansancio, 8 semanas de ashwagandha subieron la testosterona en saliva un 14,7 % más que el placebo, aunque el cansancio y el deseo sexual no cambiaron frente a placebo.",
+        "en": "In 43 overweight men aged 40 to 70 with mild fatigue, 8 weeks of ashwagandha raised saliva testosterone 14.7% more than placebo, although tiredness and sex drive didn't change compared with placebo."
+      },
+      "fuente": "30854916"
     }
   ],
   "precauciones": [
@@ -75,6 +82,14 @@
       "revista": "Cureus 11(12):e6466",
       "pmid": "32021735",
       "doi": "10.7759/cureus.6466"
+    },
+    {
+      "autores": "Lopresti AL, Drummond PD, Smith SJ",
+      "anio": 2019,
+      "titulo": "A Randomized, Double-Blind, Placebo-Controlled, Crossover Study Examining the Hormonal and Vitality Effects of Ashwagandha (Withania somnifera) in Aging, Overweight Males",
+      "revista": "Am J Mens Health 13(2):1557988319835985",
+      "pmid": "30854916",
+      "doi": "10.1177/1557988319835985"
     }
   ],
   "productos": [

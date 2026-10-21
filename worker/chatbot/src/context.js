@@ -54,6 +54,7 @@ COMPENDIO DE BIOHACKING
 - Menos estrés: Ashwagandha, Lavanda (Silexan), Rhodiola, Magnesio.
 - Recuperarse antes: Creatina, Proteína de suero, Cereza ácida Montmorency, Omega-3 (EPA y DHA).
 - Defensas: Vitamina D, Probióticos, Vitamina C, Zinc en pastillas para chupar, Saúco negro.
+- Testosterona: Tongkat ali, Fenogreco, Ashwagandha, Vitamina D.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -334,6 +335,7 @@ FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/b
 - Qué encontraron los estudios:
   - Juntando 9 ensayos con 558 personas, la ashwagandha bajó el estrés percibido, la ansiedad y el cortisol en sangre frente a placebo. Cuatro ensayos describieron efectos secundarios leves o moderados. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
   - En 60 adultos sanos estresados, 250 y 600 mg al día durante 8 semanas bajaron el estrés y el cortisol frente a placebo, y mejoraron la calidad del sueño. Con 600 mg el efecto fue mayor. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
+  - En 43 hombres de 40 a 70 años con sobrepeso y algo de cansancio, 8 semanas de ashwagandha subieron la testosterona en saliva un 14,7 % más que el placebo, aunque el cansancio y el deseo sexual no cambiaron frente a placebo. [Lopresti AL et al., 2019, Am J Mens Health 13(2):1557988319835985, PMID 30854916]
 - Precauciones: Se han descrito casos raros de daño en el hígado: si notas la orina oscura, la piel amarilla o cansancio extraño, déjala y ve al médico. No la tomes si estás embarazada, das el pecho o tienes una enfermedad del tiroides o autoinmune sin hablar antes con tu médico. Puede sumarse a los sedantes y a la medicación para la tensión o el azúcar.
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (Estados Unidos): lleva 300 mg de extracto de raíz KSM-66 por cápsula; toma 2 cápsulas al día; bote 120 cápsulas; precio 24,99 $. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
@@ -439,6 +441,7 @@ FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
 - Qué encontraron los estudios:
   - En la revisión de 2021, con 43 ensayos y 48.488 personas, la vitamina D bajó un poco el riesgo de infección respiratoria, sobre todo tomada a diario y a dosis moderadas. [Jolliffe DA et al., 2021, Lancet Diabetes Endocrinol 9(5):276-292, PMID 33798465]
   - Al añadir los ensayos nuevos en 2025, con 61.589 personas, la protección quedó en un 6 % y dejó de ser significativa. Tampoco cambió según el déficit de partida ni la dosis. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
+  - Para la testosterona, una revisión de 2026 con 11 comparaciones no encontró que la vitamina D la subiera en hombres adultos, ni la libre ni la proteína que la transporta. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Precauciones: Más no es mejor: por encima de 4.000 UI al día durante mucho tiempo puede subir demasiado el calcio. Si tienes piedras en el riñón, sarcoidosis o tomas diuréticos tiazídicos, consúltalo antes. Para saber si te falta, el análisis es el de 25-hidroxivitamina D.
 
 FICHA: Probióticos (Bacterias vivas) · https://marcalvear.github.io/mi-web/biohacking/#probioticos
@@ -478,6 +481,54 @@ FICHA: Saúco negro (Extracto de baya) · https://marcalvear.github.io/mi-web/bi
 - Qué encontraron los estudios:
   - Juntando ensayos con 180 personas, el saúco redujo bastante los síntomas de resfriado y gripe frente a placebo, con un efecto grande. Los autores piden ensayos más grandes. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
 - Precauciones: Nunca bayas crudas ni hojas: sin procesar son tóxicas. Solo extractos preparados. Si tienes una enfermedad autoinmune o tomas inmunosupresores, consúltalo antes. En embarazo y lactancia no hay datos: mejor no tomarlo.
+
+PROBLEMA: TESTOSTERONA (https://marcalvear.github.io/mi-web/biohacking/#testosterona)
+- La testosterona baja con la edad, pero sobre todo con el sueño corto, la grasa abdominal, el estrés y el alcohol. Ningún suplemento la sube como un tratamiento: dormir 7-8 horas, entrenar fuerza y perder grasa hacen mucho más. Estas fichas cuentan qué sí y qué no se ha medido.
+- Qué pasa en el cuerpo: La testosterona se fabrica en cadena. El cerebro manda una señal, la hormona LH, y los testículos fabrican testosterona. En la sangre, la mayor parte va pegada a una proteína, la SHBG, y solo la libre llega a los tejidos. Cuando hay suficiente, el cerebro frena la señal. El estrés, que sube el cortisol, y la falta de sueño frenan la cadena desde arriba. El esquema de al lado marca en qué punto se cree que actúa cada suplemento.
+- Combinarlos: Ningún ensayo probó estos juntos, y las mezclas «potenciadoras de testosterona» casi nunca tienen estudios propios. Si quieres probar uno, mide antes y después con un análisis por la mañana: es la única forma de saber si te ha hecho algo.
+- Ve al médico antes que a un suplemento si además: tienes poco deseo, problemas de erección y cansancio a la vez durante meses; te han crecido las mamas, has perdido vello o los testículos han cambiado de tamaño; tienes menos de 40 años y te notas todos estos síntomas; te ofrecen testosterona o «pro-hormonas» sin receta: pueden dejarte estéril.
+
+FICHA: Tongkat ali (Raíz del sudeste asiático) · https://marcalvear.github.io/mi-web/biohacking/#tongkat-ali
+- Qué es: Es la raíz de un arbusto de Malasia e Indonesia. En ensayos pequeños sube la testosterona total, sobre todo en hombres que la tienen baja.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Un metaanálisis de 5 ensayos sale a favor con un efecto grande, pero son ensayos pequeños, distintos entre sí y el efecto se ve sobre todo en hombres con la testosterona baja.
+- Cómo funciona: Sus compuestos, los eurycomanósidos, parecen ayudar a las células de los testículos que fabrican testosterona y frenar la enzima que la convierte en estrógeno. En hombres con poca testosterona por estrés o edad, el margen para subir es mayor.
+- Dosis estudiada: 200 a 400 mg al día de extracto estandarizado. Cuándo: Por la mañana, con el desayuno, durante al menos 4 semanas.
+- Qué encontraron los estudios:
+  - Juntando 5 ensayos con placebo, el tongkat ali subió de forma clara la testosterona total, en voluntarios sanos y más en hombres con hipogonadismo. Los autores piden más ensayos antes de usarlo en clínica. [Leisegang K et al., 2022, Medicina (Kaunas) 58(8):1047, PMID 36013514]
+- Precauciones: Algunos productos de esta raíz han salido con metales pesados o con fármacos añadidos: compra solo marcas analizadas por un laboratorio externo. Si tienes cáncer de próstata, problemas de corazón o tomas medicación para la tensión o el azúcar, no lo tomes sin hablar con tu médico. Si compites, ojo: algunos lotes contaminados han dado positivo en controles.
+
+FICHA: Fenogreco (Semilla) · https://marcalvear.github.io/mi-web/biohacking/#fenogreco
+- Qué es: Es una semilla de la cocina india y mediterránea. En extracto sube un poco la testosterona total, pero no la libre, que es la que usa el cuerpo.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El metaanálisis de 2026 encuentra una subida pequeña de la testosterona total, pero con certeza muy baja, y ningún ensayo con bajo riesgo de sesgo.
+- Cómo funciona: Sus saponinas parecen frenar las enzimas que convierten la testosterona en estrógeno y en dihidrotestosterona, así que queda algo más en sangre. Que suba la total no significa que suba la libre: buena parte va pegada a una proteína, la SHBG.
+- Dosis estudiada: 500 a 600 mg al día de extracto. Cuándo: Con una comida, durante 8 a 12 semanas.
+- Qué encontraron los estudios:
+  - En 13 estudios en hombres adultos, el fenogreco subió un poco la testosterona total (6 estudios), pero no la libre (5 estudios). Ningún ensayo tenía bajo riesgo de sesgo y la certeza es muy baja. [Yang P et al., 2026, Front Nutr 13:1903508, PMID 42688439]
+- Precauciones: Puede bajar el azúcar en sangre: si tomas medicación para la diabetes, consúltalo. A veces da gases y hace que el sudor huela a sirope de arce. Si tienes alergia a los cacahuetes o a los garbanzos, ojo: es de la misma familia.
+
+FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#ashwagandha
+- Qué es: Es una raíz de la medicina tradicional india, la más estudiada para el estrés. En 8 semanas baja el estrés que la gente nota y el cortisol en sangre.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 9 ensayos con placebo sale a favor en estrés, ansiedad y cortisol, pero los ensayos son pequeños, cortos y casi todos de la India con extractos de marca.
+- Cómo funciona: Cuando hay estrés, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol, la hormona que te pone en alerta. Si el estrés no para, el cortisol se queda alto. Los compuestos de la raíz, los witanólidos, parecen calmar ese circuito y actuar sobre el GABA, el freno natural del cerebro.
+- Dosis estudiada: De 250 a 600 mg al día de extracto de raíz. Cuándo: Repartida en dos tomas, con el desayuno y con la cena.
+- Qué encontraron los estudios:
+  - Juntando 9 ensayos con 558 personas, la ashwagandha bajó el estrés percibido, la ansiedad y el cortisol en sangre frente a placebo. Cuatro ensayos describieron efectos secundarios leves o moderados. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
+  - En 60 adultos sanos estresados, 250 y 600 mg al día durante 8 semanas bajaron el estrés y el cortisol frente a placebo, y mejoraron la calidad del sueño. Con 600 mg el efecto fue mayor. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
+  - En 43 hombres de 40 a 70 años con sobrepeso y algo de cansancio, 8 semanas de ashwagandha subieron la testosterona en saliva un 14,7 % más que el placebo, aunque el cansancio y el deseo sexual no cambiaron frente a placebo. [Lopresti AL et al., 2019, Am J Mens Health 13(2):1557988319835985, PMID 30854916]
+- Precauciones: Se han descrito casos raros de daño en el hígado: si notas la orina oscura, la piel amarilla o cansancio extraño, déjala y ve al médico. No la tomes si estás embarazada, das el pecho o tienes una enfermedad del tiroides o autoinmune sin hablar antes con tu médico. Puede sumarse a los sedantes y a la medicación para la tensión o el azúcar.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (Estados Unidos): lleva 300 mg de extracto de raíz KSM-66 por cápsula; toma 2 cápsulas al día; bote 120 cápsulas; precio 24,99 $. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
+
+FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-d
+- Qué es: El cuerpo la fabrica con el sol en la piel, y en invierno casi no se fabrica. Hace falta para los huesos y el sistema inmune, pero en cápsula apenas evita resfriados en quien no tiene déficit.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Es de lo más estudiado: 40 ensayos con más de 61.000 personas. Pero en la actualización de 2025 la protección frente a infecciones se queda en el límite y deja de ser significativa.
+- Cómo funciona: Cuando el sol da en la piel, el cuerpo fabrica vitamina D y el hígado y el riñón la activan. Las células del sistema inmune tienen receptores para ella: la usan para fabricar sus propios antibióticos naturales, como la catelicidina. Entre octubre y marzo, en España, el sol está tan bajo que la piel casi no la fabrica.
+- Dosis estudiada: Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis. Cuándo: A diario, con la comida principal, sobre todo de octubre a marzo.
+- Qué encontraron los estudios:
+  - En la revisión de 2021, con 43 ensayos y 48.488 personas, la vitamina D bajó un poco el riesgo de infección respiratoria, sobre todo tomada a diario y a dosis moderadas. [Jolliffe DA et al., 2021, Lancet Diabetes Endocrinol 9(5):276-292, PMID 33798465]
+  - Al añadir los ensayos nuevos en 2025, con 61.589 personas, la protección quedó en un 6 % y dejó de ser significativa. Tampoco cambió según el déficit de partida ni la dosis. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
+  - Para la testosterona, una revisión de 2026 con 11 comparaciones no encontró que la vitamina D la subiera en hombres adultos, ni la libre ni la proteína que la transporta. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
+- Precauciones: Más no es mejor: por encima de 4.000 UI al día durante mucho tiempo puede subir demasiado el calcio. Si tienes piedras en el riñón, sarcoidosis o tomas diuréticos tiazídicos, consúltalo antes. Para saber si te falta, el análisis es el de 25-hidroxivitamina D.
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -744,6 +795,7 @@ SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/
 - What the studies found:
   - Pooling 9 trials with 558 people, ashwagandha lowered perceived stress, anxiety and blood cortisol compared with placebo. Four trials described mild or moderate side effects. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
   - In 60 stressed healthy adults, 250 and 600 mg a day for 8 weeks lowered stress and cortisol compared with placebo, and improved sleep quality. At 600 mg the effect was larger. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
+  - In 43 overweight men aged 40 to 70 with mild fatigue, 8 weeks of ashwagandha raised saliva testosterone 14.7% more than placebo, although tiredness and sex drive didn't change compared with placebo. [Lopresti AL et al., 2019, Am J Mens Health 13(2):1557988319835985, PMID 30854916]
 - Cautions: Rare cases of liver damage have been reported: if you notice dark urine, yellow skin or unusual tiredness, stop it and see a doctor. Don't take it if you're pregnant, breastfeeding or have a thyroid or autoimmune disease without talking to your doctor first. It can add to sedatives and to medication for blood pressure or blood sugar.
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (United States): contains 300 mg of KSM-66 root extract per capsule; dose 2 capsules a day; bottle 120 capsules; price $24.99. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
@@ -849,6 +901,7 @@ SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
 - What the studies found:
   - In the 2021 review, with 43 trials and 48,488 people, vitamin D slightly lowered the risk of respiratory infection, especially taken daily at moderate doses. [Jolliffe DA et al., 2021, Lancet Diabetes Endocrinol 9(5):276-292, PMID 33798465]
   - When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
+  - For testosterone, a 2026 review with 11 comparisons didn't find that vitamin D raised it in adult men, nor free testosterone nor the protein that carries it. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Cautions: More isn't better: above 4,000 IU a day for a long time it can push calcium too high. If you have kidney stones, sarcoidosis or take thiazide diuretics, check first. To find out if you're low, the test is 25-hydroxyvitamin D.
 
 SHEET: Probiotics (Live bacteria) · https://marcalvear.github.io/mi-web/en/biohacking/#probioticos
@@ -888,5 +941,53 @@ SHEET: Black elderberry (Berry extract) · https://marcalvear.github.io/mi-web/e
 - What the studies found:
   - Pooling trials with 180 people, elderberry substantially reduced cold and flu symptoms compared with placebo, with a large effect. The authors call for larger trials. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
 - Cautions: Never raw berries or leaves: unprocessed they're toxic. Only prepared extracts. If you have an autoimmune disease or take immunosuppressants, check first. In pregnancy and breastfeeding there's no data: better not to take it.
+
+PROBLEM: TESTOSTERONE (https://marcalvear.github.io/mi-web/en/biohacking/#testosterona)
+- Testosterone falls with age, but mostly with short sleep, belly fat, stress and alcohol. No supplement raises it like a treatment: sleeping 7–8 hours, strength training and losing fat do far more. These sheets cover what has and hasn't been measured.
+- What's going on in the body: Testosterone is made in a chain. The brain sends a signal, the hormone LH, and the testes make testosterone. In the blood, most of it is bound to a protein, SHBG, and only the free part reaches tissues. When there's enough, the brain brakes the signal. Stress, which raises cortisol, and lack of sleep slow the chain from the top. The diagram beside it marks where each supplement is thought to act.
+- Combining them: No trial tested these together, and "testosterone booster" blends almost never have studies of their own. If you want to try one, test before and after with a morning blood test: it's the only way to know if it did anything.
+- See a doctor before trying a supplement if you also: you've had low sex drive, erection problems and tiredness together for months; your breasts have grown, you've lost body hair or your testes have changed size; you're under 40 and have all these symptoms; you're offered testosterone or "prohormones" without a prescription: they can leave you infertile.
+
+SHEET: Tongkat ali (Southeast Asian root) · https://marcalvear.github.io/mi-web/en/biohacking/#tongkat-ali
+- What it is: It's the root of a shrub from Malaysia and Indonesia. In small trials it raises total testosterone, especially in men whose levels are low.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: A meta-analysis of 5 trials comes out in favour with a large effect, but they're small, differ from each other and the effect shows mainly in men with low testosterone.
+- How it works: Its compounds, eurycomanosides, seem to help the testicular cells that make testosterone and slow the enzyme that turns it into oestrogen. In men with low testosterone from stress or age, there's more room for it to rise.
+- Dose studied: 200 to 400 mg a day of standardised extract. When: In the morning, with breakfast, for at least 4 weeks.
+- What the studies found:
+  - Pooling 5 placebo-controlled trials, tongkat ali clearly raised total testosterone, in healthy volunteers and more so in men with hypogonadism. The authors call for more trials before clinical use. [Leisegang K et al., 2022, Medicina (Kaunas) 58(8):1047, PMID 36013514]
+- Cautions: Some products made from this root have turned up with heavy metals or added drugs: only buy brands tested by an outside lab. If you have prostate cancer, heart problems or take medication for blood pressure or blood sugar, don't take it without talking to your doctor. If you compete, be careful: some contaminated batches have failed drug tests.
+
+SHEET: Fenugreek (Seed) · https://marcalvear.github.io/mi-web/en/biohacking/#fenogreco
+- What it is: It's a seed from Indian and Mediterranean cooking. As an extract it slightly raises total testosterone, but not free testosterone, which is what the body uses.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: The 2026 meta-analysis finds a small rise in total testosterone, but with very low certainty, and no trial at low risk of bias.
+- How it works: Its saponins seem to slow the enzymes that turn testosterone into oestrogen and dihydrotestosterone, so a little more stays in the blood. Total going up doesn't mean free goes up: much of it is bound to a protein, SHBG.
+- Dose studied: 500 to 600 mg a day of extract. When: With a meal, for 8 to 12 weeks.
+- What the studies found:
+  - In 13 studies in adult men, fenugreek slightly raised total testosterone (6 studies), but not free testosterone (5 studies). No trial was at low risk of bias and certainty is very low. [Yang P et al., 2026, Front Nutr 13:1903508, PMID 42688439]
+- Cautions: It can lower blood sugar: if you take diabetes medication, check first. It sometimes causes wind and makes sweat smell of maple syrup. If you're allergic to peanuts or chickpeas, be careful: it's from the same family.
+
+SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#ashwagandha
+- What it is: It's a root from traditional Indian medicine, the most studied for stress. In 8 weeks it lowers the stress people feel and cortisol in the blood.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 9 placebo-controlled trials comes out in favour for stress, anxiety and cortisol, but the trials are small, short and almost all from India with branded extracts.
+- How it works: Under stress, the brain signals the adrenal glands and they release cortisol, the hormone that puts you on alert. If the stress doesn't stop, cortisol stays high. The root's compounds, withanolides, seem to calm that circuit and act on GABA, the brain's natural brake.
+- Dose studied: 250 to 600 mg a day of root extract. When: Split into two doses, with breakfast and with dinner.
+- What the studies found:
+  - Pooling 9 trials with 558 people, ashwagandha lowered perceived stress, anxiety and blood cortisol compared with placebo. Four trials described mild or moderate side effects. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
+  - In 60 stressed healthy adults, 250 and 600 mg a day for 8 weeks lowered stress and cortisol compared with placebo, and improved sleep quality. At 600 mg the effect was larger. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
+  - In 43 overweight men aged 40 to 70 with mild fatigue, 8 weeks of ashwagandha raised saliva testosterone 14.7% more than placebo, although tiredness and sex drive didn't change compared with placebo. [Lopresti AL et al., 2019, Am J Mens Health 13(2):1557988319835985, PMID 30854916]
+- Cautions: Rare cases of liver damage have been reported: if you notice dark urine, yellow skin or unusual tiredness, stop it and see a doctor. Don't take it if you're pregnant, breastfeeding or have a thyroid or autoimmune disease without talking to your doctor first. It can add to sedatives and to medication for blood pressure or blood sugar.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (United States): contains 300 mg of KSM-66 root extract per capsule; dose 2 capsules a day; bottle 120 capsules; price $24.99. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
+
+SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-d
+- What it is: The body makes it with sunlight on the skin, and in winter it barely makes any. It's needed for bones and the immune system, but as a capsule it barely prevents colds in people without a deficiency.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: It's among the most studied: 40 trials with more than 61,000 people. But in the 2025 update the protection against infections sits on the edge and stops being significant.
+- How it works: When sunlight hits the skin, the body makes vitamin D and the liver and kidneys activate it. Immune cells have receptors for it: they use it to make their own natural antibiotics, such as cathelicidin. Between October and March, in Spain, the sun is so low that the skin barely makes any.
+- Dose studied: Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test. When: Daily, with your main meal, especially from October to March.
+- What the studies found:
+  - In the 2021 review, with 43 trials and 48,488 people, vitamin D slightly lowered the risk of respiratory infection, especially taken daily at moderate doses. [Jolliffe DA et al., 2021, Lancet Diabetes Endocrinol 9(5):276-292, PMID 33798465]
+  - When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
+  - For testosterone, a 2026 review with 11 comparisons didn't find that vitamin D raised it in adult men, nor free testosterone nor the protein that carries it. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
+- Cautions: More isn't better: above 4,000 IU a day for a long time it can push calcium too high. If you have kidney stones, sarcoidosis or take thiazide diuretics, check first. To find out if you're low, the test is 25-hydroxyvitamin D.
 `,
 };

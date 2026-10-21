@@ -84,6 +84,14 @@ export const compendio = {
       months: ["E", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
       zones: { temporada: "Temporada", sintoma: "Al primer síntoma" },
     },
+    axis: {
+      title: "Dónde se cree que actúa cada suplemento",
+      hint: "El cerebro manda la señal, los testículos fabrican y la sangre reparte. Pulsa un suplemento para ver dónde actúa.",
+      desc: "Esquema de arriba abajo: el cerebro manda la señal LH, los testículos fabrican la testosterona y la sangre la reparte, en parte pegada a una proteína. Una flecha vuelve al cerebro: si hay mucha testosterona, frena la señal. La ashwagandha actuaría en el cerebro, a través del estrés; el tongkat ali y la vitamina D, en los testículos; y el fenogreco, en la sangre.",
+      testosterone: "testosterona",
+      brake: "freno",
+      zones: { cerebro: "Cerebro", testiculo: "Testículos", sangre: "Sangre" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -200,6 +208,14 @@ export const compendio = {
       sun: "sun",
       months: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
       zones: { temporada: "Season", sintoma: "At the first symptom" },
+    },
+    axis: {
+      title: "Where each supplement is thought to act",
+      hint: "The brain sends the signal, the testes make it and the blood carries it. Tap a supplement to see where it acts.",
+      desc: "Diagram from top to bottom: the brain sends the LH signal, the testes make testosterone and the blood carries it, partly bound to a protein. An arrow goes back to the brain: when there's a lot of testosterone, it brakes the signal. Ashwagandha would act in the brain, through stress; tongkat ali and vitamin D in the testes; and fenugreek in the blood.",
+      testosterone: "testosterone",
+      brake: "brake",
+      zones: { cerebro: "Brain", testiculo: "Testes", sangre: "Blood" },
     },
     card: {
       id: "Sheet",
