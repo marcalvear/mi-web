@@ -27,7 +27,7 @@ Hay tres riesgos:
 - **General** (todas las páginas menos el compendio). Igual que antes, con el
   contexto de la web y una línea sobre el compendio: qué es, qué problemas
   cubre y que dentro hay un boticario.
-- **Boticario** (`/biohacking/`). El widget cambia sus textos y manda
+- **Boticario** (`/biohacking/`). El widget se llama «Boticario IA» y manda
   `mode: "boticario"`. El Worker usa otras instrucciones, con el compendio
   entero en el idioma de la página. Un modo que no conoce se queda en el
   general.

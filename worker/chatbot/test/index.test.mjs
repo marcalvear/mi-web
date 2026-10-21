@@ -103,7 +103,7 @@ test("en el compendio usa las instrucciones del boticario con todo el compendio"
   const env = fakeEnv();
   await worker.fetch(post({ mode: "boticario", messages: [{ role: "user", content: "Tengo digestiones pesadas" }] }), env);
   const { messages, max_tokens } = env.calls[0].input;
-  assert.match(messages[0].content, /modo «boticario»/);
+  assert.match(messages[0].content, /Eres «Boticario IA»/);
   assert.match(messages[0].content, /FICHA: Jengibre/);
   assert.doesNotMatch(messages[0].content, /SHEET:/);
   assert.match(messages[0].content, /PMID \d+/);

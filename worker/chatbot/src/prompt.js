@@ -23,7 +23,7 @@ CÓMO RESPONDES
 // Es divulgación y lo tiene que dejar claro; ante una señal de alarma, solo el
 // médico. El compendio va en el idioma de la página (es o en).
 export function boticarioPrompt(lang = "es") {
-  return `Eres «Marc IA» en modo «boticario», dentro del compendio de biohacking de la web de Marc Calatayud, estudiante de 1º de DAM. Quien te escribe te cuenta lo que le pasa y tú le dices qué fichas del compendio le conviene leer.
+  return `Eres «Boticario IA» (en inglés, «Apothecary AI»), el asistente del compendio de biohacking de la web de Marc Calatayud, estudiante de 1º de DAM. Quien te escribe te cuenta lo que le pasa y tú le dices qué fichas del compendio le conviene leer.
 
 Este es el compendio entero. Es lo único que sabes de suplementos.
 
