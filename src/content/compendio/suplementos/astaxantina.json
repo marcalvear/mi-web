@@ -1,0 +1,73 @@
+{
+  "nombre": { "es": "Astaxantina", "en": "Astaxanthin" },
+  "tipo": { "es": "Carotenoide de microalga", "en": "Microalgae carotenoid" },
+  "evidencia": "preliminar",
+  "porQue": {
+    "es": "Hay ensayos con placebo a favor, pero son pequeños, casi todos en mujeres japonesas y muchos pagados por fabricantes, como avisa la revisión que los reúne.",
+    "en": "There are placebo-controlled trials in favour, but they're small, almost all in Japanese women and many paid for by manufacturers, as the review that pools them warns."
+  },
+  "resumen": {
+    "es": "El pigmento rojo del salmón y las gambas. En ensayos pequeños, la piel aguantó mejor el sol y retuvo mejor el agua.",
+    "en": "The red pigment in salmon and prawns. In small trials, skin held up better in the sun and kept its moisture better."
+  },
+  "mecanismo": {
+    "es": "Es un carotenoide que se coloca en las membranas de las células y frena la oxidación que provoca la luz ultravioleta. En la piel, los estudios lo miden como menos rojez después del sol y una barrera que pierde menos agua.",
+    "en": "It's a carotenoid that sits in cell membranes and slows the oxidation caused by ultraviolet light. In skin, studies measure this as less redness after sun exposure and a barrier that loses less water."
+  },
+  "dosis": {
+    "es": "De 3 a 6 mg al día (4 mg en el ensayo con sol)",
+    "en": "3 to 6 mg a day (4 mg in the sun trial)"
+  },
+  "cuando": {
+    "es": "Con una comida, durante unas 10 semanas o más",
+    "en": "With a meal, for about 10 weeks or more"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 23 personas sanas, 4 mg al día durante 10 semanas aumentaron la cantidad de sol necesaria para que la piel se pusiera roja y redujeron la pérdida de agua de la piel expuesta frente a placebo. Lo financió FUJIFILM, la empresa de los autores.",
+        "en": "In 23 healthy people, 4 mg a day for 10 weeks raised the amount of sun needed to redden the skin and reduced water loss from the exposed skin compared with placebo. It was funded by FUJIFILM, the authors' company."
+      },
+      "fuente": "29941810"
+    },
+    {
+      "texto": {
+        "es": "Una revisión de 11 estudios (6 con placebo) vio mejoras en arrugas, textura e hidratación con 3 a 6 mg al día, pero con muestras pequeñas, casi todas de mujeres japonesas.",
+        "en": "A review of 11 studies (6 placebo-controlled) saw improvements in wrinkles, texture and moisture with 3 to 6 mg a day, but with small samples, almost all Japanese women."
+      },
+      "fuente": "32202443"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "No sustituye la crema solar.",
+      "en": "It doesn't replace sunscreen."
+    },
+    {
+      "es": "Para la piel no hay datos con más de 6 mg al día. Advanced Antioxidants lleva 12 mg.",
+      "en": "There's no skin data above 6 mg a day. Advanced Antioxidants has 12 mg."
+    },
+    {
+      "es": "En el embarazo y la lactancia no se ha estudiado: consulta antes.",
+      "en": "It hasn't been studied in pregnancy or breastfeeding: check first."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Ito N, Seki S, Ueda F",
+      "anio": 2018,
+      "titulo": "The Protective Role of Astaxanthin for UV-Induced Skin Deterioration in Healthy People-A Randomized, Double-Blind, Placebo-Controlled Trial",
+      "revista": "Nutrients 10(7):817",
+      "pmid": "29941810",
+      "doi": "10.3390/nu10070817"
+    },
+    {
+      "autores": "Ng QX, De Deyn MLZQ, Loke W, et al.",
+      "anio": 2021,
+      "titulo": "Effects of Astaxanthin Supplementation on Skin Health: A Systematic Review of Clinical Studies",
+      "revista": "J Diet Suppl 18(2):169-182",
+      "pmid": "32202443",
+      "doi": "10.1080/19390211.2020.1739187"
+    }
+  ]
+}
