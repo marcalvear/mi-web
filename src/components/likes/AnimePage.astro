@@ -29,7 +29,7 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     </header>
 
     {
-      c.items.map((s, i) => (
+      c.items.map((s) => (
         <section class="series" id={s.id} aria-labelledby={`${s.id}-title`}>
           <div class="page" data-series={s.id}>
             {s.panels.map((p, j) => (
@@ -40,7 +40,8 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
                   formats={["avif", "webp"]}
                   widths={j === 0 ? [480, 800, 1200] : [360, 720]}
                   sizes={j === 0 ? "(min-width: 72rem) 36rem, 94vw" : "(min-width: 72rem) 24rem, 94vw"}
-                  loading={i === 0 && j === 0 ? "eager" : "lazy"}
+                  loading="lazy"
+                  decoding="async"
                 />
                 {p.caption && <figcaption class="caption">{p.caption}</figcaption>}
               </figure>
@@ -106,6 +107,14 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
   .series {
     margin-block-end: var(--space-6);
     scroll-margin-top: var(--space-3);
+  }
+
+  /* Lo que no se ve al entrar no se pinta (ni descarga sus fotos) hasta que
+     te acercas: la página llega antes con conexiones lentas */
+  .series + .series,
+  .deck-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1100px;
   }
 
   /* La página: fondo blanco, márgenes de imprenta y viñetas con calles */

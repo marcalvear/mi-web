@@ -51,7 +51,7 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
               src={photo(g.hero.file)}
               alt={g.hero.alt}
               formats={["avif", "webp"]}
-              widths={[640, 1024, 1600]}
+              widths={[480, 768, 1024, 1600]}
               sizes="(min-width: 72rem) 70rem, 94vw"
               loading={i === 0 ? "eager" : "lazy"}
               fetchpriority={i === 0 ? "high" : "auto"}
@@ -241,6 +241,13 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     padding-block-start: var(--space-4);
     border-top: 1px dashed var(--rule);
     scroll-margin-top: var(--space-3);
+  }
+
+  /* Lo que no se ve al entrar no se pinta (ni descarga sus fotos) hasta que
+     te acercas: la página llega antes con conexiones lentas */
+  .game + .game {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 1200px;
   }
 
   /* Bloodborne a oscuras en los dos temas, como Yharnam de noche */
