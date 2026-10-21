@@ -3,10 +3,12 @@
 // navegador con la clave pública de Supabase; lo que protege los datos son
 // las reglas RLS (ADR 0006). Aun así, cada consulta filtra por el id de quien
 // ha entrado: el admin puede leer todos los hilos y aquí solo debe ver el suyo.
+import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Base from "../../layouts/Base.astro";
 import Button from "../Button.astro";
 import { space } from "../../i18n/space";
+import { compendio } from "../../i18n/compendio";
 import type { Lang } from "../../i18n/ui";
 
 interface Props {
@@ -18,10 +20,31 @@ const MAX = 5000;
 const signIn = getRelativeLocaleUrl(lang, "entrar/");
 const adminPanel = getRelativeLocaleUrl(lang, "panel/");
 const id = (field: string) => `space-${field}-${lang}`;
+// Las fichas del compendio, para pintar los favoritos (#67): en la base de
+// datos solo está el id de cada ficha
+const compendioUrl = getRelativeLocaleUrl(lang, "biohacking/");
+const catalog = Object.fromEntries(
+  (await getCollection("suplementos")).map((s) => [
+    s.id,
+    {
+      name: s.data.nombre[lang],
+      type: s.data.tipo[lang],
+      evidence: c.favorites.evidence.replace("{level}", compendio[lang].evidence[s.data.evidencia].toLowerCase()),
+      href: `${compendioUrl}#${s.id}`,
+    },
+  ]),
+);
 ---
 
 <Base lang={lang} title={c.meta.title} description={c.meta.description} path="mi-espacio/" noindex>
-  <div class="wrap" data-space data-lang={lang} data-max={MAX} data-text={JSON.stringify(c)}>
+  <div
+    class="wrap"
+    data-space
+    data-lang={lang}
+    data-max={MAX}
+    data-text={JSON.stringify(c)}
+    data-catalog={JSON.stringify(catalog)}
+  >
     <header class="intro">
       <p class="label">{c.kicker}</p>
       <h1 data-title>{c.title}</h1>
@@ -39,35 +62,47 @@ const id = (field: string) => `space-${field}-${lang}`;
     </section>
 
     <div class="layout" data-panel="in" hidden>
-      <section class="thread" aria-labelledby={id("thread")}>
-        <header class="thread-head">
-          <h2 id={id("thread")}>{c.thread.title}</h2>
-          <p class="label" data-summary></p>
-        </header>
+      <div class="main">
+        <!-- Solo sale si hay alguna: el compendio aún no está enlazado desde ningún sitio -->
+        <section class="favorites" aria-labelledby={id("favorites")} data-favorites hidden>
+          <header class="thread-head">
+            <h2 id={id("favorites")}>{c.favorites.title}</h2>
+            <p class="label" data-fav-count></p>
+          </header>
+          <p class="help">{c.favorites.lead}</p>
+          <ul class="fav-list" role="list" data-fav-list></ul>
+        </section>
 
-        <ol class="messages" role="list" aria-label={c.thread.label} data-messages></ol>
-        <p class="empty" data-empty hidden>{c.thread.empty}</p>
+        <section class="thread" aria-labelledby={id("thread")}>
+          <header class="thread-head">
+            <h2 id={id("thread")}>{c.thread.title}</h2>
+            <p class="label" data-summary></p>
+          </header>
 
-        <form class="compose" data-compose novalidate>
-          <label class="label" for={id("body")}>{c.compose.label}</label>
-          <textarea
-            id={id("body")}
-            name="body"
-            rows="4"
-            maxlength={MAX}
-            required
-            placeholder={c.compose.placeholder}
-            aria-describedby={id("count")}
-          />
-          <div class="compose-foot">
-            <p class="help" id={id("count")} data-count>
-              {c.compose.count.replace("{n}", "0").replace("{max}", String(MAX))}
-            </p>
-            <Button type="submit" data-submit>{c.compose.submit}</Button>
-          </div>
-        </form>
-        <p class="status" role="status" data-status></p>
-      </section>
+          <ol class="messages" role="list" aria-label={c.thread.label} data-messages></ol>
+          <p class="empty" data-empty hidden>{c.thread.empty}</p>
+
+          <form class="compose" data-compose novalidate>
+            <label class="label" for={id("body")}>{c.compose.label}</label>
+            <textarea
+              id={id("body")}
+              name="body"
+              rows="4"
+              maxlength={MAX}
+              required
+              placeholder={c.compose.placeholder}
+              aria-describedby={id("count")}
+            />
+            <div class="compose-foot">
+              <p class="help" id={id("count")} data-count>
+                {c.compose.count.replace("{n}", "0").replace("{max}", String(MAX))}
+              </p>
+              <Button type="submit" data-submit>{c.compose.submit}</Button>
+            </div>
+          </form>
+          <p class="status" role="status" data-status></p>
+        </section>
+      </div>
 
       <aside class="card profile" aria-labelledby={id("profile")}>
         <p class="label tag" id={id("profile")}>{c.profile.label}</p>
@@ -110,12 +145,14 @@ const id = (field: string) => `space-${field}-${lang}`;
 
   type Panel = "loading" | "setup" | "out" | "in";
   type Shown = Pick<Message, "id" | "author" | "body" | "created_at" | "read_at">;
+  type Sheet = { name: string; type: string; evidence: string; href: string };
 
   const root = document.querySelector<HTMLElement>("[data-space]");
   if (root) init(root);
 
   async function init(root: HTMLElement) {
     const t = JSON.parse(root.dataset.text!) as SpaceText;
+    const catalog = JSON.parse(root.dataset.catalog!) as Record<string, Sheet>;
     const lang = root.dataset.lang!;
     const max = Number(root.dataset.max);
     const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
@@ -132,6 +169,7 @@ const id = (field: string) => `space-${field}-${lang}`;
     const day = new Intl.DateTimeFormat(lang, { dateStyle: "long" });
     let user: User;
     let messages: Shown[] = [];
+    let favorites: string[] = [];
 
     function show(panel: Panel) {
       panels.forEach((p) => (p.hidden = p.dataset.panel !== panel));
@@ -179,6 +217,62 @@ const id = (field: string) => `space-${field}-${lang}`;
         : count;
     }
 
+    // Fichas guardadas (#67): la más reciente arriba
+    function renderFavorites() {
+      const n = favorites.length;
+      $("[data-favorites]").hidden = n === 0;
+      $("[data-fav-count]").textContent = n === 1 ? t.favorites.one : t.favorites.count.replace("{n}", String(n));
+      $("[data-fav-list]").replaceChildren(
+        ...favorites.map((fav) => {
+          const sheet = catalog[fav];
+          const li = document.createElement("li");
+          li.className = "fav";
+          const info = document.createElement("div");
+          if (sheet) {
+            const link = document.createElement("a");
+            link.href = sheet.href;
+            link.className = "fav-name";
+            link.textContent = sheet.name;
+            const meta = document.createElement("p");
+            meta.className = "label fav-meta";
+            meta.textContent = `${sheet.type} · ${sheet.evidence}`;
+            info.append(link, meta);
+          } else {
+            const name = document.createElement("p");
+            name.className = "fav-name";
+            name.textContent = fav;
+            const meta = document.createElement("p");
+            meta.className = "label fav-meta";
+            meta.textContent = t.favorites.gone;
+            info.append(name, meta);
+          }
+          const remove = document.createElement("button");
+          remove.type = "button";
+          remove.className = "text-button";
+          remove.textContent = t.favorites.remove;
+          remove.setAttribute("aria-label", t.favorites.removeLabel.replace("{name}", sheet?.name ?? fav));
+          remove.addEventListener("click", () => unsave(fav));
+          li.append(info, remove);
+          return li;
+        }),
+      );
+    }
+
+    async function unsave(fav: string) {
+      const { error } = await supabase!.from("favorites").delete().eq("user_id", user.id).eq("supplement", fav);
+      if (error) {
+        say(t.errors.favorite, true);
+        return;
+      }
+      favorites = favorites.filter((f) => f !== fav);
+      renderFavorites();
+      say(t.favorites.removed);
+      log("favorito", { ficha: fav, accion: "quitar" });
+      // El foco no se pierde al desaparecer el botón
+      if (favorites.length) $<HTMLElement>("[data-fav-list] button").focus();
+      else body.focus();
+    }
+
     function showName(name: string | null) {
       $("[data-name]").textContent = name || t.profile.noName;
       $("[data-title]").textContent = name ? t.hello.replace("{name}", name) : t.title;
@@ -191,13 +285,18 @@ const id = (field: string) => `space-${field}-${lang}`;
     }
 
     async function load() {
-      const [profile, thread] = await Promise.all([
+      const [profile, thread, favs] = await Promise.all([
         supabase!.from("profiles").select("name, email, role, created_at").eq("id", user.id).maybeSingle(),
         supabase!
           .from("messages")
           .select("id, author, body, created_at, read_at")
           .eq("user_id", user.id)
           .order("created_at", { ascending: true }),
+        supabase!
+          .from("favorites")
+          .select("supplement")
+          .eq("user_id", user.id)
+          .order("created_at", { ascending: false }),
       ]);
       if (profile.error || thread.error || !profile.data) {
         show("in");
@@ -211,6 +310,9 @@ const id = (field: string) => `space-${field}-${lang}`;
       $("[data-admin]").hidden = profile.data.role !== "admin";
 
       messages = thread.data;
+      // Si falla, el espacio se ve igual, sin la sección de favoritos
+      favorites = favs.data?.map((f) => f.supplement) ?? [];
+      renderFavorites();
       // «Nuevo» en mis respuestas que aún no había leído; luego se marcan como leídas
       const unread = new Set(messages.filter((m) => m.author === "admin" && !m.read_at).map((m) => m.id));
       render(unread);
@@ -365,6 +467,46 @@ const id = (field: string) => `space-${field}-${lang}`;
       position: sticky;
       top: var(--space-4);
     }
+  }
+
+  .main {
+    display: grid;
+    gap: var(--space-5);
+    min-width: 0;
+  }
+
+  .favorites {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .fav-list {
+    display: grid;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cada favorito, una ficha pequeña con el margen verde del compendio */
+  .fav-list :global(.fav) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--lab);
+    background: var(--sheet);
+  }
+
+  .fav-list :global(.fav-name) {
+    font-size: var(--step-1);
+    font-weight: 600;
+  }
+
+  .fav-list :global(.fav-meta) {
+    color: var(--ink-soft);
   }
 
   .thread-head {
