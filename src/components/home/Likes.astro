@@ -1,8 +1,8 @@
 ---
-// Me gusta: tres «muestras» del cuaderno. El detalle (Pokédex, frases de
-// anime, fotos de los gadgets) está en su propia página.
-import { getRelativeLocaleUrl } from "astro:i18n";
+// Me gusta: tres «muestras» del cuaderno. Cada tarjeta lleva a su página
+// (#71): videojuegos, anime y manga, y biohacking.
 import Entry from "../Entry.astro";
+import HobbyCards from "../likes/HobbyCards.astro";
 import type { HomeContent } from "../../i18n/home";
 import type { Lang } from "../../i18n/ui";
 
@@ -15,100 +15,11 @@ const { lang, content } = Astro.props;
 
 <Entry id="me-gusta" number={3} kicker={content.kicker} title={content.title}>
   <p class="intro">{content.intro}</p>
-  <ul class="samples" role="list">
-    {
-      content.groups.map((group) => (
-        <li class="sample">
-          <p class="label tag">{group.label}</p>
-          <h3>{group.title}</h3>
-          <p>{group.text}</p>
-          <ul role="list">
-            {group.items.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        </li>
-      ))
-    }
-  </ul>
-  <p class="more">
-    <a href={getRelativeLocaleUrl(lang, "me-gusta/")}>{content.more} →</a>
-  </p>
+  <HobbyCards lang={lang} groups={content.groups} open={content.open} />
 </Entry>
 
 <style>
   .intro {
     font-size: var(--step-1);
-  }
-
-  .samples {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-    gap: var(--space-4);
-    margin-block-start: var(--space-4);
-    padding: 0;
-  }
-
-  .sample {
-    position: relative;
-    display: grid;
-    align-content: start;
-    gap: var(--space-1);
-    max-width: none;
-    padding: var(--space-4) var(--space-3) var(--space-3);
-    background: var(--sheet);
-    border: 1px solid var(--rule);
-    transition:
-      transform var(--slow) var(--ease-out),
-      box-shadow var(--slow) var(--ease-out);
-  }
-
-  /* Cada muestra cae un poco torcida, como fichas sueltas */
-  .sample:nth-child(1) { rotate: -0.6deg; }
-  .sample:nth-child(2) { rotate: 0.5deg; }
-  .sample:nth-child(3) { rotate: -0.3deg; }
-
-  .sample:hover {
-    transform: translateY(-4px);
-    box-shadow: 4px 6px 0 var(--rule);
-  }
-
-  .tag {
-    position: absolute;
-    inset-block-start: -0.8rem;
-    inset-inline-start: var(--space-3);
-    padding: 0.15rem 0.6rem;
-    background: var(--paper);
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-  }
-
-  .sample h3 {
-    font-size: var(--step-2);
-  }
-
-  .sample ul {
-    display: grid;
-    gap: 0.3rem;
-    margin-block-start: var(--space-1);
-    padding: 0;
-  }
-
-  .sample ul li {
-    padding-inline-start: 1.2em;
-    font-family: var(--font-mono);
-    font-size: var(--step--1);
-    background: linear-gradient(var(--accent), var(--accent)) 0 0.7em / 0.6em 1.5px no-repeat;
-  }
-
-  .more {
-    margin-block-start: var(--space-4);
-  }
-
-  .more a {
-    display: inline-block;
-    padding-block: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: var(--step--1);
   }
 </style>
