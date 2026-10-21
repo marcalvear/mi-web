@@ -8,6 +8,7 @@ import type { CollectionEntry } from "astro:content";
 import type { Lang } from "../../i18n/ui";
 import type { CompendioText } from "../../i18n/compendio";
 import NewTab from "../NewTab.astro";
+import FavStar from "./FavStar.astro";
 
 type Product = NonNullable<CollectionEntry<"suplementos">["data"]["productos"]>[number];
 
@@ -19,8 +20,10 @@ interface Props {
   heading: string;
   /** h4 dentro de una ficha; h3 al final de un problema */
   level?: 3 | 4;
+  /** Con los textos de la estrella, cada producto se puede guardar (#81) */
+  fav?: CompendioText["fav"];
 }
-const { products, lang, text: c, id, heading, level = 4 } = Astro.props;
+const { products, lang, text: c, id, heading, level = 4, fav } = Astro.props;
 const Heading = level === 3 ? "h3" : "h4";
 const photos = import.meta.glob<{ default: ImageMetadata }>("../../assets/img/compendio/*.webp", { eager: true });
 const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.default;
@@ -33,7 +36,7 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
       products.map((p) => {
         const img = photo(p.foto);
         return (
-          <li class="product">
+          <li class="product" id={fav ? p.id : undefined}>
             <div class="photo">
               {img && (
                 <Picture
@@ -46,10 +49,13 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
                 />
               )}
             </div>
-            <p class="label brand">
-              {p.marca}
-              {p.pais && <span class="origin"> · {p.pais[lang]}</span>}
-            </p>
+            <div class="top">
+              <p class="label brand">
+                {p.marca}
+                {p.pais && <span class="origin"> · {p.pais[lang]}</span>}
+              </p>
+              {fav && <FavStar id={p.id} name={p.nombre} text={fav} />}
+            </div>
             <p class="product-name">{p.nombre}</p>
             <dl class="product-data">
               {p.datos.map((d) => (
@@ -131,8 +137,21 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
     }
   }
 
+  .top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-1);
+  }
+
   .brand {
     color: var(--lab);
+  }
+
+  /* Para el enlace desde Mi espacio: que no quede bajo el borde de arriba */
+  .product[id] {
+    scroll-margin-block-start: var(--space-4);
   }
 
   .origin {

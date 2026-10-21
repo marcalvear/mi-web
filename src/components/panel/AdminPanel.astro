@@ -24,7 +24,11 @@ const id = (field: string) => `panel-${field}-${lang}`;
 const stats = ["users", "messages", "unread", "pending"] as const;
 const filters = ["all", "unread", "pending"] as const;
 // Nombre de cada ficha del compendio: en favorites solo está su id (#67)
-const sheets = Object.fromEntries((await getCollection("suplementos")).map((s) => [s.id, s.data.nombre[lang]]));
+// y de cada producto que junta varios, que también se guarda (#81)
+const sheets = Object.fromEntries([
+  ...(await getCollection("suplementos")).map((s) => [s.id, s.data.nombre[lang]]),
+  ...(await getCollection("problemas")).flatMap((p) => (p.data.productos ?? []).map((prod) => [prod.id, prod.nombre])),
+]);
 ---
 
 <Base lang={lang} title={c.meta.title} description={c.meta.description} path="panel/" noindex>
