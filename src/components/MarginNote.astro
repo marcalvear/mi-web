@@ -33,7 +33,15 @@ const { label } = Astro.props;
       float: right;
       clear: right;
       width: 30ch;
-      margin-inline: var(--space-4) calc(var(--space-6) * -1);
+      margin-inline: var(--space-4) 0;
+    }
+  }
+
+  /* Solo se sale de la columna cuando queda sitio a la derecha: antes de
+     unos 1320 px asomaba fuera de la pantalla (#77) */
+  @media (min-width: 84rem) {
+    .margin-note {
+      margin-inline-end: calc(var(--space-6) * -1);
     }
   }
 </style>
