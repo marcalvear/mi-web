@@ -1,0 +1,95 @@
+{
+  "nombre": {
+    "es": "Creatina",
+    "en": "Creatine"
+  },
+  "tipo": {
+    "es": "Aminoácido",
+    "en": "Amino acid"
+  },
+  "evidencia": "moderada",
+  "zona": "semanas",
+  "porQue": {
+    "es": "Un metaanálisis de 16 ensayos sale a favor en memoria y atención, pero la EFSA revisó lo mismo y no aceptó que mejore las funciones mentales. Funciona mejor cuando falta sueño.",
+    "en": "A meta-analysis of 16 trials comes out in favour for memory and attention, but EFSA reviewed the same evidence and didn't accept that it improves mental function. It works better when you're short of sleep."
+  },
+  "resumen": {
+    "es": "Es la reserva de energía rápida de los músculos y también del cerebro. Es el suplemento deportivo más estudiado y, para la cabeza, ayuda algo a la memoria, sobre todo cuando no has dormido.",
+    "en": "It's the quick energy reserve of muscles and also of the brain. It's the most studied sports supplement and, for the mind, it helps memory a little, especially when you haven't slept."
+  },
+  "mecanismo": {
+    "es": "Las células guardan energía como fosfocreatina para recargarse en segundos cuando la gastan de golpe. El cerebro gasta mucha energía, y cuando falta sueño se le acaba esa reserva. Tomando creatina a diario, la reserva sube poco a poco en unas semanas.",
+    "en": "Cells store energy as phosphocreatine to recharge in seconds when they use it up suddenly. The brain uses a lot of energy, and when you're short of sleep that reserve runs low. Taking creatine daily, the reserve rises gradually over a few weeks."
+  },
+  "dosis": {
+    "es": "3 a 5 g de creatina monohidrato al día",
+    "en": "3 to 5 g of creatine monohydrate a day"
+  },
+  "cuando": {
+    "es": "A cualquier hora, todos los días; lo que cuenta es la constancia",
+    "en": "Any time, every day; what counts is consistency"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 16 ensayos con 492 personas, la creatina mejoró la memoria, la atención y la velocidad para procesar información frente a placebo, pero no el funcionamiento mental en general. El efecto fue mayor en mujeres y en personas con alguna enfermedad.",
+        "en": "In 16 trials with 492 people, creatine improved memory, attention and processing speed compared with placebo, but not overall mental function. The effect was larger in women and in people with an illness."
+      },
+      "fuente": "39070254"
+    },
+    {
+      "texto": {
+        "es": "En una noche sin dormir, una sola dosis alta (0,35 g por kilo de peso) mejoró las pruebas de rendimiento mental de las horas siguientes frente a placebo. Es un ensayo pequeño y con una dosis muy por encima de la normal.",
+        "en": "During a night without sleep, a single high dose (0.35 g per kilo of body weight) improved mental performance tests over the following hours compared with placebo. It's a small trial with a dose far above the usual one."
+      },
+      "fuente": "38418482"
+    },
+    {
+      "texto": {
+        "es": "La EFSA, que decide qué se puede decir en la etiqueta en Europa, revisó 23 estudios en 2024 y concluyó que no está demostrado que la creatina mejore las funciones mentales.",
+        "en": "EFSA, which decides what labels can claim in Europe, reviewed 23 studies in 2024 and concluded it isn't proven that creatine improves mental function."
+      },
+      "fuente": "39564533"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes una enfermedad del riñón, no la tomes sin hablar con tu médico. En gente sana, a 3-5 g, no daña el riñón, pero sube un poco la creatinina de los análisis: avisa si te los hacen.",
+      "en": "If you have kidney disease, don't take it without talking to your doctor. In healthy people, at 3–5 g, it doesn't harm the kidneys, but it slightly raises creatinine in blood tests: mention it if you get tested."
+    },
+    {
+      "es": "Puede subir uno o dos kilos de peso por el agua que guarda el músculo.",
+      "en": "It can add a kilo or two of weight from the water muscles hold."
+    },
+    {
+      "es": "Busca creatina monohidrato sola; el sello Creapure garantiza su pureza.",
+      "en": "Look for plain creatine monohydrate; the Creapure seal guarantees its purity."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Xu C, Bi S, Zhang W, et al.",
+      "anio": 2024,
+      "titulo": "The effects of creatine supplementation on cognitive function in adults: a systematic review and meta-analysis",
+      "revista": "Front Nutr 11:1424972",
+      "pmid": "39070254",
+      "doi": "10.3389/fnut.2024.1424972"
+    },
+    {
+      "autores": "Gordji-Nejad A, Matusch A, Kleedörfer S, et al.",
+      "anio": 2024,
+      "titulo": "Single dose creatine improves cognitive performance and induces changes in cerebral high energy phosphates during sleep deprivation",
+      "revista": "Sci Rep 14(1):4937",
+      "pmid": "38418482",
+      "doi": "10.1038/s41598-024-54249-9"
+    },
+    {
+      "autores": "EFSA Panel on Nutrition, Novel Foods and Food Allergens (NDA)",
+      "anio": 2024,
+      "titulo": "Creatine and improvement in cognitive function: Evaluation of a health claim pursuant to article 13(5) of regulation (EC) No 1924/2006",
+      "revista": "EFSA J 22(11):e9100",
+      "pmid": "39564533",
+      "doi": "10.2903/j.efsa.2024.9100"
+    }
+  ]
+}

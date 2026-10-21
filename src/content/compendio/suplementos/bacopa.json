@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Bacopa",
+    "en": "Bacopa"
+  },
+  "tipo": {
+    "es": "Planta ayurvédica",
+    "en": "Ayurvedic herb"
+  },
+  "evidencia": "moderada",
+  "zona": "meses",
+  "porQue": {
+    "es": "Un metaanálisis de 9 ensayos con placebo, de buena calidad, sale a favor en la velocidad de atención. Pero los efectos son pequeños y solo aparecen tras unas 12 semanas.",
+    "en": "A meta-analysis of 9 good-quality placebo-controlled trials comes out in favour for speed of attention. But the effects are small and only appear after about 12 weeks."
+  },
+  "resumen": {
+    "es": "Es una planta de la medicina tradicional india. Tomada a diario durante meses, hace un poco más rápida la atención y ayuda a recordar lo aprendido. No es para notarlo el día del examen.",
+    "en": "It's a plant from traditional Indian medicine. Taken daily for months, it makes attention a little faster and helps you remember what you've learned. It's not something you'll notice on exam day."
+  },
+  "mecanismo": {
+    "es": "Sus compuestos, los bacósidos, parecen ayudar a que las neuronas se conecten mejor y las protegen del daño oxidativo. Ese cambio es lento: por eso los ensayos que funcionan duran al menos 12 semanas.",
+    "en": "Its compounds, bacosides, seem to help neurons connect better and protect them from oxidative damage. That change is slow: that's why the trials that work last at least 12 weeks."
+  },
+  "dosis": {
+    "es": "300 mg al día de extracto estandarizado en bacósidos",
+    "en": "300 mg a day of extract standardised for bacosides"
+  },
+  "cuando": {
+    "es": "Con el desayuno o la comida, durante al menos 12 semanas",
+    "en": "With breakfast or lunch, for at least 12 weeks"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "Juntando 9 ensayos con 518 personas que la tomaron al menos 12 semanas, la bacopa acortó el tiempo de una prueba de atención y de reacción frente a placebo.",
+        "en": "Pooling 9 trials with 518 people who took it for at least 12 weeks, bacopa shortened the time on an attention test and reaction time compared with placebo."
+      },
+      "fuente": "24252493"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Puede dar náuseas, gases o soltar el vientre; con comida se tolera mejor.",
+      "en": "It can cause nausea, wind or loose stools; with food it's easier to tolerate."
+    },
+    {
+      "es": "Si tomas medicación para la tiroides, antidepresivos o fármacos que dan sueño, consúltalo antes.",
+      "en": "If you take thyroid medication, antidepressants or drugs that make you drowsy, check first."
+    },
+    {
+      "es": "En embarazo y lactancia, mejor no tomarla.",
+      "en": "In pregnancy and breastfeeding, better not to take it."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Kongkeaw C, Dilokthornsakul P, Thanarangsarit P, et al.",
+      "anio": 2014,
+      "titulo": "Meta-analysis of randomized controlled trials on cognitive effects of Bacopa monnieri extract",
+      "revista": "J Ethnopharmacol 151(1):528-535",
+      "pmid": "24252493",
+      "doi": "10.1016/j.jep.2013.11.008"
+    }
+  ]
+}
