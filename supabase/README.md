@@ -74,6 +74,10 @@ En **Authentication**:
    y enlace:
    - **Subject:** `Tu código para entrar · Your sign-in code`
    - **Body** (pestaña *Source*): [`templates/magic-link.html`](templates/magic-link.html).
+   - **Confirm signup** (desde el registro abierto, #67): a quien entra por
+     primera vez, Supabase le manda esta plantilla en vez de *Magic link*.
+     La de serie solo trae el enlace, así que lleva el mismo asunto y el mismo
+     cuerpo que *Magic link*.
 
 4. **Rate Limits:** con el registro abierto, cualquiera puede hacer que la
    web mande un correo a un email. Supabase lo frena por hora y por IP. Me
