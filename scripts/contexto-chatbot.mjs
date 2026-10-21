@@ -149,6 +149,11 @@ const LABELS = {
 // nombres propios («Sintrom», «Vitamina K»)
 const lowerFirst = (text) => text.charAt(0).toLowerCase() + text.slice(1);
 
+// Cada problema tiene su página (#105): la ficha completa está en el primero
+// (por orden) en el que sale
+const homeOf = new Map();
+problems.forEach((pr) => pr.suplementos.forEach((id) => homeOf.has(id) || homeOf.set(id, pr.id)));
+
 function compendioFor(lang) {
   const t = compendio[lang];
   const L = LABELS[lang];
@@ -160,7 +165,7 @@ function compendioFor(lang) {
   const index = [
     L.index,
     ...problems.flatMap((pr) => [
-      `- ${pr.nombre[lang]} (${page}#${pr.id}): ${pr.suplementos
+      `- ${pr.nombre[lang]} (${page}${pr.id}/): ${pr.suplementos
         .map((id) => supplements.get(id))
         .filter(Boolean)
         .map((s) => `${s.nombre[lang]} [${t.evidence[s.evidencia].toLowerCase()}; ${noDot(s.dosis[lang])}]`)
@@ -169,7 +174,7 @@ function compendioFor(lang) {
     "",
   ];
   const detail = Object.fromEntries(problems.map((pr) => [pr.id, [
-      `${L.problem}: ${pr.nombre[lang].toUpperCase()} (${page}#${pr.id})`,
+      `${L.problem}: ${pr.nombre[lang].toUpperCase()} (${page}${pr.id}/)`,
       `- ${pr.intro[lang]}`,
       `- ${L.body}: ${pr.queOcurre[lang]}`,
       `- ${L.combine}: ${pr.combinar[lang]}`,
@@ -182,7 +187,7 @@ function compendioFor(lang) {
         const s = supplements.get(id);
         if (!s) return [];
         return [
-          `${L.sheet}: ${s.nombre[lang]} (${s.tipo[lang]}) · ${page}#${id}`,
+          `${L.sheet}: ${s.nombre[lang]} (${s.tipo[lang]}) · ${page}${homeOf.get(id)}/#${id}`,
           `- ${L.what}: ${s.resumen[lang]}`,
           `- ${L.evidence}: ${evidence(s.evidencia)}. ${L.why}: ${s.porQue[lang]}`,
           `- ${L.how}: ${s.mecanismo[lang]}`,
