@@ -95,9 +95,11 @@ const lines = [
   "- Cada bloque de la web tiene su issue, su rama y su pull request en github.com/marcalvear/mi-web.",
 ];
 
-// El compendio entero, para el modo boticario, en los dos idiomas: el Worker
-// elige el de la página para que no mezcle datos en español en una respuesta
-// en inglés
+// El compendio para el modo boticario, en los dos idiomas: el Worker elige el
+// de la página para que no mezcle datos en español en una respuesta en inglés.
+// Va en trozos (#103): un índice corto de todo y el detalle de cada problema,
+// y el Worker manda solo el del problema que se está leyendo, para gastar
+// menos cupo de Workers AI
 const LABELS = {
   es: {
     notice: "Aviso de la página",
@@ -118,6 +120,7 @@ const LABELS = {
     bundle: "Producto que junta varios suplementos de este problema",
     source: "Fuente",
     price: "precio",
+    index: "ÍNDICE DEL COMPENDIO (el detalle solo está en el problema que se está leyendo)",
   },
   en: {
     notice: "Notice on the page",
@@ -138,6 +141,7 @@ const LABELS = {
     bundle: "Product that combines several supplements in this problem",
     source: "Source",
     price: "price",
+    index: "COMPENDIUM INDEX (full detail only for the problem being read)",
   },
 };
 
@@ -151,11 +155,20 @@ function compendioFor(lang) {
   const page = lang === "es" ? PAGE : PAGE.replace("/mi-web/", "/mi-web/en/");
   const noDot = (text) => text.replace(/\.$/, "");
   const evidence = (level) => `${t.evidence[level]} (${noDot(t.legend[level])})`;
-  return [
-    `${t.title.toUpperCase()}: ${page}`,
-    `${L.notice}: ${t.disclaimer.text}`,
-    "",
+  const head = [`${t.title.toUpperCase()}: ${page}`, `${L.notice}: ${t.disclaimer.text}`, ""];
+  // Una línea por ficha: nombre, evidencia y dosis, para orientar sin el detalle
+  const index = [
+    L.index,
     ...problems.flatMap((pr) => [
+      `- ${pr.nombre[lang]} (${page}#${pr.id}): ${pr.suplementos
+        .map((id) => supplements.get(id))
+        .filter(Boolean)
+        .map((s) => `${s.nombre[lang]} [${t.evidence[s.evidencia].toLowerCase()}; ${noDot(s.dosis[lang])}]`)
+        .join("; ")}`,
+    ]),
+    "",
+  ];
+  const detail = Object.fromEntries(problems.map((pr) => [pr.id, [
       `${L.problem}: ${pr.nombre[lang].toUpperCase()} (${page}#${pr.id})`,
       `- ${pr.intro[lang]}`,
       `- ${L.body}: ${pr.queOcurre[lang]}`,
@@ -202,11 +215,19 @@ function compendioFor(lang) {
             "",
           ]
         : []),
-    ]),
-  ];
+    ]]));
+  return { head, index, detail };
 }
 const compendioEs = compendioFor("es");
 const compendioEn = compendioFor("en");
+const piece = (c) => `{
+    index: \`${clean([...c.head, ...c.index])}\`,
+    problems: {
+${Object.entries(c.detail)
+  .map(([id, l]) => `      ${JSON.stringify(id)}: \`${clean(l)}\`,`)
+  .join("\n")}
+    },
+  }`;
 
 const clean = (l) => l.join("\n").replaceAll("`", "'").replaceAll("${", "$ {");
 const file = `// GENERADO por scripts/contexto-chatbot.mjs a partir de src/i18n y
@@ -215,13 +236,14 @@ const file = `// GENERADO por scripts/contexto-chatbot.mjs a partir de src/i18n 
 
 export const CONTEXT = \`${clean(lines)}\`;
 
-// El compendio entero para el modo boticario (#69), en el idioma de la página
+// El compendio para el modo boticario (#69), en el idioma de la página: el
+// índice de todo y el detalle de cada problema por separado (#103)
 export const COMPENDIO = {
-  es: \`${clean(compendioEs)}\`,
-  en: \`${clean(compendioEn)}\`,
+  es: ${piece(compendioEs)},
+  en: ${piece(compendioEn)},
 };
 `;
 await writeFile(OUT, file);
 console.log(
-  `Contexto del asistente: ${lines.length} líneas; compendio: ${compendioEs.length} líneas por idioma → ${fileURLToPath(OUT)}`,
+  `Contexto del asistente: ${lines.length} líneas; compendio: índice de ${compendioEs.index.length} líneas y ${Object.keys(compendioEs.detail).length} problemas de ${Math.min(...Object.values(compendioEs.detail).map((l) => l.length))} a ${Math.max(...Object.values(compendioEs.detail).map((l) => l.length))} líneas → ${fileURLToPath(OUT)}`,
 );

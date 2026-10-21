@@ -384,6 +384,18 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
   }
 
   document.querySelectorAll<HTMLElement>("[data-bench]").forEach(setup);
+
+  // El Boticario recibe solo el detalle del problema que se está leyendo (#103):
+  // el que ocupa el centro de la pantalla
+  const chat = document.querySelector<HTMLElement>("[data-marc-ia]");
+  const problems = [...document.querySelectorAll<HTMLElement>("section.entry[id]")].filter((s) => s.querySelector("[data-bench]"));
+  if (chat && problems.length) {
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => e.isIntersecting && (chat.dataset.problem = e.target.id)),
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    problems.forEach((s) => io.observe(s));
+  }
 </script>
 
 <script>
