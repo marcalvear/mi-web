@@ -14,7 +14,7 @@ interface Props {
 }
 const { lang } = Astro.props;
 const c = auth[lang];
-const contact = `${getRelativeLocaleUrl(lang)}#contacto`;
+const privacy = getRelativeLocaleUrl(lang, "privacidad/");
 const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
 const adminPanel = getRelativeLocaleUrl(lang, "panel/");
 // Solo lo que necesita el script
@@ -31,7 +31,14 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
 
     <MarginNote label={c.noteLabel}>{c.note}</MarginNote>
 
-    <div class="card" data-signin data-space={mySpace} data-panel-url={adminPanel} data-text={JSON.stringify(text)}>
+    <div
+      class="card"
+      data-signin
+      data-base={import.meta.env.BASE_URL}
+      data-space={mySpace}
+      data-panel-url={adminPanel}
+      data-text={JSON.stringify(text)}
+    >
       <noscript><p>{c.noscript}</p></noscript>
 
       <p class="label" data-panel="loading" hidden>{c.loading}</p>
@@ -51,12 +58,12 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
           data-focus
         />
         <p class="help">{c.email.help}</p>
+        <p class="from" data-from hidden>{c.email.fromStar}</p>
         <div class="row">
           <Button type="submit" data-submit>{c.email.submit}</Button>
         </div>
         <p class="help">
-          {c.email.noAccount} <a href={contact}>{c.email.noAccountLink}</a>{" "}
-          {c.email.noAccountEnd}
+          {c.email.privacy} <a href={privacy}>{c.email.privacyLink}</a>.
         </p>
       </form>
 
@@ -115,8 +122,9 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
   type Step = "loading" | "setup" | "email" | "code" | "in";
 
   const COOLDOWN = 60; // Supabase no deja pedir otro código antes de 60 s
-  // Errores que salen cuando el email no tiene cuenta (ver sendCode)
-  const NO_ACCOUNT = ["otp_disabled", "signup_disabled", "user_not_found"];
+  // Adónde volver tras entrar (la ficha del compendio que se quería guardar).
+  // Se guarda al pedir el código porque el enlace del correo vuelve aquí sin ?next
+  const NEXT = "mi-web:volver";
 
   const root = document.querySelector<HTMLElement>("[data-signin]");
   if (root) init(root);
@@ -134,6 +142,41 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
 
     let email = "";
     let timer = 0;
+
+    // Solo rutas de esta web: si no, ?next= serviría para mandar a la gente a otro sitio
+    function safeNext(raw: string | null): string | null {
+      if (!raw) return null;
+      try {
+        const url = new URL(raw, location.origin);
+        if (url.origin !== location.origin || !url.pathname.startsWith(root.dataset.base!)) return null;
+        return url.pathname + url.search + url.hash;
+      } catch {
+        return null;
+      }
+    }
+
+    const nextParam = safeNext(new URLSearchParams(location.search).get("next"));
+    $("[data-from]").hidden = !nextParam;
+
+    const storage = {
+      get: () => {
+        try {
+          return safeNext(localStorage.getItem(NEXT));
+        } catch {
+          return null;
+        }
+      },
+      set: (v: string) => {
+        try {
+          localStorage.setItem(NEXT, v);
+        } catch {}
+      },
+      clear: () => {
+        try {
+          localStorage.removeItem(NEXT);
+        } catch {}
+      },
+    };
 
     function show(step: Step, focus = true) {
       panels.forEach((p) => (p.hidden = p.dataset.panel !== step));
@@ -160,6 +203,8 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
       if (error.status === 429 || error.code?.startsWith("over_")) return t.errors.rate;
       if (error.code === "otp_expired") return t.errors.badCode;
       if (error.code === "email_address_not_authorized") return t.errors.mailOff;
+      // Con «Allow new users to sign up» apagado en Supabase, un email nuevo da este error
+      if (error.code === "signup_disabled" || error.code === "otp_disabled") return t.errors.signupOff;
       return t.errors.generic;
     }
 
@@ -180,19 +225,19 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
       const { error } = await supabase!.auth.signInWithOtp({
         email,
         options: {
-          // Las cuentas las crea n8n al recibir el formulario, no esta página
-          shouldCreateUser: false,
+          // Registro abierto (#67): si el email no tiene cuenta, se crea al
+          // entrar. El trigger on_auth_user_created le hace el perfil
+          shouldCreateUser: true,
           // El enlace del correo vuelve a esta misma página (ES o EN)
           emailRedirectTo: location.origin + location.pathname,
         },
       });
-      // Si el email no tiene cuenta, Supabase da error, pero la página
-      // responde igual que si la tuviera: así nadie puede averiguar
-      // quién me ha escrito probando emails.
-      if (error && !NO_ACCOUNT.includes(error.code ?? "")) {
+      if (error) {
         say(explain(error), true);
         return false;
       }
+      if (nextParam) storage.set(nextParam);
+      else storage.clear();
       startCooldown();
       return true;
     }
@@ -213,8 +258,12 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
       }
     }
 
-    // Recién entrado, cada uno va a lo suyo: yo al panel (#32), el resto a su espacio (#31)
+    // Recién entrado, cada uno va a lo suyo: a la ficha que quería guardar, si
+    // viene del compendio; si no, yo al panel (#32) y el resto a su espacio (#31)
     async function home(user: User) {
+      const next = nextParam ?? storage.get();
+      storage.clear();
+      if (next) return next;
       const { data } = await supabase!.from("profiles").select("role").eq("id", user.id).maybeSingle();
       return data?.role === "admin" ? root.dataset.panelUrl! : root.dataset.space!;
     }
@@ -310,6 +359,11 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
         location.replace(await home(user));
         return;
       }
+      // Ya tenía sesión y viene de la estrella: de vuelta a la ficha
+      if (nextParam) {
+        location.replace(await home(user));
+        return;
+      }
       signedIn(user, false);
     } else {
       show("email", false);
@@ -391,6 +445,14 @@ const text = { email: c.email, code: c.code, in: c.in, errors: c.errors };
 
   .help {
     color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  /* Viene de la estrella de una ficha: se lo recuerdo en verde de laboratorio */
+  .from {
+    padding: var(--space-1) var(--space-2);
+    border-left: 2px solid var(--lab);
+    background: var(--lab-soft);
     font-size: var(--step--1);
   }
 
