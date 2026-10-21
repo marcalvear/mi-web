@@ -31,6 +31,13 @@
   --lab: #1f6b4f;          /* (5,7:1 sobre el papel) */
   --lab-soft: #e1ede5;     /* fondo de los datos destacados; tinta encima 13:1 */
 
+  /* Videojuegos (#71): un tono por juego. Bloodborne no tiene: su sección va
+     siempre a oscuras */
+  --zelda: #2c6a3a;        /* (5,8:1 sobre el papel) */
+  --zelda-soft: #e2ecd9;
+  --pokemon: #b8141b;      /* (5,9:1) */
+  --pokemon-soft: #f8e1dd;
+
   /* Tipografía */
   --font-serif: "Newsreader Variable", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
   --font-mono: "JetBrains Mono Variable", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -79,6 +86,10 @@
     --mark: #5c4a12;
     --lab: #6fd3a8;
     --lab-soft: #1c2d27;
+    --zelda: #93d49f;
+    --zelda-soft: #1d2a20;
+    --pokemon: #ff8a80;
+    --pokemon-soft: #2e1c1d;
   }
 }
 
@@ -97,4 +108,8 @@
   --mark: #5c4a12;
   --lab: #6fd3a8;
   --lab-soft: #1c2d27;
+  --zelda: #93d49f;
+  --zelda-soft: #1d2a20;
+  --pokemon: #ff8a80;
+  --pokemon-soft: #2e1c1d;
 }
