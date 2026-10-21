@@ -8,17 +8,21 @@ interface Props {
   title: string;
   /** Nota corta a la derecha del título: fecha, estado… */
   meta?: string;
+  /** Si la entrada es la página entera (cada problema del compendio), el
+      antetítulo hace de h1 y el título queda en h2, sin saltar niveles (#105) */
+  page?: boolean;
 }
-const { id, number, kicker, title, meta } = Astro.props;
+const { id, number, kicker, title, meta, page = false } = Astro.props;
+const Kicker = page ? "h1" : "p";
 const n = String(number).padStart(2, "0");
 ---
 
 <section class="entry" id={id} aria-labelledby={`${id}-title`}>
   <header class="entry-head">
-    <p class="label">
+    <Kicker class="label entry-kicker">
       <span class="num">{n}</span>
       <span>{kicker}</span>
-    </p>
+    </Kicker>
     <h2 id={`${id}-title`}>{title}</h2>
     {meta && <p class="label meta">{meta}</p>}
   </header>
@@ -28,6 +32,15 @@ const n = String(number).padStart(2, "0");
 </section>
 
 <style>
+  /* Como h1 sigue pareciendo la etiqueta de siempre */
+  h1.entry-kicker {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 0.06em;
+  }
+
   .entry {
     padding-block: var(--space-6);
     border-top: 1px dashed var(--rule);

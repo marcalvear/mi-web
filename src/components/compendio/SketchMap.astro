@@ -31,67 +31,117 @@ interface Props {
   placed: (MapMarker & { x: number; y: number })[];
   markers: MapMarker[];
   text: { title: string; desc: string; hint: string };
+  /** Miniatura para las tarjetas del índice: solo el dibujo, ya trazado (#105) */
+  thumb?: boolean;
 }
-const { viewBox, idPrefix, groups, placed, markers, text } = Astro.props;
+const { viewBox, idPrefix, groups, placed, markers, text, thumb = false } = Astro.props;
 const ids = { title: `${idPrefix}-titulo`, desc: `${idPrefix}-desc` };
 ---
 
-<figure class="map" data-map>
-  <svg viewBox={viewBox} role="img" aria-labelledby={`${ids.title} ${ids.desc}`}>
-    <title id={ids.title}>{text.title}</title>
-    <desc id={ids.desc}>{text.desc}</desc>
-
-    <g class="organs" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      {
-        groups.map((o) => (
-          <g data-zone-shape={o.zone}>
+{
+  thumb ? (
+    <svg class="thumb" viewBox={viewBox} aria-hidden="true" focusable="false">
+      {/* Sin la clase «organs»: esa se dibuja con la animación de trazo */}
+      <g class="sketch" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        {groups.map((o) => (
+          <g>
             {o.hachure.map((d) => (
               <path class="hachure" d={d} />
             ))}
             {o.details.map((d) => (
-              <path class="detail" d={d} pathLength="1" />
+              <path class="detail" d={d} />
             ))}
             {o.outline.map((d) => (
-              <path class="outline" d={d} pathLength="1" />
+              <path class="outline" d={d} />
             ))}
           </g>
-        ))
-      }
-    </g>
+        ))}
+      </g>
+    </svg>
+  ) : (
+    <figure class="map" data-map>
+      <svg viewBox={viewBox} role="img" aria-labelledby={`${ids.title} ${ids.desc}`}>
+        <title id={ids.title}>{text.title}</title>
+        <desc id={ids.desc}>{text.desc}</desc>
 
-    <slot />
+        <g class="organs" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          {
+            groups.map((o) => (
+              <g data-zone-shape={o.zone}>
+                {o.hachure.map((d) => (
+                  <path class="hachure" d={d} />
+                ))}
+                {o.details.map((d) => (
+                  <path class="detail" d={d} pathLength="1" />
+                ))}
+                {o.outline.map((d) => (
+                  <path class="outline" d={d} pathLength="1" />
+                ))}
+              </g>
+            ))
+          }
+        </g>
 
-    <g class="markers" aria-hidden="true">
-      {
-        placed.map((m) => (
-          <g class="marker" data-marker={m.id} data-zone={m.zone} transform={`translate(${m.x} ${m.y})`}>
-            <circle r="11" />
-            <text y="4" text-anchor="middle">{m.n}</text>
-          </g>
-        ))
-      }
-    </g>
-  </svg>
+        <slot />
 
-  <figcaption>
-    <p class="hint">{text.hint}</p>
-    <ol class="legend" role="list">
-      {
-        markers.map((m) => (
-          <li>
-            <button type="button" class="pick" data-pick={m.id} aria-pressed="false">
-              <span class="n" aria-hidden="true">{m.n}</span>
-              <span>{m.name}</span>
-              <span class="zone">{m.zoneName}</span>
-            </button>
-          </li>
-        ))
-      }
-    </ol>
-  </figcaption>
-</figure>
+        <g class="markers" aria-hidden="true">
+          {
+            placed.map((m) => (
+              <g class="marker" data-marker={m.id} data-zone={m.zone} transform={`translate(${m.x} ${m.y})`}>
+                <circle r="11" />
+                <text y="4" text-anchor="middle">{m.n}</text>
+              </g>
+            ))
+          }
+        </g>
+      </svg>
+
+      <figcaption>
+        <p class="hint">{text.hint}</p>
+        <ol class="legend" role="list">
+          {
+            markers.map((m) => (
+              <li>
+                <button type="button" class="pick" data-pick={m.id} aria-pressed="false">
+                  <span class="n" aria-hidden="true">{m.n}</span>
+                  <span>{m.name}</span>
+                  <span class="zone">{m.zoneName}</span>
+                </button>
+              </li>
+            ))
+          }
+        </ol>
+      </figcaption>
+    </figure>
+  )
+}
 
 <style>
+  /* La miniatura no se anima: ya sale dibujada y en tinta suave */
+  .thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink-soft);
+  }
+
+  .thumb .outline,
+  .thumb .detail {
+    stroke: currentColor;
+    stroke-width: 1.6;
+  }
+
+  .thumb .detail {
+    stroke-width: 1.1;
+    opacity: 0.6;
+  }
+
+  .thumb .hachure {
+    stroke: currentColor;
+    stroke-width: 0.7;
+    opacity: 0.22;
+  }
+
   .map {
     margin: 0;
     padding: var(--space-2);

@@ -10,8 +10,9 @@ import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
 interface Props {
   markers: MapMarker[];
   text: CompendioText["season"];
+  thumb?: boolean;
 }
-const { markers, text } = Astro.props;
+const { markers, text, thumb = false } = Astro.props;
 
 const X0 = 30;
 const W = 340 / 12;
@@ -73,7 +74,7 @@ const placed = markers.map((m) => {
 const months = text.months;
 ---
 
-<SketchMap viewBox="0 0 400 290" idPrefix="temporada" groups={groups} placed={placed} markers={markers} text={text}>
+<SketchMap viewBox="0 0 400 290" idPrefix="temporada" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
   <g class="names" font-size="10">
     {
       months.map((m, i) => (
