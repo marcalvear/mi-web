@@ -50,6 +50,7 @@ COMPENDIO DE BIOHACKING
 - Digestiones pesadas: Enzimas digestivas, Aceite de menta y alcaravea, Extracto de hoja de alcachofa, Jengibre.
 - Envejecer mejor: Luteína y zeaxantina, Astaxantina, Licopeno, Vitamina K (K1 y K2), NAC (N-acetilcisteína), Colágeno hidrolizado, Vitamina C.
 - Dormir mejor: Melatonina, Magnesio, Glicina, L-teanina.
+- Concentrarse mejor: Cafeína con L-teanina, Creatina, Bacopa, Melena de león.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -257,6 +258,52 @@ FICHA: L-teanina (Aminoácido del té) · https://marcalvear.github.io/mi-web/bi
 - Precauciones: Si tomas medicación para la tensión, puede bajarla un poco más. En embarazo y lactancia no hay datos suficientes: mejor no tomarla.
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Thorne, Theanine (Estados Unidos): lleva 200 mg de L-teanina por cápsula; toma 1 cápsula, de 1 a 3 veces al día; bote 90 cápsulas; precio 68 $ (90 cápsulas). https://www.thorne.com/products/dp/theanine
+
+PROBLEMA: CONCENTRARSE MEJOR (https://marcalvear.github.io/mi-web/biohacking/#concentrarse-mejor)
+- Leer la misma línea tres veces, perder el hilo en clase o quedarse en blanco a media tarde. Lo que más pesa es dormir bien, moverse y no tener el móvil al lado. Después, algunos suplementos tienen estudios, y cada uno tarda un tiempo muy distinto en notarse.
+- Qué pasa en el cuerpo: Concentrarse gasta mucha energía: el cerebro pesa un 2 % del cuerpo y usa una quinta parte de la energía. Durante el día se acumula adenosina, la molécula que da sueño, y si has dormido poco se acaban antes las reservas de energía de las neuronas. Algunos suplementos actúan en minutos sobre la alerta, otros tardan semanas en llenar esas reservas y otros meses en cambiar cómo se conectan las neuronas. La línea de tiempo de al lado lo ordena.
+- Combinarlos: Ningún ensayo probó estos cuatro juntos. La cafeína con L-teanina es para un momento concreto; la creatina y la bacopa son de tomar a diario y esperar. Si quieres probar algo de fondo, empieza por uno y dale el tiempo que marca la línea antes de juzgarlo.
+- Ve al médico antes que a un suplemento si además: te olvidas de cosas recientes o te pierdes en sitios conocidos; la falta de concentración llegó con tristeza, apatía o ansiedad; te cuesta concentrarte desde siempre y te afecta en los estudios o el trabajo (puede ser TDAH); estás muy cansado aunque duermas bien.
+
+FICHA: Cafeína con L-teanina (Estimulante y aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#cafeina-l-teanina
+- Qué es: Es la pareja del té: la cafeína despierta y la L-teanina quita los nervios. Juntas mejoran la atención en tareas exigentes durante las dos primeras horas.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Dos metaanálisis de ensayos con placebo salen a favor en atención y alerta, pero con efectos moderados, a corto plazo y con bastante incertidumbre.
+- Cómo funciona: La cafeína tapa los receptores de la adenosina, la molécula que se acumula durante el día y da sueño, así que el cansancio se nota menos. La L-teanina sube las ondas alfa, las de estar tranquilo y atento, y suaviza el nerviosismo y el bajón de la cafeína sola.
+- Dosis estudiada: Unos 100 mg de cafeína con 200 mg de L-teanina, más o menos un café con una cápsula. Cuándo: Unos 30 minutos antes de la tarea, y nunca después de las 16:00.
+- Qué encontraron los estudios:
+  - En los ensayos agrupados, la combinación mejoró la alerta y la precisión al cambiar de tarea durante las dos primeras horas, con un efecto moderado. La dosis de cafeína pesó más que la de L-teanina. [Camfield DA et al., 2014, Nutr Rev 72(8):507-522, PMID 24946991]
+  - Una revisión de 50 ensayos de 2025 encuentra mejoras en la vigilancia y en la precisión al cambiar de tarea con L-teanina y cafeína, pero los intervalos son amplios. Parte de los autores trabajan para una marca de té. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
+- Precauciones: No pases de 400 mg de cafeína al día entre todo (café, té, refrescos); en el embarazo, de 200 mg. Si tienes ansiedad, arritmias o la tensión alta, consúltalo antes. Tomada por la tarde estropea el sueño, aunque no lo notes.
+
+FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#creatina
+- Qué es: Es la reserva de energía rápida de los músculos y también del cerebro. Es el suplemento deportivo más estudiado y, para la cabeza, ayuda algo a la memoria, sobre todo cuando no has dormido.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 16 ensayos sale a favor en memoria y atención, pero la EFSA revisó lo mismo y no aceptó que mejore las funciones mentales. Funciona mejor cuando falta sueño.
+- Cómo funciona: Las células guardan energía como fosfocreatina para recargarse en segundos cuando la gastan de golpe. El cerebro gasta mucha energía, y cuando falta sueño se le acaba esa reserva. Tomando creatina a diario, la reserva sube poco a poco en unas semanas.
+- Dosis estudiada: 3 a 5 g de creatina monohidrato al día. Cuándo: A cualquier hora, todos los días; lo que cuenta es la constancia.
+- Qué encontraron los estudios:
+  - En 16 ensayos con 492 personas, la creatina mejoró la memoria, la atención y la velocidad para procesar información frente a placebo, pero no el funcionamiento mental en general. El efecto fue mayor en mujeres y en personas con alguna enfermedad. [Xu C et al., 2024, Front Nutr 11:1424972, PMID 39070254]
+  - En una noche sin dormir, una sola dosis alta (0,35 g por kilo de peso) mejoró las pruebas de rendimiento mental de las horas siguientes frente a placebo. Es un ensayo pequeño y con una dosis muy por encima de la normal. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
+  - La EFSA, que decide qué se puede decir en la etiqueta en Europa, revisó 23 estudios en 2024 y concluyó que no está demostrado que la creatina mejore las funciones mentales. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
+- Precauciones: Si tienes una enfermedad del riñón, no la tomes sin hablar con tu médico. En gente sana, a 3-5 g, no daña el riñón, pero sube un poco la creatinina de los análisis: avisa si te los hacen. Puede subir uno o dos kilos de peso por el agua que guarda el músculo. Busca creatina monohidrato sola; el sello Creapure garantiza su pureza.
+
+FICHA: Bacopa (Planta ayurvédica) · https://marcalvear.github.io/mi-web/biohacking/#bacopa
+- Qué es: Es una planta de la medicina tradicional india. Tomada a diario durante meses, hace un poco más rápida la atención y ayuda a recordar lo aprendido. No es para notarlo el día del examen.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 9 ensayos con placebo, de buena calidad, sale a favor en la velocidad de atención. Pero los efectos son pequeños y solo aparecen tras unas 12 semanas.
+- Cómo funciona: Sus compuestos, los bacósidos, parecen ayudar a que las neuronas se conecten mejor y las protegen del daño oxidativo. Ese cambio es lento: por eso los ensayos que funcionan duran al menos 12 semanas.
+- Dosis estudiada: 300 mg al día de extracto estandarizado en bacósidos. Cuándo: Con el desayuno o la comida, durante al menos 12 semanas.
+- Qué encontraron los estudios:
+  - Juntando 9 ensayos con 518 personas que la tomaron al menos 12 semanas, la bacopa acortó el tiempo de una prueba de atención y de reacción frente a placebo. [Kongkeaw C et al., 2014, J Ethnopharmacol 151(1):528-535, PMID 24252493]
+- Precauciones: Puede dar náuseas, gases o soltar el vientre; con comida se tolera mejor. Si tomas medicación para la tiroides, antidepresivos o fármacos que dan sueño, consúltalo antes. En embarazo y lactancia, mejor no tomarla.
+
+FICHA: Melena de león (Hongo) · https://marcalvear.github.io/mi-web/biohacking/#melena-de-leon
+- Qué es: Es un hongo blanco con forma de melena. En el laboratorio estimula el crecimiento de las neuronas; en personas, las pruebas todavía son flojas.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Es de lo más buscado, pero en personas hay pocos ensayos, pequeños, y una sola dosis no mejoró la cognición en general.
+- Cómo funciona: Lleva compuestos, las hericenonas y las erinacinas, que en células y animales hacen que se fabrique más factor de crecimiento nervioso, una proteína que ayuda a las neuronas a crecer y conectarse. Que eso pase igual en un cerebro humano con la dosis de una cápsula está por demostrar.
+- Dosis estudiada: De 1 a 3 g al día de seta entera o extracto. Cuándo: Con una comida, a diario durante semanas.
+- Qué encontraron los estudios:
+  - En adultos jóvenes sanos, una sola dosis de extracto no mejoró la cognición ni el ánimo en conjunto frente a placebo; solo mejoró una prueba de destreza manual a los 90 minutos. [Surendran G et al., 2025, Front Nutr 12:1405796, PMID 40276537]
+  - Una revisión de 2025 reúne cinco ensayos con placebo y tres pilotos, sobre todo en personas mayores con deterioro cognitivo, con mejoras pequeñas en una prueba de memoria. La mayoría de lo que se sabe viene del laboratorio. [Menon A et al., 2025, Front Nutr 12:1641246, PMID 40959699]
+- Precauciones: Si tienes alergia a las setas, no la tomes. En embarazo, lactancia o si tomas anticoagulantes, consúltalo antes: hay muy pocos datos.
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -450,5 +497,51 @@ SHEET: L-theanine (Tea amino acid) · https://marcalvear.github.io/mi-web/en/bio
 - Cautions: If you take blood pressure medication, it may lower it a little more. In pregnancy and breastfeeding there isn't enough data: better not to take it.
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Thorne, Theanine (United States): contains 200 mg of L-theanine per capsule; dose 1 capsule, 1 to 3 times a day; bottle 90 capsules; price $68 (90 capsules). https://www.thorne.com/products/dp/theanine
+
+PROBLEM: FOCUSING BETTER (https://marcalvear.github.io/mi-web/en/biohacking/#concentrarse-mejor)
+- Reading the same line three times, losing the thread in class or going blank mid-afternoon. What matters most is sleeping well, moving and keeping your phone away. After that, some supplements have studies, and each takes a very different time to be noticed.
+- What's going on in the body: Focusing uses a lot of energy: the brain weighs 2% of the body and uses a fifth of its energy. During the day adenosine builds up, the molecule that makes you sleepy, and if you've slept little the neurons' energy reserves run out sooner. Some supplements act on alertness in minutes, others take weeks to fill those reserves and others months to change how neurons connect. The timeline beside it puts them in order.
+- Combining them: No trial tested these four together. Caffeine with L-theanine is for a specific moment; creatine and bacopa are for taking daily and waiting. If you want to try something long-term, start with one and give it the time the timeline shows before judging it.
+- See a doctor before trying a supplement if you also: you forget recent things or get lost in familiar places; the lack of focus came with sadness, apathy or anxiety; you've always struggled to focus and it affects your studies or work (it may be ADHD); you're very tired even though you sleep well.
+
+SHEET: Caffeine with L-theanine (Stimulant and amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#cafeina-l-teanina
+- What it is: It's the pairing in tea: caffeine wakes you up and L-theanine takes away the jitters. Together they improve attention on demanding tasks during the first two hours.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: Two meta-analyses of placebo-controlled trials come out in favour for attention and alertness, but with moderate effects, short-term and with quite a bit of uncertainty.
+- How it works: Caffeine blocks the receptors for adenosine, the molecule that builds up during the day and makes you sleepy, so tiredness is felt less. L-theanine raises alpha waves, the ones of being calm and alert, and smooths the jitters and crash of caffeine alone.
+- Dose studied: About 100 mg of caffeine with 200 mg of L-theanine, roughly a coffee with one capsule. When: About 30 minutes before the task, and never after 4 pm.
+- What the studies found:
+  - In the pooled trials, the combination improved alertness and accuracy when switching tasks during the first two hours, with a moderate effect. The caffeine dose mattered more than the L-theanine dose. [Camfield DA et al., 2014, Nutr Rev 72(8):507-522, PMID 24946991]
+  - A 2025 review of 50 trials finds improvements in vigilance and task-switching accuracy with L-theanine and caffeine, but the ranges are wide. Some of the authors work for a tea brand. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
+- Cautions: Don't go over 400 mg of caffeine a day from everything (coffee, tea, soft drinks); in pregnancy, 200 mg. If you have anxiety, an irregular heartbeat or high blood pressure, check first. Taken in the afternoon it spoils your sleep, even if you don't notice.
+
+SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#creatina
+- What it is: It's the quick energy reserve of muscles and also of the brain. It's the most studied sports supplement and, for the mind, it helps memory a little, especially when you haven't slept.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 16 trials comes out in favour for memory and attention, but EFSA reviewed the same evidence and didn't accept that it improves mental function. It works better when you're short of sleep.
+- How it works: Cells store energy as phosphocreatine to recharge in seconds when they use it up suddenly. The brain uses a lot of energy, and when you're short of sleep that reserve runs low. Taking creatine daily, the reserve rises gradually over a few weeks.
+- Dose studied: 3 to 5 g of creatine monohydrate a day. When: Any time, every day; what counts is consistency.
+- What the studies found:
+  - In 16 trials with 492 people, creatine improved memory, attention and processing speed compared with placebo, but not overall mental function. The effect was larger in women and in people with an illness. [Xu C et al., 2024, Front Nutr 11:1424972, PMID 39070254]
+  - During a night without sleep, a single high dose (0.35 g per kilo of body weight) improved mental performance tests over the following hours compared with placebo. It's a small trial with a dose far above the usual one. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
+  - EFSA, which decides what labels can claim in Europe, reviewed 23 studies in 2024 and concluded it isn't proven that creatine improves mental function. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
+- Cautions: If you have kidney disease, don't take it without talking to your doctor. In healthy people, at 3–5 g, it doesn't harm the kidneys, but it slightly raises creatinine in blood tests: mention it if you get tested. It can add a kilo or two of weight from the water muscles hold. Look for plain creatine monohydrate; the Creapure seal guarantees its purity.
+
+SHEET: Bacopa (Ayurvedic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#bacopa
+- What it is: It's a plant from traditional Indian medicine. Taken daily for months, it makes attention a little faster and helps you remember what you've learned. It's not something you'll notice on exam day.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 9 good-quality placebo-controlled trials comes out in favour for speed of attention. But the effects are small and only appear after about 12 weeks.
+- How it works: Its compounds, bacosides, seem to help neurons connect better and protect them from oxidative damage. That change is slow: that's why the trials that work last at least 12 weeks.
+- Dose studied: 300 mg a day of extract standardised for bacosides. When: With breakfast or lunch, for at least 12 weeks.
+- What the studies found:
+  - Pooling 9 trials with 518 people who took it for at least 12 weeks, bacopa shortened the time on an attention test and reaction time compared with placebo. [Kongkeaw C et al., 2014, J Ethnopharmacol 151(1):528-535, PMID 24252493]
+- Cautions: It can cause nausea, wind or loose stools; with food it's easier to tolerate. If you take thyroid medication, antidepressants or drugs that make you drowsy, check first. In pregnancy and breastfeeding, better not to take it.
+
+SHEET: Lion's mane (Mushroom) · https://marcalvear.github.io/mi-web/en/biohacking/#melena-de-leon
+- What it is: It's a white mushroom shaped like a mane. In the lab it stimulates nerve growth; in people, the evidence is still weak.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: It's one of the most searched for, but in people there are few, small trials, and a single dose didn't improve cognition overall.
+- How it works: It contains compounds, hericenones and erinacines, that in cells and animals boost nerve growth factor, a protein that helps neurons grow and connect. Whether that happens the same way in a human brain at a capsule's dose is yet to be shown.
+- Dose studied: 1 to 3 g a day of whole mushroom or extract. When: With a meal, daily for weeks.
+- What the studies found:
+  - In healthy young adults, a single dose of extract didn't improve overall cognition or mood compared with placebo; it only improved a manual dexterity test at 90 minutes. [Surendran G et al., 2025, Front Nutr 12:1405796, PMID 40276537]
+  - A 2025 review brings together five placebo-controlled trials and three pilot studies, mostly in older people with cognitive decline, with small improvements on a memory test. Most of what's known comes from the lab. [Menon A et al., 2025, Front Nutr 12:1641246, PMID 40959699]
+- Cautions: If you're allergic to mushrooms, don't take it. In pregnancy, breastfeeding or if you take blood thinners, check first: there's very little data.
 `,
 };
