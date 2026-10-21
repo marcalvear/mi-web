@@ -76,5 +76,58 @@
       "pmid": "22643043",
       "doi": "10.1186/1472-6882-12-70"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-rhodiola-500",
+      "marca": "NOW Foods",
+      "nombre": "Rhodiola 500 mg",
+      "foto": "now-rhodiola.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Rhodiola 500 mg de NOW.",
+        "en": "White bottle with orange label of NOW Rhodiola 500 mg."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "500 mg de extracto con un 3 % de rosavinas y un 1 % de salidrosida",
+            "en": "500 mg of extract with 3% rosavins and 1% salidroside"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula",
+            "en": "1 capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "60 cápsulas",
+            "en": "60 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "36,99 $",
+        "en": "$36.99"
+      }
+    }
   ]
 }

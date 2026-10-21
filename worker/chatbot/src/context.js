@@ -192,6 +192,8 @@ FICHA: Colágeno hidrolizado (Proteína) · https://marcalvear.github.io/mi-web/
   - Con 23 ensayos y 1.474 personas, el efecto se ve en los ensayos que paga la industria, pero no en los que no reciben ese dinero ni en los de más calidad. Los autores concluyen que hoy no hay pruebas clínicas para usarlo contra el envejecimiento de la piel. [Myung SK et al., 2025, Am J Med 138(9):1264-1277, PMID 40324552]
   - En 87 mujeres de 40 a 65 años, 5 g de colágeno con 80 mg de vitamina C durante 16 semanas mejoraron la densidad de la piel y las arrugas frente a placebo, pero no la elasticidad ni la hidratación. [Žmitek K et al., 2024, Nutrients 16(12):1908, PMID 38931263]
 - Precauciones: Suele venir de pescado, vaca o cerdo: si tienes alergia al pescado o no comes carne, mira el origen. Lo que más protege la piel es el protector solar y no fumar; el colágeno no lo sustituye.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Vital Proteins, Collagen Peptides (Estados Unidos): lleva 20 g de péptidos de colágeno de vaca por toma, sin sabor; bote 9,33 oz (264 g); precio 27 $. https://www.vitalproteins.com/products/vp-collagen-peptides
 
 FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-c
 - Qué es: El cuerpo la necesita para fabricar colágeno y no la puede hacer. Tomada a diario no evita los resfriados, pero los acorta un poco, y protege a quien hace esfuerzos muy duros.
@@ -277,6 +279,8 @@ FICHA: Cafeína con L-teanina (Estimulante y aminoácido) · https://marcalvear.
   - En los ensayos agrupados, la combinación mejoró la alerta y la precisión al cambiar de tarea durante las dos primeras horas, con un efecto moderado. La dosis de cafeína pesó más que la de L-teanina. [Camfield DA et al., 2014, Nutr Rev 72(8):507-522, PMID 24946991]
   - Una revisión de 50 ensayos de 2025 encuentra mejoras en la vigilancia y en la precisión al cambiar de tarea con L-teanina y cafeína, pero los intervalos son amplios. Parte de los autores trabajan para una marca de té. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
 - Precauciones: No pases de 400 mg de cafeína al día entre todo (café, té, refrescos); en el embarazo, de 200 mg. Si tienes ansiedad, arritmias o la tensión alta, consúltalo antes. Tomada por la tarde estropea el sueño, aunque no lo notes.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, L-Theanine Double Strength 200 mg (Estados Unidos): lleva 200 mg de L-teanina con inositol; la cafeína la pone tu café; toma 1 cápsula; bote 60 cápsulas; precio 19,49 $. https://www.nowfoods.com/products/supplements/l-theanine-double-strength-200-mg-veg-capsules
 
 FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#creatina
 - Qué es: Es la reserva de energía rápida de los músculos y también del cerebro. Con entrenamiento da más fuerza y más músculo, y para la cabeza ayuda algo a la memoria, sobre todo cuando no has dormido.
@@ -289,6 +293,8 @@ FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/
   - En una noche sin dormir, una sola dosis alta (0,35 g por kilo de peso) mejoró las pruebas de rendimiento mental de las horas siguientes frente a placebo. Es un ensayo pequeño y con una dosis muy por encima de la normal. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
   - La EFSA, que decide qué se puede decir en la etiqueta en Europa, revisó 23 estudios en 2024 y concluyó que no está demostrado que la creatina mejore las funciones mentales. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
 - Precauciones: Si tienes una enfermedad del riñón, no la tomes sin hablar con tu médico. En gente sana, a 3-5 g, no daña el riñón, pero sube un poco la creatinina de los análisis: avisa si te los hacen. Puede subir uno o dos kilos de peso por el agua que guarda el músculo. Busca creatina monohidrato sola; el sello Creapure garantiza su pureza.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Myprotein, THE Creatine Creapure (Reino Unido): lleva Creatina monohidrato Creapure, fabricada en Alemania; toma 3 a 5 g al día; bote 250 g, 500 g o 1 kg; precio 31,99 € (250 g) o 52,99 € (500 g); cambia con las ofertas. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
 FICHA: Bacopa (Planta ayurvédica) · https://marcalvear.github.io/mi-web/biohacking/#bacopa
 - Qué es: Es una planta de la medicina tradicional india. Tomada a diario durante meses, hace un poco más rápida la atención y ayuda a recordar lo aprendido. No es para notarlo el día del examen.
@@ -298,6 +304,8 @@ FICHA: Bacopa (Planta ayurvédica) · https://marcalvear.github.io/mi-web/biohac
 - Qué encontraron los estudios:
   - Juntando 9 ensayos con 518 personas que la tomaron al menos 12 semanas, la bacopa acortó el tiempo de una prueba de atención y de reacción frente a placebo. [Kongkeaw C et al., 2014, J Ethnopharmacol 151(1):528-535, PMID 24252493]
 - Precauciones: Puede dar náuseas, gases o soltar el vientre; con comida se tolera mejor. Si tomas medicación para la tiroides, antidepresivos o fármacos que dan sueño, consúltalo antes. En embarazo y lactancia, mejor no tomarla.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Bacopa Extract 450 mg (Estados Unidos): lleva 450 mg de extracto con un 40 % de bacósidos; toma 1 cápsula al día; bote 90 cápsulas; precio 33,99 $. https://www.nowfoods.com/products/supplements/bacopa-extract-450-mg-veg-capsules
 
 FICHA: Melena de león (Hongo) · https://marcalvear.github.io/mi-web/biohacking/#melena-de-leon
 - Qué es: Es un hongo blanco con forma de melena. En el laboratorio estimula el crecimiento de las neuronas; en personas, las pruebas todavía son flojas.
@@ -308,6 +316,8 @@ FICHA: Melena de león (Hongo) · https://marcalvear.github.io/mi-web/biohacking
   - En adultos jóvenes sanos, una sola dosis de extracto no mejoró la cognición ni el ánimo en conjunto frente a placebo; solo mejoró una prueba de destreza manual a los 90 minutos. [Surendran G et al., 2025, Front Nutr 12:1405796, PMID 40276537]
   - Una revisión de 2025 reúne cinco ensayos con placebo y tres pilotos, sobre todo en personas mayores con deterioro cognitivo, con mejoras pequeñas en una prueba de memoria. La mayoría de lo que se sabe viene del laboratorio. [Menon A et al., 2025, Front Nutr 12:1641246, PMID 40959699]
 - Precauciones: Si tienes alergia a las setas, no la tomes. En embarazo, lactancia o si tomas anticoagulantes, consúltalo antes: hay muy pocos datos.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Hifas da Terra, Mico-Leo (España): lleva Extracto ecológico de melena de león con vitamina C; bolsa 60 cápsulas, para un mes; precio 42,50 €. https://hifasdaterra.com/en/products/mico-leo-extract-vitamin-c
 
 PROBLEMA: MENOS ESTRÉS (https://marcalvear.github.io/mi-web/biohacking/#menos-estres)
 - La mandíbula apretada, el pecho encogido o la cabeza que no para por la noche. Lo que más baja el estrés no viene en cápsula: dormir, moverse, salir al sol y hablarlo con alguien. Estas fichas son un apoyo, no un sustituto.
@@ -324,6 +334,8 @@ FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/b
   - Juntando 9 ensayos con 558 personas, la ashwagandha bajó el estrés percibido, la ansiedad y el cortisol en sangre frente a placebo. Cuatro ensayos describieron efectos secundarios leves o moderados. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
   - En 60 adultos sanos estresados, 250 y 600 mg al día durante 8 semanas bajaron el estrés y el cortisol frente a placebo, y mejoraron la calidad del sueño. Con 600 mg el efecto fue mayor. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
 - Precauciones: Se han descrito casos raros de daño en el hígado: si notas la orina oscura, la piel amarilla o cansancio extraño, déjala y ve al médico. No la tomes si estás embarazada, das el pecho o tienes una enfermedad del tiroides o autoinmune sin hablar antes con tu médico. Puede sumarse a los sedantes y a la medicación para la tensión o el azúcar.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (Estados Unidos): lleva 300 mg de extracto de raíz KSM-66 por cápsula; toma 2 cápsulas al día; bote 120 cápsulas; precio 24,99 $. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
 
 FICHA: Lavanda (Silexan) (Aceite de lavanda en cápsula) · https://marcalvear.github.io/mi-web/biohacking/#lavanda
 - Qué es: Es un aceite de lavanda en cápsula, no el que se huele. A 80 mg al día baja la ansiedad, y no da sueño ni engancha.
@@ -333,7 +345,7 @@ FICHA: Lavanda (Silexan) (Aceite de lavanda en cápsula) · https://marcalvear.g
 - Qué encontraron los estudios:
   - En 5 ensayos con más de 600 personas con trastorno de ansiedad, 80 mg al día de Silexan bajaron la ansiedad tanto como la paroxetina, un antidepresivo, y 160 mg algo más. [Yap WS et al., 2019, Sci Rep 9(1):18042, PMID 31792285]
   - Un resumen de los ensayos del laboratorio que lo fabrica: en personas con ansiedad que no llega a trastorno, 80 mg al día durante 10 semanas bajaron la ansiedad y mejoraron el sueño frente a placebo. [Kasper S et al., 2010, Wien Med Wochenschr 160(21-22):547-556, PMID 21170695]
-- Precauciones: Lo más frecuente es eructar con sabor a lavanda. Si tomas antidepresivos o ansiolíticos, no lo añadas sin hablar con tu médico. No es para una crisis de ansiedad: tarda unas semanas en notarse.
+- Precauciones: Lo más frecuente es eructar con sabor a lavanda. Si tomas antidepresivos o ansiolíticos, no lo añadas sin hablar con tu médico. No es para una crisis de ansiedad: tarda unas semanas en notarse. En España el Silexan se vende en farmacia como medicamento a base de plantas (Lasea), para la ansiedad leve y como mucho 3 meses: por eso aquí no va como producto.
 
 FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#rhodiola
 - Qué es: Es una raíz de las montañas frías del norte. Se usa para el cansancio por estrés: en un ensayo con personas quemadas mejoró la concentración y bajó el cortisol al despertar.
@@ -344,6 +356,8 @@ FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/bioh
   - En 60 personas con agotamiento por estrés (burnout), 576 mg al día durante 4 semanas mejoraron la concentración y bajaron el cortisol al despertar frente a placebo. El grupo placebo también mejoró bastante. [Olsson EM et al., 2009, Planta Med 75(2):105-112, PMID 19016404]
   - Una revisión de 11 ensayos encontró que tres de cinco salían a favor en la fatiga mental, pero todos tenían riesgo de sesgo o fallos al contar los resultados. [Ishaque S et al., 2012, BMC Complement Altern Med 12:70, PMID 22643043]
 - Precauciones: Puede dar nerviosismo o insomnio si se toma tarde. Si tienes trastorno bipolar o tomas antidepresivos, consúltalo antes. En embarazo y lactancia, mejor no tomarla.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Rhodiola 500 mg (Estados Unidos): lleva 500 mg de extracto con un 3 % de rosavinas y un 1 % de salidrosida; toma 1 cápsula; bote 60 cápsulas; precio 36,99 $. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
 
 FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#magnesio
 - Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores o con mucho estrés.
@@ -375,6 +389,8 @@ FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/
   - En una noche sin dormir, una sola dosis alta (0,35 g por kilo de peso) mejoró las pruebas de rendimiento mental de las horas siguientes frente a placebo. Es un ensayo pequeño y con una dosis muy por encima de la normal. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
   - La EFSA, que decide qué se puede decir en la etiqueta en Europa, revisó 23 estudios en 2024 y concluyó que no está demostrado que la creatina mejore las funciones mentales. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
 - Precauciones: Si tienes una enfermedad del riñón, no la tomes sin hablar con tu médico. En gente sana, a 3-5 g, no daña el riñón, pero sube un poco la creatinina de los análisis: avisa si te los hacen. Puede subir uno o dos kilos de peso por el agua que guarda el músculo. Busca creatina monohidrato sola; el sello Creapure garantiza su pureza.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Myprotein, THE Creatine Creapure (Reino Unido): lleva Creatina monohidrato Creapure, fabricada en Alemania; toma 3 a 5 g al día; bote 250 g, 500 g o 1 kg; precio 31,99 € (250 g) o 52,99 € (500 g); cambia con las ofertas. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
 FICHA: Proteína de suero (Proteína de la leche) · https://marcalvear.github.io/mi-web/biohacking/#proteina-suero
 - Qué es: Es la proteína del suero de la leche, la que se separa al hacer queso. No es mágica: sirve para llegar a la proteína que necesitas si entrenas fuerza, y con ella se gana algo más de músculo.
@@ -384,6 +400,8 @@ FICHA: Proteína de suero (Proteína de la leche) · https://marcalvear.github.i
 - Qué encontraron los estudios:
   - En 49 ensayos con 1.863 personas que entrenaban fuerza, la proteína añadida subió la fuerza máxima unos 2,5 kg y la masa magra unos 0,3 kg más que sin ella. Por encima de 1,6 g por kilo al día no hubo más ganancia, y el efecto fue menor con la edad. [Morton RW et al., 2018, Br J Sports Med 52(6):376-384, PMID 28698222]
 - Precauciones: Si tienes intolerancia a la lactosa, busca el aislado, que casi no lleva; si eres alérgico a la leche, no la tomes. Si tienes una enfermedad del riñón, consulta antes cuánta proteína puedes tomar. Es comida, no un suplemento milagro: si ya llegas a tu proteína con la dieta, no suma.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Myprotein, Impact Whey Protein (Reino Unido): lleva Proteína de suero concentrada, analizada por Informed Protein; bolsa 1 kg, unas 33 tomas; también 2,5 kg; precio 39,99 € (1 kg); cambia con las ofertas. https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/
 
 FICHA: Cereza ácida Montmorency (Zumo de fruta concentrado) · https://marcalvear.github.io/mi-web/biohacking/#cereza-acida
 - Qué es: Es una cereza muy ácida, rica en antocianos, los pigmentos rojos. En zumo concentrado ayuda a recuperar antes la fuerza tras un esfuerzo duro, aunque las agujetas no bajan.
@@ -403,6 +421,8 @@ FICHA: Omega-3 (EPA y DHA) (Ácidos grasos del pescado) · https://marcalvear.gi
   - En 12 ensayos, los omega-3 bajaron las agujetas tras ejercicio excéntrico, pero menos de lo que una persona llega a notar, y no mejoraron la fuerza. La calidad de las pruebas es baja. [Lv ZT et al., 2020, Biomed Res Int 2020:8062017, PMID 32382573]
   - Con 9 ensayos con placebo, en 2026 los omega-3 bajaron las agujetas, la hinchazón y un marcador de daño muscular, y mejoraron la fuerza en el peor momento. Los autores avisan de fallos de método en casi todo lo publicado. [Yaghoobi E et al., 2026, Nutrients 18(9):1447, PMID 42124047]
 - Precauciones: Si tomas anticoagulantes o te van a operar, consúltalo: a dosis altas puede aumentar el sangrado. Puede repetir a pescado; tomado con comida se nota menos. Si eres alérgico al pescado, busca omega-3 de algas.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Sports Research, Triple Strength Omega-3 Fish Oil (Estados Unidos): lleva 1.040 mg de omega-3 por cápsula, de abadejo de Alaska; toma 2 a 3 cápsulas para llegar a la dosis estudiada; bote 90 cápsulas; precio 31,63 $ (90 cápsulas). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -528,6 +548,8 @@ SHEET: Hydrolysed collagen (Protein) · https://marcalvear.github.io/mi-web/en/b
   - With 23 trials and 1,474 people, the effect shows up in trials paid for by industry, but not in those without that money or in the higher-quality ones. The authors conclude there's no clinical evidence today to use it against skin ageing. [Myung SK et al., 2025, Am J Med 138(9):1264-1277, PMID 40324552]
   - In 87 women aged 40 to 65, 5 g of collagen with 80 mg of vitamin C for 16 weeks improved skin density and wrinkles compared with placebo, but not elasticity or hydration. [Žmitek K et al., 2024, Nutrients 16(12):1908, PMID 38931263]
 - Cautions: It usually comes from fish, beef or pork: if you're allergic to fish or don't eat meat, check the source. What protects skin most is sunscreen and not smoking; collagen doesn't replace them.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Vital Proteins, Collagen Peptides (United States): contains 20 g of bovine collagen peptides per serving, unflavoured; tub 9.33 oz (264 g); price $27. https://www.vitalproteins.com/products/vp-collagen-peptides
 
 SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-c
 - What it is: The body needs it to make collagen and can't make it itself. Taken daily it doesn't prevent colds, but it shortens them a little, and it protects people doing very hard exertion.
@@ -613,6 +635,8 @@ SHEET: Caffeine with L-theanine (Stimulant and amino acid) · https://marcalvear
   - In the pooled trials, the combination improved alertness and accuracy when switching tasks during the first two hours, with a moderate effect. The caffeine dose mattered more than the L-theanine dose. [Camfield DA et al., 2014, Nutr Rev 72(8):507-522, PMID 24946991]
   - A 2025 review of 50 trials finds improvements in vigilance and task-switching accuracy with L-theanine and caffeine, but the ranges are wide. Some of the authors work for a tea brand. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
 - Cautions: Don't go over 400 mg of caffeine a day from everything (coffee, tea, soft drinks); in pregnancy, 200 mg. If you have anxiety, an irregular heartbeat or high blood pressure, check first. Taken in the afternoon it spoils your sleep, even if you don't notice.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, L-Theanine Double Strength 200 mg (United States): contains 200 mg of L-theanine with inositol; your coffee supplies the caffeine; dose 1 capsule; bottle 60 capsules; price $19.49. https://www.nowfoods.com/products/supplements/l-theanine-double-strength-200-mg-veg-capsules
 
 SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#creatina
 - What it is: It's the quick energy reserve of muscles and also of the brain. With training it gives more strength and more muscle, and for the mind it helps memory a little, especially when you haven't slept.
@@ -625,6 +649,8 @@ SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohackin
   - During a night without sleep, a single high dose (0.35 g per kilo of body weight) improved mental performance tests over the following hours compared with placebo. It's a small trial with a dose far above the usual one. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
   - EFSA, which decides what labels can claim in Europe, reviewed 23 studies in 2024 and concluded it isn't proven that creatine improves mental function. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
 - Cautions: If you have kidney disease, don't take it without talking to your doctor. In healthy people, at 3–5 g, it doesn't harm the kidneys, but it slightly raises creatinine in blood tests: mention it if you get tested. It can add a kilo or two of weight from the water muscles hold. Look for plain creatine monohydrate; the Creapure seal guarantees its purity.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Myprotein, THE Creatine Creapure (United Kingdom): contains Creapure creatine monohydrate, made in Germany; dose 3 to 5 g a day; tub 250 g, 500 g or 1 kg; price €31.99 (250 g) or €52.99 (500 g); changes with offers. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
 SHEET: Bacopa (Ayurvedic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#bacopa
 - What it is: It's a plant from traditional Indian medicine. Taken daily for months, it makes attention a little faster and helps you remember what you've learned. It's not something you'll notice on exam day.
@@ -634,6 +660,8 @@ SHEET: Bacopa (Ayurvedic herb) · https://marcalvear.github.io/mi-web/en/biohack
 - What the studies found:
   - Pooling 9 trials with 518 people who took it for at least 12 weeks, bacopa shortened the time on an attention test and reaction time compared with placebo. [Kongkeaw C et al., 2014, J Ethnopharmacol 151(1):528-535, PMID 24252493]
 - Cautions: It can cause nausea, wind or loose stools; with food it's easier to tolerate. If you take thyroid medication, antidepressants or drugs that make you drowsy, check first. In pregnancy and breastfeeding, better not to take it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Bacopa Extract 450 mg (United States): contains 450 mg of extract with 40% bacosides; dose 1 capsule a day; bottle 90 capsules; price $33.99. https://www.nowfoods.com/products/supplements/bacopa-extract-450-mg-veg-capsules
 
 SHEET: Lion's mane (Mushroom) · https://marcalvear.github.io/mi-web/en/biohacking/#melena-de-leon
 - What it is: It's a white mushroom shaped like a mane. In the lab it stimulates nerve growth; in people, the evidence is still weak.
@@ -644,6 +672,8 @@ SHEET: Lion's mane (Mushroom) · https://marcalvear.github.io/mi-web/en/biohacki
   - In healthy young adults, a single dose of extract didn't improve overall cognition or mood compared with placebo; it only improved a manual dexterity test at 90 minutes. [Surendran G et al., 2025, Front Nutr 12:1405796, PMID 40276537]
   - A 2025 review brings together five placebo-controlled trials and three pilot studies, mostly in older people with cognitive decline, with small improvements on a memory test. Most of what's known comes from the lab. [Menon A et al., 2025, Front Nutr 12:1641246, PMID 40959699]
 - Cautions: If you're allergic to mushrooms, don't take it. In pregnancy, breastfeeding or if you take blood thinners, check first: there's very little data.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Hifas da Terra, Mico-Leo (Spain): contains Organic lion's mane extract with vitamin C; pouch 60 capsules, for a month; price €42.50. https://hifasdaterra.com/en/products/mico-leo-extract-vitamin-c
 
 PROBLEM: LESS STRESS (https://marcalvear.github.io/mi-web/en/biohacking/#menos-estres)
 - A clenched jaw, a tight chest or a head that won't stop at night. What lowers stress most doesn't come in a capsule: sleep, movement, sunlight and talking to someone. These sheets are a support, not a substitute.
@@ -660,6 +690,8 @@ SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/
   - Pooling 9 trials with 558 people, ashwagandha lowered perceived stress, anxiety and blood cortisol compared with placebo. Four trials described mild or moderate side effects. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
   - In 60 stressed healthy adults, 250 and 600 mg a day for 8 weeks lowered stress and cortisol compared with placebo, and improved sleep quality. At 600 mg the effect was larger. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
 - Cautions: Rare cases of liver damage have been reported: if you notice dark urine, yellow skin or unusual tiredness, stop it and see a doctor. Don't take it if you're pregnant, breastfeeding or have a thyroid or autoimmune disease without talking to your doctor first. It can add to sedatives and to medication for blood pressure or blood sugar.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (United States): contains 300 mg of KSM-66 root extract per capsule; dose 2 capsules a day; bottle 120 capsules; price $24.99. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
 
 SHEET: Lavender (Silexan) (Lavender oil capsule) · https://marcalvear.github.io/mi-web/en/biohacking/#lavanda
 - What it is: It's lavender oil in a capsule, not the kind you smell. At 80 mg a day it lowers anxiety, and it doesn't make you drowsy or get you hooked.
@@ -669,7 +701,7 @@ SHEET: Lavender (Silexan) (Lavender oil capsule) · https://marcalvear.github.io
 - What the studies found:
   - In 5 trials with more than 600 people with an anxiety disorder, 80 mg a day of Silexan lowered anxiety as much as paroxetine, an antidepressant, and 160 mg a little more. [Yap WS et al., 2019, Sci Rep 9(1):18042, PMID 31792285]
   - A summary of trials by the company that makes it: in people with anxiety that doesn't reach a disorder, 80 mg a day for 10 weeks lowered anxiety and improved sleep compared with placebo. [Kasper S et al., 2010, Wien Med Wochenschr 160(21-22):547-556, PMID 21170695]
-- Cautions: The most common effect is burping that tastes of lavender. If you take antidepressants or anti-anxiety medication, don't add it without talking to your doctor. It's not for an anxiety attack: it takes a few weeks to be noticed.
+- Cautions: The most common effect is burping that tastes of lavender. If you take antidepressants or anti-anxiety medication, don't add it without talking to your doctor. It's not for an anxiety attack: it takes a few weeks to be noticed. In Spain Silexan is sold in pharmacies as a herbal medicine (Lasea), for mild anxiety and for 3 months at most: that's why it isn't listed here as a product.
 
 SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#rhodiola
 - What it is: It's a root from cold northern mountains. It's used for stress-related tiredness: in a trial with burned-out people it improved concentration and lowered cortisol on waking.
@@ -680,6 +712,8 @@ SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/bio
   - In 60 people with stress-related exhaustion (burnout), 576 mg a day for 4 weeks improved concentration and lowered cortisol on waking compared with placebo. The placebo group also improved quite a bit. [Olsson EM et al., 2009, Planta Med 75(2):105-112, PMID 19016404]
   - A review of 11 trials found three out of five came out in favour for mental fatigue, but all had a risk of bias or flaws in reporting results. [Ishaque S et al., 2012, BMC Complement Altern Med 12:70, PMID 22643043]
 - Cautions: It can cause jitters or insomnia if taken late. If you have bipolar disorder or take antidepressants, check first. In pregnancy and breastfeeding, better not to take it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Rhodiola 500 mg (United States): contains 500 mg of extract with 3% rosavins and 1% salidroside; dose 1 capsule; bottle 60 capsules; price $36.99. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
 
 SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#magnesio
 - What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older or very stressed people are.
@@ -711,6 +745,8 @@ SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohackin
   - During a night without sleep, a single high dose (0.35 g per kilo of body weight) improved mental performance tests over the following hours compared with placebo. It's a small trial with a dose far above the usual one. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
   - EFSA, which decides what labels can claim in Europe, reviewed 23 studies in 2024 and concluded it isn't proven that creatine improves mental function. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
 - Cautions: If you have kidney disease, don't take it without talking to your doctor. In healthy people, at 3–5 g, it doesn't harm the kidneys, but it slightly raises creatinine in blood tests: mention it if you get tested. It can add a kilo or two of weight from the water muscles hold. Look for plain creatine monohydrate; the Creapure seal guarantees its purity.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Myprotein, THE Creatine Creapure (United Kingdom): contains Creapure creatine monohydrate, made in Germany; dose 3 to 5 g a day; tub 250 g, 500 g or 1 kg; price €31.99 (250 g) or €52.99 (500 g); changes with offers. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
 SHEET: Whey protein (Milk protein) · https://marcalvear.github.io/mi-web/en/biohacking/#proteina-suero
 - What it is: It's the protein from milk whey, what separates when making cheese. It's not magic: it helps you reach the protein you need if you do strength training, and with it you gain a bit more muscle.
@@ -720,6 +756,8 @@ SHEET: Whey protein (Milk protein) · https://marcalvear.github.io/mi-web/en/bio
 - What the studies found:
   - In 49 trials with 1,863 people doing strength training, added protein raised maximum strength by about 2.5 kg and lean mass by about 0.3 kg more than without it. Above 1.6 g per kilo a day there was no extra gain, and the effect was smaller with age. [Morton RW et al., 2018, Br J Sports Med 52(6):376-384, PMID 28698222]
 - Cautions: If you're lactose intolerant, look for isolate, which has almost none; if you're allergic to milk, don't take it. If you have kidney disease, check first how much protein you can have. It's food, not a miracle supplement: if you already reach your protein from your diet, it adds nothing.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Myprotein, Impact Whey Protein (United Kingdom): contains Whey protein concentrate, tested by Informed Protein; pouch 1 kg, about 33 servings; also 2.5 kg; price €39.99 (1 kg); changes with offers. https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/
 
 SHEET: Montmorency tart cherry (Concentrated fruit juice) · https://marcalvear.github.io/mi-web/en/biohacking/#cereza-acida
 - What it is: It's a very sour cherry, rich in anthocyanins, the red pigments. As concentrated juice it helps you get your strength back sooner after hard exercise, although soreness doesn't drop.
@@ -739,5 +777,7 @@ SHEET: Omega-3 (EPA and DHA) (Fish fatty acids) · https://marcalvear.github.io/
   - In 12 trials, omega-3 lowered soreness after eccentric exercise, but by less than a person can notice, and didn't improve strength. The quality of evidence is low. [Lv ZT et al., 2020, Biomed Res Int 2020:8062017, PMID 32382573]
   - With 9 placebo-controlled trials, in 2026 omega-3 lowered soreness, swelling and a muscle damage marker, and improved strength at the worst point. The authors warn of method flaws in almost everything published. [Yaghoobi E et al., 2026, Nutrients 18(9):1447, PMID 42124047]
 - Cautions: If you take blood thinners or are having surgery, check first: at high doses it can increase bleeding. It can repeat on you with a fishy taste; taken with food it's less noticeable. If you're allergic to fish, look for algae-based omega-3.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Sports Research, Triple Strength Omega-3 Fish Oil (United States): contains 1,040 mg of omega-3 per softgel, from Alaska pollock; dose 2 to 3 softgels to reach the studied dose; bottle 90 softgels; price $31.63 (90 softgels). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
 `,
 };

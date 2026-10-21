@@ -106,5 +106,58 @@
       "pmid": "39564533",
       "doi": "10.2903/j.efsa.2024.9100"
     }
+  ],
+  "productos": [
+    {
+      "id": "myprotein-creatine-creapure",
+      "marca": "Myprotein",
+      "nombre": "THE Creatine Creapure",
+      "foto": "myprotein-creatine-creapure.webp",
+      "alt": {
+        "es": "Bote negro de THE Creatine de Myprotein con el sello Creapure.",
+        "en": "Black tub of Myprotein THE Creatine with the Creapure seal."
+      },
+      "url": "https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/",
+      "pais": {
+        "es": "Reino Unido",
+        "en": "United Kingdom"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Creatina monohidrato Creapure, fabricada en Alemania",
+            "en": "Creapure creatine monohydrate, made in Germany"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "3 a 5 g al día",
+            "en": "3 to 5 g a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "250 g, 500 g o 1 kg",
+            "en": "250 g, 500 g or 1 kg"
+          }
+        }
+      ],
+      "precio": {
+        "es": "31,99 € (250 g) o 52,99 € (500 g); cambia con las ofertas",
+        "en": "€31.99 (250 g) or €52.99 (500 g); changes with offers"
+      }
+    }
   ]
 }

@@ -61,5 +61,58 @@
       "pmid": "24252493",
       "doi": "10.1016/j.jep.2013.11.008"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-bacopa-extract",
+      "marca": "NOW Foods",
+      "nombre": "Bacopa Extract 450 mg",
+      "foto": "now-bacopa.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Bacopa Extract de NOW.",
+        "en": "White bottle with orange label of NOW Bacopa Extract."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/bacopa-extract-450-mg-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "450 mg de extracto con un 40 % de bacósidos",
+            "en": "450 mg of extract with 40% bacosides"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula al día",
+            "en": "1 capsule a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "90 cápsulas",
+            "en": "90 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "33,99 $",
+        "en": "$33.99"
+      }
+    }
   ]
 }
