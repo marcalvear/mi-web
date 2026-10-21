@@ -74,9 +74,12 @@ const newTab = external && Tag === "a" ? { target: "_blank", rel: "noopener" } :
     color: var(--ink);
   }
 
-  .button:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 var(--ink);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
   }
 
   .button:disabled {
@@ -94,7 +97,9 @@ const newTab = external && Tag === "a" ? { target: "_blank", rel: "noopener" } :
     transition: transform var(--fast) var(--ease-out);
   }
 
-  .button:hover .arrow {
-    transform: translateX(3px);
+  @media (hover: hover) and (pointer: fine) {
+    .button:hover .arrow {
+      transform: translateX(3px);
+    }
   }
 </style>

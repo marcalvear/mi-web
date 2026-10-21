@@ -94,8 +94,11 @@ const stats = [
     transition: transform var(--fast) var(--ease-out);
   }
 
-  .cta:hover {
-    transform: translate(-1px, -1px);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .cta:hover {
+      transform: translate(-1px, -1px);
+    }
   }
 
   /* Las mismas cifras de instrumento que la cabecera del compendio */

@@ -192,9 +192,12 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     background: var(--paper);
   }
 
-  .cartridge:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 6px 6px 0 var(--tone);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .cartridge:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--tone);
+    }
   }
 
   /* En móvil, los tres en fila y sin el subtítulo, para no tapar la pantalla */
@@ -371,8 +374,10 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     transition: transform var(--slow) var(--ease-out);
   }
 
-  .strip li:hover :global(img) {
-    transform: scale(1.04);
+  @media (hover: hover) and (pointer: fine) {
+    .strip li:hover :global(img) {
+      transform: scale(1.04);
+    }
   }
 
   .pokedex {

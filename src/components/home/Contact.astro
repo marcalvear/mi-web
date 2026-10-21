@@ -85,9 +85,12 @@ const { content } = Astro.props;
   }
 
   /* La flecha sale en diagonal: estos enlaces llevan fuera de la web */
-  .channels a:hover .arrow {
-    transform: translate(4px, -4px);
-    color: var(--accent);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .channels a:hover .arrow {
+      transform: translate(4px, -4px);
+      color: var(--accent);
+    }
   }
 
   @media (min-width: 48rem) {

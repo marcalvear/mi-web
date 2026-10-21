@@ -117,11 +117,14 @@ const links = [
 
   .brand :global(.logo-core) {
     transform-origin: 16px 19px;
-    transition: transform var(--slow) var(--ease-out);
+    transition: transform var(--mid) var(--ease-out);
   }
 
-  .brand:hover :global(.logo-core) {
-    transform: scale(1.35);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .brand:hover :global(.logo-core) {
+      transform: scale(1.35);
+    }
   }
 
   .nav {

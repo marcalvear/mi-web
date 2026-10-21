@@ -250,11 +250,13 @@ const filters = ["all", "naruto", "jojo"] as const;
   }
 
   .card.flip {
-    animation: flip var(--slow) var(--ease-out);
+    animation: flip var(--mid) var(--ease-out);
   }
 
+  /* Empieza medio visible y casi en su sitio: con clics seguidos la tarjeta
+     cambia sin parpadear (#79) */
   @keyframes flip {
-    from { opacity: 0; transform: translateY(8px) rotate(-0.6deg); }
+    from { opacity: 0.4; transform: translateY(3px) rotate(-0.3deg); }
     to { opacity: 1; transform: none; }
   }
 

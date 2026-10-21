@@ -1,5 +1,15 @@
 # Lighthouse
 
+## Ajustes de las animaciones (21/10/2026, #79)
+
+Mismo método.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS |
+|---|---|---|---|---|---|
+| Inicio | 95 | 100 | 100 | 100 | 0 |
+| Videojuegos | 92 | 100 | 100 | 100 | 0 |
+| Compendio | 94 | 100 | 100 | 100 | 0 |
+
 ## Arreglos de la revisión de diseño (21/10/2026, #77)
 
 Mismo método. La 404 no se puede medir: Lighthouse no puntúa páginas que

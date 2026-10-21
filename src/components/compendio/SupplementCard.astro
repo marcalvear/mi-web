@@ -201,7 +201,15 @@ const refId = (pmid: string) => `${entry.id}-ref-${pmid}`;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     cursor: pointer;
-    transition: background var(--fast) var(--ease-out), color var(--fast) var(--ease-out);
+    transition:
+      background var(--fast) var(--ease-out),
+      color var(--fast) var(--ease-out),
+      transform var(--fast) var(--ease-out);
+  }
+
+  /* Se hunde un poco al pulsar, como los botones (#79) */
+  .star:active {
+    transform: scale(0.97);
   }
 
   .star[hidden] {
@@ -231,7 +239,7 @@ const refId = (pmid: string) => `${entry.id}-ref-${pmid}`;
 
   /* Al guardar, la estrella da un pequeño salto, como un sello */
   .star.stamp svg {
-    animation: stamp var(--slow) var(--ease-out);
+    animation: stamp var(--mid) var(--ease-out);
   }
 
   @keyframes stamp {
@@ -356,7 +364,7 @@ const refId = (pmid: string) => `${entry.id}-ref-${pmid}`;
   }
 
   .science[open] .science-body {
-    animation: unfold var(--slow) var(--ease-out);
+    animation: unfold var(--mid) var(--ease-out);
   }
 
   @keyframes unfold {

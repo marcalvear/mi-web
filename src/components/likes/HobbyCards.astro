@@ -81,8 +81,8 @@ const photo = (name: string) => photos[`../../assets/img/${name}.webp`]?.default
     background: var(--sheet);
     border: 1px solid var(--rule);
     transition:
-      transform var(--slow) var(--ease-out),
-      box-shadow var(--slow) var(--ease-out);
+      transform var(--mid) var(--ease-out),
+      box-shadow var(--mid) var(--ease-out);
   }
 
   /* Cada muestra cae un poco torcida, como fichas sueltas */
@@ -90,11 +90,27 @@ const photo = (name: string) => photos[`../../assets/img/${name}.webp`]?.default
   .card:nth-child(2) { rotate: 0.5deg; }
   .card:nth-child(3) { rotate: -0.3deg; }
 
-  /* Al pasar por encima se levanta, y la foto se acerca un poco */
-  .card:hover,
+  /* Al pasar por encima se levanta, y la foto se acerca un poco. Con el
+     teclado también; el hover, solo con ratón, que en el móvil se quedaba
+     puesto tras tocar (#79) */
   .card:focus-within {
     transform: translateY(-6px);
     box-shadow: 5px 8px 0 var(--rule);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 5px 8px 0 var(--rule);
+    }
+
+    .card:hover .photo :global(img) {
+      transform: scale(1.06);
+    }
+
+    .card:hover .arrow {
+      transform: translateX(4px);
+    }
   }
 
   .photo {
@@ -113,7 +129,6 @@ const photo = (name: string) => photos[`../../assets/img/${name}.webp`]?.default
     transition: transform var(--slow) var(--ease-out);
   }
 
-  .card:hover .photo :global(img),
   .card:focus-within .photo :global(img) {
     transform: scale(1.06);
   }
@@ -179,10 +194,6 @@ const photo = (name: string) => photos[`../../assets/img/${name}.webp`]?.default
   .arrow {
     display: inline-block;
     transition: transform var(--fast) var(--ease-out);
-  }
-
-  .card:hover .arrow {
-    transform: translateX(4px);
   }
 
   @media (prefers-reduced-motion: reduce) {

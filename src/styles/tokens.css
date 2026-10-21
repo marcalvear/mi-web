@@ -66,7 +66,8 @@
   /* Movimiento */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --fast: 160ms;
-  --slow: 420ms;
+  --mid: 240ms;            /* interfaz: tarjetas, desplegables, cambios de ficha */
+  --slow: 420ms;           /* fotos y dibujos, nunca en interfaz (#79) */
   --draw: 1400ms;          /* trazado de los diagramas */
 }
 

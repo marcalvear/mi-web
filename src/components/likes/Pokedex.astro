@@ -410,7 +410,7 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
   }
 
   .card.flip {
-    animation: flip var(--slow) var(--ease-out);
+    animation: flip var(--mid) var(--ease-out);
   }
 
   /* Buscando: la ficha anterior se apaga y lleva un sello, como una entrada
@@ -458,8 +458,10 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
     }
   }
 
+  /* Empieza medio visible y casi en su sitio: con búsquedas seguidas la ficha
+     cambia sin parpadear (#79) */
   @keyframes flip {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0.4; transform: translateY(3px); }
     to { opacity: 1; transform: none; }
   }
 
@@ -600,11 +602,21 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
     border: 1px solid var(--ink);
   }
 
+  /* Cada barra crece desde la izquierda al llegar el Pokémon. Antes
+     animaba width, que nunca se veía porque la barra nace ya con su ancho,
+     y además es caro (#79) */
   .stats :global(.bar span) {
     display: block;
     height: 100%;
     background: var(--accent);
-    transition: width var(--slow) var(--ease-out);
+    transform-origin: left;
+    transition: transform var(--slow) var(--ease-out);
+  }
+
+  @starting-style {
+    .stats :global(.bar span) {
+      transform: scaleX(0);
+    }
   }
 
   @media (min-width: 52rem) {

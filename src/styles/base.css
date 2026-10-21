@@ -160,11 +160,18 @@ kbd {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: border-color var(--fast) var(--ease-out);
+  transition:
+    border-color var(--fast) var(--ease-out),
+    transform var(--fast) var(--ease-out);
 }
 
 .chip:hover {
   border-color: var(--ink);
+}
+
+/* Se hunde un poco al pulsar, como los botones (#79) */
+.chip:active {
+  transform: scale(0.97);
 }
 
 .chip[aria-pressed="true"] {
@@ -216,13 +223,16 @@ kbd {
   inset-block-start: var(--space-2);
 }
 
+/* Reducir movimiento no es quitarlo todo: fuera las animaciones y los
+   desplazamientos, pero los fundidos de color y opacidad se quedan, porque
+   ayudan a ver qué ha cambiado sin mover nada (#79) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-property: opacity, color, background-color, border-color, fill, stroke !important;
     scroll-behavior: auto !important;
   }
 }
