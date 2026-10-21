@@ -41,7 +41,7 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
                   alt={p.alt[lang]}
                   formats={["avif", "webp"]}
                   widths={[240, 480, 720]}
-                  sizes="(min-width: 64rem) 12rem, (min-width: 40rem) 30vw, 70vw"
+                  sizes="(min-width: 30rem) 11rem, 8rem"
                   loading="lazy"
                 />
               )}
@@ -86,25 +86,31 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
     color: var(--lab);
   }
 
+  /* auto-fill y no auto-fit: un producto solo no se estira a toda la ficha */
   .product-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
     gap: var(--space-2);
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
+  /* La foto a un lado y los datos al otro, como una muestra pegada en la
+     ficha: con la foto encima ocupaba media pantalla (#77) */
   .product {
     display: grid;
-    grid-template-rows: auto auto auto 1fr auto;
-    gap: 6px;
+    grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr auto;
+    gap: 6px var(--space-2);
     padding: var(--space-1);
     border: 1px solid var(--rule);
     background: var(--paper);
   }
 
   .photo {
+    grid-row: 1 / -1;
+    align-self: start;
     aspect-ratio: 1;
     overflow: hidden;
     background: #fff;
@@ -173,8 +179,8 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
   }
 
 
-  /* Al final del problema: un recuadro como «Si quieres combinarlos», y cada
-     producto con la foto a un lado y los datos al otro */
+  /* Al final del problema: un recuadro como «Si quieres combinarlos», con la
+     foto algo más grande */
   .bundle {
     padding: var(--space-2) var(--space-3);
     border: 1.5px solid var(--ink);
@@ -188,28 +194,23 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
 
   .bundle .product {
     grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
-    /* marca, nombre, datos y enlace a la derecha de la foto */
-    grid-template-rows: auto auto 1fr auto;
-    column-gap: var(--space-2);
-  }
-
-  .bundle .photo {
-    grid-row: 1 / -1;
-    align-self: start;
   }
 
   .bundle .product-data div {
     grid-template-columns: 7.5em 1fr;
   }
 
+  /* En móvil no caben las dos columnas: la foto va encima, pero pequeña */
   @media (max-width: 30rem) {
+    .product,
     .bundle .product {
       grid-template-columns: 1fr;
+      grid-template-rows: none;
     }
 
-    .bundle .photo {
+    .photo {
       grid-row: auto;
-      max-width: 14rem;
+      width: 8rem;
     }
   }
 
