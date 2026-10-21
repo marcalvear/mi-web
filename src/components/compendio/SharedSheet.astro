@@ -1,0 +1,75 @@
+---
+// Ficha que ya salió en un problema anterior (#89): el magnesio está en el sueño
+// y en el estrés, y la creatina en la concentración y la recuperación. Aquí va
+// en corto, como una fotocopia grapada, con enlace a la completa: así la página
+// no repite ids ni estrellas de guardar.
+import type { CollectionEntry } from "astro:content";
+import type { Lang } from "../../i18n/ui";
+import type { CompendioText } from "../../i18n/compendio";
+import EvidenceMeter from "./EvidenceMeter.astro";
+
+interface Props {
+  entry: CollectionEntry<"suplementos">;
+  n: number;
+  lang: Lang;
+  text: CompendioText;
+  /** Problema en el que está la ficha completa */
+  home: CollectionEntry<"problemas">;
+  /** Problema en el que se pinta esta copia */
+  problemId: string;
+}
+const { entry, n, lang, text, home, problemId } = Astro.props;
+const s = entry.data;
+const id = `${problemId}-${entry.id}`;
+---
+
+<li class="sheet shared" id={id} data-sheet={entry.id} data-evidence={s.evidencia} data-zone={s.zona}>
+  <article aria-labelledby={`${id}-name`}>
+    <p class="label code"><span class="badge">{n}</span> {text.card.id} · {s.tipo[lang]}</p>
+    <h3 id={`${id}-name`}>{s.nombre[lang]}</h3>
+    <EvidenceMeter level={s.evidencia} label={text.evidenceLabel} value={text.evidence[s.evidencia]} />
+    <p>{s.resumen[lang]}</p>
+    <a class="to-full" href={`#${entry.id}`}>
+      {text.shared.replace("{problem}", home.data.nombre[lang])} <span aria-hidden="true">↑</span>
+    </a>
+  </article>
+</li>
+
+<style>
+  article {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-3);
+    background: var(--sheet);
+    border: 1.5px dashed var(--ink);
+    border-left: 4px solid var(--lab);
+  }
+
+  .code {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--lab);
+  }
+
+  .badge {
+    display: inline-grid;
+    place-items: center;
+    width: 1.7em;
+    height: 1.7em;
+    border: 1.5px solid var(--lab);
+    border-radius: 50%;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: var(--step-2);
+  }
+
+  .to-full {
+    justify-self: start;
+    padding-block: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+  }
+</style>

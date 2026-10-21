@@ -60,6 +60,14 @@ export const compendio = {
       ticks: { m30: "30 min", h2: "2 h", w1: "1 sem", w4: "4 sem", w12: "12 sem" },
       zones: { minutos: "Minutos", semanas: "Semanas", meses: "Meses" },
     },
+    shared: "La ficha completa está en «{problem}»",
+    cortisol: {
+      title: "Cuándo actúa cada suplemento a lo largo del día",
+      hint: "La línea es el cortisol de un día normal. Pulsa un suplemento para ver su franja.",
+      desc: "Curva del cortisol de las 6:00 a las 24:00: sube de golpe al despertar, con el pico hacia las 7:30, y baja durante el día hasta la noche. Al despertar actúa la rhodiola; durante el día, la ashwagandha; y por la noche, la lavanda y el magnesio.",
+      curve: "cortisol",
+      zones: { despertar: "Al despertar", dia: "Durante el día", cena: "Por la noche" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -152,6 +160,14 @@ export const compendio = {
       desc: "Timeline from left to right, with jumps in scale: from 30 minutes to 2 hours is caffeine with L-theanine; from 1 to 4 weeks, creatine and lion's mane; and around 12 weeks, bacopa.",
       ticks: { m30: "30 min", h2: "2 h", w1: "1 wk", w4: "4 wk", w12: "12 wk" },
       zones: { minutos: "Minutes", semanas: "Weeks", meses: "Months" },
+    },
+    shared: "The full sheet is in “{problem}”",
+    cortisol: {
+      title: "When each supplement acts through the day",
+      hint: "The line is cortisol on a normal day. Tap a supplement to see its slot.",
+      desc: "Cortisol curve from 6 am to midnight: it shoots up on waking, peaking around 7:30, and falls through the day until night. Rhodiola acts on waking; ashwagandha during the day; and lavender and magnesium at night.",
+      curve: "cortisol",
+      zones: { despertar: "On waking", dia: "During the day", cena: "At night" },
     },
     card: {
       id: "Sheet",
