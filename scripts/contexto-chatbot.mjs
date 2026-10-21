@@ -14,6 +14,7 @@ import { home } from "../src/i18n/home.ts";
 import { sonrisaImperial } from "../src/i18n/projects.ts";
 import { likes } from "../src/i18n/likes.ts";
 import { compendio } from "../src/i18n/compendio.ts";
+import { hobbies } from "../src/i18n/hobbies.ts";
 
 const OUT = new URL("../worker/chatbot/src/context.js", import.meta.url);
 const h = home.es;
@@ -21,6 +22,7 @@ const p = sonrisaImperial.es;
 const l = likes.es;
 const cs = p.caseStudy;
 const c = compendio.es;
+const hb = hobbies.es;
 
 // Compendio: los mismos JSON que valida src/content.config.ts al compilar
 const DIR = new URL("../src/content/compendio/", import.meta.url);
@@ -60,7 +62,20 @@ const lines = [
   ...h.likes.groups.map((g) => `- ${g.title}: ${g.items.join(", ")}.`),
   `- ${l.bio.intro}`,
   `- Productos de biohacking que sigue: ${l.bio.products.map((x) => `${x.name} (${x.brand}): ${x.text}`).join(" ")}`,
-  "- En la página «Me gusta» hay una Pokédex con modelos 3D, un mazo con las frases de Naruto y JoJo traducidas y su radar de biohacking con fotos.",
+  "- «Me gusta» tiene tres páginas: Videojuegos (con una Pokédex con modelos 3D), Anime y manga (con un mazo de frases de Naruto y JoJo traducidas) y Biohacking (su radar de aparatos y la entrada al compendio). Se entra a cada una desde su tarjeta de la portada.",
+  // Los datos personales (horas, momento, arco, personaje) solo si Marc los ha dado
+  ...hb.games.items.map(
+    (g) =>
+      `- ${g.name} (${g.facts.map(([k, v]) => `${k.toLowerCase()} ${v}`).join(", ")}): ${g.text.join(" ")}` +
+      (g.hours ? ` Horas jugadas: ${g.hours}.` : "") +
+      (g.moment ? ` Su momento favorito: ${g.moment}.` : ""),
+  ),
+  ...hb.anime.items.map(
+    (s) =>
+      `- ${s.name} (${s.facts.map(([k, v]) => `${k.toLowerCase()} ${v}`).join(", ")}): ${s.text.join(" ")}` +
+      (s.arc ? ` Su arco favorito: ${s.arc}.` : "") +
+      (s.character ? ` Su personaje favorito: ${s.character}.` : ""),
+  ),
   "",
   "COMPENDIO DE BIOHACKING",
   `- ${c.lead} Está en ${PAGE} (en inglés, /mi-web/en/biohacking/). ${c.disclaimer.text}`,

@@ -63,8 +63,7 @@ const alt = (name: string) => text.artAlt.replace("{name}", name);
               widths={[300, 600]}
               sizes="(min-width: 52rem) 22rem, 80vw"
               formats={["avif", "webp"]}
-              loading="eager"
-              fetchpriority="high"
+              loading="lazy"
             />
           ) : (
             <img data-img src="" alt="" width="300" height="300" />

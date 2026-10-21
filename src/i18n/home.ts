@@ -38,8 +38,18 @@ export interface HomeContent {
     kicker: string;
     title: string;
     intro: string;
-    groups: { label: string; title: string; text: string; items: string[] }[];
-    more: string;
+    /** Cada tarjeta lleva a su página: /me-gusta/<slug>/ (#71) */
+    groups: {
+      label: string;
+      title: string;
+      text: string;
+      items: string[];
+      slug: "videojuegos" | "anime-manga" | "biohacking";
+      /** Foto de la tarjeta: nombre del fichero en src/assets/img sin extensión */
+      image: string;
+    }[];
+    /** Texto del enlace de cada tarjeta */
+    open: string;
   };
   contact: {
     kicker: string;
@@ -143,21 +153,27 @@ export const home: Record<Lang, HomeContent> = {
           title: "Videojuegos",
           text: "Mis tres favoritos:",
           items: ["Zelda: Breath of the Wild", "Bloodborne", "Pokémon"],
+          slug: "videojuegos",
+          image: "me-gusta/zelda-3",
         },
         {
           label: "Muestra B",
           title: "Anime y manga",
           text: "Las dos obras que más me han marcado:",
           items: ["Naruto Shippuden", "JoJo's Bizarre Adventure"],
+          slug: "anime-manga",
+          image: "me-gusta/naruto-1",
         },
         {
           label: "Muestra C",
           title: "Biohacking",
           text: "Usar la tecnología para sacar el máximo partido a nuestro cuerpo: dormir mejor, recuperarse antes, tener más energía.",
           items: ["TheraFace Mask Glo", "JetBoots Prime", "Eight Sleep Pod", "Oura Ring"],
+          slug: "biohacking",
+          image: "biohacking/theraface-mask-glo",
         },
       ],
-      more: "Explora la Pokédex, frases de anime y mis gadgets",
+      open: "Ver la página",
     },
     contact: {
       kicker: "Cómo escribirme",
@@ -263,21 +279,27 @@ export const home: Record<Lang, HomeContent> = {
           title: "Video games",
           text: "My three favourites:",
           items: ["Zelda: Breath of the Wild", "Bloodborne", "Pokémon"],
+          slug: "videojuegos",
+          image: "me-gusta/zelda-3",
         },
         {
           label: "Sample B",
           title: "Anime and manga",
           text: "The two series that left the biggest mark on me:",
           items: ["Naruto Shippuden", "JoJo's Bizarre Adventure"],
+          slug: "anime-manga",
+          image: "me-gusta/naruto-1",
         },
         {
           label: "Sample C",
           title: "Biohacking",
           text: "Using technology to get the most out of your body: sleep better, recover faster, have more energy.",
           items: ["TheraFace Mask Glo", "JetBoots Prime", "Eight Sleep Pod", "Oura Ring"],
+          slug: "biohacking",
+          image: "biohacking/theraface-mask-glo",
         },
       ],
-      more: "Explore the Pokédex, anime quotes and my gadgets",
+      open: "See the page",
     },
     contact: {
       kicker: "How to reach me",

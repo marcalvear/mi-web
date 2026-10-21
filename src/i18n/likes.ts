@@ -1,21 +1,16 @@
-// Textos de la página Me gusta en los dos idiomas.
+// Textos de Me gusta en los dos idiomas: el índice, la Pokédex, el mazo de
+// frases y el radar de biohacking. Los de cada página nueva están en hobbies.ts.
 import type { Lang } from "./ui";
 
 export const likes = {
   es: {
     meta: {
       title: "Me gusta",
-      description: "Pokédex, frases de Naruto y JoJo, y los gadgets de biohacking que me interesan.",
+      description: "Videojuegos, anime y manga, y biohacking: lo que hago cuando no estoy estudiando, cada cosa en su página.",
     },
     kicker: "Cuaderno nº 3 · Anexo B",
     title: "Me gusta",
     lead: "Lo que hago cuando no estoy estudiando, con datos de verdad sacados de APIs abiertas.",
-    games: {
-      kicker: "Videojuegos",
-      title: "Pokédex",
-      intro:
-        "Mis tres favoritos son Zelda: Breath of the Wild, Bloodborne y Pokémon. De Pokémon puedes consultar cualquier especie por nombre o número, con datos de la PokéAPI y modelos de la Pokémon 3D API.",
-    },
     pokedex: {
       search: "Buscar Pokémon",
       label: "Nombre o número",
@@ -173,17 +168,11 @@ export const likes = {
   en: {
     meta: {
       title: "Things I like",
-      description: "A Pokédex, quotes from Naruto and JoJo, and the biohacking gadgets I'm into.",
+      description: "Video games, anime and manga, and biohacking: what I do when I'm not studying, each on its own page.",
     },
     kicker: "Notebook no. 3 · Appendix B",
     title: "Things I like",
     lead: "What I do when I'm not studying, with real data from open APIs.",
-    games: {
-      kicker: "Video games",
-      title: "Pokédex",
-      intro:
-        "My three favourites are Zelda: Breath of the Wild, Bloodborne and Pokémon. You can look up any Pokémon species by name or number, with data from PokéAPI and models from the Pokémon 3D API.",
-    },
     pokedex: {
       search: "Search Pokémon",
       label: "Name or number",

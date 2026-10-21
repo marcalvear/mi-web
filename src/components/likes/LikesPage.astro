@@ -1,11 +1,10 @@
 ---
-// Página Me gusta: cada afición es una entrada del cuaderno con datos reales.
+// Me gusta (#71): el índice de las tres aficiones. Cada una tiene su página;
+// aquí van las mismas tarjetas que en la portada.
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Base from "../../layouts/Base.astro";
-import Entry from "../Entry.astro";
-import Biohacking from "./Biohacking.astro";
-import CompendioTeaser from "../compendio/CompendioTeaser.astro";
-import Pokedex from "./Pokedex.astro";
-import QuoteDeck from "./QuoteDeck.astro";
+import HobbyCards from "./HobbyCards.astro";
+import { home } from "../../i18n/home";
 import { likes } from "../../i18n/likes";
 import type { Lang } from "../../i18n/ui";
 
@@ -14,39 +13,42 @@ interface Props {
 }
 const { lang } = Astro.props;
 const c = likes[lang];
+const h = home[lang].likes;
+// Antes todo estaba en esta página: los enlaces viejos con #ancla llevan a la nueva
+const moved = {
+  pokedex: getRelativeLocaleUrl(lang, "me-gusta/videojuegos/") + "#pokedex",
+  frases: getRelativeLocaleUrl(lang, "me-gusta/anime-manga/") + "#frases",
+  biohacking: getRelativeLocaleUrl(lang, "me-gusta/biohacking/"),
+};
 ---
 
 <Base lang={lang} title={c.meta.title} description={c.meta.description} path="me-gusta/">
-  <div class="wrap">
+  <div class="wrap" data-moved={JSON.stringify(moved)}>
     <header class="intro">
       <p class="label">{c.kicker}</p>
       <h1>{c.title}</h1>
       <p class="lead">{c.lead}</p>
     </header>
 
-    <Entry id="pokedex" number={1} kicker={c.games.kicker} title={c.games.title}>
-      <p>{c.games.intro}</p>
-      <Pokedex lang={lang} text={c.pokedex} />
-    </Entry>
-
-    <Entry id="frases" number={2} kicker={c.deck.kicker} title={c.deck.title}>
-      <p>{c.deck.intro}</p>
-      <QuoteDeck lang={lang} text={c.deck} />
-    </Entry>
-
-    <Entry id="biohacking" number={3} kicker={c.bio.kicker} title={c.bio.title}>
-      <p>{c.bio.intro}</p>
-      <CompendioTeaser lang={lang} text={c.bio.teaser} />
-      <Biohacking text={c.bio} />
-    </Entry>
+    <HobbyCards lang={lang} groups={h.groups} open={h.open} level={2} />
   </div>
 </Base>
 
+<script>
+  const root = document.querySelector<HTMLElement>("[data-moved]");
+  const to = root && (JSON.parse(root.dataset.moved!) as Record<string, string>)[location.hash.slice(1)];
+  if (to) location.replace(to);
+</script>
+
 <style>
+  .wrap {
+    padding-block-end: var(--space-7);
+  }
+
   .intro {
     display: grid;
     gap: var(--space-2);
-    padding-block: var(--space-6) var(--space-4);
+    padding-block: var(--space-6) var(--space-2);
   }
 
   .lead {
