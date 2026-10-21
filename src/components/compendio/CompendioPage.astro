@@ -201,16 +201,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                   </dl>
                 </details>
 
-                <ol class="sheets" role="list">
-                  {supplements.map((s, i) =>
-                    home.get(s.id)!.id === problem.id ? (
-                      <SupplementCard entry={s} n={i + 1} lang={lang} text={c} hasMap={hasMap} />
-                    ) : (
-                      <SharedSheet entry={s} n={i + 1} lang={lang} text={c} home={home.get(s.id)!} problemId={problem.id} />
-                    ),
-                  )}
-                </ol>
-
+                {/* El producto que junta varios va antes que sus fichas: primero se ve qué
+                    lleva y debajo, cada ingrediente (#93) */}
                 {p.productos && (
                   <ProductList
                     products={p.productos}
@@ -222,6 +214,16 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                     fav={c.fav}
                   />
                 )}
+
+                <ol class="sheets" role="list">
+                  {supplements.map((s, i) =>
+                    home.get(s.id)!.id === problem.id ? (
+                      <SupplementCard entry={s} n={i + 1} lang={lang} text={c} hasMap={hasMap} />
+                    ) : (
+                      <SharedSheet entry={s} n={i + 1} lang={lang} text={c} home={home.get(s.id)!} problemId={problem.id} />
+                    ),
+                  )}
+                </ol>
 
                 <section class="combine" aria-labelledby={`${problem.id}-combinar`}>
                   <h3 class="label" id={`${problem.id}-combinar`}>{c.combine}</h3>

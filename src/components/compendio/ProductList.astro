@@ -203,11 +203,29 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
 
   /* Al final del problema: un recuadro como «Si quieres combinarlos», con la
      foto algo más grande */
+  /* Se ve y se comporta como una ficha más: borde verde, sombra dura y, al
+     pasar por encima, se levanta como las demás (#93) */
   .bundle {
     padding: var(--space-2) var(--space-3);
     border: 1.5px solid var(--ink);
-    border-top: 1.5px solid var(--ink);
+    border-left: 4px solid var(--lab);
     background: var(--sheet);
+    box-shadow: 4px 4px 0 var(--rule);
+    transition:
+      transform var(--fast) var(--ease-out),
+      box-shadow var(--fast) var(--ease-out);
+  }
+
+  .bundle:focus-within {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--lab);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .bundle:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--lab);
+    }
   }
 
   .bundle .product-list {
@@ -237,7 +255,8 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .photo :global(img) {
+    .photo :global(img),
+    .bundle {
       transition: none;
     }
   }
