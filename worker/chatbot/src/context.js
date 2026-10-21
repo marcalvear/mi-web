@@ -53,6 +53,7 @@ COMPENDIO DE BIOHACKING
 - Concentrarse mejor: Cafeína con L-teanina, Creatina, Bacopa, Melena de león.
 - Menos estrés: Ashwagandha, Lavanda (Silexan), Rhodiola, Magnesio.
 - Recuperarse antes: Creatina, Proteína de suero, Cereza ácida Montmorency, Omega-3 (EPA y DHA).
+- Defensas: Vitamina D, Probióticos, Vitamina C, Zinc en pastillas para chupar, Saúco negro.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -423,6 +424,60 @@ FICHA: Omega-3 (EPA y DHA) (Ácidos grasos del pescado) · https://marcalvear.gi
 - Precauciones: Si tomas anticoagulantes o te van a operar, consúltalo: a dosis altas puede aumentar el sangrado. Puede repetir a pescado; tomado con comida se nota menos. Si eres alérgico al pescado, busca omega-3 de algas.
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Sports Research, Triple Strength Omega-3 Fish Oil (Estados Unidos): lleva 1.040 mg de omega-3 por cápsula, de abadejo de Alaska; toma 2 a 3 cápsulas para llegar a la dosis estudiada; bote 90 cápsulas; precio 31,63 $ (90 cápsulas). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
+
+PROBLEMA: DEFENSAS (https://marcalvear.github.io/mi-web/biohacking/#mas-defensas)
+- Un resfriado detrás de otro de octubre a marzo, o uno que no se va nunca. Lo que más protege es dormir, lavarse las manos y la vacuna de la gripe si te toca. De los suplementos, algunos ayudan un poco a coger menos resfriados y otros a que duren menos.
+- Qué pasa en el cuerpo: Los resfriados los causan más de 200 virus distintos, sobre todo rinovirus, y por eso no hay vacuna. Entran por la nariz y la garganta, y lo que notas (mocos, dolor, fiebre) es tu sistema inmune luchando. En invierno pasamos más tiempo dentro, el aire seco reseca las mucosas y la piel casi no fabrica vitamina D. El esquema de al lado separa lo que se toma toda la temporada de lo que se toma al primer síntoma.
+- Combinarlos: Se pueden sumar los de toda la temporada (vitamina D, probióticos, vitamina C) con los del primer síntoma (zinc, saúco), porque actúan en momentos distintos. Ningún ensayo probó la mezcla, así que no esperes que se sumen los efectos.
+- Ve al médico antes que a un suplemento si además: la fiebre dura más de 3 días o pasa de 39 °C; te cuesta respirar, te duele el pecho o los labios se ponen morados; el resfriado mejora y luego empeora de golpe, con fiebre; tienes más de 6 o 7 infecciones al año o tardan mucho en curarse.
+
+FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-d
+- Qué es: El cuerpo la fabrica con el sol en la piel, y en invierno casi no se fabrica. Hace falta para los huesos y el sistema inmune, pero en cápsula apenas evita resfriados en quien no tiene déficit.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Es de lo más estudiado: 40 ensayos con más de 61.000 personas. Pero en la actualización de 2025 la protección frente a infecciones se queda en el límite y deja de ser significativa.
+- Cómo funciona: Cuando el sol da en la piel, el cuerpo fabrica vitamina D y el hígado y el riñón la activan. Las células del sistema inmune tienen receptores para ella: la usan para fabricar sus propios antibióticos naturales, como la catelicidina. Entre octubre y marzo, en España, el sol está tan bajo que la piel casi no la fabrica.
+- Dosis estudiada: Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis. Cuándo: A diario, con la comida principal, sobre todo de octubre a marzo.
+- Qué encontraron los estudios:
+  - En la revisión de 2021, con 43 ensayos y 48.488 personas, la vitamina D bajó un poco el riesgo de infección respiratoria, sobre todo tomada a diario y a dosis moderadas. [Jolliffe DA et al., 2021, Lancet Diabetes Endocrinol 9(5):276-292, PMID 33798465]
+  - Al añadir los ensayos nuevos en 2025, con 61.589 personas, la protección quedó en un 6 % y dejó de ser significativa. Tampoco cambió según el déficit de partida ni la dosis. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
+- Precauciones: Más no es mejor: por encima de 4.000 UI al día durante mucho tiempo puede subir demasiado el calcio. Si tienes piedras en el riñón, sarcoidosis o tomas diuréticos tiazídicos, consúltalo antes. Para saber si te falta, el análisis es el de 25-hidroxivitamina D.
+
+FICHA: Probióticos (Bacterias vivas) · https://marcalvear.github.io/mi-web/biohacking/#probioticos
+- Qué es: Son bacterias buenas, como las del yogur. Tomadas a diario durante meses, hacen que se cojan algo menos de resfriados y que duren un día menos.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Una revisión Cochrane de 23 ensayos con casi 7.000 personas sale a favor, pero con una certeza entre baja y moderada, y cada ensayo usa cepas distintas.
+- Cómo funciona: Buena parte del sistema inmune vive pegado al intestino. Las bacterias buenas le mandan señales que lo mantienen entrenado y ayudan a que las mucosas, también las de la nariz y la garganta, hagan mejor de barrera. El efecto depende de la cepa: no todos los probióticos hacen lo mismo.
+- Dosis estudiada: Entre mil millones y cien mil millones de bacterias al día, de una o dos cepas de Lactobacillus o Bifidobacterium. Cuándo: A diario durante al menos 3 meses de la temporada de resfriados.
+- Qué encontraron los estudios:
+  - En 23 ensayos con 6.950 niños, adultos y mayores, quienes tomaron probióticos tuvieron un 24 % menos de probabilidad de coger un resfriado, los resfriados duraron un día menos y usaron menos antibióticos. Los efectos secundarios fueron iguales que con placebo. [Zhao Y et al., 2022, Cochrane Database Syst Rev 8(8):CD006895, PMID 36001877]
+- Precauciones: Si tienes las defensas muy bajas, un catéter central o estás muy enfermo, no los tomes sin hablar con tu médico. Los primeros días pueden dar gases o hinchazón.
+
+FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-c
+- Qué es: El cuerpo la necesita para fabricar colágeno y no la puede hacer. Tomada a diario no evita los resfriados, pero los acorta un poco, y protege a quien hace esfuerzos muy duros.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: La revisión Cochrane, con decenas de ensayos, es sólida para los resfriados, pero el efecto es pequeño. Para vivir más, los ensayos de antioxidantes no encuentran nada.
+- Cómo funciona: La vitamina C es la herramienta que usan las células para dar firmeza al colágeno: sin ella sale débil, que es lo que pasaba con el escorbuto. También es un antioxidante que se gasta rápido cuando hay infección o mucho esfuerzo. Lo que sobra se elimina por la orina, así que tomar mucho más no da más.
+- Dosis estudiada: De 200 mg a 1 g al día. Con fruta y verdura ya se llega a lo necesario. Cuándo: Con una comida; si tomas colágeno, a la vez.
+- Qué encontraron los estudios:
+  - En 29 comparaciones con 11.306 personas, tomarla a diario no redujo cuántos resfriados se cogían. En maratonianos, esquiadores y soldados en el frío los redujo a la mitad. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - Tomada a diario, acortó los resfriados un 8 % en adultos y un 14 % en niños. Empezar a tomarla cuando ya estás resfriado no mostró un efecto claro. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - En la revisión de 78 ensayos de antioxidantes con casi 300.000 personas, la vitamina C no alargó la vida. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
+- Precauciones: Por encima de 1 g al día puede dar diarrea, y en algunas personas, piedras en el riñón. Si tienes hemocromatosis (exceso de hierro), no la tomes en cápsula sin hablar con tu médico: sube la absorción del hierro.
+
+FICHA: Zinc en pastillas para chupar (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#zinc
+- Qué es: Chupadas desde el primer día, las pastillas de zinc acortan el resfriado. Tienen que ser de acetato o gluconato de zinc y deshacerse en la boca, no tragarse.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 7 ensayos con placebo encuentra que los resfriados duran un tercio menos, pero son pocos ensayos y la forma de la pastilla importa mucho.
+- Cómo funciona: El zinc que se suelta en la boca y la garganta frena a los rinovirus, los virus del resfriado, para que no se agarren a las células ni se copien. Por eso tiene que deshacerse despacio donde está el virus y empezar en cuanto notas el picor de garganta.
+- Dosis estudiada: Unos 80 a 90 mg de zinc al día en total, repartidos en una pastilla cada 2 o 3 horas. Cuándo: Desde el primer día de síntomas y durante 5 a 7 días, no más.
+- Qué encontraron los estudios:
+  - En 7 ensayos, los resfriados duraron un 33 % menos con pastillas de zinc que con placebo: un 40 % con acetato y un 28 % con gluconato. Pasar de 100 mg al día no añadió nada. [Hemilä H et al., 2017, JRSM Open 8(5):2054270417694291, PMID 28515951]
+- Precauciones: Puede dejar sabor metálico y dar náuseas; con algo en el estómago se lleva mejor. No lo tomes a estas dosis más de una semana: a la larga quita cobre al cuerpo. Nunca en espray nasal: se ha relacionado con perder el olfato.
+
+FICHA: Saúco negro (Extracto de baya) · https://marcalvear.github.io/mi-web/biohacking/#sauco
+- Qué es: Es la baya morada del saúco, en jarabe o pastillas. Tomada al empezar un resfriado o una gripe, en ensayos pequeños alivió antes los síntomas.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El metaanálisis sale muy a favor, pero junta solo 180 personas y varios ensayos los pagó el fabricante del jarabe.
+- Cómo funciona: Sus pigmentos, los antocianos, parecen pegarse a la superficie de los virus de la gripe y frenar que entren en las células. También modulan las señales de inflamación. La mayoría de esto se ha visto en el laboratorio.
+- Dosis estudiada: Lo que marque el extracto estudiado: en los ensayos, unos 15 ml de jarabe 4 veces al día en adultos. Cuándo: En las primeras 48 horas de síntomas, durante 3 a 5 días.
+- Qué encontraron los estudios:
+  - Juntando ensayos con 180 personas, el saúco redujo bastante los síntomas de resfriado y gripe frente a placebo, con un efecto grande. Los autores piden ensayos más grandes. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
+- Precauciones: Nunca bayas crudas ni hojas: sin procesar son tóxicas. Solo extractos preparados. Si tienes una enfermedad autoinmune o tomas inmunosupresores, consúltalo antes. En embarazo y lactancia no hay datos: mejor no tomarlo.
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -779,5 +834,59 @@ SHEET: Omega-3 (EPA and DHA) (Fish fatty acids) · https://marcalvear.github.io/
 - Cautions: If you take blood thinners or are having surgery, check first: at high doses it can increase bleeding. It can repeat on you with a fishy taste; taken with food it's less noticeable. If you're allergic to fish, look for algae-based omega-3.
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Sports Research, Triple Strength Omega-3 Fish Oil (United States): contains 1,040 mg of omega-3 per softgel, from Alaska pollock; dose 2 to 3 softgels to reach the studied dose; bottle 90 softgels; price $31.63 (90 softgels). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
+
+PROBLEM: IMMUNITY (https://marcalvear.github.io/mi-web/en/biohacking/#mas-defensas)
+- One cold after another from October to March, or one that never goes away. What protects most is sleep, washing your hands and the flu jab if you're due one. Of the supplements, some help a little to catch fewer colds and others to make them shorter.
+- What's going on in the body: Colds are caused by more than 200 different viruses, mostly rhinoviruses, which is why there's no vaccine. They get in through the nose and throat, and what you feel (snot, soreness, fever) is your immune system fighting. In winter we spend more time indoors, dry air dries out mucous membranes and the skin barely makes vitamin D. The diagram beside it separates what's taken all season from what's taken at the first symptom.
+- Combining them: You can combine the all-season ones (vitamin D, probiotics, vitamin C) with the first-symptom ones (zinc, elderberry), because they act at different moments. No trial tested the mix, so don't expect the effects to add up.
+- See a doctor before trying a supplement if you also: the fever lasts more than 3 days or goes above 39 °C; you find it hard to breathe, your chest hurts or your lips turn blue; the cold gets better and then suddenly worse, with fever; you have more than 6 or 7 infections a year or they take a long time to clear.
+
+SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-d
+- What it is: The body makes it with sunlight on the skin, and in winter it barely makes any. It's needed for bones and the immune system, but as a capsule it barely prevents colds in people without a deficiency.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: It's among the most studied: 40 trials with more than 61,000 people. But in the 2025 update the protection against infections sits on the edge and stops being significant.
+- How it works: When sunlight hits the skin, the body makes vitamin D and the liver and kidneys activate it. Immune cells have receptors for it: they use it to make their own natural antibiotics, such as cathelicidin. Between October and March, in Spain, the sun is so low that the skin barely makes any.
+- Dose studied: Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test. When: Daily, with your main meal, especially from October to March.
+- What the studies found:
+  - In the 2021 review, with 43 trials and 48,488 people, vitamin D slightly lowered the risk of respiratory infection, especially taken daily at moderate doses. [Jolliffe DA et al., 2021, Lancet Diabetes Endocrinol 9(5):276-292, PMID 33798465]
+  - When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
+- Cautions: More isn't better: above 4,000 IU a day for a long time it can push calcium too high. If you have kidney stones, sarcoidosis or take thiazide diuretics, check first. To find out if you're low, the test is 25-hydroxyvitamin D.
+
+SHEET: Probiotics (Live bacteria) · https://marcalvear.github.io/mi-web/en/biohacking/#probioticos
+- What it is: They're good bacteria, like those in yoghurt. Taken daily for months, they mean people catch slightly fewer colds and they last a day less.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A Cochrane review of 23 trials with nearly 7,000 people comes out in favour, but with low to moderate certainty, and each trial uses different strains.
+- How it works: A large part of the immune system lives alongside the gut. Good bacteria send it signals that keep it trained and help mucous membranes, including those in the nose and throat, act as a better barrier. The effect depends on the strain: not all probiotics do the same.
+- Dose studied: Between one billion and one hundred billion bacteria a day, of one or two strains of Lactobacillus or Bifidobacterium. When: Daily for at least 3 months of cold season.
+- What the studies found:
+  - In 23 trials with 6,950 children, adults and older people, those taking probiotics were 24% less likely to catch a cold, colds lasted a day less and they used fewer antibiotics. Side effects were the same as with placebo. [Zhao Y et al., 2022, Cochrane Database Syst Rev 8(8):CD006895, PMID 36001877]
+- Cautions: If your immune system is very weak, you have a central line or you're very ill, don't take them without talking to your doctor. In the first days they can cause wind or bloating.
+
+SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-c
+- What it is: The body needs it to make collagen and can't make it itself. Taken daily it doesn't prevent colds, but it shortens them a little, and it protects people doing very hard exertion.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: The Cochrane review, with dozens of trials, is solid for colds, but the effect is small. For living longer, antioxidant trials find nothing.
+- How it works: Vitamin C is the tool cells use to make collagen firm: without it collagen comes out weak, which is what happened with scurvy. It's also an antioxidant that runs out fast during infection or heavy exertion. What's left over goes out in the urine, so taking much more doesn't give more.
+- Dose studied: From 200 mg to 1 g a day. Fruit and vegetables already cover what you need. When: With a meal; if you take collagen, at the same time.
+- What the studies found:
+  - In 29 comparisons with 11,306 people, taking it daily didn't reduce how many colds people caught. In marathon runners, skiers and soldiers in the cold it halved them. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - Taken daily, it shortened colds by 8% in adults and 14% in children. Starting it once you already have a cold showed no clear effect. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - In the review of 78 antioxidant trials with almost 300,000 people, vitamin C didn't make people live longer. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
+- Cautions: Above 1 g a day it can cause diarrhoea, and in some people, kidney stones. If you have haemochromatosis (iron overload), don't take it as a capsule without talking to your doctor: it increases iron absorption.
+
+SHEET: Zinc lozenges (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#zinc
+- What it is: Sucked from the first day, zinc lozenges shorten a cold. They have to be zinc acetate or gluconate and dissolve in the mouth, not be swallowed.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 7 placebo-controlled trials finds colds last a third less, but there are few trials and the lozenge's formulation matters a lot.
+- How it works: Zinc released in the mouth and throat holds back rhinoviruses, the cold viruses, so they can't latch onto cells or copy themselves. That's why it has to dissolve slowly where the virus is, starting as soon as your throat feels scratchy.
+- Dose studied: About 80 to 90 mg of zinc a day in total, split into one lozenge every 2 or 3 hours. When: From the first day of symptoms and for 5 to 7 days, no longer.
+- What the studies found:
+  - In 7 trials, colds lasted 33% less with zinc lozenges than with placebo: 40% with acetate and 28% with gluconate. Going above 100 mg a day added nothing. [Hemilä H et al., 2017, JRSM Open 8(5):2054270417694291, PMID 28515951]
+- Cautions: It can leave a metallic taste and cause nausea; it's easier with something in your stomach. Don't take it at these doses for more than a week: over time it depletes the body's copper. Never as a nasal spray: it's been linked to losing the sense of smell.
+
+SHEET: Black elderberry (Berry extract) · https://marcalvear.github.io/mi-web/en/biohacking/#sauco
+- What it is: It's the purple elderberry, as a syrup or lozenges. Taken at the start of a cold or flu, in small trials it eased symptoms sooner.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: The meta-analysis comes out strongly in favour, but it only pools 180 people and several trials were paid for by the syrup's maker.
+- How it works: Its pigments, anthocyanins, seem to stick to the surface of flu viruses and stop them entering cells. They also modulate inflammation signals. Most of this has been seen in the lab.
+- Dose studied: Whatever the studied extract says: in the trials, about 15 ml of syrup 4 times a day in adults. When: Within the first 48 hours of symptoms, for 3 to 5 days.
+- What the studies found:
+  - Pooling trials with 180 people, elderberry substantially reduced cold and flu symptoms compared with placebo, with a large effect. The authors call for larger trials. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
+- Cautions: Never raw berries or leaves: unprocessed they're toxic. Only prepared extracts. If you have an autoimmune disease or take immunosuppressants, check first. In pregnancy and breastfeeding there's no data: better not to take it.
 `,
 };

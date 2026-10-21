@@ -76,6 +76,14 @@ export const compendio = {
       ticks: { session: "entreno", h1: "1 h", h24: "24 h", h48: "48 h", h96: "96 h" },
       zones: { despues: "Después", dias: "Los días siguientes", semanas: "Todos los días" },
     },
+    season: {
+      title: "Cuándo se toma cada suplemento en el año",
+      hint: "La curva es el sol, con el que la piel fabrica vitamina D. Pulsa un suplemento para ver cuándo se toma.",
+      desc: "Los doce meses de enero a diciembre. La curva del sol sube en verano y baja en invierno. La temporada de resfriados, de octubre a marzo, está rayada: en ella se toman a diario la vitamina D, los probióticos y la vitamina C. Abajo, una barra para lo que se toma al primer síntoma: el zinc y el saúco.",
+      sun: "sol",
+      months: ["E", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
+      zones: { temporada: "Temporada", sintoma: "Al primer síntoma" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -184,6 +192,14 @@ export const compendio = {
       doms: "soreness",
       ticks: { session: "workout", h1: "1 h", h24: "24 h", h48: "48 h", h96: "96 h" },
       zones: { despues: "After", dias: "The following days", semanas: "Every day" },
+    },
+    season: {
+      title: "When each supplement is taken in the year",
+      hint: "The curve is sunlight, which the skin uses to make vitamin D. Tap a supplement to see when it's taken.",
+      desc: "The twelve months from January to December. The sun curve rises in summer and falls in winter. Cold season, from October to March, is shaded: during it vitamin D, probiotics and vitamin C are taken daily. Below, a bar for what's taken at the first symptom: zinc and elderberry.",
+      sun: "sun",
+      months: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
+      zones: { temporada: "Season", sintoma: "At the first symptom" },
     },
     card: {
       id: "Sheet",

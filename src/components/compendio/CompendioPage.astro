@@ -11,6 +11,7 @@ import SleepClock from "./SleepClock.astro";
 import FocusTimeline from "./FocusTimeline.astro";
 import CortisolCurve from "./CortisolCurve.astro";
 import RecoveryChart from "./RecoveryChart.astro";
+import SeasonChart from "./SeasonChart.astro";
 import SupplementCard from "./SupplementCard.astro";
 import SharedSheet from "./SharedSheet.astro";
 import ProductList from "./ProductList.astro";
@@ -108,7 +109,9 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                 ? c.cortisol.zones
                 : p.mapa === "agujetas"
                   ? c.recovery.zones
-                  : c.map.zones;
+                  : p.mapa === "temporada"
+                    ? c.season.zones
+                    : c.map.zones;
         const markers: MapMarker[] = supplements.map((s, i) => ({
           id: s.id,
           n: i + 1,
@@ -163,6 +166,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                       <CortisolCurve markers={markers} text={c.cortisol} />
                     ) : p.mapa === "agujetas" ? (
                       <RecoveryChart markers={markers} text={c.recovery} />
+                    ) : p.mapa === "temporada" ? (
+                      <SeasonChart markers={markers} text={c.season} />
                     ) : (
                       <DigestiveMap markers={markers} text={c.map} />
                     )}

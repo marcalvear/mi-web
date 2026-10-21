@@ -1,0 +1,80 @@
+{
+  "nombre": {
+    "es": "Vitamina D",
+    "en": "Vitamin D"
+  },
+  "tipo": {
+    "es": "Vitamina",
+    "en": "Vitamin"
+  },
+  "evidencia": "preliminar",
+  "zona": "temporada",
+  "porQue": {
+    "es": "Es de lo más estudiado: 40 ensayos con más de 61.000 personas. Pero en la actualización de 2025 la protección frente a infecciones se queda en el límite y deja de ser significativa.",
+    "en": "It's among the most studied: 40 trials with more than 61,000 people. But in the 2025 update the protection against infections sits on the edge and stops being significant."
+  },
+  "resumen": {
+    "es": "El cuerpo la fabrica con el sol en la piel, y en invierno casi no se fabrica. Hace falta para los huesos y el sistema inmune, pero en cápsula apenas evita resfriados en quien no tiene déficit.",
+    "en": "The body makes it with sunlight on the skin, and in winter it barely makes any. It's needed for bones and the immune system, but as a capsule it barely prevents colds in people without a deficiency."
+  },
+  "mecanismo": {
+    "es": "Cuando el sol da en la piel, el cuerpo fabrica vitamina D y el hígado y el riñón la activan. Las células del sistema inmune tienen receptores para ella: la usan para fabricar sus propios antibióticos naturales, como la catelicidina. Entre octubre y marzo, en España, el sol está tan bajo que la piel casi no la fabrica.",
+    "en": "When sunlight hits the skin, the body makes vitamin D and the liver and kidneys activate it. Immune cells have receptors for it: they use it to make their own natural antibiotics, such as cathelicidin. Between October and March, in Spain, the sun is so low that the skin barely makes any."
+  },
+  "dosis": {
+    "es": "Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis",
+    "en": "Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test"
+  },
+  "cuando": {
+    "es": "A diario, con la comida principal, sobre todo de octubre a marzo",
+    "en": "Daily, with your main meal, especially from October to March"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En la revisión de 2021, con 43 ensayos y 48.488 personas, la vitamina D bajó un poco el riesgo de infección respiratoria, sobre todo tomada a diario y a dosis moderadas.",
+        "en": "In the 2021 review, with 43 trials and 48,488 people, vitamin D slightly lowered the risk of respiratory infection, especially taken daily at moderate doses."
+      },
+      "fuente": "33798465"
+    },
+    {
+      "texto": {
+        "es": "Al añadir los ensayos nuevos en 2025, con 61.589 personas, la protección quedó en un 6 % y dejó de ser significativa. Tampoco cambió según el déficit de partida ni la dosis.",
+        "en": "When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose."
+      },
+      "fuente": "39993397"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Más no es mejor: por encima de 4.000 UI al día durante mucho tiempo puede subir demasiado el calcio.",
+      "en": "More isn't better: above 4,000 IU a day for a long time it can push calcium too high."
+    },
+    {
+      "es": "Si tienes piedras en el riñón, sarcoidosis o tomas diuréticos tiazídicos, consúltalo antes.",
+      "en": "If you have kidney stones, sarcoidosis or take thiazide diuretics, check first."
+    },
+    {
+      "es": "Para saber si te falta, el análisis es el de 25-hidroxivitamina D.",
+      "en": "To find out if you're low, the test is 25-hydroxyvitamin D."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Jolliffe DA, Camargo CA Jr, Sluyter JD, et al.",
+      "anio": 2021,
+      "titulo": "Vitamin D supplementation to prevent acute respiratory infections: a systematic review and meta-analysis of aggregate data from randomised controlled trials",
+      "revista": "Lancet Diabetes Endocrinol 9(5):276-292",
+      "pmid": "33798465",
+      "doi": "10.1016/S2213-8587(21)00051-6"
+    },
+    {
+      "autores": "Jolliffe DA, Camargo CA Jr, Sluyter JD, et al.",
+      "anio": 2025,
+      "titulo": "Vitamin D supplementation to prevent acute respiratory infections: systematic review and meta-analysis of stratified aggregate data",
+      "revista": "Lancet Diabetes Endocrinol 13(4):307-320",
+      "pmid": "39993397",
+      "doi": "10.1016/S2213-8587(24)00348-6"
+    }
+  ]
+}
