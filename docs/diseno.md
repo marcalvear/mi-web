@@ -42,8 +42,9 @@ margen son decorativas y no llevan información.
 
 ## Movimiento
 
-- Duraciones con nombre: `--fast` (160 ms) para hover y foco, `--slow` (420 ms) para
-  apariciones y `--draw` (1,4 s) para trazar diagramas.
+- Duraciones con nombre: `--fast` (160 ms) para hover, foco y pulsar, `--mid` (240 ms) para
+  la interfaz (tarjetas, desplegables, cambios de ficha), `--slow` (420 ms) solo para fotos
+  y dibujos, y `--draw` (1,4 s) para trazar diagramas. En interfaz, nunca más de 300 ms.
 - Los diagramas solo se animan cuando se ven (`IntersectionObserver`) y se paran fuera de
   pantalla.
 - Con `prefers-reduced-motion` todo aparece ya dibujado y quieto.
