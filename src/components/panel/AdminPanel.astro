@@ -4,6 +4,7 @@
 // verlo todo (ADR 0006). A cualquier otro usuario la base de datos le devuelve
 // solo lo suyo, y esta página le dice que no es para él.
 // Al responder, un flujo de n8n avisa por correo (ADR 0007, n8n/README.md).
+import { getCollection } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Base from "../../layouts/Base.astro";
 import Button from "../Button.astro";
@@ -22,6 +23,8 @@ const notifyUrl = import.meta.env.PUBLIC_N8N_REPLY_URL ?? "";
 const id = (field: string) => `panel-${field}-${lang}`;
 const stats = ["users", "messages", "unread", "pending"] as const;
 const filters = ["all", "unread", "pending"] as const;
+// Nombre de cada ficha del compendio: en favorites solo está su id (#67)
+const sheets = Object.fromEntries((await getCollection("suplementos")).map((s) => [s.id, s.data.nombre[lang]]));
 ---
 
 <Base lang={lang} title={c.meta.title} description={c.meta.description} path="panel/" noindex>
@@ -32,6 +35,7 @@ const filters = ["all", "unread", "pending"] as const;
     data-max={MAX}
     data-notify={notifyUrl}
     data-text={JSON.stringify(c)}
+    data-sheets={JSON.stringify(sheets)}
   >
     <header class="intro">
       <p class="label">{c.kicker}</p>
@@ -69,6 +73,7 @@ const filters = ["all", "unread", "pending"] as const;
       <div class="chips views" role="group" aria-label={c.views.label}>
         <button type="button" class="chip" data-tab="inbox" aria-pressed="true">{c.views.inbox}</button>
         <button type="button" class="chip" data-tab="users" aria-pressed="false">{c.views.users}</button>
+        <button type="button" class="chip" data-tab="favorites" aria-pressed="false">{c.views.favorites}</button>
       </div>
 
       <!-- Bandeja: lista de conversaciones y la conversación abierta -->
@@ -122,6 +127,7 @@ const filters = ["all", "unread", "pending"] as const;
                 <th scope="col">{c.users.role}</th>
                 <th scope="col">{c.users.since}</th>
                 <th scope="col">{c.users.messages}</th>
+                <th scope="col">{c.users.favorites}</th>
                 <th scope="col">{c.users.last}</th>
               </tr>
             </thead>
@@ -137,6 +143,16 @@ const filters = ["all", "unread", "pending"] as const;
         </section>
       </section>
 
+      <!-- Lo más guardado: ranking de fichas del compendio (#67) -->
+      <section class="favorites" data-tabpanel="favorites" aria-labelledby={id("favorites")} hidden>
+        <header class="thread-head">
+          <h2 id={id("favorites")}>{c.favorites.label}</h2>
+          <p class="label" data-fav-summary></p>
+        </header>
+        <ol class="ranking" role="list" data-ranking></ol>
+        <p class="empty" data-ranking-empty hidden>{c.favorites.empty}</p>
+      </section>
+
       <p class="status" role="status" data-status></p>
     </div>
   </div>
@@ -144,7 +160,7 @@ const filters = ["all", "unread", "pending"] as const;
 
 <script>
   import type { Session } from "@supabase/supabase-js";
-  import { supabase, type AppEvent, type Message, type Profile } from "../../lib/supabase";
+  import { supabase, type AppEvent, type Favorite, type Message, type Profile } from "../../lib/supabase";
   import type { PanelText } from "../../i18n/panel";
 
   type View = "loading" | "setup" | "out" | "denied" | "in";
@@ -156,6 +172,7 @@ const filters = ["all", "unread", "pending"] as const;
 
   async function init(root: HTMLElement) {
     const t = JSON.parse(root.dataset.text!) as PanelText;
+    const sheets = JSON.parse(root.dataset.sheets!) as Record<string, string>;
     const lang = root.dataset.lang!;
     const max = Number(root.dataset.max);
     const notifyUrl = root.dataset.notify ?? "";
@@ -171,6 +188,7 @@ const filters = ["all", "unread", "pending"] as const;
     let profiles = new Map<string, Profile>();
     let messages: Message[] = [];
     let events: AppEvent[] = [];
+    let favorites: Favorite[] = [];
     let filter: Filter = "all";
     let selected: string | null = null;
 
@@ -370,6 +388,11 @@ const filters = ["all", "unread", "pending"] as const;
 
     // Usuarios y actividad --------------------------------------------------
     function describe(e: AppEvent) {
+      if (e.type === "favorito") {
+        const { ficha = "", accion } = (e.data ?? {}) as { ficha?: string; accion?: string };
+        const action = accion === "quitar" ? t.users.favorite.quitar : t.users.favorite.guardar;
+        return fill(action, "name", sheets[ficha] ?? ficha);
+      }
       const label = t.users.events[e.type as keyof typeof t.users.events] ?? e.type;
       const via = (e.data as { via?: string } | null)?.via;
       return via && via in t.users.via ? `${label} ${t.users.via[via as keyof typeof t.users.via]}` : label;
@@ -392,6 +415,7 @@ const filters = ["all", "unread", "pending"] as const;
             el("td", "", t.users.roles[p.role]),
             el("td", "", day.format(new Date(p.created_at))),
             el("td", "num", String(messages.filter((m) => m.user_id === p.id && m.author === "user").length)),
+            el("td", "num", String(favorites.filter((f) => f.user_id === p.id).length)),
             el("td", "", last ? when.format(new Date(last.created_at)) : t.users.never),
           );
           return tr;
@@ -413,6 +437,33 @@ const filters = ["all", "unread", "pending"] as const;
       });
       $("[data-events]").replaceChildren(...(items.length ? items : [el("li", "empty", t.users.noActivity)]));
       $("[data-activity-title]").focus();
+    }
+
+    // Lo más guardado -------------------------------------------------------
+    function renderRanking() {
+      const counts = new Map<string, number>();
+      for (const f of favorites) counts.set(f.supplement, (counts.get(f.supplement) ?? 0) + 1);
+      const rows = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+      const top = rows[0]?.[1] ?? 0;
+      const people = new Set(favorites.map((f) => f.user_id)).size;
+      $("[data-fav-summary]").textContent = fill(fill(t.favorites.summary, "saves", favorites.length), "people", people);
+      $("[data-ranking]").replaceChildren(
+        ...rows.map(([id, n], i) => {
+          const li = el("li", "rank");
+          const name = sheets[id] ?? fill(t.favorites.gone, "id", id);
+          const bar = el("span", "bar");
+          // La barra mide contra la más guardada, como en un gráfico de laboratorio
+          bar.style.setProperty("--w", `${(n / top) * 100}%`);
+          li.append(
+            el("span", "label pos", String(i + 1).padStart(2, "0")),
+            el("span", "rank-name", name),
+            bar,
+            el("span", "label rank-n", n === 1 ? t.favorites.one : fill(t.favorites.people, "n", n)),
+          );
+          return li;
+        }),
+      );
+      $("[data-ranking-empty]").hidden = rows.length > 0;
     }
 
     $("[data-activity-close]").addEventListener("click", () => ($("[data-activity]").hidden = true));
@@ -438,20 +489,23 @@ const filters = ["all", "unread", "pending"] as const;
     const me = await supabase.from("profiles").select("role").eq("id", session.user.id).maybeSingle();
     if (me.data?.role !== "admin") return show("denied");
 
-    const [p, m, ev] = await Promise.all([
+    const [p, m, ev, fav] = await Promise.all([
       supabase.from("profiles").select("*").order("created_at", { ascending: false }),
       supabase.from("messages").select("*").order("created_at", { ascending: true }),
       supabase.from("events").select("*").order("created_at", { ascending: false }).limit(1000),
+      supabase.from("favorites").select("*"),
     ]);
-    if (p.error || m.error || ev.error) {
+    if (p.error || m.error || ev.error || fav.error) {
       show("in");
       return say(t.errors.load, true);
     }
     profiles = new Map(p.data.map((x) => [x.id, x]));
     messages = m.data;
     events = ev.data;
+    favorites = fav.data;
     renderList();
     renderUsers();
+    renderRanking();
     show("in");
   }
 </script>
@@ -768,6 +822,53 @@ const filters = ["all", "unread", "pending"] as const;
   .users :global(.num) {
     font-family: var(--font-mono);
     text-align: right;
+  }
+
+  .favorites {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .ranking {
+    display: grid;
+    gap: var(--space-1);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Cada fila: puesto, nombre, barra y cuántas personas la guardan */
+  .ranking :global(.rank) {
+    display: grid;
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+    grid-template-areas: "pos name n" "pos bar bar";
+    align-items: center;
+    gap: 0.3rem var(--space-2);
+    padding: var(--space-1) var(--space-2);
+    border-bottom: 1px dashed var(--rule);
+  }
+
+  .ranking :global(.pos) {
+    grid-area: pos;
+    color: var(--lab);
+    font-size: var(--step-1);
+  }
+
+  .ranking :global(.rank-name) {
+    grid-area: name;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .ranking :global(.rank-n) {
+    grid-area: n;
+    color: var(--ink-soft);
+  }
+
+  .ranking :global(.bar) {
+    grid-area: bar;
+    height: 0.6rem;
+    border: 1px solid var(--lab);
+    background: linear-gradient(to right, var(--lab) var(--w), transparent var(--w));
   }
 
   .activity {
