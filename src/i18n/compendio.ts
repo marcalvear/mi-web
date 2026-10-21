@@ -7,7 +7,7 @@ export const compendio = {
     meta: {
       title: "Compendio de biohacking",
       description:
-        "Suplementos para problemas concretos, con la ciencia explicada en claro y cada estudio enlazado. Primer problema: digestiones pesadas.",
+        "Suplementos para problemas concretos, con la ciencia explicada en claro y cada estudio enlazado: digestiones pesadas y envejecer mejor.",
     },
     kicker: "Cuaderno nº 3 · Anexo C · Laboratorio",
     title: "Compendio de biohacking",
@@ -73,6 +73,7 @@ export const compendio = {
       error: "No se ha podido guardar. Revisa tu conexión y vuelve a probar.",
       limit: "Ya tienes 100 fichas guardadas, el máximo. Quita alguna para guardar esta.",
     },
+    bundle: "Un producto que los junta",
     combine: "Si quieres combinarlos",
     alarm: "Ve al médico antes que a un suplemento si además",
     soon: "Iré añadiendo más problemas: sueño, concentración, estrés, recuperación…",
@@ -81,7 +82,7 @@ export const compendio = {
     meta: {
       title: "Biohacking compendium",
       description:
-        "Supplements for specific problems, with the science explained plainly and every study linked. First problem: heavy digestion.",
+        "Supplements for specific problems, with the science explained plainly and every study linked: heavy digestion and ageing well.",
     },
     kicker: "Notebook no. 3 · Appendix C · Lab",
     title: "Biohacking compendium",
@@ -147,6 +148,7 @@ export const compendio = {
       error: "It couldn't be saved. Check your connection and try again.",
       limit: "You already have 100 saved sheets, the maximum. Remove one to save this.",
     },
+    bundle: "One product that combines them",
     combine: "If you want to combine them",
     alarm: "See a doctor before trying a supplement if you also",
     soon: "I'll keep adding problems: sleep, focus, stress, recovery…",

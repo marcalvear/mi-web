@@ -1,5 +1,6 @@
 {
   "orden": 1,
+  "mapa": "digestivo",
   "nombre": { "es": "Digestiones pesadas", "en": "Heavy digestion" },
   "titular": {
     "es": "¿Acabas de comer y el estómago te pesa como una piedra?",
