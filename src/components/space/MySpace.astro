@@ -23,8 +23,8 @@ const id = (field: string) => `space-${field}-${lang}`;
 // Las fichas del compendio, para pintar los favoritos (#67): en la base de
 // datos solo está el id de cada ficha
 const compendioUrl = getRelativeLocaleUrl(lang, "biohacking/");
-const catalog = Object.fromEntries(
-  (await getCollection("suplementos")).map((s) => [
+const catalog = Object.fromEntries([
+  ...(await getCollection("suplementos")).map((s) => [
     s.id,
     {
       name: s.data.nombre[lang],
@@ -33,7 +33,14 @@ const catalog = Object.fromEntries(
       href: `${compendioUrl}#${s.id}`,
     },
   ]),
-);
+  // Y los productos que juntan varios suplementos, al final de cada problema (#81)
+  ...(await getCollection("problemas")).flatMap((p) =>
+    (p.data.productos ?? []).map((prod) => [
+      prod.id,
+      { name: prod.nombre, type: prod.marca, evidence: c.favorites.product, href: `${compendioUrl}#${prod.id}` },
+    ]),
+  ),
+]);
 ---
 
 <Base lang={lang} title={c.meta.title} description={c.meta.description} path="mi-espacio/" noindex>

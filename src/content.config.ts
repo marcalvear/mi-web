@@ -19,7 +19,8 @@ const fuente = z.object({
 });
 
 const producto = z.object({
-  id: z.string(),
+  // Mismo formato que exige favorites.supplement: los productos también se guardan (#81)
+  id: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/).max(64),
   marca: z.string(),
   nombre: z.string(),
   /** Nombre del fichero en src/assets/img/compendio/ */
