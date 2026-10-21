@@ -51,6 +51,7 @@ COMPENDIO DE BIOHACKING
 - Envejecer mejor: Luteína y zeaxantina, Astaxantina, Licopeno, Vitamina K (K1 y K2), NAC (N-acetilcisteína), Colágeno hidrolizado, Vitamina C.
 - Dormir mejor: Melatonina, Magnesio, Glicina, L-teanina.
 - Concentrarse mejor: Cafeína con L-teanina, Creatina, Bacopa, Melena de león.
+- Menos estrés: Ashwagandha, Lavanda (Silexan), Rhodiola, Magnesio.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -224,13 +225,14 @@ FICHA: Melatonina (Hormona del sueño) · https://marcalvear.github.io/mi-web/bi
   - Aquilea, Melatonina 1,95 mg (España): lleva 1,95 mg de melatonina y 0,7 mg de vitamina B6; toma 1 comprimido de 1 a 2 horas antes de acostarte; caja 30 o 60 comprimidos; precio En farmacias; la marca no publica el precio. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
 
 FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#magnesio
-- Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores.
+- Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores o con mucho estrés.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay un ensayo pequeño a favor en personas mayores con insomnio, pero la revisión más reciente encuentra resultados contradictorios y una certeza baja.
 - Cómo funciona: El magnesio frena a los receptores que mantienen el cerebro en alerta y ayuda a los que lo calman, los mismos sobre los que actúan muchos somníferos. Si te falta, cuesta más relajarse. Si ya tienes suficiente, tomar más no parece hacer mucho.
 - Dosis estudiada: Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido. Cuándo: Con la cena.
 - Qué encontraron los estudios:
   - En 46 personas mayores con insomnio, 500 mg de magnesio al día durante 8 semanas mejoraron la gravedad del insomnio, el tiempo que tardaban en dormirse y la eficiencia del sueño frente a placebo. El tiempo total de sueño no cambió. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
   - Una revisión de 12 ensayos de 2026 concluye que el magnesio no sirve como tratamiento de rutina para el insomnio: los resultados son contradictorios y la certeza, baja. Puede ayudar algo a grupos concretos, como quien tiene poco magnesio. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
+  - En 264 adultos estresados con el magnesio bajo, 8 semanas de magnesio, solo o con vitamina B6, bajaron el estrés casi a la mitad. No había grupo placebo, y la B6 solo añadió algo en quienes tenían un estrés muy alto. [Pouteau E et al., 2018, PLoS One 13(12):e0208454, PMID 30562392]
 - Precauciones: Si tienes una enfermedad del riñón, no lo tomes sin hablar con tu médico. Separa 2 horas el magnesio de antibióticos como las tetraciclinas o las quinolonas y de la levotiroxina. A dosis altas puede soltar el vientre; el óxido de magnesio, más.
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Thorne, Magnesium Bisglycinate (Estados Unidos): lleva 200 mg de magnesio en bisglicinato por cacito; toma 1 cacito en un vaso grande de agua al día; bote Polvo, 60 tomas; precio 52 $. https://www.thorne.com/products/dp/magnesium-bisglycinate
@@ -304,6 +306,55 @@ FICHA: Melena de león (Hongo) · https://marcalvear.github.io/mi-web/biohacking
   - En adultos jóvenes sanos, una sola dosis de extracto no mejoró la cognición ni el ánimo en conjunto frente a placebo; solo mejoró una prueba de destreza manual a los 90 minutos. [Surendran G et al., 2025, Front Nutr 12:1405796, PMID 40276537]
   - Una revisión de 2025 reúne cinco ensayos con placebo y tres pilotos, sobre todo en personas mayores con deterioro cognitivo, con mejoras pequeñas en una prueba de memoria. La mayoría de lo que se sabe viene del laboratorio. [Menon A et al., 2025, Front Nutr 12:1641246, PMID 40959699]
 - Precauciones: Si tienes alergia a las setas, no la tomes. En embarazo, lactancia o si tomas anticoagulantes, consúltalo antes: hay muy pocos datos.
+
+PROBLEMA: MENOS ESTRÉS (https://marcalvear.github.io/mi-web/biohacking/#menos-estres)
+- La mandíbula apretada, el pecho encogido o la cabeza que no para por la noche. Lo que más baja el estrés no viene en cápsula: dormir, moverse, salir al sol y hablarlo con alguien. Estas fichas son un apoyo, no un sustituto.
+- Qué pasa en el cuerpo: Ante un peligro, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol y adrenalina: el corazón se acelera y la mente se pone en alerta. El cortisol tiene su propio ritmo: sube de golpe al despertar y baja durante el día hasta la noche. Con estrés que no para, se queda alto cuando debería bajar, y por eso cuesta dormir y desconectar. La curva de al lado marca en qué parte del día actúa cada suplemento.
+- Combinarlos: Ningún ensayo probó estos cuatro juntos. La ashwagandha y la lavanda se parecen en lo que hacen: no las sumes de entrada. Si quieres probar, empieza por una durante cuatro a ocho semanas, que es lo que duraron los ensayos, antes de juzgarla.
+- Ve al médico antes que a un suplemento si además: tienes ataques de pánico: el corazón a mil, falta de aire o miedo a morirte; llevas semanas triste, sin ganas de nada o sin disfrutar de lo que te gustaba; piensas en hacerte daño: llama al 024, la línea de atención a la conducta suicida; el estrés te impide trabajar, estudiar o dormir casi todas las noches.
+
+FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#ashwagandha
+- Qué es: Es una raíz de la medicina tradicional india, la más estudiada para el estrés. En 8 semanas baja el estrés que la gente nota y el cortisol en sangre.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 9 ensayos con placebo sale a favor en estrés, ansiedad y cortisol, pero los ensayos son pequeños, cortos y casi todos de la India con extractos de marca.
+- Cómo funciona: Cuando hay estrés, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol, la hormona que te pone en alerta. Si el estrés no para, el cortisol se queda alto. Los compuestos de la raíz, los witanólidos, parecen calmar ese circuito y actuar sobre el GABA, el freno natural del cerebro.
+- Dosis estudiada: De 250 a 600 mg al día de extracto de raíz. Cuándo: Repartida en dos tomas, con el desayuno y con la cena.
+- Qué encontraron los estudios:
+  - Juntando 9 ensayos con 558 personas, la ashwagandha bajó el estrés percibido, la ansiedad y el cortisol en sangre frente a placebo. Cuatro ensayos describieron efectos secundarios leves o moderados. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
+  - En 60 adultos sanos estresados, 250 y 600 mg al día durante 8 semanas bajaron el estrés y el cortisol frente a placebo, y mejoraron la calidad del sueño. Con 600 mg el efecto fue mayor. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
+- Precauciones: Se han descrito casos raros de daño en el hígado: si notas la orina oscura, la piel amarilla o cansancio extraño, déjala y ve al médico. No la tomes si estás embarazada, das el pecho o tienes una enfermedad del tiroides o autoinmune sin hablar antes con tu médico. Puede sumarse a los sedantes y a la medicación para la tensión o el azúcar.
+
+FICHA: Lavanda (Silexan) (Aceite de lavanda en cápsula) · https://marcalvear.github.io/mi-web/biohacking/#lavanda
+- Qué es: Es un aceite de lavanda en cápsula, no el que se huele. A 80 mg al día baja la ansiedad, y no da sueño ni engancha.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Hay varios ensayos con placebo en ansiedad y un metaanálisis en red, con efectos parecidos a un antidepresivo. Casi todos los ha pagado el laboratorio que lo fabrica.
+- Cómo funciona: El aceite de lavanda actúa sobre los canales de calcio de las neuronas y frena un poco la liberación de mensajeros que mantienen el cerebro en alerta. No actúa como los tranquilizantes, así que no da sueño ni crea dependencia.
+- Dosis estudiada: 80 mg de Silexan al día; en algún ensayo, 160 mg. Cuándo: Una cápsula al día, siempre a la misma hora; mejor por la noche.
+- Qué encontraron los estudios:
+  - En 5 ensayos con más de 600 personas con trastorno de ansiedad, 80 mg al día de Silexan bajaron la ansiedad tanto como la paroxetina, un antidepresivo, y 160 mg algo más. [Yap WS et al., 2019, Sci Rep 9(1):18042, PMID 31792285]
+  - Un resumen de los ensayos del laboratorio que lo fabrica: en personas con ansiedad que no llega a trastorno, 80 mg al día durante 10 semanas bajaron la ansiedad y mejoraron el sueño frente a placebo. [Kasper S et al., 2010, Wien Med Wochenschr 160(21-22):547-556, PMID 21170695]
+- Precauciones: Lo más frecuente es eructar con sabor a lavanda. Si tomas antidepresivos o ansiolíticos, no lo añadas sin hablar con tu médico. No es para una crisis de ansiedad: tarda unas semanas en notarse.
+
+FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#rhodiola
+- Qué es: Es una raíz de las montañas frías del norte. Se usa para el cansancio por estrés: en un ensayo con personas quemadas mejoró la concentración y bajó el cortisol al despertar.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay ensayos a favor en la fatiga mental, pero una revisión de 11 ensayos los encuentra contradictorios y con fallos de método.
+- Cómo funciona: Sus compuestos, la salidrosida y las rosavinas, parecen suavizar la respuesta al estrés: el cortisol sube menos de golpe y las células gastan su energía con menos desgaste. Por eso se toma por la mañana, cuando el cortisol pega su subida.
+- Dosis estudiada: De 200 a 600 mg al día de extracto estandarizado. Cuándo: Por la mañana, antes del desayuno; por la tarde puede quitar el sueño.
+- Qué encontraron los estudios:
+  - En 60 personas con agotamiento por estrés (burnout), 576 mg al día durante 4 semanas mejoraron la concentración y bajaron el cortisol al despertar frente a placebo. El grupo placebo también mejoró bastante. [Olsson EM et al., 2009, Planta Med 75(2):105-112, PMID 19016404]
+  - Una revisión de 11 ensayos encontró que tres de cinco salían a favor en la fatiga mental, pero todos tenían riesgo de sesgo o fallos al contar los resultados. [Ishaque S et al., 2012, BMC Complement Altern Med 12:70, PMID 22643043]
+- Precauciones: Puede dar nerviosismo o insomnio si se toma tarde. Si tienes trastorno bipolar o tomas antidepresivos, consúltalo antes. En embarazo y lactancia, mejor no tomarla.
+
+FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#magnesio
+- Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores o con mucho estrés.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay un ensayo pequeño a favor en personas mayores con insomnio, pero la revisión más reciente encuentra resultados contradictorios y una certeza baja.
+- Cómo funciona: El magnesio frena a los receptores que mantienen el cerebro en alerta y ayuda a los que lo calman, los mismos sobre los que actúan muchos somníferos. Si te falta, cuesta más relajarse. Si ya tienes suficiente, tomar más no parece hacer mucho.
+- Dosis estudiada: Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido. Cuándo: Con la cena.
+- Qué encontraron los estudios:
+  - En 46 personas mayores con insomnio, 500 mg de magnesio al día durante 8 semanas mejoraron la gravedad del insomnio, el tiempo que tardaban en dormirse y la eficiencia del sueño frente a placebo. El tiempo total de sueño no cambió. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
+  - Una revisión de 12 ensayos de 2026 concluye que el magnesio no sirve como tratamiento de rutina para el insomnio: los resultados son contradictorios y la certeza, baja. Puede ayudar algo a grupos concretos, como quien tiene poco magnesio. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
+  - En 264 adultos estresados con el magnesio bajo, 8 semanas de magnesio, solo o con vitamina B6, bajaron el estrés casi a la mitad. No había grupo placebo, y la B6 solo añadió algo en quienes tenían un estrés muy alto. [Pouteau E et al., 2018, PLoS One 13(12):e0208454, PMID 30562392]
+- Precauciones: Si tienes una enfermedad del riñón, no lo tomes sin hablar con tu médico. Separa 2 horas el magnesio de antibióticos como las tetraciclinas o las quinolonas y de la levotiroxina. A dosis altas puede soltar el vientre; el óxido de magnesio, más.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Thorne, Magnesium Bisglycinate (Estados Unidos): lleva 200 mg de magnesio en bisglicinato por cacito; toma 1 cacito en un vaso grande de agua al día; bote Polvo, 60 tomas; precio 52 $. https://www.thorne.com/products/dp/magnesium-bisglycinate
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -463,13 +514,14 @@ SHEET: Melatonin (Sleep hormone) · https://marcalvear.github.io/mi-web/en/bioha
   - Aquilea, Melatonina 1,95 mg (Spain): contains 1.95 mg of melatonin and 0.7 mg of vitamin B6; dose 1 tablet 1 to 2 hours before bed; pack 30 or 60 tablets; price In pharmacies; the brand doesn't publish a price. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
 
 SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#magnesio
-- What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older people are.
+- What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older or very stressed people are.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: There's a small trial in favour in older people with insomnia, but the most recent review finds contradictory results and low certainty.
 - How it works: Magnesium holds back the receptors that keep the brain alert and helps the ones that calm it, the same ones many sleeping pills act on. If you're low, it's harder to relax. If you already have enough, taking more doesn't seem to do much.
 - Dose studied: Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide. When: With dinner.
 - What the studies found:
   - In 46 older people with insomnia, 500 mg of magnesium a day for 8 weeks improved insomnia severity, how long they took to fall asleep and sleep efficiency compared with placebo. Total sleep time didn't change. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
   - A 2026 review of 12 trials concludes magnesium isn't a routine treatment for insomnia: results are contradictory and certainty is low. It may help a little in specific groups, such as people low in magnesium. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
+  - In 264 stressed adults with low magnesium, 8 weeks of magnesium, alone or with vitamin B6, nearly halved stress. There was no placebo group, and B6 only added something in people with very high stress. [Pouteau E et al., 2018, PLoS One 13(12):e0208454, PMID 30562392]
 - Cautions: If you have kidney disease, don't take it without talking to your doctor. Keep magnesium 2 hours apart from antibiotics such as tetracyclines or quinolones and from levothyroxine. At high doses it can loosen your stools; magnesium oxide more so.
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Thorne, Magnesium Bisglycinate (United States): contains 200 mg of magnesium as bisglycinate per scoop; dose 1 scoop in a large glass of water a day; tub Powder, 60 servings; price $52. https://www.thorne.com/products/dp/magnesium-bisglycinate
@@ -543,5 +595,54 @@ SHEET: Lion's mane (Mushroom) · https://marcalvear.github.io/mi-web/en/biohacki
   - In healthy young adults, a single dose of extract didn't improve overall cognition or mood compared with placebo; it only improved a manual dexterity test at 90 minutes. [Surendran G et al., 2025, Front Nutr 12:1405796, PMID 40276537]
   - A 2025 review brings together five placebo-controlled trials and three pilot studies, mostly in older people with cognitive decline, with small improvements on a memory test. Most of what's known comes from the lab. [Menon A et al., 2025, Front Nutr 12:1641246, PMID 40959699]
 - Cautions: If you're allergic to mushrooms, don't take it. In pregnancy, breastfeeding or if you take blood thinners, check first: there's very little data.
+
+PROBLEM: LESS STRESS (https://marcalvear.github.io/mi-web/en/biohacking/#menos-estres)
+- A clenched jaw, a tight chest or a head that won't stop at night. What lowers stress most doesn't come in a capsule: sleep, movement, sunlight and talking to someone. These sheets are a support, not a substitute.
+- What's going on in the body: Faced with danger, the brain signals the adrenal glands and they release cortisol and adrenaline: the heart speeds up and the mind goes on alert. Cortisol has its own rhythm: it jumps on waking and falls through the day until night. With stress that doesn't stop, it stays high when it should drop, which is why it's hard to sleep and switch off. The curve beside it shows at what part of the day each supplement acts.
+- Combining them: No trial tested these four together. Ashwagandha and lavender are similar in what they do: don't combine them at first. If you want to try, start with one for four to eight weeks, which is how long the trials lasted, before judging it.
+- See a doctor before trying a supplement if you also: you have panic attacks: racing heart, shortness of breath or fear of dying; you've been sad for weeks, with no drive or no enjoyment of what you used to like; you're thinking of harming yourself: in Spain call 024, the suicide prevention line; stress stops you working, studying or sleeping almost every night.
+
+SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#ashwagandha
+- What it is: It's a root from traditional Indian medicine, the most studied for stress. In 8 weeks it lowers the stress people feel and cortisol in the blood.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 9 placebo-controlled trials comes out in favour for stress, anxiety and cortisol, but the trials are small, short and almost all from India with branded extracts.
+- How it works: Under stress, the brain signals the adrenal glands and they release cortisol, the hormone that puts you on alert. If the stress doesn't stop, cortisol stays high. The root's compounds, withanolides, seem to calm that circuit and act on GABA, the brain's natural brake.
+- Dose studied: 250 to 600 mg a day of root extract. When: Split into two doses, with breakfast and with dinner.
+- What the studies found:
+  - Pooling 9 trials with 558 people, ashwagandha lowered perceived stress, anxiety and blood cortisol compared with placebo. Four trials described mild or moderate side effects. [Arumugam V et al., 2024, Explore (NY) 20(6):103062, PMID 39348746]
+  - In 60 stressed healthy adults, 250 and 600 mg a day for 8 weeks lowered stress and cortisol compared with placebo, and improved sleep quality. At 600 mg the effect was larger. [Salve J et al., 2019, Cureus 11(12):e6466, PMID 32021735]
+- Cautions: Rare cases of liver damage have been reported: if you notice dark urine, yellow skin or unusual tiredness, stop it and see a doctor. Don't take it if you're pregnant, breastfeeding or have a thyroid or autoimmune disease without talking to your doctor first. It can add to sedatives and to medication for blood pressure or blood sugar.
+
+SHEET: Lavender (Silexan) (Lavender oil capsule) · https://marcalvear.github.io/mi-web/en/biohacking/#lavanda
+- What it is: It's lavender oil in a capsule, not the kind you smell. At 80 mg a day it lowers anxiety, and it doesn't make you drowsy or get you hooked.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: There are several placebo-controlled trials in anxiety and a network meta-analysis, with effects similar to an antidepressant. Almost all were paid for by the company that makes it.
+- How it works: Lavender oil acts on the calcium channels of neurons and slightly holds back the release of messengers that keep the brain on alert. It doesn't work like tranquillisers, so it doesn't cause drowsiness or dependence.
+- Dose studied: 80 mg of Silexan a day; in some trials, 160 mg. When: One capsule a day, always at the same time; ideally at night.
+- What the studies found:
+  - In 5 trials with more than 600 people with an anxiety disorder, 80 mg a day of Silexan lowered anxiety as much as paroxetine, an antidepressant, and 160 mg a little more. [Yap WS et al., 2019, Sci Rep 9(1):18042, PMID 31792285]
+  - A summary of trials by the company that makes it: in people with anxiety that doesn't reach a disorder, 80 mg a day for 10 weeks lowered anxiety and improved sleep compared with placebo. [Kasper S et al., 2010, Wien Med Wochenschr 160(21-22):547-556, PMID 21170695]
+- Cautions: The most common effect is burping that tastes of lavender. If you take antidepressants or anti-anxiety medication, don't add it without talking to your doctor. It's not for an anxiety attack: it takes a few weeks to be noticed.
+
+SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#rhodiola
+- What it is: It's a root from cold northern mountains. It's used for stress-related tiredness: in a trial with burned-out people it improved concentration and lowered cortisol on waking.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: There are trials in favour for mental fatigue, but a review of 11 trials finds them contradictory and with methodological flaws.
+- How it works: Its compounds, salidroside and rosavins, seem to soften the stress response: cortisol rises less sharply and cells use their energy with less wear. That's why it's taken in the morning, when cortisol makes its jump.
+- Dose studied: 200 to 600 mg a day of standardised extract. When: In the morning, before breakfast; in the afternoon it can keep you awake.
+- What the studies found:
+  - In 60 people with stress-related exhaustion (burnout), 576 mg a day for 4 weeks improved concentration and lowered cortisol on waking compared with placebo. The placebo group also improved quite a bit. [Olsson EM et al., 2009, Planta Med 75(2):105-112, PMID 19016404]
+  - A review of 11 trials found three out of five came out in favour for mental fatigue, but all had a risk of bias or flaws in reporting results. [Ishaque S et al., 2012, BMC Complement Altern Med 12:70, PMID 22643043]
+- Cautions: It can cause jitters or insomnia if taken late. If you have bipolar disorder or take antidepressants, check first. In pregnancy and breastfeeding, better not to take it.
+
+SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#magnesio
+- What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older or very stressed people are.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: There's a small trial in favour in older people with insomnia, but the most recent review finds contradictory results and low certainty.
+- How it works: Magnesium holds back the receptors that keep the brain alert and helps the ones that calm it, the same ones many sleeping pills act on. If you're low, it's harder to relax. If you already have enough, taking more doesn't seem to do much.
+- Dose studied: Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide. When: With dinner.
+- What the studies found:
+  - In 46 older people with insomnia, 500 mg of magnesium a day for 8 weeks improved insomnia severity, how long they took to fall asleep and sleep efficiency compared with placebo. Total sleep time didn't change. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
+  - A 2026 review of 12 trials concludes magnesium isn't a routine treatment for insomnia: results are contradictory and certainty is low. It may help a little in specific groups, such as people low in magnesium. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
+  - In 264 stressed adults with low magnesium, 8 weeks of magnesium, alone or with vitamin B6, nearly halved stress. There was no placebo group, and B6 only added something in people with very high stress. [Pouteau E et al., 2018, PLoS One 13(12):e0208454, PMID 30562392]
+- Cautions: If you have kidney disease, don't take it without talking to your doctor. Keep magnesium 2 hours apart from antibiotics such as tetracyclines or quinolones and from levothyroxine. At high doses it can loosen your stools; magnesium oxide more so.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Thorne, Magnesium Bisglycinate (United States): contains 200 mg of magnesium as bisglycinate per scoop; dose 1 scoop in a large glass of water a day; tub Powder, 60 servings; price $52. https://www.thorne.com/products/dp/magnesium-bisglycinate
 `,
 };
