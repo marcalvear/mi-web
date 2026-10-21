@@ -17,6 +17,16 @@ export const chat = {
     you: "Tú",
     bot: "Marc IA",
     clear: "Empezar de nuevo",
+    // En el compendio hace de «boticario» (#69): estos textos sustituyen a los de arriba
+    boticario: {
+      open: "Pregunta al boticario",
+      title: "Boticario IA",
+      bot: "Boticario IA",
+      note: "Responde una IA con lo que dice el compendio. Es divulgación, no consejo médico, y puede equivocarse.",
+      hello: "Hola. Cuéntame qué te pasa y te digo qué fichas del compendio mirar, con su evidencia, su dosis estudiada y sus precauciones. No sustituyo a tu médico.",
+      suggestions: ["Tengo digestiones pesadas", "¿Qué tiene más evidencia?", "¿Puedo combinarlos?"],
+      placeholder: "Cuéntame qué te pasa…",
+    },
     errors: {
       busy: "El asistente ha llegado a su límite de hoy. Escríbeme con el formulario de contacto.",
       network: "No he podido conectar con el asistente. Revisa tu conexión.",
@@ -38,6 +48,15 @@ export const chat = {
     you: "You",
     bot: "Marc AI",
     clear: "Start over",
+    boticario: {
+      open: "Ask the apothecary",
+      title: "Apothecary AI",
+      bot: "Apothecary AI",
+      note: "An AI answers with what the compendium says. It's science writing, not medical advice, and it can make mistakes.",
+      hello: "Hi. Tell me what's bothering you and I'll point you to the compendium sheets worth reading, with their evidence, the dose studied and their cautions. I'm no substitute for your doctor.",
+      suggestions: ["I get heavy digestion", "Which has the most evidence?", "Can I combine them?"],
+      placeholder: "Tell me what's bothering you…",
+    },
     errors: {
       busy: "The assistant has reached today's limit. Write to me with the contact form.",
       network: "I couldn't reach the assistant. Check your connection.",

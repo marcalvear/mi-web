@@ -3,6 +3,7 @@
 import Base from "../../layouts/Base.astro";
 import Entry from "../Entry.astro";
 import Biohacking from "./Biohacking.astro";
+import CompendioTeaser from "../compendio/CompendioTeaser.astro";
 import Pokedex from "./Pokedex.astro";
 import QuoteDeck from "./QuoteDeck.astro";
 import { likes } from "../../i18n/likes";
@@ -35,6 +36,7 @@ const c = likes[lang];
 
     <Entry id="biohacking" number={3} kicker={c.bio.kicker} title={c.bio.title}>
       <p>{c.bio.intro}</p>
+      <CompendioTeaser lang={lang} text={c.bio.teaser} />
       <Biohacking text={c.bio} />
     </Entry>
   </div>

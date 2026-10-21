@@ -1,0 +1,174 @@
+---
+// Adelanto del compendio en el radar de Me gusta (#69): una ficha en verde de
+// laboratorio con las cifras reales del compendio y el enlace.
+import { getCollection } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { compendio } from "../../i18n/compendio";
+import type { Lang } from "../../i18n/ui";
+
+interface Props {
+  lang: Lang;
+  text: { label: string; title: string; text: string; cta: string };
+}
+const { lang, text } = Astro.props;
+const c = compendio[lang];
+const supplements = await getCollection("suplementos");
+const stats = [
+  [(await getCollection("problemas")).length, c.stats.problems],
+  [supplements.length, c.stats.supplements],
+  [new Set(supplements.flatMap((s) => s.data.fuentes.map((f) => f.pmid))).size, c.stats.studies],
+] as const;
+---
+
+<aside class="teaser" aria-labelledby={`teaser-${lang}`}>
+  <div class="copy">
+    <p class="label tag">{text.label}</p>
+    <h3 id={`teaser-${lang}`}>{text.title}</h3>
+    <p>{text.text}</p>
+    <a class="cta" href={getRelativeLocaleUrl(lang, "biohacking/")}>
+      {text.cta} <span aria-hidden="true">→</span>
+    </a>
+  </div>
+  <dl class="stats">
+    {
+      stats.map(([n, label]) => (
+        <div>
+          <dt class="label">{label}</dt>
+          <dd>{String(n).padStart(2, "0")}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</aside>
+
+<style>
+  .teaser {
+    display: grid;
+    gap: var(--space-3);
+    margin-block: var(--space-3) var(--space-4);
+    padding: var(--space-3);
+    background: var(--sheet);
+    border: 1.5px solid var(--ink);
+    border-left: 4px solid var(--lab);
+    box-shadow: 4px 4px 0 var(--lab);
+  }
+
+  .copy {
+    display: grid;
+    gap: var(--space-1);
+    justify-items: start;
+  }
+
+  .tag {
+    color: var(--lab);
+  }
+
+  h3 {
+    font-size: var(--step-2);
+    line-height: 1.15;
+  }
+
+  .copy p:not(.tag) {
+    max-width: 58ch;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    min-height: 44px;
+    margin-block-start: var(--space-1);
+    padding: 0.4rem 1rem;
+    border: 1.5px solid var(--lab);
+    border-radius: 999px;
+    background: var(--lab-soft);
+    color: var(--ink);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform var(--fast) var(--ease-out);
+  }
+
+  .cta:hover {
+    transform: translate(-1px, -1px);
+  }
+
+  /* Las mismas cifras de instrumento que la cabecera del compendio */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    border: 1px solid var(--rule);
+    background: var(--lab-soft);
+  }
+
+  .stats div {
+    display: grid;
+    gap: 2px;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  .stats div + div {
+    border-left: 1px dashed var(--rule);
+  }
+
+  .stats dt {
+    order: 2;
+    color: var(--ink-soft);
+  }
+
+  .stats dd {
+    margin: 0;
+    color: var(--lab);
+    font-family: var(--font-mono);
+    font-size: var(--step-3);
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  /* En móvil no caben tres etiquetas en fila: una cifra por línea */
+  @media (max-width: 39.99rem) {
+    .stats {
+      grid-template-columns: 1fr;
+    }
+
+    .stats div {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-1);
+    }
+
+    .stats div + div {
+      border-left: 0;
+      border-top: 1px dashed var(--rule);
+    }
+
+    .stats dd {
+      font-size: var(--step-2);
+    }
+  }
+
+  @media (min-width: 52rem) {
+    .teaser {
+      grid-template-columns: 1fr 18rem;
+      align-items: center;
+    }
+
+    .stats {
+      grid-template-columns: 1fr;
+    }
+
+    .stats div + div {
+      border-left: 0;
+      border-top: 1px dashed var(--rule);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta {
+      transition: none;
+    }
+  }
+</style>

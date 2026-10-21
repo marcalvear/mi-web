@@ -23,9 +23,11 @@ interface Props {
   path?: string;
   /** Para la 404: sin canonical ni versiones en otros idiomas. */
   noindex?: boolean;
+  /** Modo de Marc IA: en el compendio hace de «boticario» (#69). */
+  chat?: "general" | "boticario";
 }
 
-const { lang, title, fullTitle, description, path = "", noindex = false } = Astro.props;
+const { lang, title, fullTitle, description, path = "", noindex = false, chat = "general" } = Astro.props;
 const t = useTranslations(lang);
 const pageTitle = fullTitle ?? (title ? `${title} · ${t("site.title")}` : t("site.title"));
 const canonical = new URL(getRelativeLocaleUrl(lang, path), Astro.site);
@@ -88,7 +90,7 @@ const ogImage = new URL(`${base}og/${lang}.png`, Astro.site);
       <slot />
     </main>
     <SiteFooter lang={lang} />
-    <MarcIA lang={lang} />
+    <MarcIA lang={lang} mode={chat} />
     <CommandPalette lang={lang} path={path} />
   </body>
 </html>

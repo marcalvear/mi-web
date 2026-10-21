@@ -18,6 +18,8 @@ const links = [
   { href: `${home}#sobre-mi`, text: t("nav.about") },
   { href: `${home}#hecho`, text: t("nav.work") },
   { href: `${home}#me-gusta`, text: t("nav.likes") },
+  // La única página propia del menú: el resto son secciones de la portada
+  { href: getRelativeLocaleUrl(lang, "biohacking/"), text: t("nav.compendio"), current: path === "biohacking/" },
   { href: `${home}#contacto`, text: t("nav.contact") },
 ];
 ---
@@ -33,7 +35,7 @@ const links = [
       <ul role="list">
         {links.map((link) => (
           <li>
-            <a href={link.href}>{link.text}</a>
+            <a href={link.href} aria-current={link.current ? "page" : undefined}>{link.text}</a>
           </li>
         ))}
       </ul>
@@ -146,6 +148,14 @@ const links = [
     font-size: var(--step--1);
     color: var(--ink);
     text-decoration: none;
+  }
+
+  /* Estoy en esa página: subrayado de rotulador, como el idioma activo */
+  .nav a[aria-current="page"] {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.3em;
   }
 
   .nav a:hover {

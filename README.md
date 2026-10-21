@@ -15,13 +15,18 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
 - **Caso de estudio** de Sonrisa Imperial, contado como un informe de laboratorio.
 - **Me gusta**: Pokédex con modelos 3D, mazo de 200 frases de anime traducidas
   y mi radar de biohacking con fotos.
+- **Compendio de biohacking**: suplementos ordenados por problemas, con su nivel
+  de evidencia, la dosis estudiada, las precauciones y cada estudio de PubMed
+  enlazado. Las fichas se guardan con una estrella en Mi espacio, y dentro
+  Marc IA hace de «boticario».
 - **Formulario de contacto** conectado a n8n: captcha, crea la cuenta de quien
   escribe, clasifica el mensaje con IA y responde por correo.
 - **Mi espacio**: cada persona ve su conversación conmigo, entrando sin
   contraseña con un código por email.
 - **Panel de administrador**: bandeja con sin leer y sin responder, respuestas
   que avisan por correo, usuarios y su actividad.
-- **Marc IA**: asistente con IA que responde con lo que dice la web.
+- **Marc IA**: asistente con IA que responde con lo que dice la web. En el
+  compendio orienta según lo que te pasa ([ADR 0008](docs/adr/0008-marc-ia-boticario.md)).
 - **Paleta de comandos** con ⌘K o Ctrl+K.
 
 ## Cómo está hecha
@@ -42,7 +47,7 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
 - **Astro 7** compila páginas estáticas en los dos idiomas; **GitHub Actions**
   las publica en GitHub Pages ([ADR 0004](docs/adr/0004-astro-con-github-actions.md)).
 - **Supabase** guarda usuarios, mensajes y actividad. Lo que protege los datos
-  son las reglas RLS de Postgres, probadas con 27 pruebas ([ADR 0006](docs/adr/0006-supabase-con-rls.md)).
+  son las reglas RLS de Postgres, probadas con 39 pruebas ([ADR 0006](docs/adr/0006-supabase-con-rls.md)).
 - **n8n** recibe el formulario y avisa de mis respuestas; es el único sitio
   con la clave secreta de Supabase ([ADR 0007](docs/adr/0007-contacto-con-n8n.md)).
 - **Cloudflare Workers AI** responde al chat sin claves en la web
@@ -130,6 +135,7 @@ pequeños en español. Las órdenes que le di a la IA están en
 - [ADR 0005: Las frases de anime van en un mazo guardado en la web](docs/adr/0005-mazo-de-frases-local.md)
 - [ADR 0006: Usuarios y mensajes en Supabase, protegidos con RLS](docs/adr/0006-supabase-con-rls.md)
 - [ADR 0007: El formulario de contacto pasa por un flujo de n8n](docs/adr/0007-contacto-con-n8n.md)
+- [ADR 0008: Marc IA hace de «boticario» dentro del compendio](docs/adr/0008-marc-ia-boticario.md)
 
 ## Historial
 

@@ -43,6 +43,8 @@ export const space = {
       removeLabel: "Quitar {name} de tus fichas guardadas",
       removed: "Ficha quitada.",
       gone: "Esta ficha ya no está en el compendio.",
+      empty: "Aún no has guardado ninguna. Pulsa la estrella de una ficha del compendio y aparecerá aquí.",
+      cta: "Abrir el compendio",
     },
     thread: {
       title: "Conversación",
@@ -112,6 +114,8 @@ export const space = {
       removeLabel: "Remove {name} from your saved sheets",
       removed: "Sheet removed.",
       gone: "This sheet is no longer in the compendium.",
+      empty: "You haven't saved any yet. Tap the star on a compendium sheet and it'll show up here.",
+      cta: "Open the compendium",
     },
     thread: {
       title: "Conversation",

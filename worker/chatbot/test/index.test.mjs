@@ -3,7 +3,8 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import worker, { cleanMessages, MODEL } from "../src/index.js";
+import worker, { cleanMessages, plainText } from "../src/index.js";
+import { MODEL } from "../src/model.js";
 
 const ORIGIN = "https://marcalvear.github.io";
 
@@ -84,7 +85,9 @@ test("las instrucciones llevan el contenido real de la web y el idioma de la pá
   const system = env.calls[0].input.messages[0].content;
   assert.match(system, /Sonrisa Imperial/i);
   assert.match(system, /IES Dr\. Lluís Simarro/);
-  assert.match(system, /está en inglés\.$/);
+  assert.match(system, /está en inglés\./);
+  // Y se le recuerda en inglés, o tiende a contestar en español
+  assert.match(system, /reply in English unless the user writes in Spanish\.$/);
 });
 
 test("acepta la web en local con Astro (puertos 4321 y 4322)", async () => {
@@ -94,4 +97,50 @@ test("acepta la web en local con Astro (puertos 4321 y 4322)", async () => {
   }
   const old = await worker.fetch(post({ messages: [{ role: "user", content: "hola" }] }, "http://localhost:8080"), fakeEnv());
   assert.equal(old.status, 403);
+});
+
+test("en el compendio usa las instrucciones del boticario con todo el compendio", async () => {
+  const env = fakeEnv();
+  await worker.fetch(post({ mode: "boticario", messages: [{ role: "user", content: "Tengo digestiones pesadas" }] }), env);
+  const { messages, max_tokens } = env.calls[0].input;
+  assert.match(messages[0].content, /Eres «Boticario IA»/);
+  assert.match(messages[0].content, /FICHA: Jengibre/);
+  assert.doesNotMatch(messages[0].content, /SHEET:/);
+  assert.match(messages[0].content, /PMID \d+/);
+  assert.match(messages[0].content, /no consejo médico/);
+  assert.equal(max_tokens, 450);
+});
+
+test("sin modo, o con uno desconocido, se queda en el asistente general", async () => {
+  for (const mode of [undefined, "otro", "__proto__", "constructor"]) {
+    const env = fakeEnv();
+    const res = await worker.fetch(post({ mode, messages: [{ role: "user", content: "hola" }] }), env);
+    assert.equal(res.status, 200);
+    const system = env.calls[0].input.messages[0].content;
+    assert.match(system, /Respondes a visitantes que quieren saber quién es Marc/);
+    assert.doesNotMatch(system, /FICHA:/);
+    assert.equal(env.calls[0].input.max_tokens, 350);
+  }
+});
+
+test("el asistente general sabe que existe el compendio", async () => {
+  const env = fakeEnv();
+  await worker.fetch(post({ messages: [{ role: "user", content: "¿Qué es el compendio?" }] }), env);
+  assert.match(env.calls[0].input.messages[0].content, /COMPENDIO DE BIOHACKING/);
+});
+
+test("el boticario usa el compendio en el idioma de la página", async () => {
+  const env = fakeEnv();
+  await worker.fetch(post({ lang: "en", mode: "boticario", messages: [{ role: "user", content: "Heavy digestion" }] }), env);
+  const system = env.calls[0].input.messages[0].content;
+  assert.match(system, /SHEET: Ginger/);
+  assert.match(system, /\/mi-web\/en\/biohacking\//);
+  assert.doesNotMatch(system, /FICHA:/);
+});
+
+test("quita las negritas y los títulos de Markdown de la respuesta", async () => {
+  assert.equal(plainText("Lee la ficha de **Jengibre**.\n## Dosis\n1,2 g"), "Lee la ficha de Jengibre.\nDosis\n1,2 g");
+  const env = fakeEnv({ response: "**Enzimas digestivas**: evidencia moderada." });
+  const res = await worker.fetch(post({ mode: "boticario", messages: [{ role: "user", content: "hola" }] }), env);
+  assert.deepEqual(await res.json(), { reply: "Enzimas digestivas: evidencia moderada." });
 });

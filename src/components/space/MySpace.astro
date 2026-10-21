@@ -63,14 +63,16 @@ const catalog = Object.fromEntries(
 
     <div class="layout" data-panel="in" hidden>
       <div class="main">
-        <!-- Solo sale si hay alguna: el compendio aún no está enlazado desde ningún sitio -->
-        <section class="favorites" aria-labelledby={id("favorites")} data-favorites hidden>
+        <section class="favorites" aria-labelledby={id("favorites")}>
           <header class="thread-head">
             <h2 id={id("favorites")}>{c.favorites.title}</h2>
             <p class="label" data-fav-count></p>
           </header>
-          <p class="help">{c.favorites.lead}</p>
+          <p class="help" data-fav-lead>{c.favorites.lead}</p>
           <ul class="fav-list" role="list" data-fav-list></ul>
+        <p class="empty" data-fav-empty hidden>
+          {c.favorites.empty} <a href={compendioUrl}>{c.favorites.cta} <span aria-hidden="true">→</span></a>
+        </p>
         </section>
 
         <section class="thread" aria-labelledby={id("thread")}>
@@ -220,7 +222,8 @@ const catalog = Object.fromEntries(
     // Fichas guardadas (#67): la más reciente arriba
     function renderFavorites() {
       const n = favorites.length;
-      $("[data-favorites]").hidden = n === 0;
+      $("[data-fav-empty]").hidden = n > 0;
+      $("[data-fav-lead]").hidden = n === 0;
       $("[data-fav-count]").textContent = n === 1 ? t.favorites.one : t.favorites.count.replace("{n}", String(n));
       $("[data-fav-list]").replaceChildren(
         ...favorites.map((fav) => {
@@ -310,7 +313,7 @@ const catalog = Object.fromEntries(
       $("[data-admin]").hidden = profile.data.role !== "admin";
 
       messages = thread.data;
-      // Si falla, el espacio se ve igual, sin la sección de favoritos
+      // Si falla, el espacio se ve igual, con la lista de favoritos vacía
       favorites = favs.data?.map((f) => f.supplement) ?? [];
       renderFavorites();
       // «Nuevo» en mis respuestas que aún no había leído; luego se marcan como leídas

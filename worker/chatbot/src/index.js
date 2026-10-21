@@ -4,9 +4,8 @@
 // intermediario: recibe la conversación, añade mis instrucciones y llama
 // a Workers AI con el binding env.AI, que no necesita ninguna clave.
 
-import { SYSTEM_PROMPT } from "./prompt.js";
-
-export const MODEL = "@cf/mistralai/mistral-small-3.1-24b-instruct";
+import { MODEL } from "./model.js";
+import { boticarioPrompt, SYSTEM_PROMPT } from "./prompt.js";
 
 const ALLOWED_ORIGINS = [
   "https://marcalvear.github.io",
@@ -17,6 +16,18 @@ const ALLOWED_ORIGINS = [
 const MAX_MESSAGES = 10;     // solo se envían los últimos turnos
 const MAX_CHARS = 800;       // por mensaje del usuario
 const LANGS = { es: "español", en: "inglés" };
+// Dentro del compendio hace de «boticario» (#69): otras instrucciones y algo
+// más de espacio para la evidencia, la dosis y las precauciones
+const MODES = {
+  general: { prompt: () => SYSTEM_PROMPT, maxTokens: 350 },
+  boticario: { prompt: (lang) => boticarioPrompt(lang), maxTokens: 450 },
+};
+
+// El widget pinta texto plano: fuera las negritas y los títulos de Markdown
+// que el modelo a veces pone aunque se le pida que no
+export function plainText(text) {
+  return text.replace(/\*\*|__/g, "").replace(/^#{1,6}\s+/gm, "").trim();
+}
 
 function cors(origin) {
   return {
@@ -74,17 +85,22 @@ export default {
 
     try {
       // El idioma de la página ayuda cuando la pregunta es corta («hi», «¿?»)
-      const lang = LANGS[body?.lang] ?? LANGS.es;
-      const system = `${SYSTEM_PROMPT}\n\nLa página desde la que te escriben está en ${lang}.`;
+      const code = Object.hasOwn(LANGS, body?.lang) ? body.lang : "es";
+      // Un modo desconocido no da error: se queda en el general
+      const mode = Object.hasOwn(MODES, body?.mode) ? MODES[body.mode] : MODES.general;
+      // Las instrucciones están en español: en la versión inglesa se lo
+      // recuerda en inglés, o el modelo tiende a contestar en español
+      const reminder = code === "en" ? "\nThe page is in English: reply in English unless the user writes in Spanish." : "";
+      const system = `${mode.prompt(code)}\n\nLa página desde la que te escriben está en ${LANGS[code]}.${reminder}`;
       const result = await env.AI.run(MODEL, {
         messages: [{ role: "system", content: system }, ...messages],
-        max_tokens: 350,
+        max_tokens: mode.maxTokens,
         temperature: 0.4,
       });
       // Según el modelo, el texto llega en `response` o en formato chat.completion
       const reply = result?.response ?? result?.choices?.[0]?.message?.content ?? "";
       if (!reply.trim()) throw new Error("Respuesta vacía");
-      return json({ reply: reply.trim() }, 200, origin);
+      return json({ reply: plainText(reply) }, 200, origin);
     } catch (err) {
       console.error("Workers AI:", err);
       // Con el plan gratuito, al pasar del límite diario el modelo deja de responder

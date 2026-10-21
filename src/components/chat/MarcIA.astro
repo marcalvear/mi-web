@@ -8,16 +8,19 @@ import type { Lang } from "../../i18n/ui";
 
 interface Props {
   lang: Lang;
+  /** En el compendio hace de «boticario» (#69): otros textos y otras instrucciones en el Worker */
+  mode?: "general" | "boticario";
 }
-const { lang } = Astro.props;
-const t = chat[lang];
+const { lang, mode = "general" } = Astro.props;
+const { boticario, ...general } = chat[lang];
+const t = mode === "boticario" ? { ...general, ...boticario } : general;
 const endpoint = import.meta.env.PUBLIC_CHATBOT_URL ?? "";
 const id = `marc-ia-${lang}`;
 ---
 
 {
   endpoint && (
-    <div class="marc-ia" data-marc-ia data-endpoint={endpoint} data-lang={lang} data-text={JSON.stringify(t)}>
+    <div class="marc-ia" data-marc-ia data-endpoint={endpoint} data-lang={lang} data-mode={mode} data-text={JSON.stringify(t)}>
       <button type="button" class="launcher" data-launcher aria-expanded="false" aria-controls={id}>
         <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
           <path d="M2 3h14v9H8l-4 3v-3H2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
@@ -63,7 +66,9 @@ const id = `marc-ia-${lang}`;
   import type { ChatText } from "../../i18n/chat";
 
   type Turn = { role: "user" | "assistant"; content: string };
-  const KEY = "marc-ia-v1"; // la conversación dura lo que la pestaña
+  // La conversación dura lo que la pestaña. La del boticario va aparte: son
+  // otras instrucciones y no tiene sentido mezclarlas
+  const KEY = (mode: string) => (mode === "boticario" ? "marc-ia-boticario-v1" : "marc-ia-v1");
   const MAX_TURNS = 10;
 
   const root = document.querySelector<HTMLElement>("[data-marc-ia]");
@@ -81,17 +86,18 @@ const id = `marc-ia-${lang}`;
     const suggestions = $("[data-suggestions]");
     const clear = $<HTMLButtonElement>("[data-clear]");
     const hello = log.firstElementChild!.cloneNode(true);
+    const mode = root.dataset.mode ?? "general";
 
     let turns: Turn[] = [];
     try {
-      turns = JSON.parse(sessionStorage.getItem(KEY) ?? "[]");
+      turns = JSON.parse(sessionStorage.getItem(KEY(mode)) ?? "[]");
     } catch {
       /* sin almacenamiento: la conversación dura lo que la página */
     }
 
     const save = () => {
       try {
-        sessionStorage.setItem(KEY, JSON.stringify(turns.slice(-MAX_TURNS * 2)));
+        sessionStorage.setItem(KEY(mode), JSON.stringify(turns.slice(-MAX_TURNS * 2)));
       } catch {
         /* no pasa nada si no se puede guardar */
       }
@@ -144,7 +150,7 @@ const id = `marc-ia-${lang}`;
         const res = await fetch(root.dataset.endpoint!, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ lang: root.dataset.lang, messages: turns.slice(-MAX_TURNS) }),
+          body: JSON.stringify({ lang: root.dataset.lang, mode, messages: turns.slice(-MAX_TURNS) }),
         });
         const data = await res.json().catch(() => ({}));
         thinking.remove();
