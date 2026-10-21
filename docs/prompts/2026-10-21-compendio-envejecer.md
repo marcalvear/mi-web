@@ -51,3 +51,25 @@ aparato. Lo dejó para un PR aparte:
 - **Marc IA**: el contexto incluye la fuente del problema y el producto.
   Probado en local: dice que los antioxidantes no alargan la vida, y que con
   Sintrom no.
+
+## Después: el Boticario IA contesta y para (#75)
+
+En la web publicada, a «Tomo Sintrom, ¿puedo tomar Advanced Antioxidants?»
+el Boticario IA respondió bien («No», por la vitamina K), pero siguió con
+frases de sobra, como «Lo que te pasa no está en el compendio». Marc pidió
+afinarlo:
+
+> Sí, afina las instrucciones del Boticario IA para que no añada frases de
+> sobra.
+
+Al probarlo en local salió algo más grave: a «Me cuesta mucho dormir», 2 de 4
+respuestas recomendaban enzimas digestivas, porque un estudio mencionaba de
+paso el sueño. Se añadieron cuatro reglas:
+
+- contestar primero y parar;
+- recomendar cada ficha solo para su problema;
+- contestar en tres frases fijas lo que el compendio no cubre;
+- no decir nunca que algo no está cuando sí está.
+
+Después, 12 de 12 respuestas sobre temas no cubiertos salieron limpias, y
+las preguntas cubiertas siguieron igual de bien.

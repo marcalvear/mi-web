@@ -108,6 +108,11 @@ test("en el compendio usa las instrucciones del boticario con todo el compendio"
   assert.doesNotMatch(messages[0].content, /SHEET:/);
   assert.match(messages[0].content, /PMID \d+/);
   assert.match(messages[0].content, /no consejo médico/);
+  // Contesta lo que se pregunta y para (#75)
+  assert.match(messages[0].content, /Contesta primero lo que te preguntan/);
+  assert.match(messages[0].content, /nunca digas que no está/);
+  assert.match(messages[0].content, /no nombres ninguna ficha ni ningún suplemento/);
+  assert.match(messages[0].content, /Recomienda una ficha solo para el problema en el que está/);
   assert.equal(max_tokens, 450);
 });
 
