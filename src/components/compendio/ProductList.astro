@@ -124,8 +124,11 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
     transition: transform var(--slow) var(--ease-out);
   }
 
-  .product:hover .photo :global(img) {
-    transform: scale(1.04);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .product:hover .photo :global(img) {
+      transform: scale(1.04);
+    }
   }
 
   .brand {

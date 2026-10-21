@@ -561,9 +561,12 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
     transition: transform var(--fast) var(--ease-out), box-shadow var(--fast) var(--ease-out);
   }
 
-  .problem-nav a:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 var(--lab);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .problem-nav a:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--lab);
+    }
   }
 
   .problem-nav a .label {

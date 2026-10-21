@@ -236,8 +236,11 @@ const id = `marc-ia-${lang}`;
     transition: transform var(--fast) var(--ease-out);
   }
 
-  .launcher:hover {
-    transform: translate(-1px, -1px);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .launcher:hover {
+      transform: translate(-1px, -1px);
+    }
   }
 
   .launcher[aria-expanded="true"] {

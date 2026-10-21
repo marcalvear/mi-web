@@ -155,8 +155,11 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     transition: transform var(--slow) var(--ease-out);
   }
 
-  .img:hover :global(img) {
-    transform: scale(1.04);
+  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  @media (hover: hover) and (pointer: fine) {
+    .img:hover :global(img) {
+      transform: scale(1.04);
+    }
   }
 
   /* La cartela de cada viñeta, como el recuadro del narrador */
