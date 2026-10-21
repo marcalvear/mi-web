@@ -1,0 +1,48 @@
+{
+  "orden": 5,
+  "nombre": {
+    "es": "Menos estrés",
+    "en": "Less stress"
+  },
+  "titular": {
+    "es": "¿Vas siempre en tensión y no consigues desconectar?",
+    "en": "Are you always tense and can't switch off?"
+  },
+  "intro": {
+    "es": "La mandíbula apretada, el pecho encogido o la cabeza que no para por la noche. Lo que más baja el estrés no viene en cápsula: dormir, moverse, salir al sol y hablarlo con alguien. Estas fichas son un apoyo, no un sustituto.",
+    "en": "A clenched jaw, a tight chest or a head that won't stop at night. What lowers stress most doesn't come in a capsule: sleep, movement, sunlight and talking to someone. These sheets are a support, not a substitute."
+  },
+  "queOcurre": {
+    "es": "Ante un peligro, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol y adrenalina: el corazón se acelera y la mente se pone en alerta. El cortisol tiene su propio ritmo: sube de golpe al despertar y baja durante el día hasta la noche. Con estrés que no para, se queda alto cuando debería bajar, y por eso cuesta dormir y desconectar. La curva de al lado marca en qué parte del día actúa cada suplemento.",
+    "en": "Faced with danger, the brain signals the adrenal glands and they release cortisol and adrenaline: the heart speeds up and the mind goes on alert. Cortisol has its own rhythm: it jumps on waking and falls through the day until night. With stress that doesn't stop, it stays high when it should drop, which is why it's hard to sleep and switch off. The curve beside it shows at what part of the day each supplement acts."
+  },
+  "combinar": {
+    "es": "Ningún ensayo probó estos cuatro juntos. La ashwagandha y la lavanda se parecen en lo que hacen: no las sumes de entrada. Si quieres probar, empieza por una durante cuatro a ocho semanas, que es lo que duraron los ensayos, antes de juzgarla.",
+    "en": "No trial tested these four together. Ashwagandha and lavender are similar in what they do: don't combine them at first. If you want to try, start with one for four to eight weeks, which is how long the trials lasted, before judging it."
+  },
+  "alarma": [
+    {
+      "es": "Tienes ataques de pánico: el corazón a mil, falta de aire o miedo a morirte",
+      "en": "You have panic attacks: racing heart, shortness of breath or fear of dying"
+    },
+    {
+      "es": "Llevas semanas triste, sin ganas de nada o sin disfrutar de lo que te gustaba",
+      "en": "You've been sad for weeks, with no drive or no enjoyment of what you used to like"
+    },
+    {
+      "es": "Piensas en hacerte daño: llama al 024, la línea de atención a la conducta suicida",
+      "en": "You're thinking of harming yourself: in Spain call 024, the suicide prevention line"
+    },
+    {
+      "es": "El estrés te impide trabajar, estudiar o dormir casi todas las noches",
+      "en": "Stress stops you working, studying or sleeping almost every night"
+    }
+  ],
+  "suplementos": [
+    "ashwagandha",
+    "lavanda",
+    "rhodiola",
+    "magnesio"
+  ],
+  "mapa": "cortisol"
+}

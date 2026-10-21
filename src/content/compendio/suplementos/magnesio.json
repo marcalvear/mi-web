@@ -14,8 +14,8 @@
     "en": "There's a small trial in favour in older people with insomnia, but the most recent review finds contradictory results and low certainty."
   },
   "resumen": {
-    "es": "Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores.",
-    "en": "It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older people are."
+    "es": "Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores o con mucho estrés.",
+    "en": "It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older or very stressed people are."
   },
   "mecanismo": {
     "es": "El magnesio frena a los receptores que mantienen el cerebro en alerta y ayuda a los que lo calman, los mismos sobre los que actúan muchos somníferos. Si te falta, cuesta más relajarse. Si ya tienes suficiente, tomar más no parece hacer mucho.",
@@ -43,6 +43,13 @@
         "en": "A 2026 review of 12 trials concludes magnesium isn't a routine treatment for insomnia: results are contradictory and certainty is low. It may help a little in specific groups, such as people low in magnesium."
       },
       "fuente": "42661485"
+    },
+    {
+      "texto": {
+        "es": "En 264 adultos estresados con el magnesio bajo, 8 semanas de magnesio, solo o con vitamina B6, bajaron el estrés casi a la mitad. No había grupo placebo, y la B6 solo añadió algo en quienes tenían un estrés muy alto.",
+        "en": "In 264 stressed adults with low magnesium, 8 weeks of magnesium, alone or with vitamin B6, nearly halved stress. There was no placebo group, and B6 only added something in people with very high stress."
+      },
+      "fuente": "30562392"
     }
   ],
   "precauciones": [
@@ -74,6 +81,14 @@
       "revista": "J Diet Suppl 23(5):553-581",
       "pmid": "42661485",
       "doi": "10.1080/19390211.2026.2719670"
+    },
+    {
+      "autores": "Pouteau E, Kabir-Ahmadi M, Noah L, et al.",
+      "anio": 2018,
+      "titulo": "Superiority of magnesium and vitamin B6 over magnesium alone on severe stress in healthy adults with low magnesemia: A randomized, single-blind clinical trial",
+      "revista": "PLoS One 13(12):e0208454",
+      "pmid": "30562392",
+      "doi": "10.1371/journal.pone.0208454"
     }
   ],
   "productos": [

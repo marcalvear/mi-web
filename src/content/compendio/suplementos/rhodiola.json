@@ -1,0 +1,80 @@
+{
+  "nombre": {
+    "es": "Rhodiola",
+    "en": "Rhodiola"
+  },
+  "tipo": {
+    "es": "Planta adaptógena",
+    "en": "Adaptogenic herb"
+  },
+  "evidencia": "preliminar",
+  "zona": "despertar",
+  "porQue": {
+    "es": "Hay ensayos a favor en la fatiga mental, pero una revisión de 11 ensayos los encuentra contradictorios y con fallos de método.",
+    "en": "There are trials in favour for mental fatigue, but a review of 11 trials finds them contradictory and with methodological flaws."
+  },
+  "resumen": {
+    "es": "Es una raíz de las montañas frías del norte. Se usa para el cansancio por estrés: en un ensayo con personas quemadas mejoró la concentración y bajó el cortisol al despertar.",
+    "en": "It's a root from cold northern mountains. It's used for stress-related tiredness: in a trial with burned-out people it improved concentration and lowered cortisol on waking."
+  },
+  "mecanismo": {
+    "es": "Sus compuestos, la salidrosida y las rosavinas, parecen suavizar la respuesta al estrés: el cortisol sube menos de golpe y las células gastan su energía con menos desgaste. Por eso se toma por la mañana, cuando el cortisol pega su subida.",
+    "en": "Its compounds, salidroside and rosavins, seem to soften the stress response: cortisol rises less sharply and cells use their energy with less wear. That's why it's taken in the morning, when cortisol makes its jump."
+  },
+  "dosis": {
+    "es": "De 200 a 600 mg al día de extracto estandarizado",
+    "en": "200 to 600 mg a day of standardised extract"
+  },
+  "cuando": {
+    "es": "Por la mañana, antes del desayuno; por la tarde puede quitar el sueño",
+    "en": "In the morning, before breakfast; in the afternoon it can keep you awake"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 60 personas con agotamiento por estrés (burnout), 576 mg al día durante 4 semanas mejoraron la concentración y bajaron el cortisol al despertar frente a placebo. El grupo placebo también mejoró bastante.",
+        "en": "In 60 people with stress-related exhaustion (burnout), 576 mg a day for 4 weeks improved concentration and lowered cortisol on waking compared with placebo. The placebo group also improved quite a bit."
+      },
+      "fuente": "19016404"
+    },
+    {
+      "texto": {
+        "es": "Una revisión de 11 ensayos encontró que tres de cinco salían a favor en la fatiga mental, pero todos tenían riesgo de sesgo o fallos al contar los resultados.",
+        "en": "A review of 11 trials found three out of five came out in favour for mental fatigue, but all had a risk of bias or flaws in reporting results."
+      },
+      "fuente": "22643043"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Puede dar nerviosismo o insomnio si se toma tarde.",
+      "en": "It can cause jitters or insomnia if taken late."
+    },
+    {
+      "es": "Si tienes trastorno bipolar o tomas antidepresivos, consúltalo antes.",
+      "en": "If you have bipolar disorder or take antidepressants, check first."
+    },
+    {
+      "es": "En embarazo y lactancia, mejor no tomarla.",
+      "en": "In pregnancy and breastfeeding, better not to take it."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Olsson EM, von Schéele B, Panossian AG",
+      "anio": 2009,
+      "titulo": "A randomised, double-blind, placebo-controlled, parallel-group study of the standardised extract shr-5 of the roots of Rhodiola rosea in the treatment of subjects with stress-related fatigue",
+      "revista": "Planta Med 75(2):105-112",
+      "pmid": "19016404",
+      "doi": "10.1055/s-0028-1088346"
+    },
+    {
+      "autores": "Ishaque S, Shamseer L, Bukutu C, et al.",
+      "anio": 2012,
+      "titulo": "Rhodiola rosea for physical and mental fatigue: a systematic review",
+      "revista": "BMC Complement Altern Med 12:70",
+      "pmid": "22643043",
+      "doi": "10.1186/1472-6882-12-70"
+    }
+  ]
+}
