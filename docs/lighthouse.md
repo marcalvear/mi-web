@@ -11,7 +11,7 @@ pintado.
 |---|---|---|---|---|---|
 | Inicio | 95 | 100 | 100 | 100 | 0 |
 | Me gusta (índice) | 93 | 100 | 100 | 100 | 0 |
-| Videojuegos (ES y EN) | 90 | 100 | 100 | 100 | 0 |
+| Videojuegos (ES y EN) | 90-93 | 100 | 100 | 100 | 0 |
 | Anime y manga | 93 | 100 | 100 | 100 | 0 |
 | Biohacking | 95 | 100 | 100 | 100 | 0 |
 

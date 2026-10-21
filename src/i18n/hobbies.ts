@@ -144,12 +144,12 @@ export const hobbies: Record<Lang, HobbiesText> = {
           hours: "Unas 110",
           credit: "© Nintendo · Creatures Inc. · GAME FREAK inc.",
           hero: {
-            file: "pokemon-1",
-            alt: "Sprigatito, Quaxly y Fuecoco, los tres Pokémon iniciales de Escarlata y Púrpura, en las escaleras de la academia.",
+            file: "pokemon-arceus-1",
+            alt: "Los protagonistas de Leyendas Pokémon: Arceus, rodeados de Pikachu, Lucario, Rowlet, Cyndaquil, Oshawott y otros Pokémon, miran el monte Corona junto al logo del juego.",
           },
           strip: [
-            { file: "pokemon-4", alt: "Koraidon planea sobre una pradera con el protagonista a lomos." },
-            { file: "pokemon-5", alt: "Un Pokémon teracristalizado, con una corona de cristal azul, en pleno combate." },
+            { file: "pokemon-arceus-5", alt: "Un Wyrdeer en una pradera, con montañas al fondo." },
+            { file: "pokemon-arceus-6", alt: "Un Piloswine y dos Swinub en una zona nevada entre abetos." },
           ],
         },
       ],
@@ -341,12 +341,12 @@ export const hobbies: Record<Lang, HobbiesText> = {
           hours: "About 110",
           credit: "© Nintendo · Creatures Inc. · GAME FREAK inc.",
           hero: {
-            file: "pokemon-1",
-            alt: "Sprigatito, Quaxly and Fuecoco, the three starter Pokémon from Scarlet and Violet, on the academy steps.",
+            file: "pokemon-arceus-1",
+            alt: "The Pokémon Legends: Arceus heroes, surrounded by Pikachu, Lucario, Rowlet, Cyndaquil, Oshawott and other Pokémon, look out at Mount Coronet next to the game's logo.",
           },
           strip: [
-            { file: "pokemon-4", alt: "Koraidon glides over a meadow with the player riding on its back." },
-            { file: "pokemon-5", alt: "A Terastallized Pokémon wearing a blue crystal crown in the middle of a battle." },
+            { file: "pokemon-arceus-5", alt: "A Wyrdeer in a meadow, with mountains in the background." },
+            { file: "pokemon-arceus-6", alt: "A Piloswine and two Swinub in a snowy area among fir trees." },
           ],
         },
       ],

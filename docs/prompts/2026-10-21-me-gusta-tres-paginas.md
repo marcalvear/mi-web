@@ -56,7 +56,7 @@ Sobre el plan concreto, Marc contestó:
 - **Fotos**:
   - 16 imágenes de páginas oficiales, elegidas por Marc en una hoja de
     revisión antes de descargar nada;
-  - fuentes: fichas de Nintendo (Zelda y Pokémon Escarlata), web de
+  - fuentes: fichas de Nintendo (Zelda y, al final, Leyendas Pokémon: Arceus), web de
     PlayStation (Bloodborne), galería de naruto-official.com y web del anime
     de JoJo;
   - cada una con su crédito;
@@ -70,12 +70,17 @@ Sobre el plan concreto, Marc contestó:
 - **Rendimiento**: las secciones de más abajo usan `content-visibility`, para
   no descargar fotos que aún no se ven. Todas las páginas quedan en 90 o más.
 
+## Los datos de Marc
+
+Con las páginas montadas, Marc pasó sus datos: Zelda (unas 320 horas, la
+batalla final contra Ganon), Bloodborne (unas 240 horas, Yharnam y la pelea
+contra Ludwig en el DLC), Pokémon (unas 110 horas, Leyendas Pokémon: Arceus y
+Mewtwo), Naruto (Sasuke contra Itachi, Sasuke Uchiha) y JoJo (la parte 5,
+Golden Wind, y Diavolo). Los textos se ajustaron a lo que contó. Su juego de
+Pokémon favorito era Arceus, así que las fotos de Escarlata se cambiaron por
+tres de Arceus que eligió en otra hoja de revisión.
+
 ## Pendiente
 
-- Datos personales de Marc:
-  - de cada juego, las horas y el momento favorito;
-  - su Pokémon favorito, y su juego favorito para cambiar las fotos si no es
-    Escarlata;
-  - de Naruto y JoJo, su arco y su personaje favoritos.
 - Advanced Antioxidants al compendio, en un PR aparte.
 - Desplegar el Worker de Marc IA con el contexto nuevo.
