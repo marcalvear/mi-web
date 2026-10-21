@@ -44,5 +44,25 @@
     "cereza-acida",
     "omega-3"
   ],
-  "mapa": "agujetas"
+  "mapa": "agujetas",
+  "claves": [
+    "agujetas",
+    "entren",
+    "gimnasio",
+    "gym",
+    "musculo",
+    "recuper",
+    "deporte",
+    "correr",
+    "fuerza",
+    "proteina",
+    "sore",
+    "soreness",
+    "workout",
+    "muscle",
+    "recovery",
+    "training",
+    "protein",
+    "running"
+  ]
 }

@@ -48,5 +48,24 @@
     "mio-inositol",
     "isoflavonas-soja"
   ],
-  "mapa": "ciclo"
+  "mapa": "ciclo",
+  "claves": [
+    "regla",
+    "menstrua",
+    "premenstrual",
+    "spm",
+    "ovario",
+    "menopausia",
+    "sofoco",
+    "ciclo",
+    "periodo",
+    "period",
+    "pms",
+    "ovary",
+    "ovaries",
+    "menopause",
+    "hot flush",
+    "hot flash",
+    "cycle"
+  ]
 }

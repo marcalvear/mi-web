@@ -235,6 +235,23 @@ ${Object.entries(c.detail)
   }`;
 
 const clean = (l) => l.join("\n").replaceAll("`", "'").replaceAll("${", "$ {");
+
+// Palabras para adivinar el problema desde el índice (#107): las «claves» de
+// cada problema y el nombre de sus fichas, en los dos idiomas, sin tildes
+const plain = (t) => t.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+const keys = Object.fromEntries(
+  problems.map((pr) => [
+    pr.id,
+    [
+      ...new Set([
+        ...(pr.claves ?? []).map(plain),
+        ...pr.suplementos
+          .filter((id) => homeOf.get(id) === pr.id && supplements.get(id))
+          .flatMap((id) => ["es", "en"].map((l) => plain(supplements.get(id).nombre[l]).replace(/\s*\(.*\)$/, ""))),
+      ]),
+    ],
+  ]),
+);
 const file = `// GENERADO por scripts/contexto-chatbot.mjs a partir de src/i18n y
 // src/content/compendio. No lo edites a mano: cambia los textos de la web y
 // vuelve a ejecutar \`npm run chatbot:contexto\`.
@@ -243,6 +260,9 @@ export const CONTEXT = \`${clean(lines)}\`;
 
 // El compendio para el modo boticario (#69), en el idioma de la página: el
 // índice de todo y el detalle de cada problema por separado (#103)
+// Palabras con las que el Worker adivina el problema si no le llega (#107)
+export const PROBLEM_KEYS = ${JSON.stringify(keys, null, 2)};
+
 export const COMPENDIO = {
   es: ${piece(compendioEs)},
   en: ${piece(compendioEn)},

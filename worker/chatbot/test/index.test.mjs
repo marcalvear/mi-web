@@ -3,7 +3,7 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import worker, { cleanMessages, plainText } from "../src/index.js";
+import worker, { cleanMessages, guessProblem, plainText } from "../src/index.js";
 import { MODEL } from "../src/model.js";
 
 const ORIGIN = "https://marcalvear.github.io";
@@ -123,7 +123,23 @@ test("en el compendio usa las instrucciones del boticario con el problema que se
   assert.doesNotMatch(messages[0].content, /FICHA: Melatonina/);
 });
 
-test("sin problema, o con uno que no existe, el boticario solo lleva el índice", async () => {
+test("desde el índice adivina el problema por las palabras de la pregunta", async () => {
+  assert.equal(guessProblem([{ role: "user", content: "No consigo dormir bien, me despierto a las 4" }]), "dormir-mejor");
+  assert.equal(guessProblem([{ role: "user", content: "Tengo AGUJETAS después del gimnasio" }]), "recuperarse-antes");
+  assert.equal(guessProblem([{ role: "user", content: "¿La melatonina funciona?" }]), "dormir-mejor");
+  assert.equal(guessProblem([{ role: "user", content: "Low libido lately" }]), "testosterona");
+  // «ansiedad» lleva dentro «edad», que es de envejecer: no debe confundirse
+  assert.equal(guessProblem([{ role: "user", content: "Tengo ansiedad" }]), "menos-estres");
+  assert.equal(guessProblem([{ role: "user", content: "hola" }]), undefined);
+
+  const env = fakeEnv();
+  await worker.fetch(post({ mode: "boticario", messages: [{ role: "user", content: "Me resfrío cada invierno" }] }), env);
+  const system = env.calls[0].input.messages[0].content;
+  assert.match(system, /FICHA: Zinc en pastillas para chupar/);
+  assert.doesNotMatch(system, /FICHA: Melatonina/);
+});
+
+test("sin problema que encaje, el boticario solo lleva el índice", async () => {
   for (const problem of [undefined, "no-existe", "__proto__"]) {
     const env = fakeEnv();
     await worker.fetch(post({ mode: "boticario", problem, messages: [{ role: "user", content: "hola" }] }), env);

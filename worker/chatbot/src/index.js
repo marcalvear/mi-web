@@ -6,6 +6,7 @@
 
 import { MODEL } from "./model.js";
 import { boticarioPrompt, SYSTEM_PROMPT } from "./prompt.js";
+import { COMPENDIO, PROBLEM_KEYS } from "./context.js";
 
 const ALLOWED_ORIGINS = [
   "https://marcalvear.github.io",
@@ -23,6 +24,27 @@ const MODES = {
   // Solo con el detalle del problema que se está leyendo, que manda la página (#103)
   boticario: { prompt: (lang, problem) => boticarioPrompt(lang, problem), maxTokens: 450 },
 };
+
+// Desde el índice del compendio no llega problema (#107): se adivina por las
+// palabras de las últimas preguntas, y gana el que más coincide. Si ninguna
+// encaja, el boticario se queda solo con el índice
+export function guessProblem(messages) {
+  const text = messages
+    .filter((m) => m.role === "user")
+    .slice(-3)
+    .map((m) => m.content)
+    .join(" ")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
+  let best;
+  let score = 0;
+  for (const [id, words] of Object.entries(PROBLEM_KEYS)) {
+    const hits = words.filter((w) => text.includes(w)).length;
+    if (hits > score) [best, score] = [id, hits];
+  }
+  return best;
+}
 
 // El widget pinta texto plano: fuera las negritas y los títulos de Markdown
 // que el modelo a veces pone aunque se le pida que no
@@ -92,7 +114,9 @@ export default {
       // Las instrucciones están en español: en la versión inglesa se lo
       // recuerda en inglés, o el modelo tiende a contestar en español
       const reminder = code === "en" ? "\nThe page is in English: reply in English unless the user writes in Spanish." : "";
-      const problem = typeof body?.problem === "string" ? body.problem.slice(0, 64) : undefined;
+      const sent = typeof body?.problem === "string" ? body.problem.slice(0, 64) : undefined;
+      const known = sent && Object.hasOwn(COMPENDIO.es.problems, sent);
+      const problem = known ? sent : mode === MODES.boticario ? guessProblem(messages) : undefined;
       const system = `${mode.prompt(code, problem)}\n\nLa página desde la que te escriben está en ${LANGS[code]}.${reminder}`;
       const result = await env.AI.run(MODEL, {
         messages: [{ role: "system", content: system }, ...messages],

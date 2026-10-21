@@ -44,5 +44,22 @@
     "rhodiola",
     "magnesio"
   ],
-  "mapa": "cortisol"
+  "mapa": "cortisol",
+  "claves": [
+    "estres",
+    "estresad",
+    "ansiedad",
+    "nervios",
+    "tension",
+    "tenso",
+    "agobi",
+    "cortisol",
+    "desconectar",
+    "stress",
+    "anxiety",
+    "anxious",
+    "nervous",
+    "tense",
+    "overwhelm"
+  ]
 }
