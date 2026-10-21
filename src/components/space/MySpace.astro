@@ -509,6 +509,20 @@ const catalog = Object.fromEntries(
     color: var(--ink-soft);
   }
 
+  /* Lo crea el script: sin :global no le llegarían los estilos de .text-button */
+  .fav-list :global(.text-button) {
+    min-height: 44px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--link);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    cursor: pointer;
+  }
+
   .thread-head {
     display: flex;
     flex-wrap: wrap;
