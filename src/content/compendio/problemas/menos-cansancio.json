@@ -1,0 +1,51 @@
+{
+  "orden": 10,
+  "nombre": {
+    "es": "Cansancio",
+    "en": "Tiredness"
+  },
+  "titular": {
+    "es": "¿Te levantas cansado y sigues así todo el día?",
+    "en": "Do you wake up tired and stay that way all day?"
+  },
+  "intro": {
+    "es": "Cansancio que no se va ni durmiendo, sin ganas de entrenar o con la cabeza lenta a media mañana. Antes que nada, un análisis: el hierro, la B12, el tiroides o el azúcar explican muchos casos, y un suplemento solo ayuda si va a la causa.",
+    "en": "Tiredness that doesn't go even with sleep, no drive to train or a slow head by mid-morning. Before anything else, a blood test: iron, B12, thyroid or blood sugar explain many cases, and a supplement only helps if it targets the cause."
+  },
+  "queOcurre": {
+    "es": "La energía es como una pila con varias celdas. El hierro lleva el oxígeno a las células, la B12 hace falta para fabricar los glóbulos rojos que lo transportan y las mitocondrias, con la coenzima Q10, convierten ese oxígeno en energía. Si una celda falla, la pila no carga aunque las otras estén bien. El estrés de fondo la vacía por otro lado. El esquema de al lado marca qué celda recarga cada suplemento.",
+    "en": "Energy is like a battery with several cells. Iron carries oxygen to the cells, B12 is needed to make the red blood cells that transport it and the mitochondria, with coenzyme Q10, turn that oxygen into energy. If one cell fails, the battery won't charge even if the others are fine. Background stress drains it from another side. The diagram beside it marks which cell each supplement recharges."
+  },
+  "combinar": {
+    "es": "El hierro y la B12 solo si un análisis dice que te faltan: no se toman por si acaso. La coenzima Q10 y la rhodiola se pueden probar sin análisis, de una en una y durante 8 semanas, si lo demás está bien.",
+    "en": "Iron and B12 only if a blood test says you're low: they're not taken just in case. Coenzyme Q10 and rhodiola can be tried without a test, one at a time and for 8 weeks, if everything else is fine."
+  },
+  "alarma": [
+    {
+      "es": "El cansancio llegó con pérdida de peso, fiebre o sudores por la noche",
+      "en": "The tiredness came with weight loss, fever or night sweats"
+    },
+    {
+      "es": "Te cuesta respirar al subir escaleras, estás muy pálido o el corazón se acelera",
+      "en": "You get breathless on stairs, you're very pale or your heart races"
+    },
+    {
+      "es": "Tienes mucha sed, orinas mucho o te notas el cuello hinchado",
+      "en": "You're very thirsty, urinate a lot or your neck feels swollen"
+    },
+    {
+      "es": "Llevas más de 6 meses agotado y empeoras después de cualquier esfuerzo",
+      "en": "You've been exhausted for more than 6 months and get worse after any effort"
+    }
+  ],
+  "suplementos": [
+    "hierro",
+    "vitamina-b12",
+    "coenzima-q10",
+    "rhodiola"
+  ],
+  "zonas": {
+    "rhodiola": "estres"
+  },
+  "mapa": "pila"
+}

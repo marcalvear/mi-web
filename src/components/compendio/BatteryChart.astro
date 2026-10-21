@@ -1,0 +1,72 @@
+---
+// Pila del cansancio para el problema de la energía (#97): una batería dibujada
+// a mano con una celda por cada causa que un suplemento puede arreglar (hierro
+// bajo, B12 baja, la energía de las células) y un rayo para el estrés. Cada
+// suplemento se coloca en la celda que recarga.
+import rough from "roughjs";
+import type { CompendioText } from "../../i18n/compendio";
+import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
+
+interface Props {
+  markers: MapMarker[];
+  text: CompendioText["battery"];
+}
+const { markers, text } = Astro.props;
+
+const gen = rough.generator();
+const toPath = (set: Parameters<typeof gen.opsToPath>[0]) =>
+  gen.opsToPath(set).replace(/-?\d+\.\d+/g, (n) => String(Math.round(Number(n) * 10) / 10));
+const base = { roughness: 1.1, bowing: 1, stroke: "currentColor", strokeWidth: 1.6 };
+function draw(d: string, seed: number, fill = true) {
+  const outline: string[] = [];
+  const fills: string[] = [];
+  const opts = fill ? { fill: "currentColor", fillStyle: "hachure", hachureGap: 6.5, fillWeight: 0.6, hachureAngle: -41 + seed * 7 } : {};
+  for (const set of gen.path(d, { ...base, ...opts, seed }).sets) {
+    if (set.type === "fillSketch") fills.push(toPath(set));
+    else if (set.type === "path") outline.push(toPath(set));
+  }
+  return { outline, fills };
+}
+const rect = (x0: number, x1: number, y0: number, y1: number) => `M${x0} ${y0} L${x1} ${y0} L${x1} ${y1} L${x0} ${y1} Z`;
+
+// La carcasa de la pila con su borne, y tres celdas dentro
+const shell = draw(rect(24, 300, 60, 180), 2, false);
+const cap = draw(rect(300, 316, 98, 142), 3, false);
+const cells: Record<string, [number, number]> = { hierro: [34, 118], b12: [128, 204], mitocondria: [214, 290] };
+const cellDrawn = Object.entries(cells).map(([zone, [x0, x1]], i) => {
+  const c = draw(rect(x0, x1, 70, 170), 10 + i);
+  return { zone, outline: c.outline, hachure: c.fills, details: [] };
+});
+// Un rayo a la derecha: el estrés que vacía la pila
+const bolt = draw("M352 50 L332 112 L350 112 L336 176 L374 96 L354 96 L370 50 Z", 20);
+
+const groups: SketchGroup[] = [
+  { outline: [...shell.outline, ...cap.outline], hachure: [], details: [] },
+  ...cellDrawn,
+  { zone: "estres", outline: bolt.outline, hachure: bolt.fills, details: [] },
+];
+
+const anchors: Record<string, [number, number]> = {
+  hierro: [76, 120],
+  b12: [166, 120],
+  mitocondria: [252, 120],
+  estres: [352, 206],
+};
+const byZone: Record<string, number> = {};
+const placed = markers.map((m) => {
+  const k = byZone[m.zone] ?? 0;
+  byZone[m.zone] = k + 1;
+  const [x, y] = anchors[m.zone] ?? [160, 120];
+  return { ...m, x, y: y + k * 28 };
+});
+---
+
+<SketchMap viewBox="0 0 400 250" idPrefix="pila" groups={groups} placed={placed} markers={markers} text={text}>
+  <g class="names" font-size="11">
+    <text x="76" y="200" text-anchor="middle">{text.zones.hierro}</text>
+    <text x="166" y="200" text-anchor="middle">{text.zones.b12}</text>
+    <text x="252" y="200" text-anchor="middle">{text.zones.mitocondria}</text>
+    <text x="352" y="236" text-anchor="middle">{text.zones.estres}</text>
+    <text x="162" y="44" text-anchor="middle">{text.battery}</text>
+  </g>
+</SketchMap>
