@@ -3,6 +3,7 @@
 // fichas de los suplementos estudiados para él. El contenido sale de
 // src/content/compendio/ y aquí solo se pinta.
 import { getCollection, getEntries } from "astro:content";
+import { getRelativeLocaleUrl } from "astro:i18n";
 import Base from "../../layouts/Base.astro";
 import Entry from "../Entry.astro";
 import DigestiveMap, { type MapMarker } from "./DigestiveMap.astro";
@@ -32,10 +33,12 @@ const stats = [
   [products, c.stats.products],
 ] as const;
 const levels = ["fuerte", "moderada", "preliminar"] as const;
+const signIn = getRelativeLocaleUrl(lang, "entrar/");
+const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
 ---
 
 <Base lang={lang} title={c.meta.title} description={c.meta.description} path="biohacking/" noindex>
-  <div class="wrap compendio">
+  <div class="wrap compendio" data-favs data-signin={signIn} data-space={mySpace} data-text={JSON.stringify(c.fav)}>
     <header class="intro">
       <p class="label">{c.kicker}</p>
       <h1>{c.title}</h1>
@@ -157,6 +160,14 @@ const levels = ["fuerte", "moderada", "preliminar"] as const;
         );
       })
     }
+
+    <!-- Aviso de la estrella: fijo abajo, así no mueve la página al salir -->
+    <p class="visually-hidden" role="status" data-live></p>
+    <div class="toast" data-toast hidden>
+      <p data-toast-text></p>
+      <a class="toast-link" data-toast-link hidden></a>
+      <button type="button" class="toast-close" aria-label={c.fav.close} data-toast-close>×</button>
+    </div>
   </div>
 </Base>
 
@@ -258,6 +269,158 @@ const levels = ["fuerte", "moderada", "preliminar"] as const;
   }
 
   document.querySelectorAll<HTMLElement>("[data-bench]").forEach(setup);
+</script>
+
+<script>
+  // Favoritos (#67): la estrella de cada ficha guarda la ficha en Supabase
+  // (tabla favorites, con reglas RLS). El cliente de Supabase se carga cuando
+  // el navegador está libre, para no retrasar la primera carga del compendio.
+  import type { CompendioText } from "../../i18n/compendio";
+
+  type Fav = CompendioText["fav"];
+  // La ficha que se quería guardar antes de entrar: se guarda al volver
+  const PENDING = "mi-web:favorito-pendiente";
+
+  const store = {
+    get: () => {
+      try {
+        return localStorage.getItem(PENDING);
+      } catch {
+        return null;
+      }
+    },
+    set: (id: string) => {
+      try {
+        localStorage.setItem(PENDING, id);
+      } catch {}
+    },
+    clear: () => {
+      try {
+        localStorage.removeItem(PENDING);
+      } catch {}
+    },
+  };
+
+  const root = document.querySelector<HTMLElement>("[data-favs]");
+  if (root) favorites(root);
+
+  async function favorites(root: HTMLElement) {
+    const t = JSON.parse(root.dataset.text!) as Fav;
+    const stars = [...root.querySelectorAll<HTMLButtonElement>("[data-fav]")];
+    if (!stars.length) return;
+    const toast = root.querySelector<HTMLElement>("[data-toast]")!;
+    const toastText = toast.querySelector<HTMLElement>("[data-toast-text]")!;
+    const toastLink = toast.querySelector<HTMLAnchorElement>("[data-toast-link]")!;
+    const live = root.querySelector<HTMLElement>("[data-live]")!;
+    let pendingOnClick: string | null = null;
+
+    function say(text: string, link?: { href: string; label: string; pending?: string }) {
+      toastText.textContent = text;
+      toastLink.hidden = !link;
+      if (link) {
+        toastLink.href = link.href;
+        toastLink.textContent = link.label;
+      }
+      pendingOnClick = link?.pending ?? null;
+      toast.hidden = false;
+      // El aviso sale y entra; el lector de pantalla lo oye desde una zona fija
+      live.textContent = "";
+      requestAnimationFrame(() => (live.textContent = text));
+    }
+
+    toast.querySelector("[data-toast-close]")!.addEventListener("click", () => (toast.hidden = true));
+    // La ficha queda pendiente solo si de verdad se va a entrar
+    toastLink.addEventListener("click", () => {
+      if (pendingOnClick) store.set(pendingOnClick);
+    });
+
+    await new Promise((r) => ("requestIdleCallback" in window ? requestIdleCallback(r) : setTimeout(r, 200)));
+    const { supabase } = await import("../../lib/supabase");
+    // Sin Supabase conectado (compilado sin .env) las estrellas siguen ocultas
+    if (!supabase) return;
+
+    const saved = new Set<string>();
+    const paint = () => stars.forEach((s) => s.setAttribute("aria-pressed", String(saved.has(s.dataset.fav!))));
+    stars.forEach((s) => (s.hidden = false));
+
+    const { data } = await supabase.auth.getSession();
+    let userId = data.session?.user.id ?? null;
+    supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user.id === userId) return;
+      userId = session?.user.id ?? null;
+      saved.clear();
+      paint();
+      if (userId) load();
+    });
+
+    // Queda en events para la actividad del panel (#32)
+    const log = (id: string, action: "guardar" | "quitar") =>
+      supabase
+        .from("events")
+        .insert({ user_id: userId!, type: "favorito", data: { ficha: id, accion: action, lang: document.documentElement.lang } })
+        .then(() => {});
+
+    async function load() {
+      // RLS solo devuelve los suyos; el filtro es por el admin, que los ve todos
+      const { data } = await supabase!.from("favorites").select("supplement").eq("user_id", userId!);
+      data?.forEach((f) => saved.add(f.supplement));
+      paint();
+    }
+
+    async function save(id: string, star?: HTMLButtonElement) {
+      const { error } = await supabase!.from("favorites").insert({ user_id: userId!, supplement: id });
+      // 23505: ya estaba guardada (otra pestaña, doble clic); para quien la ve es lo mismo
+      if (error && error.code !== "23505") {
+        say(error.code === "23514" ? t.limit : t.error);
+        return;
+      }
+      saved.add(id);
+      paint();
+      if (star) {
+        star.classList.remove("stamp");
+        void star.offsetWidth; // reinicia la animación del sello
+        star.classList.add("stamp");
+      }
+      say(t.done, { href: root.dataset.space!, label: t.spaceCta });
+      if (!error) log(id, "guardar");
+    }
+
+    async function remove(id: string) {
+      const { error } = await supabase!.from("favorites").delete().eq("user_id", userId!).eq("supplement", id);
+      if (error) {
+        say(t.error);
+        return;
+      }
+      saved.delete(id);
+      paint();
+      say(t.removed);
+      log(id, "quitar");
+    }
+
+    stars.forEach((star) =>
+      star.addEventListener("click", async () => {
+        const id = star.dataset.fav!;
+        if (!userId) {
+          // Al entrar vuelve a esta ficha (#id) y la guarda
+          const next = `${location.pathname}#${id}`;
+          say(t.out, { href: `${root.dataset.signin}?next=${encodeURIComponent(next)}`, label: t.outCta, pending: id });
+          return;
+        }
+        if (star.getAttribute("aria-busy") === "true") return;
+        star.setAttribute("aria-busy", "true");
+        await (saved.has(id) ? remove(id) : save(id, star));
+        star.removeAttribute("aria-busy");
+      }),
+    );
+
+    if (!userId) return;
+    await load();
+    const pending = store.get();
+    store.clear();
+    if (pending && !saved.has(pending) && stars.some((s) => s.dataset.fav === pending)) {
+      await save(pending, stars.find((s) => s.dataset.fav === pending));
+    }
+  }
 </script>
 
 <style>
@@ -525,9 +688,68 @@ const levels = ["fuerte", "moderada", "preliminar"] as const;
     }
   }
 
+  /* Aviso de la estrella, como una etiqueta pegada abajo de la pantalla */
+  .toast {
+    position: fixed;
+    inset-inline: var(--space-2);
+    bottom: var(--space-2);
+    z-index: 20;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-2);
+    max-width: 34rem;
+    margin-inline: auto;
+    padding: var(--space-2) 3rem var(--space-2) var(--space-3);
+    border: 1.5px solid var(--ink);
+    border-left: 4px solid var(--lab);
+    background: var(--sheet);
+    box-shadow: 4px 4px 0 var(--rule);
+    animation: toast-in var(--fast) var(--ease-out);
+  }
+
+  .toast[hidden] {
+    display: none;
+  }
+
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+
+  .toast p {
+    flex: 1 1 16rem;
+  }
+
+  .toast-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    font-weight: 600;
+  }
+
+  .toast-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: none;
+    color: var(--ink-soft);
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .problem-nav a {
       transition: none;
+    }
+
+    .toast {
+      animation: none;
     }
   }
 </style>

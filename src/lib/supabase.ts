@@ -39,3 +39,4 @@ export const supabase: SupabaseClient<Database> | null =
 export type Profile = Database["public"]["Tables"]["profiles"]["Row"];
 export type Message = Database["public"]["Tables"]["messages"]["Row"];
 export type AppEvent = Database["public"]["Tables"]["events"]["Row"];
+export type Favorite = Database["public"]["Tables"]["favorites"]["Row"];

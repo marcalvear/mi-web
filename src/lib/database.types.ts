@@ -73,6 +73,21 @@ export interface Database {
           },
         ];
       };
+      favorites: {
+        Row: { user_id: string; supplement: string; created_at: string };
+        Insert: { user_id: string; supplement: string };
+        // Un favorito no se edita: se guarda o se quita
+        Update: { [_ in never]: never };
+        Relationships: [
+          {
+            foreignKeyName: "favorites_user_id_fkey";
+            columns: ["user_id"];
+            isOneToOne: false;
+            referencedRelation: "profiles";
+            referencedColumns: ["id"];
+          },
+        ];
+      };
     };
     Views: { [_ in never]: never };
     Functions: {

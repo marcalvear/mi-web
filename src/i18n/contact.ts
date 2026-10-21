@@ -40,12 +40,12 @@ export const contact = {
     privacy: {
       meta: {
         title: "Privacidad",
-        description: "Qué datos guardo cuando me escribes por el formulario, para qué, dónde y cómo borrarlos.",
+        description: "Qué datos guardo cuando me escribes o te creas una cuenta, para qué, dónde y cómo borrarlos.",
       },
       kicker: "Cuaderno nº 3 · Anexo legal",
       title: "Privacidad",
-      lead: "Qué pasa con tus datos cuando me escribes por el formulario. Sin letra pequeña.",
-      updated: "Actualizado el 19 de octubre de 2026.",
+      lead: "Qué pasa con tus datos cuando me escribes por el formulario o te creas una cuenta. Sin letra pequeña.",
+      updated: "Actualizado el 21 de octubre de 2026.",
       sections: [
         {
           title: "Quién los guarda",
@@ -57,20 +57,20 @@ export const contact = {
         {
           title: "Qué datos",
           body: [
-            "Tu email, tu nombre si lo escribes y tus mensajes, con su fecha. Si entras en tu espacio, también cuándo entras.",
+            "Tu email, tu nombre si lo escribes y tus mensajes, con su fecha. Si entras en tu espacio, también cuándo entras. Si guardas fichas del compendio con la estrella, cuáles y cuándo.",
             "Tu IP pasa por Cloudflare para la comprobación anti-spam y queda, con el mensaje, en el registro técnico de n8n, que se borra solo pasado un tiempo. En la base de datos no la guardo.",
           ],
         },
         {
           title: "Para qué",
           body: [
-            "Para responderte y para que veas nuestra conversación en tu espacio. Al recibir tu mensaje te envío un correo automático con el enlace.",
+            "Para responderte y para que veas en tu espacio nuestra conversación y las fichas que guardes. Al recibir tu mensaje te envío un correo automático con el enlace.",
             "Una IA (Claude, de Anthropic) le pone una etiqueta al mensaje, como «proyecto» o «consulta», para ordenarlos. No se usa para nada más.",
           ],
         },
         {
           title: "Con qué permiso",
-          body: ["Con tu consentimiento, el de la casilla del formulario. Puedes retirarlo cuando quieras pidiéndome que borre tus datos."],
+          body: ["Con tu consentimiento: el de la casilla del formulario o el que das al crearte la cuenta en la página Entrar. Puedes retirarlo cuando quieras pidiéndome que borre tus datos."],
         },
         {
           title: "Dónde están",
@@ -81,7 +81,7 @@ export const contact = {
         },
         {
           title: "Cuánto tiempo",
-          body: ["Hasta que me pidas que los borre. Si lo haces, se borran tu cuenta, tus mensajes y tu actividad."],
+          body: ["Hasta que me pidas que los borre. Si lo haces, se borran tu cuenta, tus mensajes, tus fichas guardadas y tu actividad."],
         },
         {
           title: "Tus derechos",
@@ -92,7 +92,7 @@ export const contact = {
         {
           title: "Cookies y almacenamiento",
           body: [
-            "No uso cookies de publicidad ni de analítica. Tu navegador guarda el tema que elijas, el mazo de frases de anime y, si entras, tu sesión.",
+            "No uso cookies de publicidad ni de analítica. Tu navegador guarda el tema que elijas, el mazo de frases de anime y, si entras, tu sesión. Si pulsas la estrella sin haber entrado, también recuerda esa ficha hasta que entres, para guardarla.",
             "La comprobación de Cloudflare puede leer datos técnicos de tu navegador para saber si eres una persona.",
           ],
         },
@@ -138,12 +138,12 @@ export const contact = {
     privacy: {
       meta: {
         title: "Privacy",
-        description: "What data I keep when you write to me through the form, why, where and how to delete it.",
+        description: "What data I keep when you write to me or create an account, why, where and how to delete it.",
       },
       kicker: "Notebook no. 3 · Legal appendix",
       title: "Privacy",
-      lead: "What happens to your data when you write to me through the form. No small print.",
-      updated: "Updated on 19 October 2026.",
+      lead: "What happens to your data when you write to me through the form or create an account. No small print.",
+      updated: "Updated on 21 October 2026.",
       sections: [
         {
           title: "Who keeps it",
@@ -155,20 +155,20 @@ export const contact = {
         {
           title: "What data",
           body: [
-            "Your email, your name if you give it, and your messages with their date. If you sign in to your space, also when you sign in.",
+            "Your email, your name if you give it, and your messages with their date. If you sign in to your space, also when you sign in. If you star sheets in the compendium, which ones and when.",
             "Your IP address goes through Cloudflare for the spam check and stays, with the message, in n8n's technical log, which is deleted automatically after a while. I don't keep it in the database.",
           ],
         },
         {
           title: "What for",
           body: [
-            "To reply to you and let you see our conversation in your space. When your message arrives, you get an automatic email with the link.",
+            "To reply to you and let you see our conversation and your saved sheets in your space. When your message arrives, you get an automatic email with the link.",
             "An AI (Claude, by Anthropic) tags the message, for example as “project” or “question”, so I can sort them. It isn't used for anything else.",
           ],
         },
         {
           title: "On what basis",
-          body: ["Your consent, the checkbox in the form. You can withdraw it whenever you like by asking me to delete your data."],
+          body: ["Your consent: the checkbox in the form, or the one you give when you create your account on the Sign in page. You can withdraw it whenever you like by asking me to delete your data."],
         },
         {
           title: "Where it lives",
@@ -179,7 +179,7 @@ export const contact = {
         },
         {
           title: "How long",
-          body: ["Until you ask me to delete it. If you do, your account, your messages and your activity are deleted."],
+          body: ["Until you ask me to delete it. If you do, your account, your messages, your saved sheets and your activity are deleted."],
         },
         {
           title: "Your rights",
@@ -190,7 +190,7 @@ export const contact = {
         {
           title: "Cookies and storage",
           body: [
-            "I don't use advertising or analytics cookies. Your browser stores the theme you pick, the anime quote deck and, if you sign in, your session.",
+            "I don't use advertising or analytics cookies. Your browser stores the theme you pick, the anime quote deck and, if you sign in, your session. If you tap the star before signing in, it also remembers that sheet until you sign in, so it can save it.",
             "The Cloudflare check may read technical data from your browser to tell whether you're a person.",
           ],
         },

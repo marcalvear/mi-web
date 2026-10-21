@@ -5,7 +5,7 @@ export const space = {
   es: {
     meta: {
       title: "Mi espacio",
-      description: "Tu conversación con Marc: lo que le has escrito y sus respuestas.",
+      description: "Tus fichas guardadas y tu conversación con Marc.",
     },
     kicker: "Cuaderno nº 3 · Tu espacio",
     title: "Tu espacio",
@@ -33,6 +33,17 @@ export const space = {
       panel: "Ir al panel",
       signOut: "Cerrar sesión",
     },
+    favorites: {
+      title: "Fichas guardadas",
+      count: "{n} fichas",
+      one: "1 ficha",
+      lead: "Las que has marcado con la estrella en el compendio.",
+      evidence: "Evidencia {level}",
+      remove: "Quitar",
+      removeLabel: "Quitar {name} de tus fichas guardadas",
+      removed: "Ficha quitada.",
+      gone: "Esta ficha ya no está en el compendio.",
+    },
     thread: {
       title: "Conversación",
       count: "{n} mensajes",
@@ -57,12 +68,13 @@ export const space = {
       empty: "Escribe algo antes de enviar.",
       send: "No se ha podido enviar. Revisa tu conexión y vuelve a probar.",
       name: "No se ha podido guardar el nombre.",
+      favorite: "No se ha podido quitar la ficha. Vuelve a probar.",
     },
   },
   en: {
     meta: {
       title: "My space",
-      description: "Your conversation with Marc: what you've written to him and his replies.",
+      description: "Your saved sheets and your conversation with Marc.",
     },
     kicker: "Notebook no. 3 · Your space",
     title: "Your space",
@@ -90,6 +102,17 @@ export const space = {
       panel: "Go to the dashboard",
       signOut: "Sign out",
     },
+    favorites: {
+      title: "Saved sheets",
+      count: "{n} sheets",
+      one: "1 sheet",
+      lead: "The ones you've starred in the compendium.",
+      evidence: "{level} evidence",
+      remove: "Remove",
+      removeLabel: "Remove {name} from your saved sheets",
+      removed: "Sheet removed.",
+      gone: "This sheet is no longer in the compendium.",
+    },
     thread: {
       title: "Conversation",
       count: "{n} messages",
@@ -114,6 +137,7 @@ export const space = {
       empty: "Write something before sending.",
       send: "It couldn't be sent. Check your connection and try again.",
       name: "The name couldn't be saved.",
+      favorite: "The sheet couldn't be removed. Try again.",
     },
   },
 } satisfies Record<Lang, unknown>;
