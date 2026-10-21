@@ -142,7 +142,17 @@ export const compendio = {
     bundle: "Un producto que los junta",
     combine: "Si quieres combinarlos",
     alarm: "Ve al médico antes que a un suplemento si además",
-    soon: "Iré añadiendo más problemas: sueño, concentración, estrés, recuperación…",
+    soon: "Iré añadiendo más problemas y más fichas.",
+    pages: {
+      crumbsLabel: "Estás en",
+      pagerLabel: "Otros problemas",
+      prev: "Problema anterior",
+      next: "Problema siguiente",
+      all: "Todos los problemas",
+      sheets: "{n} fichas",
+      shared: "{n} compartidas",
+      top: "Volver arriba",
+    },
   },
   en: {
     meta: {
@@ -283,7 +293,17 @@ export const compendio = {
     bundle: "One product that combines them",
     combine: "If you want to combine them",
     alarm: "See a doctor before trying a supplement if you also",
-    soon: "I'll keep adding problems: sleep, focus, stress, recovery…",
+    soon: "I'll keep adding problems and sheets.",
+    pages: {
+      crumbsLabel: "You are in",
+      pagerLabel: "Other problems",
+      prev: "Previous problem",
+      next: "Next problem",
+      all: "All problems",
+      sheets: "{n} sheets",
+      shared: "{n} shared",
+      top: "Back to top",
+    },
   },
 } satisfies Record<Lang, unknown>;
 

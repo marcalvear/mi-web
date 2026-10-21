@@ -19,7 +19,7 @@ const links = [
   { href: `${home}#hecho`, text: t("nav.work") },
   // Me gusta y el compendio son páginas propias; el resto, secciones de la portada
   { href: getRelativeLocaleUrl(lang, "me-gusta/"), text: t("nav.likes"), current: path.startsWith("me-gusta/") },
-  { href: getRelativeLocaleUrl(lang, "biohacking/"), text: t("nav.compendio"), current: path === "biohacking/" },
+  { href: getRelativeLocaleUrl(lang, "biohacking/"), text: t("nav.compendio"), current: path.startsWith("biohacking/") },
   { href: `${home}#contacto`, text: t("nav.contact") },
 ];
 ---

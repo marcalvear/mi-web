@@ -6,15 +6,9 @@ import { getCollection, getEntries } from "astro:content";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import Base from "../../layouts/Base.astro";
 import Entry from "../Entry.astro";
-import DigestiveMap, { type MapMarker } from "./DigestiveMap.astro";
-import SleepClock from "./SleepClock.astro";
-import FocusTimeline from "./FocusTimeline.astro";
-import CortisolCurve from "./CortisolCurve.astro";
-import RecoveryChart from "./RecoveryChart.astro";
-import SeasonChart from "./SeasonChart.astro";
-import HormoneAxis from "./HormoneAxis.astro";
-import CycleWheel from "./CycleWheel.astro";
-import BatteryChart from "./BatteryChart.astro";
+import type { MapMarker } from "./SketchMap.astro";
+import ProblemSketch from "./ProblemSketch.astro";
+import BackToTop from "../BackToTop.astro";
 import SupplementCard from "./SupplementCard.astro";
 import SharedSheet from "./SharedSheet.astro";
 import ProductList from "./ProductList.astro";
@@ -24,8 +18,10 @@ import type { Lang } from "../../i18n/ui";
 
 interface Props {
   lang: Lang;
+  /** Id del problema: sin él, es el índice con las tarjetas de todos (#105) */
+  problem?: string;
 }
-const { lang } = Astro.props;
+const { lang, problem } = Astro.props;
 const c = compendio[lang];
 
 const problems = (await getCollection("problemas")).sort((a, b) => a.data.orden - b.data.orden);
@@ -54,12 +50,51 @@ const stats = [
   [products, c.stats.products],
 ] as const;
 const levels = ["fuerte", "moderada", "preliminar"] as const;
+// Índice en /biohacking/ y una página por problema en /biohacking/<id>/ (#105)
+const base = getRelativeLocaleUrl(lang, "biohacking/");
+const pageOf = (id: string) => `${base}${id}/`;
+const at = sections.findIndex((s) => s.problem.id === problem);
+const current = at >= 0 ? sections[at] : undefined;
+const prev = at > 0 ? sections[at - 1].problem : undefined;
+const next = at >= 0 && at < sections.length - 1 ? sections[at + 1].problem : undefined;
+const shown = current ? [current] : [];
+const short = (text: string) => (text.length <= 155 ? text : `${text.slice(0, text.lastIndexOf(" ", 152))}…`);
+const page = current
+  ? {
+      path: `biohacking/${current.problem.id}/`,
+      title: `${current.problem.data.nombre[lang]} · ${c.title}`,
+      description: short(`${current.problem.data.titular[lang]} ${current.problem.data.intro[lang]}`),
+    }
+  : { path: "biohacking/", title: c.meta.title, description: c.meta.description };
+// Los enlaces viejos con #problema o #ficha llevan a su página nueva
+const moved = Object.fromEntries([
+  ...problems.map((p) => [p.id, pageOf(p.id)]),
+  ...[...home.entries()].map(([id, p]) => [id, `${pageOf(p.id)}#${id}`]),
+]);
 const signIn = getRelativeLocaleUrl(lang, "entrar/");
 const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
 ---
 
-<Base lang={lang} title={c.meta.title} description={c.meta.description} path="biohacking/" chat="boticario">
-  <div class="wrap compendio" data-favs data-signin={signIn} data-space={mySpace} data-text={JSON.stringify(c.fav)}>
+<Base lang={lang} title={page.title} description={page.description} path={page.path} chat="boticario">
+  <div
+    class="wrap compendio"
+    data-favs
+    data-signin={signIn}
+    data-space={mySpace}
+    data-text={JSON.stringify(c.fav)}
+    data-moved={current ? undefined : JSON.stringify(moved)}
+  >
+    {
+      current && (
+        <nav class="crumbs" aria-label={c.pages.crumbsLabel}>
+          <a href={base}>{c.title}</a>
+          <span aria-hidden="true">›</span>
+          <span aria-current="page">{current.problem.data.nombre[lang]}</span>
+        </nav>
+      )
+    }
+
+    {!current && (
     <header class="intro">
       <p class="label">{c.kicker}</p>
       <h1>{c.title}</h1>
@@ -75,31 +110,57 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
         }
       </dl>
     </header>
+    )}
 
     <aside class="disclaimer" aria-labelledby="aviso">
       <p class="label" id="aviso">{c.disclaimer.title}</p>
       <p>{c.disclaimer.text}</p>
     </aside>
 
-    <nav class="problem-nav" aria-label={c.problemsLabel}>
-      <p class="label">{c.problemsLabel}</p>
-      <ul role="list">
-        {
-          problems.map((p) => (
-            <li>
-              <a href={`#${p.id}`}>
-                <span class="label">{String(p.data.orden).padStart(2, "0")}</span>
-                {p.data.nombre[lang]}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-      <p class="soon">{c.soon}</p>
-    </nav>
+    {
+      !current && (
+        <section class="index" aria-labelledby="indice">
+          <h2 class="label" id="indice">{c.problemsLabel}</h2>
+          <ol class="cards" role="list">
+            {sections.map(({ problem: pr, supplements }) => {
+              const own = supplements.filter((s) => home.get(s.id)!.id === pr.id).length;
+              const n = levels.map((l) => [l, supplements.filter((s) => s.data.evidencia === l).length] as const);
+              return (
+                <li class="card">
+                  <div class="thumb-box">
+                    <ProblemSketch mapa={pr.data.mapa ?? ""} markers={[]} text={c} thumb />
+                  </div>
+                  <p class="label card-kicker">
+                    <span class="card-num">{String(pr.data.orden).padStart(2, "0")}</span> {pr.data.nombre[lang]}
+                  </p>
+                  <h3 class="card-title">
+                    <a href={pageOf(pr.id)}>{pr.data.titular[lang]}</a>
+                  </h3>
+                  <p class="label card-meta">
+                    {c.pages.sheets.replace("{n}", String(supplements.length))}
+                    {own < supplements.length && ` · ${c.pages.shared.replace("{n}", String(supplements.length - own))}`}
+                  </p>
+                  <ul class="card-levels" role="list" aria-label={c.evidenceLabel}>
+                    {n
+                      .filter(([, k]) => k > 0)
+                      .map(([l, k]) => (
+                        <li data-level={l}>
+                          <span class="dot" aria-hidden="true" />
+                          {c.evidence[l]} {k}
+                        </li>
+                      ))}
+                  </ul>
+                </li>
+              );
+            })}
+          </ol>
+          <p class="soon">{c.soon}</p>
+        </section>
+      )
+    }
 
     {
-      sections.map(({ problem, supplements }) => {
+      shown.map(({ problem, supplements }) => {
         const p = problem.data;
         // Cada problema puede llevar su esquema: el digestivo o el reloj del sueño (#83)
         const hasMap = !!p.mapa;
@@ -132,7 +193,7 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
         }));
         const counts = Object.fromEntries(levels.map((l) => [l, supplements.filter((s) => s.data.evidencia === l).length]));
         return (
-          <Entry id={problem.id} number={p.orden} kicker={p.nombre[lang]} title={p.titular[lang]}>
+          <Entry id={problem.id} number={p.orden} kicker={p.nombre[lang]} title={p.titular[lang]} page>
             <p class="problem-intro">{p.intro[lang]}</p>
 
             <section class="body-text" aria-labelledby={`${problem.id}-cuerpo`}>
@@ -169,25 +230,7 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
               {hasMap && (
                 <div class="bench-side">
                   <div class="sticky">
-                    {p.mapa === "reloj" ? (
-                      <SleepClock markers={markers} text={c.clock} />
-                    ) : p.mapa === "tiempo" ? (
-                      <FocusTimeline markers={markers} text={c.timeline} />
-                    ) : p.mapa === "cortisol" ? (
-                      <CortisolCurve markers={markers} text={c.cortisol} />
-                    ) : p.mapa === "agujetas" ? (
-                      <RecoveryChart markers={markers} text={c.recovery} />
-                    ) : p.mapa === "temporada" ? (
-                      <SeasonChart markers={markers} text={c.season} />
-                    ) : p.mapa === "eje" ? (
-                      <HormoneAxis markers={markers} text={c.axis} />
-                    ) : p.mapa === "ciclo" ? (
-                      <CycleWheel markers={markers} text={c.cycle} />
-                    ) : p.mapa === "pila" ? (
-                      <BatteryChart markers={markers} text={c.battery} />
-                    ) : (
-                      <DigestiveMap markers={markers} text={c.map} />
-                    )}
+                    <ProblemSketch mapa={p.mapa!} markers={markers} text={c} />
                   </div>
                 </div>
               )}
@@ -248,6 +291,7 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                         lang={lang}
                         text={c}
                         home={home.get(s.id)!}
+                        homeUrl={pageOf(home.get(s.id)!.id)}
                         problemId={problem.id}
                         zone={zoneOf(s)}
                       />
@@ -275,6 +319,38 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
       })
     }
 
+    {
+      current && (
+        <nav class="pager" aria-label={c.pages.pagerLabel}>
+          {prev ? (
+            <a class="pager-link prev" href={pageOf(prev.id)} rel="prev">
+              <span class="label">← {c.pages.prev}</span>
+              <span class="pager-name">
+                {String(prev.data.orden).padStart(2, "0")} · {prev.data.nombre[lang]}
+              </span>
+            </a>
+          ) : (
+            <span />
+          )}
+          <a class="pager-all label" href={base}>
+            {c.pages.all}
+          </a>
+          {next ? (
+            <a class="pager-link next" href={pageOf(next.id)} rel="next">
+              <span class="label">{c.pages.next} →</span>
+              <span class="pager-name">
+                {String(next.data.orden).padStart(2, "0")} · {next.data.nombre[lang]}
+              </span>
+            </a>
+          ) : (
+            <span />
+          )}
+        </nav>
+      )
+    }
+
+    <BackToTop label={c.pages.top} />
+
     <!-- Aviso de la estrella: fijo abajo, así no mueve la página al salir -->
     <p class="visually-hidden" role="status" data-live></p>
     <div class="toast" data-toast hidden>
@@ -286,6 +362,12 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
 </Base>
 
 <script>
+  // Antes todo el compendio iba en una página: los enlaces viejos con #ancla
+  // llevan a la página nueva de su problema (#105)
+  const movedTo = document.querySelector<HTMLElement>("[data-moved]");
+  const goTo = movedTo && (JSON.parse(movedTo.dataset.moved!) as Record<string, string>)[location.hash.slice(1)];
+  if (goTo) location.replace(goTo);
+
   // Mesa de trabajo de cada problema: filtro por evidencia y enlace entre las
   // fichas y el esquema. Pasar por una ficha la enciende en el esquema; pulsar
   // un número del esquema lleva a su ficha.
@@ -610,46 +692,240 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
     color: var(--accent);
   }
 
-  .problem-nav {
+  /* Índice: una tarjeta por problema, como fichas de un archivador, con su
+     esquema en miniatura (#105) */
+  .index {
     display: grid;
-    gap: var(--space-1);
-    padding-block: var(--space-4);
+    gap: var(--space-3);
+    padding-block: var(--space-5) var(--space-6);
   }
 
-  .problem-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1);
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+    gap: var(--space-4) var(--space-3);
     margin: 0;
     padding: 0;
     list-style: none;
   }
 
-  .problem-nav a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6em;
-    min-height: 44px;
-    padding: 0.4rem 1rem;
-    border: 1.5px solid var(--lab);
-    border-radius: 999px;
-    background: var(--lab-soft);
-    color: var(--ink);
-    text-decoration: none;
-    box-shadow: 3px 3px 0 var(--lab);
-    transition: transform var(--fast) var(--ease-out), box-shadow var(--fast) var(--ease-out);
+  .card {
+    position: relative;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    gap: var(--space-1);
+    max-width: none;
+    padding: var(--space-2) var(--space-2) var(--space-3);
+    background: var(--sheet);
+    border: 1.5px solid var(--ink);
+    border-left: 4px solid var(--lab);
+    box-shadow: 4px 4px 0 var(--rule);
+    transition:
+      transform var(--fast) var(--ease-out),
+      box-shadow var(--fast) var(--ease-out);
   }
 
-  /* Solo con ratón: en el móvil se quedaba puesto tras tocar (#79) */
+  .card:focus-within {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--lab);
+    outline: 2px solid var(--link);
+    outline-offset: 4px;
+  }
+
   @media (hover: hover) and (pointer: fine) {
-    .problem-nav a:hover {
+    .card:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--lab);
+    }
+
+    .card:hover .thumb-box {
+      color: var(--lab);
+    }
+  }
+
+  .thumb-box {
+    aspect-ratio: 4 / 3;
+    display: grid;
+    place-items: center;
+    padding: var(--space-1);
+    margin-block-end: var(--space-1);
+    border-bottom: 1px dashed var(--rule);
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 16px 16px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 16px 16px;
+    transition: color var(--fast) var(--ease-out);
+  }
+
+  .thumb-box :global(.thumb) {
+    max-height: 100%;
+  }
+
+  /* En el móvil, más apaisada: así el índice se recorre antes */
+  @media (max-width: 40rem) {
+    .thumb-box {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .card-kicker {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    color: var(--lab);
+  }
+
+  .card-num {
+    display: inline-grid;
+    place-items: center;
+    min-width: 1.9em;
+    height: 1.9em;
+    border: 1.5px solid var(--lab);
+    border-radius: 50%;
+    font-weight: 700;
+  }
+
+  .card-title {
+    font-size: var(--step-1);
+    line-height: 1.25;
+  }
+
+  .card-title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  /* El enlace del título cubre toda la tarjeta */
+  .card-title a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .card-title a:focus-visible {
+    outline: none;
+  }
+
+  .card-meta {
+    color: var(--ink-soft);
+  }
+
+  .card-levels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem 0.8rem;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    list-style: none;
+  }
+
+  .card-levels li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+  }
+
+  .dot {
+    width: 0.6em;
+    height: 0.6em;
+    border: 1.5px solid var(--lab);
+    border-radius: 50%;
+  }
+
+  [data-level="fuerte"] .dot {
+    background: var(--lab);
+  }
+
+  [data-level="moderada"] .dot {
+    background: linear-gradient(90deg, var(--lab) 50%, transparent 50%);
+  }
+
+  /* Miga de pan y paso a los problemas de al lado */
+  .crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding-block: var(--space-4) 0;
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .crumbs a {
+    padding-block: 0.6rem;
+  }
+
+  .crumbs [aria-current] {
+    padding-block: 0.6rem;
+    color: var(--ink-soft);
+  }
+
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: var(--space-2);
+    padding-block: var(--space-5);
+    border-top: 1px dashed var(--rule);
+  }
+
+  .pager-link {
+    display: grid;
+    gap: 4px;
+    padding: var(--space-2) var(--space-3);
+    border: 1.5px solid var(--ink);
+    background: var(--sheet);
+    color: var(--ink);
+    text-decoration: none;
+    box-shadow: 3px 3px 0 var(--rule);
+    transition:
+      transform var(--fast) var(--ease-out),
+      box-shadow var(--fast) var(--ease-out);
+  }
+
+  .pager-link .label {
+    color: var(--lab);
+  }
+
+  .pager-link.next {
+    text-align: end;
+  }
+
+  .pager-name {
+    font-size: var(--step-1);
+  }
+
+  .pager-link:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--rule);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .pager-link:hover {
       transform: translate(-1px, -1px);
       box-shadow: 4px 4px 0 var(--lab);
     }
   }
 
-  .problem-nav a .label {
-    color: var(--lab);
+  .pager-all {
+    padding: 0.6rem;
+  }
+
+  @media (max-width: 40rem) {
+    .pager {
+      grid-template-columns: 1fr;
+    }
+
+    .pager-all {
+      order: 3;
+      justify-self: center;
+    }
+
+    .pager-link.next {
+      text-align: start;
+    }
   }
 
   .soon {

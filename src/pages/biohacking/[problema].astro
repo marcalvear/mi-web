@@ -1,0 +1,12 @@
+---
+// Una página por problema del compendio (#105); el índice está en biohacking.astro
+import { getCollection } from "astro:content";
+import CompendioPage from "../../components/compendio/CompendioPage.astro";
+
+export async function getStaticPaths() {
+  return (await getCollection("problemas")).map((p) => ({ params: { problema: p.id } }));
+}
+const { problema } = Astro.params;
+---
+
+<CompendioPage lang="es" problem={problema} />
