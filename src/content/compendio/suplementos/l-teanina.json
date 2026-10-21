@@ -72,5 +72,58 @@
       "pmid": "40314930",
       "doi": "10.1093/nutrit/nuaf054"
     }
+  ],
+  "productos": [
+    {
+      "id": "thorne-theanine",
+      "marca": "Thorne",
+      "nombre": "Theanine",
+      "foto": "thorne-theanine.webp",
+      "alt": {
+        "es": "Bote blanco de Theanine de Thorne.",
+        "en": "White bottle of Thorne Theanine."
+      },
+      "url": "https://www.thorne.com/products/dp/theanine",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "200 mg de L-teanina por cápsula",
+            "en": "200 mg of L-theanine per capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula, de 1 a 3 veces al día",
+            "en": "1 capsule, 1 to 3 times a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "90 cápsulas",
+            "en": "90 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "68 $ (90 cápsulas)",
+        "en": "$68 (90 capsules)"
+      }
+    }
   ]
 }

@@ -75,5 +75,58 @@
       "pmid": "42661485",
       "doi": "10.1080/19390211.2026.2719670"
     }
+  ],
+  "productos": [
+    {
+      "id": "thorne-magnesium-bisglycinate",
+      "marca": "Thorne",
+      "nombre": "Magnesium Bisglycinate",
+      "foto": "thorne-magnesium-bisglycinate.webp",
+      "alt": {
+        "es": "Bote blanco de Magnesium Bisglycinate de Thorne.",
+        "en": "White tub of Thorne Magnesium Bisglycinate."
+      },
+      "url": "https://www.thorne.com/products/dp/magnesium-bisglycinate",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "200 mg de magnesio en bisglicinato por cacito",
+            "en": "200 mg of magnesium as bisglycinate per scoop"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cacito en un vaso grande de agua al día",
+            "en": "1 scoop in a large glass of water a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "Polvo, 60 tomas",
+            "en": "Powder, 60 servings"
+          }
+        }
+      ],
+      "precio": {
+        "es": "52 $",
+        "en": "$52"
+      }
+    }
   ]
 }

@@ -72,5 +72,58 @@
       "pmid": "22293292",
       "doi": "10.1254/jphs.11R04FM"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-glycine-powder",
+      "marca": "NOW Foods",
+      "nombre": "Glycine Pure Powder",
+      "foto": "now-glycine-powder.webp",
+      "alt": {
+        "es": "Bote blanco de Glycine Pure Powder de NOW Foods.",
+        "en": "White tub of NOW Foods Glycine Pure Powder."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/glycine-pure-powder",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Glicina pura en polvo",
+            "en": "Pure glycine powder"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "3/4 de cucharadita rasa, unos 3 g",
+            "en": "3/4 level teaspoon, about 3 g"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "454 g",
+            "en": "454 g"
+          }
+        }
+      ],
+      "precio": {
+        "es": "22,49 $",
+        "en": "$22.49"
+      }
+    }
   ]
 }

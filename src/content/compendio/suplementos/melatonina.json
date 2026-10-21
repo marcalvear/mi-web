@@ -76,5 +76,58 @@
       "pmid": "38888087",
       "doi": "10.1111/jpi.12985"
     }
+  ],
+  "productos": [
+    {
+      "id": "aquilea-melatonina",
+      "marca": "Aquilea",
+      "nombre": "Melatonina 1,95 mg",
+      "foto": "aquilea-melatonina.webp",
+      "alt": {
+        "es": "Caja de Aquilea Melatonina, azul y amarilla, con una luna dibujada.",
+        "en": "Blue and yellow box of Aquilea Melatonin with a drawn moon."
+      },
+      "url": "https://www.aquilea.com/productos/descanso/aquilea-melatonina/",
+      "pais": {
+        "es": "España",
+        "en": "Spain"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "1,95 mg de melatonina y 0,7 mg de vitamina B6",
+            "en": "1.95 mg of melatonin and 0.7 mg of vitamin B6"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 comprimido de 1 a 2 horas antes de acostarte",
+            "en": "1 tablet 1 to 2 hours before bed"
+          }
+        },
+        {
+          "k": {
+            "es": "Caja",
+            "en": "Pack"
+          },
+          "v": {
+            "es": "30 o 60 comprimidos",
+            "en": "30 or 60 tablets"
+          }
+        }
+      ],
+      "precio": {
+        "es": "En farmacias; la marca no publica el precio",
+        "en": "In pharmacies; the brand doesn't publish a price"
+      }
+    }
   ]
 }

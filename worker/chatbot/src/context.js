@@ -187,6 +187,8 @@ FICHA: Melatonina (Hormona del sueño) · https://marcalvear.github.io/mi-web/bi
   - Juntando 19 ensayos con 1.683 personas con problemas de sueño, la melatonina adelantó unos 7 minutos el momento de dormirse y alargó el sueño unos 8 minutos frente a placebo. El efecto es pequeño, pero no se pierde con el uso. [Ferracioli-Oda E et al., 2013, PLoS One 8(5):e63773, PMID 23691095]
   - Con 26 ensayos, el efecto sube con la dosis hasta unos 4 mg al día y es mayor si se toma unas 3 horas antes de acostarse, en vez de justo al irse a la cama. [Cruz-Sanabria F et al., 2024, J Pineal Res 76(5):e12985, PMID 38888087]
 - Precauciones: Puede dar sueño al día siguiente: no conduzcas si notas que te afecta. Si estás embarazada, das el pecho, tomas anticoagulantes, antiepilépticos o medicación para dormir, consúltalo antes con tu médico. En niños, solo si lo indica el pediatra.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Aquilea, Melatonina 1,95 mg (España): lleva 1,95 mg de melatonina y 0,7 mg de vitamina B6; toma 1 comprimido de 1 a 2 horas antes de acostarte; caja 30 o 60 comprimidos; precio En farmacias; la marca no publica el precio. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
 
 FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#magnesio
 - Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores.
@@ -197,6 +199,8 @@ FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#mag
   - En 46 personas mayores con insomnio, 500 mg de magnesio al día durante 8 semanas mejoraron la gravedad del insomnio, el tiempo que tardaban en dormirse y la eficiencia del sueño frente a placebo. El tiempo total de sueño no cambió. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
   - Una revisión de 12 ensayos de 2026 concluye que el magnesio no sirve como tratamiento de rutina para el insomnio: los resultados son contradictorios y la certeza, baja. Puede ayudar algo a grupos concretos, como quien tiene poco magnesio. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
 - Precauciones: Si tienes una enfermedad del riñón, no lo tomes sin hablar con tu médico. Separa 2 horas el magnesio de antibióticos como las tetraciclinas o las quinolonas y de la levotiroxina. A dosis altas puede soltar el vientre; el óxido de magnesio, más.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Thorne, Magnesium Bisglycinate (Estados Unidos): lleva 200 mg de magnesio en bisglicinato por cacito; toma 1 cacito en un vaso grande de agua al día; bote Polvo, 60 tomas; precio 52 $. https://www.thorne.com/products/dp/magnesium-bisglycinate
 
 FICHA: Glicina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#glicina
 - Qué es: Es un aminoácido que el cuerpo ya fabrica. Tomado antes de dormir baja un poco la temperatura del cuerpo y, en los estudios, la gente se levanta menos cansada.
@@ -207,6 +211,8 @@ FICHA: Glicina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#
   - En voluntarios sanos que durmieron un 25 % menos de lo normal durante tres noches, 3 g de glicina antes de acostarse redujeron el cansancio del día siguiente y mejoraron una prueba de atención frente a placebo. Lo firma la empresa que la fabrica. [Bannai M et al., 2012, Front Neurol 3:61, PMID 22529837]
   - Los mismos autores resumen sus ensayos: con 3 g antes de dormir, la gente se duerme antes, entra antes en sueño profundo y se siente mejor por la mañana, sin cambiar la estructura normal del sueño. [Bannai M et al., 2012, J Pharmacol Sci 118(2):145-148, PMID 22293292]
 - Precauciones: Si tomas clozapina u otros antipsicóticos, no la tomes sin hablar con tu psiquiatra. A veces da molestias de estómago leves.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Glycine Pure Powder (Estados Unidos): lleva Glicina pura en polvo; toma 3/4 de cucharadita rasa, unos 3 g; bote 454 g; precio 22,49 $. https://www.nowfoods.com/products/supplements/glycine-pure-powder
 
 FICHA: L-teanina (Aminoácido del té) · https://marcalvear.github.io/mi-web/biohacking/#l-teanina
 - Qué es: Es el aminoácido que hace que el té verde relaje en vez de poner nervioso. En cápsula ayuda a calmarse y, en un ensayo, mejoró la calidad del sueño.
@@ -217,6 +223,8 @@ FICHA: L-teanina (Aminoácido del té) · https://marcalvear.github.io/mi-web/bi
   - En 30 adultos sanos, 200 mg al día durante 4 semanas mejoraron la calidad del sueño frente a placebo: se dormían antes, se despertaban menos y usaban menos pastillas para dormir. También bajaron la ansiedad y los síntomas de estrés. [Hidese S et al., 2019, Nutrients 11(10):2362, PMID 31623400]
   - Una revisión de 50 ensayos con té, L-teanina sola o con cafeína encuentra efectos a favor en atención y ánimo, pero con mucha incertidumbre, y pocos datos todavía sobre el sueño. Parte de los autores trabajan para una marca de té. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
 - Precauciones: Si tomas medicación para la tensión, puede bajarla un poco más. En embarazo y lactancia no hay datos suficientes: mejor no tomarla.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Thorne, Theanine (Estados Unidos): lleva 200 mg de L-teanina por cápsula; toma 1 cápsula, de 1 a 3 veces al día; bote 90 cápsulas; precio 68 $ (90 cápsulas). https://www.thorne.com/products/dp/theanine
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -340,6 +348,8 @@ SHEET: Melatonin (Sleep hormone) · https://marcalvear.github.io/mi-web/en/bioha
   - Pooling 19 trials with 1,683 people with sleep problems, melatonin brought falling asleep forward by about 7 minutes and lengthened sleep by about 8 minutes compared with placebo. The effect is small, but it doesn't wear off with use. [Ferracioli-Oda E et al., 2013, PLoS One 8(5):e63773, PMID 23691095]
   - With 26 trials, the effect rises with the dose up to about 4 mg a day and is larger when it's taken about 3 hours before bed, rather than right at bedtime. [Cruz-Sanabria F et al., 2024, J Pineal Res 76(5):e12985, PMID 38888087]
 - Cautions: It can leave you drowsy the next day: don't drive if you notice it affects you. If you're pregnant, breastfeeding, or take blood thinners, epilepsy medicine or sleep medication, check with your doctor first. In children, only if the paediatrician says so.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Aquilea, Melatonina 1,95 mg (Spain): contains 1.95 mg of melatonin and 0.7 mg of vitamin B6; dose 1 tablet 1 to 2 hours before bed; pack 30 or 60 tablets; price In pharmacies; the brand doesn't publish a price. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
 
 SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#magnesio
 - What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older people are.
@@ -350,6 +360,8 @@ SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/
   - In 46 older people with insomnia, 500 mg of magnesium a day for 8 weeks improved insomnia severity, how long they took to fall asleep and sleep efficiency compared with placebo. Total sleep time didn't change. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
   - A 2026 review of 12 trials concludes magnesium isn't a routine treatment for insomnia: results are contradictory and certainty is low. It may help a little in specific groups, such as people low in magnesium. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
 - Cautions: If you have kidney disease, don't take it without talking to your doctor. Keep magnesium 2 hours apart from antibiotics such as tetracyclines or quinolones and from levothyroxine. At high doses it can loosen your stools; magnesium oxide more so.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Thorne, Magnesium Bisglycinate (United States): contains 200 mg of magnesium as bisglycinate per scoop; dose 1 scoop in a large glass of water a day; tub Powder, 60 servings; price $52. https://www.thorne.com/products/dp/magnesium-bisglycinate
 
 SHEET: Glycine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#glicina
 - What it is: It's an amino acid the body already makes. Taken before bed it lowers body temperature slightly and, in the studies, people woke up less tired.
@@ -360,6 +372,8 @@ SHEET: Glycine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking
   - In healthy volunteers who slept 25% less than usual for three nights, 3 g of glycine before bed reduced next-day tiredness and improved an attention test compared with placebo. It's authored by the company that makes it. [Bannai M et al., 2012, Front Neurol 3:61, PMID 22529837]
   - The same authors summarise their trials: with 3 g before bed, people fall asleep sooner, reach deep sleep sooner and feel better in the morning, without changing the normal structure of sleep. [Bannai M et al., 2012, J Pharmacol Sci 118(2):145-148, PMID 22293292]
 - Cautions: If you take clozapine or other antipsychotics, don't take it without talking to your psychiatrist. It sometimes causes mild stomach upset.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Glycine Pure Powder (United States): contains Pure glycine powder; dose 3/4 level teaspoon, about 3 g; tub 454 g; price $22.49. https://www.nowfoods.com/products/supplements/glycine-pure-powder
 
 SHEET: L-theanine (Tea amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#l-teanina
 - What it is: It's the amino acid that makes green tea relaxing instead of jittery. As a capsule it helps you calm down and, in one trial, improved sleep quality.
@@ -370,5 +384,7 @@ SHEET: L-theanine (Tea amino acid) · https://marcalvear.github.io/mi-web/en/bio
   - In 30 healthy adults, 200 mg a day for 4 weeks improved sleep quality compared with placebo: they fell asleep sooner, woke up less and used fewer sleeping pills. Anxiety and stress symptoms also went down. [Hidese S et al., 2019, Nutrients 11(10):2362, PMID 31623400]
   - A review of 50 trials of tea, L-theanine alone or with caffeine finds effects in favour on attention and mood, but with a lot of uncertainty, and little data on sleep so far. Some of the authors work for a tea brand. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
 - Cautions: If you take blood pressure medication, it may lower it a little more. In pregnancy and breastfeeding there isn't enough data: better not to take it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Thorne, Theanine (United States): contains 200 mg of L-theanine per capsule; dose 1 capsule, 1 to 3 times a day; bottle 90 capsules; price $68 (90 capsules). https://www.thorne.com/products/dp/theanine
 `,
 };
