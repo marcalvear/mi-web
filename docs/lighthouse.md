@@ -1,5 +1,27 @@
 # Lighthouse
 
+## Compendio con favoritos (21/10/2026, #67)
+
+Mismo método (Lighthouse 12, móvil, `astro preview`), pero con un Supabase de
+imitación en local y sin sesión, que es como lo ve alguien que llega por
+primera vez.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS |
+|---|---|---|---|---|---|
+| Compendio | 91-95 | 100 | 100 | 54* | 0 |
+| Compendio (EN) | 94 | 100 | 100 | 54* | 0 |
+| Entrar | 93 | 100 | 100 | 100 | 0 |
+| Mi espacio | 95 | 100 | 100 | 60* | 0 |
+| Panel | 92 | 100 | 100 | 60* | 0 |
+
+\* El compendio también lleva `noindex` mientras esté oculto.
+
+- La estrella sale oculta y aparece en una fila que ya tiene su alto, así que
+  no mueve nada (CLS 0).
+- El cliente de Supabase (45 KB) se descarga cuando el navegador está libre,
+  después de pintar la página. El LCP sigue siendo el párrafo de entrada
+  (2,8-3,2 s), que espera a la fuente.
+
 ## v3 (20/10/2026)
 
 Medido con Lighthouse 12 en modo **móvil** (4G lenta simulada y CPU 4 veces

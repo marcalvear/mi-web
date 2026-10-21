@@ -33,12 +33,21 @@ Usar **[Supabase](https://supabase.com)** (Postgres + Auth + API REST) con
   el rol `admin` lee y escribe todo, y un usuario puede añadir sus mensajes
   y eventos pero no cambiar su rol (otro trigger lo impide). Para que Mi
   espacio (#31) marque mis respuestas como leídas sin poder tocar su texto,
-  hay una función aparte, `mark_replies_read()`. Hay 27 pruebas en
-  `supabase/tests/rls.sql`.
+  hay una función aparte, `mark_replies_read()`. Hay 39 pruebas en
+  `supabase/tests/rls.sql` (27 de este bloque y 12 de los favoritos, #67).
 - **Acceso sin contraseña:** el usuario escribe su email y recibe un código de
-  un solo uso y un enlace (sirve cualquiera de los dos). La página `/entrar/`
-  no crea cuentas (`shouldCreateUser: false`, y el registro está desactivado
-  en Supabase): las crea n8n al recibir el formulario.
+  un solo uso y un enlace (sirve cualquiera de los dos). Al principio, la
+  página `/entrar/` no creaba cuentas (`shouldCreateUser: false`, y el
+  registro estaba desactivado en Supabase): las creaba n8n al recibir el
+  formulario.
+- **Actualización (21/10/2026, #67): registro abierto.** Para guardar fichas
+  del compendio con la estrella, cualquiera se crea una cuenta en `/entrar/`
+  con su email (`shouldCreateUser: true` y *Allow new users to sign up*
+  activado). El trigger le crea el perfil igual que antes. Los favoritos van
+  en la tabla `favorites`, con las mismas ideas de RLS: cada uno ve, guarda y
+  quita los suyos, el admin los ve todos, nadie pasa de 100 y no se editan.
+  Los límites de envío de correos de Supabase frenan a quien quiera usar
+  `/entrar/` para mandar códigos a emails ajenos.
 - **Dos claves con papeles distintos:**
   - La **pública** (anon o *publishable*) va en la web, en variables
     `PUBLIC_` de entorno (`.env` en local, variables del repositorio en
