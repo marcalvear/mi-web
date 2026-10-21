@@ -1,0 +1,52 @@
+{
+  "orden": 9,
+  "nombre": {
+    "es": "Ciclo y menopausia",
+    "en": "Cycle and menopause"
+  },
+  "titular": {
+    "es": "¿Los días antes de la regla son una montaña rusa?",
+    "en": "Are the days before your period a rollercoaster?"
+  },
+  "intro": {
+    "es": "Hinchazón, pecho dolorido y cambios de humor antes de la regla, ciclos que no llegan cuando toca o los sofocos de la menopausia. Algunos suplementos tienen ensayos para cosas muy concretas de cada etapa, y aquí van por separado.",
+    "en": "Bloating, sore breasts and mood swings before your period, cycles that don't come when they should or the hot flushes of menopause. Some supplements have trials for very specific things at each stage, and here they're kept apart."
+  },
+  "queOcurre": {
+    "es": "El ciclo es una coreografía de hormonas. En la primera mitad suben los estrógenos y madura un óvulo; hacia el día 14 se suelta, y en la segunda mitad, la fase lútea, manda la progesterona. Si no hay embarazo, todo baja y llega la regla. El síndrome premenstrual aparece en esa bajada final. En el ovario poliquístico, la insulina y la testosterona altas impiden ovular, y en la menopausia los ovarios dejan de fabricar estrógenos. La rueda de al lado marca en qué momento actúa cada suplemento.",
+    "en": "The cycle is a choreography of hormones. In the first half oestrogen rises and an egg matures; around day 14 it's released, and in the second half, the luteal phase, progesterone takes over. If there's no pregnancy, everything drops and the period arrives. Premenstrual syndrome appears in that final drop. In polycystic ovaries, high insulin and testosterone prevent ovulation, and in menopause the ovaries stop making oestrogen. The wheel beside it marks when each supplement acts."
+  },
+  "combinar": {
+    "es": "Cada ficha es para algo distinto: el sauzgatillo y el calcio para el síndrome premenstrual, el mio-inositol para el ovario poliquístico y las isoflavonas para la menopausia. No las mezcles por si acaso: elige la que encaja con lo que te pasa y dale tres ciclos.",
+    "en": "Each sheet is for something different: chasteberry and calcium for premenstrual syndrome, myo-inositol for polycystic ovaries and isoflavones for menopause. Don't mix them just in case: pick the one that fits what's happening to you and give it three cycles."
+  },
+  "alarma": [
+    {
+      "es": "Sangras mucho (cambias de compresa cada hora) o entre reglas",
+      "en": "You bleed heavily (changing pads every hour) or between periods"
+    },
+    {
+      "es": "Llevas más de 3 meses sin regla sin estar embarazada",
+      "en": "You've gone more than 3 months without a period and aren't pregnant"
+    },
+    {
+      "es": "El dolor de regla te impide hacer vida normal (puede ser endometriosis)",
+      "en": "Period pain stops you living normally (it may be endometriosis)"
+    },
+    {
+      "es": "Sangras después de la menopausia",
+      "en": "You bleed after menopause"
+    },
+    {
+      "es": "Antes de la regla te sientes tan mal que piensas en hacerte daño: llama al 024",
+      "en": "Before your period you feel so bad you think of harming yourself: in Spain call 024"
+    }
+  ],
+  "suplementos": [
+    "sauzgatillo",
+    "calcio",
+    "mio-inositol",
+    "isoflavonas-soja"
+  ],
+  "mapa": "ciclo"
+}

@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Sauzgatillo (Vitex)",
+    "en": "Chasteberry (Vitex)"
+  },
+  "tipo": {
+    "es": "Fruto de un arbusto",
+    "en": "Shrub fruit"
+  },
+  "evidencia": "moderada",
+  "zona": "lutea",
+  "porQue": {
+    "es": "Solo 3 ensayos con 520 mujeres pasan el filtro de calidad del metaanálisis, pero los tres salen a favor y con un efecto claro.",
+    "en": "Only 3 trials with 520 women pass the meta-analysis's quality filter, but all three come out in favour with a clear effect."
+  },
+  "resumen": {
+    "es": "Es el fruto de un arbusto mediterráneo. Tomado a diario, alivia el síndrome premenstrual: la tensión en el pecho, la irritabilidad y la hinchazón de los días antes de la regla.",
+    "en": "It's the fruit of a Mediterranean shrub. Taken daily, it eases premenstrual syndrome: breast tenderness, irritability and bloating in the days before the period."
+  },
+  "mecanismo": {
+    "es": "En la segunda mitad del ciclo, la prolactina puede subir más de la cuenta y desajustar la progesterona, y eso se nota en el pecho y el ánimo. El sauzgatillo actúa sobre los receptores de dopamina de la hipófisis y frena esa prolactina.",
+    "en": "In the second half of the cycle, prolactin can rise too much and unbalance progesterone, which shows in the breasts and mood. Chasteberry acts on dopamine receptors in the pituitary and holds that prolactin back."
+  },
+  "dosis": {
+    "es": "20 a 40 mg al día de extracto estandarizado, como los estudiados (Ze 440 o BNO 1095)",
+    "en": "20 to 40 mg a day of standardised extract, like those studied (Ze 440 or BNO 1095)"
+  },
+  "cuando": {
+    "es": "Una vez al día, todos los días, durante al menos 3 ciclos",
+    "en": "Once a day, every day, for at least 3 cycles"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En los 3 ensayos bien hechos, con 520 mujeres, las que tomaban sauzgatillo tuvieron 2,6 veces más probabilidad de que el síndrome premenstrual remitiera que con placebo. Los demás ensayos no contaban bien qué extracto usaban.",
+        "en": "In the 3 well-run trials, with 520 women, those taking chasteberry were 2.6 times more likely to see premenstrual syndrome ease than with placebo. The other trials didn't report well which extract they used."
+      },
+      "fuente": "31780016"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "No lo tomes si buscas quedarte embarazada, estás embarazada o das el pecho.",
+      "en": "Don't take it if you're trying to conceive, are pregnant or breastfeeding."
+    },
+    {
+      "es": "Puede interferir con la píldora, con tratamientos de fertilidad y con fármacos que actúan sobre la dopamina.",
+      "en": "It can interfere with the pill, fertility treatments and drugs that act on dopamine."
+    },
+    {
+      "es": "Si tienes un tumor sensible a hormonas, no lo tomes sin hablar con tu médico.",
+      "en": "If you have a hormone-sensitive tumour, don't take it without talking to your doctor."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Csupor D, Lantos T, Hegyi P, et al.",
+      "anio": 2019,
+      "titulo": "Vitex agnus-castus in premenstrual syndrome: A meta-analysis of double-blind randomised controlled trials",
+      "revista": "Complement Ther Med 47:102190",
+      "pmid": "31780016",
+      "doi": "10.1016/j.ctim.2019.08.024"
+    }
+  ]
+}

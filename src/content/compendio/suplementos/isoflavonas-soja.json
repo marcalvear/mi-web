@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Isoflavonas de soja",
+    "en": "Soy isoflavones"
+  },
+  "tipo": {
+    "es": "Fitoestrógenos",
+    "en": "Phytoestrogens"
+  },
+  "evidencia": "preliminar",
+  "zona": "menopausia",
+  "porQue": {
+    "es": "El metaanálisis de 2025 encuentra un efecto pequeño en los síntomas de la menopausia en conjunto, pero no en los sofocos, y con pocos ensayos.",
+    "en": "The 2025 meta-analysis finds a small effect on menopause symptoms overall, but not on hot flushes, and with few trials."
+  },
+  "resumen": {
+    "es": "Son compuestos de la soja que se parecen un poco a los estrógenos. En la menopausia bajan algo el ánimo bajo, las palpitaciones y los dolores de cabeza, pero los sofocos casi no.",
+    "en": "They're compounds in soy that slightly resemble oestrogen. In menopause they somewhat ease low mood, palpitations and headaches, but barely affect hot flushes."
+  },
+  "mecanismo": {
+    "es": "En la menopausia los ovarios dejan de fabricar estrógenos, y eso desajusta el termostato del cerebro y el ánimo. Las isoflavonas se pegan con poca fuerza a los receptores de estrógeno y hacen de estrógeno muy suave. En algunas personas, las bacterias del intestino las convierten en equol, que es más activo.",
+    "en": "In menopause the ovaries stop making oestrogen, which unsettles the brain's thermostat and mood. Isoflavones bind weakly to oestrogen receptors and act as a very mild oestrogen. In some people, gut bacteria turn them into equol, which is more active."
+  },
+  "dosis": {
+    "es": "50 a 100 mg de isoflavonas al día",
+    "en": "50 to 100 mg of isoflavones a day"
+  },
+  "cuando": {
+    "es": "Con una comida, a diario durante al menos 12 semanas",
+    "en": "With a meal, daily for at least 12 weeks"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 12 ensayos, las isoflavonas bajaron un poco los síntomas de la menopausia en conjunto (7 ensayos, 533 mujeres) y, por separado, el ánimo bajo, las palpitaciones y los dolores de cabeza. No mejoraron los sofocos, el sudor ni el insomnio.",
+        "en": "In 12 trials, isoflavones slightly eased menopause symptoms overall (7 trials, 533 women) and, separately, low mood, palpitations and headaches. They didn't improve hot flushes, sweating or insomnia."
+      },
+      "fuente": "40718787"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si has tenido cáncer de mama o de útero, no las tomes sin hablar con tu oncólogo.",
+      "en": "If you've had breast or uterine cancer, don't take them without talking to your oncologist."
+    },
+    {
+      "es": "Si tomas levotiroxina, sepáralas unas horas.",
+      "en": "If you take levothyroxine, keep them a few hours apart."
+    },
+    {
+      "es": "Para sofocos fuertes, hay tratamientos que sí funcionan: pregúntale a tu ginecóloga.",
+      "en": "For strong hot flushes, there are treatments that do work: ask your gynaecologist."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Luan H, Liu Q, Guo Y, et al.",
+      "anio": 2025,
+      "titulo": "Effects of soy isoflavones on menopausal symptoms in perimenopausal women: a systematic review and meta-analysis",
+      "revista": "PeerJ 13:e19715",
+      "pmid": "40718787",
+      "doi": "10.7717/peerj.19715"
+    }
+  ]
+}

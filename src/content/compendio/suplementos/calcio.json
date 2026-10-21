@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Calcio",
+    "en": "Calcium"
+  },
+  "tipo": {
+    "es": "Mineral",
+    "en": "Mineral"
+  },
+  "evidencia": "moderada",
+  "zona": "lutea",
+  "porQue": {
+    "es": "Hay un ensayo grande y bien hecho, con 466 mujeres, a favor. Es de 1998 y no se ha repetido a esa escala.",
+    "en": "There's a large, well-run trial with 466 women in favour. It's from 1998 and hasn't been repeated at that scale."
+  },
+  "resumen": {
+    "es": "Es el mineral de los huesos. Tomado a diario, en un ensayo grande redujo casi a la mitad los síntomas del síndrome premenstrual en tres ciclos.",
+    "en": "It's the bone mineral. Taken daily, in a large trial it nearly halved premenstrual symptoms over three cycles."
+  },
+  "mecanismo": {
+    "es": "Los estrógenos cambian a lo largo del ciclo cuánto calcio absorbe y guarda el cuerpo. En algunas mujeres, el calcio y la vitamina D bajan en la segunda mitad del ciclo, y eso se relaciona con los síntomas del síndrome premenstrual.",
+    "en": "Oestrogen changes how much calcium the body absorbs and stores across the cycle. In some women, calcium and vitamin D drop in the second half of the cycle, and that's linked to premenstrual symptoms."
+  },
+  "dosis": {
+    "es": "1.200 mg al día de carbonato de calcio, contando el de la dieta",
+    "en": "1,200 mg a day of calcium carbonate, counting what's in your diet"
+  },
+  "cuando": {
+    "es": "Repartido en dos tomas con comida, todos los días",
+    "en": "Split into two doses with food, every day"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 466 mujeres con síndrome premenstrual, 1.200 mg de calcio al día redujeron los síntomas un 48 % al tercer ciclo, frente al 30 % con placebo. Bajaron los cuatro grupos de síntomas, del ánimo al dolor y la retención de líquidos.",
+        "en": "In 466 women with premenstrual syndrome, 1,200 mg of calcium a day reduced symptoms by 48% by the third cycle, compared with 30% on placebo. All four symptom groups dropped, from mood to pain and fluid retention."
+      },
+      "fuente": "9731851"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes piedras en el riñón o el calcio alto, no lo tomes sin hablar con tu médico.",
+      "en": "If you have kidney stones or high calcium, don't take it without talking to your doctor."
+    },
+    {
+      "es": "Sepáralo 2 horas del hierro, la levotiroxina y algunos antibióticos: se estorban.",
+      "en": "Keep it 2 hours apart from iron, levothyroxine and some antibiotics: they get in each other's way."
+    },
+    {
+      "es": "Un vaso de leche o un yogur llevan unos 250 mg: cuéntalos antes de sumar cápsulas.",
+      "en": "A glass of milk or a yoghurt has about 250 mg: count them before adding capsules."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Thys-Jacobs S, Starkey P, Bernstein D, et al.",
+      "anio": 1998,
+      "titulo": "Calcium carbonate and the premenstrual syndrome: effects on premenstrual and menstrual symptoms",
+      "revista": "Am J Obstet Gynecol 179(2):444-452",
+      "pmid": "9731851",
+      "doi": "10.1016/s0002-9378(98)70377-1"
+    }
+  ]
+}

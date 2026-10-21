@@ -13,6 +13,7 @@ import CortisolCurve from "./CortisolCurve.astro";
 import RecoveryChart from "./RecoveryChart.astro";
 import SeasonChart from "./SeasonChart.astro";
 import HormoneAxis from "./HormoneAxis.astro";
+import CycleWheel from "./CycleWheel.astro";
 import SupplementCard from "./SupplementCard.astro";
 import SharedSheet from "./SharedSheet.astro";
 import ProductList from "./ProductList.astro";
@@ -114,7 +115,9 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                     ? c.season.zones
                     : p.mapa === "eje"
                       ? c.axis.zones
-                      : c.map.zones;
+                      : p.mapa === "ciclo"
+                        ? c.cycle.zones
+                        : c.map.zones;
         // Una ficha compartida puede ir en otra zona del esquema de este problema
         const zoneOf = (s: (typeof supplements)[number]) => p.zonas?.[s.id] ?? s.data.zona;
         const markers: MapMarker[] = supplements.map((s, i) => ({
@@ -175,6 +178,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                       <SeasonChart markers={markers} text={c.season} />
                     ) : p.mapa === "eje" ? (
                       <HormoneAxis markers={markers} text={c.axis} />
+                    ) : p.mapa === "ciclo" ? (
+                      <CycleWheel markers={markers} text={c.cycle} />
                     ) : (
                       <DigestiveMap markers={markers} text={c.map} />
                     )}
