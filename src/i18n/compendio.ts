@@ -42,6 +42,17 @@ export const compendio = {
       },
       desc: "Esquema del aparato digestivo de arriba abajo: esófago, hígado y vesícula, estómago con su parte baja (el antro), duodeno, páncreas e intestino delgado. Las enzimas y el aceite de menta y alcaravea actúan en el estómago, el jengibre en el antro y la alcachofa en el hígado, que suelta la bilis.",
     },
+    clock: {
+      title: "Cuándo tomar cada suplemento",
+      hint: "Si te acuestas a las 23:00. Pulsa un suplemento para ver cuándo se toma.",
+      desc: "Reloj de 24 horas con la medianoche arriba. Las horas de sueño, de 23:00 a 7:00, van en el anillo de dentro. Fuera están los tres momentos de la noche: entre las 20:00 y las 21:00, de 2 a 3 horas antes de dormir, la melatonina; con la cena, de 21:00 a 22:00, el magnesio; y en la última hora, la glicina y la L-teanina.",
+      sleep: "Dormir",
+      zones: {
+        cena: "Con la cena",
+        previa: "2-3 h antes",
+        acostarse: "Al acostarte",
+      },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -116,6 +127,17 @@ export const compendio = {
         intestino: "Small intestine",
       },
       desc: "Diagram of the digestive system from top to bottom: oesophagus, liver and gallbladder, stomach with its lower part (the antrum), duodenum, pancreas and small intestine. Enzymes and peppermint and caraway oil work in the stomach, ginger in the antrum and artichoke in the liver, which releases bile.",
+    },
+    clock: {
+      title: "When to take each supplement",
+      hint: "If you go to bed at 11 pm. Tap a supplement to see when it's taken.",
+      desc: "24-hour clock with midnight at the top. Sleep hours, from 11 pm to 7 am, are on the inner ring. Outside are the three moments of the evening: between 8 and 9 pm, 2 to 3 hours before sleep, melatonin; with dinner, from 9 to 10 pm, magnesium; and in the last hour, glycine and L-theanine.",
+      sleep: "Sleep",
+      zones: {
+        cena: "With dinner",
+        previa: "2-3 h before",
+        acostarse: "At bedtime",
+      },
     },
     card: {
       id: "Sheet",

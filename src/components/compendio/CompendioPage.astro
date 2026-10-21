@@ -7,6 +7,7 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 import Base from "../../layouts/Base.astro";
 import Entry from "../Entry.astro";
 import DigestiveMap, { type MapMarker } from "./DigestiveMap.astro";
+import SleepClock from "./SleepClock.astro";
 import SupplementCard from "./SupplementCard.astro";
 import ProductList from "./ProductList.astro";
 import NewTab from "../NewTab.astro";
@@ -87,14 +88,15 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
     {
       sections.map(({ problem, supplements }) => {
         const p = problem.data;
-        // Solo los problemas digestivos tienen esquema del cuerpo (#73)
-        const hasMap = p.mapa === "digestivo";
+        // Cada problema puede llevar su esquema: el digestivo o el reloj del sueño (#83)
+        const hasMap = !!p.mapa;
+        const zonesText: Record<string, string> = p.mapa === "reloj" ? c.clock.zones : c.map.zones;
         const markers: MapMarker[] = supplements.map((s, i) => ({
           id: s.id,
           n: i + 1,
           zone: s.data.zona,
           name: s.data.nombre[lang],
-          zoneName: c.map.zones[s.data.zona as keyof typeof c.map.zones] ?? s.data.zona,
+          zoneName: zonesText[s.data.zona ?? ""] ?? s.data.zona,
         }));
         const counts = Object.fromEntries(levels.map((l) => [l, supplements.filter((s) => s.data.evidencia === l).length]));
         return (
@@ -135,7 +137,11 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
               {hasMap && (
                 <div class="bench-side">
                   <div class="sticky">
-                    <DigestiveMap markers={markers} text={c.map} />
+                    {p.mapa === "reloj" ? (
+                      <SleepClock markers={markers} text={c.clock} />
+                    ) : (
+                      <DigestiveMap markers={markers} text={c.map} />
+                    )}
                   </div>
                 </div>
               )}
