@@ -1,5 +1,18 @@
 # Lighthouse
 
+## Compendio publicado (21/10/2026, #69)
+
+Mismo método. El compendio ya no lleva `noindex`. En la primera medición, el
+SEO salió en 92: el enlace del aviso de la estrella no tenía `href` hasta que
+lo rellenaba el script. Ahora lleva el de Entrar de serie.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS |
+|---|---|---|---|---|---|
+| Compendio | 94-95 | 100 | 100 | 100 | 0 |
+| Compendio (EN) | 94-95 | 100 | 100 | 100 | 0 |
+| Me gusta (con el adelanto) | 93 | 100 | 100 | 100 | 0 |
+| Mi espacio | 93 | 100 | 100 | 60* | 0 |
+
 ## Compendio con favoritos (21/10/2026, #67)
 
 Mismo método (Lighthouse 12, móvil, `astro preview`), pero con un Supabase de
