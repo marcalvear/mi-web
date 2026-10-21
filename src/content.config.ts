@@ -39,8 +39,8 @@ const suplementos = defineCollection({
     evidencia: z.enum(["fuerte", "moderada", "preliminar"]),
     /** Por qué tiene ese nivel de evidencia, en una frase */
     porQue: t,
-    /** Dónde actúa en el diagrama del problema */
-    zona: z.string(),
+    /** Dónde actúa en el esquema del problema, si el problema tiene esquema */
+    zona: z.string().optional(),
     resumen: t,
     mecanismo: t,
     dosis: t,
@@ -63,6 +63,12 @@ const problemas = defineCollection({
     combinar: t,
     alarma: z.array(t).min(1),
     suplementos: z.array(reference("suplementos")).min(1),
+    /** Esquema del cuerpo junto a las fichas. Hoy solo existe el digestivo */
+    mapa: z.enum(["digestivo"]).optional(),
+    /** Estudios que respaldan la explicación general del problema (#73) */
+    fuentes: z.array(fuente).optional(),
+    /** Productos que juntan varios suplementos del problema y no son de una sola ficha */
+    productos: z.array(producto).optional(),
   }),
 });
 

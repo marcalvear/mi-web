@@ -1,0 +1,69 @@
+{
+  "nombre": { "es": "Licopeno", "en": "Lycopene" },
+  "tipo": { "es": "Carotenoide del tomate", "en": "Tomato carotenoid" },
+  "evidencia": "preliminar",
+  "porQue": {
+    "es": "Los ensayos salen a favor, pero son pequeños (20 personas en el que tiene placebo) y el efecto es más claro con tomate que con licopeno solo.",
+    "en": "The trials come out in favour, but they're small (20 people in the placebo-controlled one) and the effect is clearer with tomato than with lycopene alone."
+  },
+  "resumen": {
+    "es": "El rojo del tomate. Tomado a diario durante unas semanas, la piel se enrojece menos con el sol.",
+    "en": "The red in tomatoes. Taken daily for a few weeks, skin reddens less in the sun."
+  },
+  "mecanismo": {
+    "es": "El licopeno se acumula en la piel y absorbe parte de la energía de la luz ultravioleta, que si no oxidaría las células. Es una protección pequeña y lenta: tarda semanas en notarse y no llega a la de una crema solar.",
+    "en": "Lycopene builds up in the skin and absorbs some of the energy of ultraviolet light that would otherwise oxidise cells. It's small, slow protection: it takes weeks to show and doesn't come close to sunscreen."
+  },
+  "dosis": {
+    "es": "De 10 a 16 mg al día durante 12 semanas",
+    "en": "10 to 16 mg a day for 12 weeks"
+  },
+  "cuando": {
+    "es": "Con una comida con aceite: se absorbe mejor con grasa",
+    "en": "With a meal that has oil: it's absorbed better with fat"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 20 mujeres, 55 g de tomate concentrado al día (16 mg de licopeno) durante 12 semanas protegieron la piel del sol mejor que el aceite de oliva solo: hizo falta más sol para que enrojeciera, medido con un aparato, y hubo menos daño en el ADN de las mitocondrias.",
+        "en": "In 20 women, 55 g of tomato paste a day (16 mg of lycopene) for 12 weeks protected the skin from the sun better than olive oil alone: it took more sun for it to redden, measured with an instrument, and there was less damage to mitochondrial DNA."
+      },
+      "fuente": "20854436"
+    },
+    {
+      "texto": {
+        "es": "Con unos 10 mg al día durante 12 semanas, la rojez después del sol bajó un 25 % con licopeno sintético y entre un 38 % y un 48 % con extracto de tomate, frente a cómo estaba al empezar.",
+        "en": "With about 10 mg a day for 12 weeks, redness after sun exposure fell by 25% with synthetic lycopene and by 38% to 48% with tomato extract, compared with the start."
+      },
+      "fuente": "15830922"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "No sustituye la crema solar.",
+      "en": "It doesn't replace sunscreen."
+    },
+    {
+      "es": "El efecto más claro se vio con tomate: otros carotenoides del tomate también absorben la luz ultravioleta, y una cápsula de licopeno solo no los lleva.",
+      "en": "The clearest effect came with tomato: other carotenoids in tomatoes also absorb ultraviolet light, and a lycopene-only capsule doesn't have them."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Rizwan M, Rodriguez-Blanco I, Harbottle A, et al.",
+      "anio": 2011,
+      "titulo": "Tomato paste rich in lycopene protects against cutaneous photodamage in humans in vivo: a randomized controlled trial",
+      "revista": "Br J Dermatol 164(1):154-162",
+      "pmid": "20854436",
+      "doi": "10.1111/j.1365-2133.2010.10057.x"
+    },
+    {
+      "autores": "Aust O, Stahl W, Sies H, et al.",
+      "anio": 2005,
+      "titulo": "Supplementation with tomato-based products increases lycopene, phytofluene, and phytoene levels in human serum and protects against UV-light-induced erythema",
+      "revista": "Int J Vitam Nutr Res 75(1):54-60",
+      "pmid": "15830922",
+      "doi": "10.1024/0300-9831.75.1.54"
+    }
+  ]
+}

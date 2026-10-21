@@ -1,0 +1,84 @@
+{
+  "nombre": { "es": "Luteína y zeaxantina", "en": "Lutein and zeaxanthin" },
+  "tipo": { "es": "Carotenoides", "en": "Carotenoids" },
+  "evidencia": "moderada",
+  "porQue": {
+    "es": "El ensayo grande (AREDS2, 4.203 personas) es en gente que ya tiene degeneración macular, y su análisis principal no salió significativo. En gente sana suben el pigmento de la mácula, pero con estudios pequeños.",
+    "en": "The big trial (AREDS2, 4,203 people) is in people who already have macular degeneration, and its main analysis wasn't significant. In healthy people they raise macular pigment, but in small studies."
+  },
+  "resumen": {
+    "es": "Son los pigmentos amarillos de la mácula, el centro de la retina. En gente con degeneración macular se usan para frenarla, y en gente sana suben ese pigmento.",
+    "en": "They're the yellow pigments of the macula, the centre of the retina. In people with macular degeneration they're used to slow it down, and in healthy people they raise that pigment."
+  },
+  "mecanismo": {
+    "es": "La luteína y la zeaxantina se acumulan en la mácula, la parte de la retina con la que lees y reconoces caras. Allí filtran la luz azul y frenan los radicales libres antes de que dañen las células. El cuerpo no las fabrica: vienen de la comida, como las espinacas, la col rizada o la yema de huevo.",
+    "en": "Lutein and zeaxanthin build up in the macula, the part of the retina you use to read and recognise faces. There they filter blue light and stop free radicals before they damage cells. The body doesn't make them: they come from food, such as spinach, kale or egg yolk."
+  },
+  "dosis": {
+    "es": "10 mg de luteína y 2 mg de zeaxantina al día",
+    "en": "10 mg of lutein and 2 mg of zeaxanthin a day"
+  },
+  "cuando": {
+    "es": "Con una comida que lleve algo de grasa",
+    "en": "With a meal that has some fat in it"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 4.203 personas de 50 a 85 años con degeneración macular intermedia, a los 5 años la enfermedad había avanzado en el 29 % con luteína y zeaxantina y en el 31 % con placebo. La diferencia no fue significativa.",
+        "en": "In 4,203 people aged 50 to 85 with intermediate macular degeneration, after 5 years the disease had progressed in 29% with lutein and zeaxanthin and in 31% with placebo. The difference wasn't significant."
+      },
+      "fuente": "23644932"
+    },
+    {
+      "texto": {
+        "es": "A los 10 años, frente al betacaroteno de la fórmula antigua, la luteína y la zeaxantina redujeron un 15 % el riesgo de degeneración avanzada. El betacaroteno casi duplicó el riesgo de cáncer de pulmón; con la luteína no subió de forma significativa.",
+        "en": "After 10 years, compared with the beta-carotene in the old formula, lutein and zeaxanthin cut the risk of advanced degeneration by 15%. Beta-carotene nearly doubled the risk of lung cancer; with lutein it didn't rise significantly."
+      },
+      "fuente": "35653117"
+    },
+    {
+      "texto": {
+        "es": "En 59 adultos sanos, 12 mg de luteína al día durante 16 semanas subieron el pigmento de la mácula y mejoraron la visión con poco contraste y con deslumbramiento frente a placebo. Lo firma en parte una empresa de suplementos.",
+        "en": "In 59 healthy adults, 12 mg of lutein a day for 16 weeks raised macular pigment and improved vision at low contrast and under glare compared with placebo. It's partly authored by a supplement company."
+      },
+      "fuente": "32998324"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes degeneración macular, lo estudiado es la fórmula AREDS2 completa (con vitaminas C y E, zinc y cobre), y la decide tu oftalmólogo.",
+      "en": "If you have macular degeneration, what was studied is the full AREDS2 formula (with vitamins C and E, zinc and copper), and your eye doctor decides on it."
+    },
+    {
+      "es": "No sustituyen la revisión de la vista: si ves peor, ve al oftalmólogo.",
+      "en": "They don't replace an eye check: if your vision gets worse, see an eye doctor."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Age-Related Eye Disease Study 2 Research Group",
+      "anio": 2013,
+      "titulo": "Lutein + zeaxanthin and omega-3 fatty acids for age-related macular degeneration: the Age-Related Eye Disease Study 2 (AREDS2) randomized clinical trial",
+      "revista": "JAMA 309(19):2005-2015",
+      "pmid": "23644932",
+      "doi": "10.1001/jama.2013.4997"
+    },
+    {
+      "autores": "Chew EY, Clemons TE, Agrón E, et al.",
+      "anio": 2022,
+      "titulo": "Long-term Outcomes of Adding Lutein/Zeaxanthin and ω-3 Fatty Acids to the AREDS Supplements on Age-Related Macular Degeneration Progression: AREDS2 Report 28",
+      "revista": "JAMA Ophthalmol 140(7):692-698",
+      "pmid": "35653117",
+      "doi": "10.1001/jamaophthalmol.2022.1640"
+    },
+    {
+      "autores": "Machida N, Kosehira M, Kitaichi N",
+      "anio": 2020,
+      "titulo": "Clinical Effects of Dietary Supplementation of Lutein with High Bio-Accessibility on Macular Pigment Optical Density and Contrast Sensitivity: A Randomized Double-Blind Placebo-Controlled Parallel-Group Comparison Trial",
+      "revista": "Nutrients 12(10):2966",
+      "pmid": "32998324",
+      "doi": "10.3390/nu12102966"
+    }
+  ]
+}

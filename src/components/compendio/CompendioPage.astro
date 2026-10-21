@@ -8,6 +8,8 @@ import Base from "../../layouts/Base.astro";
 import Entry from "../Entry.astro";
 import DigestiveMap, { type MapMarker } from "./DigestiveMap.astro";
 import SupplementCard from "./SupplementCard.astro";
+import ProductList from "./ProductList.astro";
+import NewTab from "../NewTab.astro";
 import { compendio } from "../../i18n/compendio";
 import type { Lang } from "../../i18n/ui";
 
@@ -24,8 +26,13 @@ const sections = await Promise.all(
 
 // Cifras de la cabecera, contadas del contenido real
 const allSupplements = new Map(sections.flatMap((s) => s.supplements.map((x) => [x.id, x])));
-const studies = new Set([...allSupplements.values()].flatMap((s) => s.data.fuentes.map((f) => f.pmid)));
-const products = [...allSupplements.values()].reduce((n, s) => n + (s.data.productos?.length ?? 0), 0);
+const studies = new Set([
+  ...[...allSupplements.values()].flatMap((s) => s.data.fuentes.map((f) => f.pmid)),
+  ...problems.flatMap((p) => p.data.fuentes?.map((f) => f.pmid) ?? []),
+]);
+const products =
+  [...allSupplements.values()].reduce((n, s) => n + (s.data.productos?.length ?? 0), 0) +
+  problems.reduce((n, p) => n + (p.data.productos?.length ?? 0), 0);
 const stats = [
   [problems.length, c.stats.problems],
   [allSupplements.size, c.stats.supplements],
@@ -80,6 +87,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
     {
       sections.map(({ problem, supplements }) => {
         const p = problem.data;
+        // Solo los problemas digestivos tienen esquema del cuerpo (#73)
+        const hasMap = p.mapa === "digestivo";
         const markers: MapMarker[] = supplements.map((s, i) => ({
           id: s.id,
           n: i + 1,
@@ -95,14 +104,41 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
             <section class="body-text" aria-labelledby={`${problem.id}-cuerpo`}>
               <h3 class="label" id={`${problem.id}-cuerpo`}>{c.whatHappens}</h3>
               <p>{p.queOcurre[lang]}</p>
+              {p.fuentes && (
+                <ul class="problem-sources" role="list">
+                  {p.fuentes.map((f) => (
+                    <li>
+                      {f.autores} ({f.anio}). <cite>{f.titulo}</cite>. {f.revista}.{" "}
+                      <a href={`https://pubmed.ncbi.nlm.nih.gov/${f.pmid}/`} target="_blank" rel="noopener">
+                        PubMed <span aria-hidden="true">↗</span><NewTab />
+                      </a>
+                      {f.doi && (
+                        <>
+                          {" · "}
+                          <a href={`https://doi.org/${f.doi}`} target="_blank" rel="noopener">
+                            DOI <span aria-hidden="true">↗</span><NewTab />
+                          </a>
+                        </>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </section>
 
-            <div class="bench" data-bench data-count-one={c.count.one} data-count-many={c.count.many}>
-              <div class="bench-side">
-                <div class="sticky">
-                  <DigestiveMap markers={markers} text={c.map} />
+            <div
+              class:list={["bench", { "no-map": !hasMap }]}
+              data-bench
+              data-count-one={c.count.one}
+              data-count-many={c.count.many}
+            >
+              {hasMap && (
+                <div class="bench-side">
+                  <div class="sticky">
+                    <DigestiveMap markers={markers} text={c.map} />
+                  </div>
                 </div>
-              </div>
+              )}
 
               <div class="bench-main">
                 <div class="toolbar">
@@ -137,9 +173,20 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
 
                 <ol class="sheets" role="list">
                   {supplements.map((s, i) => (
-                    <SupplementCard entry={s} n={i + 1} lang={lang} text={c} />
+                    <SupplementCard entry={s} n={i + 1} lang={lang} text={c} hasMap={hasMap} />
                   ))}
                 </ol>
+
+                {p.productos && (
+                  <ProductList
+                    products={p.productos}
+                    lang={lang}
+                    text={c.card}
+                    id={`${problem.id}-productos`}
+                    heading={c.bundle}
+                    level={3}
+                  />
+                )}
 
                 <section class="combine" aria-labelledby={`${problem.id}-combinar`}>
                   <h3 class="label" id={`${problem.id}-combinar`}>{c.combine}</h3>
@@ -178,7 +225,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
   function setup(bench: HTMLElement) {
     const map = bench.querySelector<HTMLElement>("[data-map]");
     const sheets = [...bench.querySelectorAll<HTMLElement>("[data-sheet]")];
-    const chips = [...bench.querySelectorAll<HTMLButtonElement>("[data-level]")];
+    // Solo los botones: el medidor de cada ficha también lleva data-level
+    const chips = [...bench.querySelectorAll<HTMLButtonElement>("button[data-level]")];
     const picks = [...bench.querySelectorAll<HTMLButtonElement>("[data-pick]")];
     const count = bench.querySelector<HTMLElement>("[data-count]");
     let pinned: string | null = null;
@@ -660,10 +708,28 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
     padding-inline-start: 1.2em;
   }
 
+  .problem-sources {
+    display: grid;
+    gap: 4px;
+    margin: var(--space-1) 0 0;
+    padding: 0;
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .problem-sources cite {
+    font-style: italic;
+  }
+
+  /* Sin esquema, las fichas usan el ancho de lectura */
+  .bench.no-map {
+    max-width: 52rem;
+  }
+
   @media (min-width: 64rem) {
     /* La columna del esquema ocupa todo el alto de la mesa para que pueda
        quedarse fija mientras bajan las fichas */
-    .bench {
+    .bench:not(.no-map) {
       grid-template-columns: minmax(18rem, 24rem) 1fr;
       align-items: stretch;
     }

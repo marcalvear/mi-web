@@ -1,5 +1,15 @@
 # Lighthouse
 
+## Compendio con «Envejecer mejor» (21/10/2026, #73)
+
+Mismo método, con el segundo problema y sin el esquema digestivo en él.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS |
+|---|---|---|---|---|---|
+| Compendio | 94 | 100 | 100 | 100 | 0 |
+| Compendio (EN) | 91 | 100 | 100 | 100 | 0 |
+| Me gusta · Biohacking | 95 | 100 | 100 | 100 | 0 |
+
 ## Me gusta en tres páginas (21/10/2026, #71)
 
 Mismo método. Las páginas nuevas llevan arte oficial, y en la primera medición

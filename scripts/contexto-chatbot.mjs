@@ -115,6 +115,8 @@ const LABELS = {
     found: "Qué encontraron los estudios",
     cautions: "Precauciones",
     products: "Productos que miraría Marc",
+    bundle: "Producto que junta varios suplementos de este problema",
+    source: "Fuente",
     price: "precio",
   },
   en: {
@@ -133,9 +135,15 @@ const LABELS = {
     found: "What the studies found",
     cautions: "Cautions",
     products: "Products Marc would look at",
+    bundle: "Product that combines several supplements in this problem",
+    source: "Source",
     price: "price",
   },
 };
+
+// Primera letra en minúscula, para que las listas se lean seguidas sin tocar
+// nombres propios («Sintrom», «Vitamina K»)
+const lowerFirst = (text) => text.charAt(0).toLowerCase() + text.slice(1);
 
 function compendioFor(lang) {
   const t = compendio[lang];
@@ -152,7 +160,10 @@ function compendioFor(lang) {
       `- ${pr.intro[lang]}`,
       `- ${L.body}: ${pr.queOcurre[lang]}`,
       `- ${L.combine}: ${pr.combinar[lang]}`,
-      `- ${L.alarm}: ${pr.alarma.map((a) => a[lang].toLowerCase()).join("; ")}.`,
+      `- ${L.alarm}: ${pr.alarma.map((a) => lowerFirst(a[lang])).join("; ")}.`,
+      ...(pr.fuentes ?? []).map(
+        (f) => `- ${L.source}: ${f.autores.split(",")[0]} et al., ${f.anio}, ${f.revista}, PMID ${f.pmid}`,
+      ),
       "",
       ...pr.suplementos.flatMap((id) => {
         const s = supplements.get(id);
@@ -174,13 +185,23 @@ function compendioFor(lang) {
                 `- ${L.products} (${t.card.productsNote}):`,
                 ...s.productos.map(
                   (x) =>
-                    `  - ${x.marca}, ${x.nombre}${x.pais ? ` (${x.pais[lang]})` : ""}: ${x.datos.map((d) => `${d.k[lang].toLowerCase()} ${d.v[lang]}`).join("; ")}; ${L.price} ${x.precio[lang]}. ${x.url}`,
+                    `  - ${x.marca}, ${x.nombre}${x.pais ? ` (${x.pais[lang]})` : ""}: ${x.datos.map((d) => `${lowerFirst(d.k[lang])} ${d.v[lang]}`).join("; ")}; ${L.price} ${x.precio[lang]}. ${x.url}`,
                 ),
               ]
             : []),
           "",
         ];
       }),
+      ...(pr.productos?.length
+        ? [
+            `${L.bundle} (${t.card.productsNote}):`,
+            ...pr.productos.map(
+              (x) =>
+                `  - ${x.marca}, ${x.nombre}${x.pais ? ` (${x.pais[lang]})` : ""}: ${x.datos.map((d) => `${lowerFirst(d.k[lang])} ${d.v[lang]}`).join("; ")}; ${L.price} ${x.precio[lang]}. ${x.url}`,
+            ),
+            "",
+          ]
+        : []),
     ]),
   ];
 }

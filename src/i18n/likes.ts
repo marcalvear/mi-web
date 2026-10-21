@@ -47,7 +47,6 @@ export const likes = {
         recuperacion: "Recuperación",
         piel: "Piel",
         pelo: "Pelo",
-        longevidad: "Longevidad",
       },
       // Adelanto del compendio (#69)
       teaser: {
@@ -131,16 +130,6 @@ export const likes = {
           specs: [["Lleva", "SFC, NMN y ácido hialurónico"], ["Uso", "Mañana y noche"], ["Precio", "68,02 € al mes"]],
           href: "https://blueprint.bryanjohnson.com/en-de/products/facial-serum",
         },
-        {
-          id: "antioxidants",
-          brand: "Blueprint",
-          name: "Advanced Antioxidants",
-          text: "Cápsulas con licopeno, astaxantina, luteína y vitaminas K contra el estrés oxidativo de las células.",
-          alt: "Bote blanco de Advanced Antioxidants de Blueprint con una cápsula al lado.",
-          goals: ["longevidad"],
-          specs: [["Lleva", "7 nutrientes"], ["Uso", "1 cápsula al día"], ["Precio", "56,49 € al mes"]],
-          href: "https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants",
-        },
       ],
     },
     deck: {
@@ -209,7 +198,6 @@ export const likes = {
         recuperacion: "Recovery",
         piel: "Skin",
         pelo: "Hair",
-        longevidad: "Longevity",
       },
       teaser: {
         label: "Appendix C · Compendium",
@@ -291,16 +279,6 @@ export const likes = {
           goals: ["piel"],
           specs: [["Contains", "SFC, NMN, hyaluronic acid"], ["Use", "Morning and night"], ["Price", "€68.02 a month"]],
           href: "https://blueprint.bryanjohnson.com/en-de/products/facial-serum",
-        },
-        {
-          id: "antioxidants",
-          brand: "Blueprint",
-          name: "Advanced Antioxidants",
-          text: "Capsules with lycopene, astaxanthin, lutein and vitamin K to fight oxidative stress in your cells.",
-          alt: "White bottle of Blueprint's Advanced Antioxidants with a capsule beside it.",
-          goals: ["longevidad"],
-          specs: [["Contains", "7 nutrients"], ["Use", "1 capsule a day"], ["Price", "€56.49 a month"]],
-          href: "https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants",
         },
       ],
     },

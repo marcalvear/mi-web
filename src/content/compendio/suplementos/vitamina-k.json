@@ -1,0 +1,84 @@
+{
+  "nombre": { "es": "Vitamina K (K1 y K2)", "en": "Vitamin K (K1 and K2)" },
+  "tipo": { "es": "Vitamina liposoluble", "en": "Fat-soluble vitamin" },
+  "evidencia": "moderada",
+  "porQue": {
+    "es": "Un ensayo de 3 años con placebo sale a favor en la densidad del hueso, pero la revisión de 36 ensayos concluye que no hay pruebas suficientes para las fracturas.",
+    "en": "A 3-year placebo-controlled trial comes out in favour on bone density, but the review of 36 trials concludes there isn't enough evidence on fractures."
+  },
+  "resumen": {
+    "es": "Ayuda a que el calcio se quede en el hueso. En mujeres después de la menopausia, un ensayo de tres años frenó la pérdida de hueso; para evitar fracturas, las pruebas no bastan.",
+    "en": "It helps calcium stay in bone. In women after menopause, a three-year trial slowed bone loss; for preventing fractures, the evidence falls short."
+  },
+  "mecanismo": {
+    "es": "El cuerpo usa la vitamina K para activar proteínas que manejan el calcio: la osteocalcina lo fija al hueso y otras evitan que se pegue a las arterias. La K1 viene de las verduras de hoja y la K2 (menaquinonas, como la MK-4 y la MK-7) de alimentos fermentados y de origen animal. La MK-7 dura más en sangre.",
+    "en": "The body uses vitamin K to switch on proteins that handle calcium: osteocalcin fixes it in bone and others stop it sticking to arteries. K1 comes from leafy greens and K2 (menaquinones, such as MK-4 and MK-7) from fermented and animal foods. MK-7 lasts longer in the blood."
+  },
+  "dosis": {
+    "es": "180 mcg de MK-7 al día durante 3 años (en el ensayo que sale a favor)",
+    "en": "180 mcg of MK-7 a day for 3 years (in the trial that came out in favour)"
+  },
+  "cuando": {
+    "es": "Con una comida",
+    "en": "With a meal"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 244 mujeres sanas después de la menopausia, 180 mcg de MK-7 al día durante 3 años frenaron la pérdida de hueso en la columna y el cuello del fémur frente a placebo.",
+        "en": "In 244 healthy women after menopause, 180 mcg of MK-7 a day for 3 years slowed bone loss in the spine and the femoral neck compared with placebo."
+      },
+      "fuente": "23525894"
+    },
+    {
+      "texto": {
+        "es": "En 440 mujeres con osteopenia, 5 mg de vitamina K1 al día no cambiaron la densidad del hueso en 2 años, aunque hubo menos fracturas (9 frente a 20). El ensayo no estaba pensado para medir fracturas.",
+        "en": "In 440 women with osteopenia, 5 mg of vitamin K1 a day didn't change bone density over 2 years, though there were fewer fractures (9 versus 20). The trial wasn't designed to measure fractures."
+      },
+      "fuente": "18922041"
+    },
+    {
+      "texto": {
+        "es": "En mujeres después de la menopausia o con osteoporosis, una revisión de 36 ensayos no encontró efecto en la densidad del hueso ni en las fracturas de vértebra. Puede que reduzca otras fracturas, pero las pruebas no bastan para confirmarlo.",
+        "en": "In women after menopause or with osteoporosis, a review of 36 trials found no effect on bone density or on vertebral fractures. It may reduce other fractures, but the evidence isn't enough to confirm it."
+      },
+      "fuente": "31076817"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Contrarresta los anticoagulantes como el Sintrom o la warfarina. Si los tomas, no la tomes sin hablar antes con tu médico.",
+      "en": "It counteracts blood thinners such as warfarin. If you take them, don't take it without talking to your doctor first."
+    },
+    {
+      "es": "Lo estudiado es sobre todo en mujeres después de la menopausia. En hombres y en jóvenes hay muy pocos datos.",
+      "en": "What's been studied is mostly in women after menopause. There's very little data in men and in younger people."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Knapen MH, Drummen NE, Smit E, et al.",
+      "anio": 2013,
+      "titulo": "Three-year low-dose menaquinone-7 supplementation helps decrease bone loss in healthy postmenopausal women",
+      "revista": "Osteoporos Int 24(9):2499-2507",
+      "pmid": "23525894",
+      "doi": "10.1007/s00198-013-2325-6"
+    },
+    {
+      "autores": "Cheung AM, Tile L, Lee Y, et al.",
+      "anio": 2008,
+      "titulo": "Vitamin K supplementation in postmenopausal women with osteopenia (ECKO trial): a randomized controlled trial",
+      "revista": "PLoS Med 5(10):e196",
+      "pmid": "18922041",
+      "doi": "10.1371/journal.pmed.0050196"
+    },
+    {
+      "autores": "Mott A, Bradley T, Wright K, et al.",
+      "anio": 2019,
+      "titulo": "Effect of vitamin K on bone mineral density and fractures in adults: an updated systematic review and meta-analysis of randomised controlled trials",
+      "revista": "Osteoporos Int 30(8):1543-1559",
+      "pmid": "31076817",
+      "doi": "10.1007/s00198-019-04949-0"
+    }
+  ]
+}
