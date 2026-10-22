@@ -101,6 +101,13 @@ export const compendio = {
       ovulation: "ovulación",
       zones: { lutea: "Antes de la regla", ciclo: "Todo el ciclo", menopausia: "Menopausia" },
     },
+    battery: {
+      title: "Qué parte de la pila recarga cada suplemento",
+      hint: "Cada celda es una causa del cansancio. Pulsa un suplemento para ver cuál recarga.",
+      desc: "Una pila con tres celdas, una por cada causa del cansancio que un suplemento puede arreglar: el hierro bajo, con el hierro; la vitamina B12 baja, con la B12; y la energía de las células, con la coenzima Q10. A la derecha, un rayo para el estrés, con la rhodiola.",
+      battery: "tu energía",
+      zones: { hierro: "Hierro bajo", b12: "B12 baja", mitocondria: "Energía celular", estres: "Estrés" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -234,6 +241,13 @@ export const compendio = {
       period: "period",
       ovulation: "ovulation",
       zones: { lutea: "Before the period", ciclo: "Whole cycle", menopausia: "Menopause" },
+    },
+    battery: {
+      title: "Which part of the battery each supplement recharges",
+      hint: "Each cell is a cause of tiredness. Tap a supplement to see which one it recharges.",
+      desc: "A battery with three cells, one for each cause of tiredness a supplement can fix: low iron, with iron; low vitamin B12, with B12; and cell energy, with coenzyme Q10. On the right, a lightning bolt for stress, with rhodiola.",
+      battery: "your energy",
+      zones: { hierro: "Low iron", b12: "Low B12", mitocondria: "Cell energy", estres: "Stress" },
     },
     card: {
       id: "Sheet",

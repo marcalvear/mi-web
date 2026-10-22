@@ -1,0 +1,80 @@
+{
+  "nombre": {
+    "es": "Hierro",
+    "en": "Iron"
+  },
+  "tipo": {
+    "es": "Mineral",
+    "en": "Mineral"
+  },
+  "evidencia": "moderada",
+  "zona": "hierro",
+  "porQue": {
+    "es": "Un ensayo con placebo en 198 mujeres, y otro más reciente, salen a favor, pero solo en mujeres con la ferritina baja. Si tienes el hierro bien, no hay pruebas de que ayude.",
+    "en": "A placebo-controlled trial in 198 women, and a more recent one, come out in favour, but only in women with low ferritin. If your iron is fine, there's no evidence it helps."
+  },
+  "resumen": {
+    "es": "Es el mineral que lleva el oxígeno en la sangre. A muchas mujeres que tienen la regla les falta sin llegar a la anemia, y eso cansa. Tomarlo solo sirve si un análisis dice que te falta.",
+    "en": "It's the mineral that carries oxygen in the blood. Many women who have periods run low without reaching anaemia, and that's tiring. Taking it only helps if a blood test says you're low."
+  },
+  "mecanismo": {
+    "es": "El hierro hace falta para fabricar hemoglobina, que lleva el oxígeno, y también para que las células saquen energía. La ferritina es el almacén: puede vaciarse mucho antes de que baje la hemoglobina, y ya entonces aparece el cansancio. Con la regla se pierde hierro cada mes.",
+    "en": "Iron is needed to make haemoglobin, which carries oxygen, and also for cells to get energy. Ferritin is the store: it can run very low well before haemoglobin drops, and tiredness appears by then. Periods lose iron every month."
+  },
+  "dosis": {
+    "es": "Unos 60 a 80 mg de hierro elemental, solo si la ferritina está baja y con seguimiento de tu médico",
+    "en": "About 60 to 80 mg of elemental iron, only if ferritin is low and with your doctor monitoring"
+  },
+  "cuando": {
+    "es": "En ayunas o con zumo de naranja, en días alternos, y lejos del café, el té y los lácteos",
+    "en": "On an empty stomach or with orange juice, on alternate days, and away from coffee, tea and dairy"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 198 mujeres de 18 a 53 años cansadas, con la ferritina por debajo de 50 y sin anemia, 80 mg de hierro al día durante 12 semanas bajaron el cansancio un 47,7 %, frente al 28,8 % con placebo.",
+        "en": "In 198 tired women aged 18 to 53, with ferritin below 50 and no anaemia, 80 mg of iron a day for 12 weeks lowered tiredness by 47.7%, compared with 28.8% on placebo."
+      },
+      "fuente": "22777991"
+    },
+    {
+      "texto": {
+        "es": "En 164 mujeres en edad fértil con el hierro bajo y sin anemia, el tratamiento con hierro bajó el cansancio y subió la ferritina y la hemoglobina.",
+        "en": "In 164 women of childbearing age with low iron and no anaemia, iron treatment lowered tiredness and raised ferritin and haemoglobin."
+      },
+      "fuente": "41736325"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "No lo tomes sin análisis: el exceso de hierro se acumula y daña el hígado y el corazón.",
+      "en": "Don't take it without a blood test: excess iron builds up and damages the liver and heart."
+    },
+    {
+      "es": "Suele estreñir, dar ardor o volver las heces negras; tomarlo en días alternos se tolera mejor.",
+      "en": "It often causes constipation, heartburn or black stools; taking it on alternate days is easier to tolerate."
+    },
+    {
+      "es": "Si eres hombre o ya no tienes la regla y te falta hierro, hay que buscar la causa: puede haber una pérdida de sangre.",
+      "en": "If you're a man or no longer have periods and you're low in iron, the cause needs finding: there may be blood loss."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Vaucher P, Druais PL, Waldvogel S, et al.",
+      "anio": 2012,
+      "titulo": "Effect of iron supplementation on fatigue in nonanemic menstruating women with low ferritin: a randomized controlled trial",
+      "revista": "CMAJ 184(11):1247-1254",
+      "pmid": "22777991",
+      "doi": "10.1503/cmaj.110950"
+    },
+    {
+      "autores": "Sultana N, Bajwa FA, Sikandar MZ, et al.",
+      "anio": 2026,
+      "titulo": "Effect of iron therapy on fatigue symptoms in non-anaemic iron deficient women of reproductive age: A Randomized Controlled Trial",
+      "revista": "J Pak Med Assoc 76(1):4-7",
+      "pmid": "41736325",
+      "doi": "10.47391/JPMA.22068"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Coenzima Q10",
+    "en": "Coenzyme Q10"
+  },
+  "tipo": {
+    "es": "Molécula de las mitocondrias",
+    "en": "Mitochondrial molecule"
+  },
+  "evidencia": "moderada",
+  "zona": "mitocondria",
+  "porQue": {
+    "es": "Un metaanálisis de ensayos con placebo sale a favor, en gente sana y enferma, con un efecto entre pequeño y moderado que crece con la dosis y el tiempo.",
+    "en": "A meta-analysis of placebo-controlled trials comes out in favour, in healthy and ill people, with a small to moderate effect that grows with dose and time."
+  },
+  "resumen": {
+    "es": "Es una pieza de las mitocondrias, las centrales de energía de las células. El cuerpo la fabrica, pero menos con la edad o con las estatinas. En cápsula baja algo el cansancio.",
+    "en": "It's a part of the mitochondria, the cells' power stations. The body makes it, but less with age or with statins. As a capsule it lowers tiredness somewhat."
+  },
+  "mecanismo": {
+    "es": "Dentro de las mitocondrias, la coenzima Q10 pasa los electrones de un paso a otro para fabricar ATP, la moneda de energía de la célula. Si falta, la cadena va más lenta. También protege las membranas del daño oxidativo. Las estatinas frenan su fabricación, igual que la del colesterol.",
+    "en": "Inside the mitochondria, coenzyme Q10 passes electrons from one step to the next to make ATP, the cell's energy currency. If it's short, the chain runs slower. It also protects membranes from oxidative damage. Statins hold back its production, just as they do cholesterol's."
+  },
+  "dosis": {
+    "es": "100 a 300 mg al día; el ubiquinol se absorbe algo mejor",
+    "en": "100 to 300 mg a day; ubiquinol is absorbed somewhat better"
+  },
+  "cuando": {
+    "es": "Con la comida que más grasa lleve, durante al menos 8 semanas",
+    "en": "With your fattiest meal, for at least 8 weeks"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En los ensayos agrupados, con 602 personas tomando coenzima Q10, el cansancio bajó frente a placebo, igual en sanos que en enfermos. Cuanta más dosis y más tiempo, más bajó, y solo hubo un efecto secundario de estómago.",
+        "en": "In the pooled trials, with 602 people taking coenzyme Q10, tiredness fell compared with placebo, the same in healthy and ill people. The higher the dose and the longer, the more it fell, and there was only one stomach side effect."
+      },
+      "fuente": "36091835"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tomas anticoagulantes como el Sintrom, consúltalo: puede bajar su efecto.",
+      "en": "If you take blood thinners like warfarin, check first: it can weaken their effect."
+    },
+    {
+      "es": "Puede bajar un poco la tensión y el azúcar.",
+      "en": "It can slightly lower blood pressure and blood sugar."
+    },
+    {
+      "es": "Si tomas estatinas y te duelen los músculos, coméntalo con tu médico antes de tomarla.",
+      "en": "If you take statins and your muscles ache, talk to your doctor before taking it."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Tsai IC, Hsu CW, Chang CH, et al.",
+      "anio": 2022,
+      "titulo": "Effectiveness of Coenzyme Q10 Supplementation for Reducing Fatigue: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "revista": "Front Pharmacol 13:883251",
+      "pmid": "36091835",
+      "doi": "10.3389/fphar.2022.883251"
+    }
+  ]
+}

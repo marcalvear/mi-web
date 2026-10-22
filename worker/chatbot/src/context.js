@@ -56,6 +56,7 @@ COMPENDIO DE BIOHACKING
 - Defensas: Vitamina D, Probióticos, Vitamina C, Zinc en pastillas para chupar, Saúco negro.
 - Testosterona: Tongkat ali, Fenogreco, Ashwagandha, Vitamina D.
 - Ciclo y menopausia: Sauzgatillo (Vitex), Calcio, Mio-inositol, Isoflavonas de soja.
+- Cansancio: Hierro, Vitamina B12, Coenzima Q10, Rhodiola.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -572,6 +573,52 @@ FICHA: Isoflavonas de soja (Fitoestrógenos) · https://marcalvear.github.io/mi-
 - Qué encontraron los estudios:
   - En 12 ensayos, las isoflavonas bajaron un poco los síntomas de la menopausia en conjunto (7 ensayos, 533 mujeres) y, por separado, el ánimo bajo, las palpitaciones y los dolores de cabeza. No mejoraron los sofocos, el sudor ni el insomnio. [Luan H et al., 2025, PeerJ 13:e19715, PMID 40718787]
 - Precauciones: Si has tenido cáncer de mama o de útero, no las tomes sin hablar con tu oncólogo. Si tomas levotiroxina, sepáralas unas horas. Para sofocos fuertes, hay tratamientos que sí funcionan: pregúntale a tu ginecóloga.
+
+PROBLEMA: CANSANCIO (https://marcalvear.github.io/mi-web/biohacking/#menos-cansancio)
+- Cansancio que no se va ni durmiendo, sin ganas de entrenar o con la cabeza lenta a media mañana. Antes que nada, un análisis: el hierro, la B12, el tiroides o el azúcar explican muchos casos, y un suplemento solo ayuda si va a la causa.
+- Qué pasa en el cuerpo: La energía es como una pila con varias celdas. El hierro lleva el oxígeno a las células, la B12 hace falta para fabricar los glóbulos rojos que lo transportan y las mitocondrias, con la coenzima Q10, convierten ese oxígeno en energía. Si una celda falla, la pila no carga aunque las otras estén bien. El estrés de fondo la vacía por otro lado. El esquema de al lado marca qué celda recarga cada suplemento.
+- Combinarlos: El hierro y la B12 solo si un análisis dice que te faltan: no se toman por si acaso. La coenzima Q10 y la rhodiola se pueden probar sin análisis, de una en una y durante 8 semanas, si lo demás está bien.
+- Ve al médico antes que a un suplemento si además: el cansancio llegó con pérdida de peso, fiebre o sudores por la noche; te cuesta respirar al subir escaleras, estás muy pálido o el corazón se acelera; tienes mucha sed, orinas mucho o te notas el cuello hinchado; llevas más de 6 meses agotado y empeoras después de cualquier esfuerzo.
+
+FICHA: Hierro (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#hierro
+- Qué es: Es el mineral que lleva el oxígeno en la sangre. A muchas mujeres que tienen la regla les falta sin llegar a la anemia, y eso cansa. Tomarlo solo sirve si un análisis dice que te falta.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un ensayo con placebo en 198 mujeres, y otro más reciente, salen a favor, pero solo en mujeres con la ferritina baja. Si tienes el hierro bien, no hay pruebas de que ayude.
+- Cómo funciona: El hierro hace falta para fabricar hemoglobina, que lleva el oxígeno, y también para que las células saquen energía. La ferritina es el almacén: puede vaciarse mucho antes de que baje la hemoglobina, y ya entonces aparece el cansancio. Con la regla se pierde hierro cada mes.
+- Dosis estudiada: Unos 60 a 80 mg de hierro elemental, solo si la ferritina está baja y con seguimiento de tu médico. Cuándo: En ayunas o con zumo de naranja, en días alternos, y lejos del café, el té y los lácteos.
+- Qué encontraron los estudios:
+  - En 198 mujeres de 18 a 53 años cansadas, con la ferritina por debajo de 50 y sin anemia, 80 mg de hierro al día durante 12 semanas bajaron el cansancio un 47,7 %, frente al 28,8 % con placebo. [Vaucher P et al., 2012, CMAJ 184(11):1247-1254, PMID 22777991]
+  - En 164 mujeres en edad fértil con el hierro bajo y sin anemia, el tratamiento con hierro bajó el cansancio y subió la ferritina y la hemoglobina. [Sultana N et al., 2026, J Pak Med Assoc 76(1):4-7, PMID 41736325]
+- Precauciones: No lo tomes sin análisis: el exceso de hierro se acumula y daña el hígado y el corazón. Suele estreñir, dar ardor o volver las heces negras; tomarlo en días alternos se tolera mejor. Si eres hombre o ya no tienes la regla y te falta hierro, hay que buscar la causa: puede haber una pérdida de sangre.
+
+FICHA: Vitamina B12 (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-b12
+- Qué es: Hace falta para fabricar glóbulos rojos y cuidar los nervios. Solo viene de alimentos animales, así que falta en veganos, en mayores y en quien toma ciertos fármacos. Si te falta, cansa mucho; si no, tomarla no da energía extra.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Que la falta de B12 cansa y que tomarla lo corrige está bien establecido. Pero si tienes la B12 bien, no hay ensayos que muestren que dé más energía.
+- Cómo funciona: Sin B12, la médula ósea fabrica glóbulos rojos grandes y torpes que llevan mal el oxígeno, y los nervios pierden su funda protectora. Para absorberla, el estómago necesita ácido y una proteína propia: por eso falta con la edad, con el omeprazol o con la metformina.
+- Dosis estudiada: Si eres vegano, unos 250 µg al día o 2.000 µg a la semana; si te falta, la dosis la decide tu médico. Cuándo: A cualquier hora; en veganos, siempre, aunque no notes nada.
+- Qué encontraron los estudios:
+  - La revisión clínica del New England Journal of Medicine explica que la falta de B12 da cansancio, anemia y daño en los nervios, que es frecuente en mayores, veganos y personas que toman metformina o protectores de estómago, y que tomarla, por boca a dosis altas o pinchada, lo corrige. [Stabler SP et al., 2013, N Engl J Med 368(2):149-160, PMID 23301732]
+- Precauciones: Si tienes hormigueos en manos y pies o te falla la memoria, no te la tomes por tu cuenta: hazte un análisis antes, porque tomarla puede esconder el diagnóstico. Es muy segura: lo que sobra se elimina por la orina.
+
+FICHA: Coenzima Q10 (Molécula de las mitocondrias) · https://marcalvear.github.io/mi-web/biohacking/#coenzima-q10
+- Qué es: Es una pieza de las mitocondrias, las centrales de energía de las células. El cuerpo la fabrica, pero menos con la edad o con las estatinas. En cápsula baja algo el cansancio.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de ensayos con placebo sale a favor, en gente sana y enferma, con un efecto entre pequeño y moderado que crece con la dosis y el tiempo.
+- Cómo funciona: Dentro de las mitocondrias, la coenzima Q10 pasa los electrones de un paso a otro para fabricar ATP, la moneda de energía de la célula. Si falta, la cadena va más lenta. También protege las membranas del daño oxidativo. Las estatinas frenan su fabricación, igual que la del colesterol.
+- Dosis estudiada: 100 a 300 mg al día; el ubiquinol se absorbe algo mejor. Cuándo: Con la comida que más grasa lleve, durante al menos 8 semanas.
+- Qué encontraron los estudios:
+  - En los ensayos agrupados, con 602 personas tomando coenzima Q10, el cansancio bajó frente a placebo, igual en sanos que en enfermos. Cuanta más dosis y más tiempo, más bajó, y solo hubo un efecto secundario de estómago. [Tsai IC et al., 2022, Front Pharmacol 13:883251, PMID 36091835]
+- Precauciones: Si tomas anticoagulantes como el Sintrom, consúltalo: puede bajar su efecto. Puede bajar un poco la tensión y el azúcar. Si tomas estatinas y te duelen los músculos, coméntalo con tu médico antes de tomarla.
+
+FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#rhodiola
+- Qué es: Es una raíz de las montañas frías del norte. Se usa para el cansancio por estrés: en un ensayo con personas quemadas mejoró la concentración y bajó el cortisol al despertar.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay ensayos a favor en la fatiga mental, pero una revisión de 11 ensayos los encuentra contradictorios y con fallos de método.
+- Cómo funciona: Sus compuestos, la salidrosida y las rosavinas, parecen suavizar la respuesta al estrés: el cortisol sube menos de golpe y las células gastan su energía con menos desgaste. Por eso se toma por la mañana, cuando el cortisol pega su subida.
+- Dosis estudiada: De 200 a 600 mg al día de extracto estandarizado. Cuándo: Por la mañana, antes del desayuno; por la tarde puede quitar el sueño.
+- Qué encontraron los estudios:
+  - En 60 personas con agotamiento por estrés (burnout), 576 mg al día durante 4 semanas mejoraron la concentración y bajaron el cortisol al despertar frente a placebo. El grupo placebo también mejoró bastante. [Olsson EM et al., 2009, Planta Med 75(2):105-112, PMID 19016404]
+  - Una revisión de 11 ensayos encontró que tres de cinco salían a favor en la fatiga mental, pero todos tenían riesgo de sesgo o fallos al contar los resultados. [Ishaque S et al., 2012, BMC Complement Altern Med 12:70, PMID 22643043]
+- Precauciones: Puede dar nerviosismo o insomnio si se toma tarde. Si tienes trastorno bipolar o tomas antidepresivos, consúltalo antes. En embarazo y lactancia, mejor no tomarla.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Rhodiola 500 mg (Estados Unidos): lleva 500 mg de extracto con un 3 % de rosavinas y un 1 % de salidrosida; toma 1 cápsula; bote 60 cápsulas; precio 36,99 $. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -1074,5 +1121,51 @@ SHEET: Soy isoflavones (Phytoestrogens) · https://marcalvear.github.io/mi-web/e
 - What the studies found:
   - In 12 trials, isoflavones slightly eased menopause symptoms overall (7 trials, 533 women) and, separately, low mood, palpitations and headaches. They didn't improve hot flushes, sweating or insomnia. [Luan H et al., 2025, PeerJ 13:e19715, PMID 40718787]
 - Cautions: If you've had breast or uterine cancer, don't take them without talking to your oncologist. If you take levothyroxine, keep them a few hours apart. For strong hot flushes, there are treatments that do work: ask your gynaecologist.
+
+PROBLEM: TIREDNESS (https://marcalvear.github.io/mi-web/en/biohacking/#menos-cansancio)
+- Tiredness that doesn't go even with sleep, no drive to train or a slow head by mid-morning. Before anything else, a blood test: iron, B12, thyroid or blood sugar explain many cases, and a supplement only helps if it targets the cause.
+- What's going on in the body: Energy is like a battery with several cells. Iron carries oxygen to the cells, B12 is needed to make the red blood cells that transport it and the mitochondria, with coenzyme Q10, turn that oxygen into energy. If one cell fails, the battery won't charge even if the others are fine. Background stress drains it from another side. The diagram beside it marks which cell each supplement recharges.
+- Combining them: Iron and B12 only if a blood test says you're low: they're not taken just in case. Coenzyme Q10 and rhodiola can be tried without a test, one at a time and for 8 weeks, if everything else is fine.
+- See a doctor before trying a supplement if you also: the tiredness came with weight loss, fever or night sweats; you get breathless on stairs, you're very pale or your heart races; you're very thirsty, urinate a lot or your neck feels swollen; you've been exhausted for more than 6 months and get worse after any effort.
+
+SHEET: Iron (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#hierro
+- What it is: It's the mineral that carries oxygen in the blood. Many women who have periods run low without reaching anaemia, and that's tiring. Taking it only helps if a blood test says you're low.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A placebo-controlled trial in 198 women, and a more recent one, come out in favour, but only in women with low ferritin. If your iron is fine, there's no evidence it helps.
+- How it works: Iron is needed to make haemoglobin, which carries oxygen, and also for cells to get energy. Ferritin is the store: it can run very low well before haemoglobin drops, and tiredness appears by then. Periods lose iron every month.
+- Dose studied: About 60 to 80 mg of elemental iron, only if ferritin is low and with your doctor monitoring. When: On an empty stomach or with orange juice, on alternate days, and away from coffee, tea and dairy.
+- What the studies found:
+  - In 198 tired women aged 18 to 53, with ferritin below 50 and no anaemia, 80 mg of iron a day for 12 weeks lowered tiredness by 47.7%, compared with 28.8% on placebo. [Vaucher P et al., 2012, CMAJ 184(11):1247-1254, PMID 22777991]
+  - In 164 women of childbearing age with low iron and no anaemia, iron treatment lowered tiredness and raised ferritin and haemoglobin. [Sultana N et al., 2026, J Pak Med Assoc 76(1):4-7, PMID 41736325]
+- Cautions: Don't take it without a blood test: excess iron builds up and damages the liver and heart. It often causes constipation, heartburn or black stools; taking it on alternate days is easier to tolerate. If you're a man or no longer have periods and you're low in iron, the cause needs finding: there may be blood loss.
+
+SHEET: Vitamin B12 (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-b12
+- What it is: It's needed to make red blood cells and look after nerves. It only comes from animal foods, so it runs short in vegans, older people and people on certain drugs. If you're low, it's very tiring; if not, taking it gives no extra energy.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: That low B12 causes tiredness and that taking it fixes it is well established. But if your B12 is fine, there are no trials showing it gives more energy.
+- How it works: Without B12, bone marrow makes large, clumsy red blood cells that carry oxygen poorly, and nerves lose their protective sheath. To absorb it, the stomach needs acid and a protein of its own: that's why it runs short with age, with omeprazole or with metformin.
+- Dose studied: If you're vegan, about 250 µg a day or 2,000 µg a week; if you're deficient, your doctor sets the dose. When: Any time; in vegans, always, even if you don't notice anything.
+- What the studies found:
+  - The New England Journal of Medicine clinical review explains that low B12 causes tiredness, anaemia and nerve damage, that it's common in older people, vegans and people taking metformin or stomach protectors, and that taking it, by mouth at high doses or injected, corrects it. [Stabler SP et al., 2013, N Engl J Med 368(2):149-160, PMID 23301732]
+- Cautions: If you have tingling in your hands and feet or your memory is failing, don't self-treat: get a blood test first, because taking it can mask the diagnosis. It's very safe: what's left over goes out in the urine.
+
+SHEET: Coenzyme Q10 (Mitochondrial molecule) · https://marcalvear.github.io/mi-web/en/biohacking/#coenzima-q10
+- What it is: It's a part of the mitochondria, the cells' power stations. The body makes it, but less with age or with statins. As a capsule it lowers tiredness somewhat.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of placebo-controlled trials comes out in favour, in healthy and ill people, with a small to moderate effect that grows with dose and time.
+- How it works: Inside the mitochondria, coenzyme Q10 passes electrons from one step to the next to make ATP, the cell's energy currency. If it's short, the chain runs slower. It also protects membranes from oxidative damage. Statins hold back its production, just as they do cholesterol's.
+- Dose studied: 100 to 300 mg a day; ubiquinol is absorbed somewhat better. When: With your fattiest meal, for at least 8 weeks.
+- What the studies found:
+  - In the pooled trials, with 602 people taking coenzyme Q10, tiredness fell compared with placebo, the same in healthy and ill people. The higher the dose and the longer, the more it fell, and there was only one stomach side effect. [Tsai IC et al., 2022, Front Pharmacol 13:883251, PMID 36091835]
+- Cautions: If you take blood thinners like warfarin, check first: it can weaken their effect. It can slightly lower blood pressure and blood sugar. If you take statins and your muscles ache, talk to your doctor before taking it.
+
+SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#rhodiola
+- What it is: It's a root from cold northern mountains. It's used for stress-related tiredness: in a trial with burned-out people it improved concentration and lowered cortisol on waking.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: There are trials in favour for mental fatigue, but a review of 11 trials finds them contradictory and with methodological flaws.
+- How it works: Its compounds, salidroside and rosavins, seem to soften the stress response: cortisol rises less sharply and cells use their energy with less wear. That's why it's taken in the morning, when cortisol makes its jump.
+- Dose studied: 200 to 600 mg a day of standardised extract. When: In the morning, before breakfast; in the afternoon it can keep you awake.
+- What the studies found:
+  - In 60 people with stress-related exhaustion (burnout), 576 mg a day for 4 weeks improved concentration and lowered cortisol on waking compared with placebo. The placebo group also improved quite a bit. [Olsson EM et al., 2009, Planta Med 75(2):105-112, PMID 19016404]
+  - A review of 11 trials found three out of five came out in favour for mental fatigue, but all had a risk of bias or flaws in reporting results. [Ishaque S et al., 2012, BMC Complement Altern Med 12:70, PMID 22643043]
+- Cautions: It can cause jitters or insomnia if taken late. If you have bipolar disorder or take antidepressants, check first. In pregnancy and breastfeeding, better not to take it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Rhodiola 500 mg (United States): contains 500 mg of extract with 3% rosavins and 1% salidroside; dose 1 capsule; bottle 60 capsules; price $36.99. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
 `,
 };

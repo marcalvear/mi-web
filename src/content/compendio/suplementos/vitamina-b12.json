@@ -1,0 +1,61 @@
+{
+  "nombre": {
+    "es": "Vitamina B12",
+    "en": "Vitamin B12"
+  },
+  "tipo": {
+    "es": "Vitamina",
+    "en": "Vitamin"
+  },
+  "evidencia": "moderada",
+  "zona": "b12",
+  "porQue": {
+    "es": "Que la falta de B12 cansa y que tomarla lo corrige está bien establecido. Pero si tienes la B12 bien, no hay ensayos que muestren que dé más energía.",
+    "en": "That low B12 causes tiredness and that taking it fixes it is well established. But if your B12 is fine, there are no trials showing it gives more energy."
+  },
+  "resumen": {
+    "es": "Hace falta para fabricar glóbulos rojos y cuidar los nervios. Solo viene de alimentos animales, así que falta en veganos, en mayores y en quien toma ciertos fármacos. Si te falta, cansa mucho; si no, tomarla no da energía extra.",
+    "en": "It's needed to make red blood cells and look after nerves. It only comes from animal foods, so it runs short in vegans, older people and people on certain drugs. If you're low, it's very tiring; if not, taking it gives no extra energy."
+  },
+  "mecanismo": {
+    "es": "Sin B12, la médula ósea fabrica glóbulos rojos grandes y torpes que llevan mal el oxígeno, y los nervios pierden su funda protectora. Para absorberla, el estómago necesita ácido y una proteína propia: por eso falta con la edad, con el omeprazol o con la metformina.",
+    "en": "Without B12, bone marrow makes large, clumsy red blood cells that carry oxygen poorly, and nerves lose their protective sheath. To absorb it, the stomach needs acid and a protein of its own: that's why it runs short with age, with omeprazole or with metformin."
+  },
+  "dosis": {
+    "es": "Si eres vegano, unos 250 µg al día o 2.000 µg a la semana; si te falta, la dosis la decide tu médico",
+    "en": "If you're vegan, about 250 µg a day or 2,000 µg a week; if you're deficient, your doctor sets the dose"
+  },
+  "cuando": {
+    "es": "A cualquier hora; en veganos, siempre, aunque no notes nada",
+    "en": "Any time; in vegans, always, even if you don't notice anything"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "La revisión clínica del New England Journal of Medicine explica que la falta de B12 da cansancio, anemia y daño en los nervios, que es frecuente en mayores, veganos y personas que toman metformina o protectores de estómago, y que tomarla, por boca a dosis altas o pinchada, lo corrige.",
+        "en": "The New England Journal of Medicine clinical review explains that low B12 causes tiredness, anaemia and nerve damage, that it's common in older people, vegans and people taking metformin or stomach protectors, and that taking it, by mouth at high doses or injected, corrects it."
+      },
+      "fuente": "23301732"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes hormigueos en manos y pies o te falla la memoria, no te la tomes por tu cuenta: hazte un análisis antes, porque tomarla puede esconder el diagnóstico.",
+      "en": "If you have tingling in your hands and feet or your memory is failing, don't self-treat: get a blood test first, because taking it can mask the diagnosis."
+    },
+    {
+      "es": "Es muy segura: lo que sobra se elimina por la orina.",
+      "en": "It's very safe: what's left over goes out in the urine."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Stabler SP",
+      "anio": 2013,
+      "titulo": "Clinical practice. Vitamin B12 deficiency",
+      "revista": "N Engl J Med 368(2):149-160",
+      "pmid": "23301732",
+      "doi": "10.1056/NEJMcp1113996"
+    }
+  ]
+}
