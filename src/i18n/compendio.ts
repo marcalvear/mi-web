@@ -92,6 +92,15 @@ export const compendio = {
       brake: "freno",
       zones: { cerebro: "Cerebro", testiculo: "Testículos", sangre: "Sangre" },
     },
+    cycle: {
+      title: "Cuándo actúa cada suplemento en el ciclo",
+      hint: "Un ciclo de 28 días empezando por la regla. Pulsa un suplemento para ver cuándo actúa.",
+      desc: "Rueda de 28 días: la regla del día 1 al 5, la fase folicular, la ovulación hacia el día 14 y la fase lútea del 15 al 28, cuando aparece el síndrome premenstrual. En la fase lútea actúan el sauzgatillo y el calcio. En el centro, todo el ciclo, el mio-inositol. Al lado, la menopausia, con las isoflavonas de soja.",
+      day: "día",
+      period: "regla",
+      ovulation: "ovulación",
+      zones: { lutea: "Antes de la regla", ciclo: "Todo el ciclo", menopausia: "Menopausia" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -216,6 +225,15 @@ export const compendio = {
       testosterone: "testosterone",
       brake: "brake",
       zones: { cerebro: "Brain", testiculo: "Testes", sangre: "Blood" },
+    },
+    cycle: {
+      title: "When each supplement acts in the cycle",
+      hint: "A 28-day cycle starting with your period. Tap a supplement to see when it acts.",
+      desc: "28-day wheel: the period from day 1 to 5, the follicular phase, ovulation around day 14 and the luteal phase from day 15 to 28, when premenstrual syndrome appears. Chasteberry and calcium act in the luteal phase. In the centre, the whole cycle, myo-inositol. Beside it, menopause, with soy isoflavones.",
+      day: "day",
+      period: "period",
+      ovulation: "ovulation",
+      zones: { lutea: "Before the period", ciclo: "Whole cycle", menopausia: "Menopause" },
     },
     card: {
       id: "Sheet",

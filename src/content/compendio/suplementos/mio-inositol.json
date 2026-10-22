@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Mio-inositol",
+    "en": "Myo-inositol"
+  },
+  "tipo": {
+    "es": "Azúcar de la familia de las vitaminas B",
+    "en": "B-vitamin-like sugar"
+  },
+  "evidencia": "moderada",
+  "zona": "ciclo",
+  "porQue": {
+    "es": "Un metaanálisis de 26 ensayos con casi 1.700 mujeres con ovario poliquístico sale a favor, y en varios puntos funciona igual que la metformina, el fármaco de referencia.",
+    "en": "A meta-analysis of 26 trials with nearly 1,700 women with polycystic ovaries comes out in favour, and on several measures works as well as metformin, the reference drug."
+  },
+  "resumen": {
+    "es": "Es una molécula que el cuerpo usa para responder a la insulina. En el síndrome de ovario poliquístico ayuda a que el ciclo se vuelva regular y baja la testosterona.",
+    "en": "It's a molecule the body uses to respond to insulin. In polycystic ovary syndrome it helps the cycle become regular and lowers testosterone."
+  },
+  "mecanismo": {
+    "es": "En el ovario poliquístico, el cuerpo responde mal a la insulina, y la insulina alta empuja a los ovarios a fabricar más testosterona, que desajusta la ovulación. El mio-inositol hace de mensajero de la insulina dentro de la célula: mejora esa respuesta y baja la testosterona.",
+    "en": "In polycystic ovaries, the body responds poorly to insulin, and high insulin pushes the ovaries to make more testosterone, which disrupts ovulation. Myo-inositol acts as insulin's messenger inside the cell: it improves that response and lowers testosterone."
+  },
+  "dosis": {
+    "es": "2 a 4 g al día; a veces con D-chiro-inositol en proporción 40 a 1",
+    "en": "2 to 4 g a day; sometimes with D-chiro-inositol in a 40-to-1 ratio"
+  },
+  "cuando": {
+    "es": "Repartido en dos tomas, todos los días, durante al menos 3 meses",
+    "en": "Split into two doses, every day, for at least 3 months"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 26 ensayos con 1.691 mujeres con ovario poliquístico, el inositol hizo 1,8 veces más probable tener ciclos regulares que el placebo. También bajó la testosterona, la insulina y algo el peso, y en la regularidad del ciclo no fue peor que la metformina.",
+        "en": "In 26 trials with 1,691 women with polycystic ovaries, inositol made regular cycles 1.8 times more likely than placebo. It also lowered testosterone, insulin and weight slightly, and for cycle regularity it was no worse than metformin."
+      },
+      "fuente": "36703143"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "El ovario poliquístico lo diagnostica un médico: no te lo trates por tu cuenta.",
+      "en": "Polycystic ovary syndrome is diagnosed by a doctor: don't treat yourself."
+    },
+    {
+      "es": "A dosis altas puede dar náuseas o gases.",
+      "en": "At high doses it can cause nausea or wind."
+    },
+    {
+      "es": "Si tomas medicación para la diabetes, consúltalo: puede sumar su efecto.",
+      "en": "If you take diabetes medication, check first: it can add to its effect."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Greff D, Juhász AE, Váncsa S, et al.",
+      "anio": 2023,
+      "titulo": "Inositol is an effective and safe treatment in polycystic ovary syndrome: a systematic review and meta-analysis of randomized controlled trials",
+      "revista": "Reprod Biol Endocrinol 21(1):10",
+      "pmid": "36703143",
+      "doi": "10.1186/s12958-023-01055-z"
+    }
+  ]
+}

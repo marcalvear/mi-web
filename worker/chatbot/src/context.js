@@ -55,6 +55,7 @@ COMPENDIO DE BIOHACKING
 - Recuperarse antes: Creatina, Proteína de suero, Cereza ácida Montmorency, Omega-3 (EPA y DHA).
 - Defensas: Vitamina D, Probióticos, Vitamina C, Zinc en pastillas para chupar, Saúco negro.
 - Testosterona: Tongkat ali, Fenogreco, Ashwagandha, Vitamina D.
+- Ciclo y menopausia: Sauzgatillo (Vitex), Calcio, Mio-inositol, Isoflavonas de soja.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -529,6 +530,48 @@ FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
   - Al añadir los ensayos nuevos en 2025, con 61.589 personas, la protección quedó en un 6 % y dejó de ser significativa. Tampoco cambió según el déficit de partida ni la dosis. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
   - Para la testosterona, una revisión de 2026 con 11 comparaciones no encontró que la vitamina D la subiera en hombres adultos, ni la libre ni la proteína que la transporta. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Precauciones: Más no es mejor: por encima de 4.000 UI al día durante mucho tiempo puede subir demasiado el calcio. Si tienes piedras en el riñón, sarcoidosis o tomas diuréticos tiazídicos, consúltalo antes. Para saber si te falta, el análisis es el de 25-hidroxivitamina D.
+
+PROBLEMA: CICLO Y MENOPAUSIA (https://marcalvear.github.io/mi-web/biohacking/#ciclo-menopausia)
+- Hinchazón, pecho dolorido y cambios de humor antes de la regla, ciclos que no llegan cuando toca o los sofocos de la menopausia. Algunos suplementos tienen ensayos para cosas muy concretas de cada etapa, y aquí van por separado.
+- Qué pasa en el cuerpo: El ciclo es una coreografía de hormonas. En la primera mitad suben los estrógenos y madura un óvulo; hacia el día 14 se suelta, y en la segunda mitad, la fase lútea, manda la progesterona. Si no hay embarazo, todo baja y llega la regla. El síndrome premenstrual aparece en esa bajada final. En el ovario poliquístico, la insulina y la testosterona altas impiden ovular, y en la menopausia los ovarios dejan de fabricar estrógenos. La rueda de al lado marca en qué momento actúa cada suplemento.
+- Combinarlos: Cada ficha es para algo distinto: el sauzgatillo y el calcio para el síndrome premenstrual, el mio-inositol para el ovario poliquístico y las isoflavonas para la menopausia. No las mezcles por si acaso: elige la que encaja con lo que te pasa y dale tres ciclos.
+- Ve al médico antes que a un suplemento si además: sangras mucho (cambias de compresa cada hora) o entre reglas; llevas más de 3 meses sin regla sin estar embarazada; el dolor de regla te impide hacer vida normal (puede ser endometriosis); sangras después de la menopausia; antes de la regla te sientes tan mal que piensas en hacerte daño: llama al 024.
+
+FICHA: Sauzgatillo (Vitex) (Fruto de un arbusto) · https://marcalvear.github.io/mi-web/biohacking/#sauzgatillo
+- Qué es: Es el fruto de un arbusto mediterráneo. Tomado a diario, alivia el síndrome premenstrual: la tensión en el pecho, la irritabilidad y la hinchazón de los días antes de la regla.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Solo 3 ensayos con 520 mujeres pasan el filtro de calidad del metaanálisis, pero los tres salen a favor y con un efecto claro.
+- Cómo funciona: En la segunda mitad del ciclo, la prolactina puede subir más de la cuenta y desajustar la progesterona, y eso se nota en el pecho y el ánimo. El sauzgatillo actúa sobre los receptores de dopamina de la hipófisis y frena esa prolactina.
+- Dosis estudiada: 20 a 40 mg al día de extracto estandarizado, como los estudiados (Ze 440 o BNO 1095). Cuándo: Una vez al día, todos los días, durante al menos 3 ciclos.
+- Qué encontraron los estudios:
+  - En los 3 ensayos bien hechos, con 520 mujeres, las que tomaban sauzgatillo tuvieron 2,6 veces más probabilidad de que el síndrome premenstrual remitiera que con placebo. Los demás ensayos no contaban bien qué extracto usaban. [Csupor D et al., 2019, Complement Ther Med 47:102190, PMID 31780016]
+- Precauciones: No lo tomes si buscas quedarte embarazada, estás embarazada o das el pecho. Puede interferir con la píldora, con tratamientos de fertilidad y con fármacos que actúan sobre la dopamina. Si tienes un tumor sensible a hormonas, no lo tomes sin hablar con tu médico.
+
+FICHA: Calcio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#calcio
+- Qué es: Es el mineral de los huesos. Tomado a diario, en un ensayo grande redujo casi a la mitad los síntomas del síndrome premenstrual en tres ciclos.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Hay un ensayo grande y bien hecho, con 466 mujeres, a favor. Es de 1998 y no se ha repetido a esa escala.
+- Cómo funciona: Los estrógenos cambian a lo largo del ciclo cuánto calcio absorbe y guarda el cuerpo. En algunas mujeres, el calcio y la vitamina D bajan en la segunda mitad del ciclo, y eso se relaciona con los síntomas del síndrome premenstrual.
+- Dosis estudiada: 1.200 mg al día de carbonato de calcio, contando el de la dieta. Cuándo: Repartido en dos tomas con comida, todos los días.
+- Qué encontraron los estudios:
+  - En 466 mujeres con síndrome premenstrual, 1.200 mg de calcio al día redujeron los síntomas un 48 % al tercer ciclo, frente al 30 % con placebo. Bajaron los cuatro grupos de síntomas, del ánimo al dolor y la retención de líquidos. [Thys-Jacobs S et al., 1998, Am J Obstet Gynecol 179(2):444-452, PMID 9731851]
+- Precauciones: Si tienes piedras en el riñón o el calcio alto, no lo tomes sin hablar con tu médico. Sepáralo 2 horas del hierro, la levotiroxina y algunos antibióticos: se estorban. Un vaso de leche o un yogur llevan unos 250 mg: cuéntalos antes de sumar cápsulas.
+
+FICHA: Mio-inositol (Azúcar de la familia de las vitaminas B) · https://marcalvear.github.io/mi-web/biohacking/#mio-inositol
+- Qué es: Es una molécula que el cuerpo usa para responder a la insulina. En el síndrome de ovario poliquístico ayuda a que el ciclo se vuelva regular y baja la testosterona.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 26 ensayos con casi 1.700 mujeres con ovario poliquístico sale a favor, y en varios puntos funciona igual que la metformina, el fármaco de referencia.
+- Cómo funciona: En el ovario poliquístico, el cuerpo responde mal a la insulina, y la insulina alta empuja a los ovarios a fabricar más testosterona, que desajusta la ovulación. El mio-inositol hace de mensajero de la insulina dentro de la célula: mejora esa respuesta y baja la testosterona.
+- Dosis estudiada: 2 a 4 g al día; a veces con D-chiro-inositol en proporción 40 a 1. Cuándo: Repartido en dos tomas, todos los días, durante al menos 3 meses.
+- Qué encontraron los estudios:
+  - En 26 ensayos con 1.691 mujeres con ovario poliquístico, el inositol hizo 1,8 veces más probable tener ciclos regulares que el placebo. También bajó la testosterona, la insulina y algo el peso, y en la regularidad del ciclo no fue peor que la metformina. [Greff D et al., 2023, Reprod Biol Endocrinol 21(1):10, PMID 36703143]
+- Precauciones: El ovario poliquístico lo diagnostica un médico: no te lo trates por tu cuenta. A dosis altas puede dar náuseas o gases. Si tomas medicación para la diabetes, consúltalo: puede sumar su efecto.
+
+FICHA: Isoflavonas de soja (Fitoestrógenos) · https://marcalvear.github.io/mi-web/biohacking/#isoflavonas-soja
+- Qué es: Son compuestos de la soja que se parecen un poco a los estrógenos. En la menopausia bajan algo el ánimo bajo, las palpitaciones y los dolores de cabeza, pero los sofocos casi no.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El metaanálisis de 2025 encuentra un efecto pequeño en los síntomas de la menopausia en conjunto, pero no en los sofocos, y con pocos ensayos.
+- Cómo funciona: En la menopausia los ovarios dejan de fabricar estrógenos, y eso desajusta el termostato del cerebro y el ánimo. Las isoflavonas se pegan con poca fuerza a los receptores de estrógeno y hacen de estrógeno muy suave. En algunas personas, las bacterias del intestino las convierten en equol, que es más activo.
+- Dosis estudiada: 50 a 100 mg de isoflavonas al día. Cuándo: Con una comida, a diario durante al menos 12 semanas.
+- Qué encontraron los estudios:
+  - En 12 ensayos, las isoflavonas bajaron un poco los síntomas de la menopausia en conjunto (7 ensayos, 533 mujeres) y, por separado, el ánimo bajo, las palpitaciones y los dolores de cabeza. No mejoraron los sofocos, el sudor ni el insomnio. [Luan H et al., 2025, PeerJ 13:e19715, PMID 40718787]
+- Precauciones: Si has tenido cáncer de mama o de útero, no las tomes sin hablar con tu oncólogo. Si tomas levotiroxina, sepáralas unas horas. Para sofocos fuertes, hay tratamientos que sí funcionan: pregúntale a tu ginecóloga.
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -989,5 +1032,47 @@ SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
   - When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
   - For testosterone, a 2026 review with 11 comparisons didn't find that vitamin D raised it in adult men, nor free testosterone nor the protein that carries it. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Cautions: More isn't better: above 4,000 IU a day for a long time it can push calcium too high. If you have kidney stones, sarcoidosis or take thiazide diuretics, check first. To find out if you're low, the test is 25-hydroxyvitamin D.
+
+PROBLEM: CYCLE AND MENOPAUSE (https://marcalvear.github.io/mi-web/en/biohacking/#ciclo-menopausia)
+- Bloating, sore breasts and mood swings before your period, cycles that don't come when they should or the hot flushes of menopause. Some supplements have trials for very specific things at each stage, and here they're kept apart.
+- What's going on in the body: The cycle is a choreography of hormones. In the first half oestrogen rises and an egg matures; around day 14 it's released, and in the second half, the luteal phase, progesterone takes over. If there's no pregnancy, everything drops and the period arrives. Premenstrual syndrome appears in that final drop. In polycystic ovaries, high insulin and testosterone prevent ovulation, and in menopause the ovaries stop making oestrogen. The wheel beside it marks when each supplement acts.
+- Combining them: Each sheet is for something different: chasteberry and calcium for premenstrual syndrome, myo-inositol for polycystic ovaries and isoflavones for menopause. Don't mix them just in case: pick the one that fits what's happening to you and give it three cycles.
+- See a doctor before trying a supplement if you also: you bleed heavily (changing pads every hour) or between periods; you've gone more than 3 months without a period and aren't pregnant; period pain stops you living normally (it may be endometriosis); you bleed after menopause; before your period you feel so bad you think of harming yourself: in Spain call 024.
+
+SHEET: Chasteberry (Vitex) (Shrub fruit) · https://marcalvear.github.io/mi-web/en/biohacking/#sauzgatillo
+- What it is: It's the fruit of a Mediterranean shrub. Taken daily, it eases premenstrual syndrome: breast tenderness, irritability and bloating in the days before the period.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: Only 3 trials with 520 women pass the meta-analysis's quality filter, but all three come out in favour with a clear effect.
+- How it works: In the second half of the cycle, prolactin can rise too much and unbalance progesterone, which shows in the breasts and mood. Chasteberry acts on dopamine receptors in the pituitary and holds that prolactin back.
+- Dose studied: 20 to 40 mg a day of standardised extract, like those studied (Ze 440 or BNO 1095). When: Once a day, every day, for at least 3 cycles.
+- What the studies found:
+  - In the 3 well-run trials, with 520 women, those taking chasteberry were 2.6 times more likely to see premenstrual syndrome ease than with placebo. The other trials didn't report well which extract they used. [Csupor D et al., 2019, Complement Ther Med 47:102190, PMID 31780016]
+- Cautions: Don't take it if you're trying to conceive, are pregnant or breastfeeding. It can interfere with the pill, fertility treatments and drugs that act on dopamine. If you have a hormone-sensitive tumour, don't take it without talking to your doctor.
+
+SHEET: Calcium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#calcio
+- What it is: It's the bone mineral. Taken daily, in a large trial it nearly halved premenstrual symptoms over three cycles.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: There's a large, well-run trial with 466 women in favour. It's from 1998 and hasn't been repeated at that scale.
+- How it works: Oestrogen changes how much calcium the body absorbs and stores across the cycle. In some women, calcium and vitamin D drop in the second half of the cycle, and that's linked to premenstrual symptoms.
+- Dose studied: 1,200 mg a day of calcium carbonate, counting what's in your diet. When: Split into two doses with food, every day.
+- What the studies found:
+  - In 466 women with premenstrual syndrome, 1,200 mg of calcium a day reduced symptoms by 48% by the third cycle, compared with 30% on placebo. All four symptom groups dropped, from mood to pain and fluid retention. [Thys-Jacobs S et al., 1998, Am J Obstet Gynecol 179(2):444-452, PMID 9731851]
+- Cautions: If you have kidney stones or high calcium, don't take it without talking to your doctor. Keep it 2 hours apart from iron, levothyroxine and some antibiotics: they get in each other's way. A glass of milk or a yoghurt has about 250 mg: count them before adding capsules.
+
+SHEET: Myo-inositol (B-vitamin-like sugar) · https://marcalvear.github.io/mi-web/en/biohacking/#mio-inositol
+- What it is: It's a molecule the body uses to respond to insulin. In polycystic ovary syndrome it helps the cycle become regular and lowers testosterone.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 26 trials with nearly 1,700 women with polycystic ovaries comes out in favour, and on several measures works as well as metformin, the reference drug.
+- How it works: In polycystic ovaries, the body responds poorly to insulin, and high insulin pushes the ovaries to make more testosterone, which disrupts ovulation. Myo-inositol acts as insulin's messenger inside the cell: it improves that response and lowers testosterone.
+- Dose studied: 2 to 4 g a day; sometimes with D-chiro-inositol in a 40-to-1 ratio. When: Split into two doses, every day, for at least 3 months.
+- What the studies found:
+  - In 26 trials with 1,691 women with polycystic ovaries, inositol made regular cycles 1.8 times more likely than placebo. It also lowered testosterone, insulin and weight slightly, and for cycle regularity it was no worse than metformin. [Greff D et al., 2023, Reprod Biol Endocrinol 21(1):10, PMID 36703143]
+- Cautions: Polycystic ovary syndrome is diagnosed by a doctor: don't treat yourself. At high doses it can cause nausea or wind. If you take diabetes medication, check first: it can add to its effect.
+
+SHEET: Soy isoflavones (Phytoestrogens) · https://marcalvear.github.io/mi-web/en/biohacking/#isoflavonas-soja
+- What it is: They're compounds in soy that slightly resemble oestrogen. In menopause they somewhat ease low mood, palpitations and headaches, but barely affect hot flushes.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: The 2025 meta-analysis finds a small effect on menopause symptoms overall, but not on hot flushes, and with few trials.
+- How it works: In menopause the ovaries stop making oestrogen, which unsettles the brain's thermostat and mood. Isoflavones bind weakly to oestrogen receptors and act as a very mild oestrogen. In some people, gut bacteria turn them into equol, which is more active.
+- Dose studied: 50 to 100 mg of isoflavones a day. When: With a meal, daily for at least 12 weeks.
+- What the studies found:
+  - In 12 trials, isoflavones slightly eased menopause symptoms overall (7 trials, 533 women) and, separately, low mood, palpitations and headaches. They didn't improve hot flushes, sweating or insomnia. [Luan H et al., 2025, PeerJ 13:e19715, PMID 40718787]
+- Cautions: If you've had breast or uterine cancer, don't take them without talking to your oncologist. If you take levothyroxine, keep them a few hours apart. For strong hot flushes, there are treatments that do work: ask your gynaecologist.
 `,
 };
