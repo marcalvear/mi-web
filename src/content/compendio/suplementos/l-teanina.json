@@ -1,0 +1,129 @@
+{
+  "nombre": {
+    "es": "L-teanina",
+    "en": "L-theanine"
+  },
+  "tipo": {
+    "es": "Aminoácido del té",
+    "en": "Tea amino acid"
+  },
+  "evidencia": "preliminar",
+  "zona": "acostarse",
+  "porQue": {
+    "es": "Hay un ensayo bien hecho con placebo, pero pequeño (30 personas) y en parte de la empresa que la vende. Para el sueño, los metaanálisis aún no dan un resultado claro.",
+    "en": "There's one well-run placebo-controlled trial, but it's small (30 people) and partly from the company that sells it. For sleep, meta-analyses don't give a clear result yet."
+  },
+  "resumen": {
+    "es": "Es el aminoácido que hace que el té verde relaje en vez de poner nervioso. En cápsula ayuda a calmarse y, en un ensayo, mejoró la calidad del sueño.",
+    "en": "It's the amino acid that makes green tea relaxing instead of jittery. As a capsule it helps you calm down and, in one trial, improved sleep quality."
+  },
+  "mecanismo": {
+    "es": "La L-teanina llega al cerebro y sube las ondas alfa, las de estar despierto pero tranquilo. Además frena un poco el glutamato, el mensajero que mantiene el cerebro acelerado. No da sueño por sí misma: quita tensión para que cueste menos dormirse.",
+    "en": "L-theanine reaches the brain and raises alpha waves, the ones of being awake but calm. It also slightly holds back glutamate, the messenger that keeps the brain revved up. It doesn't make you sleepy on its own: it takes the edge off so it's easier to fall asleep."
+  },
+  "dosis": {
+    "es": "200 mg al día",
+    "en": "200 mg a day"
+  },
+  "cuando": {
+    "es": "Antes de acostarte. Si la tomas por el estrés, también sirve de día",
+    "en": "Before bed. If you take it for stress, it also works during the day"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 30 adultos sanos, 200 mg al día durante 4 semanas mejoraron la calidad del sueño frente a placebo: se dormían antes, se despertaban menos y usaban menos pastillas para dormir. También bajaron la ansiedad y los síntomas de estrés.",
+        "en": "In 30 healthy adults, 200 mg a day for 4 weeks improved sleep quality compared with placebo: they fell asleep sooner, woke up less and used fewer sleeping pills. Anxiety and stress symptoms also went down."
+      },
+      "fuente": "31623400"
+    },
+    {
+      "texto": {
+        "es": "Una revisión de 50 ensayos con té, L-teanina sola o con cafeína encuentra efectos a favor en atención y ánimo, pero con mucha incertidumbre, y pocos datos todavía sobre el sueño. Parte de los autores trabajan para una marca de té.",
+        "en": "A review of 50 trials of tea, L-theanine alone or with caffeine finds effects in favour on attention and mood, but with a lot of uncertainty, and little data on sleep so far. Some of the authors work for a tea brand."
+      },
+      "fuente": "40314930"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tomas medicación para la tensión, puede bajarla un poco más.",
+      "en": "If you take blood pressure medication, it may lower it a little more."
+    },
+    {
+      "es": "En embarazo y lactancia no hay datos suficientes: mejor no tomarla.",
+      "en": "In pregnancy and breastfeeding there isn't enough data: better not to take it."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Hidese S, Ogawa S, Ota M, et al.",
+      "anio": 2019,
+      "titulo": "Effects of L-Theanine Administration on Stress-Related Symptoms and Cognitive Functions in Healthy Adults: A Randomized Controlled Trial",
+      "revista": "Nutrients 11(10):2362",
+      "pmid": "31623400",
+      "doi": "10.3390/nu11102362"
+    },
+    {
+      "autores": "Payne ER, Aceves-Martins M, Dubost J, et al.",
+      "anio": 2025,
+      "titulo": "Effects of Tea (Camellia sinensis) or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood in Healthy Participants: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "revista": "Nutr Rev 83(10):1873-1891",
+      "pmid": "40314930",
+      "doi": "10.1093/nutrit/nuaf054"
+    }
+  ],
+  "productos": [
+    {
+      "id": "thorne-theanine",
+      "marca": "Thorne",
+      "nombre": "Theanine",
+      "foto": "thorne-theanine.webp",
+      "alt": {
+        "es": "Bote blanco de Theanine de Thorne.",
+        "en": "White bottle of Thorne Theanine."
+      },
+      "url": "https://www.thorne.com/products/dp/theanine",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "200 mg de L-teanina por cápsula",
+            "en": "200 mg of L-theanine per capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula, de 1 a 3 veces al día",
+            "en": "1 capsule, 1 to 3 times a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "90 cápsulas",
+            "en": "90 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "68 $ (90 cápsulas)",
+        "en": "$68 (90 capsules)"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "orden": 3,
+  "nombre": {
+    "es": "Dormir mejor",
+    "en": "Sleeping better"
+  },
+  "titular": {
+    "es": "¿Te cuesta dormirte o te levantas cansado?",
+    "en": "Do you struggle to fall asleep or wake up tired?"
+  },
+  "intro": {
+    "es": "Dar vueltas en la cama, despertarse de madrugada o levantarse sin energía. Antes de cualquier cápsula, lo que más ayuda es lo de siempre: horario fijo, poca luz de pantallas por la noche y nada de cafeína por la tarde. Estas fichas son para ir un paso más allá.",
+    "en": "Tossing and turning, waking up in the early hours or getting up with no energy. Before any capsule, what helps most is the usual: a fixed schedule, little screen light at night and no caffeine in the afternoon. These sheets are for going one step further."
+  },
+  "queOcurre": {
+    "es": "Dormirse depende de dos relojes. Uno es el cansancio, que se va acumulando desde que te levantas. El otro es el ritmo del día y la noche: cuando oscurece, el cerebro suelta melatonina, el cuerpo se enfría por dentro y los nervios se calman. Si la luz de la pantalla retrasa la melatonina, si estás tenso o si el cuerpo no se enfría, cuesta más. Cada suplemento de aquí actúa en un momento distinto de la noche, y el reloj de al lado marca cuándo.",
+    "en": "Falling asleep depends on two clocks. One is tiredness, which builds up from the moment you get up. The other is the day–night rhythm: when it gets dark, the brain releases melatonin, the body cools down inside and the nerves settle. If screen light delays melatonin, if you're tense or if your body doesn't cool down, it's harder. Each supplement here acts at a different moment of the night, and the clock beside it shows when."
+  },
+  "combinar": {
+    "es": "Ningún ensayo probó estos cuatro juntos. La melatonina adelanta la hora de dormir; el magnesio, la glicina y la L-teanina ayudan a relajarse. Si quieres probar, empieza por uno durante dos o tres semanas antes de añadir otro, así sabrás cuál te funciona.",
+    "en": "No trial tested these four together. Melatonin brings bedtime forward; magnesium, glycine and L-theanine help you relax. If you want to try, start with one for two or three weeks before adding another, so you'll know which one works for you."
+  },
+  "alarma": [
+    {
+      "es": "Roncas fuerte y alguien te ha visto dejar de respirar mientras duermes",
+      "en": "You snore loudly and someone has seen you stop breathing while asleep"
+    },
+    {
+      "es": "Llevas más de tres meses durmiendo mal casi todas las noches",
+      "en": "You've been sleeping badly almost every night for more than three months"
+    },
+    {
+      "es": "Te quedas dormido de día sin querer, por ejemplo conduciendo",
+      "en": "You fall asleep during the day without meaning to, for example while driving"
+    },
+    {
+      "es": "Por la noche notas las piernas inquietas y tienes que moverlas",
+      "en": "At night your legs feel restless and you have to move them"
+    },
+    {
+      "es": "El insomnio llegó con tristeza, ansiedad o un cambio de medicación",
+      "en": "The insomnia came with sadness, anxiety or a change of medication"
+    }
+  ],
+  "suplementos": [
+    "melatonina",
+    "magnesio",
+    "glicina",
+    "l-teanina"
+  ],
+  "mapa": "reloj"
+}

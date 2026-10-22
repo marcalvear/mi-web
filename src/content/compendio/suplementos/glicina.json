@@ -1,0 +1,129 @@
+{
+  "nombre": {
+    "es": "Glicina",
+    "en": "Glycine"
+  },
+  "tipo": {
+    "es": "Aminoácido",
+    "en": "Amino acid"
+  },
+  "evidencia": "preliminar",
+  "zona": "acostarse",
+  "porQue": {
+    "es": "Los ensayos son pocos, pequeños y de la misma empresa que la fabrica, aunque todos salen a favor.",
+    "en": "The trials are few, small and from the same company that makes it, though all of them come out in favour."
+  },
+  "resumen": {
+    "es": "Es un aminoácido que el cuerpo ya fabrica. Tomado antes de dormir baja un poco la temperatura del cuerpo y, en los estudios, la gente se levanta menos cansada.",
+    "en": "It's an amino acid the body already makes. Taken before bed it lowers body temperature slightly and, in the studies, people woke up less tired."
+  },
+  "mecanismo": {
+    "es": "Para dormirse, el cuerpo tiene que enfriarse un poco por dentro. La glicina abre los vasos de las manos y los pies, el calor sale por ahí y la temperatura interna baja antes. También calma un reloj del cerebro que marca el ritmo del día y la noche.",
+    "en": "To fall asleep, the body needs to cool down slightly inside. Glycine widens the blood vessels in the hands and feet, heat escapes there and core temperature drops sooner. It also calms a clock in the brain that sets the day–night rhythm."
+  },
+  "dosis": {
+    "es": "3 g, que es una cucharadita de polvo",
+    "en": "3 g, about a teaspoon of powder"
+  },
+  "cuando": {
+    "es": "Entre 30 y 60 minutos antes de acostarte",
+    "en": "30 to 60 minutes before bed"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En voluntarios sanos que durmieron un 25 % menos de lo normal durante tres noches, 3 g de glicina antes de acostarse redujeron el cansancio del día siguiente y mejoraron una prueba de atención frente a placebo. Lo firma la empresa que la fabrica.",
+        "en": "In healthy volunteers who slept 25% less than usual for three nights, 3 g of glycine before bed reduced next-day tiredness and improved an attention test compared with placebo. It's authored by the company that makes it."
+      },
+      "fuente": "22529837"
+    },
+    {
+      "texto": {
+        "es": "Los mismos autores resumen sus ensayos: con 3 g antes de dormir, la gente se duerme antes, entra antes en sueño profundo y se siente mejor por la mañana, sin cambiar la estructura normal del sueño.",
+        "en": "The same authors summarise their trials: with 3 g before bed, people fall asleep sooner, reach deep sleep sooner and feel better in the morning, without changing the normal structure of sleep."
+      },
+      "fuente": "22293292"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tomas clozapina u otros antipsicóticos, no la tomes sin hablar con tu psiquiatra.",
+      "en": "If you take clozapine or other antipsychotics, don't take it without talking to your psychiatrist."
+    },
+    {
+      "es": "A veces da molestias de estómago leves.",
+      "en": "It sometimes causes mild stomach upset."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Bannai M, Kawai N, Ono K, et al.",
+      "anio": 2012,
+      "titulo": "The effects of glycine on subjective daytime performance in partially sleep-restricted healthy volunteers",
+      "revista": "Front Neurol 3:61",
+      "pmid": "22529837",
+      "doi": "10.3389/fneur.2012.00061"
+    },
+    {
+      "autores": "Bannai M, Kawai N",
+      "anio": 2012,
+      "titulo": "New therapeutic strategy for amino acid medicine: glycine improves the quality of sleep",
+      "revista": "J Pharmacol Sci 118(2):145-148",
+      "pmid": "22293292",
+      "doi": "10.1254/jphs.11R04FM"
+    }
+  ],
+  "productos": [
+    {
+      "id": "now-glycine-powder",
+      "marca": "NOW Foods",
+      "nombre": "Glycine Pure Powder",
+      "foto": "now-glycine-powder.webp",
+      "alt": {
+        "es": "Bote blanco de Glycine Pure Powder de NOW Foods.",
+        "en": "White tub of NOW Foods Glycine Pure Powder."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/glycine-pure-powder",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Glicina pura en polvo",
+            "en": "Pure glycine powder"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "3/4 de cucharadita rasa, unos 3 g",
+            "en": "3/4 level teaspoon, about 3 g"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "454 g",
+            "en": "454 g"
+          }
+        }
+      ],
+      "precio": {
+        "es": "22,49 $",
+        "en": "$22.49"
+      }
+    }
+  ]
+}

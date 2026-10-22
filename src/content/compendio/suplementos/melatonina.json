@@ -1,0 +1,133 @@
+{
+  "nombre": {
+    "es": "Melatonina",
+    "en": "Melatonin"
+  },
+  "tipo": {
+    "es": "Hormona del sueño",
+    "en": "Sleep hormone"
+  },
+  "evidencia": "moderada",
+  "zona": "previa",
+  "porQue": {
+    "es": "Hay metaanálisis de muchos ensayos con placebo y salen a favor, pero el efecto es pequeño: minutos, no horas.",
+    "en": "There are meta-analyses of many placebo-controlled trials and they come out in favour, but the effect is small: minutes, not hours."
+  },
+  "resumen": {
+    "es": "Es la señal de «ya es de noche» que fabrica tu cerebro. En cápsula ayuda a dormirse un poco antes, sobre todo si la tomas unas horas antes de acostarte.",
+    "en": "It's the \"it's night now\" signal your brain makes. As a capsule it helps you fall asleep a little sooner, especially if you take it a few hours before bed."
+  },
+  "mecanismo": {
+    "es": "Cuando oscurece, una glándula del cerebro llamada pineal suelta melatonina, y el cuerpo entiende que toca dormir. La luz de las pantallas por la noche frena esa subida. La melatonina en cápsula adelanta la señal: no te noquea como un somnífero, sino que le dice al reloj interno que la noche ha empezado.",
+    "en": "When it gets dark, a gland in the brain called the pineal gland releases melatonin, and the body understands it's time to sleep. Screen light at night holds that rise back. Melatonin in a capsule brings the signal forward: it doesn't knock you out like a sleeping pill, it tells your body clock the night has started."
+  },
+  "dosis": {
+    "es": "Entre 1 y 4 mg. En España, como complemento, cada toma lleva menos de 2 mg",
+    "en": "Between 1 and 4 mg. In Spain, as a supplement, each dose has less than 2 mg"
+  },
+  "cuando": {
+    "es": "Unas 2 o 3 horas antes de la hora a la que quieres dormir",
+    "en": "About 2 or 3 hours before the time you want to fall asleep"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "Juntando 19 ensayos con 1.683 personas con problemas de sueño, la melatonina adelantó unos 7 minutos el momento de dormirse y alargó el sueño unos 8 minutos frente a placebo. El efecto es pequeño, pero no se pierde con el uso.",
+        "en": "Pooling 19 trials with 1,683 people with sleep problems, melatonin brought falling asleep forward by about 7 minutes and lengthened sleep by about 8 minutes compared with placebo. The effect is small, but it doesn't wear off with use."
+      },
+      "fuente": "23691095"
+    },
+    {
+      "texto": {
+        "es": "Con 26 ensayos, el efecto sube con la dosis hasta unos 4 mg al día y es mayor si se toma unas 3 horas antes de acostarse, en vez de justo al irse a la cama.",
+        "en": "With 26 trials, the effect rises with the dose up to about 4 mg a day and is larger when it's taken about 3 hours before bed, rather than right at bedtime."
+      },
+      "fuente": "38888087"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Puede dar sueño al día siguiente: no conduzcas si notas que te afecta.",
+      "en": "It can leave you drowsy the next day: don't drive if you notice it affects you."
+    },
+    {
+      "es": "Si estás embarazada, das el pecho, tomas anticoagulantes, antiepilépticos o medicación para dormir, consúltalo antes con tu médico.",
+      "en": "If you're pregnant, breastfeeding, or take blood thinners, epilepsy medicine or sleep medication, check with your doctor first."
+    },
+    {
+      "es": "En niños, solo si lo indica el pediatra.",
+      "en": "In children, only if the paediatrician says so."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Ferracioli-Oda E, Qawasmi A, Bloch MH",
+      "anio": 2013,
+      "titulo": "Meta-analysis: melatonin for the treatment of primary sleep disorders",
+      "revista": "PLoS One 8(5):e63773",
+      "pmid": "23691095",
+      "doi": "10.1371/journal.pone.0063773"
+    },
+    {
+      "autores": "Cruz-Sanabria F, Bruno S, Crippa A, et al.",
+      "anio": 2024,
+      "titulo": "Optimizing the Time and Dose of Melatonin as a Sleep-Promoting Drug: A Systematic Review of Randomized Controlled Trials and Dose-Response Meta-Analysis",
+      "revista": "J Pineal Res 76(5):e12985",
+      "pmid": "38888087",
+      "doi": "10.1111/jpi.12985"
+    }
+  ],
+  "productos": [
+    {
+      "id": "aquilea-melatonina",
+      "marca": "Aquilea",
+      "nombre": "Melatonina 1,95 mg",
+      "foto": "aquilea-melatonina.webp",
+      "alt": {
+        "es": "Caja de Aquilea Melatonina, azul y amarilla, con una luna dibujada.",
+        "en": "Blue and yellow box of Aquilea Melatonin with a drawn moon."
+      },
+      "url": "https://www.aquilea.com/productos/descanso/aquilea-melatonina/",
+      "pais": {
+        "es": "España",
+        "en": "Spain"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "1,95 mg de melatonina y 0,7 mg de vitamina B6",
+            "en": "1.95 mg of melatonin and 0.7 mg of vitamin B6"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 comprimido de 1 a 2 horas antes de acostarte",
+            "en": "1 tablet 1 to 2 hours before bed"
+          }
+        },
+        {
+          "k": {
+            "es": "Caja",
+            "en": "Pack"
+          },
+          "v": {
+            "es": "30 o 60 comprimidos",
+            "en": "30 or 60 tablets"
+          }
+        }
+      ],
+      "precio": {
+        "es": "En farmacias; la marca no publica el precio",
+        "en": "In pharmacies; the brand doesn't publish a price"
+      }
+    }
+  ]
+}

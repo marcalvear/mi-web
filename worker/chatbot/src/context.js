@@ -49,6 +49,7 @@ COMPENDIO DE BIOHACKING
 - Elige lo que te pasa y te cuento qué suplementos se han estudiado para eso, cómo actúan en tu cuerpo y qué encontraron los estudios, con cada fuente enlazada. Está en https://marcalvear.github.io/mi-web/biohacking/ (en inglés, /mi-web/en/biohacking/). Esto es divulgación, no consejo médico. Lo escribo leyendo estudios, no como profesional sanitario. Si tomas medicación, estás embarazada o los síntomas no se van, habla antes con tu médico o tu farmacéutico.
 - Digestiones pesadas: Enzimas digestivas, Aceite de menta y alcaravea, Extracto de hoja de alcachofa, Jengibre.
 - Envejecer mejor: Luteína y zeaxantina, Astaxantina, Licopeno, Vitamina K (K1 y K2).
+- Dormir mejor: Melatonina, Magnesio, Glicina, L-teanina.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -170,6 +171,60 @@ FICHA: Vitamina K (K1 y K2) (Vitamina liposoluble) · https://marcalvear.github.
 
 Producto que junta varios suplementos de este problema (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Blueprint, Advanced Antioxidants (Estados Unidos): carotenoides Luteína 10 mg, zeaxantina 2 mg, licopeno 15 mg y astaxantina 12 mg; vitamina K K1 1.500 mcg (12,5 veces la cantidad diaria), K2 MK-4 5 mg y MK-7 600 mcg; toma 1 cápsula al día con comida; bote 30 cápsulas; precio 56,49 € (30 cápsulas). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
+
+PROBLEMA: DORMIR MEJOR (https://marcalvear.github.io/mi-web/biohacking/#dormir-mejor)
+- Dar vueltas en la cama, despertarse de madrugada o levantarse sin energía. Antes de cualquier cápsula, lo que más ayuda es lo de siempre: horario fijo, poca luz de pantallas por la noche y nada de cafeína por la tarde. Estas fichas son para ir un paso más allá.
+- Qué pasa en el cuerpo: Dormirse depende de dos relojes. Uno es el cansancio, que se va acumulando desde que te levantas. El otro es el ritmo del día y la noche: cuando oscurece, el cerebro suelta melatonina, el cuerpo se enfría por dentro y los nervios se calman. Si la luz de la pantalla retrasa la melatonina, si estás tenso o si el cuerpo no se enfría, cuesta más. Cada suplemento de aquí actúa en un momento distinto de la noche, y el reloj de al lado marca cuándo.
+- Combinarlos: Ningún ensayo probó estos cuatro juntos. La melatonina adelanta la hora de dormir; el magnesio, la glicina y la L-teanina ayudan a relajarse. Si quieres probar, empieza por uno durante dos o tres semanas antes de añadir otro, así sabrás cuál te funciona.
+- Ve al médico antes que a un suplemento si además: roncas fuerte y alguien te ha visto dejar de respirar mientras duermes; llevas más de tres meses durmiendo mal casi todas las noches; te quedas dormido de día sin querer, por ejemplo conduciendo; por la noche notas las piernas inquietas y tienes que moverlas; el insomnio llegó con tristeza, ansiedad o un cambio de medicación.
+
+FICHA: Melatonina (Hormona del sueño) · https://marcalvear.github.io/mi-web/biohacking/#melatonina
+- Qué es: Es la señal de «ya es de noche» que fabrica tu cerebro. En cápsula ayuda a dormirse un poco antes, sobre todo si la tomas unas horas antes de acostarte.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Hay metaanálisis de muchos ensayos con placebo y salen a favor, pero el efecto es pequeño: minutos, no horas.
+- Cómo funciona: Cuando oscurece, una glándula del cerebro llamada pineal suelta melatonina, y el cuerpo entiende que toca dormir. La luz de las pantallas por la noche frena esa subida. La melatonina en cápsula adelanta la señal: no te noquea como un somnífero, sino que le dice al reloj interno que la noche ha empezado.
+- Dosis estudiada: Entre 1 y 4 mg. En España, como complemento, cada toma lleva menos de 2 mg. Cuándo: Unas 2 o 3 horas antes de la hora a la que quieres dormir.
+- Qué encontraron los estudios:
+  - Juntando 19 ensayos con 1.683 personas con problemas de sueño, la melatonina adelantó unos 7 minutos el momento de dormirse y alargó el sueño unos 8 minutos frente a placebo. El efecto es pequeño, pero no se pierde con el uso. [Ferracioli-Oda E et al., 2013, PLoS One 8(5):e63773, PMID 23691095]
+  - Con 26 ensayos, el efecto sube con la dosis hasta unos 4 mg al día y es mayor si se toma unas 3 horas antes de acostarse, en vez de justo al irse a la cama. [Cruz-Sanabria F et al., 2024, J Pineal Res 76(5):e12985, PMID 38888087]
+- Precauciones: Puede dar sueño al día siguiente: no conduzcas si notas que te afecta. Si estás embarazada, das el pecho, tomas anticoagulantes, antiepilépticos o medicación para dormir, consúltalo antes con tu médico. En niños, solo si lo indica el pediatra.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Aquilea, Melatonina 1,95 mg (España): lleva 1,95 mg de melatonina y 0,7 mg de vitamina B6; toma 1 comprimido de 1 a 2 horas antes de acostarte; caja 30 o 60 comprimidos; precio En farmacias; la marca no publica el precio. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
+
+FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#magnesio
+- Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay un ensayo pequeño a favor en personas mayores con insomnio, pero la revisión más reciente encuentra resultados contradictorios y una certeza baja.
+- Cómo funciona: El magnesio frena a los receptores que mantienen el cerebro en alerta y ayuda a los que lo calman, los mismos sobre los que actúan muchos somníferos. Si te falta, cuesta más relajarse. Si ya tienes suficiente, tomar más no parece hacer mucho.
+- Dosis estudiada: Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido. Cuándo: Con la cena.
+- Qué encontraron los estudios:
+  - En 46 personas mayores con insomnio, 500 mg de magnesio al día durante 8 semanas mejoraron la gravedad del insomnio, el tiempo que tardaban en dormirse y la eficiencia del sueño frente a placebo. El tiempo total de sueño no cambió. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
+  - Una revisión de 12 ensayos de 2026 concluye que el magnesio no sirve como tratamiento de rutina para el insomnio: los resultados son contradictorios y la certeza, baja. Puede ayudar algo a grupos concretos, como quien tiene poco magnesio. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
+- Precauciones: Si tienes una enfermedad del riñón, no lo tomes sin hablar con tu médico. Separa 2 horas el magnesio de antibióticos como las tetraciclinas o las quinolonas y de la levotiroxina. A dosis altas puede soltar el vientre; el óxido de magnesio, más.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Thorne, Magnesium Bisglycinate (Estados Unidos): lleva 200 mg de magnesio en bisglicinato por cacito; toma 1 cacito en un vaso grande de agua al día; bote Polvo, 60 tomas; precio 52 $. https://www.thorne.com/products/dp/magnesium-bisglycinate
+
+FICHA: Glicina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#glicina
+- Qué es: Es un aminoácido que el cuerpo ya fabrica. Tomado antes de dormir baja un poco la temperatura del cuerpo y, en los estudios, la gente se levanta menos cansada.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los ensayos son pocos, pequeños y de la misma empresa que la fabrica, aunque todos salen a favor.
+- Cómo funciona: Para dormirse, el cuerpo tiene que enfriarse un poco por dentro. La glicina abre los vasos de las manos y los pies, el calor sale por ahí y la temperatura interna baja antes. También calma un reloj del cerebro que marca el ritmo del día y la noche.
+- Dosis estudiada: 3 g, que es una cucharadita de polvo. Cuándo: Entre 30 y 60 minutos antes de acostarte.
+- Qué encontraron los estudios:
+  - En voluntarios sanos que durmieron un 25 % menos de lo normal durante tres noches, 3 g de glicina antes de acostarse redujeron el cansancio del día siguiente y mejoraron una prueba de atención frente a placebo. Lo firma la empresa que la fabrica. [Bannai M et al., 2012, Front Neurol 3:61, PMID 22529837]
+  - Los mismos autores resumen sus ensayos: con 3 g antes de dormir, la gente se duerme antes, entra antes en sueño profundo y se siente mejor por la mañana, sin cambiar la estructura normal del sueño. [Bannai M et al., 2012, J Pharmacol Sci 118(2):145-148, PMID 22293292]
+- Precauciones: Si tomas clozapina u otros antipsicóticos, no la tomes sin hablar con tu psiquiatra. A veces da molestias de estómago leves.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Glycine Pure Powder (Estados Unidos): lleva Glicina pura en polvo; toma 3/4 de cucharadita rasa, unos 3 g; bote 454 g; precio 22,49 $. https://www.nowfoods.com/products/supplements/glycine-pure-powder
+
+FICHA: L-teanina (Aminoácido del té) · https://marcalvear.github.io/mi-web/biohacking/#l-teanina
+- Qué es: Es el aminoácido que hace que el té verde relaje en vez de poner nervioso. En cápsula ayuda a calmarse y, en un ensayo, mejoró la calidad del sueño.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay un ensayo bien hecho con placebo, pero pequeño (30 personas) y en parte de la empresa que la vende. Para el sueño, los metaanálisis aún no dan un resultado claro.
+- Cómo funciona: La L-teanina llega al cerebro y sube las ondas alfa, las de estar despierto pero tranquilo. Además frena un poco el glutamato, el mensajero que mantiene el cerebro acelerado. No da sueño por sí misma: quita tensión para que cueste menos dormirse.
+- Dosis estudiada: 200 mg al día. Cuándo: Antes de acostarte. Si la tomas por el estrés, también sirve de día.
+- Qué encontraron los estudios:
+  - En 30 adultos sanos, 200 mg al día durante 4 semanas mejoraron la calidad del sueño frente a placebo: se dormían antes, se despertaban menos y usaban menos pastillas para dormir. También bajaron la ansiedad y los síntomas de estrés. [Hidese S et al., 2019, Nutrients 11(10):2362, PMID 31623400]
+  - Una revisión de 50 ensayos con té, L-teanina sola o con cafeína encuentra efectos a favor en atención y ánimo, pero con mucha incertidumbre, y pocos datos todavía sobre el sueño. Parte de los autores trabajan para una marca de té. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
+- Precauciones: Si tomas medicación para la tensión, puede bajarla un poco más. En embarazo y lactancia no hay datos suficientes: mejor no tomarla.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Thorne, Theanine (Estados Unidos): lleva 200 mg de L-teanina por cápsula; toma 1 cápsula, de 1 a 3 veces al día; bote 90 cápsulas; precio 68 $ (90 cápsulas). https://www.thorne.com/products/dp/theanine
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -277,5 +332,59 @@ SHEET: Vitamin K (K1 and K2) (Fat-soluble vitamin) · https://marcalvear.github.
 
 Product that combines several supplements in this problem (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Blueprint, Advanced Antioxidants (United States): carotenoids Lutein 10 mg, zeaxanthin 2 mg, lycopene 15 mg and astaxanthin 12 mg; vitamin K K1 1,500 mcg (12.5 times the daily value), K2 MK-4 5 mg and MK-7 600 mcg; dose 1 capsule a day with food; bottle 30 capsules; price €56.49 (30 capsules). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
+
+PROBLEM: SLEEPING BETTER (https://marcalvear.github.io/mi-web/en/biohacking/#dormir-mejor)
+- Tossing and turning, waking up in the early hours or getting up with no energy. Before any capsule, what helps most is the usual: a fixed schedule, little screen light at night and no caffeine in the afternoon. These sheets are for going one step further.
+- What's going on in the body: Falling asleep depends on two clocks. One is tiredness, which builds up from the moment you get up. The other is the day–night rhythm: when it gets dark, the brain releases melatonin, the body cools down inside and the nerves settle. If screen light delays melatonin, if you're tense or if your body doesn't cool down, it's harder. Each supplement here acts at a different moment of the night, and the clock beside it shows when.
+- Combining them: No trial tested these four together. Melatonin brings bedtime forward; magnesium, glycine and L-theanine help you relax. If you want to try, start with one for two or three weeks before adding another, so you'll know which one works for you.
+- See a doctor before trying a supplement if you also: you snore loudly and someone has seen you stop breathing while asleep; you've been sleeping badly almost every night for more than three months; you fall asleep during the day without meaning to, for example while driving; at night your legs feel restless and you have to move them; the insomnia came with sadness, anxiety or a change of medication.
+
+SHEET: Melatonin (Sleep hormone) · https://marcalvear.github.io/mi-web/en/biohacking/#melatonina
+- What it is: It's the "it's night now" signal your brain makes. As a capsule it helps you fall asleep a little sooner, especially if you take it a few hours before bed.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: There are meta-analyses of many placebo-controlled trials and they come out in favour, but the effect is small: minutes, not hours.
+- How it works: When it gets dark, a gland in the brain called the pineal gland releases melatonin, and the body understands it's time to sleep. Screen light at night holds that rise back. Melatonin in a capsule brings the signal forward: it doesn't knock you out like a sleeping pill, it tells your body clock the night has started.
+- Dose studied: Between 1 and 4 mg. In Spain, as a supplement, each dose has less than 2 mg. When: About 2 or 3 hours before the time you want to fall asleep.
+- What the studies found:
+  - Pooling 19 trials with 1,683 people with sleep problems, melatonin brought falling asleep forward by about 7 minutes and lengthened sleep by about 8 minutes compared with placebo. The effect is small, but it doesn't wear off with use. [Ferracioli-Oda E et al., 2013, PLoS One 8(5):e63773, PMID 23691095]
+  - With 26 trials, the effect rises with the dose up to about 4 mg a day and is larger when it's taken about 3 hours before bed, rather than right at bedtime. [Cruz-Sanabria F et al., 2024, J Pineal Res 76(5):e12985, PMID 38888087]
+- Cautions: It can leave you drowsy the next day: don't drive if you notice it affects you. If you're pregnant, breastfeeding, or take blood thinners, epilepsy medicine or sleep medication, check with your doctor first. In children, only if the paediatrician says so.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Aquilea, Melatonina 1,95 mg (Spain): contains 1.95 mg of melatonin and 0.7 mg of vitamin B6; dose 1 tablet 1 to 2 hours before bed; pack 30 or 60 tablets; price In pharmacies; the brand doesn't publish a price. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
+
+SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#magnesio
+- What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older people are.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: There's a small trial in favour in older people with insomnia, but the most recent review finds contradictory results and low certainty.
+- How it works: Magnesium holds back the receptors that keep the brain alert and helps the ones that calm it, the same ones many sleeping pills act on. If you're low, it's harder to relax. If you already have enough, taking more doesn't seem to do much.
+- Dose studied: Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide. When: With dinner.
+- What the studies found:
+  - In 46 older people with insomnia, 500 mg of magnesium a day for 8 weeks improved insomnia severity, how long they took to fall asleep and sleep efficiency compared with placebo. Total sleep time didn't change. [Abbasi B et al., 2012, J Res Med Sci 17(12):1161-1169, PMID 23853635]
+  - A 2026 review of 12 trials concludes magnesium isn't a routine treatment for insomnia: results are contradictory and certainty is low. It may help a little in specific groups, such as people low in magnesium. [Lopresti AL et al., 2026, J Diet Suppl 23(5):553-581, PMID 42661485]
+- Cautions: If you have kidney disease, don't take it without talking to your doctor. Keep magnesium 2 hours apart from antibiotics such as tetracyclines or quinolones and from levothyroxine. At high doses it can loosen your stools; magnesium oxide more so.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Thorne, Magnesium Bisglycinate (United States): contains 200 mg of magnesium as bisglycinate per scoop; dose 1 scoop in a large glass of water a day; tub Powder, 60 servings; price $52. https://www.thorne.com/products/dp/magnesium-bisglycinate
+
+SHEET: Glycine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#glicina
+- What it is: It's an amino acid the body already makes. Taken before bed it lowers body temperature slightly and, in the studies, people woke up less tired.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: The trials are few, small and from the same company that makes it, though all of them come out in favour.
+- How it works: To fall asleep, the body needs to cool down slightly inside. Glycine widens the blood vessels in the hands and feet, heat escapes there and core temperature drops sooner. It also calms a clock in the brain that sets the day–night rhythm.
+- Dose studied: 3 g, about a teaspoon of powder. When: 30 to 60 minutes before bed.
+- What the studies found:
+  - In healthy volunteers who slept 25% less than usual for three nights, 3 g of glycine before bed reduced next-day tiredness and improved an attention test compared with placebo. It's authored by the company that makes it. [Bannai M et al., 2012, Front Neurol 3:61, PMID 22529837]
+  - The same authors summarise their trials: with 3 g before bed, people fall asleep sooner, reach deep sleep sooner and feel better in the morning, without changing the normal structure of sleep. [Bannai M et al., 2012, J Pharmacol Sci 118(2):145-148, PMID 22293292]
+- Cautions: If you take clozapine or other antipsychotics, don't take it without talking to your psychiatrist. It sometimes causes mild stomach upset.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Glycine Pure Powder (United States): contains Pure glycine powder; dose 3/4 level teaspoon, about 3 g; tub 454 g; price $22.49. https://www.nowfoods.com/products/supplements/glycine-pure-powder
+
+SHEET: L-theanine (Tea amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#l-teanina
+- What it is: It's the amino acid that makes green tea relaxing instead of jittery. As a capsule it helps you calm down and, in one trial, improved sleep quality.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: There's one well-run placebo-controlled trial, but it's small (30 people) and partly from the company that sells it. For sleep, meta-analyses don't give a clear result yet.
+- How it works: L-theanine reaches the brain and raises alpha waves, the ones of being awake but calm. It also slightly holds back glutamate, the messenger that keeps the brain revved up. It doesn't make you sleepy on its own: it takes the edge off so it's easier to fall asleep.
+- Dose studied: 200 mg a day. When: Before bed. If you take it for stress, it also works during the day.
+- What the studies found:
+  - In 30 healthy adults, 200 mg a day for 4 weeks improved sleep quality compared with placebo: they fell asleep sooner, woke up less and used fewer sleeping pills. Anxiety and stress symptoms also went down. [Hidese S et al., 2019, Nutrients 11(10):2362, PMID 31623400]
+  - A review of 50 trials of tea, L-theanine alone or with caffeine finds effects in favour on attention and mood, but with a lot of uncertainty, and little data on sleep so far. Some of the authors work for a tea brand. [Payne ER et al., 2025, Nutr Rev 83(10):1873-1891, PMID 40314930]
+- Cautions: If you take blood pressure medication, it may lower it a little more. In pregnancy and breastfeeding there isn't enough data: better not to take it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Thorne, Theanine (United States): contains 200 mg of L-theanine per capsule; dose 1 capsule, 1 to 3 times a day; bottle 90 capsules; price $68 (90 capsules). https://www.thorne.com/products/dp/theanine
 `,
 };

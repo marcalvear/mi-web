@@ -1,0 +1,132 @@
+{
+  "nombre": {
+    "es": "Magnesio",
+    "en": "Magnesium"
+  },
+  "tipo": {
+    "es": "Mineral",
+    "en": "Mineral"
+  },
+  "evidencia": "preliminar",
+  "zona": "cena",
+  "porQue": {
+    "es": "Hay un ensayo pequeño a favor en personas mayores con insomnio, pero la revisión más reciente encuentra resultados contradictorios y una certeza baja.",
+    "en": "There's a small trial in favour in older people with insomnia, but the most recent review finds contradictory results and low certainty."
+  },
+  "resumen": {
+    "es": "Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores.",
+    "en": "It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older people are."
+  },
+  "mecanismo": {
+    "es": "El magnesio frena a los receptores que mantienen el cerebro en alerta y ayuda a los que lo calman, los mismos sobre los que actúan muchos somníferos. Si te falta, cuesta más relajarse. Si ya tienes suficiente, tomar más no parece hacer mucho.",
+    "en": "Magnesium holds back the receptors that keep the brain alert and helps the ones that calm it, the same ones many sleeping pills act on. If you're low, it's harder to relax. If you already have enough, taking more doesn't seem to do much."
+  },
+  "dosis": {
+    "es": "Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido",
+    "en": "Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide"
+  },
+  "cuando": {
+    "es": "Con la cena",
+    "en": "With dinner"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 46 personas mayores con insomnio, 500 mg de magnesio al día durante 8 semanas mejoraron la gravedad del insomnio, el tiempo que tardaban en dormirse y la eficiencia del sueño frente a placebo. El tiempo total de sueño no cambió.",
+        "en": "In 46 older people with insomnia, 500 mg of magnesium a day for 8 weeks improved insomnia severity, how long they took to fall asleep and sleep efficiency compared with placebo. Total sleep time didn't change."
+      },
+      "fuente": "23853635"
+    },
+    {
+      "texto": {
+        "es": "Una revisión de 12 ensayos de 2026 concluye que el magnesio no sirve como tratamiento de rutina para el insomnio: los resultados son contradictorios y la certeza, baja. Puede ayudar algo a grupos concretos, como quien tiene poco magnesio.",
+        "en": "A 2026 review of 12 trials concludes magnesium isn't a routine treatment for insomnia: results are contradictory and certainty is low. It may help a little in specific groups, such as people low in magnesium."
+      },
+      "fuente": "42661485"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes una enfermedad del riñón, no lo tomes sin hablar con tu médico.",
+      "en": "If you have kidney disease, don't take it without talking to your doctor."
+    },
+    {
+      "es": "Separa 2 horas el magnesio de antibióticos como las tetraciclinas o las quinolonas y de la levotiroxina.",
+      "en": "Keep magnesium 2 hours apart from antibiotics such as tetracyclines or quinolones and from levothyroxine."
+    },
+    {
+      "es": "A dosis altas puede soltar el vientre; el óxido de magnesio, más.",
+      "en": "At high doses it can loosen your stools; magnesium oxide more so."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Abbasi B, Kimiagar M, Sadeghniiat K, et al.",
+      "anio": 2012,
+      "titulo": "The effect of magnesium supplementation on primary insomnia in elderly: A double-blind placebo-controlled clinical trial",
+      "revista": "J Res Med Sci 17(12):1161-1169",
+      "pmid": "23853635"
+    },
+    {
+      "autores": "Lopresti AL, Smith SJ, Drummond PD",
+      "anio": 2026,
+      "titulo": "Magnesium Supplementation for Sleep in Adults: A Systematic Review of Randomized Controlled Trials",
+      "revista": "J Diet Suppl 23(5):553-581",
+      "pmid": "42661485",
+      "doi": "10.1080/19390211.2026.2719670"
+    }
+  ],
+  "productos": [
+    {
+      "id": "thorne-magnesium-bisglycinate",
+      "marca": "Thorne",
+      "nombre": "Magnesium Bisglycinate",
+      "foto": "thorne-magnesium-bisglycinate.webp",
+      "alt": {
+        "es": "Bote blanco de Magnesium Bisglycinate de Thorne.",
+        "en": "White tub of Thorne Magnesium Bisglycinate."
+      },
+      "url": "https://www.thorne.com/products/dp/magnesium-bisglycinate",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "200 mg de magnesio en bisglicinato por cacito",
+            "en": "200 mg of magnesium as bisglycinate per scoop"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cacito en un vaso grande de agua al día",
+            "en": "1 scoop in a large glass of water a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "Polvo, 60 tomas",
+            "en": "Powder, 60 servings"
+          }
+        }
+      ],
+      "precio": {
+        "es": "52 $",
+        "en": "$52"
+      }
+    }
+  ]
+}

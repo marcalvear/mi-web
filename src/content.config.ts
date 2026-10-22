@@ -64,8 +64,8 @@ const problemas = defineCollection({
     combinar: t,
     alarma: z.array(t).min(1),
     suplementos: z.array(reference("suplementos")).min(1),
-    /** Esquema del cuerpo junto a las fichas. Hoy solo existe el digestivo */
-    mapa: z.enum(["digestivo"]).optional(),
+    /** Esquema junto a las fichas: el aparato digestivo o el reloj del sueño (#83) */
+    mapa: z.enum(["digestivo", "reloj"]).optional(),
     /** Estudios que respaldan la explicación general del problema (#73) */
     fuentes: z.array(fuente).optional(),
     /** Productos que juntan varios suplementos del problema y no son de una sola ficha */

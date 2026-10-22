@@ -1,0 +1,310 @@
+---
+// Esquema dibujado a mano alzada del compendio (#73, #83). Lo comparten el
+// aparato digestivo y el reloj del sueño: cada uno calcula sus trazos con
+// rough.js al compilar y este componente los pinta igual, con las zonas que se
+// encienden, los marcadores numerados y la leyenda. El script de cada problema
+// (CompendioPage) busca [data-map], [data-marker], [data-zone-shape] y
+// [data-pick], así que sirve para cualquier esquema.
+
+export interface MapMarker {
+  id: string;
+  n: number;
+  zone: string;
+  name: string;
+  zoneName: string;
+}
+
+export interface SketchGroup {
+  /** Sin zona, el grupo es decoración: no se enciende con ninguna ficha */
+  zone?: string;
+  outline: string[];
+  hachure: string[];
+  details: string[];
+}
+
+interface Props {
+  viewBox: string;
+  /** Prefijo de los id del título y la descripción: único en la página */
+  idPrefix: string;
+  groups: SketchGroup[];
+  /** Marcadores ya colocados en el dibujo */
+  placed: (MapMarker & { x: number; y: number })[];
+  markers: MapMarker[];
+  text: { title: string; desc: string; hint: string };
+}
+const { viewBox, idPrefix, groups, placed, markers, text } = Astro.props;
+const ids = { title: `${idPrefix}-titulo`, desc: `${idPrefix}-desc` };
+---
+
+<figure class="map" data-map>
+  <svg viewBox={viewBox} role="img" aria-labelledby={`${ids.title} ${ids.desc}`}>
+    <title id={ids.title}>{text.title}</title>
+    <desc id={ids.desc}>{text.desc}</desc>
+
+    <g class="organs" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      {
+        groups.map((o) => (
+          <g data-zone-shape={o.zone}>
+            {o.hachure.map((d) => (
+              <path class="hachure" d={d} />
+            ))}
+            {o.details.map((d) => (
+              <path class="detail" d={d} pathLength="1" />
+            ))}
+            {o.outline.map((d) => (
+              <path class="outline" d={d} pathLength="1" />
+            ))}
+          </g>
+        ))
+      }
+    </g>
+
+    <slot />
+
+    <g class="markers" aria-hidden="true">
+      {
+        placed.map((m) => (
+          <g class="marker" data-marker={m.id} data-zone={m.zone} transform={`translate(${m.x} ${m.y})`}>
+            <circle r="11" />
+            <text y="4" text-anchor="middle">{m.n}</text>
+          </g>
+        ))
+      }
+    </g>
+  </svg>
+
+  <figcaption>
+    <p class="hint">{text.hint}</p>
+    <ol class="legend" role="list">
+      {
+        markers.map((m) => (
+          <li>
+            <button type="button" class="pick" data-pick={m.id} aria-pressed="false">
+              <span class="n" aria-hidden="true">{m.n}</span>
+              <span>{m.name}</span>
+              <span class="zone">{m.zoneName}</span>
+            </button>
+          </li>
+        ))
+      }
+    </ol>
+  </figcaption>
+</figure>
+
+<style>
+  .map {
+    margin: 0;
+    padding: var(--space-2);
+    background:
+      linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 16px 16px,
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 16px 16px,
+      var(--sheet);
+    border: 1.5px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--rule);
+  }
+
+  svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: min(28rem, 62vh);
+    color: var(--ink);
+  }
+
+  /* Trazos a mano alzada: el contorno se dibuja al entrar en pantalla y las
+     rayas del relleno aparecen después, como al sombrear con lápiz */
+  .organs {
+    color: var(--ink);
+  }
+
+  .organs .outline,
+  .organs .detail {
+    stroke: currentColor;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition:
+      stroke-dashoffset var(--draw) var(--ease-out),
+      opacity var(--fast);
+  }
+
+  .organs .outline {
+    stroke-width: 1.6;
+  }
+
+  .organs .detail {
+    stroke-width: 1.1;
+    opacity: 0.6;
+  }
+
+  .organs .hachure {
+    stroke: currentColor;
+    stroke-width: 0.7;
+    opacity: 0;
+    transition: opacity var(--slow) var(--ease-out) var(--draw);
+  }
+
+  .map.drawn .organs .outline,
+  .map.drawn .organs .detail {
+    stroke-dashoffset: 0;
+  }
+
+  .map.drawn .organs .hachure {
+    opacity: 0.22;
+  }
+
+  .organs [data-zone-shape] {
+    transition: color var(--fast), opacity var(--fast);
+  }
+
+  .map :global(.names) {
+    font-family: var(--font-mono);
+    fill: var(--ink-soft);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .map :global(.names line) {
+    stroke: var(--ink-soft);
+    stroke-width: 0.8;
+    stroke-dasharray: 2 3;
+  }
+
+  .marker circle {
+    fill: var(--sheet);
+    stroke: var(--lab);
+    stroke-width: 1.8;
+    transition: fill var(--fast), r var(--fast);
+  }
+
+  .marker text {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    fill: var(--lab);
+  }
+
+  .marker {
+    cursor: pointer;
+  }
+
+  /* Una ficha activa: su zona y su marcador se encienden, el resto se apaga */
+  .map[data-active] [data-zone-shape] {
+    opacity: 0.35;
+  }
+
+  .map [data-zone-shape].on {
+    opacity: 1;
+    color: var(--lab);
+  }
+
+  .map.drawn [data-zone-shape].on .hachure {
+    opacity: 0.75;
+    transition-delay: 0s;
+  }
+
+  .map[data-active] .marker {
+    opacity: 0.4;
+  }
+
+  .map .marker.on {
+    opacity: 1;
+  }
+
+  .marker.on circle {
+    fill: var(--lab);
+    r: 13;
+  }
+
+  .marker.on text {
+    fill: var(--sheet);
+  }
+
+  .marker.off {
+    display: none;
+  }
+
+  figcaption {
+    display: grid;
+    gap: var(--space-1);
+    margin-block-start: var(--space-2);
+  }
+
+  .hint {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+
+  .legend {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .pick {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.6em;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--step--1);
+    text-align: start;
+    cursor: pointer;
+  }
+
+  .pick:hover,
+  .pick[aria-pressed="true"] {
+    border-color: var(--lab);
+    background: var(--lab-soft);
+  }
+
+  .pick[hidden] {
+    display: none;
+  }
+
+  .n {
+    display: inline-grid;
+    place-items: center;
+    width: 1.7em;
+    height: 1.7em;
+    border: 1.5px solid var(--lab);
+    border-radius: 50%;
+    color: var(--lab);
+    font-family: var(--font-mono);
+    font-weight: 700;
+  }
+
+  .pick[aria-pressed="true"] .n {
+    background: var(--lab);
+    color: var(--sheet);
+  }
+
+  .zone {
+    color: var(--ink-soft);
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .organs .outline,
+    .organs .detail {
+      stroke-dashoffset: 0;
+      transition: none;
+    }
+
+    .organs .hachure {
+      opacity: 0.22;
+      transition: none;
+    }
+  }
+</style>
