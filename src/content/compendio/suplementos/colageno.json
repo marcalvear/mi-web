@@ -1,0 +1,90 @@
+{
+  "nombre": {
+    "es": "Colágeno hidrolizado",
+    "en": "Hydrolysed collagen"
+  },
+  "tipo": {
+    "es": "Proteína",
+    "en": "Protein"
+  },
+  "evidencia": "preliminar",
+  "porQue": {
+    "es": "Los metaanálisis salen a favor, pero el más reciente encuentra que el efecto desaparece en los ensayos que no paga la industria y en los mejor hechos.",
+    "en": "Meta-analyses come out in favour, but the most recent one finds the effect disappears in trials not funded by industry and in the best-run ones."
+  },
+  "resumen": {
+    "es": "Es colágeno partido en trozos pequeños para que se absorba. Se toma para la piel: en muchos ensayos mejora la hidratación y la elasticidad, pero en los independientes no.",
+    "en": "It's collagen broken into small pieces so it can be absorbed. It's taken for the skin: in many trials it improves hydration and elasticity, but not in the independent ones."
+  },
+  "mecanismo": {
+    "es": "El colágeno es la proteína que sostiene la piel, y con los años se fabrica menos. El que te tomas no llega entero a la piel: se digiere en trozos de dos o tres aminoácidos. La idea es que esos trozos avisan a las células de la piel para que fabriquen más colágeno propio, y para eso necesitan vitamina C.",
+    "en": "Collagen is the protein that holds the skin up, and with age less is made. The collagen you take doesn't reach the skin whole: it's digested into pieces two or three amino acids long. The idea is that those pieces tell skin cells to make more of their own collagen, and for that they need vitamin C."
+  },
+  "dosis": {
+    "es": "Entre 2,5 y 10 g al día",
+    "en": "Between 2.5 and 10 g a day"
+  },
+  "cuando": {
+    "es": "A cualquier hora, todos los días durante al menos 3 meses",
+    "en": "Any time of day, every day for at least 3 months"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "Juntando 19 ensayos con 1.125 personas, casi todas mujeres, 90 días de colágeno hidrolizado mejoraron la hidratación y la elasticidad de la piel y redujeron las arrugas frente a placebo.",
+        "en": "Pooling 19 trials with 1,125 people, almost all women, 90 days of hydrolysed collagen improved skin hydration and elasticity and reduced wrinkles compared with placebo."
+      },
+      "fuente": "33742704"
+    },
+    {
+      "texto": {
+        "es": "Con 23 ensayos y 1.474 personas, el efecto se ve en los ensayos que paga la industria, pero no en los que no reciben ese dinero ni en los de más calidad. Los autores concluyen que hoy no hay pruebas clínicas para usarlo contra el envejecimiento de la piel.",
+        "en": "With 23 trials and 1,474 people, the effect shows up in trials paid for by industry, but not in those without that money or in the higher-quality ones. The authors conclude there's no clinical evidence today to use it against skin ageing."
+      },
+      "fuente": "40324552"
+    },
+    {
+      "texto": {
+        "es": "En 87 mujeres de 40 a 65 años, 5 g de colágeno con 80 mg de vitamina C durante 16 semanas mejoraron la densidad de la piel y las arrugas frente a placebo, pero no la elasticidad ni la hidratación.",
+        "en": "In 87 women aged 40 to 65, 5 g of collagen with 80 mg of vitamin C for 16 weeks improved skin density and wrinkles compared with placebo, but not elasticity or hydration."
+      },
+      "fuente": "38931263"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Suele venir de pescado, vaca o cerdo: si tienes alergia al pescado o no comes carne, mira el origen.",
+      "en": "It usually comes from fish, beef or pork: if you're allergic to fish or don't eat meat, check the source."
+    },
+    {
+      "es": "Lo que más protege la piel es el protector solar y no fumar; el colágeno no lo sustituye.",
+      "en": "What protects skin most is sunscreen and not smoking; collagen doesn't replace them."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "de Miranda RB, Weimer P, Rossi RC",
+      "anio": 2021,
+      "titulo": "Effects of hydrolyzed collagen supplementation on skin aging: a systematic review and meta-analysis",
+      "revista": "Int J Dermatol 60(12):1449-1461",
+      "pmid": "33742704",
+      "doi": "10.1111/ijd.15518"
+    },
+    {
+      "autores": "Myung SK, Park Y",
+      "anio": 2025,
+      "titulo": "Effects of Collagen Supplements on Skin Aging: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "revista": "Am J Med 138(9):1264-1277",
+      "pmid": "40324552",
+      "doi": "10.1016/j.amjmed.2025.04.034"
+    },
+    {
+      "autores": "Žmitek K, Žmitek J, Hristov H, et al.",
+      "anio": 2024,
+      "titulo": "The Effects of Dietary Supplementation with Collagen and Vitamin C and Their Combination with Hyaluronic Acid on Skin Density, Texture and Other Parameters: A Randomised, Double-Blind, Placebo-Controlled Trial",
+      "revista": "Nutrients 16(12):1908",
+      "pmid": "38931263",
+      "doi": "10.3390/nu16121908"
+    }
+  ]
+}

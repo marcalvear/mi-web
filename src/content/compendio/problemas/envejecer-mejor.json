@@ -1,13 +1,16 @@
 {
   "orden": 2,
-  "nombre": { "es": "Envejecer mejor", "en": "Ageing well" },
+  "nombre": {
+    "es": "Envejecer mejor",
+    "en": "Ageing well"
+  },
   "titular": {
     "es": "¿Sirven los antioxidantes para envejecer mejor?",
     "en": "Do antioxidants help you age better?"
   },
   "intro": {
-    "es": "Casi todas las cápsulas «antienvejecimiento» son antioxidantes. Para vivir más, los ensayos grandes dicen que no sirven. Para cosas concretas, como la vista, la piel al sol o los huesos, algunos sí tienen estudios, y eso es lo que recoge este problema.",
-    "en": "Almost every \"anti-ageing\" capsule is an antioxidant. For living longer, the big trials say they don't work. For specific things, like eyesight, skin in the sun or bones, some do have studies, and that's what this page covers."
+    "es": "Casi todas las cápsulas «antienvejecimiento» son antioxidantes o colágeno. Para vivir más, los ensayos grandes dicen que los antioxidantes no sirven. Para cosas concretas, como la vista, la piel, los huesos o los resfriados, algunos sí tienen estudios, y eso es lo que recoge este problema.",
+    "en": "Almost every \"anti-ageing\" capsule is an antioxidant or collagen. For living longer, the big trials say antioxidants don't work. For specific things, like eyesight, skin, bones or colds, some do have studies, and that's what this page covers."
   },
   "queOcurre": {
     "es": "Al usar oxígeno para sacar energía, las células fabrican radicales libres, moléculas que dañan lo que tocan. El cuerpo tiene sus propias defensas, y los antioxidantes de la comida ayudan. Tomarlos en cápsulas parecía lógico, pero una revisión de 78 ensayos con casi 300.000 personas no encontró que alargaran la vida, y en los ensayos más fiables el betacaroteno y la vitamina E la acortaron un poco. Por eso aquí cada ficha va a lo concreto: qué se midió, en quién y con qué dosis.",
@@ -24,16 +27,36 @@
     }
   ],
   "combinar": {
-    "es": "Advanced Antioxidants junta los cuatro en una cápsula, pero no hay ningún estudio de esa mezcla: cada ficha habla de su ingrediente por separado, y a veces con otra dosis. Lleva mucha vitamina K, así que si tomas anticoagulantes no es para ti sin hablar antes con tu médico.",
-    "en": "Advanced Antioxidants puts all four in one capsule, but there's no study of that blend: each sheet covers its ingredient on its own, sometimes at a different dose. It has a lot of vitamin K, so if you take blood thinners it isn't for you without talking to your doctor first."
+    "es": "Advanced Antioxidants junta los cuatro en una cápsula, pero no hay ningún estudio de esa mezcla: cada ficha habla de su ingrediente por separado, y a veces con otra dosis. Lleva mucha vitamina K, así que si tomas anticoagulantes no es para ti sin hablar antes con tu médico. El colágeno y la vitamina C sí se han probado juntos, y tiene sentido: la vitamina C hace falta para fabricar colágeno. La NAC se estudia con glicina, que está en el problema del sueño.",
+    "en": "Advanced Antioxidants puts all four in one capsule, but there's no study of that blend: each sheet covers its ingredient on its own, sometimes at a different dose. It has a lot of vitamin K, so if you take blood thinners it isn't for you without talking to your doctor first. Collagen and vitamin C have been tested together, and it makes sense: vitamin C is needed to make collagen. NAC is studied with glycine, which is in the sleep problem."
   },
   "alarma": [
-    { "es": "Ves peor de repente, o las líneas rectas se te ven torcidas", "en": "Your vision suddenly gets worse, or straight lines look wavy" },
-    { "es": "Te ha salido un lunar nuevo, o uno ha cambiado de forma o de color", "en": "A new mole has appeared, or one has changed shape or colour" },
-    { "es": "Te has roto un hueso con un golpe flojo", "en": "You've broken a bone from a minor knock" },
-    { "es": "Tomas anticoagulantes como el Sintrom", "en": "You take blood thinners such as warfarin" }
+    {
+      "es": "Ves peor de repente, o las líneas rectas se te ven torcidas",
+      "en": "Your vision suddenly gets worse, or straight lines look wavy"
+    },
+    {
+      "es": "Te ha salido un lunar nuevo, o uno ha cambiado de forma o de color",
+      "en": "A new mole has appeared, or one has changed shape or colour"
+    },
+    {
+      "es": "Te has roto un hueso con un golpe flojo",
+      "en": "You've broken a bone from a minor knock"
+    },
+    {
+      "es": "Tomas anticoagulantes como el Sintrom",
+      "en": "You take blood thinners such as warfarin"
+    }
   ],
-  "suplementos": ["luteina-zeaxantina", "astaxantina", "licopeno", "vitamina-k"],
+  "suplementos": [
+    "luteina-zeaxantina",
+    "astaxantina",
+    "licopeno",
+    "vitamina-k",
+    "nac",
+    "colageno",
+    "vitamina-c"
+  ],
   "productos": [
     {
       "id": "blueprint-advanced-antioxidants",
@@ -45,32 +68,56 @@
         "en": "White bottle of Blueprint Advanced Antioxidants with a capsule beside it."
       },
       "url": "https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants",
-      "pais": { "es": "Estados Unidos", "en": "United States" },
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
       "datos": [
         {
-          "k": { "es": "Carotenoides", "en": "Carotenoids" },
+          "k": {
+            "es": "Carotenoides",
+            "en": "Carotenoids"
+          },
           "v": {
             "es": "Luteína 10 mg, zeaxantina 2 mg, licopeno 15 mg y astaxantina 12 mg",
             "en": "Lutein 10 mg, zeaxanthin 2 mg, lycopene 15 mg and astaxanthin 12 mg"
           }
         },
         {
-          "k": { "es": "Vitamina K", "en": "Vitamin K" },
+          "k": {
+            "es": "Vitamina K",
+            "en": "Vitamin K"
+          },
           "v": {
             "es": "K1 1.500 mcg (12,5 veces la cantidad diaria), K2 MK-4 5 mg y MK-7 600 mcg",
             "en": "K1 1,500 mcg (12.5 times the daily value), K2 MK-4 5 mg and MK-7 600 mcg"
           }
         },
         {
-          "k": { "es": "Toma", "en": "Dose" },
-          "v": { "es": "1 cápsula al día con comida", "en": "1 capsule a day with food" }
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula al día con comida",
+            "en": "1 capsule a day with food"
+          }
         },
         {
-          "k": { "es": "Bote", "en": "Bottle" },
-          "v": { "es": "30 cápsulas", "en": "30 capsules" }
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "30 cápsulas",
+            "en": "30 capsules"
+          }
         }
       ],
-      "precio": { "es": "56,49 € (30 cápsulas)", "en": "€56.49 (30 capsules)" }
+      "precio": {
+        "es": "56,49 € (30 cápsulas)",
+        "en": "€56.49 (30 capsules)"
+      }
     }
   ]
 }

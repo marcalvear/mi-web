@@ -48,7 +48,7 @@ LO QUE LE GUSTA
 COMPENDIO DE BIOHACKING
 - Elige lo que te pasa y te cuento qué suplementos se han estudiado para eso, cómo actúan en tu cuerpo y qué encontraron los estudios, con cada fuente enlazada. Está en https://marcalvear.github.io/mi-web/biohacking/ (en inglés, /mi-web/en/biohacking/). Esto es divulgación, no consejo médico. Lo escribo leyendo estudios, no como profesional sanitario. Si tomas medicación, estás embarazada o los síntomas no se van, habla antes con tu médico o tu farmacéutico.
 - Digestiones pesadas: Enzimas digestivas, Aceite de menta y alcaravea, Extracto de hoja de alcachofa, Jengibre.
-- Envejecer mejor: Luteína y zeaxantina, Astaxantina, Licopeno, Vitamina K (K1 y K2).
+- Envejecer mejor: Luteína y zeaxantina, Astaxantina, Licopeno, Vitamina K (K1 y K2), NAC (N-acetilcisteína), Colágeno hidrolizado, Vitamina C.
 - Dormir mejor: Melatonina, Magnesio, Glicina, L-teanina.
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
@@ -121,9 +121,9 @@ FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/bioh
 - Precauciones: En dosis altas puede dar ardor de estómago. Puede sumarse al efecto de los anticoagulantes. Si los tomas, consulta antes.
 
 PROBLEMA: ENVEJECER MEJOR (https://marcalvear.github.io/mi-web/biohacking/#envejecer-mejor)
-- Casi todas las cápsulas «antienvejecimiento» son antioxidantes. Para vivir más, los ensayos grandes dicen que no sirven. Para cosas concretas, como la vista, la piel al sol o los huesos, algunos sí tienen estudios, y eso es lo que recoge este problema.
+- Casi todas las cápsulas «antienvejecimiento» son antioxidantes o colágeno. Para vivir más, los ensayos grandes dicen que los antioxidantes no sirven. Para cosas concretas, como la vista, la piel, los huesos o los resfriados, algunos sí tienen estudios, y eso es lo que recoge este problema.
 - Qué pasa en el cuerpo: Al usar oxígeno para sacar energía, las células fabrican radicales libres, moléculas que dañan lo que tocan. El cuerpo tiene sus propias defensas, y los antioxidantes de la comida ayudan. Tomarlos en cápsulas parecía lógico, pero una revisión de 78 ensayos con casi 300.000 personas no encontró que alargaran la vida, y en los ensayos más fiables el betacaroteno y la vitamina E la acortaron un poco. Por eso aquí cada ficha va a lo concreto: qué se midió, en quién y con qué dosis.
-- Combinarlos: Advanced Antioxidants junta los cuatro en una cápsula, pero no hay ningún estudio de esa mezcla: cada ficha habla de su ingrediente por separado, y a veces con otra dosis. Lleva mucha vitamina K, así que si tomas anticoagulantes no es para ti sin hablar antes con tu médico.
+- Combinarlos: Advanced Antioxidants junta los cuatro en una cápsula, pero no hay ningún estudio de esa mezcla: cada ficha habla de su ingrediente por separado, y a veces con otra dosis. Lleva mucha vitamina K, así que si tomas anticoagulantes no es para ti sin hablar antes con tu médico. El colágeno y la vitamina C sí se han probado juntos, y tiene sentido: la vitamina C hace falta para fabricar colágeno. La NAC se estudia con glicina, que está en el problema del sueño.
 - Ve al médico antes que a un suplemento si además: ves peor de repente, o las líneas rectas se te ven torcidas; te ha salido un lunar nuevo, o uno ha cambiado de forma o de color; te has roto un hueso con un golpe flojo; tomas anticoagulantes como el Sintrom.
 - Fuente: Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320
 
@@ -168,6 +168,38 @@ FICHA: Vitamina K (K1 y K2) (Vitamina liposoluble) · https://marcalvear.github.
   - En 440 mujeres con osteopenia, 5 mg de vitamina K1 al día no cambiaron la densidad del hueso en 2 años, aunque hubo menos fracturas (9 frente a 20). El ensayo no estaba pensado para medir fracturas. [Cheung AM et al., 2008, PLoS Med 5(10):e196, PMID 18922041]
   - En mujeres después de la menopausia o con osteoporosis, una revisión de 36 ensayos no encontró efecto en la densidad del hueso ni en las fracturas de vértebra. Puede que reduzca otras fracturas, pero las pruebas no bastan para confirmarlo. [Mott A et al., 2019, Osteoporos Int 30(8):1543-1559, PMID 31076817]
 - Precauciones: Contrarresta los anticoagulantes como el Sintrom o la warfarina. Si los tomas, no la tomes sin hablar antes con tu médico. Lo estudiado es sobre todo en mujeres después de la menopausia. En hombres y en jóvenes hay muy pocos datos.
+
+FICHA: NAC (N-acetilcisteína) (Aminoácido antioxidante) · https://marcalvear.github.io/mi-web/biohacking/#nac
+- Qué es: Es la forma en cápsula de la cisteína, una de las piezas del glutatión, el antioxidante que fabrica el propio cuerpo. Se estudia sobre todo junto a la glicina, en la mezcla llamada GlyNAC.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El ensayo a favor es pequeño (24 personas mayores) y lo firma el grupo que patentó la mezcla. Otro ensayo, más grande y de una empresa distinta, no encontró el efecto principal.
+- Cómo funciona: En vez de dar un antioxidante de fuera, la NAC da material para que las células fabriquen el suyo: el glutatión, que se hace con cisteína, glicina y glutamato. Con la edad hay menos glutatión, y la idea es que falta cisteína y glicina para fabricarlo. Por eso la NAC se toma con glicina.
+- Dosis estudiada: En GlyNAC, unos 100 mg de NAC y 100 mg de glicina por kilo de peso al día; en el ensayo más grande, de 1,2 a 3,6 g de cada uno. Cuándo: Repartida en las comidas.
+- Qué encontraron los estudios:
+  - En 24 personas mayores, 16 semanas de GlyNAC frente a placebo subieron el glutatión, bajaron el daño oxidativo y la inflamación y mejoraron la fuerza y la velocidad al andar. Es pequeño y lo firman los creadores de la mezcla. [Kumar P et al., 2023, J Gerontol A Biol Sci Med Sci 78(1):75-89, PMID 35975308]
+  - En 114 adultos mayores sanos, dos semanas de GlyNAC a tres dosis no subieron el glutatión frente a placebo, que era el objetivo principal. Solo subió en quienes empezaban con más daño oxidativo y menos glutatión. Lo firma Nestlé. [Lizzo G et al., 2022, Front Aging 3:852569, PMID 35821844]
+- Precauciones: Puede dar náuseas, ardor o gases; tomada con comida se tolera mejor. Si tomas nitroglicerina para el corazón, no la tomes sin hablar con tu médico. En España la NAC también es un medicamento para la mucosidad: no la sumes a un mucolítico que ya tomes.
+
+FICHA: Colágeno hidrolizado (Proteína) · https://marcalvear.github.io/mi-web/biohacking/#colageno
+- Qué es: Es colágeno partido en trozos pequeños para que se absorba. Se toma para la piel: en muchos ensayos mejora la hidratación y la elasticidad, pero en los independientes no.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los metaanálisis salen a favor, pero el más reciente encuentra que el efecto desaparece en los ensayos que no paga la industria y en los mejor hechos.
+- Cómo funciona: El colágeno es la proteína que sostiene la piel, y con los años se fabrica menos. El que te tomas no llega entero a la piel: se digiere en trozos de dos o tres aminoácidos. La idea es que esos trozos avisan a las células de la piel para que fabriquen más colágeno propio, y para eso necesitan vitamina C.
+- Dosis estudiada: Entre 2,5 y 10 g al día. Cuándo: A cualquier hora, todos los días durante al menos 3 meses.
+- Qué encontraron los estudios:
+  - Juntando 19 ensayos con 1.125 personas, casi todas mujeres, 90 días de colágeno hidrolizado mejoraron la hidratación y la elasticidad de la piel y redujeron las arrugas frente a placebo. [de Miranda RB et al., 2021, Int J Dermatol 60(12):1449-1461, PMID 33742704]
+  - Con 23 ensayos y 1.474 personas, el efecto se ve en los ensayos que paga la industria, pero no en los que no reciben ese dinero ni en los de más calidad. Los autores concluyen que hoy no hay pruebas clínicas para usarlo contra el envejecimiento de la piel. [Myung SK et al., 2025, Am J Med 138(9):1264-1277, PMID 40324552]
+  - En 87 mujeres de 40 a 65 años, 5 g de colágeno con 80 mg de vitamina C durante 16 semanas mejoraron la densidad de la piel y las arrugas frente a placebo, pero no la elasticidad ni la hidratación. [Žmitek K et al., 2024, Nutrients 16(12):1908, PMID 38931263]
+- Precauciones: Suele venir de pescado, vaca o cerdo: si tienes alergia al pescado o no comes carne, mira el origen. Lo que más protege la piel es el protector solar y no fumar; el colágeno no lo sustituye.
+
+FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-c
+- Qué es: El cuerpo la necesita para fabricar colágeno y no la puede hacer. Tomada a diario no evita los resfriados, pero los acorta un poco, y protege a quien hace esfuerzos muy duros.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: La revisión Cochrane, con decenas de ensayos, es sólida para los resfriados, pero el efecto es pequeño. Para vivir más, los ensayos de antioxidantes no encuentran nada.
+- Cómo funciona: La vitamina C es la herramienta que usan las células para dar firmeza al colágeno: sin ella sale débil, que es lo que pasaba con el escorbuto. También es un antioxidante que se gasta rápido cuando hay infección o mucho esfuerzo. Lo que sobra se elimina por la orina, así que tomar mucho más no da más.
+- Dosis estudiada: De 200 mg a 1 g al día. Con fruta y verdura ya se llega a lo necesario. Cuándo: Con una comida; si tomas colágeno, a la vez.
+- Qué encontraron los estudios:
+  - En 29 comparaciones con 11.306 personas, tomarla a diario no redujo cuántos resfriados se cogían. En maratonianos, esquiadores y soldados en el frío los redujo a la mitad. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - Tomada a diario, acortó los resfriados un 8 % en adultos y un 14 % en niños. Empezar a tomarla cuando ya estás resfriado no mostró un efecto claro. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - En la revisión de 78 ensayos de antioxidantes con casi 300.000 personas, la vitamina C no alargó la vida. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
+- Precauciones: Por encima de 1 g al día puede dar diarrea, y en algunas personas, piedras en el riñón. Si tienes hemocromatosis (exceso de hierro), no la tomes en cápsula sin hablar con tu médico: sube la absorción del hierro.
 
 Producto que junta varios suplementos de este problema (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Blueprint, Advanced Antioxidants (Estados Unidos): carotenoides Luteína 10 mg, zeaxantina 2 mg, licopeno 15 mg y astaxantina 12 mg; vitamina K K1 1.500 mcg (12,5 veces la cantidad diaria), K2 MK-4 5 mg y MK-7 600 mcg; toma 1 cápsula al día con comida; bote 30 cápsulas; precio 56,49 € (30 cápsulas). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
@@ -282,9 +314,9 @@ SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/bioh
 - Cautions: High doses can cause heartburn. It can add to the effect of blood thinners. If you take them, check first.
 
 PROBLEM: AGEING WELL (https://marcalvear.github.io/mi-web/en/biohacking/#envejecer-mejor)
-- Almost every "anti-ageing" capsule is an antioxidant. For living longer, the big trials say they don't work. For specific things, like eyesight, skin in the sun or bones, some do have studies, and that's what this page covers.
+- Almost every "anti-ageing" capsule is an antioxidant or collagen. For living longer, the big trials say antioxidants don't work. For specific things, like eyesight, skin, bones or colds, some do have studies, and that's what this page covers.
 - What's going on in the body: When cells use oxygen to make energy, they produce free radicals, molecules that damage whatever they touch. The body has its own defences, and antioxidants from food help. Taking them as capsules seemed logical, but a review of 78 trials with almost 300,000 people found they didn't make people live longer, and in the most reliable trials beta-carotene and vitamin E shortened life slightly. That's why each sheet here sticks to specifics: what was measured, in whom and at what dose.
-- Combining them: Advanced Antioxidants puts all four in one capsule, but there's no study of that blend: each sheet covers its ingredient on its own, sometimes at a different dose. It has a lot of vitamin K, so if you take blood thinners it isn't for you without talking to your doctor first.
+- Combining them: Advanced Antioxidants puts all four in one capsule, but there's no study of that blend: each sheet covers its ingredient on its own, sometimes at a different dose. It has a lot of vitamin K, so if you take blood thinners it isn't for you without talking to your doctor first. Collagen and vitamin C have been tested together, and it makes sense: vitamin C is needed to make collagen. NAC is studied with glycine, which is in the sleep problem.
 - See a doctor before trying a supplement if you also: your vision suddenly gets worse, or straight lines look wavy; a new mole has appeared, or one has changed shape or colour; you've broken a bone from a minor knock; you take blood thinners such as warfarin.
 - Source: Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320
 
@@ -329,6 +361,38 @@ SHEET: Vitamin K (K1 and K2) (Fat-soluble vitamin) · https://marcalvear.github.
   - In 440 women with osteopenia, 5 mg of vitamin K1 a day didn't change bone density over 2 years, though there were fewer fractures (9 versus 20). The trial wasn't designed to measure fractures. [Cheung AM et al., 2008, PLoS Med 5(10):e196, PMID 18922041]
   - In women after menopause or with osteoporosis, a review of 36 trials found no effect on bone density or on vertebral fractures. It may reduce other fractures, but the evidence isn't enough to confirm it. [Mott A et al., 2019, Osteoporos Int 30(8):1543-1559, PMID 31076817]
 - Cautions: It counteracts blood thinners such as warfarin. If you take them, don't take it without talking to your doctor first. What's been studied is mostly in women after menopause. There's very little data in men and in younger people.
+
+SHEET: NAC (N-acetylcysteine) (Antioxidant amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#nac
+- What it is: It's the capsule form of cysteine, one of the building blocks of glutathione, the antioxidant the body makes itself. It's mostly studied together with glycine, in the blend called GlyNAC.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: The trial in favour is small (24 older people) and comes from the group that patented the blend. Another, larger trial from a different company didn't find the main effect.
+- How it works: Instead of supplying an outside antioxidant, NAC gives cells material to make their own: glutathione, which is made from cysteine, glycine and glutamate. With age there's less glutathione, and the idea is that cysteine and glycine run short. That's why NAC is taken with glycine.
+- Dose studied: In GlyNAC, about 100 mg of NAC and 100 mg of glycine per kilo of body weight a day; in the larger trial, 1.2 to 3.6 g of each. When: Split across meals.
+- What the studies found:
+  - In 24 older people, 16 weeks of GlyNAC compared with placebo raised glutathione, lowered oxidative damage and inflammation and improved strength and walking speed. It's small and authored by the blend's creators. [Kumar P et al., 2023, J Gerontol A Biol Sci Med Sci 78(1):75-89, PMID 35975308]
+  - In 114 healthy older adults, two weeks of GlyNAC at three doses didn't raise glutathione compared with placebo, which was the main goal. It only rose in people who started with more oxidative damage and less glutathione. It's authored by Nestlé. [Lizzo G et al., 2022, Front Aging 3:852569, PMID 35821844]
+- Cautions: It can cause nausea, heartburn or wind; taken with food it's easier to tolerate. If you take nitroglycerin for your heart, don't take it without talking to your doctor. In Spain NAC is also a mucus medicine: don't add it to a mucolytic you already take.
+
+SHEET: Hydrolysed collagen (Protein) · https://marcalvear.github.io/mi-web/en/biohacking/#colageno
+- What it is: It's collagen broken into small pieces so it can be absorbed. It's taken for the skin: in many trials it improves hydration and elasticity, but not in the independent ones.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: Meta-analyses come out in favour, but the most recent one finds the effect disappears in trials not funded by industry and in the best-run ones.
+- How it works: Collagen is the protein that holds the skin up, and with age less is made. The collagen you take doesn't reach the skin whole: it's digested into pieces two or three amino acids long. The idea is that those pieces tell skin cells to make more of their own collagen, and for that they need vitamin C.
+- Dose studied: Between 2.5 and 10 g a day. When: Any time of day, every day for at least 3 months.
+- What the studies found:
+  - Pooling 19 trials with 1,125 people, almost all women, 90 days of hydrolysed collagen improved skin hydration and elasticity and reduced wrinkles compared with placebo. [de Miranda RB et al., 2021, Int J Dermatol 60(12):1449-1461, PMID 33742704]
+  - With 23 trials and 1,474 people, the effect shows up in trials paid for by industry, but not in those without that money or in the higher-quality ones. The authors conclude there's no clinical evidence today to use it against skin ageing. [Myung SK et al., 2025, Am J Med 138(9):1264-1277, PMID 40324552]
+  - In 87 women aged 40 to 65, 5 g of collagen with 80 mg of vitamin C for 16 weeks improved skin density and wrinkles compared with placebo, but not elasticity or hydration. [Žmitek K et al., 2024, Nutrients 16(12):1908, PMID 38931263]
+- Cautions: It usually comes from fish, beef or pork: if you're allergic to fish or don't eat meat, check the source. What protects skin most is sunscreen and not smoking; collagen doesn't replace them.
+
+SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-c
+- What it is: The body needs it to make collagen and can't make it itself. Taken daily it doesn't prevent colds, but it shortens them a little, and it protects people doing very hard exertion.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: The Cochrane review, with dozens of trials, is solid for colds, but the effect is small. For living longer, antioxidant trials find nothing.
+- How it works: Vitamin C is the tool cells use to make collagen firm: without it collagen comes out weak, which is what happened with scurvy. It's also an antioxidant that runs out fast during infection or heavy exertion. What's left over goes out in the urine, so taking much more doesn't give more.
+- Dose studied: From 200 mg to 1 g a day. Fruit and vegetables already cover what you need. When: With a meal; if you take collagen, at the same time.
+- What the studies found:
+  - In 29 comparisons with 11,306 people, taking it daily didn't reduce how many colds people caught. In marathon runners, skiers and soldiers in the cold it halved them. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - Taken daily, it shortened colds by 8% in adults and 14% in children. Starting it once you already have a cold showed no clear effect. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
+  - In the review of 78 antioxidant trials with almost 300,000 people, vitamin C didn't make people live longer. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
+- Cautions: Above 1 g a day it can cause diarrhoea, and in some people, kidney stones. If you have haemochromatosis (iron overload), don't take it as a capsule without talking to your doctor: it increases iron absorption.
 
 Product that combines several supplements in this problem (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Blueprint, Advanced Antioxidants (United States): carotenoids Lutein 10 mg, zeaxanthin 2 mg, lycopene 15 mg and astaxanthin 12 mg; vitamin K K1 1,500 mcg (12.5 times the daily value), K2 MK-4 5 mg and MK-7 600 mcg; dose 1 capsule a day with food; bottle 30 capsules; price €56.49 (30 capsules). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
