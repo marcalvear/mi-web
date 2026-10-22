@@ -10,8 +10,9 @@ import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
 interface Props {
   markers: MapMarker[];
   text: CompendioText["clock"];
+  thumb?: boolean;
 }
-const { markers, text } = Astro.props;
+const { markers, text, thumb = false } = Astro.props;
 
 const C = 200;
 const CY = 205;
@@ -101,7 +102,7 @@ const hours = [0, 3, 6, 9, 12, 15, 18, 21].map((h) => ({ h, xy: at(h, 186) }));
 const [lx, ly] = at(3, 38);
 ---
 
-<SketchMap viewBox="0 0 400 412" idPrefix="reloj" groups={groups} placed={placed} markers={markers} text={text}>
+<SketchMap viewBox="0 0 400 412" idPrefix="reloj" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
   <g class="names" font-size="11">
     {
       hours.map(({ h, xy }) => (

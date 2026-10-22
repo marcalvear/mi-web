@@ -10,8 +10,9 @@ import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
 interface Props {
   markers: MapMarker[];
   text: CompendioText["cycle"];
+  thumb?: boolean;
 }
-const { markers, text } = Astro.props;
+const { markers, text, thumb = false } = Astro.props;
 
 const C = 180;
 const CY = 172;
@@ -85,7 +86,7 @@ const [px, py] = at(3.2, (R0 + R1) / 2);
 const [lx, ly] = at(25.2, R1 + 22);
 ---
 
-<SketchMap viewBox="0 0 400 344" idPrefix="ciclo" groups={groups} placed={placed} markers={markers} text={text}>
+<SketchMap viewBox="0 0 400 344" idPrefix="ciclo" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
   <g class="names" font-size="11">
     {
       labels.map(({ d, xy }) => (

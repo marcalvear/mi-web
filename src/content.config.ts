@@ -66,6 +66,9 @@ const problemas = defineCollection({
     suplementos: z.array(reference("suplementos")).min(1),
     /** Esquema junto a las fichas: el aparato digestivo o el reloj del sueño (#83) */
     mapa: z.enum(["digestivo", "reloj", "tiempo", "cortisol", "agujetas", "temporada", "eje", "ciclo", "pila"]).optional(),
+    /** Palabras (sin tildes, en los dos idiomas) con las que el Boticario adivina
+        el problema cuando le preguntan desde el índice (#107) */
+    claves: z.array(z.string()).optional(),
     /** Zona de una ficha compartida en el esquema de este problema, si no es la suya (#95) */
     zonas: z.record(z.string(), z.string()).optional(),
     /** Estudios que respaldan la explicación general del problema (#73) */

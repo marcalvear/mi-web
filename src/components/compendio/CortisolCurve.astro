@@ -10,8 +10,9 @@ import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
 interface Props {
   markers: MapMarker[];
   text: CompendioText["cortisol"];
+  thumb?: boolean;
 }
-const { markers, text } = Astro.props;
+const { markers, text, thumb = false } = Astro.props;
 
 const BASE = 246;
 const x = (h: number) => Math.round(30 + (h - 6) * (350 / 18));
@@ -79,7 +80,7 @@ const placed = markers.map((m) => {
 const hours = [6, 9, 12, 15, 18, 21, 24];
 ---
 
-<SketchMap viewBox="0 0 400 284" idPrefix="cortisol" groups={groups} placed={placed} markers={markers} text={text}>
+<SketchMap viewBox="0 0 400 284" idPrefix="cortisol" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
   <g class="names" font-size="11">
     {
       hours.map((h) => (

@@ -48,5 +48,18 @@
     "glicina",
     "l-teanina"
   ],
-  "mapa": "reloj"
+  "mapa": "reloj",
+  "claves": [
+    "dormir",
+    "duermo",
+    "sueno",
+    "insomnio",
+    "desvel",
+    "despierto",
+    "descans",
+    "acostar",
+    "sleep",
+    "insomnia",
+    "bedtime"
+  ]
 }

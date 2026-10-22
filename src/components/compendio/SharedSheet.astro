@@ -15,12 +15,14 @@ interface Props {
   text: CompendioText;
   /** Problema en el que está la ficha completa */
   home: CollectionEntry<"problemas">;
+  /** Página del problema con la ficha completa (#105) */
+  homeUrl: string;
   /** Problema en el que se pinta esta copia */
   problemId: string;
   /** Zona en el esquema de este problema, que puede no ser la de la ficha */
   zone?: string;
 }
-const { entry, n, lang, text, home, problemId, zone } = Astro.props;
+const { entry, n, lang, text, home, homeUrl, problemId, zone } = Astro.props;
 const s = entry.data;
 const id = `${problemId}-${entry.id}`;
 ---
@@ -31,8 +33,8 @@ const id = `${problemId}-${entry.id}`;
     <h3 id={`${id}-name`}>{s.nombre[lang]}</h3>
     <EvidenceMeter level={s.evidencia} label={text.evidenceLabel} value={text.evidence[s.evidencia]} />
     <p>{s.resumen[lang]}</p>
-    <a class="to-full" href={`#${entry.id}`}>
-      {text.shared.replace("{problem}", home.data.nombre[lang])} <span aria-hidden="true">↑</span>
+    <a class="to-full" href={`${homeUrl}#${entry.id}`}>
+      {text.shared.replace("{problem}", home.data.nombre[lang])} <span aria-hidden="true">→</span>
     </a>
   </article>
 </li>

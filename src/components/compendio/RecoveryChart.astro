@@ -10,8 +10,9 @@ import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
 interface Props {
   markers: MapMarker[];
   text: CompendioText["recovery"];
+  thumb?: boolean;
 }
-const { markers, text } = Astro.props;
+const { markers, text, thumb = false } = Astro.props;
 
 const AXIS = 214;
 // Dónde va cada momento en el dibujo: [x0, x1, y0, y1]
@@ -86,7 +87,7 @@ const placed = markers.map((m) => {
 });
 ---
 
-<SketchMap viewBox="0 0 400 290" idPrefix="recuperacion" groups={groups} placed={placed} markers={markers} text={text}>
+<SketchMap viewBox="0 0 400 290" idPrefix="recuperacion" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
   <g class="names" font-size="11">
     {
       ticks.map((t) => (

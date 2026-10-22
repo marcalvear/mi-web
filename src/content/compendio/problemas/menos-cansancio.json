@@ -47,5 +47,21 @@
   "zonas": {
     "rhodiola": "estres"
   },
-  "mapa": "pila"
+  "mapa": "pila",
+  "claves": [
+    "cansancio",
+    "cansad",
+    "fatiga",
+    "agotad",
+    "energia",
+    "sin fuerzas",
+    "anemia",
+    "ferritina",
+    "tired",
+    "fatigue",
+    "exhausted",
+    "energy",
+    "anaemia",
+    "anemia"
+  ]
 }

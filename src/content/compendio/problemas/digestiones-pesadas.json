@@ -1,7 +1,10 @@
 {
   "orden": 1,
   "mapa": "digestivo",
-  "nombre": { "es": "Digestiones pesadas", "en": "Heavy digestion" },
+  "nombre": {
+    "es": "Digestiones pesadas",
+    "en": "Heavy digestion"
+  },
   "titular": {
     "es": "¿Acabas de comer y el estómago te pesa como una piedra?",
     "en": "Just eaten and your stomach feels like a rock?"
@@ -19,11 +22,46 @@
     "en": "None of the trials on this page tested two supplements together. If you want to try, start with one and wait a few weeks before adding another, so you know which one works for you."
   },
   "alarma": [
-    { "es": "Pierdes peso sin buscarlo", "en": "You're losing weight without trying" },
-    { "es": "Vomitas a menudo", "en": "You vomit often" },
-    { "es": "Te cuesta tragar o te duele", "en": "Swallowing is hard or painful" },
-    { "es": "Ves heces negras o sangre", "en": "You see black stools or blood" },
-    { "es": "Tienes más de 55 años y los síntomas son nuevos", "en": "You're over 55 and the symptoms are new" }
+    {
+      "es": "Pierdes peso sin buscarlo",
+      "en": "You're losing weight without trying"
+    },
+    {
+      "es": "Vomitas a menudo",
+      "en": "You vomit often"
+    },
+    {
+      "es": "Te cuesta tragar o te duele",
+      "en": "Swallowing is hard or painful"
+    },
+    {
+      "es": "Ves heces negras o sangre",
+      "en": "You see black stools or blood"
+    },
+    {
+      "es": "Tienes más de 55 años y los síntomas son nuevos",
+      "en": "You're over 55 and the symptoms are new"
+    }
   ],
-  "suplementos": ["enzimas-digestivas", "menta-alcaravea", "alcachofa", "jengibre"]
+  "suplementos": [
+    "enzimas-digestivas",
+    "menta-alcaravea",
+    "alcachofa",
+    "jengibre"
+  ],
+  "claves": [
+    "digest",
+    "estomago",
+    "pesadez",
+    "hinchazon",
+    "hinchado",
+    "gases",
+    "empacho",
+    "indigestion",
+    "dispepsia",
+    "ardor",
+    "stomach",
+    "bloat",
+    "heartburn"
+  ]
 }

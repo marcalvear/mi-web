@@ -72,31 +72,270 @@ ESTA WEB
 
 // El compendio para el modo boticario (#69), en el idioma de la página: el
 // índice de todo y el detalle de cada problema por separado (#103)
+// Palabras con las que el Worker adivina el problema si no le llega (#107)
+export const PROBLEM_KEYS = {
+  "digestiones-pesadas": [
+    "digest",
+    "estomago",
+    "pesadez",
+    "hinchazon",
+    "hinchado",
+    "gases",
+    "empacho",
+    "indigestion",
+    "dispepsia",
+    "ardor",
+    "stomach",
+    "bloat",
+    "heartburn",
+    "enzimas digestivas",
+    "digestive enzymes",
+    "aceite de menta y alcaravea",
+    "peppermint and caraway oil",
+    "extracto de hoja de alcachofa",
+    "artichoke leaf extract",
+    "jengibre",
+    "ginger"
+  ],
+  "envejecer-mejor": [
+    "envejec",
+    " edad",
+    "arruga",
+    "piel",
+    " vista",
+    "ojos",
+    "macula",
+    "antioxid",
+    "colageno",
+    "longevidad",
+    "huesos",
+    "aging",
+    "ageing",
+    "wrinkle",
+    "skin",
+    "eyes",
+    "eyesight",
+    "collagen",
+    "longevity",
+    "bones",
+    "luteina y zeaxantina",
+    "lutein and zeaxanthin",
+    "astaxantina",
+    "astaxanthin",
+    "licopeno",
+    "lycopene",
+    "vitamina k",
+    "vitamin k",
+    "nac",
+    "colageno hidrolizado",
+    "hydrolysed collagen",
+    "vitamina c",
+    "vitamin c"
+  ],
+  "dormir-mejor": [
+    "dormir",
+    "duermo",
+    "sueno",
+    "insomnio",
+    "desvel",
+    "despierto",
+    "descans",
+    "acostar",
+    "sleep",
+    "insomnia",
+    "bedtime",
+    "melatonina",
+    "melatonin",
+    "magnesio",
+    "magnesium",
+    "glicina",
+    "glycine",
+    "l-teanina",
+    "l-theanine"
+  ],
+  "concentrarse-mejor": [
+    "concentr",
+    "foco",
+    "atencion",
+    "memoria",
+    "estudi",
+    "examen",
+    "niebla mental",
+    "rendimiento mental",
+    "focus",
+    "attention",
+    "memory",
+    "study",
+    "exam",
+    "brain fog",
+    "cafeina con l-teanina",
+    "caffeine with l-theanine",
+    "creatina",
+    "creatine",
+    "bacopa",
+    "melena de leon",
+    "lion's mane"
+  ],
+  "menos-estres": [
+    "estres",
+    "estresad",
+    "ansiedad",
+    "nervios",
+    "tension",
+    "tenso",
+    "agobi",
+    "cortisol",
+    "desconectar",
+    "stress",
+    "anxiety",
+    "anxious",
+    "nervous",
+    "tense",
+    "overwhelm",
+    "ashwagandha",
+    "lavanda",
+    "lavender",
+    "rhodiola"
+  ],
+  "recuperarse-antes": [
+    "agujetas",
+    "entren",
+    "gimnasio",
+    "gym",
+    "musculo",
+    "recuper",
+    "deporte",
+    "correr",
+    "fuerza",
+    "proteina",
+    "sore",
+    "soreness",
+    "workout",
+    "muscle",
+    "recovery",
+    "training",
+    "protein",
+    "running",
+    "proteina de suero",
+    "whey protein",
+    "cereza acida montmorency",
+    "montmorency tart cherry",
+    "omega-3"
+  ],
+  "mas-defensas": [
+    "resfri",
+    "gripe",
+    "catarro",
+    "defensas",
+    "inmun",
+    "constipad",
+    "mocos",
+    "garganta",
+    "invierno",
+    "tos ",
+    " cold",
+    "flu",
+    "immune",
+    "sore throat",
+    "cough",
+    "vitamina d",
+    "vitamin d",
+    "probioticos",
+    "probiotics",
+    "zinc en pastillas para chupar",
+    "zinc lozenges",
+    "sauco negro",
+    "black elderberry"
+  ],
+  "testosterona": [
+    "testosteron",
+    "libido",
+    "deseo sexual",
+    "ereccion",
+    "hormona masculina",
+    "hombre",
+    "sex drive",
+    "erection",
+    "male hormone",
+    "tongkat ali",
+    "fenogreco",
+    "fenugreek"
+  ],
+  "ciclo-menopausia": [
+    "regla",
+    "menstrua",
+    "premenstrual",
+    "spm",
+    "ovario",
+    "menopausia",
+    "sofoco",
+    "ciclo",
+    "periodo",
+    "period",
+    "pms",
+    "ovary",
+    "ovaries",
+    "menopause",
+    "hot flush",
+    "hot flash",
+    "cycle",
+    "sauzgatillo",
+    "chasteberry",
+    "calcio",
+    "calcium",
+    "mio-inositol",
+    "myo-inositol",
+    "isoflavonas de soja",
+    "soy isoflavones"
+  ],
+  "menos-cansancio": [
+    "cansancio",
+    "cansad",
+    "fatiga",
+    "agotad",
+    "energia",
+    "sin fuerzas",
+    "anemia",
+    "ferritina",
+    "tired",
+    "fatigue",
+    "exhausted",
+    "energy",
+    "anaemia",
+    "hierro",
+    "iron",
+    "vitamina b12",
+    "vitamin b12",
+    "coenzima q10",
+    "coenzyme q10"
+  ]
+};
+
 export const COMPENDIO = {
   es: {
     index: `COMPENDIO DE BIOHACKING: https://marcalvear.github.io/mi-web/biohacking/
 Aviso de la página: Esto es divulgación, no consejo médico. Lo escribo leyendo estudios, no como profesional sanitario. Si tomas medicación, estás embarazada o los síntomas no se van, habla antes con tu médico o tu farmacéutico.
 
 ÍNDICE DEL COMPENDIO (el detalle solo está en el problema que se está leyendo)
-- Digestiones pesadas (https://marcalvear.github.io/mi-web/biohacking/#digestiones-pesadas): Enzimas digestivas [moderada; 50 mg tres veces al día, o 2 cápsulas de 200 mg al día, durante 2 meses]; Aceite de menta y alcaravea [moderada; 90 mg de aceite de menta y 50 mg de alcaravea, 2 veces al día, durante 4 semanas]; Extracto de hoja de alcachofa [moderada; 2 cápsulas de 320 mg, 3 veces al día (1.920 mg al día), durante 6 semanas]; Jengibre [preliminar; 1,2 g en cápsulas, una sola toma]
-- Envejecer mejor (https://marcalvear.github.io/mi-web/biohacking/#envejecer-mejor): Luteína y zeaxantina [moderada; 10 mg de luteína y 2 mg de zeaxantina al día]; Astaxantina [preliminar; De 3 a 6 mg al día (4 mg en el ensayo con sol)]; Licopeno [preliminar; De 10 a 16 mg al día durante 12 semanas]; Vitamina K (K1 y K2) [moderada; 180 mcg de MK-7 al día durante 3 años (en el ensayo que sale a favor)]; NAC (N-acetilcisteína) [preliminar; En GlyNAC, unos 100 mg de NAC y 100 mg de glicina por kilo de peso al día; en el ensayo más grande, de 1,2 a 3,6 g de cada uno]; Colágeno hidrolizado [preliminar; Entre 2,5 y 10 g al día]; Vitamina C [moderada; De 200 mg a 1 g al día. Con fruta y verdura ya se llega a lo necesario]
-- Dormir mejor (https://marcalvear.github.io/mi-web/biohacking/#dormir-mejor): Melatonina [moderada; Entre 1 y 4 mg. En España, como complemento, cada toma lleva menos de 2 mg]; Magnesio [preliminar; Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido]; Glicina [preliminar; 3 g, que es una cucharadita de polvo]; L-teanina [preliminar; 200 mg al día]
-- Concentrarse mejor (https://marcalvear.github.io/mi-web/biohacking/#concentrarse-mejor): Cafeína con L-teanina [moderada; Unos 100 mg de cafeína con 200 mg de L-teanina, más o menos un café con una cápsula]; Creatina [fuerte; 3 a 5 g de creatina monohidrato al día]; Bacopa [moderada; 300 mg al día de extracto estandarizado en bacósidos]; Melena de león [preliminar; De 1 a 3 g al día de seta entera o extracto]
-- Menos estrés (https://marcalvear.github.io/mi-web/biohacking/#menos-estres): Ashwagandha [moderada; De 250 a 600 mg al día de extracto de raíz]; Lavanda (Silexan) [moderada; 80 mg de Silexan al día; en algún ensayo, 160 mg]; Rhodiola [preliminar; De 200 a 600 mg al día de extracto estandarizado]; Magnesio [preliminar; Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido]
-- Recuperarse antes (https://marcalvear.github.io/mi-web/biohacking/#recuperarse-antes): Creatina [fuerte; 3 a 5 g de creatina monohidrato al día]; Proteína de suero [fuerte; 20 a 40 g por toma, hasta llegar a unos 1,6 g de proteína por kilo de peso al día contando la comida]; Cereza ácida Montmorency [preliminar; Unos 30 ml de concentrado (o 2 cápsulas) dos veces al día]; Omega-3 (EPA y DHA) [preliminar; De 2 a 3 g al día de EPA más DHA]
-- Defensas (https://marcalvear.github.io/mi-web/biohacking/#mas-defensas): Vitamina D [preliminar; Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis]; Probióticos [moderada; Entre mil millones y cien mil millones de bacterias al día, de una o dos cepas de Lactobacillus o Bifidobacterium]; Vitamina C [moderada; De 200 mg a 1 g al día. Con fruta y verdura ya se llega a lo necesario]; Zinc en pastillas para chupar [moderada; Unos 80 a 90 mg de zinc al día en total, repartidos en una pastilla cada 2 o 3 horas]; Saúco negro [preliminar; Lo que marque el extracto estudiado: en los ensayos, unos 15 ml de jarabe 4 veces al día en adultos]
-- Testosterona (https://marcalvear.github.io/mi-web/biohacking/#testosterona): Tongkat ali [preliminar; 200 a 400 mg al día de extracto estandarizado]; Fenogreco [preliminar; 500 a 600 mg al día de extracto]; Ashwagandha [moderada; De 250 a 600 mg al día de extracto de raíz]; Vitamina D [preliminar; Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis]
-- Ciclo y menopausia (https://marcalvear.github.io/mi-web/biohacking/#ciclo-menopausia): Sauzgatillo (Vitex) [moderada; 20 a 40 mg al día de extracto estandarizado, como los estudiados (Ze 440 o BNO 1095)]; Calcio [moderada; 1.200 mg al día de carbonato de calcio, contando el de la dieta]; Mio-inositol [moderada; 2 a 4 g al día; a veces con D-chiro-inositol en proporción 40 a 1]; Isoflavonas de soja [preliminar; 50 a 100 mg de isoflavonas al día]
-- Cansancio (https://marcalvear.github.io/mi-web/biohacking/#menos-cansancio): Hierro [moderada; Unos 60 a 80 mg de hierro elemental, solo si la ferritina está baja y con seguimiento de tu médico]; Vitamina B12 [moderada; Si eres vegano, unos 250 µg al día o 2.000 µg a la semana; si te falta, la dosis la decide tu médico]; Coenzima Q10 [moderada; 100 a 300 mg al día; el ubiquinol se absorbe algo mejor]; Rhodiola [preliminar; De 200 a 600 mg al día de extracto estandarizado]
+- Digestiones pesadas (https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/): Enzimas digestivas [moderada; 50 mg tres veces al día, o 2 cápsulas de 200 mg al día, durante 2 meses]; Aceite de menta y alcaravea [moderada; 90 mg de aceite de menta y 50 mg de alcaravea, 2 veces al día, durante 4 semanas]; Extracto de hoja de alcachofa [moderada; 2 cápsulas de 320 mg, 3 veces al día (1.920 mg al día), durante 6 semanas]; Jengibre [preliminar; 1,2 g en cápsulas, una sola toma]
+- Envejecer mejor (https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/): Luteína y zeaxantina [moderada; 10 mg de luteína y 2 mg de zeaxantina al día]; Astaxantina [preliminar; De 3 a 6 mg al día (4 mg en el ensayo con sol)]; Licopeno [preliminar; De 10 a 16 mg al día durante 12 semanas]; Vitamina K (K1 y K2) [moderada; 180 mcg de MK-7 al día durante 3 años (en el ensayo que sale a favor)]; NAC (N-acetilcisteína) [preliminar; En GlyNAC, unos 100 mg de NAC y 100 mg de glicina por kilo de peso al día; en el ensayo más grande, de 1,2 a 3,6 g de cada uno]; Colágeno hidrolizado [preliminar; Entre 2,5 y 10 g al día]; Vitamina C [moderada; De 200 mg a 1 g al día. Con fruta y verdura ya se llega a lo necesario]
+- Dormir mejor (https://marcalvear.github.io/mi-web/biohacking/dormir-mejor/): Melatonina [moderada; Entre 1 y 4 mg. En España, como complemento, cada toma lleva menos de 2 mg]; Magnesio [preliminar; Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido]; Glicina [preliminar; 3 g, que es una cucharadita de polvo]; L-teanina [preliminar; 200 mg al día]
+- Concentrarse mejor (https://marcalvear.github.io/mi-web/biohacking/concentrarse-mejor/): Cafeína con L-teanina [moderada; Unos 100 mg de cafeína con 200 mg de L-teanina, más o menos un café con una cápsula]; Creatina [fuerte; 3 a 5 g de creatina monohidrato al día]; Bacopa [moderada; 300 mg al día de extracto estandarizado en bacósidos]; Melena de león [preliminar; De 1 a 3 g al día de seta entera o extracto]
+- Menos estrés (https://marcalvear.github.io/mi-web/biohacking/menos-estres/): Ashwagandha [moderada; De 250 a 600 mg al día de extracto de raíz]; Lavanda (Silexan) [moderada; 80 mg de Silexan al día; en algún ensayo, 160 mg]; Rhodiola [preliminar; De 200 a 600 mg al día de extracto estandarizado]; Magnesio [preliminar; Entre 200 y 500 mg de magnesio al día. El bisglicinato se tolera mejor que el óxido]
+- Recuperarse antes (https://marcalvear.github.io/mi-web/biohacking/recuperarse-antes/): Creatina [fuerte; 3 a 5 g de creatina monohidrato al día]; Proteína de suero [fuerte; 20 a 40 g por toma, hasta llegar a unos 1,6 g de proteína por kilo de peso al día contando la comida]; Cereza ácida Montmorency [preliminar; Unos 30 ml de concentrado (o 2 cápsulas) dos veces al día]; Omega-3 (EPA y DHA) [preliminar; De 2 a 3 g al día de EPA más DHA]
+- Defensas (https://marcalvear.github.io/mi-web/biohacking/mas-defensas/): Vitamina D [preliminar; Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis]; Probióticos [moderada; Entre mil millones y cien mil millones de bacterias al día, de una o dos cepas de Lactobacillus o Bifidobacterium]; Vitamina C [moderada; De 200 mg a 1 g al día. Con fruta y verdura ya se llega a lo necesario]; Zinc en pastillas para chupar [moderada; Unos 80 a 90 mg de zinc al día en total, repartidos en una pastilla cada 2 o 3 horas]; Saúco negro [preliminar; Lo que marque el extracto estudiado: en los ensayos, unos 15 ml de jarabe 4 veces al día en adultos]
+- Testosterona (https://marcalvear.github.io/mi-web/biohacking/testosterona/): Tongkat ali [preliminar; 200 a 400 mg al día de extracto estandarizado]; Fenogreco [preliminar; 500 a 600 mg al día de extracto]; Ashwagandha [moderada; De 250 a 600 mg al día de extracto de raíz]; Vitamina D [preliminar; Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis]
+- Ciclo y menopausia (https://marcalvear.github.io/mi-web/biohacking/ciclo-menopausia/): Sauzgatillo (Vitex) [moderada; 20 a 40 mg al día de extracto estandarizado, como los estudiados (Ze 440 o BNO 1095)]; Calcio [moderada; 1.200 mg al día de carbonato de calcio, contando el de la dieta]; Mio-inositol [moderada; 2 a 4 g al día; a veces con D-chiro-inositol en proporción 40 a 1]; Isoflavonas de soja [preliminar; 50 a 100 mg de isoflavonas al día]
+- Cansancio (https://marcalvear.github.io/mi-web/biohacking/menos-cansancio/): Hierro [moderada; Unos 60 a 80 mg de hierro elemental, solo si la ferritina está baja y con seguimiento de tu médico]; Vitamina B12 [moderada; Si eres vegano, unos 250 µg al día o 2.000 µg a la semana; si te falta, la dosis la decide tu médico]; Coenzima Q10 [moderada; 100 a 300 mg al día; el ubiquinol se absorbe algo mejor]; Rhodiola [preliminar; De 200 a 600 mg al día de extracto estandarizado]
 `,
     problems: {
-      "digestiones-pesadas": `PROBLEMA: DIGESTIONES PESADAS (https://marcalvear.github.io/mi-web/biohacking/#digestiones-pesadas)
+      "digestiones-pesadas": `PROBLEMA: DIGESTIONES PESADAS (https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/)
 - Pesadez, hinchazón, sentirte lleno a los pocos bocados. Cuando se repite y el médico no encuentra una causa, se llama dispepsia funcional, y es justo lo que han estudiado los ensayos de esta ficha.
 - Qué pasa en el cuerpo: Digerir es partir la comida en piezas que el intestino pueda absorber. Lo hacen las enzimas, con ayuda de la bilis para las grasas, mientras el estómago se contrae para ir pasando la comida al intestino. Si alguna de esas piezas va lenta, la comida se queda más tiempo arriba y aparecen la pesadez y los gases. Cada suplemento de aquí actúa en un punto distinto de ese recorrido.
 - Combinarlos: Ningún ensayo de esta ficha probó dos suplementos juntos. Si quieres probar, empieza por uno y espera unas semanas antes de añadir otro, así sabrás cuál te funciona.
 - Ve al médico antes que a un suplemento si además: pierdes peso sin buscarlo; vomitas a menudo; te cuesta tragar o te duele; ves heces negras o sangre; tienes más de 55 años y los síntomas son nuevos.
 
-FICHA: Enzimas digestivas (Complejo enzimático) · https://marcalvear.github.io/mi-web/biohacking/#enzimas-digestivas
+FICHA: Enzimas digestivas (Complejo enzimático) · https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/#enzimas-digestivas
 - Qué es: Cápsulas con las mismas enzimas que fabrica tu cuerpo para partir la comida: amilasa, proteasas, lipasa y lactasa, entre otras.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Dos ensayos con placebo en dispepsia funcional salen a favor, pero son pequeños y uno lo firma el fabricante del complejo que se probó.
 - Cómo funciona: Se toman con la comida y empiezan a trabajar en el estómago, antes de que lleguen las enzimas del páncreas. Cada una rompe un tipo de alimento: la amilasa, el almidón del pan o la pasta; las proteasas, la carne y el huevo; la lipasa, las grasas; la lactasa, el azúcar de la leche, y la alfa-galactosidasa, los azúcares de las legumbres que fermentan y dan gases. Lo que llega al intestino ya va medio partido.
@@ -111,7 +350,7 @@ FICHA: Enzimas digestivas (Complejo enzimático) · https://marcalvear.github.io
   - Sports Research, Digestive Enzymes + Probiotic (Estados Unidos): lleva 15 enzimas, probiótico y jengibre; toma 1 cápsula antes de comer; bote 90 cápsulas; precio 22,95 $. https://www.sportsresearch.com/products/digestive-enzymes
   - Pure Encapsulations, Digestive Enzymes Ultra (Estados Unidos): lleva Proteasas, lipasa, amilasa, lactasa y enzimas para la fibra; toma 2 cápsulas con cada comida; bote 90 o 180 cápsulas; precio 38 $ (90 cápsulas). https://www.pureencapsulationspro.com/digestive-enzymes-ultra.html
 
-FICHA: Aceite de menta y alcaravea (Aceites esenciales en cápsula gastrorresistente) · https://marcalvear.github.io/mi-web/biohacking/#menta-alcaravea
+FICHA: Aceite de menta y alcaravea (Aceites esenciales en cápsula gastrorresistente) · https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/#menta-alcaravea
 - Qué es: La combinación con el ensayo más claro contra la presión y la sensación de pesadez después de comer.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un ensayo con placebo de 96 pacientes muestra una mejora clara, con números grandes, pero es un solo ensayo con esta dosis.
 - Cómo funciona: El mentol de la menta relaja el músculo del tubo digestivo, así que el estómago deja de apretar y se calma el espasmo. La alcaravea, una semilla parecida al comino, ayuda a expulsar los gases. La cápsula gastrorresistente no se abre en el estómago sino más abajo, para que la menta no te vuelva en forma de eructos.
@@ -121,7 +360,7 @@ FICHA: Aceite de menta y alcaravea (Aceites esenciales en cápsula gastrorresist
   - El dolor bajó un 40 % frente a un 22 % con placebo, y los médicos vieron mucho mejor al 67 % de los pacientes, frente al 21 % con placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
 - Precauciones: La menta puede empeorar el ardor si tienes reflujo. La cápsula gastrorresistente lo reduce, pero no lo elimina. No abras ni mastiques la cápsula: la menta se liberaría en el estómago. En el embarazo y la lactancia, solo si te lo indica tu médico.
 
-FICHA: Extracto de hoja de alcachofa (Extracto vegetal) · https://marcalvear.github.io/mi-web/biohacking/#alcachofa
+FICHA: Extracto de hoja de alcachofa (Extracto vegetal) · https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/#alcachofa
 - Qué es: Hace que el hígado suelte más bilis, que es lo que necesitas para digerir las grasas.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Lo respalda un ensayo grande, de 247 pacientes en varios hospitales, más un estudio que mide cómo sube la bilis. Falta que otros grupos lo repitan.
 - Cómo funciona: La hoja de alcachofa tiene cinarina y otros compuestos que aumentan la bilis que el hígado envía al intestino. La bilis trata la grasa como el jabón: la parte en gotas pequeñas para que la lipasa pueda romperla. En un estudio, la bilis subió un 151 % una hora después de tomar el extracto.
@@ -132,7 +371,7 @@ FICHA: Extracto de hoja de alcachofa (Extracto vegetal) · https://marcalvear.gi
   - En 20 voluntarios, la bilis que llega al intestino subió un 151 % a la hora de tomar 1,92 g de extracto, mucho más que con placebo. [Kirchhoff R et al., 1994, Phytomedicine 1(2):107-115, PMID 23195882]
 - Precauciones: No la tomes si tienes piedras en la vesícula o las vías biliares obstruidas: más bilis puede provocar un cólico. Si tienes alergia a las margaritas, la manzanilla o la ambrosía, puedes tenerla también a la alcachofa: son de la misma familia.
 
-FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/biohacking/#jengibre
+FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/#jengibre
 - Qué es: Hace que el estómago se vacíe antes. En los ensayos eso no se tradujo en menos molestias.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los estudios miden que el estómago se vacía antes, pero en los dos ensayos las molestias no cambiaron.
 - Cómo funciona: El jengibre aumenta las contracciones del antro, la parte baja del estómago que empuja la comida hacia el intestino. En personas sanas, el estómago tardó la mitad en vaciarse a medias.
@@ -142,14 +381,14 @@ FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/bioh
   - En 11 pacientes con dispepsia funcional, el estómago también se vació antes (12 minutos frente a 16), pero los síntomas no cambiaron. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
 - Precauciones: En dosis altas puede dar ardor de estómago. Puede sumarse al efecto de los anticoagulantes. Si los tomas, consulta antes.
 `,
-      "envejecer-mejor": `PROBLEMA: ENVEJECER MEJOR (https://marcalvear.github.io/mi-web/biohacking/#envejecer-mejor)
+      "envejecer-mejor": `PROBLEMA: ENVEJECER MEJOR (https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/)
 - Casi todas las cápsulas «antienvejecimiento» son antioxidantes o colágeno. Para vivir más, los ensayos grandes dicen que los antioxidantes no sirven. Para cosas concretas, como la vista, la piel, los huesos o los resfriados, algunos sí tienen estudios, y eso es lo que recoge este problema.
 - Qué pasa en el cuerpo: Al usar oxígeno para sacar energía, las células fabrican radicales libres, moléculas que dañan lo que tocan. El cuerpo tiene sus propias defensas, y los antioxidantes de la comida ayudan. Tomarlos en cápsulas parecía lógico, pero una revisión de 78 ensayos con casi 300.000 personas no encontró que alargaran la vida, y en los ensayos más fiables el betacaroteno y la vitamina E la acortaron un poco. Por eso aquí cada ficha va a lo concreto: qué se midió, en quién y con qué dosis.
 - Combinarlos: Advanced Antioxidants junta los cuatro en una cápsula, pero no hay ningún estudio de esa mezcla: cada ficha habla de su ingrediente por separado, y a veces con otra dosis. Lleva mucha vitamina K, así que si tomas anticoagulantes no es para ti sin hablar antes con tu médico. El colágeno y la vitamina C sí se han probado juntos, y tiene sentido: la vitamina C hace falta para fabricar colágeno. La NAC se estudia con glicina, que está en el problema del sueño.
 - Ve al médico antes que a un suplemento si además: ves peor de repente, o las líneas rectas se te ven torcidas; te ha salido un lunar nuevo, o uno ha cambiado de forma o de color; te has roto un hueso con un golpe flojo; tomas anticoagulantes como el Sintrom.
 - Fuente: Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320
 
-FICHA: Luteína y zeaxantina (Carotenoides) · https://marcalvear.github.io/mi-web/biohacking/#luteina-zeaxantina
+FICHA: Luteína y zeaxantina (Carotenoides) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#luteina-zeaxantina
 - Qué es: Son los pigmentos amarillos de la mácula, el centro de la retina. En gente con degeneración macular se usan para frenarla, y en gente sana suben ese pigmento.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: El ensayo grande (AREDS2, 4.203 personas) es en gente que ya tiene degeneración macular, y su análisis principal no salió significativo. En gente sana suben el pigmento de la mácula, pero con estudios pequeños.
 - Cómo funciona: La luteína y la zeaxantina se acumulan en la mácula, la parte de la retina con la que lees y reconoces caras. Allí filtran la luz azul y frenan los radicales libres antes de que dañen las células. El cuerpo no las fabrica: vienen de la comida, como las espinacas, la col rizada o la yema de huevo.
@@ -160,7 +399,7 @@ FICHA: Luteína y zeaxantina (Carotenoides) · https://marcalvear.github.io/mi-w
   - En 59 adultos sanos, 12 mg de luteína al día durante 16 semanas subieron el pigmento de la mácula y mejoraron la visión con poco contraste y con deslumbramiento frente a placebo. Lo firma en parte una empresa de suplementos. [Machida N et al., 2020, Nutrients 12(10):2966, PMID 32998324]
 - Precauciones: Si tienes degeneración macular, lo estudiado es la fórmula AREDS2 completa (con vitaminas C y E, zinc y cobre), y la decide tu oftalmólogo. No sustituyen la revisión de la vista: si ves peor, ve al oftalmólogo.
 
-FICHA: Astaxantina (Carotenoide de microalga) · https://marcalvear.github.io/mi-web/biohacking/#astaxantina
+FICHA: Astaxantina (Carotenoide de microalga) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#astaxantina
 - Qué es: El pigmento rojo del salmón y las gambas. En ensayos pequeños, la piel aguantó mejor el sol y retuvo mejor el agua.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay ensayos con placebo a favor, pero son pequeños, casi todos en mujeres japonesas y muchos pagados por fabricantes, como avisa la revisión que los reúne.
 - Cómo funciona: Es un carotenoide que se coloca en las membranas de las células y frena la oxidación que provoca la luz ultravioleta. En la piel, los estudios lo miden como menos rojez después del sol y una barrera que pierde menos agua.
@@ -170,7 +409,7 @@ FICHA: Astaxantina (Carotenoide de microalga) · https://marcalvear.github.io/mi
   - Una revisión de 11 estudios (6 con placebo) vio mejoras en arrugas, textura e hidratación con 3 a 6 mg al día, pero con muestras pequeñas, casi todas de mujeres japonesas. [Ng QX et al., 2021, J Diet Suppl 18(2):169-182, PMID 32202443]
 - Precauciones: No sustituye la crema solar. Para la piel no hay datos con más de 6 mg al día. Advanced Antioxidants lleva 12 mg. En el embarazo y la lactancia no se ha estudiado: consulta antes.
 
-FICHA: Licopeno (Carotenoide del tomate) · https://marcalvear.github.io/mi-web/biohacking/#licopeno
+FICHA: Licopeno (Carotenoide del tomate) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#licopeno
 - Qué es: El rojo del tomate. Tomado a diario durante unas semanas, la piel se enrojece menos con el sol.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los ensayos salen a favor, pero son pequeños (20 personas en el que tiene placebo) y el efecto es más claro con tomate que con licopeno solo.
 - Cómo funciona: El licopeno se acumula en la piel y absorbe parte de la energía de la luz ultravioleta, que si no oxidaría las células. Es una protección pequeña y lenta: tarda semanas en notarse y no llega a la de una crema solar.
@@ -180,7 +419,7 @@ FICHA: Licopeno (Carotenoide del tomate) · https://marcalvear.github.io/mi-web/
   - Con unos 10 mg al día durante 12 semanas, la rojez después del sol bajó un 25 % con licopeno sintético y entre un 38 % y un 48 % con extracto de tomate, frente a cómo estaba al empezar. [Aust O et al., 2005, Int J Vitam Nutr Res 75(1):54-60, PMID 15830922]
 - Precauciones: No sustituye la crema solar. El efecto más claro se vio con tomate: otros carotenoides del tomate también absorben la luz ultravioleta, y una cápsula de licopeno solo no los lleva.
 
-FICHA: Vitamina K (K1 y K2) (Vitamina liposoluble) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-k
+FICHA: Vitamina K (K1 y K2) (Vitamina liposoluble) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#vitamina-k
 - Qué es: Ayuda a que el calcio se quede en el hueso. En mujeres después de la menopausia, un ensayo de tres años frenó la pérdida de hueso; para evitar fracturas, las pruebas no bastan.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un ensayo de 3 años con placebo sale a favor en la densidad del hueso, pero la revisión de 36 ensayos concluye que no hay pruebas suficientes para las fracturas.
 - Cómo funciona: El cuerpo usa la vitamina K para activar proteínas que manejan el calcio: la osteocalcina lo fija al hueso y otras evitan que se pegue a las arterias. La K1 viene de las verduras de hoja y la K2 (menaquinonas, como la MK-4 y la MK-7) de alimentos fermentados y de origen animal. La MK-7 dura más en sangre.
@@ -191,7 +430,7 @@ FICHA: Vitamina K (K1 y K2) (Vitamina liposoluble) · https://marcalvear.github.
   - En mujeres después de la menopausia o con osteoporosis, una revisión de 36 ensayos no encontró efecto en la densidad del hueso ni en las fracturas de vértebra. Puede que reduzca otras fracturas, pero las pruebas no bastan para confirmarlo. [Mott A et al., 2019, Osteoporos Int 30(8):1543-1559, PMID 31076817]
 - Precauciones: Contrarresta los anticoagulantes como el Sintrom o la warfarina. Si los tomas, no la tomes sin hablar antes con tu médico. Lo estudiado es sobre todo en mujeres después de la menopausia. En hombres y en jóvenes hay muy pocos datos.
 
-FICHA: NAC (N-acetilcisteína) (Aminoácido antioxidante) · https://marcalvear.github.io/mi-web/biohacking/#nac
+FICHA: NAC (N-acetilcisteína) (Aminoácido antioxidante) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#nac
 - Qué es: Es la forma en cápsula de la cisteína, una de las piezas del glutatión, el antioxidante que fabrica el propio cuerpo. Se estudia sobre todo junto a la glicina, en la mezcla llamada GlyNAC.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El ensayo a favor es pequeño (24 personas mayores) y lo firma el grupo que patentó la mezcla. Otro ensayo, más grande y de una empresa distinta, no encontró el efecto principal.
 - Cómo funciona: En vez de dar un antioxidante de fuera, la NAC da material para que las células fabriquen el suyo: el glutatión, que se hace con cisteína, glicina y glutamato. Con la edad hay menos glutatión, y la idea es que falta cisteína y glicina para fabricarlo. Por eso la NAC se toma con glicina.
@@ -201,7 +440,7 @@ FICHA: NAC (N-acetilcisteína) (Aminoácido antioxidante) · https://marcalvear.
   - En 114 adultos mayores sanos, dos semanas de GlyNAC a tres dosis no subieron el glutatión frente a placebo, que era el objetivo principal. Solo subió en quienes empezaban con más daño oxidativo y menos glutatión. Lo firma Nestlé. [Lizzo G et al., 2022, Front Aging 3:852569, PMID 35821844]
 - Precauciones: Puede dar náuseas, ardor o gases; tomada con comida se tolera mejor. Si tomas nitroglicerina para el corazón, no la tomes sin hablar con tu médico. En España la NAC también es un medicamento para la mucosidad: no la sumes a un mucolítico que ya tomes.
 
-FICHA: Colágeno hidrolizado (Proteína) · https://marcalvear.github.io/mi-web/biohacking/#colageno
+FICHA: Colágeno hidrolizado (Proteína) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#colageno
 - Qué es: Es colágeno partido en trozos pequeños para que se absorba. Se toma para la piel: en muchos ensayos mejora la hidratación y la elasticidad, pero en los independientes no.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los metaanálisis salen a favor, pero el más reciente encuentra que el efecto desaparece en los ensayos que no paga la industria y en los mejor hechos.
 - Cómo funciona: El colágeno es la proteína que sostiene la piel, y con los años se fabrica menos. El que te tomas no llega entero a la piel: se digiere en trozos de dos o tres aminoácidos. La idea es que esos trozos avisan a las células de la piel para que fabriquen más colágeno propio, y para eso necesitan vitamina C.
@@ -214,7 +453,7 @@ FICHA: Colágeno hidrolizado (Proteína) · https://marcalvear.github.io/mi-web/
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Vital Proteins, Collagen Peptides (Estados Unidos): lleva 20 g de péptidos de colágeno de vaca por toma, sin sabor; bote 9,33 oz (264 g); precio 27 $. https://www.vitalproteins.com/products/vp-collagen-peptides
 
-FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-c
+FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#vitamina-c
 - Qué es: El cuerpo la necesita para fabricar colágeno y no la puede hacer. Tomada a diario no evita los resfriados, pero los acorta un poco, y protege a quien hace esfuerzos muy duros.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: La revisión Cochrane, con decenas de ensayos, es sólida para los resfriados, pero el efecto es pequeño. Para vivir más, los ensayos de antioxidantes no encuentran nada.
 - Cómo funciona: La vitamina C es la herramienta que usan las células para dar firmeza al colágeno: sin ella sale débil, que es lo que pasaba con el escorbuto. También es un antioxidante que se gasta rápido cuando hay infección o mucho esfuerzo. Lo que sobra se elimina por la orina, así que tomar mucho más no da más.
@@ -228,13 +467,13 @@ FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
 Producto que junta varios suplementos de este problema (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Blueprint, Advanced Antioxidants (Estados Unidos): carotenoides Luteína 10 mg, zeaxantina 2 mg, licopeno 15 mg y astaxantina 12 mg; vitamina K K1 1.500 mcg (12,5 veces la cantidad diaria), K2 MK-4 5 mg y MK-7 600 mcg; toma 1 cápsula al día con comida; bote 30 cápsulas; precio 56,49 € (30 cápsulas). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
 `,
-      "dormir-mejor": `PROBLEMA: DORMIR MEJOR (https://marcalvear.github.io/mi-web/biohacking/#dormir-mejor)
+      "dormir-mejor": `PROBLEMA: DORMIR MEJOR (https://marcalvear.github.io/mi-web/biohacking/dormir-mejor/)
 - Dar vueltas en la cama, despertarse de madrugada o levantarse sin energía. Antes de cualquier cápsula, lo que más ayuda es lo de siempre: horario fijo, poca luz de pantallas por la noche y nada de cafeína por la tarde. Estas fichas son para ir un paso más allá.
 - Qué pasa en el cuerpo: Dormirse depende de dos relojes. Uno es el cansancio, que se va acumulando desde que te levantas. El otro es el ritmo del día y la noche: cuando oscurece, el cerebro suelta melatonina, el cuerpo se enfría por dentro y los nervios se calman. Si la luz de la pantalla retrasa la melatonina, si estás tenso o si el cuerpo no se enfría, cuesta más. Cada suplemento de aquí actúa en un momento distinto de la noche, y el reloj de al lado marca cuándo.
 - Combinarlos: Ningún ensayo probó estos cuatro juntos. La melatonina adelanta la hora de dormir; el magnesio, la glicina y la L-teanina ayudan a relajarse. Si quieres probar, empieza por uno durante dos o tres semanas antes de añadir otro, así sabrás cuál te funciona.
 - Ve al médico antes que a un suplemento si además: roncas fuerte y alguien te ha visto dejar de respirar mientras duermes; llevas más de tres meses durmiendo mal casi todas las noches; te quedas dormido de día sin querer, por ejemplo conduciendo; por la noche notas las piernas inquietas y tienes que moverlas; el insomnio llegó con tristeza, ansiedad o un cambio de medicación.
 
-FICHA: Melatonina (Hormona del sueño) · https://marcalvear.github.io/mi-web/biohacking/#melatonina
+FICHA: Melatonina (Hormona del sueño) · https://marcalvear.github.io/mi-web/biohacking/dormir-mejor/#melatonina
 - Qué es: Es la señal de «ya es de noche» que fabrica tu cerebro. En cápsula ayuda a dormirse un poco antes, sobre todo si la tomas unas horas antes de acostarte.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Hay metaanálisis de muchos ensayos con placebo y salen a favor, pero el efecto es pequeño: minutos, no horas.
 - Cómo funciona: Cuando oscurece, una glándula del cerebro llamada pineal suelta melatonina, y el cuerpo entiende que toca dormir. La luz de las pantallas por la noche frena esa subida. La melatonina en cápsula adelanta la señal: no te noquea como un somnífero, sino que le dice al reloj interno que la noche ha empezado.
@@ -246,7 +485,7 @@ FICHA: Melatonina (Hormona del sueño) · https://marcalvear.github.io/mi-web/bi
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Aquilea, Melatonina 1,95 mg (España): lleva 1,95 mg de melatonina y 0,7 mg de vitamina B6; toma 1 comprimido de 1 a 2 horas antes de acostarte; caja 30 o 60 comprimidos; precio En farmacias; la marca no publica el precio. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
 
-FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#magnesio
+FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/dormir-mejor/#magnesio
 - Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores o con mucho estrés.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay un ensayo pequeño a favor en personas mayores con insomnio, pero la revisión más reciente encuentra resultados contradictorios y una certeza baja.
 - Cómo funciona: El magnesio frena a los receptores que mantienen el cerebro en alerta y ayuda a los que lo calman, los mismos sobre los que actúan muchos somníferos. Si te falta, cuesta más relajarse. Si ya tienes suficiente, tomar más no parece hacer mucho.
@@ -259,7 +498,7 @@ FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#mag
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Thorne, Magnesium Bisglycinate (Estados Unidos): lleva 200 mg de magnesio en bisglicinato por cacito; toma 1 cacito en un vaso grande de agua al día; bote Polvo, 60 tomas; precio 52 $. https://www.thorne.com/products/dp/magnesium-bisglycinate
 
-FICHA: Glicina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#glicina
+FICHA: Glicina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/dormir-mejor/#glicina
 - Qué es: Es un aminoácido que el cuerpo ya fabrica. Tomado antes de dormir baja un poco la temperatura del cuerpo y, en los estudios, la gente se levanta menos cansada.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los ensayos son pocos, pequeños y de la misma empresa que la fabrica, aunque todos salen a favor.
 - Cómo funciona: Para dormirse, el cuerpo tiene que enfriarse un poco por dentro. La glicina abre los vasos de las manos y los pies, el calor sale por ahí y la temperatura interna baja antes. También calma un reloj del cerebro que marca el ritmo del día y la noche.
@@ -271,7 +510,7 @@ FICHA: Glicina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Glycine Pure Powder (Estados Unidos): lleva Glicina pura en polvo; toma 3/4 de cucharadita rasa, unos 3 g; bote 454 g; precio 22,49 $. https://www.nowfoods.com/products/supplements/glycine-pure-powder
 
-FICHA: L-teanina (Aminoácido del té) · https://marcalvear.github.io/mi-web/biohacking/#l-teanina
+FICHA: L-teanina (Aminoácido del té) · https://marcalvear.github.io/mi-web/biohacking/dormir-mejor/#l-teanina
 - Qué es: Es el aminoácido que hace que el té verde relaje en vez de poner nervioso. En cápsula ayuda a calmarse y, en un ensayo, mejoró la calidad del sueño.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay un ensayo bien hecho con placebo, pero pequeño (30 personas) y en parte de la empresa que la vende. Para el sueño, los metaanálisis aún no dan un resultado claro.
 - Cómo funciona: La L-teanina llega al cerebro y sube las ondas alfa, las de estar despierto pero tranquilo. Además frena un poco el glutamato, el mensajero que mantiene el cerebro acelerado. No da sueño por sí misma: quita tensión para que cueste menos dormirse.
@@ -283,13 +522,13 @@ FICHA: L-teanina (Aminoácido del té) · https://marcalvear.github.io/mi-web/bi
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Thorne, Theanine (Estados Unidos): lleva 200 mg de L-teanina por cápsula; toma 1 cápsula, de 1 a 3 veces al día; bote 90 cápsulas; precio 68 $ (90 cápsulas). https://www.thorne.com/products/dp/theanine
 `,
-      "concentrarse-mejor": `PROBLEMA: CONCENTRARSE MEJOR (https://marcalvear.github.io/mi-web/biohacking/#concentrarse-mejor)
+      "concentrarse-mejor": `PROBLEMA: CONCENTRARSE MEJOR (https://marcalvear.github.io/mi-web/biohacking/concentrarse-mejor/)
 - Leer la misma línea tres veces, perder el hilo en clase o quedarse en blanco a media tarde. Lo que más pesa es dormir bien, moverse y no tener el móvil al lado. Después, algunos suplementos tienen estudios, y cada uno tarda un tiempo muy distinto en notarse.
 - Qué pasa en el cuerpo: Concentrarse gasta mucha energía: el cerebro pesa un 2 % del cuerpo y usa una quinta parte de la energía. Durante el día se acumula adenosina, la molécula que da sueño, y si has dormido poco se acaban antes las reservas de energía de las neuronas. Algunos suplementos actúan en minutos sobre la alerta, otros tardan semanas en llenar esas reservas y otros meses en cambiar cómo se conectan las neuronas. La línea de tiempo de al lado lo ordena.
 - Combinarlos: Ningún ensayo probó estos cuatro juntos. La cafeína con L-teanina es para un momento concreto; la creatina y la bacopa son de tomar a diario y esperar. Si quieres probar algo de fondo, empieza por uno y dale el tiempo que marca la línea antes de juzgarlo.
 - Ve al médico antes que a un suplemento si además: te olvidas de cosas recientes o te pierdes en sitios conocidos; la falta de concentración llegó con tristeza, apatía o ansiedad; te cuesta concentrarte desde siempre y te afecta en los estudios o el trabajo (puede ser TDAH); estás muy cansado aunque duermas bien.
 
-FICHA: Cafeína con L-teanina (Estimulante y aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#cafeina-l-teanina
+FICHA: Cafeína con L-teanina (Estimulante y aminoácido) · https://marcalvear.github.io/mi-web/biohacking/concentrarse-mejor/#cafeina-l-teanina
 - Qué es: Es la pareja del té: la cafeína despierta y la L-teanina quita los nervios. Juntas mejoran la atención en tareas exigentes durante las dos primeras horas.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Dos metaanálisis de ensayos con placebo salen a favor en atención y alerta, pero con efectos moderados, a corto plazo y con bastante incertidumbre.
 - Cómo funciona: La cafeína tapa los receptores de la adenosina, la molécula que se acumula durante el día y da sueño, así que el cansancio se nota menos. La L-teanina sube las ondas alfa, las de estar tranquilo y atento, y suaviza el nerviosismo y el bajón de la cafeína sola.
@@ -301,7 +540,7 @@ FICHA: Cafeína con L-teanina (Estimulante y aminoácido) · https://marcalvear.
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, L-Theanine Double Strength 200 mg (Estados Unidos): lleva 200 mg de L-teanina con inositol; la cafeína la pone tu café; toma 1 cápsula; bote 60 cápsulas; precio 19,49 $. https://www.nowfoods.com/products/supplements/l-theanine-double-strength-200-mg-veg-capsules
 
-FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#creatina
+FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/concentrarse-mejor/#creatina
 - Qué es: Es la reserva de energía rápida de los músculos y también del cerebro. Con entrenamiento da más fuerza y más músculo, y para la cabeza ayuda algo a la memoria, sobre todo cuando no has dormido.
 - Evidencia: Fuerte (Varios ensayos grandes, o un metaanálisis, que coinciden). Por qué este nivel: Para la fuerza y el músculo es el suplemento deportivo con más pruebas. Para la cabeza, la evidencia es moderada: un metaanálisis sale a favor, pero la EFSA no aceptó que mejore las funciones mentales.
 - Cómo funciona: Las células guardan energía como fosfocreatina para recargarse en segundos cuando la gastan de golpe. El cerebro gasta mucha energía, y cuando falta sueño se le acaba esa reserva. Tomando creatina a diario, la reserva sube poco a poco en unas semanas.
@@ -315,7 +554,7 @@ FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Myprotein, THE Creatine Creapure (Reino Unido): lleva Creatina monohidrato Creapure, fabricada en Alemania; toma 3 a 5 g al día; bote 250 g, 500 g o 1 kg; precio 31,99 € (250 g) o 52,99 € (500 g); cambia con las ofertas. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
-FICHA: Bacopa (Planta ayurvédica) · https://marcalvear.github.io/mi-web/biohacking/#bacopa
+FICHA: Bacopa (Planta ayurvédica) · https://marcalvear.github.io/mi-web/biohacking/concentrarse-mejor/#bacopa
 - Qué es: Es una planta de la medicina tradicional india. Tomada a diario durante meses, hace un poco más rápida la atención y ayuda a recordar lo aprendido. No es para notarlo el día del examen.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 9 ensayos con placebo, de buena calidad, sale a favor en la velocidad de atención. Pero los efectos son pequeños y solo aparecen tras unas 12 semanas.
 - Cómo funciona: Sus compuestos, los bacósidos, parecen ayudar a que las neuronas se conecten mejor y las protegen del daño oxidativo. Ese cambio es lento: por eso los ensayos que funcionan duran al menos 12 semanas.
@@ -326,7 +565,7 @@ FICHA: Bacopa (Planta ayurvédica) · https://marcalvear.github.io/mi-web/biohac
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Bacopa Extract 450 mg (Estados Unidos): lleva 450 mg de extracto con un 40 % de bacósidos; toma 1 cápsula al día; bote 90 cápsulas; precio 33,99 $. https://www.nowfoods.com/products/supplements/bacopa-extract-450-mg-veg-capsules
 
-FICHA: Melena de león (Hongo) · https://marcalvear.github.io/mi-web/biohacking/#melena-de-leon
+FICHA: Melena de león (Hongo) · https://marcalvear.github.io/mi-web/biohacking/concentrarse-mejor/#melena-de-leon
 - Qué es: Es un hongo blanco con forma de melena. En el laboratorio estimula el crecimiento de las neuronas; en personas, las pruebas todavía son flojas.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Es de lo más buscado, pero en personas hay pocos ensayos, pequeños, y una sola dosis no mejoró la cognición en general.
 - Cómo funciona: Lleva compuestos, las hericenonas y las erinacinas, que en células y animales hacen que se fabrique más factor de crecimiento nervioso, una proteína que ayuda a las neuronas a crecer y conectarse. Que eso pase igual en un cerebro humano con la dosis de una cápsula está por demostrar.
@@ -338,13 +577,13 @@ FICHA: Melena de león (Hongo) · https://marcalvear.github.io/mi-web/biohacking
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Hifas da Terra, Mico-Leo (España): lleva Extracto ecológico de melena de león con vitamina C; bolsa 60 cápsulas, para un mes; precio 42,50 €. https://hifasdaterra.com/en/products/mico-leo-extract-vitamin-c
 `,
-      "menos-estres": `PROBLEMA: MENOS ESTRÉS (https://marcalvear.github.io/mi-web/biohacking/#menos-estres)
+      "menos-estres": `PROBLEMA: MENOS ESTRÉS (https://marcalvear.github.io/mi-web/biohacking/menos-estres/)
 - La mandíbula apretada, el pecho encogido o la cabeza que no para por la noche. Lo que más baja el estrés no viene en cápsula: dormir, moverse, salir al sol y hablarlo con alguien. Estas fichas son un apoyo, no un sustituto.
 - Qué pasa en el cuerpo: Ante un peligro, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol y adrenalina: el corazón se acelera y la mente se pone en alerta. El cortisol tiene su propio ritmo: sube de golpe al despertar y baja durante el día hasta la noche. Con estrés que no para, se queda alto cuando debería bajar, y por eso cuesta dormir y desconectar. La curva de al lado marca en qué parte del día actúa cada suplemento.
 - Combinarlos: Ningún ensayo probó estos cuatro juntos. La ashwagandha y la lavanda se parecen en lo que hacen: no las sumes de entrada. Si quieres probar, empieza por una durante cuatro a ocho semanas, que es lo que duraron los ensayos, antes de juzgarla.
 - Ve al médico antes que a un suplemento si además: tienes ataques de pánico: el corazón a mil, falta de aire o miedo a morirte; llevas semanas triste, sin ganas de nada o sin disfrutar de lo que te gustaba; piensas en hacerte daño: llama al 024, la línea de atención a la conducta suicida; el estrés te impide trabajar, estudiar o dormir casi todas las noches.
 
-FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#ashwagandha
+FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/menos-estres/#ashwagandha
 - Qué es: Es una raíz de la medicina tradicional india, la más estudiada para el estrés. En 8 semanas baja el estrés que la gente nota y el cortisol en sangre.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 9 ensayos con placebo sale a favor en estrés, ansiedad y cortisol, pero los ensayos son pequeños, cortos y casi todos de la India con extractos de marca.
 - Cómo funciona: Cuando hay estrés, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol, la hormona que te pone en alerta. Si el estrés no para, el cortisol se queda alto. Los compuestos de la raíz, los witanólidos, parecen calmar ese circuito y actuar sobre el GABA, el freno natural del cerebro.
@@ -357,7 +596,7 @@ FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/b
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (Estados Unidos): lleva 300 mg de extracto de raíz KSM-66 por cápsula; toma 2 cápsulas al día; bote 120 cápsulas; precio 24,99 $. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
 
-FICHA: Lavanda (Silexan) (Aceite de lavanda en cápsula) · https://marcalvear.github.io/mi-web/biohacking/#lavanda
+FICHA: Lavanda (Silexan) (Aceite de lavanda en cápsula) · https://marcalvear.github.io/mi-web/biohacking/menos-estres/#lavanda
 - Qué es: Es un aceite de lavanda en cápsula, no el que se huele. A 80 mg al día baja la ansiedad, y no da sueño ni engancha.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Hay varios ensayos con placebo en ansiedad y un metaanálisis en red, con efectos parecidos a un antidepresivo. Casi todos los ha pagado el laboratorio que lo fabrica.
 - Cómo funciona: El aceite de lavanda actúa sobre los canales de calcio de las neuronas y frena un poco la liberación de mensajeros que mantienen el cerebro en alerta. No actúa como los tranquilizantes, así que no da sueño ni crea dependencia.
@@ -367,7 +606,7 @@ FICHA: Lavanda (Silexan) (Aceite de lavanda en cápsula) · https://marcalvear.g
   - Un resumen de los ensayos del laboratorio que lo fabrica: en personas con ansiedad que no llega a trastorno, 80 mg al día durante 10 semanas bajaron la ansiedad y mejoraron el sueño frente a placebo. [Kasper S et al., 2010, Wien Med Wochenschr 160(21-22):547-556, PMID 21170695]
 - Precauciones: Lo más frecuente es eructar con sabor a lavanda. Si tomas antidepresivos o ansiolíticos, no lo añadas sin hablar con tu médico. No es para una crisis de ansiedad: tarda unas semanas en notarse. En España el Silexan se vende en farmacia como medicamento a base de plantas (Lasea), para la ansiedad leve y como mucho 3 meses: por eso aquí no va como producto.
 
-FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#rhodiola
+FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/menos-estres/#rhodiola
 - Qué es: Es una raíz de las montañas frías del norte. Se usa para el cansancio por estrés: en un ensayo con personas quemadas mejoró la concentración y bajó el cortisol al despertar.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay ensayos a favor en la fatiga mental, pero una revisión de 11 ensayos los encuentra contradictorios y con fallos de método.
 - Cómo funciona: Sus compuestos, la salidrosida y las rosavinas, parecen suavizar la respuesta al estrés: el cortisol sube menos de golpe y las células gastan su energía con menos desgaste. Por eso se toma por la mañana, cuando el cortisol pega su subida.
@@ -379,7 +618,7 @@ FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/bioh
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Rhodiola 500 mg (Estados Unidos): lleva 500 mg de extracto con un 3 % de rosavinas y un 1 % de salidrosida; toma 1 cápsula; bote 60 cápsulas; precio 36,99 $. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
 
-FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#magnesio
+FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/dormir-mejor/#magnesio
 - Qué es: Es un mineral que relaja los músculos y los nervios. Ayuda sobre todo a quien tiene poco, como pasa en muchas personas mayores o con mucho estrés.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay un ensayo pequeño a favor en personas mayores con insomnio, pero la revisión más reciente encuentra resultados contradictorios y una certeza baja.
 - Cómo funciona: El magnesio frena a los receptores que mantienen el cerebro en alerta y ayuda a los que lo calman, los mismos sobre los que actúan muchos somníferos. Si te falta, cuesta más relajarse. Si ya tienes suficiente, tomar más no parece hacer mucho.
@@ -392,13 +631,13 @@ FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#mag
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Thorne, Magnesium Bisglycinate (Estados Unidos): lleva 200 mg de magnesio en bisglicinato por cacito; toma 1 cacito en un vaso grande de agua al día; bote Polvo, 60 tomas; precio 52 $. https://www.thorne.com/products/dp/magnesium-bisglycinate
 `,
-      "recuperarse-antes": `PROBLEMA: RECUPERARSE ANTES (https://marcalvear.github.io/mi-web/biohacking/#recuperarse-antes)
+      "recuperarse-antes": `PROBLEMA: RECUPERARSE ANTES (https://marcalvear.github.io/mi-web/biohacking/recuperarse-antes/)
 - Agujetas que duran días, piernas que no rinden en el siguiente entreno o la sensación de no progresar. Lo que más recupera es dormir, comer suficiente proteína y no entrenar a tope todos los días. Estas fichas ayudan con el resto, y la creatina es la que tiene más pruebas.
 - Qué pasa en el cuerpo: Al entrenar fuerte, sobre todo al frenar un peso o bajar cuestas, las fibras del músculo se rompen un poco. El cuerpo las inflama para limpiarlas y después las repara más fuertes: eso es progresar. Las agujetas no aparecen al momento, sino a las 24-72 horas, que es cuando más duele. El esquema de al lado marca qué suplemento actúa justo después, cuál en los días siguientes y cuál hay que tomar todos los días.
 - Combinarlos: La creatina y la proteína sí se suelen tomar juntas, en el batido de después de entrenar, y no hay problema. La cereza y los omega-3 bajan la inflamación: úsalos para competiciones o semanas muy duras, no siempre, porque un poco de inflamación es parte de cómo el músculo se adapta.
 - Ve al médico antes que a un suplemento si además: la orina sale oscura, como coca-cola, después de un entreno muy duro (puede ser rabdomiólisis: urgencias); el dolor es en un punto concreto, aparece de golpe o no deja apoyar; las agujetas duran más de una semana o vienen con hinchazón grande; te notas cansado y sin rendir durante semanas aunque descanses.
 
-FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#creatina
+FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/concentrarse-mejor/#creatina
 - Qué es: Es la reserva de energía rápida de los músculos y también del cerebro. Con entrenamiento da más fuerza y más músculo, y para la cabeza ayuda algo a la memoria, sobre todo cuando no has dormido.
 - Evidencia: Fuerte (Varios ensayos grandes, o un metaanálisis, que coinciden). Por qué este nivel: Para la fuerza y el músculo es el suplemento deportivo con más pruebas. Para la cabeza, la evidencia es moderada: un metaanálisis sale a favor, pero la EFSA no aceptó que mejore las funciones mentales.
 - Cómo funciona: Las células guardan energía como fosfocreatina para recargarse en segundos cuando la gastan de golpe. El cerebro gasta mucha energía, y cuando falta sueño se le acaba esa reserva. Tomando creatina a diario, la reserva sube poco a poco en unas semanas.
@@ -412,7 +651,7 @@ FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Myprotein, THE Creatine Creapure (Reino Unido): lleva Creatina monohidrato Creapure, fabricada en Alemania; toma 3 a 5 g al día; bote 250 g, 500 g o 1 kg; precio 31,99 € (250 g) o 52,99 € (500 g); cambia con las ofertas. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
-FICHA: Proteína de suero (Proteína de la leche) · https://marcalvear.github.io/mi-web/biohacking/#proteina-suero
+FICHA: Proteína de suero (Proteína de la leche) · https://marcalvear.github.io/mi-web/biohacking/recuperarse-antes/#proteina-suero
 - Qué es: Es la proteína del suero de la leche, la que se separa al hacer queso. No es mágica: sirve para llegar a la proteína que necesitas si entrenas fuerza, y con ella se gana algo más de músculo.
 - Evidencia: Fuerte (Varios ensayos grandes, o un metaanálisis, que coinciden). Por qué este nivel: Un metaanálisis de 49 ensayos con casi 1.900 personas sale a favor en fuerza y músculo, con un límite claro: por encima de 1,6 g de proteína por kilo al día ya no suma.
 - Cómo funciona: Al entrenar fuerza, las fibras del músculo se dañan un poco y el cuerpo las repara más gruesas. Para eso necesita aminoácidos, sobre todo leucina, que es la señal que enciende la fabricación de músculo. El suero se digiere rápido y lleva mucha leucina.
@@ -423,7 +662,7 @@ FICHA: Proteína de suero (Proteína de la leche) · https://marcalvear.github.i
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Myprotein, Impact Whey Protein (Reino Unido): lleva Proteína de suero concentrada, analizada por Informed Protein; bolsa 1 kg, unas 33 tomas; también 2,5 kg; precio 39,99 € (1 kg); cambia con las ofertas. https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/
 
-FICHA: Cereza ácida Montmorency (Zumo de fruta concentrado) · https://marcalvear.github.io/mi-web/biohacking/#cereza-acida
+FICHA: Cereza ácida Montmorency (Zumo de fruta concentrado) · https://marcalvear.github.io/mi-web/biohacking/recuperarse-antes/#cereza-acida
 - Qué es: Es una cereza muy ácida, rica en antocianos, los pigmentos rojos. En zumo concentrado ayuda a recuperar antes la fuerza tras un esfuerzo duro, aunque las agujetas no bajan.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Un metaanálisis de 19 ensayos sale a favor en recuperar la fuerza, pero no en las agujetas, con resultados muy dispares y una certeza baja o muy baja.
 - Cómo funciona: Después de un entreno muy exigente, el músculo dañado se inflama durante unos días y pierde fuerza. Los antocianos de la cereza frenan parte de esa inflamación y del daño oxidativo, así que la fuerza vuelve antes. Por eso se toma unos días antes y unos días después del esfuerzo.
@@ -432,7 +671,7 @@ FICHA: Cereza ácida Montmorency (Zumo de fruta concentrado) · https://marcalve
   - Juntando 19 ensayos en deportistas, el zumo de cereza ácida ayudó a recuperar la fuerza máxima en los días siguientes y bajó la proteína C reactiva, una señal de inflamación. No redujo las agujetas ni los marcadores de daño muscular, y la certeza es baja. [Daab W et al., 2026, Sports Med Open 12(1):40, PMID 41945263]
 - Precauciones: El zumo lleva bastante azúcar: si cuidas el azúcar, mejor en cápsula. Puede bajar algo la adaptación al entreno si se toma siempre: resérvala para competiciones o semanas muy duras.
 
-FICHA: Omega-3 (EPA y DHA) (Ácidos grasos del pescado) · https://marcalvear.github.io/mi-web/biohacking/#omega-3
+FICHA: Omega-3 (EPA y DHA) (Ácidos grasos del pescado) · https://marcalvear.github.io/mi-web/biohacking/recuperarse-antes/#omega-3
 - Qué es: Son las grasas del pescado azul. Tomadas a diario durante semanas, bajan algo las agujetas y la inflamación después de un esfuerzo que daña el músculo.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los metaanálisis salen a favor en las agujetas, pero uno dice que el efecto es tan pequeño que no se nota, y el más reciente avisa de fallos de método en casi todos los ensayos.
 - Cómo funciona: El EPA y el DHA se meten en las membranas de las células y cambian las señales de inflamación que sueltan cuando se dañan. Para que eso pase tienen que acumularse, y eso lleva semanas: no sirven tomados solo el día del entreno.
@@ -444,13 +683,13 @@ FICHA: Omega-3 (EPA y DHA) (Ácidos grasos del pescado) · https://marcalvear.gi
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Sports Research, Triple Strength Omega-3 Fish Oil (Estados Unidos): lleva 1.040 mg de omega-3 por cápsula, de abadejo de Alaska; toma 2 a 3 cápsulas para llegar a la dosis estudiada; bote 90 cápsulas; precio 31,63 $ (90 cápsulas). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
 `,
-      "mas-defensas": `PROBLEMA: DEFENSAS (https://marcalvear.github.io/mi-web/biohacking/#mas-defensas)
+      "mas-defensas": `PROBLEMA: DEFENSAS (https://marcalvear.github.io/mi-web/biohacking/mas-defensas/)
 - Un resfriado detrás de otro de octubre a marzo, o uno que no se va nunca. Lo que más protege es dormir, lavarse las manos y la vacuna de la gripe si te toca. De los suplementos, algunos ayudan un poco a coger menos resfriados y otros a que duren menos.
 - Qué pasa en el cuerpo: Los resfriados los causan más de 200 virus distintos, sobre todo rinovirus, y por eso no hay vacuna. Entran por la nariz y la garganta, y lo que notas (mocos, dolor, fiebre) es tu sistema inmune luchando. En invierno pasamos más tiempo dentro, el aire seco reseca las mucosas y la piel casi no fabrica vitamina D. El esquema de al lado separa lo que se toma toda la temporada de lo que se toma al primer síntoma.
 - Combinarlos: Se pueden sumar los de toda la temporada (vitamina D, probióticos, vitamina C) con los del primer síntoma (zinc, saúco), porque actúan en momentos distintos. Ningún ensayo probó la mezcla, así que no esperes que se sumen los efectos.
 - Ve al médico antes que a un suplemento si además: la fiebre dura más de 3 días o pasa de 39 °C; te cuesta respirar, te duele el pecho o los labios se ponen morados; el resfriado mejora y luego empeora de golpe, con fiebre; tienes más de 6 o 7 infecciones al año o tardan mucho en curarse.
 
-FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-d
+FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/mas-defensas/#vitamina-d
 - Qué es: El cuerpo la fabrica con el sol en la piel, y en invierno casi no se fabrica. Hace falta para los huesos y el sistema inmune, pero en cápsula apenas evita resfriados en quien no tiene déficit.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Es de lo más estudiado: 40 ensayos con más de 61.000 personas. Pero en la actualización de 2025 la protección frente a infecciones se queda en el límite y deja de ser significativa.
 - Cómo funciona: Cuando el sol da en la piel, el cuerpo fabrica vitamina D y el hígado y el riñón la activan. Las células del sistema inmune tienen receptores para ella: la usan para fabricar sus propios antibióticos naturales, como la catelicidina. Entre octubre y marzo, en España, el sol está tan bajo que la piel casi no la fabrica.
@@ -463,7 +702,7 @@ FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Vitamin D3 2000 IU (Estados Unidos): lleva 2.000 UI (50 µg) de vitamina D3 por cápsula; toma 1 cápsula al día con comida; bote 30, 120 o 240 cápsulas; precio 4,99 $ (30) o 8,99 $ (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 
-FICHA: Probióticos (Bacterias vivas) · https://marcalvear.github.io/mi-web/biohacking/#probioticos
+FICHA: Probióticos (Bacterias vivas) · https://marcalvear.github.io/mi-web/biohacking/mas-defensas/#probioticos
 - Qué es: Son bacterias buenas, como las del yogur. Tomadas a diario durante meses, hacen que se cojan algo menos de resfriados y que duren un día menos.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Una revisión Cochrane de 23 ensayos con casi 7.000 personas sale a favor, pero con una certeza entre baja y moderada, y cada ensayo usa cepas distintas.
 - Cómo funciona: Buena parte del sistema inmune vive pegado al intestino. Las bacterias buenas le mandan señales que lo mantienen entrenado y ayudan a que las mucosas, también las de la nariz y la garganta, hagan mejor de barrera. El efecto depende de la cepa: no todos los probióticos hacen lo mismo.
@@ -474,7 +713,7 @@ FICHA: Probióticos (Bacterias vivas) · https://marcalvear.github.io/mi-web/bio
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Probiotic-10 50 Billion (Estados Unidos): lleva 50.000 millones de bacterias de 10 cepas por cápsula; toma 1 cápsula al día; bote 50 cápsulas; mejor en la nevera; precio 49,99 $. https://www.nowfoods.com/products/supplements/probiotic-10-50-billion-veg-capsules
 
-FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-c
+FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#vitamina-c
 - Qué es: El cuerpo la necesita para fabricar colágeno y no la puede hacer. Tomada a diario no evita los resfriados, pero los acorta un poco, y protege a quien hace esfuerzos muy duros.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: La revisión Cochrane, con decenas de ensayos, es sólida para los resfriados, pero el efecto es pequeño. Para vivir más, los ensayos de antioxidantes no encuentran nada.
 - Cómo funciona: La vitamina C es la herramienta que usan las células para dar firmeza al colágeno: sin ella sale débil, que es lo que pasaba con el escorbuto. También es un antioxidante que se gasta rápido cuando hay infección o mucho esfuerzo. Lo que sobra se elimina por la orina, así que tomar mucho más no da más.
@@ -485,7 +724,7 @@ FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
   - En la revisión de 78 ensayos de antioxidantes con casi 300.000 personas, la vitamina C no alargó la vida. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
 - Precauciones: Por encima de 1 g al día puede dar diarrea, y en algunas personas, piedras en el riñón. Si tienes hemocromatosis (exceso de hierro), no la tomes en cápsula sin hablar con tu médico: sube la absorción del hierro.
 
-FICHA: Zinc en pastillas para chupar (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#zinc
+FICHA: Zinc en pastillas para chupar (Mineral) · https://marcalvear.github.io/mi-web/biohacking/mas-defensas/#zinc
 - Qué es: Chupadas desde el primer día, las pastillas de zinc acortan el resfriado. Tienen que ser de acetato o gluconato de zinc y deshacerse en la boca, no tragarse.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 7 ensayos con placebo encuentra que los resfriados duran un tercio menos, pero son pocos ensayos y la forma de la pastilla importa mucho.
 - Cómo funciona: El zinc que se suelta en la boca y la garganta frena a los rinovirus, los virus del resfriado, para que no se agarren a las células ni se copien. Por eso tiene que deshacerse despacio donde está el virus y empezar en cuanto notas el picor de garganta.
@@ -496,7 +735,7 @@ FICHA: Zinc en pastillas para chupar (Mineral) · https://marcalvear.github.io/m
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Life Extension, Enhanced Zinc Lozenges (Estados Unidos): lleva 18,75 mg de zinc en acetato por pastilla, sabor menta; toma 1 cada 2 horas despierto, hasta llegar a unos 90 mg al día, solo unos días; bote 30 pastillas; precio 9 $. https://www.lifeextension.com/vitamins-supplements/item01961/enhanced-zinc-lozenges
 
-FICHA: Saúco negro (Extracto de baya) · https://marcalvear.github.io/mi-web/biohacking/#sauco
+FICHA: Saúco negro (Extracto de baya) · https://marcalvear.github.io/mi-web/biohacking/mas-defensas/#sauco
 - Qué es: Es la baya morada del saúco, en jarabe o pastillas. Tomada al empezar un resfriado o una gripe, en ensayos pequeños alivió antes los síntomas.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El metaanálisis sale muy a favor, pero junta solo 180 personas y varios ensayos los pagó el fabricante del jarabe.
 - Cómo funciona: Sus pigmentos, los antocianos, parecen pegarse a la superficie de los virus de la gripe y frenar que entren en las células. También modulan las señales de inflamación. La mayoría de esto se ha visto en el laboratorio.
@@ -505,13 +744,13 @@ FICHA: Saúco negro (Extracto de baya) · https://marcalvear.github.io/mi-web/bi
   - Juntando ensayos con 180 personas, el saúco redujo bastante los síntomas de resfriado y gripe frente a placebo, con un efecto grande. Los autores piden ensayos más grandes. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
 - Precauciones: Nunca bayas crudas ni hojas: sin procesar son tóxicas. Solo extractos preparados. Si tienes una enfermedad autoinmune o tomas inmunosupresores, consúltalo antes. En embarazo y lactancia no hay datos: mejor no tomarlo.
 `,
-      "testosterona": `PROBLEMA: TESTOSTERONA (https://marcalvear.github.io/mi-web/biohacking/#testosterona)
+      "testosterona": `PROBLEMA: TESTOSTERONA (https://marcalvear.github.io/mi-web/biohacking/testosterona/)
 - La testosterona baja con la edad, pero sobre todo con el sueño corto, la grasa abdominal, el estrés y el alcohol. Ningún suplemento la sube como un tratamiento: dormir 7-8 horas, entrenar fuerza y perder grasa hacen mucho más. Estas fichas cuentan qué sí y qué no se ha medido.
 - Qué pasa en el cuerpo: La testosterona se fabrica en cadena. El cerebro manda una señal, la hormona LH, y los testículos fabrican testosterona. En la sangre, la mayor parte va pegada a una proteína, la SHBG, y solo la libre llega a los tejidos. Cuando hay suficiente, el cerebro frena la señal. El estrés, que sube el cortisol, y la falta de sueño frenan la cadena desde arriba. El esquema de al lado marca en qué punto se cree que actúa cada suplemento.
 - Combinarlos: Ningún ensayo probó estos juntos, y las mezclas «potenciadoras de testosterona» casi nunca tienen estudios propios. Si quieres probar uno, mide antes y después con un análisis por la mañana: es la única forma de saber si te ha hecho algo.
-- Ve al médico antes que a un suplemento si además: tienes poco deseo, problemas de erección y cansancio a la vez durante meses; te han crecido las mamas, has perdido vello o los testículos han cambiado de tamaño; tienes menos de 40 años y te notas todos estos síntomas; te ofrecen testosterona o «pro-hormonas» sin receta: pueden dejarte estéril.
+- Ve al médico antes que a un suplemento si además: tienes poca libido, problemas de erección y cansancio a la vez durante meses; te han crecido las mamas, has perdido vello o los testículos han cambiado de tamaño; tienes menos de 40 años y te notas todos estos síntomas; te ofrecen testosterona o «pro-hormonas» sin receta: pueden dejarte estéril.
 
-FICHA: Tongkat ali (Raíz del sudeste asiático) · https://marcalvear.github.io/mi-web/biohacking/#tongkat-ali
+FICHA: Tongkat ali (Raíz del sudeste asiático) · https://marcalvear.github.io/mi-web/biohacking/testosterona/#tongkat-ali
 - Qué es: Es la raíz de un arbusto de Malasia e Indonesia. En ensayos pequeños sube la testosterona total, sobre todo en hombres que la tienen baja.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Un metaanálisis de 5 ensayos sale a favor con un efecto grande, pero son ensayos pequeños, distintos entre sí y el efecto se ve sobre todo en hombres con la testosterona baja.
 - Cómo funciona: Sus compuestos, los eurycomanósidos, parecen ayudar a las células de los testículos que fabrican testosterona y frenar la enzima que la convierte en estrógeno. En hombres con poca testosterona por estrés o edad, el margen para subir es mayor.
@@ -520,7 +759,7 @@ FICHA: Tongkat ali (Raíz del sudeste asiático) · https://marcalvear.github.io
   - Juntando 5 ensayos con placebo, el tongkat ali subió de forma clara la testosterona total, en voluntarios sanos y más en hombres con hipogonadismo. Los autores piden más ensayos antes de usarlo en clínica. [Leisegang K et al., 2022, Medicina (Kaunas) 58(8):1047, PMID 36013514]
 - Precauciones: Algunos productos de esta raíz han salido con metales pesados o con fármacos añadidos: compra solo marcas analizadas por un laboratorio externo. Si tienes cáncer de próstata, problemas de corazón o tomas medicación para la tensión o el azúcar, no lo tomes sin hablar con tu médico. Si compites, ojo: algunos lotes contaminados han dado positivo en controles.
 
-FICHA: Fenogreco (Semilla) · https://marcalvear.github.io/mi-web/biohacking/#fenogreco
+FICHA: Fenogreco (Semilla) · https://marcalvear.github.io/mi-web/biohacking/testosterona/#fenogreco
 - Qué es: Es una semilla de la cocina india y mediterránea. En extracto sube un poco la testosterona total, pero no la libre, que es la que usa el cuerpo.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El metaanálisis de 2026 encuentra una subida pequeña de la testosterona total, pero con certeza muy baja, y ningún ensayo con bajo riesgo de sesgo.
 - Cómo funciona: Sus saponinas parecen frenar las enzimas que convierten la testosterona en estrógeno y en dihidrotestosterona, así que queda algo más en sangre. Que suba la total no significa que suba la libre: buena parte va pegada a una proteína, la SHBG.
@@ -531,7 +770,7 @@ FICHA: Fenogreco (Semilla) · https://marcalvear.github.io/mi-web/biohacking/#fe
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Fenugreek 500 mg (Estados Unidos): lleva 500 mg de semilla de fenogreco por cápsula; bote 100 cápsulas; precio 11,99 $. https://www.nowfoods.com/products/supplements/fenugreek-500-mg-veg-capsules
 
-FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#ashwagandha
+FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/menos-estres/#ashwagandha
 - Qué es: Es una raíz de la medicina tradicional india, la más estudiada para el estrés. En 8 semanas baja el estrés que la gente nota y el cortisol en sangre.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 9 ensayos con placebo sale a favor en estrés, ansiedad y cortisol, pero los ensayos son pequeños, cortos y casi todos de la India con extractos de marca.
 - Cómo funciona: Cuando hay estrés, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol, la hormona que te pone en alerta. Si el estrés no para, el cortisol se queda alto. Los compuestos de la raíz, los witanólidos, parecen calmar ese circuito y actuar sobre el GABA, el freno natural del cerebro.
@@ -544,7 +783,7 @@ FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/b
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (Estados Unidos): lleva 300 mg de extracto de raíz KSM-66 por cápsula; toma 2 cápsulas al día; bote 120 cápsulas; precio 24,99 $. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
 
-FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-d
+FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/mas-defensas/#vitamina-d
 - Qué es: El cuerpo la fabrica con el sol en la piel, y en invierno casi no se fabrica. Hace falta para los huesos y el sistema inmune, pero en cápsula apenas evita resfriados en quien no tiene déficit.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Es de lo más estudiado: 40 ensayos con más de 61.000 personas. Pero en la actualización de 2025 la protección frente a infecciones se queda en el límite y deja de ser significativa.
 - Cómo funciona: Cuando el sol da en la piel, el cuerpo fabrica vitamina D y el hígado y el riñón la activan. Las células del sistema inmune tienen receptores para ella: la usan para fabricar sus propios antibióticos naturales, como la catelicidina. Entre octubre y marzo, en España, el sol está tan bajo que la piel casi no la fabrica.
@@ -557,13 +796,13 @@ FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Vitamin D3 2000 IU (Estados Unidos): lleva 2.000 UI (50 µg) de vitamina D3 por cápsula; toma 1 cápsula al día con comida; bote 30, 120 o 240 cápsulas; precio 4,99 $ (30) o 8,99 $ (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 `,
-      "ciclo-menopausia": `PROBLEMA: CICLO Y MENOPAUSIA (https://marcalvear.github.io/mi-web/biohacking/#ciclo-menopausia)
+      "ciclo-menopausia": `PROBLEMA: CICLO Y MENOPAUSIA (https://marcalvear.github.io/mi-web/biohacking/ciclo-menopausia/)
 - Hinchazón, pecho dolorido y cambios de humor antes de la regla, ciclos que no llegan cuando toca o los sofocos de la menopausia. Algunos suplementos tienen ensayos para cosas muy concretas de cada etapa, y aquí van por separado.
 - Qué pasa en el cuerpo: El ciclo es una coreografía de hormonas. En la primera mitad suben los estrógenos y madura un óvulo; hacia el día 14 se suelta, y en la segunda mitad, la fase lútea, manda la progesterona. Si no hay embarazo, todo baja y llega la regla. El síndrome premenstrual aparece en esa bajada final. En el ovario poliquístico, la insulina y la testosterona altas impiden ovular, y en la menopausia los ovarios dejan de fabricar estrógenos. La rueda de al lado marca en qué momento actúa cada suplemento.
 - Combinarlos: Cada ficha es para algo distinto: el sauzgatillo y el calcio para el síndrome premenstrual, el mio-inositol para el ovario poliquístico y las isoflavonas para la menopausia. No las mezcles por si acaso: elige la que encaja con lo que te pasa y dale tres ciclos.
 - Ve al médico antes que a un suplemento si además: sangras mucho (cambias de compresa cada hora) o entre reglas; llevas más de 3 meses sin regla sin estar embarazada; el dolor de regla te impide hacer vida normal (puede ser endometriosis); sangras después de la menopausia; antes de la regla te sientes tan mal que piensas en hacerte daño: llama al 024.
 
-FICHA: Sauzgatillo (Vitex) (Fruto de un arbusto) · https://marcalvear.github.io/mi-web/biohacking/#sauzgatillo
+FICHA: Sauzgatillo (Vitex) (Fruto de un arbusto) · https://marcalvear.github.io/mi-web/biohacking/ciclo-menopausia/#sauzgatillo
 - Qué es: Es el fruto de un arbusto mediterráneo. Tomado a diario, alivia el síndrome premenstrual: la tensión en el pecho, la irritabilidad y la hinchazón de los días antes de la regla.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Solo 3 ensayos con 520 mujeres pasan el filtro de calidad del metaanálisis, pero los tres salen a favor y con un efecto claro.
 - Cómo funciona: En la segunda mitad del ciclo, la prolactina puede subir más de la cuenta y desajustar la progesterona, y eso se nota en el pecho y el ánimo. El sauzgatillo actúa sobre los receptores de dopamina de la hipófisis y frena esa prolactina.
@@ -572,7 +811,7 @@ FICHA: Sauzgatillo (Vitex) (Fruto de un arbusto) · https://marcalvear.github.io
   - En los 3 ensayos bien hechos, con 520 mujeres, las que tomaban sauzgatillo tuvieron 2,6 veces más probabilidad de que el síndrome premenstrual remitiera que con placebo. Los demás ensayos no contaban bien qué extracto usaban. [Csupor D et al., 2019, Complement Ther Med 47:102190, PMID 31780016]
 - Precauciones: No lo tomes si buscas quedarte embarazada, estás embarazada o das el pecho. Puede interferir con la píldora, con tratamientos de fertilidad y con fármacos que actúan sobre la dopamina. Si tienes un tumor sensible a hormonas, no lo tomes sin hablar con tu médico.
 
-FICHA: Calcio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#calcio
+FICHA: Calcio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/ciclo-menopausia/#calcio
 - Qué es: Es el mineral de los huesos. Tomado a diario, en un ensayo grande redujo casi a la mitad los síntomas del síndrome premenstrual en tres ciclos.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Hay un ensayo grande y bien hecho, con 466 mujeres, a favor. Es de 1998 y no se ha repetido a esa escala.
 - Cómo funciona: Los estrógenos cambian a lo largo del ciclo cuánto calcio absorbe y guarda el cuerpo. En algunas mujeres, el calcio y la vitamina D bajan en la segunda mitad del ciclo, y eso se relaciona con los síntomas del síndrome premenstrual.
@@ -583,7 +822,7 @@ FICHA: Calcio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#calci
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Calcium Carbonate Powder (Estados Unidos): lleva 600 mg de calcio por media cucharadita; toma Media cucharadita dos veces al día con comida; bote 340 g de polvo; precio 15,99 $. https://www.nowfoods.com/products/supplements/calcium-carbonate-powder
 
-FICHA: Mio-inositol (Azúcar de la familia de las vitaminas B) · https://marcalvear.github.io/mi-web/biohacking/#mio-inositol
+FICHA: Mio-inositol (Azúcar de la familia de las vitaminas B) · https://marcalvear.github.io/mi-web/biohacking/ciclo-menopausia/#mio-inositol
 - Qué es: Es una molécula que el cuerpo usa para responder a la insulina. En el síndrome de ovario poliquístico ayuda a que el ciclo se vuelva regular y baja la testosterona.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 26 ensayos con casi 1.700 mujeres con ovario poliquístico sale a favor, y en varios puntos funciona igual que la metformina, el fármaco de referencia.
 - Cómo funciona: En el ovario poliquístico, el cuerpo responde mal a la insulina, y la insulina alta empuja a los ovarios a fabricar más testosterona, que desajusta la ovulación. El mio-inositol hace de mensajero de la insulina dentro de la célula: mejora esa respuesta y baja la testosterona.
@@ -594,7 +833,7 @@ FICHA: Mio-inositol (Azúcar de la familia de las vitaminas B) · https://marcal
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Inositol Powder (Estados Unidos): lleva Mio-inositol puro: 730 mg por cuarto de cucharadita; toma Para 2 a 4 g, de 3/4 a 1 1/4 cucharaditas al día; bote 57 g, 113 g, 227 g o 454 g; precio Desde 12,99 $. https://www.nowfoods.com/products/supplements/inositol-powder
 
-FICHA: Isoflavonas de soja (Fitoestrógenos) · https://marcalvear.github.io/mi-web/biohacking/#isoflavonas-soja
+FICHA: Isoflavonas de soja (Fitoestrógenos) · https://marcalvear.github.io/mi-web/biohacking/ciclo-menopausia/#isoflavonas-soja
 - Qué es: Son compuestos de la soja que se parecen un poco a los estrógenos. En la menopausia bajan algo el ánimo bajo, las palpitaciones y los dolores de cabeza, pero los sofocos casi no.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: El metaanálisis de 2025 encuentra un efecto pequeño en los síntomas de la menopausia en conjunto, pero no en los sofocos, y con pocos ensayos.
 - Cómo funciona: En la menopausia los ovarios dejan de fabricar estrógenos, y eso desajusta el termostato del cerebro y el ánimo. Las isoflavonas se pegan con poca fuerza a los receptores de estrógeno y hacen de estrógeno muy suave. En algunas personas, las bacterias del intestino las convierten en equol, que es más activo.
@@ -605,13 +844,13 @@ FICHA: Isoflavonas de soja (Fitoestrógenos) · https://marcalvear.github.io/mi-
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Soy Isoflavones (Estados Unidos): lleva 60 mg de isoflavonas por toma; bote 120 cápsulas; precio 39,99 $. https://www.nowfoods.com/products/supplements/soy-isoflavones-veg-capsules
 `,
-      "menos-cansancio": `PROBLEMA: CANSANCIO (https://marcalvear.github.io/mi-web/biohacking/#menos-cansancio)
+      "menos-cansancio": `PROBLEMA: CANSANCIO (https://marcalvear.github.io/mi-web/biohacking/menos-cansancio/)
 - Cansancio que no se va ni durmiendo, sin ganas de entrenar o con la cabeza lenta a media mañana. Antes que nada, un análisis: el hierro, la B12, el tiroides o el azúcar explican muchos casos, y un suplemento solo ayuda si va a la causa.
 - Qué pasa en el cuerpo: La energía es como una pila con varias celdas. El hierro lleva el oxígeno a las células, la B12 hace falta para fabricar los glóbulos rojos que lo transportan y las mitocondrias, con la coenzima Q10, convierten ese oxígeno en energía. Si una celda falla, la pila no carga aunque las otras estén bien. El estrés de fondo la vacía por otro lado. El esquema de al lado marca qué celda recarga cada suplemento.
 - Combinarlos: El hierro y la B12 solo si un análisis dice que te faltan: no se toman por si acaso. La coenzima Q10 y la rhodiola se pueden probar sin análisis, de una en una y durante 8 semanas, si lo demás está bien.
 - Ve al médico antes que a un suplemento si además: el cansancio llegó con pérdida de peso, fiebre o sudores por la noche; te cuesta respirar al subir escaleras, estás muy pálido o el corazón se acelera; tienes mucha sed, orinas mucho o te notas el cuello hinchado; llevas más de 6 meses agotado y empeoras después de cualquier esfuerzo.
 
-FICHA: Hierro (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#hierro
+FICHA: Hierro (Mineral) · https://marcalvear.github.io/mi-web/biohacking/menos-cansancio/#hierro
 - Qué es: Es el mineral que lleva el oxígeno en la sangre. A muchas mujeres que tienen la regla les falta sin llegar a la anemia, y eso cansa. Tomarlo solo sirve si un análisis dice que te falta.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un ensayo con placebo en 198 mujeres, y otro más reciente, salen a favor, pero solo en mujeres con la ferritina baja. Si tienes el hierro bien, no hay pruebas de que ayude.
 - Cómo funciona: El hierro hace falta para fabricar hemoglobina, que lleva el oxígeno, y también para que las células saquen energía. La ferritina es el almacén: puede vaciarse mucho antes de que baje la hemoglobina, y ya entonces aparece el cansancio. Con la regla se pierde hierro cada mes.
@@ -623,7 +862,7 @@ FICHA: Hierro (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#hierr
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Iron 36 mg (Ferrochel) (Estados Unidos): lleva 36 mg de hierro en bisglicinato, que estriñe menos; toma Lo que diga tu médico según la ferritina; bote 90 cápsulas; precio 15,99 $. https://www.nowfoods.com/products/supplements/iron-36-mg-double-strength-veg-capsules
 
-FICHA: Vitamina B12 (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-b12
+FICHA: Vitamina B12 (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/menos-cansancio/#vitamina-b12
 - Qué es: Hace falta para fabricar glóbulos rojos y cuidar los nervios. Solo viene de alimentos animales, así que falta en veganos, en mayores y en quien toma ciertos fármacos. Si te falta, cansa mucho; si no, tomarla no da energía extra.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Que la falta de B12 cansa y que tomarla lo corrige está bien establecido. Pero si tienes la B12 bien, no hay ensayos que muestren que dé más energía.
 - Cómo funciona: Sin B12, la médula ósea fabrica glóbulos rojos grandes y torpes que llevan mal el oxígeno, y los nervios pierden su funda protectora. Para absorberla, el estómago necesita ácido y una proteína propia: por eso falta con la edad, con el omeprazol o con la metformina.
@@ -632,7 +871,7 @@ FICHA: Vitamina B12 (Vitamina) · https://marcalvear.github.io/mi-web/biohacking
   - La revisión clínica del New England Journal of Medicine explica que la falta de B12 da cansancio, anemia y daño en los nervios, que es frecuente en mayores, veganos y personas que toman metformina o protectores de estómago, y que tomarla, por boca a dosis altas o pinchada, lo corrige. [Stabler SP et al., 2013, N Engl J Med 368(2):149-160, PMID 23301732]
 - Precauciones: Si tienes hormigueos en manos y pies o te falla la memoria, no te la tomes por tu cuenta: hazte un análisis antes, porque tomarla puede esconder el diagnóstico. Es muy segura: lo que sobra se elimina por la orina.
 
-FICHA: Coenzima Q10 (Molécula de las mitocondrias) · https://marcalvear.github.io/mi-web/biohacking/#coenzima-q10
+FICHA: Coenzima Q10 (Molécula de las mitocondrias) · https://marcalvear.github.io/mi-web/biohacking/menos-cansancio/#coenzima-q10
 - Qué es: Es una pieza de las mitocondrias, las centrales de energía de las células. El cuerpo la fabrica, pero menos con la edad o con las estatinas. En cápsula baja algo el cansancio.
 - Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de ensayos con placebo sale a favor, en gente sana y enferma, con un efecto entre pequeño y moderado que crece con la dosis y el tiempo.
 - Cómo funciona: Dentro de las mitocondrias, la coenzima Q10 pasa los electrones de un paso a otro para fabricar ATP, la moneda de energía de la célula. Si falta, la cadena va más lenta. También protege las membranas del daño oxidativo. Las estatinas frenan su fabricación, igual que la del colesterol.
@@ -643,7 +882,7 @@ FICHA: Coenzima Q10 (Molécula de las mitocondrias) · https://marcalvear.github
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, CoQ10 100 mg (Estados Unidos): lleva 100 mg de coenzima Q10 por cápsula; toma 1 o 2 cápsulas al día con comida; bote 50 cápsulas; precio 21,99 $. https://www.nowfoods.com/products/supplements/coq10-100-mg-softgels
 
-FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#rhodiola
+FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/menos-estres/#rhodiola
 - Qué es: Es una raíz de las montañas frías del norte. Se usa para el cansancio por estrés: en un ensayo con personas quemadas mejoró la concentración y bajó el cortisol al despertar.
 - Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Hay ensayos a favor en la fatiga mental, pero una revisión de 11 ensayos los encuentra contradictorios y con fallos de método.
 - Cómo funciona: Sus compuestos, la salidrosida y las rosavinas, parecen suavizar la respuesta al estrés: el cortisol sube menos de golpe y las células gastan su energía con menos desgaste. Por eso se toma por la mañana, cuando el cortisol pega su subida.
@@ -662,25 +901,25 @@ FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/bioh
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
 
 COMPENDIUM INDEX (full detail only for the problem being read)
-- Heavy digestion (https://marcalvear.github.io/mi-web/en/biohacking/#digestiones-pesadas): Digestive enzymes [moderate; 50 mg three times a day, or 2 × 200 mg capsules a day, for 2 months]; Peppermint and caraway oil [moderate; 90 mg peppermint oil and 50 mg caraway oil, twice a day, for 4 weeks]; Artichoke leaf extract [moderate; 2 × 320 mg capsules, three times a day (1,920 mg a day), for 6 weeks]; Ginger [preliminary; 1.2 g in capsules, a single dose]
-- Ageing well (https://marcalvear.github.io/mi-web/en/biohacking/#envejecer-mejor): Lutein and zeaxanthin [moderate; 10 mg of lutein and 2 mg of zeaxanthin a day]; Astaxanthin [preliminary; 3 to 6 mg a day (4 mg in the sun trial)]; Lycopene [preliminary; 10 to 16 mg a day for 12 weeks]; Vitamin K (K1 and K2) [moderate; 180 mcg of MK-7 a day for 3 years (in the trial that came out in favour)]; NAC (N-acetylcysteine) [preliminary; In GlyNAC, about 100 mg of NAC and 100 mg of glycine per kilo of body weight a day; in the larger trial, 1.2 to 3.6 g of each]; Hydrolysed collagen [preliminary; Between 2.5 and 10 g a day]; Vitamin C [moderate; From 200 mg to 1 g a day. Fruit and vegetables already cover what you need]
-- Sleeping better (https://marcalvear.github.io/mi-web/en/biohacking/#dormir-mejor): Melatonin [moderate; Between 1 and 4 mg. In Spain, as a supplement, each dose has less than 2 mg]; Magnesium [preliminary; Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide]; Glycine [preliminary; 3 g, about a teaspoon of powder]; L-theanine [preliminary; 200 mg a day]
-- Focusing better (https://marcalvear.github.io/mi-web/en/biohacking/#concentrarse-mejor): Caffeine with L-theanine [moderate; About 100 mg of caffeine with 200 mg of L-theanine, roughly a coffee with one capsule]; Creatine [strong; 3 to 5 g of creatine monohydrate a day]; Bacopa [moderate; 300 mg a day of extract standardised for bacosides]; Lion's mane [preliminary; 1 to 3 g a day of whole mushroom or extract]
-- Less stress (https://marcalvear.github.io/mi-web/en/biohacking/#menos-estres): Ashwagandha [moderate; 250 to 600 mg a day of root extract]; Lavender (Silexan) [moderate; 80 mg of Silexan a day; in some trials, 160 mg]; Rhodiola [preliminary; 200 to 600 mg a day of standardised extract]; Magnesium [preliminary; Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide]
-- Recovering faster (https://marcalvear.github.io/mi-web/en/biohacking/#recuperarse-antes): Creatine [strong; 3 to 5 g of creatine monohydrate a day]; Whey protein [strong; 20 to 40 g per serving, up to about 1.6 g of protein per kilo of body weight a day including food]; Montmorency tart cherry [preliminary; About 30 ml of concentrate (or 2 capsules) twice a day]; Omega-3 (EPA and DHA) [preliminary; 2 to 3 g a day of EPA plus DHA]
-- Immunity (https://marcalvear.github.io/mi-web/en/biohacking/#mas-defensas): Vitamin D [preliminary; Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test]; Probiotics [moderate; Between one billion and one hundred billion bacteria a day, of one or two strains of Lactobacillus or Bifidobacterium]; Vitamin C [moderate; From 200 mg to 1 g a day. Fruit and vegetables already cover what you need]; Zinc lozenges [moderate; About 80 to 90 mg of zinc a day in total, split into one lozenge every 2 or 3 hours]; Black elderberry [preliminary; Whatever the studied extract says: in the trials, about 15 ml of syrup 4 times a day in adults]
-- Testosterone (https://marcalvear.github.io/mi-web/en/biohacking/#testosterona): Tongkat ali [preliminary; 200 to 400 mg a day of standardised extract]; Fenugreek [preliminary; 500 to 600 mg a day of extract]; Ashwagandha [moderate; 250 to 600 mg a day of root extract]; Vitamin D [preliminary; Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test]
-- Cycle and menopause (https://marcalvear.github.io/mi-web/en/biohacking/#ciclo-menopausia): Chasteberry (Vitex) [moderate; 20 to 40 mg a day of standardised extract, like those studied (Ze 440 or BNO 1095)]; Calcium [moderate; 1,200 mg a day of calcium carbonate, counting what's in your diet]; Myo-inositol [moderate; 2 to 4 g a day; sometimes with D-chiro-inositol in a 40-to-1 ratio]; Soy isoflavones [preliminary; 50 to 100 mg of isoflavones a day]
-- Tiredness (https://marcalvear.github.io/mi-web/en/biohacking/#menos-cansancio): Iron [moderate; About 60 to 80 mg of elemental iron, only if ferritin is low and with your doctor monitoring]; Vitamin B12 [moderate; If you're vegan, about 250 µg a day or 2,000 µg a week; if you're deficient, your doctor sets the dose]; Coenzyme Q10 [moderate; 100 to 300 mg a day; ubiquinol is absorbed somewhat better]; Rhodiola [preliminary; 200 to 600 mg a day of standardised extract]
+- Heavy digestion (https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/): Digestive enzymes [moderate; 50 mg three times a day, or 2 × 200 mg capsules a day, for 2 months]; Peppermint and caraway oil [moderate; 90 mg peppermint oil and 50 mg caraway oil, twice a day, for 4 weeks]; Artichoke leaf extract [moderate; 2 × 320 mg capsules, three times a day (1,920 mg a day), for 6 weeks]; Ginger [preliminary; 1.2 g in capsules, a single dose]
+- Ageing well (https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/): Lutein and zeaxanthin [moderate; 10 mg of lutein and 2 mg of zeaxanthin a day]; Astaxanthin [preliminary; 3 to 6 mg a day (4 mg in the sun trial)]; Lycopene [preliminary; 10 to 16 mg a day for 12 weeks]; Vitamin K (K1 and K2) [moderate; 180 mcg of MK-7 a day for 3 years (in the trial that came out in favour)]; NAC (N-acetylcysteine) [preliminary; In GlyNAC, about 100 mg of NAC and 100 mg of glycine per kilo of body weight a day; in the larger trial, 1.2 to 3.6 g of each]; Hydrolysed collagen [preliminary; Between 2.5 and 10 g a day]; Vitamin C [moderate; From 200 mg to 1 g a day. Fruit and vegetables already cover what you need]
+- Sleeping better (https://marcalvear.github.io/mi-web/en/biohacking/dormir-mejor/): Melatonin [moderate; Between 1 and 4 mg. In Spain, as a supplement, each dose has less than 2 mg]; Magnesium [preliminary; Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide]; Glycine [preliminary; 3 g, about a teaspoon of powder]; L-theanine [preliminary; 200 mg a day]
+- Focusing better (https://marcalvear.github.io/mi-web/en/biohacking/concentrarse-mejor/): Caffeine with L-theanine [moderate; About 100 mg of caffeine with 200 mg of L-theanine, roughly a coffee with one capsule]; Creatine [strong; 3 to 5 g of creatine monohydrate a day]; Bacopa [moderate; 300 mg a day of extract standardised for bacosides]; Lion's mane [preliminary; 1 to 3 g a day of whole mushroom or extract]
+- Less stress (https://marcalvear.github.io/mi-web/en/biohacking/menos-estres/): Ashwagandha [moderate; 250 to 600 mg a day of root extract]; Lavender (Silexan) [moderate; 80 mg of Silexan a day; in some trials, 160 mg]; Rhodiola [preliminary; 200 to 600 mg a day of standardised extract]; Magnesium [preliminary; Between 200 and 500 mg of magnesium a day. Bisglycinate is easier on the stomach than oxide]
+- Recovering faster (https://marcalvear.github.io/mi-web/en/biohacking/recuperarse-antes/): Creatine [strong; 3 to 5 g of creatine monohydrate a day]; Whey protein [strong; 20 to 40 g per serving, up to about 1.6 g of protein per kilo of body weight a day including food]; Montmorency tart cherry [preliminary; About 30 ml of concentrate (or 2 capsules) twice a day]; Omega-3 (EPA and DHA) [preliminary; 2 to 3 g a day of EPA plus DHA]
+- Immunity (https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/): Vitamin D [preliminary; Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test]; Probiotics [moderate; Between one billion and one hundred billion bacteria a day, of one or two strains of Lactobacillus or Bifidobacterium]; Vitamin C [moderate; From 200 mg to 1 g a day. Fruit and vegetables already cover what you need]; Zinc lozenges [moderate; About 80 to 90 mg of zinc a day in total, split into one lozenge every 2 or 3 hours]; Black elderberry [preliminary; Whatever the studied extract says: in the trials, about 15 ml of syrup 4 times a day in adults]
+- Testosterone (https://marcalvear.github.io/mi-web/en/biohacking/testosterona/): Tongkat ali [preliminary; 200 to 400 mg a day of standardised extract]; Fenugreek [preliminary; 500 to 600 mg a day of extract]; Ashwagandha [moderate; 250 to 600 mg a day of root extract]; Vitamin D [preliminary; Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test]
+- Cycle and menopause (https://marcalvear.github.io/mi-web/en/biohacking/ciclo-menopausia/): Chasteberry (Vitex) [moderate; 20 to 40 mg a day of standardised extract, like those studied (Ze 440 or BNO 1095)]; Calcium [moderate; 1,200 mg a day of calcium carbonate, counting what's in your diet]; Myo-inositol [moderate; 2 to 4 g a day; sometimes with D-chiro-inositol in a 40-to-1 ratio]; Soy isoflavones [preliminary; 50 to 100 mg of isoflavones a day]
+- Tiredness (https://marcalvear.github.io/mi-web/en/biohacking/menos-cansancio/): Iron [moderate; About 60 to 80 mg of elemental iron, only if ferritin is low and with your doctor monitoring]; Vitamin B12 [moderate; If you're vegan, about 250 µg a day or 2,000 µg a week; if you're deficient, your doctor sets the dose]; Coenzyme Q10 [moderate; 100 to 300 mg a day; ubiquinol is absorbed somewhat better]; Rhodiola [preliminary; 200 to 600 mg a day of standardised extract]
 `,
     problems: {
-      "digestiones-pesadas": `PROBLEM: HEAVY DIGESTION (https://marcalvear.github.io/mi-web/en/biohacking/#digestiones-pesadas)
+      "digestiones-pesadas": `PROBLEM: HEAVY DIGESTION (https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/)
 - Heaviness, bloating, feeling full after a few bites. When it keeps happening and a doctor can't find a cause, it's called functional dyspepsia, which is exactly what the trials on this page studied.
 - What's going on in the body: Digestion means breaking food into pieces the gut can absorb. Enzymes do the work, with bile helping on fat, while the stomach contracts to pass food along into the gut. If any of those steps is slow, food stays up there longer and heaviness and gas follow. Each supplement here acts at a different point along that route.
 - Combining them: None of the trials on this page tested two supplements together. If you want to try, start with one and wait a few weeks before adding another, so you know which one works for you.
 - See a doctor before trying a supplement if you also: you're losing weight without trying; you vomit often; swallowing is hard or painful; you see black stools or blood; you're over 55 and the symptoms are new.
 
-SHEET: Digestive enzymes (Enzyme blend) · https://marcalvear.github.io/mi-web/en/biohacking/#enzimas-digestivas
+SHEET: Digestive enzymes (Enzyme blend) · https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/#enzimas-digestivas
 - What it is: Capsules with the same enzymes your body makes to break food down: amylase, proteases, lipase and lactase, among others.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: Two placebo-controlled trials in functional dyspepsia come out in favour, but they're small and one is by the maker of the blend that was tested.
 - How it works: You take them with food and they start working in the stomach, before the pancreas adds its own. Each one breaks down one kind of food: amylase handles the starch in bread or pasta, proteases handle meat and eggs, lipase handles fat, lactase handles milk sugar, and alpha-galactosidase handles the bean sugars that ferment and cause gas. What reaches the gut is already half broken down.
@@ -695,7 +934,7 @@ SHEET: Digestive enzymes (Enzyme blend) · https://marcalvear.github.io/mi-web/e
   - Sports Research, Digestive Enzymes + Probiotic (United States): contains 15 enzymes, probiotic and ginger; dose 1 capsule before a meal; bottle 90 capsules; price $22.95. https://www.sportsresearch.com/products/digestive-enzymes
   - Pure Encapsulations, Digestive Enzymes Ultra (United States): contains Proteases, lipase, amylase, lactase and fibre enzymes; dose 2 capsules with each meal; bottle 90 or 180 capsules; price $38 (90 capsules). https://www.pureencapsulationspro.com/digestive-enzymes-ultra.html
 
-SHEET: Peppermint and caraway oil (Essential oils in an enteric-coated capsule) · https://marcalvear.github.io/mi-web/en/biohacking/#menta-alcaravea
+SHEET: Peppermint and caraway oil (Essential oils in an enteric-coated capsule) · https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/#menta-alcaravea
 - What it is: The combination with the clearest trial against pressure and heaviness after eating.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A 96-patient placebo-controlled trial shows a clear improvement with large numbers, but it's a single trial at this dose.
 - How it works: The menthol in peppermint relaxes the muscle of the gut, so the stomach stops clenching and the spasm eases. Caraway, a seed similar to cumin, helps move gas along. The enteric-coated capsule opens further down instead of in the stomach, so the peppermint doesn't come back up as burps.
@@ -705,7 +944,7 @@ SHEET: Peppermint and caraway oil (Essential oils in an enteric-coated capsule) 
   - Pain dropped 40% versus 22% with placebo, and doctors rated 67% of patients much better, versus 21% with placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
 - Cautions: Peppermint can make heartburn worse if you have reflux. The enteric coating reduces this but doesn't remove it. Don't open or chew the capsule, or the peppermint is released in the stomach. During pregnancy or breastfeeding, only if your doctor says so.
 
-SHEET: Artichoke leaf extract (Plant extract) · https://marcalvear.github.io/mi-web/en/biohacking/#alcachofa
+SHEET: Artichoke leaf extract (Plant extract) · https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/#alcachofa
 - What it is: It makes the liver release more bile, which is what you need to digest fat.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: It's backed by a large trial of 247 patients across several centres, plus a study that measures the rise in bile. Other groups still need to repeat it.
 - How it works: Artichoke leaf contains cynarin and other compounds that increase the bile the liver sends into the gut. Bile treats fat the way soap does, splitting it into small droplets so lipase can break it down. In one study, bile went up 151% an hour after taking the extract.
@@ -716,7 +955,7 @@ SHEET: Artichoke leaf extract (Plant extract) · https://marcalvear.github.io/mi
   - In 20 volunteers, bile reaching the gut rose 151% an hour after 1.92 g of extract, far more than with placebo. [Kirchhoff R et al., 1994, Phytomedicine 1(2):107-115, PMID 23195882]
 - Cautions: Don't take it if you have gallstones or blocked bile ducts, because more bile can trigger an attack. If you're allergic to daisies, chamomile or ragweed, you may react to artichoke too, as they're the same plant family.
 
-SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/biohacking/#jengibre
+SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/#jengibre
 - What it is: It makes the stomach empty sooner. In the trials, that didn't translate into less discomfort.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: Studies measure a faster-emptying stomach, but in both trials the discomfort didn't change.
 - How it works: Ginger increases contractions in the antrum, the lower part of the stomach that pushes food into the gut. In healthy people, the stomach took half as long to empty by half.
@@ -726,14 +965,14 @@ SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/bioh
   - In 11 patients with functional dyspepsia, the stomach also emptied sooner (12 minutes versus 16), but symptoms didn't change. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
 - Cautions: High doses can cause heartburn. It can add to the effect of blood thinners. If you take them, check first.
 `,
-      "envejecer-mejor": `PROBLEM: AGEING WELL (https://marcalvear.github.io/mi-web/en/biohacking/#envejecer-mejor)
+      "envejecer-mejor": `PROBLEM: AGEING WELL (https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/)
 - Almost every "anti-ageing" capsule is an antioxidant or collagen. For living longer, the big trials say antioxidants don't work. For specific things, like eyesight, skin, bones or colds, some do have studies, and that's what this page covers.
 - What's going on in the body: When cells use oxygen to make energy, they produce free radicals, molecules that damage whatever they touch. The body has its own defences, and antioxidants from food help. Taking them as capsules seemed logical, but a review of 78 trials with almost 300,000 people found they didn't make people live longer, and in the most reliable trials beta-carotene and vitamin E shortened life slightly. That's why each sheet here sticks to specifics: what was measured, in whom and at what dose.
 - Combining them: Advanced Antioxidants puts all four in one capsule, but there's no study of that blend: each sheet covers its ingredient on its own, sometimes at a different dose. It has a lot of vitamin K, so if you take blood thinners it isn't for you without talking to your doctor first. Collagen and vitamin C have been tested together, and it makes sense: vitamin C is needed to make collagen. NAC is studied with glycine, which is in the sleep problem.
 - See a doctor before trying a supplement if you also: your vision suddenly gets worse, or straight lines look wavy; a new mole has appeared, or one has changed shape or colour; you've broken a bone from a minor knock; you take blood thinners such as warfarin.
 - Source: Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320
 
-SHEET: Lutein and zeaxanthin (Carotenoids) · https://marcalvear.github.io/mi-web/en/biohacking/#luteina-zeaxantina
+SHEET: Lutein and zeaxanthin (Carotenoids) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#luteina-zeaxantina
 - What it is: They're the yellow pigments of the macula, the centre of the retina. In people with macular degeneration they're used to slow it down, and in healthy people they raise that pigment.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: The big trial (AREDS2, 4,203 people) is in people who already have macular degeneration, and its main analysis wasn't significant. In healthy people they raise macular pigment, but in small studies.
 - How it works: Lutein and zeaxanthin build up in the macula, the part of the retina you use to read and recognise faces. There they filter blue light and stop free radicals before they damage cells. The body doesn't make them: they come from food, such as spinach, kale or egg yolk.
@@ -744,7 +983,7 @@ SHEET: Lutein and zeaxanthin (Carotenoids) · https://marcalvear.github.io/mi-we
   - In 59 healthy adults, 12 mg of lutein a day for 16 weeks raised macular pigment and improved vision at low contrast and under glare compared with placebo. It's partly authored by a supplement company. [Machida N et al., 2020, Nutrients 12(10):2966, PMID 32998324]
 - Cautions: If you have macular degeneration, what was studied is the full AREDS2 formula (with vitamins C and E, zinc and copper), and your eye doctor decides on it. They don't replace an eye check: if your vision gets worse, see an eye doctor.
 
-SHEET: Astaxanthin (Microalgae carotenoid) · https://marcalvear.github.io/mi-web/en/biohacking/#astaxantina
+SHEET: Astaxanthin (Microalgae carotenoid) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#astaxantina
 - What it is: The red pigment in salmon and prawns. In small trials, skin held up better in the sun and kept its moisture better.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: There are placebo-controlled trials in favour, but they're small, almost all in Japanese women and many paid for by manufacturers, as the review that pools them warns.
 - How it works: It's a carotenoid that sits in cell membranes and slows the oxidation caused by ultraviolet light. In skin, studies measure this as less redness after sun exposure and a barrier that loses less water.
@@ -754,7 +993,7 @@ SHEET: Astaxanthin (Microalgae carotenoid) · https://marcalvear.github.io/mi-we
   - A review of 11 studies (6 placebo-controlled) saw improvements in wrinkles, texture and moisture with 3 to 6 mg a day, but with small samples, almost all Japanese women. [Ng QX et al., 2021, J Diet Suppl 18(2):169-182, PMID 32202443]
 - Cautions: It doesn't replace sunscreen. There's no skin data above 6 mg a day. Advanced Antioxidants has 12 mg. It hasn't been studied in pregnancy or breastfeeding: check first.
 
-SHEET: Lycopene (Tomato carotenoid) · https://marcalvear.github.io/mi-web/en/biohacking/#licopeno
+SHEET: Lycopene (Tomato carotenoid) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#licopeno
 - What it is: The red in tomatoes. Taken daily for a few weeks, skin reddens less in the sun.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: The trials come out in favour, but they're small (20 people in the placebo-controlled one) and the effect is clearer with tomato than with lycopene alone.
 - How it works: Lycopene builds up in the skin and absorbs some of the energy of ultraviolet light that would otherwise oxidise cells. It's small, slow protection: it takes weeks to show and doesn't come close to sunscreen.
@@ -764,7 +1003,7 @@ SHEET: Lycopene (Tomato carotenoid) · https://marcalvear.github.io/mi-web/en/bi
   - With about 10 mg a day for 12 weeks, redness after sun exposure fell by 25% with synthetic lycopene and by 38% to 48% with tomato extract, compared with the start. [Aust O et al., 2005, Int J Vitam Nutr Res 75(1):54-60, PMID 15830922]
 - Cautions: It doesn't replace sunscreen. The clearest effect came with tomato: other carotenoids in tomatoes also absorb ultraviolet light, and a lycopene-only capsule doesn't have them.
 
-SHEET: Vitamin K (K1 and K2) (Fat-soluble vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-k
+SHEET: Vitamin K (K1 and K2) (Fat-soluble vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#vitamina-k
 - What it is: It helps calcium stay in bone. In women after menopause, a three-year trial slowed bone loss; for preventing fractures, the evidence falls short.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A 3-year placebo-controlled trial comes out in favour on bone density, but the review of 36 trials concludes there isn't enough evidence on fractures.
 - How it works: The body uses vitamin K to switch on proteins that handle calcium: osteocalcin fixes it in bone and others stop it sticking to arteries. K1 comes from leafy greens and K2 (menaquinones, such as MK-4 and MK-7) from fermented and animal foods. MK-7 lasts longer in the blood.
@@ -775,7 +1014,7 @@ SHEET: Vitamin K (K1 and K2) (Fat-soluble vitamin) · https://marcalvear.github.
   - In women after menopause or with osteoporosis, a review of 36 trials found no effect on bone density or on vertebral fractures. It may reduce other fractures, but the evidence isn't enough to confirm it. [Mott A et al., 2019, Osteoporos Int 30(8):1543-1559, PMID 31076817]
 - Cautions: It counteracts blood thinners such as warfarin. If you take them, don't take it without talking to your doctor first. What's been studied is mostly in women after menopause. There's very little data in men and in younger people.
 
-SHEET: NAC (N-acetylcysteine) (Antioxidant amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#nac
+SHEET: NAC (N-acetylcysteine) (Antioxidant amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#nac
 - What it is: It's the capsule form of cysteine, one of the building blocks of glutathione, the antioxidant the body makes itself. It's mostly studied together with glycine, in the blend called GlyNAC.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: The trial in favour is small (24 older people) and comes from the group that patented the blend. Another, larger trial from a different company didn't find the main effect.
 - How it works: Instead of supplying an outside antioxidant, NAC gives cells material to make their own: glutathione, which is made from cysteine, glycine and glutamate. With age there's less glutathione, and the idea is that cysteine and glycine run short. That's why NAC is taken with glycine.
@@ -785,7 +1024,7 @@ SHEET: NAC (N-acetylcysteine) (Antioxidant amino acid) · https://marcalvear.git
   - In 114 healthy older adults, two weeks of GlyNAC at three doses didn't raise glutathione compared with placebo, which was the main goal. It only rose in people who started with more oxidative damage and less glutathione. It's authored by Nestlé. [Lizzo G et al., 2022, Front Aging 3:852569, PMID 35821844]
 - Cautions: It can cause nausea, heartburn or wind; taken with food it's easier to tolerate. If you take nitroglycerin for your heart, don't take it without talking to your doctor. In Spain NAC is also a mucus medicine: don't add it to a mucolytic you already take.
 
-SHEET: Hydrolysed collagen (Protein) · https://marcalvear.github.io/mi-web/en/biohacking/#colageno
+SHEET: Hydrolysed collagen (Protein) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#colageno
 - What it is: It's collagen broken into small pieces so it can be absorbed. It's taken for the skin: in many trials it improves hydration and elasticity, but not in the independent ones.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: Meta-analyses come out in favour, but the most recent one finds the effect disappears in trials not funded by industry and in the best-run ones.
 - How it works: Collagen is the protein that holds the skin up, and with age less is made. The collagen you take doesn't reach the skin whole: it's digested into pieces two or three amino acids long. The idea is that those pieces tell skin cells to make more of their own collagen, and for that they need vitamin C.
@@ -798,7 +1037,7 @@ SHEET: Hydrolysed collagen (Protein) · https://marcalvear.github.io/mi-web/en/b
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Vital Proteins, Collagen Peptides (United States): contains 20 g of bovine collagen peptides per serving, unflavoured; tub 9.33 oz (264 g); price $27. https://www.vitalproteins.com/products/vp-collagen-peptides
 
-SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-c
+SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#vitamina-c
 - What it is: The body needs it to make collagen and can't make it itself. Taken daily it doesn't prevent colds, but it shortens them a little, and it protects people doing very hard exertion.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: The Cochrane review, with dozens of trials, is solid for colds, but the effect is small. For living longer, antioxidant trials find nothing.
 - How it works: Vitamin C is the tool cells use to make collagen firm: without it collagen comes out weak, which is what happened with scurvy. It's also an antioxidant that runs out fast during infection or heavy exertion. What's left over goes out in the urine, so taking much more doesn't give more.
@@ -812,13 +1051,13 @@ SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
 Product that combines several supplements in this problem (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Blueprint, Advanced Antioxidants (United States): carotenoids Lutein 10 mg, zeaxanthin 2 mg, lycopene 15 mg and astaxanthin 12 mg; vitamin K K1 1,500 mcg (12.5 times the daily value), K2 MK-4 5 mg and MK-7 600 mcg; dose 1 capsule a day with food; bottle 30 capsules; price €56.49 (30 capsules). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
 `,
-      "dormir-mejor": `PROBLEM: SLEEPING BETTER (https://marcalvear.github.io/mi-web/en/biohacking/#dormir-mejor)
+      "dormir-mejor": `PROBLEM: SLEEPING BETTER (https://marcalvear.github.io/mi-web/en/biohacking/dormir-mejor/)
 - Tossing and turning, waking up in the early hours or getting up with no energy. Before any capsule, what helps most is the usual: a fixed schedule, little screen light at night and no caffeine in the afternoon. These sheets are for going one step further.
 - What's going on in the body: Falling asleep depends on two clocks. One is tiredness, which builds up from the moment you get up. The other is the day–night rhythm: when it gets dark, the brain releases melatonin, the body cools down inside and the nerves settle. If screen light delays melatonin, if you're tense or if your body doesn't cool down, it's harder. Each supplement here acts at a different moment of the night, and the clock beside it shows when.
 - Combining them: No trial tested these four together. Melatonin brings bedtime forward; magnesium, glycine and L-theanine help you relax. If you want to try, start with one for two or three weeks before adding another, so you'll know which one works for you.
 - See a doctor before trying a supplement if you also: you snore loudly and someone has seen you stop breathing while asleep; you've been sleeping badly almost every night for more than three months; you fall asleep during the day without meaning to, for example while driving; at night your legs feel restless and you have to move them; the insomnia came with sadness, anxiety or a change of medication.
 
-SHEET: Melatonin (Sleep hormone) · https://marcalvear.github.io/mi-web/en/biohacking/#melatonina
+SHEET: Melatonin (Sleep hormone) · https://marcalvear.github.io/mi-web/en/biohacking/dormir-mejor/#melatonina
 - What it is: It's the "it's night now" signal your brain makes. As a capsule it helps you fall asleep a little sooner, especially if you take it a few hours before bed.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: There are meta-analyses of many placebo-controlled trials and they come out in favour, but the effect is small: minutes, not hours.
 - How it works: When it gets dark, a gland in the brain called the pineal gland releases melatonin, and the body understands it's time to sleep. Screen light at night holds that rise back. Melatonin in a capsule brings the signal forward: it doesn't knock you out like a sleeping pill, it tells your body clock the night has started.
@@ -830,7 +1069,7 @@ SHEET: Melatonin (Sleep hormone) · https://marcalvear.github.io/mi-web/en/bioha
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Aquilea, Melatonina 1,95 mg (Spain): contains 1.95 mg of melatonin and 0.7 mg of vitamin B6; dose 1 tablet 1 to 2 hours before bed; pack 30 or 60 tablets; price In pharmacies; the brand doesn't publish a price. https://www.aquilea.com/productos/descanso/aquilea-melatonina/
 
-SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#magnesio
+SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/dormir-mejor/#magnesio
 - What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older or very stressed people are.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: There's a small trial in favour in older people with insomnia, but the most recent review finds contradictory results and low certainty.
 - How it works: Magnesium holds back the receptors that keep the brain alert and helps the ones that calm it, the same ones many sleeping pills act on. If you're low, it's harder to relax. If you already have enough, taking more doesn't seem to do much.
@@ -843,7 +1082,7 @@ SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Thorne, Magnesium Bisglycinate (United States): contains 200 mg of magnesium as bisglycinate per scoop; dose 1 scoop in a large glass of water a day; tub Powder, 60 servings; price $52. https://www.thorne.com/products/dp/magnesium-bisglycinate
 
-SHEET: Glycine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#glicina
+SHEET: Glycine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/dormir-mejor/#glicina
 - What it is: It's an amino acid the body already makes. Taken before bed it lowers body temperature slightly and, in the studies, people woke up less tired.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: The trials are few, small and from the same company that makes it, though all of them come out in favour.
 - How it works: To fall asleep, the body needs to cool down slightly inside. Glycine widens the blood vessels in the hands and feet, heat escapes there and core temperature drops sooner. It also calms a clock in the brain that sets the day–night rhythm.
@@ -855,7 +1094,7 @@ SHEET: Glycine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Glycine Pure Powder (United States): contains Pure glycine powder; dose 3/4 level teaspoon, about 3 g; tub 454 g; price $22.49. https://www.nowfoods.com/products/supplements/glycine-pure-powder
 
-SHEET: L-theanine (Tea amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#l-teanina
+SHEET: L-theanine (Tea amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/dormir-mejor/#l-teanina
 - What it is: It's the amino acid that makes green tea relaxing instead of jittery. As a capsule it helps you calm down and, in one trial, improved sleep quality.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: There's one well-run placebo-controlled trial, but it's small (30 people) and partly from the company that sells it. For sleep, meta-analyses don't give a clear result yet.
 - How it works: L-theanine reaches the brain and raises alpha waves, the ones of being awake but calm. It also slightly holds back glutamate, the messenger that keeps the brain revved up. It doesn't make you sleepy on its own: it takes the edge off so it's easier to fall asleep.
@@ -867,13 +1106,13 @@ SHEET: L-theanine (Tea amino acid) · https://marcalvear.github.io/mi-web/en/bio
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Thorne, Theanine (United States): contains 200 mg of L-theanine per capsule; dose 1 capsule, 1 to 3 times a day; bottle 90 capsules; price $68 (90 capsules). https://www.thorne.com/products/dp/theanine
 `,
-      "concentrarse-mejor": `PROBLEM: FOCUSING BETTER (https://marcalvear.github.io/mi-web/en/biohacking/#concentrarse-mejor)
+      "concentrarse-mejor": `PROBLEM: FOCUSING BETTER (https://marcalvear.github.io/mi-web/en/biohacking/concentrarse-mejor/)
 - Reading the same line three times, losing the thread in class or going blank mid-afternoon. What matters most is sleeping well, moving and keeping your phone away. After that, some supplements have studies, and each takes a very different time to be noticed.
 - What's going on in the body: Focusing uses a lot of energy: the brain weighs 2% of the body and uses a fifth of its energy. During the day adenosine builds up, the molecule that makes you sleepy, and if you've slept little the neurons' energy reserves run out sooner. Some supplements act on alertness in minutes, others take weeks to fill those reserves and others months to change how neurons connect. The timeline beside it puts them in order.
 - Combining them: No trial tested these four together. Caffeine with L-theanine is for a specific moment; creatine and bacopa are for taking daily and waiting. If you want to try something long-term, start with one and give it the time the timeline shows before judging it.
 - See a doctor before trying a supplement if you also: you forget recent things or get lost in familiar places; the lack of focus came with sadness, apathy or anxiety; you've always struggled to focus and it affects your studies or work (it may be ADHD); you're very tired even though you sleep well.
 
-SHEET: Caffeine with L-theanine (Stimulant and amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#cafeina-l-teanina
+SHEET: Caffeine with L-theanine (Stimulant and amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/concentrarse-mejor/#cafeina-l-teanina
 - What it is: It's the pairing in tea: caffeine wakes you up and L-theanine takes away the jitters. Together they improve attention on demanding tasks during the first two hours.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: Two meta-analyses of placebo-controlled trials come out in favour for attention and alertness, but with moderate effects, short-term and with quite a bit of uncertainty.
 - How it works: Caffeine blocks the receptors for adenosine, the molecule that builds up during the day and makes you sleepy, so tiredness is felt less. L-theanine raises alpha waves, the ones of being calm and alert, and smooths the jitters and crash of caffeine alone.
@@ -885,7 +1124,7 @@ SHEET: Caffeine with L-theanine (Stimulant and amino acid) · https://marcalvear
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, L-Theanine Double Strength 200 mg (United States): contains 200 mg of L-theanine with inositol; your coffee supplies the caffeine; dose 1 capsule; bottle 60 capsules; price $19.49. https://www.nowfoods.com/products/supplements/l-theanine-double-strength-200-mg-veg-capsules
 
-SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#creatina
+SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/concentrarse-mejor/#creatina
 - What it is: It's the quick energy reserve of muscles and also of the brain. With training it gives more strength and more muscle, and for the mind it helps memory a little, especially when you haven't slept.
 - Evidence: Strong (Several large trials, or a meta-analysis, that agree). Why this level: For strength and muscle it's the sports supplement with the most evidence. For the mind, the evidence is moderate: a meta-analysis comes out in favour, but EFSA didn't accept that it improves mental function.
 - How it works: Cells store energy as phosphocreatine to recharge in seconds when they use it up suddenly. The brain uses a lot of energy, and when you're short of sleep that reserve runs low. Taking creatine daily, the reserve rises gradually over a few weeks.
@@ -899,7 +1138,7 @@ SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohackin
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Myprotein, THE Creatine Creapure (United Kingdom): contains Creapure creatine monohydrate, made in Germany; dose 3 to 5 g a day; tub 250 g, 500 g or 1 kg; price €31.99 (250 g) or €52.99 (500 g); changes with offers. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
-SHEET: Bacopa (Ayurvedic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#bacopa
+SHEET: Bacopa (Ayurvedic herb) · https://marcalvear.github.io/mi-web/en/biohacking/concentrarse-mejor/#bacopa
 - What it is: It's a plant from traditional Indian medicine. Taken daily for months, it makes attention a little faster and helps you remember what you've learned. It's not something you'll notice on exam day.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 9 good-quality placebo-controlled trials comes out in favour for speed of attention. But the effects are small and only appear after about 12 weeks.
 - How it works: Its compounds, bacosides, seem to help neurons connect better and protect them from oxidative damage. That change is slow: that's why the trials that work last at least 12 weeks.
@@ -910,7 +1149,7 @@ SHEET: Bacopa (Ayurvedic herb) · https://marcalvear.github.io/mi-web/en/biohack
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Bacopa Extract 450 mg (United States): contains 450 mg of extract with 40% bacosides; dose 1 capsule a day; bottle 90 capsules; price $33.99. https://www.nowfoods.com/products/supplements/bacopa-extract-450-mg-veg-capsules
 
-SHEET: Lion's mane (Mushroom) · https://marcalvear.github.io/mi-web/en/biohacking/#melena-de-leon
+SHEET: Lion's mane (Mushroom) · https://marcalvear.github.io/mi-web/en/biohacking/concentrarse-mejor/#melena-de-leon
 - What it is: It's a white mushroom shaped like a mane. In the lab it stimulates nerve growth; in people, the evidence is still weak.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: It's one of the most searched for, but in people there are few, small trials, and a single dose didn't improve cognition overall.
 - How it works: It contains compounds, hericenones and erinacines, that in cells and animals boost nerve growth factor, a protein that helps neurons grow and connect. Whether that happens the same way in a human brain at a capsule's dose is yet to be shown.
@@ -922,13 +1161,13 @@ SHEET: Lion's mane (Mushroom) · https://marcalvear.github.io/mi-web/en/biohacki
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Hifas da Terra, Mico-Leo (Spain): contains Organic lion's mane extract with vitamin C; pouch 60 capsules, for a month; price €42.50. https://hifasdaterra.com/en/products/mico-leo-extract-vitamin-c
 `,
-      "menos-estres": `PROBLEM: LESS STRESS (https://marcalvear.github.io/mi-web/en/biohacking/#menos-estres)
+      "menos-estres": `PROBLEM: LESS STRESS (https://marcalvear.github.io/mi-web/en/biohacking/menos-estres/)
 - A clenched jaw, a tight chest or a head that won't stop at night. What lowers stress most doesn't come in a capsule: sleep, movement, sunlight and talking to someone. These sheets are a support, not a substitute.
 - What's going on in the body: Faced with danger, the brain signals the adrenal glands and they release cortisol and adrenaline: the heart speeds up and the mind goes on alert. Cortisol has its own rhythm: it jumps on waking and falls through the day until night. With stress that doesn't stop, it stays high when it should drop, which is why it's hard to sleep and switch off. The curve beside it shows at what part of the day each supplement acts.
 - Combining them: No trial tested these four together. Ashwagandha and lavender are similar in what they do: don't combine them at first. If you want to try, start with one for four to eight weeks, which is how long the trials lasted, before judging it.
 - See a doctor before trying a supplement if you also: you have panic attacks: racing heart, shortness of breath or fear of dying; you've been sad for weeks, with no drive or no enjoyment of what you used to like; you're thinking of harming yourself: in Spain call 024, the suicide prevention line; stress stops you working, studying or sleeping almost every night.
 
-SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#ashwagandha
+SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/menos-estres/#ashwagandha
 - What it is: It's a root from traditional Indian medicine, the most studied for stress. In 8 weeks it lowers the stress people feel and cortisol in the blood.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 9 placebo-controlled trials comes out in favour for stress, anxiety and cortisol, but the trials are small, short and almost all from India with branded extracts.
 - How it works: Under stress, the brain signals the adrenal glands and they release cortisol, the hormone that puts you on alert. If the stress doesn't stop, cortisol stays high. The root's compounds, withanolides, seem to calm that circuit and act on GABA, the brain's natural brake.
@@ -941,7 +1180,7 @@ SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (United States): contains 300 mg of KSM-66 root extract per capsule; dose 2 capsules a day; bottle 120 capsules; price $24.99. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
 
-SHEET: Lavender (Silexan) (Lavender oil capsule) · https://marcalvear.github.io/mi-web/en/biohacking/#lavanda
+SHEET: Lavender (Silexan) (Lavender oil capsule) · https://marcalvear.github.io/mi-web/en/biohacking/menos-estres/#lavanda
 - What it is: It's lavender oil in a capsule, not the kind you smell. At 80 mg a day it lowers anxiety, and it doesn't make you drowsy or get you hooked.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: There are several placebo-controlled trials in anxiety and a network meta-analysis, with effects similar to an antidepressant. Almost all were paid for by the company that makes it.
 - How it works: Lavender oil acts on the calcium channels of neurons and slightly holds back the release of messengers that keep the brain on alert. It doesn't work like tranquillisers, so it doesn't cause drowsiness or dependence.
@@ -951,7 +1190,7 @@ SHEET: Lavender (Silexan) (Lavender oil capsule) · https://marcalvear.github.io
   - A summary of trials by the company that makes it: in people with anxiety that doesn't reach a disorder, 80 mg a day for 10 weeks lowered anxiety and improved sleep compared with placebo. [Kasper S et al., 2010, Wien Med Wochenschr 160(21-22):547-556, PMID 21170695]
 - Cautions: The most common effect is burping that tastes of lavender. If you take antidepressants or anti-anxiety medication, don't add it without talking to your doctor. It's not for an anxiety attack: it takes a few weeks to be noticed. In Spain Silexan is sold in pharmacies as a herbal medicine (Lasea), for mild anxiety and for 3 months at most: that's why it isn't listed here as a product.
 
-SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#rhodiola
+SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/menos-estres/#rhodiola
 - What it is: It's a root from cold northern mountains. It's used for stress-related tiredness: in a trial with burned-out people it improved concentration and lowered cortisol on waking.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: There are trials in favour for mental fatigue, but a review of 11 trials finds them contradictory and with methodological flaws.
 - How it works: Its compounds, salidroside and rosavins, seem to soften the stress response: cortisol rises less sharply and cells use their energy with less wear. That's why it's taken in the morning, when cortisol makes its jump.
@@ -963,7 +1202,7 @@ SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/bio
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Rhodiola 500 mg (United States): contains 500 mg of extract with 3% rosavins and 1% salidroside; dose 1 capsule; bottle 60 capsules; price $36.99. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
 
-SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#magnesio
+SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/dormir-mejor/#magnesio
 - What it is: It's a mineral that relaxes muscles and nerves. It mainly helps people who are low in it, as many older or very stressed people are.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: There's a small trial in favour in older people with insomnia, but the most recent review finds contradictory results and low certainty.
 - How it works: Magnesium holds back the receptors that keep the brain alert and helps the ones that calm it, the same ones many sleeping pills act on. If you're low, it's harder to relax. If you already have enough, taking more doesn't seem to do much.
@@ -976,13 +1215,13 @@ SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Thorne, Magnesium Bisglycinate (United States): contains 200 mg of magnesium as bisglycinate per scoop; dose 1 scoop in a large glass of water a day; tub Powder, 60 servings; price $52. https://www.thorne.com/products/dp/magnesium-bisglycinate
 `,
-      "recuperarse-antes": `PROBLEM: RECOVERING FASTER (https://marcalvear.github.io/mi-web/en/biohacking/#recuperarse-antes)
+      "recuperarse-antes": `PROBLEM: RECOVERING FASTER (https://marcalvear.github.io/mi-web/en/biohacking/recuperarse-antes/)
 - Soreness that lasts days, legs that won't perform in the next session or the feeling of not making progress. What helps recovery most is sleep, enough protein and not going all-out every day. These sheets help with the rest, and creatine is the one with the most evidence.
 - What's going on in the body: When you train hard, especially when braking a weight or running downhill, muscle fibres tear slightly. The body inflames them to clear them out and then repairs them stronger: that's progress. Soreness doesn't appear right away, but at 24–72 hours, when it hurts most. The diagram beside it shows which supplement acts right after, which over the following days and which needs taking every day.
 - Combining them: Creatine and protein are often taken together, in the post-workout shake, and that's fine. Tart cherry and omega-3 lower inflammation: use them for competitions or very hard weeks, not all the time, because a bit of inflammation is part of how muscle adapts.
 - See a doctor before trying a supplement if you also: your urine is dark, like cola, after a very hard workout (it may be rhabdomyolysis: go to A&E); the pain is in one specific spot, comes on suddenly or stops you putting weight on it; soreness lasts more than a week or comes with a lot of swelling; you feel tired and can't perform for weeks even when you rest.
 
-SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#creatina
+SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/concentrarse-mejor/#creatina
 - What it is: It's the quick energy reserve of muscles and also of the brain. With training it gives more strength and more muscle, and for the mind it helps memory a little, especially when you haven't slept.
 - Evidence: Strong (Several large trials, or a meta-analysis, that agree). Why this level: For strength and muscle it's the sports supplement with the most evidence. For the mind, the evidence is moderate: a meta-analysis comes out in favour, but EFSA didn't accept that it improves mental function.
 - How it works: Cells store energy as phosphocreatine to recharge in seconds when they use it up suddenly. The brain uses a lot of energy, and when you're short of sleep that reserve runs low. Taking creatine daily, the reserve rises gradually over a few weeks.
@@ -996,7 +1235,7 @@ SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohackin
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Myprotein, THE Creatine Creapure (United Kingdom): contains Creapure creatine monohydrate, made in Germany; dose 3 to 5 g a day; tub 250 g, 500 g or 1 kg; price €31.99 (250 g) or €52.99 (500 g); changes with offers. https://www.myprotein.es/p/nutricion-deportiva/the-creatine-creapure/10529740/
 
-SHEET: Whey protein (Milk protein) · https://marcalvear.github.io/mi-web/en/biohacking/#proteina-suero
+SHEET: Whey protein (Milk protein) · https://marcalvear.github.io/mi-web/en/biohacking/recuperarse-antes/#proteina-suero
 - What it is: It's the protein from milk whey, what separates when making cheese. It's not magic: it helps you reach the protein you need if you do strength training, and with it you gain a bit more muscle.
 - Evidence: Strong (Several large trials, or a meta-analysis, that agree). Why this level: A meta-analysis of 49 trials with nearly 1,900 people comes out in favour for strength and muscle, with a clear limit: above 1.6 g of protein per kilo a day it adds nothing.
 - How it works: Strength training slightly damages muscle fibres and the body repairs them thicker. For that it needs amino acids, especially leucine, which is the signal that switches on muscle building. Whey digests quickly and has a lot of leucine.
@@ -1007,7 +1246,7 @@ SHEET: Whey protein (Milk protein) · https://marcalvear.github.io/mi-web/en/bio
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Myprotein, Impact Whey Protein (United Kingdom): contains Whey protein concentrate, tested by Informed Protein; pouch 1 kg, about 33 servings; also 2.5 kg; price €39.99 (1 kg); changes with offers. https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/
 
-SHEET: Montmorency tart cherry (Concentrated fruit juice) · https://marcalvear.github.io/mi-web/en/biohacking/#cereza-acida
+SHEET: Montmorency tart cherry (Concentrated fruit juice) · https://marcalvear.github.io/mi-web/en/biohacking/recuperarse-antes/#cereza-acida
 - What it is: It's a very sour cherry, rich in anthocyanins, the red pigments. As concentrated juice it helps you get your strength back sooner after hard exercise, although soreness doesn't drop.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: A meta-analysis of 19 trials comes out in favour for recovering strength, but not for soreness, with very mixed results and low or very low certainty.
 - How it works: After a very demanding workout, the damaged muscle stays inflamed for a few days and loses strength. The cherry's anthocyanins hold back part of that inflammation and oxidative damage, so strength comes back sooner. That's why it's taken a few days before and a few days after the effort.
@@ -1016,7 +1255,7 @@ SHEET: Montmorency tart cherry (Concentrated fruit juice) · https://marcalvear.
   - Pooling 19 trials in athletes, tart cherry juice helped recover maximum strength over the following days and lowered C-reactive protein, a sign of inflammation. It didn't reduce soreness or markers of muscle damage, and certainty is low. [Daab W et al., 2026, Sports Med Open 12(1):40, PMID 41945263]
 - Cautions: The juice has quite a lot of sugar: if you watch your sugar, capsules are better. It may slightly blunt training adaptation if taken all the time: save it for competitions or very hard weeks.
 
-SHEET: Omega-3 (EPA and DHA) (Fish fatty acids) · https://marcalvear.github.io/mi-web/en/biohacking/#omega-3
+SHEET: Omega-3 (EPA and DHA) (Fish fatty acids) · https://marcalvear.github.io/mi-web/en/biohacking/recuperarse-antes/#omega-3
 - What it is: They're the fats in oily fish. Taken daily for weeks, they slightly lower soreness and inflammation after effort that damages the muscle.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: Meta-analyses come out in favour for soreness, but one says the effect is so small it's not noticeable, and the most recent warns of method flaws in almost all trials.
 - How it works: EPA and DHA build into cell membranes and change the inflammation signals cells release when damaged. For that to happen they have to build up, which takes weeks: they don't work taken only on training day.
@@ -1028,13 +1267,13 @@ SHEET: Omega-3 (EPA and DHA) (Fish fatty acids) · https://marcalvear.github.io/
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Sports Research, Triple Strength Omega-3 Fish Oil (United States): contains 1,040 mg of omega-3 per softgel, from Alaska pollock; dose 2 to 3 softgels to reach the studied dose; bottle 90 softgels; price $31.63 (90 softgels). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
 `,
-      "mas-defensas": `PROBLEM: IMMUNITY (https://marcalvear.github.io/mi-web/en/biohacking/#mas-defensas)
+      "mas-defensas": `PROBLEM: IMMUNITY (https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/)
 - One cold after another from October to March, or one that never goes away. What protects most is sleep, washing your hands and the flu jab if you're due one. Of the supplements, some help a little to catch fewer colds and others to make them shorter.
 - What's going on in the body: Colds are caused by more than 200 different viruses, mostly rhinoviruses, which is why there's no vaccine. They get in through the nose and throat, and what you feel (snot, soreness, fever) is your immune system fighting. In winter we spend more time indoors, dry air dries out mucous membranes and the skin barely makes vitamin D. The diagram beside it separates what's taken all season from what's taken at the first symptom.
 - Combining them: You can combine the all-season ones (vitamin D, probiotics, vitamin C) with the first-symptom ones (zinc, elderberry), because they act at different moments. No trial tested the mix, so don't expect the effects to add up.
 - See a doctor before trying a supplement if you also: the fever lasts more than 3 days or goes above 39 °C; you find it hard to breathe, your chest hurts or your lips turn blue; the cold gets better and then suddenly worse, with fever; you have more than 6 or 7 infections a year or they take a long time to clear.
 
-SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-d
+SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/#vitamina-d
 - What it is: The body makes it with sunlight on the skin, and in winter it barely makes any. It's needed for bones and the immune system, but as a capsule it barely prevents colds in people without a deficiency.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: It's among the most studied: 40 trials with more than 61,000 people. But in the 2025 update the protection against infections sits on the edge and stops being significant.
 - How it works: When sunlight hits the skin, the body makes vitamin D and the liver and kidneys activate it. Immune cells have receptors for it: they use it to make their own natural antibiotics, such as cathelicidin. Between October and March, in Spain, the sun is so low that the skin barely makes any.
@@ -1047,7 +1286,7 @@ SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Vitamin D3 2000 IU (United States): contains 2,000 IU (50 µg) of vitamin D3 per softgel; dose 1 softgel a day with food; bottle 30, 120 or 240 softgels; price $4.99 (30) or $8.99 (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 
-SHEET: Probiotics (Live bacteria) · https://marcalvear.github.io/mi-web/en/biohacking/#probioticos
+SHEET: Probiotics (Live bacteria) · https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/#probioticos
 - What it is: They're good bacteria, like those in yoghurt. Taken daily for months, they mean people catch slightly fewer colds and they last a day less.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A Cochrane review of 23 trials with nearly 7,000 people comes out in favour, but with low to moderate certainty, and each trial uses different strains.
 - How it works: A large part of the immune system lives alongside the gut. Good bacteria send it signals that keep it trained and help mucous membranes, including those in the nose and throat, act as a better barrier. The effect depends on the strain: not all probiotics do the same.
@@ -1058,7 +1297,7 @@ SHEET: Probiotics (Live bacteria) · https://marcalvear.github.io/mi-web/en/bioh
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Probiotic-10 50 Billion (United States): contains 50 billion bacteria from 10 strains per capsule; dose 1 capsule a day; bottle 50 capsules; best kept in the fridge; price $49.99. https://www.nowfoods.com/products/supplements/probiotic-10-50-billion-veg-capsules
 
-SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-c
+SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#vitamina-c
 - What it is: The body needs it to make collagen and can't make it itself. Taken daily it doesn't prevent colds, but it shortens them a little, and it protects people doing very hard exertion.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: The Cochrane review, with dozens of trials, is solid for colds, but the effect is small. For living longer, antioxidant trials find nothing.
 - How it works: Vitamin C is the tool cells use to make collagen firm: without it collagen comes out weak, which is what happened with scurvy. It's also an antioxidant that runs out fast during infection or heavy exertion. What's left over goes out in the urine, so taking much more doesn't give more.
@@ -1069,7 +1308,7 @@ SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
   - In the review of 78 antioxidant trials with almost 300,000 people, vitamin C didn't make people live longer. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
 - Cautions: Above 1 g a day it can cause diarrhoea, and in some people, kidney stones. If you have haemochromatosis (iron overload), don't take it as a capsule without talking to your doctor: it increases iron absorption.
 
-SHEET: Zinc lozenges (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#zinc
+SHEET: Zinc lozenges (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/#zinc
 - What it is: Sucked from the first day, zinc lozenges shorten a cold. They have to be zinc acetate or gluconate and dissolve in the mouth, not be swallowed.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 7 placebo-controlled trials finds colds last a third less, but there are few trials and the lozenge's formulation matters a lot.
 - How it works: Zinc released in the mouth and throat holds back rhinoviruses, the cold viruses, so they can't latch onto cells or copy themselves. That's why it has to dissolve slowly where the virus is, starting as soon as your throat feels scratchy.
@@ -1080,7 +1319,7 @@ SHEET: Zinc lozenges (Mineral) · https://marcalvear.github.io/mi-web/en/biohack
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Life Extension, Enhanced Zinc Lozenges (United States): contains 18.75 mg of zinc as acetate per lozenge, peppermint; dose 1 every 2 waking hours, up to about 90 mg a day, for a few days only; bottle 30 lozenges; price $9. https://www.lifeextension.com/vitamins-supplements/item01961/enhanced-zinc-lozenges
 
-SHEET: Black elderberry (Berry extract) · https://marcalvear.github.io/mi-web/en/biohacking/#sauco
+SHEET: Black elderberry (Berry extract) · https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/#sauco
 - What it is: It's the purple elderberry, as a syrup or lozenges. Taken at the start of a cold or flu, in small trials it eased symptoms sooner.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: The meta-analysis comes out strongly in favour, but it only pools 180 people and several trials were paid for by the syrup's maker.
 - How it works: Its pigments, anthocyanins, seem to stick to the surface of flu viruses and stop them entering cells. They also modulate inflammation signals. Most of this has been seen in the lab.
@@ -1089,13 +1328,13 @@ SHEET: Black elderberry (Berry extract) · https://marcalvear.github.io/mi-web/e
   - Pooling trials with 180 people, elderberry substantially reduced cold and flu symptoms compared with placebo, with a large effect. The authors call for larger trials. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
 - Cautions: Never raw berries or leaves: unprocessed they're toxic. Only prepared extracts. If you have an autoimmune disease or take immunosuppressants, check first. In pregnancy and breastfeeding there's no data: better not to take it.
 `,
-      "testosterona": `PROBLEM: TESTOSTERONE (https://marcalvear.github.io/mi-web/en/biohacking/#testosterona)
+      "testosterona": `PROBLEM: TESTOSTERONE (https://marcalvear.github.io/mi-web/en/biohacking/testosterona/)
 - Testosterone falls with age, but mostly with short sleep, belly fat, stress and alcohol. No supplement raises it like a treatment: sleeping 7–8 hours, strength training and losing fat do far more. These sheets cover what has and hasn't been measured.
 - What's going on in the body: Testosterone is made in a chain. The brain sends a signal, the hormone LH, and the testes make testosterone. In the blood, most of it is bound to a protein, SHBG, and only the free part reaches tissues. When there's enough, the brain brakes the signal. Stress, which raises cortisol, and lack of sleep slow the chain from the top. The diagram beside it marks where each supplement is thought to act.
 - Combining them: No trial tested these together, and "testosterone booster" blends almost never have studies of their own. If you want to try one, test before and after with a morning blood test: it's the only way to know if it did anything.
-- See a doctor before trying a supplement if you also: you've had low sex drive, erection problems and tiredness together for months; your breasts have grown, you've lost body hair or your testes have changed size; you're under 40 and have all these symptoms; you're offered testosterone or "prohormones" without a prescription: they can leave you infertile.
+- See a doctor before trying a supplement if you also: you've had low libido, erection problems and tiredness together for months; your breasts have grown, you've lost body hair or your testes have changed size; you're under 40 and have all these symptoms; you're offered testosterone or "prohormones" without a prescription: they can leave you infertile.
 
-SHEET: Tongkat ali (Southeast Asian root) · https://marcalvear.github.io/mi-web/en/biohacking/#tongkat-ali
+SHEET: Tongkat ali (Southeast Asian root) · https://marcalvear.github.io/mi-web/en/biohacking/testosterona/#tongkat-ali
 - What it is: It's the root of a shrub from Malaysia and Indonesia. In small trials it raises total testosterone, especially in men whose levels are low.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: A meta-analysis of 5 trials comes out in favour with a large effect, but they're small, differ from each other and the effect shows mainly in men with low testosterone.
 - How it works: Its compounds, eurycomanosides, seem to help the testicular cells that make testosterone and slow the enzyme that turns it into oestrogen. In men with low testosterone from stress or age, there's more room for it to rise.
@@ -1104,7 +1343,7 @@ SHEET: Tongkat ali (Southeast Asian root) · https://marcalvear.github.io/mi-web
   - Pooling 5 placebo-controlled trials, tongkat ali clearly raised total testosterone, in healthy volunteers and more so in men with hypogonadism. The authors call for more trials before clinical use. [Leisegang K et al., 2022, Medicina (Kaunas) 58(8):1047, PMID 36013514]
 - Cautions: Some products made from this root have turned up with heavy metals or added drugs: only buy brands tested by an outside lab. If you have prostate cancer, heart problems or take medication for blood pressure or blood sugar, don't take it without talking to your doctor. If you compete, be careful: some contaminated batches have failed drug tests.
 
-SHEET: Fenugreek (Seed) · https://marcalvear.github.io/mi-web/en/biohacking/#fenogreco
+SHEET: Fenugreek (Seed) · https://marcalvear.github.io/mi-web/en/biohacking/testosterona/#fenogreco
 - What it is: It's a seed from Indian and Mediterranean cooking. As an extract it slightly raises total testosterone, but not free testosterone, which is what the body uses.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: The 2026 meta-analysis finds a small rise in total testosterone, but with very low certainty, and no trial at low risk of bias.
 - How it works: Its saponins seem to slow the enzymes that turn testosterone into oestrogen and dihydrotestosterone, so a little more stays in the blood. Total going up doesn't mean free goes up: much of it is bound to a protein, SHBG.
@@ -1115,7 +1354,7 @@ SHEET: Fenugreek (Seed) · https://marcalvear.github.io/mi-web/en/biohacking/#fe
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Fenugreek 500 mg (United States): contains 500 mg of fenugreek seed per capsule; bottle 100 capsules; price $11.99. https://www.nowfoods.com/products/supplements/fenugreek-500-mg-veg-capsules
 
-SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#ashwagandha
+SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/menos-estres/#ashwagandha
 - What it is: It's a root from traditional Indian medicine, the most studied for stress. In 8 weeks it lowers the stress people feel and cortisol in the blood.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 9 placebo-controlled trials comes out in favour for stress, anxiety and cortisol, but the trials are small, short and almost all from India with branded extracts.
 - How it works: Under stress, the brain signals the adrenal glands and they release cortisol, the hormone that puts you on alert. If the stress doesn't stop, cortisol stays high. The root's compounds, withanolides, seem to calm that circuit and act on GABA, the brain's natural brake.
@@ -1128,7 +1367,7 @@ SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Jarrow Formulas, Ashwagandha 300 mg (KSM-66) (United States): contains 300 mg of KSM-66 root extract per capsule; dose 2 capsules a day; bottle 120 capsules; price $24.99. https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps
 
-SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-d
+SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/#vitamina-d
 - What it is: The body makes it with sunlight on the skin, and in winter it barely makes any. It's needed for bones and the immune system, but as a capsule it barely prevents colds in people without a deficiency.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: It's among the most studied: 40 trials with more than 61,000 people. But in the 2025 update the protection against infections sits on the edge and stops being significant.
 - How it works: When sunlight hits the skin, the body makes vitamin D and the liver and kidneys activate it. Immune cells have receptors for it: they use it to make their own natural antibiotics, such as cathelicidin. Between October and March, in Spain, the sun is so low that the skin barely makes any.
@@ -1141,13 +1380,13 @@ SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Vitamin D3 2000 IU (United States): contains 2,000 IU (50 µg) of vitamin D3 per softgel; dose 1 softgel a day with food; bottle 30, 120 or 240 softgels; price $4.99 (30) or $8.99 (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 `,
-      "ciclo-menopausia": `PROBLEM: CYCLE AND MENOPAUSE (https://marcalvear.github.io/mi-web/en/biohacking/#ciclo-menopausia)
+      "ciclo-menopausia": `PROBLEM: CYCLE AND MENOPAUSE (https://marcalvear.github.io/mi-web/en/biohacking/ciclo-menopausia/)
 - Bloating, sore breasts and mood swings before your period, cycles that don't come when they should or the hot flushes of menopause. Some supplements have trials for very specific things at each stage, and here they're kept apart.
 - What's going on in the body: The cycle is a choreography of hormones. In the first half oestrogen rises and an egg matures; around day 14 it's released, and in the second half, the luteal phase, progesterone takes over. If there's no pregnancy, everything drops and the period arrives. Premenstrual syndrome appears in that final drop. In polycystic ovaries, high insulin and testosterone prevent ovulation, and in menopause the ovaries stop making oestrogen. The wheel beside it marks when each supplement acts.
 - Combining them: Each sheet is for something different: chasteberry and calcium for premenstrual syndrome, myo-inositol for polycystic ovaries and isoflavones for menopause. Don't mix them just in case: pick the one that fits what's happening to you and give it three cycles.
 - See a doctor before trying a supplement if you also: you bleed heavily (changing pads every hour) or between periods; you've gone more than 3 months without a period and aren't pregnant; period pain stops you living normally (it may be endometriosis); you bleed after menopause; before your period you feel so bad you think of harming yourself: in Spain call 024.
 
-SHEET: Chasteberry (Vitex) (Shrub fruit) · https://marcalvear.github.io/mi-web/en/biohacking/#sauzgatillo
+SHEET: Chasteberry (Vitex) (Shrub fruit) · https://marcalvear.github.io/mi-web/en/biohacking/ciclo-menopausia/#sauzgatillo
 - What it is: It's the fruit of a Mediterranean shrub. Taken daily, it eases premenstrual syndrome: breast tenderness, irritability and bloating in the days before the period.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: Only 3 trials with 520 women pass the meta-analysis's quality filter, but all three come out in favour with a clear effect.
 - How it works: In the second half of the cycle, prolactin can rise too much and unbalance progesterone, which shows in the breasts and mood. Chasteberry acts on dopamine receptors in the pituitary and holds that prolactin back.
@@ -1156,7 +1395,7 @@ SHEET: Chasteberry (Vitex) (Shrub fruit) · https://marcalvear.github.io/mi-web/
   - In the 3 well-run trials, with 520 women, those taking chasteberry were 2.6 times more likely to see premenstrual syndrome ease than with placebo. The other trials didn't report well which extract they used. [Csupor D et al., 2019, Complement Ther Med 47:102190, PMID 31780016]
 - Cautions: Don't take it if you're trying to conceive, are pregnant or breastfeeding. It can interfere with the pill, fertility treatments and drugs that act on dopamine. If you have a hormone-sensitive tumour, don't take it without talking to your doctor.
 
-SHEET: Calcium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#calcio
+SHEET: Calcium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/ciclo-menopausia/#calcio
 - What it is: It's the bone mineral. Taken daily, in a large trial it nearly halved premenstrual symptoms over three cycles.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: There's a large, well-run trial with 466 women in favour. It's from 1998 and hasn't been repeated at that scale.
 - How it works: Oestrogen changes how much calcium the body absorbs and stores across the cycle. In some women, calcium and vitamin D drop in the second half of the cycle, and that's linked to premenstrual symptoms.
@@ -1167,7 +1406,7 @@ SHEET: Calcium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#c
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Calcium Carbonate Powder (United States): contains 600 mg of calcium per half teaspoon; dose Half a teaspoon twice a day with food; tub 340 g of powder; price $15.99. https://www.nowfoods.com/products/supplements/calcium-carbonate-powder
 
-SHEET: Myo-inositol (B-vitamin-like sugar) · https://marcalvear.github.io/mi-web/en/biohacking/#mio-inositol
+SHEET: Myo-inositol (B-vitamin-like sugar) · https://marcalvear.github.io/mi-web/en/biohacking/ciclo-menopausia/#mio-inositol
 - What it is: It's a molecule the body uses to respond to insulin. In polycystic ovary syndrome it helps the cycle become regular and lowers testosterone.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 26 trials with nearly 1,700 women with polycystic ovaries comes out in favour, and on several measures works as well as metformin, the reference drug.
 - How it works: In polycystic ovaries, the body responds poorly to insulin, and high insulin pushes the ovaries to make more testosterone, which disrupts ovulation. Myo-inositol acts as insulin's messenger inside the cell: it improves that response and lowers testosterone.
@@ -1178,7 +1417,7 @@ SHEET: Myo-inositol (B-vitamin-like sugar) · https://marcalvear.github.io/mi-we
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Inositol Powder (United States): contains Pure myo-inositol: 730 mg per quarter teaspoon; dose For 2 to 4 g, 3/4 to 1 1/4 teaspoons a day; tub 57 g, 113 g, 227 g or 454 g; price From $12.99. https://www.nowfoods.com/products/supplements/inositol-powder
 
-SHEET: Soy isoflavones (Phytoestrogens) · https://marcalvear.github.io/mi-web/en/biohacking/#isoflavonas-soja
+SHEET: Soy isoflavones (Phytoestrogens) · https://marcalvear.github.io/mi-web/en/biohacking/ciclo-menopausia/#isoflavonas-soja
 - What it is: They're compounds in soy that slightly resemble oestrogen. In menopause they somewhat ease low mood, palpitations and headaches, but barely affect hot flushes.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: The 2025 meta-analysis finds a small effect on menopause symptoms overall, but not on hot flushes, and with few trials.
 - How it works: In menopause the ovaries stop making oestrogen, which unsettles the brain's thermostat and mood. Isoflavones bind weakly to oestrogen receptors and act as a very mild oestrogen. In some people, gut bacteria turn them into equol, which is more active.
@@ -1189,13 +1428,13 @@ SHEET: Soy isoflavones (Phytoestrogens) · https://marcalvear.github.io/mi-web/e
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Soy Isoflavones (United States): contains 60 mg of isoflavones per serving; bottle 120 capsules; price $39.99. https://www.nowfoods.com/products/supplements/soy-isoflavones-veg-capsules
 `,
-      "menos-cansancio": `PROBLEM: TIREDNESS (https://marcalvear.github.io/mi-web/en/biohacking/#menos-cansancio)
+      "menos-cansancio": `PROBLEM: TIREDNESS (https://marcalvear.github.io/mi-web/en/biohacking/menos-cansancio/)
 - Tiredness that doesn't go even with sleep, no drive to train or a slow head by mid-morning. Before anything else, a blood test: iron, B12, thyroid or blood sugar explain many cases, and a supplement only helps if it targets the cause.
 - What's going on in the body: Energy is like a battery with several cells. Iron carries oxygen to the cells, B12 is needed to make the red blood cells that transport it and the mitochondria, with coenzyme Q10, turn that oxygen into energy. If one cell fails, the battery won't charge even if the others are fine. Background stress drains it from another side. The diagram beside it marks which cell each supplement recharges.
 - Combining them: Iron and B12 only if a blood test says you're low: they're not taken just in case. Coenzyme Q10 and rhodiola can be tried without a test, one at a time and for 8 weeks, if everything else is fine.
 - See a doctor before trying a supplement if you also: the tiredness came with weight loss, fever or night sweats; you get breathless on stairs, you're very pale or your heart races; you're very thirsty, urinate a lot or your neck feels swollen; you've been exhausted for more than 6 months and get worse after any effort.
 
-SHEET: Iron (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#hierro
+SHEET: Iron (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/menos-cansancio/#hierro
 - What it is: It's the mineral that carries oxygen in the blood. Many women who have periods run low without reaching anaemia, and that's tiring. Taking it only helps if a blood test says you're low.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A placebo-controlled trial in 198 women, and a more recent one, come out in favour, but only in women with low ferritin. If your iron is fine, there's no evidence it helps.
 - How it works: Iron is needed to make haemoglobin, which carries oxygen, and also for cells to get energy. Ferritin is the store: it can run very low well before haemoglobin drops, and tiredness appears by then. Periods lose iron every month.
@@ -1207,7 +1446,7 @@ SHEET: Iron (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#hier
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Iron 36 mg (Ferrochel) (United States): contains 36 mg of iron as bisglycinate, which is less constipating; dose Whatever your doctor says based on ferritin; bottle 90 capsules; price $15.99. https://www.nowfoods.com/products/supplements/iron-36-mg-double-strength-veg-capsules
 
-SHEET: Vitamin B12 (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-b12
+SHEET: Vitamin B12 (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/menos-cansancio/#vitamina-b12
 - What it is: It's needed to make red blood cells and look after nerves. It only comes from animal foods, so it runs short in vegans, older people and people on certain drugs. If you're low, it's very tiring; if not, taking it gives no extra energy.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: That low B12 causes tiredness and that taking it fixes it is well established. But if your B12 is fine, there are no trials showing it gives more energy.
 - How it works: Without B12, bone marrow makes large, clumsy red blood cells that carry oxygen poorly, and nerves lose their protective sheath. To absorb it, the stomach needs acid and a protein of its own: that's why it runs short with age, with omeprazole or with metformin.
@@ -1216,7 +1455,7 @@ SHEET: Vitamin B12 (Vitamin) · https://marcalvear.github.io/mi-web/en/biohackin
   - The New England Journal of Medicine clinical review explains that low B12 causes tiredness, anaemia and nerve damage, that it's common in older people, vegans and people taking metformin or stomach protectors, and that taking it, by mouth at high doses or injected, corrects it. [Stabler SP et al., 2013, N Engl J Med 368(2):149-160, PMID 23301732]
 - Cautions: If you have tingling in your hands and feet or your memory is failing, don't self-treat: get a blood test first, because taking it can mask the diagnosis. It's very safe: what's left over goes out in the urine.
 
-SHEET: Coenzyme Q10 (Mitochondrial molecule) · https://marcalvear.github.io/mi-web/en/biohacking/#coenzima-q10
+SHEET: Coenzyme Q10 (Mitochondrial molecule) · https://marcalvear.github.io/mi-web/en/biohacking/menos-cansancio/#coenzima-q10
 - What it is: It's a part of the mitochondria, the cells' power stations. The body makes it, but less with age or with statins. As a capsule it lowers tiredness somewhat.
 - Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of placebo-controlled trials comes out in favour, in healthy and ill people, with a small to moderate effect that grows with dose and time.
 - How it works: Inside the mitochondria, coenzyme Q10 passes electrons from one step to the next to make ATP, the cell's energy currency. If it's short, the chain runs slower. It also protects membranes from oxidative damage. Statins hold back its production, just as they do cholesterol's.
@@ -1227,7 +1466,7 @@ SHEET: Coenzyme Q10 (Mitochondrial molecule) · https://marcalvear.github.io/mi-
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, CoQ10 100 mg (United States): contains 100 mg of coenzyme Q10 per softgel; dose 1 or 2 softgels a day with food; bottle 50 softgels; price $21.99. https://www.nowfoods.com/products/supplements/coq10-100-mg-softgels
 
-SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#rhodiola
+SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/menos-estres/#rhodiola
 - What it is: It's a root from cold northern mountains. It's used for stress-related tiredness: in a trial with burned-out people it improved concentration and lowered cortisol on waking.
 - Evidence: Preliminary (Small studies or indirect results). Why this level: There are trials in favour for mental fatigue, but a review of 11 trials finds them contradictory and with methodological flaws.
 - How it works: Its compounds, salidroside and rosavins, seem to soften the stress response: cortisol rises less sharply and cells use their energy with less wear. That's why it's taken in the morning, when cortisol makes its jump.

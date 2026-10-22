@@ -1,0 +1,94 @@
+---
+// Botón para volver arriba en las páginas largas (#105): aparece al bajar más
+// de una pantalla, abajo a la izquierda para no chocar con el del chat, y es
+// una flecha dibujada a mano como el resto del cuaderno.
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+
+<a class="to-top" href="#main" data-to-top aria-label={label} hidden>
+  <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12.2 19.6 C11.9 15 12.1 9.6 11.8 4.6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    <path d="M6.4 10.2 C8.4 8.4 10.2 6.4 11.9 4.4 C13.6 6.6 15.6 8.4 17.6 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</a>
+
+<script>
+  const button = document.querySelector<HTMLAnchorElement>("[data-to-top]");
+  if (button) {
+    button.hidden = false;
+    const toggle = () => button.classList.toggle("on", scrollY > innerHeight);
+    addEventListener("scroll", toggle, { passive: true });
+    toggle();
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // El foco vuelve arriba, como al pulsar «Saltar al contenido», pero al
+      // terminar de subir: moverlo antes corta el desplazamiento suave
+      const focus = () => document.getElementById("main")?.focus({ preventScroll: true });
+      if (reduce) {
+        scrollTo({ top: 0 });
+        focus();
+        return;
+      }
+      addEventListener("scrollend", focus, { once: true });
+      scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+</script>
+
+<style>
+  .to-top {
+    position: fixed;
+    left: var(--space-3);
+    bottom: var(--space-3);
+    z-index: 40;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    background: var(--sheet);
+    color: var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition:
+      opacity var(--mid) var(--ease-out),
+      transform var(--mid) var(--ease-out),
+      box-shadow var(--fast) var(--ease-out);
+  }
+
+  .to-top[hidden] {
+    display: none;
+  }
+
+  .to-top.on {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .to-top:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .to-top.on:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+  }
+
+  @media (max-width: 30rem) {
+    .to-top {
+      left: var(--space-2);
+      bottom: var(--space-2);
+    }
+  }
+</style>

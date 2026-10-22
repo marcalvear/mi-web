@@ -10,8 +10,9 @@ import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
 interface Props {
   markers: MapMarker[];
   text: CompendioText["battery"];
+  thumb?: boolean;
 }
-const { markers, text } = Astro.props;
+const { markers, text, thumb = false } = Astro.props;
 
 const gen = rough.generator();
 const toPath = (set: Parameters<typeof gen.opsToPath>[0]) =>
@@ -61,7 +62,7 @@ const placed = markers.map((m) => {
 });
 ---
 
-<SketchMap viewBox="0 0 400 250" idPrefix="pila" groups={groups} placed={placed} markers={markers} text={text}>
+<SketchMap viewBox="0 0 400 250" idPrefix="pila" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
   <g class="names" font-size="11">
     <text x="76" y="200" text-anchor="middle">{text.zones.hierro}</text>
     <text x="166" y="200" text-anchor="middle">{text.zones.b12}</text>

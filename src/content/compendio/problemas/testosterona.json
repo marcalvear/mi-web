@@ -5,8 +5,8 @@
     "en": "Testosterone"
   },
   "titular": {
-    "es": "¿Tienes poca energía, poco deseo o te cuesta ganar músculo?",
-    "en": "Low energy, low sex drive or struggling to build muscle?"
+    "es": "¿Tienes poca energía, poca libido o te cuesta ganar músculo?",
+    "en": "Low energy, low libido or struggling to build muscle?"
   },
   "intro": {
     "es": "La testosterona baja con la edad, pero sobre todo con el sueño corto, la grasa abdominal, el estrés y el alcohol. Ningún suplemento la sube como un tratamiento: dormir 7-8 horas, entrenar fuerza y perder grasa hacen mucho más. Estas fichas cuentan qué sí y qué no se ha medido.",
@@ -22,8 +22,8 @@
   },
   "alarma": [
     {
-      "es": "Tienes poco deseo, problemas de erección y cansancio a la vez durante meses",
-      "en": "You've had low sex drive, erection problems and tiredness together for months"
+      "es": "Tienes poca libido, problemas de erección y cansancio a la vez durante meses",
+      "en": "You've had low libido, erection problems and tiredness together for months"
     },
     {
       "es": "Te han crecido las mamas, has perdido vello o los testículos han cambiado de tamaño",
@@ -48,5 +48,16 @@
     "ashwagandha": "cerebro",
     "vitamina-d": "testiculo"
   },
-  "mapa": "eje"
+  "mapa": "eje",
+  "claves": [
+    "testosteron",
+    "libido",
+    "deseo sexual",
+    "ereccion",
+    "hormona masculina",
+    "hombre",
+    "sex drive",
+    "erection",
+    "male hormone"
+  ]
 }

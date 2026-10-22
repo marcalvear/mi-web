@@ -45,5 +45,22 @@
     "zinc",
     "sauco"
   ],
-  "mapa": "temporada"
+  "mapa": "temporada",
+  "claves": [
+    "resfri",
+    "gripe",
+    "catarro",
+    "defensas",
+    "inmun",
+    "constipad",
+    "mocos",
+    "garganta",
+    "invierno",
+    "tos ",
+    " cold",
+    "flu",
+    "immune",
+    "sore throat",
+    "cough"
+  ]
 }

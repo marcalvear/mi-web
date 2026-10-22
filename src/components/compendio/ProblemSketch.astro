@@ -1,0 +1,89 @@
+---
+// El esquema de cada problema, elegido por su campo «mapa»: en la página del
+// problema va entero y en las tarjetas del índice, en miniatura (#105).
+import type { CompendioText } from "../../i18n/compendio";
+import type { MapMarker } from "./SketchMap.astro";
+import DigestiveMap from "./DigestiveMap.astro";
+import SleepClock from "./SleepClock.astro";
+import FocusTimeline from "./FocusTimeline.astro";
+import CortisolCurve from "./CortisolCurve.astro";
+import RecoveryChart from "./RecoveryChart.astro";
+import SeasonChart from "./SeasonChart.astro";
+import HormoneAxis from "./HormoneAxis.astro";
+import CycleWheel from "./CycleWheel.astro";
+import BatteryChart from "./BatteryChart.astro";
+import rough from "roughjs";
+
+interface Props {
+  mapa: string;
+  markers: MapMarker[];
+  text: CompendioText;
+  thumb?: boolean;
+}
+const { mapa, markers, text: c, thumb = false } = Astro.props;
+
+// Un problema sin esquema (envejecer mejor) lleva en su tarjeta un reloj de
+// arena dibujado igual, para que ninguna tarjeta quede vacía
+const known = ["digestivo", "reloj", "tiempo", "cortisol", "agujetas", "temporada", "eje", "ciclo", "pila"];
+const gen = rough.generator();
+const round = (d: string) => d.replace(/-?\d+\.\d+/g, (n) => String(Math.round(Number(n) * 10) / 10));
+const hourglass =
+  thumb && !known.includes(mapa)
+    ? [
+        "M130 30 L270 30 M130 250 L270 250",
+        "M146 30 C146 96 196 118 200 140 C204 162 254 184 254 250",
+        "M254 30 C254 96 204 118 200 140 C196 162 146 184 146 250",
+      ].map((d, i) => round(gen.opsToPath(gen.path(d, { roughness: 1.1, strokeWidth: 1.6, seed: 4 + i }).sets[0])))
+    : [];
+const sand = hourglass.length
+  ? gen
+      .path("M168 250 C176 214 192 204 200 196 C208 204 224 214 232 250 Z M176 76 L224 76 C214 100 204 110 200 116 C196 110 186 100 176 76 Z", {
+          roughness: 1,
+          fill: "currentColor",
+          fillStyle: "hachure",
+          hachureGap: 6,
+          seed: 9,
+        })
+      .sets.filter((x) => x.type === "fillSketch")
+      .map((x) => round(gen.opsToPath(x)))
+  : [];
+---
+
+{
+  hourglass.length > 0 && (
+    <svg class="hourglass" viewBox="0 0 400 280" aria-hidden="true" focusable="false">
+      <g fill="none" stroke="currentColor" stroke-linecap="round">
+        {sand.map((d) => (
+          <path class="sand" d={d} />
+        ))}
+        {hourglass.map((d) => (
+          <path d={d} stroke-width="1.6" />
+        ))}
+      </g>
+    </svg>
+  )
+}
+
+{mapa === "digestivo" && <DigestiveMap markers={markers} text={c.map} thumb={thumb} />}
+{mapa === "reloj" && <SleepClock markers={markers} text={c.clock} thumb={thumb} />}
+{mapa === "tiempo" && <FocusTimeline markers={markers} text={c.timeline} thumb={thumb} />}
+{mapa === "cortisol" && <CortisolCurve markers={markers} text={c.cortisol} thumb={thumb} />}
+{mapa === "agujetas" && <RecoveryChart markers={markers} text={c.recovery} thumb={thumb} />}
+{mapa === "temporada" && <SeasonChart markers={markers} text={c.season} thumb={thumb} />}
+{mapa === "eje" && <HormoneAxis markers={markers} text={c.axis} thumb={thumb} />}
+{mapa === "ciclo" && <CycleWheel markers={markers} text={c.cycle} thumb={thumb} />}
+{mapa === "pila" && <BatteryChart markers={markers} text={c.battery} thumb={thumb} />}
+
+<style>
+  .hourglass {
+    display: block;
+    width: 100%;
+    height: auto;
+    color: var(--ink-soft);
+  }
+
+  .sand {
+    stroke-width: 0.7;
+    opacity: 0.3;
+  }
+</style>

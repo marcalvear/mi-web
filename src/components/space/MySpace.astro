@@ -23,6 +23,11 @@ const id = (field: string) => `space-${field}-${lang}`;
 // Las fichas del compendio, para pintar los favoritos (#67): en la base de
 // datos solo está el id de cada ficha
 const compendioUrl = getRelativeLocaleUrl(lang, "biohacking/");
+// Cada problema tiene su página (#105): una ficha está entera en el primero
+// (por orden) en el que sale
+const problemas = (await getCollection("problemas")).sort((a, b) => a.data.orden - b.data.orden);
+const homeOf = new Map<string, string>();
+problemas.forEach((p) => p.data.suplementos.forEach((s) => homeOf.has(s.id) || homeOf.set(s.id, p.id)));
 const catalog = Object.fromEntries([
   ...(await getCollection("suplementos")).map((s) => [
     s.id,
@@ -30,14 +35,14 @@ const catalog = Object.fromEntries([
       name: s.data.nombre[lang],
       type: s.data.tipo[lang],
       evidence: c.favorites.evidence.replace("{level}", compendio[lang].evidence[s.data.evidencia].toLowerCase()),
-      href: `${compendioUrl}#${s.id}`,
+      href: `${compendioUrl}${homeOf.get(s.id) ?? ""}${homeOf.has(s.id) ? "/" : ""}#${s.id}`,
     },
   ]),
   // Y los productos que juntan varios suplementos, al final de cada problema (#81)
-  ...(await getCollection("problemas")).flatMap((p) =>
+  ...problemas.flatMap((p) =>
     (p.data.productos ?? []).map((prod) => [
       prod.id,
-      { name: prod.nombre, type: prod.marca, evidence: c.favorites.product, href: `${compendioUrl}#${prod.id}` },
+      { name: prod.nombre, type: prod.marca, evidence: c.favorites.product, href: `${compendioUrl}${p.id}/#${prod.id}` },
     ]),
   ),
 ]);

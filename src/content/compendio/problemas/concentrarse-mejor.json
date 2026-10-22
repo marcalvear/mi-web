@@ -44,5 +44,21 @@
     "bacopa",
     "melena-de-leon"
   ],
-  "mapa": "tiempo"
+  "mapa": "tiempo",
+  "claves": [
+    "concentr",
+    "foco",
+    "atencion",
+    "memoria",
+    "estudi",
+    "examen",
+    "niebla mental",
+    "rendimiento mental",
+    "focus",
+    "attention",
+    "memory",
+    "study",
+    "exam",
+    "brain fog"
+  ]
 }
