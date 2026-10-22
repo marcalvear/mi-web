@@ -12,6 +12,7 @@ import FocusTimeline from "./FocusTimeline.astro";
 import CortisolCurve from "./CortisolCurve.astro";
 import RecoveryChart from "./RecoveryChart.astro";
 import SeasonChart from "./SeasonChart.astro";
+import HormoneAxis from "./HormoneAxis.astro";
 import SupplementCard from "./SupplementCard.astro";
 import SharedSheet from "./SharedSheet.astro";
 import ProductList from "./ProductList.astro";
@@ -111,13 +112,17 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                   ? c.recovery.zones
                   : p.mapa === "temporada"
                     ? c.season.zones
-                    : c.map.zones;
+                    : p.mapa === "eje"
+                      ? c.axis.zones
+                      : c.map.zones;
+        // Una ficha compartida puede ir en otra zona del esquema de este problema
+        const zoneOf = (s: (typeof supplements)[number]) => p.zonas?.[s.id] ?? s.data.zona;
         const markers: MapMarker[] = supplements.map((s, i) => ({
           id: s.id,
           n: i + 1,
-          zone: s.data.zona,
+          zone: zoneOf(s) ?? "",
           name: s.data.nombre[lang],
-          zoneName: zonesText[s.data.zona ?? ""] ?? s.data.zona,
+          zoneName: zonesText[zoneOf(s) ?? ""] ?? zoneOf(s) ?? "",
         }));
         const counts = Object.fromEntries(levels.map((l) => [l, supplements.filter((s) => s.data.evidencia === l).length]));
         return (
@@ -168,6 +173,8 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                       <RecoveryChart markers={markers} text={c.recovery} />
                     ) : p.mapa === "temporada" ? (
                       <SeasonChart markers={markers} text={c.season} />
+                    ) : p.mapa === "eje" ? (
+                      <HormoneAxis markers={markers} text={c.axis} />
                     ) : (
                       <DigestiveMap markers={markers} text={c.map} />
                     )}
@@ -225,7 +232,15 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                     home.get(s.id)!.id === problem.id ? (
                       <SupplementCard entry={s} n={i + 1} lang={lang} text={c} hasMap={hasMap} />
                     ) : (
-                      <SharedSheet entry={s} n={i + 1} lang={lang} text={c} home={home.get(s.id)!} problemId={problem.id} />
+                      <SharedSheet
+                        entry={s}
+                        n={i + 1}
+                        lang={lang}
+                        text={c}
+                        home={home.get(s.id)!}
+                        problemId={problem.id}
+                        zone={zoneOf(s)}
+                      />
                     ),
                   )}
                 </ol>

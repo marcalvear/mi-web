@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Fenogreco",
+    "en": "Fenugreek"
+  },
+  "tipo": {
+    "es": "Semilla",
+    "en": "Seed"
+  },
+  "evidencia": "preliminar",
+  "zona": "sangre",
+  "porQue": {
+    "es": "El metaanálisis de 2026 encuentra una subida pequeña de la testosterona total, pero con certeza muy baja, y ningún ensayo con bajo riesgo de sesgo.",
+    "en": "The 2026 meta-analysis finds a small rise in total testosterone, but with very low certainty, and no trial at low risk of bias."
+  },
+  "resumen": {
+    "es": "Es una semilla de la cocina india y mediterránea. En extracto sube un poco la testosterona total, pero no la libre, que es la que usa el cuerpo.",
+    "en": "It's a seed from Indian and Mediterranean cooking. As an extract it slightly raises total testosterone, but not free testosterone, which is what the body uses."
+  },
+  "mecanismo": {
+    "es": "Sus saponinas parecen frenar las enzimas que convierten la testosterona en estrógeno y en dihidrotestosterona, así que queda algo más en sangre. Que suba la total no significa que suba la libre: buena parte va pegada a una proteína, la SHBG.",
+    "en": "Its saponins seem to slow the enzymes that turn testosterone into oestrogen and dihydrotestosterone, so a little more stays in the blood. Total going up doesn't mean free goes up: much of it is bound to a protein, SHBG."
+  },
+  "dosis": {
+    "es": "500 a 600 mg al día de extracto",
+    "en": "500 to 600 mg a day of extract"
+  },
+  "cuando": {
+    "es": "Con una comida, durante 8 a 12 semanas",
+    "en": "With a meal, for 8 to 12 weeks"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 13 estudios en hombres adultos, el fenogreco subió un poco la testosterona total (6 estudios), pero no la libre (5 estudios). Ningún ensayo tenía bajo riesgo de sesgo y la certeza es muy baja.",
+        "en": "In 13 studies in adult men, fenugreek slightly raised total testosterone (6 studies), but not free testosterone (5 studies). No trial was at low risk of bias and certainty is very low."
+      },
+      "fuente": "42688439"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Puede bajar el azúcar en sangre: si tomas medicación para la diabetes, consúltalo.",
+      "en": "It can lower blood sugar: if you take diabetes medication, check first."
+    },
+    {
+      "es": "A veces da gases y hace que el sudor huela a sirope de arce.",
+      "en": "It sometimes causes wind and makes sweat smell of maple syrup."
+    },
+    {
+      "es": "Si tienes alergia a los cacahuetes o a los garbanzos, ojo: es de la misma familia.",
+      "en": "If you're allergic to peanuts or chickpeas, be careful: it's from the same family."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Yang P, Niu Z, Guo J, et al.",
+      "anio": 2026,
+      "titulo": "Effects of oral fenugreek-derived preparations on testosterone-related outcomes in adult men: a systematic review and meta-analysis of randomized controlled trials",
+      "revista": "Front Nutr 13:1903508",
+      "pmid": "42688439",
+      "doi": "10.3389/fnut.2026.1903508"
+    }
+  ]
+}

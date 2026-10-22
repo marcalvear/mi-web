@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Tongkat ali",
+    "en": "Tongkat ali"
+  },
+  "tipo": {
+    "es": "Raíz del sudeste asiático",
+    "en": "Southeast Asian root"
+  },
+  "evidencia": "preliminar",
+  "zona": "testiculo",
+  "porQue": {
+    "es": "Un metaanálisis de 5 ensayos sale a favor con un efecto grande, pero son ensayos pequeños, distintos entre sí y el efecto se ve sobre todo en hombres con la testosterona baja.",
+    "en": "A meta-analysis of 5 trials comes out in favour with a large effect, but they're small, differ from each other and the effect shows mainly in men with low testosterone."
+  },
+  "resumen": {
+    "es": "Es la raíz de un arbusto de Malasia e Indonesia. En ensayos pequeños sube la testosterona total, sobre todo en hombres que la tienen baja.",
+    "en": "It's the root of a shrub from Malaysia and Indonesia. In small trials it raises total testosterone, especially in men whose levels are low."
+  },
+  "mecanismo": {
+    "es": "Sus compuestos, los eurycomanósidos, parecen ayudar a las células de los testículos que fabrican testosterona y frenar la enzima que la convierte en estrógeno. En hombres con poca testosterona por estrés o edad, el margen para subir es mayor.",
+    "en": "Its compounds, eurycomanosides, seem to help the testicular cells that make testosterone and slow the enzyme that turns it into oestrogen. In men with low testosterone from stress or age, there's more room for it to rise."
+  },
+  "dosis": {
+    "es": "200 a 400 mg al día de extracto estandarizado",
+    "en": "200 to 400 mg a day of standardised extract"
+  },
+  "cuando": {
+    "es": "Por la mañana, con el desayuno, durante al menos 4 semanas",
+    "en": "In the morning, with breakfast, for at least 4 weeks"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "Juntando 5 ensayos con placebo, el tongkat ali subió de forma clara la testosterona total, en voluntarios sanos y más en hombres con hipogonadismo. Los autores piden más ensayos antes de usarlo en clínica.",
+        "en": "Pooling 5 placebo-controlled trials, tongkat ali clearly raised total testosterone, in healthy volunteers and more so in men with hypogonadism. The authors call for more trials before clinical use."
+      },
+      "fuente": "36013514"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Algunos productos de esta raíz han salido con metales pesados o con fármacos añadidos: compra solo marcas analizadas por un laboratorio externo.",
+      "en": "Some products made from this root have turned up with heavy metals or added drugs: only buy brands tested by an outside lab."
+    },
+    {
+      "es": "Si tienes cáncer de próstata, problemas de corazón o tomas medicación para la tensión o el azúcar, no lo tomes sin hablar con tu médico.",
+      "en": "If you have prostate cancer, heart problems or take medication for blood pressure or blood sugar, don't take it without talking to your doctor."
+    },
+    {
+      "es": "Si compites, ojo: algunos lotes contaminados han dado positivo en controles.",
+      "en": "If you compete, be careful: some contaminated batches have failed drug tests."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Leisegang K, Finelli R, Sikka SC, et al.",
+      "anio": 2022,
+      "titulo": "Eurycoma longifolia (Jack) Improves Serum Total Testosterone in Men: A Systematic Review and Meta-Analysis of Clinical Trials",
+      "revista": "Medicina (Kaunas) 58(8):1047",
+      "pmid": "36013514",
+      "doi": "10.3390/medicina58081047"
+    }
+  ]
+}

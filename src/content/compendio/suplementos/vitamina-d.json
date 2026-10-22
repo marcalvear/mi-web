@@ -43,6 +43,13 @@
         "en": "When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose."
       },
       "fuente": "39993397"
+    },
+    {
+      "texto": {
+        "es": "Para la testosterona, una revisión de 2026 con 11 comparaciones no encontró que la vitamina D la subiera en hombres adultos, ni la libre ni la proteína que la transporta.",
+        "en": "For testosterone, a 2026 review with 11 comparisons didn't find that vitamin D raised it in adult men, nor free testosterone nor the protein that carries it."
+      },
+      "fuente": "42451097"
     }
   ],
   "precauciones": [
@@ -75,6 +82,14 @@
       "revista": "Lancet Diabetes Endocrinol 13(4):307-320",
       "pmid": "39993397",
       "doi": "10.1016/S2213-8587(24)00348-6"
+    },
+    {
+      "autores": "Paez-Allendes L, Valenzuela-Fuenzalida JJ, Moya MP, et al.",
+      "anio": 2026,
+      "titulo": "Vitamin D Supplementation, Total Testosterone, and Androgen Bioavailability Markers in Adult Men: A Systematic Review and Meta-Analysis",
+      "revista": "Nutrients 18(13):2090",
+      "pmid": "42451097",
+      "doi": "10.3390/nu18132090"
     }
   ]
 }

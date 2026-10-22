@@ -1,0 +1,52 @@
+{
+  "orden": 8,
+  "nombre": {
+    "es": "Testosterona",
+    "en": "Testosterone"
+  },
+  "titular": {
+    "es": "¿Tienes poca energía, poco deseo o te cuesta ganar músculo?",
+    "en": "Low energy, low sex drive or struggling to build muscle?"
+  },
+  "intro": {
+    "es": "La testosterona baja con la edad, pero sobre todo con el sueño corto, la grasa abdominal, el estrés y el alcohol. Ningún suplemento la sube como un tratamiento: dormir 7-8 horas, entrenar fuerza y perder grasa hacen mucho más. Estas fichas cuentan qué sí y qué no se ha medido.",
+    "en": "Testosterone falls with age, but mostly with short sleep, belly fat, stress and alcohol. No supplement raises it like a treatment: sleeping 7–8 hours, strength training and losing fat do far more. These sheets cover what has and hasn't been measured."
+  },
+  "queOcurre": {
+    "es": "La testosterona se fabrica en cadena. El cerebro manda una señal, la hormona LH, y los testículos fabrican testosterona. En la sangre, la mayor parte va pegada a una proteína, la SHBG, y solo la libre llega a los tejidos. Cuando hay suficiente, el cerebro frena la señal. El estrés, que sube el cortisol, y la falta de sueño frenan la cadena desde arriba. El esquema de al lado marca en qué punto se cree que actúa cada suplemento.",
+    "en": "Testosterone is made in a chain. The brain sends a signal, the hormone LH, and the testes make testosterone. In the blood, most of it is bound to a protein, SHBG, and only the free part reaches tissues. When there's enough, the brain brakes the signal. Stress, which raises cortisol, and lack of sleep slow the chain from the top. The diagram beside it marks where each supplement is thought to act."
+  },
+  "combinar": {
+    "es": "Ningún ensayo probó estos juntos, y las mezclas «potenciadoras de testosterona» casi nunca tienen estudios propios. Si quieres probar uno, mide antes y después con un análisis por la mañana: es la única forma de saber si te ha hecho algo.",
+    "en": "No trial tested these together, and \"testosterone booster\" blends almost never have studies of their own. If you want to try one, test before and after with a morning blood test: it's the only way to know if it did anything."
+  },
+  "alarma": [
+    {
+      "es": "Tienes poco deseo, problemas de erección y cansancio a la vez durante meses",
+      "en": "You've had low sex drive, erection problems and tiredness together for months"
+    },
+    {
+      "es": "Te han crecido las mamas, has perdido vello o los testículos han cambiado de tamaño",
+      "en": "Your breasts have grown, you've lost body hair or your testes have changed size"
+    },
+    {
+      "es": "Tienes menos de 40 años y te notas todos estos síntomas",
+      "en": "You're under 40 and have all these symptoms"
+    },
+    {
+      "es": "Te ofrecen testosterona o «pro-hormonas» sin receta: pueden dejarte estéril",
+      "en": "You're offered testosterone or \"prohormones\" without a prescription: they can leave you infertile"
+    }
+  ],
+  "suplementos": [
+    "tongkat-ali",
+    "fenogreco",
+    "ashwagandha",
+    "vitamina-d"
+  ],
+  "zonas": {
+    "ashwagandha": "cerebro",
+    "vitamina-d": "testiculo"
+  },
+  "mapa": "eje"
+}
