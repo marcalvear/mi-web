@@ -61,5 +61,58 @@
       "pmid": "9731851",
       "doi": "10.1016/s0002-9378(98)70377-1"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-calcium-carbonate",
+      "marca": "NOW Foods",
+      "nombre": "Calcium Carbonate Powder",
+      "foto": "now-calcium-carbonate.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Calcium Carbonate Powder de NOW.",
+        "en": "White tub with orange label of NOW Calcium Carbonate Powder."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/calcium-carbonate-powder",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "600 mg de calcio por media cucharadita",
+            "en": "600 mg of calcium per half teaspoon"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "Media cucharadita dos veces al día con comida",
+            "en": "Half a teaspoon twice a day with food"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "340 g de polvo",
+            "en": "340 g of powder"
+          }
+        }
+      ],
+      "precio": {
+        "es": "15,99 $",
+        "en": "$15.99"
+      }
+    }
   ]
 }

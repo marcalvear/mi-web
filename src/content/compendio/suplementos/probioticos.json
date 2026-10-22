@@ -57,5 +57,58 @@
       "pmid": "36001877",
       "doi": "10.1002/14651858.CD006895.pub4"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-probiotic-10",
+      "marca": "NOW Foods",
+      "nombre": "Probiotic-10 50 Billion",
+      "foto": "now-probiotic-10.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Probiotic-10 de NOW.",
+        "en": "White bottle with orange label of NOW Probiotic-10."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/probiotic-10-50-billion-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "50.000 millones de bacterias de 10 cepas por cápsula",
+            "en": "50 billion bacteria from 10 strains per capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula al día",
+            "en": "1 capsule a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "50 cápsulas; mejor en la nevera",
+            "en": "50 capsules; best kept in the fridge"
+          }
+        }
+      ],
+      "precio": {
+        "es": "49,99 $",
+        "en": "$49.99"
+      }
+    }
   ]
 }

@@ -61,5 +61,48 @@
       "pmid": "42688439",
       "doi": "10.3389/fnut.2026.1903508"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-fenugreek-500",
+      "marca": "NOW Foods",
+      "nombre": "Fenugreek 500 mg",
+      "foto": "now-fenugreek.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja y verde de Fenugreek de NOW.",
+        "en": "White bottle with orange and green label of NOW Fenugreek."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/fenugreek-500-mg-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "500 mg de semilla de fenogreco por cápsula",
+            "en": "500 mg of fenugreek seed per capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "100 cápsulas",
+            "en": "100 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "11,99 $",
+        "en": "$11.99"
+      }
+    }
   ]
 }

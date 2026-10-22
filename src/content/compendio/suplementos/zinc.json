@@ -61,5 +61,58 @@
       "pmid": "28515951",
       "doi": "10.1177/2054270417694291"
     }
+  ],
+  "productos": [
+    {
+      "id": "life-extension-zinc-lozenges",
+      "marca": "Life Extension",
+      "nombre": "Enhanced Zinc Lozenges",
+      "foto": "life-extension-zinc-lozenges.webp",
+      "alt": {
+        "es": "Bote azul de Enhanced Zinc Lozenges de Life Extension.",
+        "en": "Blue bottle of Life Extension Enhanced Zinc Lozenges."
+      },
+      "url": "https://www.lifeextension.com/vitamins-supplements/item01961/enhanced-zinc-lozenges",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "18,75 mg de zinc en acetato por pastilla, sabor menta",
+            "en": "18.75 mg of zinc as acetate per lozenge, peppermint"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cada 2 horas despierto, hasta llegar a unos 90 mg al día, solo unos días",
+            "en": "1 every 2 waking hours, up to about 90 mg a day, for a few days only"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "30 pastillas",
+            "en": "30 lozenges"
+          }
+        }
+      ],
+      "precio": {
+        "es": "9 $",
+        "en": "$9"
+      }
+    }
   ]
 }

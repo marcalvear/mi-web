@@ -445,6 +445,8 @@ FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
   - Al añadir los ensayos nuevos en 2025, con 61.589 personas, la protección quedó en un 6 % y dejó de ser significativa. Tampoco cambió según el déficit de partida ni la dosis. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
   - Para la testosterona, una revisión de 2026 con 11 comparaciones no encontró que la vitamina D la subiera en hombres adultos, ni la libre ni la proteína que la transporta. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Precauciones: Más no es mejor: por encima de 4.000 UI al día durante mucho tiempo puede subir demasiado el calcio. Si tienes piedras en el riñón, sarcoidosis o tomas diuréticos tiazídicos, consúltalo antes. Para saber si te falta, el análisis es el de 25-hidroxivitamina D.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Vitamin D3 2000 IU (Estados Unidos): lleva 2.000 UI (50 µg) de vitamina D3 por cápsula; toma 1 cápsula al día con comida; bote 30, 120 o 240 cápsulas; precio 4,99 $ (30) o 8,99 $ (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 
 FICHA: Probióticos (Bacterias vivas) · https://marcalvear.github.io/mi-web/biohacking/#probioticos
 - Qué es: Son bacterias buenas, como las del yogur. Tomadas a diario durante meses, hacen que se cojan algo menos de resfriados y que duren un día menos.
@@ -454,6 +456,8 @@ FICHA: Probióticos (Bacterias vivas) · https://marcalvear.github.io/mi-web/bio
 - Qué encontraron los estudios:
   - En 23 ensayos con 6.950 niños, adultos y mayores, quienes tomaron probióticos tuvieron un 24 % menos de probabilidad de coger un resfriado, los resfriados duraron un día menos y usaron menos antibióticos. Los efectos secundarios fueron iguales que con placebo. [Zhao Y et al., 2022, Cochrane Database Syst Rev 8(8):CD006895, PMID 36001877]
 - Precauciones: Si tienes las defensas muy bajas, un catéter central o estás muy enfermo, no los tomes sin hablar con tu médico. Los primeros días pueden dar gases o hinchazón.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Probiotic-10 50 Billion (Estados Unidos): lleva 50.000 millones de bacterias de 10 cepas por cápsula; toma 1 cápsula al día; bote 50 cápsulas; mejor en la nevera; precio 49,99 $. https://www.nowfoods.com/products/supplements/probiotic-10-50-billion-veg-capsules
 
 FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-c
 - Qué es: El cuerpo la necesita para fabricar colágeno y no la puede hacer. Tomada a diario no evita los resfriados, pero los acorta un poco, y protege a quien hace esfuerzos muy duros.
@@ -474,6 +478,8 @@ FICHA: Zinc en pastillas para chupar (Mineral) · https://marcalvear.github.io/m
 - Qué encontraron los estudios:
   - En 7 ensayos, los resfriados duraron un 33 % menos con pastillas de zinc que con placebo: un 40 % con acetato y un 28 % con gluconato. Pasar de 100 mg al día no añadió nada. [Hemilä H et al., 2017, JRSM Open 8(5):2054270417694291, PMID 28515951]
 - Precauciones: Puede dejar sabor metálico y dar náuseas; con algo en el estómago se lleva mejor. No lo tomes a estas dosis más de una semana: a la larga quita cobre al cuerpo. Nunca en espray nasal: se ha relacionado con perder el olfato.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Life Extension, Enhanced Zinc Lozenges (Estados Unidos): lleva 18,75 mg de zinc en acetato por pastilla, sabor menta; toma 1 cada 2 horas despierto, hasta llegar a unos 90 mg al día, solo unos días; bote 30 pastillas; precio 9 $. https://www.lifeextension.com/vitamins-supplements/item01961/enhanced-zinc-lozenges
 
 FICHA: Saúco negro (Extracto de baya) · https://marcalvear.github.io/mi-web/biohacking/#sauco
 - Qué es: Es la baya morada del saúco, en jarabe o pastillas. Tomada al empezar un resfriado o una gripe, en ensayos pequeños alivió antes los síntomas.
@@ -507,6 +513,8 @@ FICHA: Fenogreco (Semilla) · https://marcalvear.github.io/mi-web/biohacking/#fe
 - Qué encontraron los estudios:
   - En 13 estudios en hombres adultos, el fenogreco subió un poco la testosterona total (6 estudios), pero no la libre (5 estudios). Ningún ensayo tenía bajo riesgo de sesgo y la certeza es muy baja. [Yang P et al., 2026, Front Nutr 13:1903508, PMID 42688439]
 - Precauciones: Puede bajar el azúcar en sangre: si tomas medicación para la diabetes, consúltalo. A veces da gases y hace que el sudor huela a sirope de arce. Si tienes alergia a los cacahuetes o a los garbanzos, ojo: es de la misma familia.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Fenugreek 500 mg (Estados Unidos): lleva 500 mg de semilla de fenogreco por cápsula; bote 100 cápsulas; precio 11,99 $. https://www.nowfoods.com/products/supplements/fenugreek-500-mg-veg-capsules
 
 FICHA: Ashwagandha (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#ashwagandha
 - Qué es: Es una raíz de la medicina tradicional india, la más estudiada para el estrés. En 8 semanas baja el estrés que la gente nota y el cortisol en sangre.
@@ -531,6 +539,8 @@ FICHA: Vitamina D (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#
   - Al añadir los ensayos nuevos en 2025, con 61.589 personas, la protección quedó en un 6 % y dejó de ser significativa. Tampoco cambió según el déficit de partida ni la dosis. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
   - Para la testosterona, una revisión de 2026 con 11 comparaciones no encontró que la vitamina D la subiera en hombres adultos, ni la libre ni la proteína que la transporta. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Precauciones: Más no es mejor: por encima de 4.000 UI al día durante mucho tiempo puede subir demasiado el calcio. Si tienes piedras en el riñón, sarcoidosis o tomas diuréticos tiazídicos, consúltalo antes. Para saber si te falta, el análisis es el de 25-hidroxivitamina D.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Vitamin D3 2000 IU (Estados Unidos): lleva 2.000 UI (50 µg) de vitamina D3 por cápsula; toma 1 cápsula al día con comida; bote 30, 120 o 240 cápsulas; precio 4,99 $ (30) o 8,99 $ (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 
 PROBLEMA: CICLO Y MENOPAUSIA (https://marcalvear.github.io/mi-web/biohacking/#ciclo-menopausia)
 - Hinchazón, pecho dolorido y cambios de humor antes de la regla, ciclos que no llegan cuando toca o los sofocos de la menopausia. Algunos suplementos tienen ensayos para cosas muy concretas de cada etapa, y aquí van por separado.
@@ -555,6 +565,8 @@ FICHA: Calcio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#calci
 - Qué encontraron los estudios:
   - En 466 mujeres con síndrome premenstrual, 1.200 mg de calcio al día redujeron los síntomas un 48 % al tercer ciclo, frente al 30 % con placebo. Bajaron los cuatro grupos de síntomas, del ánimo al dolor y la retención de líquidos. [Thys-Jacobs S et al., 1998, Am J Obstet Gynecol 179(2):444-452, PMID 9731851]
 - Precauciones: Si tienes piedras en el riñón o el calcio alto, no lo tomes sin hablar con tu médico. Sepáralo 2 horas del hierro, la levotiroxina y algunos antibióticos: se estorban. Un vaso de leche o un yogur llevan unos 250 mg: cuéntalos antes de sumar cápsulas.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Calcium Carbonate Powder (Estados Unidos): lleva 600 mg de calcio por media cucharadita; toma Media cucharadita dos veces al día con comida; bote 340 g de polvo; precio 15,99 $. https://www.nowfoods.com/products/supplements/calcium-carbonate-powder
 
 FICHA: Mio-inositol (Azúcar de la familia de las vitaminas B) · https://marcalvear.github.io/mi-web/biohacking/#mio-inositol
 - Qué es: Es una molécula que el cuerpo usa para responder a la insulina. En el síndrome de ovario poliquístico ayuda a que el ciclo se vuelva regular y baja la testosterona.
@@ -564,6 +576,8 @@ FICHA: Mio-inositol (Azúcar de la familia de las vitaminas B) · https://marcal
 - Qué encontraron los estudios:
   - En 26 ensayos con 1.691 mujeres con ovario poliquístico, el inositol hizo 1,8 veces más probable tener ciclos regulares que el placebo. También bajó la testosterona, la insulina y algo el peso, y en la regularidad del ciclo no fue peor que la metformina. [Greff D et al., 2023, Reprod Biol Endocrinol 21(1):10, PMID 36703143]
 - Precauciones: El ovario poliquístico lo diagnostica un médico: no te lo trates por tu cuenta. A dosis altas puede dar náuseas o gases. Si tomas medicación para la diabetes, consúltalo: puede sumar su efecto.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Inositol Powder (Estados Unidos): lleva Mio-inositol puro: 730 mg por cuarto de cucharadita; toma Para 2 a 4 g, de 3/4 a 1 1/4 cucharaditas al día; bote 57 g, 113 g, 227 g o 454 g; precio Desde 12,99 $. https://www.nowfoods.com/products/supplements/inositol-powder
 
 FICHA: Isoflavonas de soja (Fitoestrógenos) · https://marcalvear.github.io/mi-web/biohacking/#isoflavonas-soja
 - Qué es: Son compuestos de la soja que se parecen un poco a los estrógenos. En la menopausia bajan algo el ánimo bajo, las palpitaciones y los dolores de cabeza, pero los sofocos casi no.
@@ -573,6 +587,8 @@ FICHA: Isoflavonas de soja (Fitoestrógenos) · https://marcalvear.github.io/mi-
 - Qué encontraron los estudios:
   - En 12 ensayos, las isoflavonas bajaron un poco los síntomas de la menopausia en conjunto (7 ensayos, 533 mujeres) y, por separado, el ánimo bajo, las palpitaciones y los dolores de cabeza. No mejoraron los sofocos, el sudor ni el insomnio. [Luan H et al., 2025, PeerJ 13:e19715, PMID 40718787]
 - Precauciones: Si has tenido cáncer de mama o de útero, no las tomes sin hablar con tu oncólogo. Si tomas levotiroxina, sepáralas unas horas. Para sofocos fuertes, hay tratamientos que sí funcionan: pregúntale a tu ginecóloga.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Soy Isoflavones (Estados Unidos): lleva 60 mg de isoflavonas por toma; bote 120 cápsulas; precio 39,99 $. https://www.nowfoods.com/products/supplements/soy-isoflavones-veg-capsules
 
 PROBLEMA: CANSANCIO (https://marcalvear.github.io/mi-web/biohacking/#menos-cansancio)
 - Cansancio que no se va ni durmiendo, sin ganas de entrenar o con la cabeza lenta a media mañana. Antes que nada, un análisis: el hierro, la B12, el tiroides o el azúcar explican muchos casos, y un suplemento solo ayuda si va a la causa.
@@ -589,6 +605,8 @@ FICHA: Hierro (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#hierr
   - En 198 mujeres de 18 a 53 años cansadas, con la ferritina por debajo de 50 y sin anemia, 80 mg de hierro al día durante 12 semanas bajaron el cansancio un 47,7 %, frente al 28,8 % con placebo. [Vaucher P et al., 2012, CMAJ 184(11):1247-1254, PMID 22777991]
   - En 164 mujeres en edad fértil con el hierro bajo y sin anemia, el tratamiento con hierro bajó el cansancio y subió la ferritina y la hemoglobina. [Sultana N et al., 2026, J Pak Med Assoc 76(1):4-7, PMID 41736325]
 - Precauciones: No lo tomes sin análisis: el exceso de hierro se acumula y daña el hígado y el corazón. Suele estreñir, dar ardor o volver las heces negras; tomarlo en días alternos se tolera mejor. Si eres hombre o ya no tienes la regla y te falta hierro, hay que buscar la causa: puede haber una pérdida de sangre.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Iron 36 mg (Ferrochel) (Estados Unidos): lleva 36 mg de hierro en bisglicinato, que estriñe menos; toma Lo que diga tu médico según la ferritina; bote 90 cápsulas; precio 15,99 $. https://www.nowfoods.com/products/supplements/iron-36-mg-double-strength-veg-capsules
 
 FICHA: Vitamina B12 (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/#vitamina-b12
 - Qué es: Hace falta para fabricar glóbulos rojos y cuidar los nervios. Solo viene de alimentos animales, así que falta en veganos, en mayores y en quien toma ciertos fármacos. Si te falta, cansa mucho; si no, tomarla no da energía extra.
@@ -607,6 +625,8 @@ FICHA: Coenzima Q10 (Molécula de las mitocondrias) · https://marcalvear.github
 - Qué encontraron los estudios:
   - En los ensayos agrupados, con 602 personas tomando coenzima Q10, el cansancio bajó frente a placebo, igual en sanos que en enfermos. Cuanta más dosis y más tiempo, más bajó, y solo hubo un efecto secundario de estómago. [Tsai IC et al., 2022, Front Pharmacol 13:883251, PMID 36091835]
 - Precauciones: Si tomas anticoagulantes como el Sintrom, consúltalo: puede bajar su efecto. Puede bajar un poco la tensión y el azúcar. Si tomas estatinas y te duelen los músculos, coméntalo con tu médico antes de tomarla.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, CoQ10 100 mg (Estados Unidos): lleva 100 mg de coenzima Q10 por cápsula; toma 1 o 2 cápsulas al día con comida; bote 50 cápsulas; precio 21,99 $. https://www.nowfoods.com/products/supplements/coq10-100-mg-softgels
 
 FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/biohacking/#rhodiola
 - Qué es: Es una raíz de las montañas frías del norte. Se usa para el cansancio por estrés: en un ensayo con personas quemadas mejoró la concentración y bajó el cortisol al despertar.
@@ -993,6 +1013,8 @@ SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
   - When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
   - For testosterone, a 2026 review with 11 comparisons didn't find that vitamin D raised it in adult men, nor free testosterone nor the protein that carries it. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Cautions: More isn't better: above 4,000 IU a day for a long time it can push calcium too high. If you have kidney stones, sarcoidosis or take thiazide diuretics, check first. To find out if you're low, the test is 25-hydroxyvitamin D.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Vitamin D3 2000 IU (United States): contains 2,000 IU (50 µg) of vitamin D3 per softgel; dose 1 softgel a day with food; bottle 30, 120 or 240 softgels; price $4.99 (30) or $8.99 (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 
 SHEET: Probiotics (Live bacteria) · https://marcalvear.github.io/mi-web/en/biohacking/#probioticos
 - What it is: They're good bacteria, like those in yoghurt. Taken daily for months, they mean people catch slightly fewer colds and they last a day less.
@@ -1002,6 +1024,8 @@ SHEET: Probiotics (Live bacteria) · https://marcalvear.github.io/mi-web/en/bioh
 - What the studies found:
   - In 23 trials with 6,950 children, adults and older people, those taking probiotics were 24% less likely to catch a cold, colds lasted a day less and they used fewer antibiotics. Side effects were the same as with placebo. [Zhao Y et al., 2022, Cochrane Database Syst Rev 8(8):CD006895, PMID 36001877]
 - Cautions: If your immune system is very weak, you have a central line or you're very ill, don't take them without talking to your doctor. In the first days they can cause wind or bloating.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Probiotic-10 50 Billion (United States): contains 50 billion bacteria from 10 strains per capsule; dose 1 capsule a day; bottle 50 capsules; best kept in the fridge; price $49.99. https://www.nowfoods.com/products/supplements/probiotic-10-50-billion-veg-capsules
 
 SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-c
 - What it is: The body needs it to make collagen and can't make it itself. Taken daily it doesn't prevent colds, but it shortens them a little, and it protects people doing very hard exertion.
@@ -1022,6 +1046,8 @@ SHEET: Zinc lozenges (Mineral) · https://marcalvear.github.io/mi-web/en/biohack
 - What the studies found:
   - In 7 trials, colds lasted 33% less with zinc lozenges than with placebo: 40% with acetate and 28% with gluconate. Going above 100 mg a day added nothing. [Hemilä H et al., 2017, JRSM Open 8(5):2054270417694291, PMID 28515951]
 - Cautions: It can leave a metallic taste and cause nausea; it's easier with something in your stomach. Don't take it at these doses for more than a week: over time it depletes the body's copper. Never as a nasal spray: it's been linked to losing the sense of smell.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Life Extension, Enhanced Zinc Lozenges (United States): contains 18.75 mg of zinc as acetate per lozenge, peppermint; dose 1 every 2 waking hours, up to about 90 mg a day, for a few days only; bottle 30 lozenges; price $9. https://www.lifeextension.com/vitamins-supplements/item01961/enhanced-zinc-lozenges
 
 SHEET: Black elderberry (Berry extract) · https://marcalvear.github.io/mi-web/en/biohacking/#sauco
 - What it is: It's the purple elderberry, as a syrup or lozenges. Taken at the start of a cold or flu, in small trials it eased symptoms sooner.
@@ -1055,6 +1081,8 @@ SHEET: Fenugreek (Seed) · https://marcalvear.github.io/mi-web/en/biohacking/#fe
 - What the studies found:
   - In 13 studies in adult men, fenugreek slightly raised total testosterone (6 studies), but not free testosterone (5 studies). No trial was at low risk of bias and certainty is very low. [Yang P et al., 2026, Front Nutr 13:1903508, PMID 42688439]
 - Cautions: It can lower blood sugar: if you take diabetes medication, check first. It sometimes causes wind and makes sweat smell of maple syrup. If you're allergic to peanuts or chickpeas, be careful: it's from the same family.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Fenugreek 500 mg (United States): contains 500 mg of fenugreek seed per capsule; bottle 100 capsules; price $11.99. https://www.nowfoods.com/products/supplements/fenugreek-500-mg-veg-capsules
 
 SHEET: Ashwagandha (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#ashwagandha
 - What it is: It's a root from traditional Indian medicine, the most studied for stress. In 8 weeks it lowers the stress people feel and cortisol in the blood.
@@ -1079,6 +1107,8 @@ SHEET: Vitamin D (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
   - When the new trials were added in 2025, with 61,589 people, the protection came to 6% and was no longer significant. It also didn't change with baseline deficiency or dose. [Jolliffe DA et al., 2025, Lancet Diabetes Endocrinol 13(4):307-320, PMID 39993397]
   - For testosterone, a 2026 review with 11 comparisons didn't find that vitamin D raised it in adult men, nor free testosterone nor the protein that carries it. [Paez-Allendes L et al., 2026, Nutrients 18(13):2090, PMID 42451097]
 - Cautions: More isn't better: above 4,000 IU a day for a long time it can push calcium too high. If you have kidney stones, sarcoidosis or take thiazide diuretics, check first. To find out if you're low, the test is 25-hydroxyvitamin D.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Vitamin D3 2000 IU (United States): contains 2,000 IU (50 µg) of vitamin D3 per softgel; dose 1 softgel a day with food; bottle 30, 120 or 240 softgels; price $4.99 (30) or $8.99 (120). https://www.nowfoods.com/products/supplements/vitamin-d3-2000-iu-softgels
 
 PROBLEM: CYCLE AND MENOPAUSE (https://marcalvear.github.io/mi-web/en/biohacking/#ciclo-menopausia)
 - Bloating, sore breasts and mood swings before your period, cycles that don't come when they should or the hot flushes of menopause. Some supplements have trials for very specific things at each stage, and here they're kept apart.
@@ -1103,6 +1133,8 @@ SHEET: Calcium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#c
 - What the studies found:
   - In 466 women with premenstrual syndrome, 1,200 mg of calcium a day reduced symptoms by 48% by the third cycle, compared with 30% on placebo. All four symptom groups dropped, from mood to pain and fluid retention. [Thys-Jacobs S et al., 1998, Am J Obstet Gynecol 179(2):444-452, PMID 9731851]
 - Cautions: If you have kidney stones or high calcium, don't take it without talking to your doctor. Keep it 2 hours apart from iron, levothyroxine and some antibiotics: they get in each other's way. A glass of milk or a yoghurt has about 250 mg: count them before adding capsules.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Calcium Carbonate Powder (United States): contains 600 mg of calcium per half teaspoon; dose Half a teaspoon twice a day with food; tub 340 g of powder; price $15.99. https://www.nowfoods.com/products/supplements/calcium-carbonate-powder
 
 SHEET: Myo-inositol (B-vitamin-like sugar) · https://marcalvear.github.io/mi-web/en/biohacking/#mio-inositol
 - What it is: It's a molecule the body uses to respond to insulin. In polycystic ovary syndrome it helps the cycle become regular and lowers testosterone.
@@ -1112,6 +1144,8 @@ SHEET: Myo-inositol (B-vitamin-like sugar) · https://marcalvear.github.io/mi-we
 - What the studies found:
   - In 26 trials with 1,691 women with polycystic ovaries, inositol made regular cycles 1.8 times more likely than placebo. It also lowered testosterone, insulin and weight slightly, and for cycle regularity it was no worse than metformin. [Greff D et al., 2023, Reprod Biol Endocrinol 21(1):10, PMID 36703143]
 - Cautions: Polycystic ovary syndrome is diagnosed by a doctor: don't treat yourself. At high doses it can cause nausea or wind. If you take diabetes medication, check first: it can add to its effect.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Inositol Powder (United States): contains Pure myo-inositol: 730 mg per quarter teaspoon; dose For 2 to 4 g, 3/4 to 1 1/4 teaspoons a day; tub 57 g, 113 g, 227 g or 454 g; price From $12.99. https://www.nowfoods.com/products/supplements/inositol-powder
 
 SHEET: Soy isoflavones (Phytoestrogens) · https://marcalvear.github.io/mi-web/en/biohacking/#isoflavonas-soja
 - What it is: They're compounds in soy that slightly resemble oestrogen. In menopause they somewhat ease low mood, palpitations and headaches, but barely affect hot flushes.
@@ -1121,6 +1155,8 @@ SHEET: Soy isoflavones (Phytoestrogens) · https://marcalvear.github.io/mi-web/e
 - What the studies found:
   - In 12 trials, isoflavones slightly eased menopause symptoms overall (7 trials, 533 women) and, separately, low mood, palpitations and headaches. They didn't improve hot flushes, sweating or insomnia. [Luan H et al., 2025, PeerJ 13:e19715, PMID 40718787]
 - Cautions: If you've had breast or uterine cancer, don't take them without talking to your oncologist. If you take levothyroxine, keep them a few hours apart. For strong hot flushes, there are treatments that do work: ask your gynaecologist.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Soy Isoflavones (United States): contains 60 mg of isoflavones per serving; bottle 120 capsules; price $39.99. https://www.nowfoods.com/products/supplements/soy-isoflavones-veg-capsules
 
 PROBLEM: TIREDNESS (https://marcalvear.github.io/mi-web/en/biohacking/#menos-cansancio)
 - Tiredness that doesn't go even with sleep, no drive to train or a slow head by mid-morning. Before anything else, a blood test: iron, B12, thyroid or blood sugar explain many cases, and a supplement only helps if it targets the cause.
@@ -1137,6 +1173,8 @@ SHEET: Iron (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/#hier
   - In 198 tired women aged 18 to 53, with ferritin below 50 and no anaemia, 80 mg of iron a day for 12 weeks lowered tiredness by 47.7%, compared with 28.8% on placebo. [Vaucher P et al., 2012, CMAJ 184(11):1247-1254, PMID 22777991]
   - In 164 women of childbearing age with low iron and no anaemia, iron treatment lowered tiredness and raised ferritin and haemoglobin. [Sultana N et al., 2026, J Pak Med Assoc 76(1):4-7, PMID 41736325]
 - Cautions: Don't take it without a blood test: excess iron builds up and damages the liver and heart. It often causes constipation, heartburn or black stools; taking it on alternate days is easier to tolerate. If you're a man or no longer have periods and you're low in iron, the cause needs finding: there may be blood loss.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Iron 36 mg (Ferrochel) (United States): contains 36 mg of iron as bisglycinate, which is less constipating; dose Whatever your doctor says based on ferritin; bottle 90 capsules; price $15.99. https://www.nowfoods.com/products/supplements/iron-36-mg-double-strength-veg-capsules
 
 SHEET: Vitamin B12 (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/#vitamina-b12
 - What it is: It's needed to make red blood cells and look after nerves. It only comes from animal foods, so it runs short in vegans, older people and people on certain drugs. If you're low, it's very tiring; if not, taking it gives no extra energy.
@@ -1155,6 +1193,8 @@ SHEET: Coenzyme Q10 (Mitochondrial molecule) · https://marcalvear.github.io/mi-
 - What the studies found:
   - In the pooled trials, with 602 people taking coenzyme Q10, tiredness fell compared with placebo, the same in healthy and ill people. The higher the dose and the longer, the more it fell, and there was only one stomach side effect. [Tsai IC et al., 2022, Front Pharmacol 13:883251, PMID 36091835]
 - Cautions: If you take blood thinners like warfarin, check first: it can weaken their effect. It can slightly lower blood pressure and blood sugar. If you take statins and your muscles ache, talk to your doctor before taking it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, CoQ10 100 mg (United States): contains 100 mg of coenzyme Q10 per softgel; dose 1 or 2 softgels a day with food; bottle 50 softgels; price $21.99. https://www.nowfoods.com/products/supplements/coq10-100-mg-softgels
 
 SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/biohacking/#rhodiola
 - What it is: It's a root from cold northern mountains. It's used for stress-related tiredness: in a trial with burned-out people it improved concentration and lowered cortisol on waking.

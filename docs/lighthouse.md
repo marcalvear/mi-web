@@ -1,5 +1,14 @@
 # Lighthouse
 
+## Compendio con diez problemas (21/10/2026, #94-#97)
+
+Mismo método. Son 10 problemas, 38 suplementos y 25 productos con foto.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS | Peso |
+|---|---|---|---|---|---|---|
+| Compendio | 90 | 100 | 100 | 100 | 0 | 503 KB |
+| Compendio (EN) | 90 | 100 | 100 | 100 | 0 | 504 KB |
+
 ## Ajustes de las animaciones (21/10/2026, #79)
 
 Mismo método.
