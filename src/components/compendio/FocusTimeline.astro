@@ -1,0 +1,100 @@
+---
+// Línea de tiempo para el problema «concentrarse mejor» (#87): cuánto tarda en
+// notarse cada suplemento, de minutos a meses, dibujada a mano alzada como el
+// resto de esquemas del compendio. La escala no es lineal: cada tramo es un
+// salto de tiempo (minutos, semanas, meses), como en un cuaderno.
+import rough from "roughjs";
+import type { CompendioText } from "../../i18n/compendio";
+import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
+
+interface Props {
+  markers: MapMarker[];
+  text: CompendioText["timeline"];
+}
+const { markers, text } = Astro.props;
+
+const AXIS = 236;
+// Tramos de tiempo: de dónde a dónde va cada barra en el dibujo
+const zones: Record<string, [number, number]> = {
+  minutos: [36, 116],
+  semanas: [168, 266],
+  meses: [292, 372],
+};
+const ticks = [
+  { x: 36, key: "m30" },
+  { x: 116, key: "h2" },
+  { x: 168, key: "w1" },
+  { x: 266, key: "w4" },
+  { x: 372, key: "w12" },
+] as const;
+
+const gen = rough.generator();
+const toPath = (set: Parameters<typeof gen.opsToPath>[0]) =>
+  gen.opsToPath(set).replace(/-?\d+\.\d+/g, (n) => String(Math.round(Number(n) * 10) / 10));
+const base = { roughness: 1.1, bowing: 1, stroke: "currentColor", strokeWidth: 1.6 };
+function draw(d: string, seed: number, fill = true) {
+  const outline: string[] = [];
+  const fills: string[] = [];
+  const opts = fill ? { fill: "currentColor", fillStyle: "hachure", hachureGap: 6, fillWeight: 0.7, hachureAngle: -41 + seed * 7 } : {};
+  for (const set of gen.path(d, { ...base, ...opts, seed }).sets) {
+    if (set.type === "fillSketch") fills.push(toPath(set));
+    else if (set.type === "path") outline.push(toPath(set));
+  }
+  return { outline, fills };
+}
+const line = (d: string, seed: number) => toPath(gen.path(d, { ...base, strokeWidth: 1.2, seed }).sets[0]);
+
+// Eje con flecha y un corte entre tramos, como cuando se salta escala
+const axis = [
+  line(`M24 ${AXIS} L384 ${AXIS}`, 2),
+  line(`M376 ${AXIS - 6} L386 ${AXIS} L376 ${AXIS + 6}`, 3),
+  line(`M134 ${AXIS - 8} L140 ${AXIS + 8}`, 4),
+  line(`M142 ${AXIS - 8} L148 ${AXIS + 8}`, 5),
+  line(`M276 ${AXIS - 8} L282 ${AXIS + 8}`, 6),
+  line(`M284 ${AXIS - 8} L290 ${AXIS + 8}`, 7),
+  ...ticks.map((t, i) => line(`M${t.x} ${AXIS - 6} L${t.x} ${AXIS + 6}`, 20 + i)),
+];
+// Una taza de café al principio y un calendario al final
+const cup = draw("M44 52 L44 88 C44 100 52 104 64 104 C76 104 84 100 84 88 L84 52 Z", 9);
+const handle = line("M84 62 C98 62 98 84 84 84", 10);
+const steam = [line("M56 44 C52 36 60 32 56 24", 11), line("M70 44 C66 36 74 32 70 24", 12)];
+const cal = draw("M306 40 L368 40 L368 100 L306 100 Z", 13, false);
+const calTop = line("M306 54 L368 54", 14);
+const calRings = [line("M320 34 L320 46", 15), line("M354 34 L354 46", 16)];
+const calGrid = [0, 1, 2].flatMap((r) => [0, 1, 2, 3].map((c) => line(`M${314 + c * 14} ${66 + r * 11} L${320 + c * 14} ${66 + r * 11}`, 30 + r * 4 + c)));
+
+const groups: SketchGroup[] = [
+  { outline: [], hachure: [], details: axis },
+  { outline: [...cup.outline, ...cal.outline], hachure: cup.fills, details: [handle, ...steam, calTop, ...calRings, ...calGrid] },
+  ...Object.entries(zones).map(([zone, [x0, x1]], i) => {
+    const z = draw(`M${x0} 150 L${x1} 150 L${x1} 210 L${x0} 210 Z`, 40 + i);
+    return { zone, outline: z.outline, hachure: z.fills, details: [] };
+  }),
+];
+
+// Marcadores sobre su barra; si hay varios, en fila
+const byZone: Record<string, number> = {};
+const placed = markers.map((m) => {
+  const k = byZone[m.zone] ?? 0;
+  byZone[m.zone] = k + 1;
+  const [x0, x1] = zones[m.zone] ?? [180, 220];
+  const total = markers.filter((x) => x.zone === m.zone).length;
+  const x = (x0 + x1) / 2 + (k - (total - 1) / 2) * 28;
+  return { ...m, x, y: 180 };
+});
+---
+
+<SketchMap viewBox="0 0 400 290" idPrefix="tiempo" groups={groups} placed={placed} markers={markers} text={text}>
+  <g class="names" font-size="11">
+    {
+      ticks.map((t) => (
+        <text x={t.x} y={AXIS + 22} text-anchor="middle">
+          {text.ticks[t.key]}
+        </text>
+      ))
+    }
+    <text x={(zones.minutos[0] + zones.minutos[1]) / 2} y="140" text-anchor="middle">{text.zones.minutos}</text>
+    <text x={(zones.semanas[0] + zones.semanas[1]) / 2} y="140" text-anchor="middle">{text.zones.semanas}</text>
+    <text x={(zones.meses[0] + zones.meses[1]) / 2} y="140" text-anchor="middle">{text.zones.meses}</text>
+  </g>
+</SketchMap>

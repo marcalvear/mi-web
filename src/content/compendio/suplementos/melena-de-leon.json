@@ -1,0 +1,76 @@
+{
+  "nombre": {
+    "es": "Melena de león",
+    "en": "Lion's mane"
+  },
+  "tipo": {
+    "es": "Hongo",
+    "en": "Mushroom"
+  },
+  "evidencia": "preliminar",
+  "zona": "semanas",
+  "porQue": {
+    "es": "Es de lo más buscado, pero en personas hay pocos ensayos, pequeños, y una sola dosis no mejoró la cognición en general.",
+    "en": "It's one of the most searched for, but in people there are few, small trials, and a single dose didn't improve cognition overall."
+  },
+  "resumen": {
+    "es": "Es un hongo blanco con forma de melena. En el laboratorio estimula el crecimiento de las neuronas; en personas, las pruebas todavía son flojas.",
+    "en": "It's a white mushroom shaped like a mane. In the lab it stimulates nerve growth; in people, the evidence is still weak."
+  },
+  "mecanismo": {
+    "es": "Lleva compuestos, las hericenonas y las erinacinas, que en células y animales hacen que se fabrique más factor de crecimiento nervioso, una proteína que ayuda a las neuronas a crecer y conectarse. Que eso pase igual en un cerebro humano con la dosis de una cápsula está por demostrar.",
+    "en": "It contains compounds, hericenones and erinacines, that in cells and animals boost nerve growth factor, a protein that helps neurons grow and connect. Whether that happens the same way in a human brain at a capsule's dose is yet to be shown."
+  },
+  "dosis": {
+    "es": "De 1 a 3 g al día de seta entera o extracto",
+    "en": "1 to 3 g a day of whole mushroom or extract"
+  },
+  "cuando": {
+    "es": "Con una comida, a diario durante semanas",
+    "en": "With a meal, daily for weeks"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En adultos jóvenes sanos, una sola dosis de extracto no mejoró la cognición ni el ánimo en conjunto frente a placebo; solo mejoró una prueba de destreza manual a los 90 minutos.",
+        "en": "In healthy young adults, a single dose of extract didn't improve overall cognition or mood compared with placebo; it only improved a manual dexterity test at 90 minutes."
+      },
+      "fuente": "40276537"
+    },
+    {
+      "texto": {
+        "es": "Una revisión de 2025 reúne cinco ensayos con placebo y tres pilotos, sobre todo en personas mayores con deterioro cognitivo, con mejoras pequeñas en una prueba de memoria. La mayoría de lo que se sabe viene del laboratorio.",
+        "en": "A 2025 review brings together five placebo-controlled trials and three pilot studies, mostly in older people with cognitive decline, with small improvements on a memory test. Most of what's known comes from the lab."
+      },
+      "fuente": "40959699"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes alergia a las setas, no la tomes.",
+      "en": "If you're allergic to mushrooms, don't take it."
+    },
+    {
+      "es": "En embarazo, lactancia o si tomas anticoagulantes, consúltalo antes: hay muy pocos datos.",
+      "en": "In pregnancy, breastfeeding or if you take blood thinners, check first: there's very little data."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Surendran G, Saye J, Binti Mohd Jalil S, et al.",
+      "anio": 2025,
+      "titulo": "Acute effects of a standardised extract of Hericium erinaceus (Lion's Mane mushroom) on cognition and mood in healthy younger adults: a double-blind randomised placebo-controlled study",
+      "revista": "Front Nutr 12:1405796",
+      "pmid": "40276537",
+      "doi": "10.3389/fnut.2025.1405796"
+    },
+    {
+      "autores": "Menon A, Jalal A, Arshad Z, et al.",
+      "anio": 2025,
+      "titulo": "Benefits, side effects, and uses of Hericium erinaceus as a supplement: a systematic review",
+      "revista": "Front Nutr 12:1641246",
+      "pmid": "40959699",
+      "doi": "10.3389/fnut.2025.1641246"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "orden": 4,
+  "nombre": {
+    "es": "Concentrarse mejor",
+    "en": "Focusing better"
+  },
+  "titular": {
+    "es": "¿Te cuesta concentrarte o te quedas sin energía mental?",
+    "en": "Do you struggle to focus or run out of mental energy?"
+  },
+  "intro": {
+    "es": "Leer la misma línea tres veces, perder el hilo en clase o quedarse en blanco a media tarde. Lo que más pesa es dormir bien, moverse y no tener el móvil al lado. Después, algunos suplementos tienen estudios, y cada uno tarda un tiempo muy distinto en notarse.",
+    "en": "Reading the same line three times, losing the thread in class or going blank mid-afternoon. What matters most is sleeping well, moving and keeping your phone away. After that, some supplements have studies, and each takes a very different time to be noticed."
+  },
+  "queOcurre": {
+    "es": "Concentrarse gasta mucha energía: el cerebro pesa un 2 % del cuerpo y usa una quinta parte de la energía. Durante el día se acumula adenosina, la molécula que da sueño, y si has dormido poco se acaban antes las reservas de energía de las neuronas. Algunos suplementos actúan en minutos sobre la alerta, otros tardan semanas en llenar esas reservas y otros meses en cambiar cómo se conectan las neuronas. La línea de tiempo de al lado lo ordena.",
+    "en": "Focusing uses a lot of energy: the brain weighs 2% of the body and uses a fifth of its energy. During the day adenosine builds up, the molecule that makes you sleepy, and if you've slept little the neurons' energy reserves run out sooner. Some supplements act on alertness in minutes, others take weeks to fill those reserves and others months to change how neurons connect. The timeline beside it puts them in order."
+  },
+  "combinar": {
+    "es": "Ningún ensayo probó estos cuatro juntos. La cafeína con L-teanina es para un momento concreto; la creatina y la bacopa son de tomar a diario y esperar. Si quieres probar algo de fondo, empieza por uno y dale el tiempo que marca la línea antes de juzgarlo.",
+    "en": "No trial tested these four together. Caffeine with L-theanine is for a specific moment; creatine and bacopa are for taking daily and waiting. If you want to try something long-term, start with one and give it the time the timeline shows before judging it."
+  },
+  "alarma": [
+    {
+      "es": "Te olvidas de cosas recientes o te pierdes en sitios conocidos",
+      "en": "You forget recent things or get lost in familiar places"
+    },
+    {
+      "es": "La falta de concentración llegó con tristeza, apatía o ansiedad",
+      "en": "The lack of focus came with sadness, apathy or anxiety"
+    },
+    {
+      "es": "Te cuesta concentrarte desde siempre y te afecta en los estudios o el trabajo (puede ser TDAH)",
+      "en": "You've always struggled to focus and it affects your studies or work (it may be ADHD)"
+    },
+    {
+      "es": "Estás muy cansado aunque duermas bien",
+      "en": "You're very tired even though you sleep well"
+    }
+  ],
+  "suplementos": [
+    "cafeina-l-teanina",
+    "creatina",
+    "bacopa",
+    "melena-de-leon"
+  ],
+  "mapa": "tiempo"
+}

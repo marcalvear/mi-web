@@ -1,0 +1,80 @@
+{
+  "nombre": {
+    "es": "Cafeína con L-teanina",
+    "en": "Caffeine with L-theanine"
+  },
+  "tipo": {
+    "es": "Estimulante y aminoácido",
+    "en": "Stimulant and amino acid"
+  },
+  "evidencia": "moderada",
+  "zona": "minutos",
+  "porQue": {
+    "es": "Dos metaanálisis de ensayos con placebo salen a favor en atención y alerta, pero con efectos moderados, a corto plazo y con bastante incertidumbre.",
+    "en": "Two meta-analyses of placebo-controlled trials come out in favour for attention and alertness, but with moderate effects, short-term and with quite a bit of uncertainty."
+  },
+  "resumen": {
+    "es": "Es la pareja del té: la cafeína despierta y la L-teanina quita los nervios. Juntas mejoran la atención en tareas exigentes durante las dos primeras horas.",
+    "en": "It's the pairing in tea: caffeine wakes you up and L-theanine takes away the jitters. Together they improve attention on demanding tasks during the first two hours."
+  },
+  "mecanismo": {
+    "es": "La cafeína tapa los receptores de la adenosina, la molécula que se acumula durante el día y da sueño, así que el cansancio se nota menos. La L-teanina sube las ondas alfa, las de estar tranquilo y atento, y suaviza el nerviosismo y el bajón de la cafeína sola.",
+    "en": "Caffeine blocks the receptors for adenosine, the molecule that builds up during the day and makes you sleepy, so tiredness is felt less. L-theanine raises alpha waves, the ones of being calm and alert, and smooths the jitters and crash of caffeine alone."
+  },
+  "dosis": {
+    "es": "Unos 100 mg de cafeína con 200 mg de L-teanina, más o menos un café con una cápsula",
+    "en": "About 100 mg of caffeine with 200 mg of L-theanine, roughly a coffee with one capsule"
+  },
+  "cuando": {
+    "es": "Unos 30 minutos antes de la tarea, y nunca después de las 16:00",
+    "en": "About 30 minutes before the task, and never after 4 pm"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En los ensayos agrupados, la combinación mejoró la alerta y la precisión al cambiar de tarea durante las dos primeras horas, con un efecto moderado. La dosis de cafeína pesó más que la de L-teanina.",
+        "en": "In the pooled trials, the combination improved alertness and accuracy when switching tasks during the first two hours, with a moderate effect. The caffeine dose mattered more than the L-theanine dose."
+      },
+      "fuente": "24946991"
+    },
+    {
+      "texto": {
+        "es": "Una revisión de 50 ensayos de 2025 encuentra mejoras en la vigilancia y en la precisión al cambiar de tarea con L-teanina y cafeína, pero los intervalos son amplios. Parte de los autores trabajan para una marca de té.",
+        "en": "A 2025 review of 50 trials finds improvements in vigilance and task-switching accuracy with L-theanine and caffeine, but the ranges are wide. Some of the authors work for a tea brand."
+      },
+      "fuente": "40314930"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "No pases de 400 mg de cafeína al día entre todo (café, té, refrescos); en el embarazo, de 200 mg.",
+      "en": "Don't go over 400 mg of caffeine a day from everything (coffee, tea, soft drinks); in pregnancy, 200 mg."
+    },
+    {
+      "es": "Si tienes ansiedad, arritmias o la tensión alta, consúltalo antes.",
+      "en": "If you have anxiety, an irregular heartbeat or high blood pressure, check first."
+    },
+    {
+      "es": "Tomada por la tarde estropea el sueño, aunque no lo notes.",
+      "en": "Taken in the afternoon it spoils your sleep, even if you don't notice."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Camfield DA, Stough C, Farrimond J, et al.",
+      "anio": 2014,
+      "titulo": "Acute effects of tea constituents L-theanine, caffeine, and epigallocatechin gallate on cognitive function and mood: a systematic review and meta-analysis",
+      "revista": "Nutr Rev 72(8):507-522",
+      "pmid": "24946991",
+      "doi": "10.1111/nure.12120"
+    },
+    {
+      "autores": "Payne ER, Aceves-Martins M, Dubost J, et al.",
+      "anio": 2025,
+      "titulo": "Effects of Tea (Camellia sinensis) or its Bioactive Compounds l-Theanine or l-Theanine plus Caffeine on Cognition, Sleep, and Mood in Healthy Participants: A Systematic Review and Meta-Analysis of Randomized Controlled Trials",
+      "revista": "Nutr Rev 83(10):1873-1891",
+      "pmid": "40314930",
+      "doi": "10.1093/nutrit/nuaf054"
+    }
+  ]
+}
