@@ -1,0 +1,80 @@
+{
+  "nombre": {
+    "es": "Ashwagandha",
+    "en": "Ashwagandha"
+  },
+  "tipo": {
+    "es": "Planta adaptógena",
+    "en": "Adaptogenic herb"
+  },
+  "evidencia": "moderada",
+  "zona": "dia",
+  "porQue": {
+    "es": "Un metaanálisis de 9 ensayos con placebo sale a favor en estrés, ansiedad y cortisol, pero los ensayos son pequeños, cortos y casi todos de la India con extractos de marca.",
+    "en": "A meta-analysis of 9 placebo-controlled trials comes out in favour for stress, anxiety and cortisol, but the trials are small, short and almost all from India with branded extracts."
+  },
+  "resumen": {
+    "es": "Es una raíz de la medicina tradicional india, la más estudiada para el estrés. En 8 semanas baja el estrés que la gente nota y el cortisol en sangre.",
+    "en": "It's a root from traditional Indian medicine, the most studied for stress. In 8 weeks it lowers the stress people feel and cortisol in the blood."
+  },
+  "mecanismo": {
+    "es": "Cuando hay estrés, el cerebro avisa a las glándulas suprarrenales y estas sueltan cortisol, la hormona que te pone en alerta. Si el estrés no para, el cortisol se queda alto. Los compuestos de la raíz, los witanólidos, parecen calmar ese circuito y actuar sobre el GABA, el freno natural del cerebro.",
+    "en": "Under stress, the brain signals the adrenal glands and they release cortisol, the hormone that puts you on alert. If the stress doesn't stop, cortisol stays high. The root's compounds, withanolides, seem to calm that circuit and act on GABA, the brain's natural brake."
+  },
+  "dosis": {
+    "es": "De 250 a 600 mg al día de extracto de raíz",
+    "en": "250 to 600 mg a day of root extract"
+  },
+  "cuando": {
+    "es": "Repartida en dos tomas, con el desayuno y con la cena",
+    "en": "Split into two doses, with breakfast and with dinner"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "Juntando 9 ensayos con 558 personas, la ashwagandha bajó el estrés percibido, la ansiedad y el cortisol en sangre frente a placebo. Cuatro ensayos describieron efectos secundarios leves o moderados.",
+        "en": "Pooling 9 trials with 558 people, ashwagandha lowered perceived stress, anxiety and blood cortisol compared with placebo. Four trials described mild or moderate side effects."
+      },
+      "fuente": "39348746"
+    },
+    {
+      "texto": {
+        "es": "En 60 adultos sanos estresados, 250 y 600 mg al día durante 8 semanas bajaron el estrés y el cortisol frente a placebo, y mejoraron la calidad del sueño. Con 600 mg el efecto fue mayor.",
+        "en": "In 60 stressed healthy adults, 250 and 600 mg a day for 8 weeks lowered stress and cortisol compared with placebo, and improved sleep quality. At 600 mg the effect was larger."
+      },
+      "fuente": "32021735"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Se han descrito casos raros de daño en el hígado: si notas la orina oscura, la piel amarilla o cansancio extraño, déjala y ve al médico.",
+      "en": "Rare cases of liver damage have been reported: if you notice dark urine, yellow skin or unusual tiredness, stop it and see a doctor."
+    },
+    {
+      "es": "No la tomes si estás embarazada, das el pecho o tienes una enfermedad del tiroides o autoinmune sin hablar antes con tu médico.",
+      "en": "Don't take it if you're pregnant, breastfeeding or have a thyroid or autoimmune disease without talking to your doctor first."
+    },
+    {
+      "es": "Puede sumarse a los sedantes y a la medicación para la tensión o el azúcar.",
+      "en": "It can add to sedatives and to medication for blood pressure or blood sugar."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Arumugam V, Vijayakumar V, Balakrishnan A, et al.",
+      "anio": 2024,
+      "titulo": "Effects of Ashwagandha (Withania Somnifera) on stress and anxiety: A systematic review and meta-analysis",
+      "revista": "Explore (NY) 20(6):103062",
+      "pmid": "39348746",
+      "doi": "10.1016/j.explore.2024.103062"
+    },
+    {
+      "autores": "Salve J, Pate S, Debnath K, et al.",
+      "anio": 2019,
+      "titulo": "Adaptogenic and Anxiolytic Effects of Ashwagandha Root Extract in Healthy Adults: A Double-blind, Randomized, Placebo-controlled Clinical Study",
+      "revista": "Cureus 11(12):e6466",
+      "pmid": "32021735",
+      "doi": "10.7759/cureus.6466"
+    }
+  ]
+}

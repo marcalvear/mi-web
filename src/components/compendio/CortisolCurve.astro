@@ -1,0 +1,93 @@
+---
+// Curva del cortisol para el problema del estrés (#89): sube de golpe al
+// despertar, baja durante el día y toca fondo por la noche. Cada suplemento se
+// coloca en la franja del día en la que actúa, dibujado a mano alzada como el
+// resto de esquemas del compendio.
+import rough from "roughjs";
+import type { CompendioText } from "../../i18n/compendio";
+import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
+
+interface Props {
+  markers: MapMarker[];
+  text: CompendioText["cortisol"];
+}
+const { markers, text } = Astro.props;
+
+const BASE = 246;
+const x = (h: number) => Math.round(30 + (h - 6) * (350 / 18));
+// Franjas del día en las que actúa cada suplemento
+const zones: Record<string, [number, number]> = {
+  despertar: [6.5, 9.5],
+  dia: [11, 18],
+  cena: [20, 23.5],
+};
+
+const gen = rough.generator();
+const toPath = (set: Parameters<typeof gen.opsToPath>[0]) =>
+  gen.opsToPath(set).replace(/-?\d+\.\d+/g, (n) => String(Math.round(Number(n) * 10) / 10));
+const base = { roughness: 1.1, bowing: 1, stroke: "currentColor", strokeWidth: 1.6 };
+function draw(d: string, seed: number, fill = true) {
+  const outline: string[] = [];
+  const fills: string[] = [];
+  const opts = fill ? { fill: "currentColor", fillStyle: "hachure", hachureGap: 7, fillWeight: 0.6, hachureAngle: -41 + seed * 7 } : {};
+  for (const set of gen.path(d, { ...base, ...opts, seed }).sets) {
+    if (set.type === "fillSketch") fills.push(toPath(set));
+    else if (set.type === "path") outline.push(toPath(set));
+  }
+  return { outline, fills };
+}
+const line = (d: string, seed: number, strokeWidth = 1.2) => toPath(gen.path(d, { ...base, strokeWidth, seed }).sets[0]);
+
+// La curva: arranca baja, pico media hora después de despertar y baja hasta la noche
+const curve = line(
+  `M${x(6)} 178 C${x(6.6)} 120 ${x(7)} 64 ${x(7.6)} 60 C${x(8.6)} 58 ${x(10)} 110 ${x(12)} 142 C${x(15)} 180 ${x(19)} 204 ${x(24)} 222`,
+  2,
+  2.4,
+);
+const axis = [
+  line(`M${x(6) - 8} ${BASE} L${x(24) + 6} ${BASE}`, 3),
+  line(`M${x(24)} ${BASE - 6} L${x(24) + 8} ${BASE} L${x(24)} ${BASE + 6}`, 4),
+  ...[6, 9, 12, 15, 18, 21, 24].map((h, i) => line(`M${x(h)} ${BASE - 5} L${x(h)} ${BASE + 5}`, 10 + i)),
+];
+// Sol al despertar y luna por la noche
+const sun = draw(`M${x(7.6) + 24} 30 A9 9 0 1 1 ${x(7.6) + 42} 30 A9 9 0 1 1 ${x(7.6) + 24} 30 Z`, 6);
+const rays = Array.from({ length: 8 }, (_, i) => {
+  const a = (i / 8) * 2 * Math.PI;
+  const cx = x(7.6) + 33;
+  const p = (r: number) => `${Math.round((cx + r * Math.cos(a)) * 10) / 10} ${Math.round((30 + r * Math.sin(a)) * 10) / 10}`;
+  return line(`M${p(13)} L${p(18)}`, 60 + i);
+});
+const mx = x(22.5);
+const moon = draw(`M${mx + 5} 18 A13 13 0 1 0 ${mx + 5} 42 A9 9 0 1 1 ${mx + 5} 18 Z`, 7);
+
+const groups: SketchGroup[] = [
+  ...Object.entries(zones).map(([zone, [h0, h1]], i) => {
+    const z = draw(`M${x(h0)} 58 L${x(h1)} 58 L${x(h1)} ${BASE - 2} L${x(h0)} ${BASE - 2} Z`, 20 + i);
+    return { zone, outline: z.outline, hachure: z.fills, details: [] };
+  }),
+  { outline: [...sun.outline, ...moon.outline], hachure: [...sun.fills, ...moon.fills], details: [...axis, ...rays, curve] },
+];
+
+// Marcadores dentro de su franja; si hay varios, uno encima de otro
+const byZone: Record<string, number> = {};
+const placed = markers.map((m) => {
+  const k = byZone[m.zone] ?? 0;
+  byZone[m.zone] = k + 1;
+  const [h0, h1] = zones[m.zone] ?? [12, 13];
+  return { ...m, x: x((h0 + h1) / 2), y: 92 + k * 30 };
+});
+const hours = [6, 9, 12, 15, 18, 21, 24];
+---
+
+<SketchMap viewBox="0 0 400 284" idPrefix="cortisol" groups={groups} placed={placed} markers={markers} text={text}>
+  <g class="names" font-size="11">
+    {
+      hours.map((h) => (
+        <text x={x(h)} y={BASE + 20} text-anchor="middle">
+          {String(h).padStart(2, "0")}
+        </text>
+      ))
+    }
+    <text x={x(12) + 10} y="122">{text.curve}</text>
+  </g>
+</SketchMap>

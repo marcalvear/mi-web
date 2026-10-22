@@ -1,0 +1,80 @@
+{
+  "nombre": {
+    "es": "Lavanda (Silexan)",
+    "en": "Lavender (Silexan)"
+  },
+  "tipo": {
+    "es": "Aceite de lavanda en cápsula",
+    "en": "Lavender oil capsule"
+  },
+  "evidencia": "moderada",
+  "zona": "cena",
+  "porQue": {
+    "es": "Hay varios ensayos con placebo en ansiedad y un metaanálisis en red, con efectos parecidos a un antidepresivo. Casi todos los ha pagado el laboratorio que lo fabrica.",
+    "en": "There are several placebo-controlled trials in anxiety and a network meta-analysis, with effects similar to an antidepressant. Almost all were paid for by the company that makes it."
+  },
+  "resumen": {
+    "es": "Es un aceite de lavanda en cápsula, no el que se huele. A 80 mg al día baja la ansiedad, y no da sueño ni engancha.",
+    "en": "It's lavender oil in a capsule, not the kind you smell. At 80 mg a day it lowers anxiety, and it doesn't make you drowsy or get you hooked."
+  },
+  "mecanismo": {
+    "es": "El aceite de lavanda actúa sobre los canales de calcio de las neuronas y frena un poco la liberación de mensajeros que mantienen el cerebro en alerta. No actúa como los tranquilizantes, así que no da sueño ni crea dependencia.",
+    "en": "Lavender oil acts on the calcium channels of neurons and slightly holds back the release of messengers that keep the brain on alert. It doesn't work like tranquillisers, so it doesn't cause drowsiness or dependence."
+  },
+  "dosis": {
+    "es": "80 mg de Silexan al día; en algún ensayo, 160 mg",
+    "en": "80 mg of Silexan a day; in some trials, 160 mg"
+  },
+  "cuando": {
+    "es": "Una cápsula al día, siempre a la misma hora; mejor por la noche",
+    "en": "One capsule a day, always at the same time; ideally at night"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 5 ensayos con más de 600 personas con trastorno de ansiedad, 80 mg al día de Silexan bajaron la ansiedad tanto como la paroxetina, un antidepresivo, y 160 mg algo más.",
+        "en": "In 5 trials with more than 600 people with an anxiety disorder, 80 mg a day of Silexan lowered anxiety as much as paroxetine, an antidepressant, and 160 mg a little more."
+      },
+      "fuente": "31792285"
+    },
+    {
+      "texto": {
+        "es": "Un resumen de los ensayos del laboratorio que lo fabrica: en personas con ansiedad que no llega a trastorno, 80 mg al día durante 10 semanas bajaron la ansiedad y mejoraron el sueño frente a placebo.",
+        "en": "A summary of trials by the company that makes it: in people with anxiety that doesn't reach a disorder, 80 mg a day for 10 weeks lowered anxiety and improved sleep compared with placebo."
+      },
+      "fuente": "21170695"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Lo más frecuente es eructar con sabor a lavanda.",
+      "en": "The most common effect is burping that tastes of lavender."
+    },
+    {
+      "es": "Si tomas antidepresivos o ansiolíticos, no lo añadas sin hablar con tu médico.",
+      "en": "If you take antidepressants or anti-anxiety medication, don't add it without talking to your doctor."
+    },
+    {
+      "es": "No es para una crisis de ansiedad: tarda unas semanas en notarse.",
+      "en": "It's not for an anxiety attack: it takes a few weeks to be noticed."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Yap WS, Dolzhenko AV, Jalal Z, et al.",
+      "anio": 2019,
+      "titulo": "Efficacy and safety of lavender essential oil (Silexan) capsules among patients suffering from anxiety disorders: A network meta-analysis",
+      "revista": "Sci Rep 9(1):18042",
+      "pmid": "31792285",
+      "doi": "10.1038/s41598-019-54529-9"
+    },
+    {
+      "autores": "Kasper S, Gastpar M, Müller WE, et al.",
+      "anio": 2010,
+      "titulo": "Efficacy and safety of silexan, a new, orally administered lavender oil preparation, in subthreshold anxiety disorder - evidence from clinical trials",
+      "revista": "Wien Med Wochenschr 160(21-22):547-556",
+      "pmid": "21170695",
+      "doi": "10.1007/s10354-010-0845-7"
+    }
+  ]
+}
