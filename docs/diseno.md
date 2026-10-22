@@ -23,6 +23,7 @@ El muestrario con todas las piezas está en [`/sistema/`](https://marcalvear.git
 | **Sombras duras** en los botones | Como una tarjeta de cartulina pegada; al pulsar se «hunde». Microinteracción con sentido físico, sin desenfoques |
 | **Logo**: la M como flujo de cinco nodos | Una M hecha de nodos conectados, como los flujos de IA que monto. El nodo rojo del centro es la IA, el punto donde el trabajo aburrido cambia de manos. Es SVG propio y hereda el color del tema |
 | **Diagramas SVG animados** | Los cables se dibujan al entrar en pantalla y un punto rojo recorre el flujo como un dato. Explican cómo funcionan las cosas (contacto, chatbot) en vez de decorar |
+| **Esquemas a mano** en el compendio (rough.js) | Cada problema tiene un dibujo estilo pizarra (aparato digestivo, reloj del sueño, curva del cortisol…). Se pintan al compilar, sin JavaScript en la página, y parecen apuntes, no gráficos de informe |
 | **Modo oscuro**: la libreta de noche | Papel grafito, tinta crema y el rojo más claro para mantener el contraste. Sigue al sistema y se puede fijar a mano |
 
 ## Paleta
@@ -36,6 +37,8 @@ El muestrario con todas las piezas está en [`/sistema/`](https://marcalvear.git
 | `--accent` | `#b3261e` | `#ff8a70` | CTA, anotaciones | 5,8 / 7,8 |
 | `--link` | `#1e4fb3` | `#8db2ff` | Enlaces | 6,6 / 8,5 |
 | `--mark` | `#fbe38e` | `#5c4a12` | Resaltado | tinta sobre él: 12,9 / 6,9 |
+| `--lab` | `#1f6b4f` | `#6fd3a8` | Datos y evidencia del compendio | 5,7 / 9,9 |
+| `--lab-soft` | `#e1ede5` | `#1c2d27` | Fondo de los datos destacados | tinta sobre él: 13,7 / 11,6 |
 
 Todos los pares de texto pasan **AA** (4,5:1) y la mayoría AAA. La cuadrícula y la línea de
 margen son decorativas y no llevan información.

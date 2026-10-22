@@ -3,7 +3,7 @@
 ## Recorrido del dato
 
 ```
-Visitante → «Marc IA» (GitHub Pages) → POST { lang, mode, messages } → Worker (Cloudflare) → Workers AI (Mistral Small 3.1)
+Visitante → «Marc IA» (GitHub Pages) → POST { lang, mode, problem, messages } → Worker (Cloudflare) → Workers AI (Mistral Small 3.1)
                                       ← { reply }                     ←                     ←
 ```
 
@@ -14,9 +14,12 @@ Visitante → «Marc IA» (GitHub Pages) → POST { lang, mode, messages } → W
    las instrucciones de `src/prompt.js` como mensaje de sistema. Hay dos modos
    ([ADR 0008](../../docs/adr/0008-marc-ia-boticario.md)):
    - **`general`**, en toda la web;
-   - **`boticario`**, en el compendio: otras instrucciones, con el compendio
-     entero en el idioma de la página. Un modo desconocido se queda en el
-     general.
+   - **`boticario`**, en el compendio: otras instrucciones, en el idioma de la
+     página, con el índice de problemas y el detalle solo del problema que se
+     está leyendo (`problem`, que manda el widget). Desde el índice del
+     compendio no hay problema en pantalla: el Worker lo adivina por las
+     palabras de las últimas preguntas y, si no encaja ninguno, manda solo el
+     índice. Un modo desconocido se queda en el general.
 3. Llama al modelo con `env.AI.run()`. El binding de Workers AI no necesita
    claves: no hay ningún secreto ni en la web ni en el repositorio.
 4. Devuelve `{ reply }`, sin las negritas de Markdown, o un error que el
@@ -38,9 +41,10 @@ nunca sabe algo que la web no diga.
 
 Plan gratuito de Workers AI: 10.000 neurons al día. Cada respuesta general
 gasta unas 60 (≈1.800 tokens de entrada, con el contexto, y 250 de salida);
-las del boticario, más o menos el doble (≈3.000 tokens de entrada, con el
-compendio, y hasta 450 de salida). Da para entre 80 y 150 respuestas diarias,
-según la mezcla. Si se agotan, el Worker responde 503 y
+las del boticario, más o menos el doble (entre ≈2.000 y ≈4.500 tokens de
+entrada según el problema, y hasta 450 de salida). Mandar el compendio entero
+de 10 problemas en cada pregunta costaría varias veces más. Da para entre 70 y
+150 respuestas diarias, según la mezcla. `wrangler dev` gasta el mismo cupo. Si se agotan, el Worker responde 503 y
 el widget recomienda el formulario de contacto.
 
 ## Desplegarlo
@@ -62,10 +66,12 @@ va en la variable pública `PUBLIC_CHATBOT_URL` (GitHub y `.env`).
 npm run chatbot:test
 ```
 
-Sustituyen el modelo por uno falso (13 pruebas): respuesta normal, formato
+Sustituyen el modelo por uno falso (15 pruebas): respuesta normal, formato
 chat.completion, origen no permitido, preflight, error 503, limpieza de
 mensajes, contenido real e idioma en las instrucciones, los puertos de Astro,
-el modo boticario con el compendio en su idioma, el modo general por defecto
+el modo boticario con el problema que se lee, que desde el índice adivina el
+problema por la pregunta (y manda solo el índice si no encaja ninguno), el
+compendio en el idioma de la página, el modo general por defecto
 (también con modos raros como `__proto__`), que el general sabe que existe el
 compendio y que se quitan las negritas.
 

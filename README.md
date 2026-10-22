@@ -20,7 +20,8 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
   - **Anime y manga**: Naruto y JoJo maquetados como páginas de manga, con un
     mazo de 200 frases traducidas.
   - **Biohacking**: mi radar de aparatos.
-- **Compendio de biohacking**: suplementos ordenados por problemas, con su nivel
+- **Compendio de biohacking**: 10 problemas (dormir, estrés, defensas…), cada
+  uno en su página con un esquema dibujado a mano, y 38 suplementos con su nivel
   de evidencia, la dosis estudiada, las precauciones y cada estudio de PubMed
   enlazado. Las fichas se guardan con una estrella en Mi espacio, y dentro
   Marc IA hace de «boticario».
@@ -65,14 +66,15 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
 ├── src/
 │   ├── pages/              una ruta por fichero; en/ para el inglés
 │   ├── layouts/Base.astro  plantilla común: cabecera, pie, chat y paleta
-│   ├── components/         home/, case/, likes/, auth/, space/, panel/, chat/…
+│   ├── components/         home/, case/, likes/, compendio/, auth/, space/, panel/, chat/…
+│   ├── content/            el compendio: problemas y suplementos en JSON
 │   ├── i18n/               todos los textos en los dos idiomas
 │   ├── lib/                cliente de Supabase (solo la clave pública), Pokémon
 │   ├── data/               las 200 frases de anime con su traducción
 │   └── styles/             tokens del diseño y estilos base
 ├── public/                 ficheros que se copian tal cual (vídeo, landing, imágenes para compartir)
 ├── scripts/                descargar las frases y generar el contexto del chat
-├── supabase/               migraciones, 27 pruebas de RLS y correo de acceso
+├── supabase/               migraciones, 39 pruebas de RLS y correo de acceso
 ├── n8n/                    los dos flujos (contacto y aviso) y su guía
 ├── worker/chatbot/         Cloudflare Worker de Marc IA (con pruebas)
 ├── .github/workflows/      compilación y publicación en GitHub Pages
@@ -126,7 +128,7 @@ teclado y con `prefers-reduced-motion`.
 
 ## Cómo se ha trabajado
 
-Cada bloque tiene su issue, su rama desde `v3` y su pull request, con commits
+Cada bloque tiene su issue, su rama desde `main` (durante la v3, desde `v3`) y su pull request, con commits
 pequeños en español. Las órdenes que le di a la IA están en
 [docs/prompts/](docs/prompts/). La issue que lo agrupa todo es la
 [#21](https://github.com/marcalvear/mi-web/issues/21).
