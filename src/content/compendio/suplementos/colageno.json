@@ -86,5 +86,48 @@
       "pmid": "38931263",
       "doi": "10.3390/nu16121908"
     }
+  ],
+  "productos": [
+    {
+      "id": "vital-proteins-collagen-peptides",
+      "marca": "Vital Proteins",
+      "nombre": "Collagen Peptides",
+      "foto": "vital-proteins-collagen.webp",
+      "alt": {
+        "es": "Bote azul de Collagen Peptides de Vital Proteins.",
+        "en": "Blue tub of Vital Proteins Collagen Peptides."
+      },
+      "url": "https://www.vitalproteins.com/products/vp-collagen-peptides",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "20 g de péptidos de colágeno de vaca por toma, sin sabor",
+            "en": "20 g of bovine collagen peptides per serving, unflavoured"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "9,33 oz (264 g)",
+            "en": "9.33 oz (264 g)"
+          }
+        }
+      ],
+      "precio": {
+        "es": "27 $",
+        "en": "$27"
+      }
+    }
   ]
 }

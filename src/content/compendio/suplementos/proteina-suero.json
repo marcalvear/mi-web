@@ -61,5 +61,48 @@
       "pmid": "28698222",
       "doi": "10.1136/bjsports-2017-097608"
     }
+  ],
+  "productos": [
+    {
+      "id": "myprotein-impact-whey",
+      "marca": "Myprotein",
+      "nombre": "Impact Whey Protein",
+      "foto": "myprotein-impact-whey.webp",
+      "alt": {
+        "es": "Bolsa naranja y blanca de Impact Whey Protein de Myprotein.",
+        "en": "Orange and white pouch of Myprotein Impact Whey Protein."
+      },
+      "url": "https://www.myprotein.es/p/nutricion-deportiva/impact-whey-protein/10530943/",
+      "pais": {
+        "es": "Reino Unido",
+        "en": "United Kingdom"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Proteína de suero concentrada, analizada por Informed Protein",
+            "en": "Whey protein concentrate, tested by Informed Protein"
+          }
+        },
+        {
+          "k": {
+            "es": "Bolsa",
+            "en": "Pouch"
+          },
+          "v": {
+            "es": "1 kg, unas 33 tomas; también 2,5 kg",
+            "en": "1 kg, about 33 servings; also 2.5 kg"
+          }
+        }
+      ],
+      "precio": {
+        "es": "39,99 € (1 kg); cambia con las ofertas",
+        "en": "€39.99 (1 kg); changes with offers"
+      }
+    }
   ]
 }

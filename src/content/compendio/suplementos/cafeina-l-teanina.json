@@ -76,5 +76,58 @@
       "pmid": "40314930",
       "doi": "10.1093/nutrit/nuaf054"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-l-theanine-200",
+      "marca": "NOW Foods",
+      "nombre": "L-Theanine Double Strength 200 mg",
+      "foto": "now-l-theanine.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de L-Theanine 200 mg de NOW.",
+        "en": "White bottle with orange label of NOW L-Theanine 200 mg."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/l-theanine-double-strength-200-mg-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "200 mg de L-teanina con inositol; la cafeína la pone tu café",
+            "en": "200 mg of L-theanine with inositol; your coffee supplies the caffeine"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula",
+            "en": "1 capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "60 cápsulas",
+            "en": "60 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "19,49 $",
+        "en": "$19.49"
+      }
+    }
   ]
 }

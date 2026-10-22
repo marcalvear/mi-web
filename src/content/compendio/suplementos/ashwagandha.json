@@ -76,5 +76,58 @@
       "pmid": "32021735",
       "doi": "10.7759/cureus.6466"
     }
+  ],
+  "productos": [
+    {
+      "id": "jarrow-ashwagandha-ksm66",
+      "marca": "Jarrow Formulas",
+      "nombre": "Ashwagandha 300 mg (KSM-66)",
+      "foto": "jarrow-ashwagandha.webp",
+      "alt": {
+        "es": "Bote blanco de Ashwagandha 300 mg de Jarrow Formulas.",
+        "en": "White bottle of Jarrow Formulas Ashwagandha 300 mg."
+      },
+      "url": "https://jarrow.com/products/ashwagandha-300-mg-120-veggie-caps",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "300 mg de extracto de raíz KSM-66 por cápsula",
+            "en": "300 mg of KSM-66 root extract per capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "2 cápsulas al día",
+            "en": "2 capsules a day"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "120 cápsulas",
+            "en": "120 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "24,99 $",
+        "en": "$24.99"
+      }
+    }
   ]
 }

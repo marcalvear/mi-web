@@ -76,5 +76,58 @@
       "pmid": "42124047",
       "doi": "10.3390/nu18091447"
     }
+  ],
+  "productos": [
+    {
+      "id": "sports-research-omega-3",
+      "marca": "Sports Research",
+      "nombre": "Triple Strength Omega-3 Fish Oil",
+      "foto": "sports-research-omega-3.webp",
+      "alt": {
+        "es": "Bote negro de Omega-3 Fish Oil de Sports Research.",
+        "en": "Black bottle of Sports Research Omega-3 Fish Oil."
+      },
+      "url": "https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "1.040 mg de omega-3 por cápsula, de abadejo de Alaska",
+            "en": "1,040 mg of omega-3 per softgel, from Alaska pollock"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "2 a 3 cápsulas para llegar a la dosis estudiada",
+            "en": "2 to 3 softgels to reach the studied dose"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "90 cápsulas",
+            "en": "90 softgels"
+          }
+        }
+      ],
+      "precio": {
+        "es": "31,63 $ (90 cápsulas)",
+        "en": "$31.63 (90 softgels)"
+      }
+    }
   ]
 }

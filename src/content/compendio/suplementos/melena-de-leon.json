@@ -72,5 +72,48 @@
       "pmid": "40959699",
       "doi": "10.3389/fnut.2025.1641246"
     }
+  ],
+  "productos": [
+    {
+      "id": "hifas-da-terra-mico-leo",
+      "marca": "Hifas da Terra",
+      "nombre": "Mico-Leo",
+      "foto": "hifas-da-terra-mico-leo.webp",
+      "alt": {
+        "es": "Bolsa verde de Mico-Leo de Hifas da Terra con cápsulas delante.",
+        "en": "Green pouch of Hifas da Terra Mico-Leo with capsules in front."
+      },
+      "url": "https://hifasdaterra.com/en/products/mico-leo-extract-vitamin-c",
+      "pais": {
+        "es": "España",
+        "en": "Spain"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Extracto ecológico de melena de león con vitamina C",
+            "en": "Organic lion's mane extract with vitamin C"
+          }
+        },
+        {
+          "k": {
+            "es": "Bolsa",
+            "en": "Pouch"
+          },
+          "v": {
+            "es": "60 cápsulas, para un mes",
+            "en": "60 capsules, for a month"
+          }
+        }
+      ],
+      "precio": {
+        "es": "42,50 €",
+        "en": "€42.50"
+      }
+    }
   ]
 }
