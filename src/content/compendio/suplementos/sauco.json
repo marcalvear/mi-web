@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Saúco negro",
+    "en": "Black elderberry"
+  },
+  "tipo": {
+    "es": "Extracto de baya",
+    "en": "Berry extract"
+  },
+  "evidencia": "preliminar",
+  "zona": "sintoma",
+  "porQue": {
+    "es": "El metaanálisis sale muy a favor, pero junta solo 180 personas y varios ensayos los pagó el fabricante del jarabe.",
+    "en": "The meta-analysis comes out strongly in favour, but it only pools 180 people and several trials were paid for by the syrup's maker."
+  },
+  "resumen": {
+    "es": "Es la baya morada del saúco, en jarabe o pastillas. Tomada al empezar un resfriado o una gripe, en ensayos pequeños alivió antes los síntomas.",
+    "en": "It's the purple elderberry, as a syrup or lozenges. Taken at the start of a cold or flu, in small trials it eased symptoms sooner."
+  },
+  "mecanismo": {
+    "es": "Sus pigmentos, los antocianos, parecen pegarse a la superficie de los virus de la gripe y frenar que entren en las células. También modulan las señales de inflamación. La mayoría de esto se ha visto en el laboratorio.",
+    "en": "Its pigments, anthocyanins, seem to stick to the surface of flu viruses and stop them entering cells. They also modulate inflammation signals. Most of this has been seen in the lab."
+  },
+  "dosis": {
+    "es": "Lo que marque el extracto estudiado: en los ensayos, unos 15 ml de jarabe 4 veces al día en adultos",
+    "en": "Whatever the studied extract says: in the trials, about 15 ml of syrup 4 times a day in adults"
+  },
+  "cuando": {
+    "es": "En las primeras 48 horas de síntomas, durante 3 a 5 días",
+    "en": "Within the first 48 hours of symptoms, for 3 to 5 days"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "Juntando ensayos con 180 personas, el saúco redujo bastante los síntomas de resfriado y gripe frente a placebo, con un efecto grande. Los autores piden ensayos más grandes.",
+        "en": "Pooling trials with 180 people, elderberry substantially reduced cold and flu symptoms compared with placebo, with a large effect. The authors call for larger trials."
+      },
+      "fuente": "30670267"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Nunca bayas crudas ni hojas: sin procesar son tóxicas. Solo extractos preparados.",
+      "en": "Never raw berries or leaves: unprocessed they're toxic. Only prepared extracts."
+    },
+    {
+      "es": "Si tienes una enfermedad autoinmune o tomas inmunosupresores, consúltalo antes.",
+      "en": "If you have an autoimmune disease or take immunosuppressants, check first."
+    },
+    {
+      "es": "En embarazo y lactancia no hay datos: mejor no tomarlo.",
+      "en": "In pregnancy and breastfeeding there's no data: better not to take it."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Hawkins J, Baker C, Cherry L, et al.",
+      "anio": 2019,
+      "titulo": "Black elderberry (Sambucus nigra) supplementation effectively treats upper respiratory symptoms: A meta-analysis of randomized, controlled clinical trials",
+      "revista": "Complement Ther Med 42:361-365",
+      "pmid": "30670267",
+      "doi": "10.1016/j.ctim.2018.12.004"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Zinc en pastillas para chupar",
+    "en": "Zinc lozenges"
+  },
+  "tipo": {
+    "es": "Mineral",
+    "en": "Mineral"
+  },
+  "evidencia": "moderada",
+  "zona": "sintoma",
+  "porQue": {
+    "es": "Un metaanálisis de 7 ensayos con placebo encuentra que los resfriados duran un tercio menos, pero son pocos ensayos y la forma de la pastilla importa mucho.",
+    "en": "A meta-analysis of 7 placebo-controlled trials finds colds last a third less, but there are few trials and the lozenge's formulation matters a lot."
+  },
+  "resumen": {
+    "es": "Chupadas desde el primer día, las pastillas de zinc acortan el resfriado. Tienen que ser de acetato o gluconato de zinc y deshacerse en la boca, no tragarse.",
+    "en": "Sucked from the first day, zinc lozenges shorten a cold. They have to be zinc acetate or gluconate and dissolve in the mouth, not be swallowed."
+  },
+  "mecanismo": {
+    "es": "El zinc que se suelta en la boca y la garganta frena a los rinovirus, los virus del resfriado, para que no se agarren a las células ni se copien. Por eso tiene que deshacerse despacio donde está el virus y empezar en cuanto notas el picor de garganta.",
+    "en": "Zinc released in the mouth and throat holds back rhinoviruses, the cold viruses, so they can't latch onto cells or copy themselves. That's why it has to dissolve slowly where the virus is, starting as soon as your throat feels scratchy."
+  },
+  "dosis": {
+    "es": "Unos 80 a 90 mg de zinc al día en total, repartidos en una pastilla cada 2 o 3 horas",
+    "en": "About 80 to 90 mg of zinc a day in total, split into one lozenge every 2 or 3 hours"
+  },
+  "cuando": {
+    "es": "Desde el primer día de síntomas y durante 5 a 7 días, no más",
+    "en": "From the first day of symptoms and for 5 to 7 days, no longer"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 7 ensayos, los resfriados duraron un 33 % menos con pastillas de zinc que con placebo: un 40 % con acetato y un 28 % con gluconato. Pasar de 100 mg al día no añadió nada.",
+        "en": "In 7 trials, colds lasted 33% less with zinc lozenges than with placebo: 40% with acetate and 28% with gluconate. Going above 100 mg a day added nothing."
+      },
+      "fuente": "28515951"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Puede dejar sabor metálico y dar náuseas; con algo en el estómago se lleva mejor.",
+      "en": "It can leave a metallic taste and cause nausea; it's easier with something in your stomach."
+    },
+    {
+      "es": "No lo tomes a estas dosis más de una semana: a la larga quita cobre al cuerpo.",
+      "en": "Don't take it at these doses for more than a week: over time it depletes the body's copper."
+    },
+    {
+      "es": "Nunca en espray nasal: se ha relacionado con perder el olfato.",
+      "en": "Never as a nasal spray: it's been linked to losing the sense of smell."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Hemilä H",
+      "anio": 2017,
+      "titulo": "Zinc lozenges and the common cold: a meta-analysis comparing zinc acetate and zinc gluconate, and the role of zinc dosage",
+      "revista": "JRSM Open 8(5):2054270417694291",
+      "pmid": "28515951",
+      "doi": "10.1177/2054270417694291"
+    }
+  ]
+}

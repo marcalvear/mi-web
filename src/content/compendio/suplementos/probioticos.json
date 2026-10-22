@@ -1,0 +1,61 @@
+{
+  "nombre": {
+    "es": "Probióticos",
+    "en": "Probiotics"
+  },
+  "tipo": {
+    "es": "Bacterias vivas",
+    "en": "Live bacteria"
+  },
+  "evidencia": "moderada",
+  "zona": "temporada",
+  "porQue": {
+    "es": "Una revisión Cochrane de 23 ensayos con casi 7.000 personas sale a favor, pero con una certeza entre baja y moderada, y cada ensayo usa cepas distintas.",
+    "en": "A Cochrane review of 23 trials with nearly 7,000 people comes out in favour, but with low to moderate certainty, and each trial uses different strains."
+  },
+  "resumen": {
+    "es": "Son bacterias buenas, como las del yogur. Tomadas a diario durante meses, hacen que se cojan algo menos de resfriados y que duren un día menos.",
+    "en": "They're good bacteria, like those in yoghurt. Taken daily for months, they mean people catch slightly fewer colds and they last a day less."
+  },
+  "mecanismo": {
+    "es": "Buena parte del sistema inmune vive pegado al intestino. Las bacterias buenas le mandan señales que lo mantienen entrenado y ayudan a que las mucosas, también las de la nariz y la garganta, hagan mejor de barrera. El efecto depende de la cepa: no todos los probióticos hacen lo mismo.",
+    "en": "A large part of the immune system lives alongside the gut. Good bacteria send it signals that keep it trained and help mucous membranes, including those in the nose and throat, act as a better barrier. The effect depends on the strain: not all probiotics do the same."
+  },
+  "dosis": {
+    "es": "Entre mil millones y cien mil millones de bacterias al día, de una o dos cepas de Lactobacillus o Bifidobacterium",
+    "en": "Between one billion and one hundred billion bacteria a day, of one or two strains of Lactobacillus or Bifidobacterium"
+  },
+  "cuando": {
+    "es": "A diario durante al menos 3 meses de la temporada de resfriados",
+    "en": "Daily for at least 3 months of cold season"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 23 ensayos con 6.950 niños, adultos y mayores, quienes tomaron probióticos tuvieron un 24 % menos de probabilidad de coger un resfriado, los resfriados duraron un día menos y usaron menos antibióticos. Los efectos secundarios fueron iguales que con placebo.",
+        "en": "In 23 trials with 6,950 children, adults and older people, those taking probiotics were 24% less likely to catch a cold, colds lasted a day less and they used fewer antibiotics. Side effects were the same as with placebo."
+      },
+      "fuente": "36001877"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes las defensas muy bajas, un catéter central o estás muy enfermo, no los tomes sin hablar con tu médico.",
+      "en": "If your immune system is very weak, you have a central line or you're very ill, don't take them without talking to your doctor."
+    },
+    {
+      "es": "Los primeros días pueden dar gases o hinchazón.",
+      "en": "In the first days they can cause wind or bloating."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Zhao Y, Dong BR, Hao Q",
+      "anio": 2022,
+      "titulo": "Probiotics for preventing acute upper respiratory tract infections",
+      "revista": "Cochrane Database Syst Rev 8(8):CD006895",
+      "pmid": "36001877",
+      "doi": "10.1002/14651858.CD006895.pub4"
+    }
+  ]
+}

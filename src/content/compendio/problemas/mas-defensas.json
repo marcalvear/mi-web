@@ -1,0 +1,49 @@
+{
+  "orden": 7,
+  "nombre": {
+    "es": "Defensas",
+    "en": "Immunity"
+  },
+  "titular": {
+    "es": "¿Coges todos los resfriados que pasan?",
+    "en": "Do you catch every cold going?"
+  },
+  "intro": {
+    "es": "Un resfriado detrás de otro de octubre a marzo, o uno que no se va nunca. Lo que más protege es dormir, lavarse las manos y la vacuna de la gripe si te toca. De los suplementos, algunos ayudan un poco a coger menos resfriados y otros a que duren menos.",
+    "en": "One cold after another from October to March, or one that never goes away. What protects most is sleep, washing your hands and the flu jab if you're due one. Of the supplements, some help a little to catch fewer colds and others to make them shorter."
+  },
+  "queOcurre": {
+    "es": "Los resfriados los causan más de 200 virus distintos, sobre todo rinovirus, y por eso no hay vacuna. Entran por la nariz y la garganta, y lo que notas (mocos, dolor, fiebre) es tu sistema inmune luchando. En invierno pasamos más tiempo dentro, el aire seco reseca las mucosas y la piel casi no fabrica vitamina D. El esquema de al lado separa lo que se toma toda la temporada de lo que se toma al primer síntoma.",
+    "en": "Colds are caused by more than 200 different viruses, mostly rhinoviruses, which is why there's no vaccine. They get in through the nose and throat, and what you feel (snot, soreness, fever) is your immune system fighting. In winter we spend more time indoors, dry air dries out mucous membranes and the skin barely makes vitamin D. The diagram beside it separates what's taken all season from what's taken at the first symptom."
+  },
+  "combinar": {
+    "es": "Se pueden sumar los de toda la temporada (vitamina D, probióticos, vitamina C) con los del primer síntoma (zinc, saúco), porque actúan en momentos distintos. Ningún ensayo probó la mezcla, así que no esperes que se sumen los efectos.",
+    "en": "You can combine the all-season ones (vitamin D, probiotics, vitamin C) with the first-symptom ones (zinc, elderberry), because they act at different moments. No trial tested the mix, so don't expect the effects to add up."
+  },
+  "alarma": [
+    {
+      "es": "La fiebre dura más de 3 días o pasa de 39 °C",
+      "en": "The fever lasts more than 3 days or goes above 39 °C"
+    },
+    {
+      "es": "Te cuesta respirar, te duele el pecho o los labios se ponen morados",
+      "en": "You find it hard to breathe, your chest hurts or your lips turn blue"
+    },
+    {
+      "es": "El resfriado mejora y luego empeora de golpe, con fiebre",
+      "en": "The cold gets better and then suddenly worse, with fever"
+    },
+    {
+      "es": "Tienes más de 6 o 7 infecciones al año o tardan mucho en curarse",
+      "en": "You have more than 6 or 7 infections a year or they take a long time to clear"
+    }
+  ],
+  "suplementos": [
+    "vitamina-d",
+    "probioticos",
+    "vitamina-c",
+    "zinc",
+    "sauco"
+  ],
+  "mapa": "temporada"
+}
