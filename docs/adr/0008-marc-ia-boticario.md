@@ -58,3 +58,13 @@ porque el widget pinta texto plano.
   habrá que mandar solo el problema que toque.
 - Las reglas son instrucciones a un modelo, no una garantía. Por eso el widget
   avisa de que es divulgación y de que puede equivocarse.
+
+## Actualización (22/10/2026, [#103](https://github.com/marcalvear/mi-web/issues/103) y [#107](https://github.com/marcalvear/mi-web/issues/107))
+
+El compendio creció a 10 problemas y mandarlo entero en cada pregunta ya no
+compensaba. Ahora el boticario recibe el índice de problemas y el detalle solo
+del problema que se está leyendo: cada página de problema lo manda en
+`problem`, y desde el índice el Worker lo adivina por las palabras de las
+últimas preguntas. Si no encaja ninguno, va solo el índice y el boticario
+manda a la página que toque. Cada respuesta lleva entre ≈2.000 y ≈4.500 tokens
+de entrada según el problema.

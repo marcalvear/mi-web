@@ -1,5 +1,16 @@
 # Lighthouse
 
+## Índice y una página por problema (22/10/2026, #105)
+
+Lighthouse 12 en móvil, esta vez sobre la web publicada en GitHub Pages. El
+índice ya no carga las 38 fichas: pesa menos que la página única de antes.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS | Peso |
+|---|---|---|---|---|---|---|
+| Compendio (índice) | 93 | 100 | 100 | 100 | 0 | 381 KB |
+| Compendio (índice, EN) | 99 | 100 | 100 | 100 | 0 | 381 KB |
+| Dormir mejor | 96 | 100 | 100 | 100 | 0 | 407 KB |
+
 ## Compendio con diez problemas (21/10/2026, #94-#97)
 
 Mismo método. Son 10 problemas, 38 suplementos y 25 productos con foto.
