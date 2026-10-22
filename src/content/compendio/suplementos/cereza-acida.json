@@ -1,0 +1,61 @@
+{
+  "nombre": {
+    "es": "Cereza ácida Montmorency",
+    "en": "Montmorency tart cherry"
+  },
+  "tipo": {
+    "es": "Zumo de fruta concentrado",
+    "en": "Concentrated fruit juice"
+  },
+  "evidencia": "preliminar",
+  "zona": "dias",
+  "porQue": {
+    "es": "Un metaanálisis de 19 ensayos sale a favor en recuperar la fuerza, pero no en las agujetas, con resultados muy dispares y una certeza baja o muy baja.",
+    "en": "A meta-analysis of 19 trials comes out in favour for recovering strength, but not for soreness, with very mixed results and low or very low certainty."
+  },
+  "resumen": {
+    "es": "Es una cereza muy ácida, rica en antocianos, los pigmentos rojos. En zumo concentrado ayuda a recuperar antes la fuerza tras un esfuerzo duro, aunque las agujetas no bajan.",
+    "en": "It's a very sour cherry, rich in anthocyanins, the red pigments. As concentrated juice it helps you get your strength back sooner after hard exercise, although soreness doesn't drop."
+  },
+  "mecanismo": {
+    "es": "Después de un entreno muy exigente, el músculo dañado se inflama durante unos días y pierde fuerza. Los antocianos de la cereza frenan parte de esa inflamación y del daño oxidativo, así que la fuerza vuelve antes. Por eso se toma unos días antes y unos días después del esfuerzo.",
+    "en": "After a very demanding workout, the damaged muscle stays inflamed for a few days and loses strength. The cherry's anthocyanins hold back part of that inflammation and oxidative damage, so strength comes back sooner. That's why it's taken a few days before and a few days after the effort."
+  },
+  "dosis": {
+    "es": "Unos 30 ml de concentrado (o 2 cápsulas) dos veces al día",
+    "en": "About 30 ml of concentrate (or 2 capsules) twice a day"
+  },
+  "cuando": {
+    "es": "Desde 2-4 días antes de una competición o entreno muy duro hasta 2-3 días después",
+    "en": "From 2–4 days before a competition or very hard session until 2–3 days after"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "Juntando 19 ensayos en deportistas, el zumo de cereza ácida ayudó a recuperar la fuerza máxima en los días siguientes y bajó la proteína C reactiva, una señal de inflamación. No redujo las agujetas ni los marcadores de daño muscular, y la certeza es baja.",
+        "en": "Pooling 19 trials in athletes, tart cherry juice helped recover maximum strength over the following days and lowered C-reactive protein, a sign of inflammation. It didn't reduce soreness or markers of muscle damage, and certainty is low."
+      },
+      "fuente": "41945263"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "El zumo lleva bastante azúcar: si cuidas el azúcar, mejor en cápsula.",
+      "en": "The juice has quite a lot of sugar: if you watch your sugar, capsules are better."
+    },
+    {
+      "es": "Puede bajar algo la adaptación al entreno si se toma siempre: resérvala para competiciones o semanas muy duras.",
+      "en": "It may slightly blunt training adaptation if taken all the time: save it for competitions or very hard weeks."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Daab W, Bouzid MA, Nassis GP, et al.",
+      "anio": 2026,
+      "titulo": "Effects of Tart Cherry Juice Supplementation on Recovery from Exercise-Induced Muscle Damage in Athletes: A Systematic Review and Meta-Analysis",
+      "revista": "Sports Med Open 12(1):40",
+      "pmid": "41945263",
+      "doi": "10.1186/s40798-026-00993-3"
+    }
+  ]
+}

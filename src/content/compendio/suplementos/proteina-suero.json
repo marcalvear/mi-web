@@ -1,0 +1,65 @@
+{
+  "nombre": {
+    "es": "Proteína de suero",
+    "en": "Whey protein"
+  },
+  "tipo": {
+    "es": "Proteína de la leche",
+    "en": "Milk protein"
+  },
+  "evidencia": "fuerte",
+  "zona": "despues",
+  "porQue": {
+    "es": "Un metaanálisis de 49 ensayos con casi 1.900 personas sale a favor en fuerza y músculo, con un límite claro: por encima de 1,6 g de proteína por kilo al día ya no suma.",
+    "en": "A meta-analysis of 49 trials with nearly 1,900 people comes out in favour for strength and muscle, with a clear limit: above 1.6 g of protein per kilo a day it adds nothing."
+  },
+  "resumen": {
+    "es": "Es la proteína del suero de la leche, la que se separa al hacer queso. No es mágica: sirve para llegar a la proteína que necesitas si entrenas fuerza, y con ella se gana algo más de músculo.",
+    "en": "It's the protein from milk whey, what separates when making cheese. It's not magic: it helps you reach the protein you need if you do strength training, and with it you gain a bit more muscle."
+  },
+  "mecanismo": {
+    "es": "Al entrenar fuerza, las fibras del músculo se dañan un poco y el cuerpo las repara más gruesas. Para eso necesita aminoácidos, sobre todo leucina, que es la señal que enciende la fabricación de músculo. El suero se digiere rápido y lleva mucha leucina.",
+    "en": "Strength training slightly damages muscle fibres and the body repairs them thicker. For that it needs amino acids, especially leucine, which is the signal that switches on muscle building. Whey digests quickly and has a lot of leucine."
+  },
+  "dosis": {
+    "es": "20 a 40 g por toma, hasta llegar a unos 1,6 g de proteína por kilo de peso al día contando la comida",
+    "en": "20 to 40 g per serving, up to about 1.6 g of protein per kilo of body weight a day including food"
+  },
+  "cuando": {
+    "es": "En las 2 horas después de entrenar, o con una comida a la que le falte proteína",
+    "en": "Within 2 hours after training, or with a meal that's short on protein"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 49 ensayos con 1.863 personas que entrenaban fuerza, la proteína añadida subió la fuerza máxima unos 2,5 kg y la masa magra unos 0,3 kg más que sin ella. Por encima de 1,6 g por kilo al día no hubo más ganancia, y el efecto fue menor con la edad.",
+        "en": "In 49 trials with 1,863 people doing strength training, added protein raised maximum strength by about 2.5 kg and lean mass by about 0.3 kg more than without it. Above 1.6 g per kilo a day there was no extra gain, and the effect was smaller with age."
+      },
+      "fuente": "28698222"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes intolerancia a la lactosa, busca el aislado, que casi no lleva; si eres alérgico a la leche, no la tomes.",
+      "en": "If you're lactose intolerant, look for isolate, which has almost none; if you're allergic to milk, don't take it."
+    },
+    {
+      "es": "Si tienes una enfermedad del riñón, consulta antes cuánta proteína puedes tomar.",
+      "en": "If you have kidney disease, check first how much protein you can have."
+    },
+    {
+      "es": "Es comida, no un suplemento milagro: si ya llegas a tu proteína con la dieta, no suma.",
+      "en": "It's food, not a miracle supplement: if you already reach your protein from your diet, it adds nothing."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Morton RW, Murphy KT, McKellar SR, et al.",
+      "anio": 2018,
+      "titulo": "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults",
+      "revista": "Br J Sports Med 52(6):376-384",
+      "pmid": "28698222",
+      "doi": "10.1136/bjsports-2017-097608"
+    }
+  ]
+}

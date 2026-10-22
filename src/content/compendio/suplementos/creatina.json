@@ -7,15 +7,15 @@
     "es": "Aminoácido",
     "en": "Amino acid"
   },
-  "evidencia": "moderada",
+  "evidencia": "fuerte",
   "zona": "semanas",
   "porQue": {
-    "es": "Un metaanálisis de 16 ensayos sale a favor en memoria y atención, pero la EFSA revisó lo mismo y no aceptó que mejore las funciones mentales. Funciona mejor cuando falta sueño.",
-    "en": "A meta-analysis of 16 trials comes out in favour for memory and attention, but EFSA reviewed the same evidence and didn't accept that it improves mental function. It works better when you're short of sleep."
+    "es": "Para la fuerza y el músculo es el suplemento deportivo con más pruebas. Para la cabeza, la evidencia es moderada: un metaanálisis sale a favor, pero la EFSA no aceptó que mejore las funciones mentales.",
+    "en": "For strength and muscle it's the sports supplement with the most evidence. For the mind, the evidence is moderate: a meta-analysis comes out in favour, but EFSA didn't accept that it improves mental function."
   },
   "resumen": {
-    "es": "Es la reserva de energía rápida de los músculos y también del cerebro. Es el suplemento deportivo más estudiado y, para la cabeza, ayuda algo a la memoria, sobre todo cuando no has dormido.",
-    "en": "It's the quick energy reserve of muscles and also of the brain. It's the most studied sports supplement and, for the mind, it helps memory a little, especially when you haven't slept."
+    "es": "Es la reserva de energía rápida de los músculos y también del cerebro. Con entrenamiento da más fuerza y más músculo, y para la cabeza ayuda algo a la memoria, sobre todo cuando no has dormido.",
+    "en": "It's the quick energy reserve of muscles and also of the brain. With training it gives more strength and more muscle, and for the mind it helps memory a little, especially when you haven't slept."
   },
   "mecanismo": {
     "es": "Las células guardan energía como fosfocreatina para recargarse en segundos cuando la gastan de golpe. El cerebro gasta mucha energía, y cuando falta sueño se le acaba esa reserva. Tomando creatina a diario, la reserva sube poco a poco en unas semanas.",
@@ -30,6 +30,13 @@
     "en": "Any time, every day; what counts is consistency"
   },
   "hallazgos": [
+    {
+      "texto": {
+        "es": "La Sociedad Internacional de Nutrición Deportiva concluye que es el suplemento más eficaz para rendir en esfuerzos cortos e intensos y ganar masa magra con el entrenamiento, y que a las dosis habituales es segura, también a largo plazo.",
+        "en": "The International Society of Sports Nutrition concludes it's the most effective supplement for performing in short, intense efforts and gaining lean mass with training, and that at usual doses it's safe, also long term."
+      },
+      "fuente": "28615996"
+    },
     {
       "texto": {
         "es": "En 16 ensayos con 492 personas, la creatina mejoró la memoria, la atención y la velocidad para procesar información frente a placebo, pero no el funcionamiento mental en general. El efecto fue mayor en mujeres y en personas con alguna enfermedad.",
@@ -67,6 +74,14 @@
     }
   ],
   "fuentes": [
+    {
+      "autores": "Kreider RB, Kalman DS, Antonio J, et al.",
+      "anio": 2017,
+      "titulo": "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine",
+      "revista": "J Int Soc Sports Nutr 14:18",
+      "pmid": "28615996",
+      "doi": "10.1186/s12970-017-0173-z"
+    },
     {
       "autores": "Xu C, Bi S, Zhang W, et al.",
       "anio": 2024,

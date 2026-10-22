@@ -52,6 +52,7 @@ COMPENDIO DE BIOHACKING
 - Dormir mejor: Melatonina, Magnesio, Glicina, L-teanina.
 - Concentrarse mejor: Cafeína con L-teanina, Creatina, Bacopa, Melena de león.
 - Menos estrés: Ashwagandha, Lavanda (Silexan), Rhodiola, Magnesio.
+- Recuperarse antes: Creatina, Proteína de suero, Cereza ácida Montmorency, Omega-3 (EPA y DHA).
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -278,11 +279,12 @@ FICHA: Cafeína con L-teanina (Estimulante y aminoácido) · https://marcalvear.
 - Precauciones: No pases de 400 mg de cafeína al día entre todo (café, té, refrescos); en el embarazo, de 200 mg. Si tienes ansiedad, arritmias o la tensión alta, consúltalo antes. Tomada por la tarde estropea el sueño, aunque no lo notes.
 
 FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#creatina
-- Qué es: Es la reserva de energía rápida de los músculos y también del cerebro. Es el suplemento deportivo más estudiado y, para la cabeza, ayuda algo a la memoria, sobre todo cuando no has dormido.
-- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Un metaanálisis de 16 ensayos sale a favor en memoria y atención, pero la EFSA revisó lo mismo y no aceptó que mejore las funciones mentales. Funciona mejor cuando falta sueño.
+- Qué es: Es la reserva de energía rápida de los músculos y también del cerebro. Con entrenamiento da más fuerza y más músculo, y para la cabeza ayuda algo a la memoria, sobre todo cuando no has dormido.
+- Evidencia: Fuerte (Varios ensayos grandes, o un metaanálisis, que coinciden). Por qué este nivel: Para la fuerza y el músculo es el suplemento deportivo con más pruebas. Para la cabeza, la evidencia es moderada: un metaanálisis sale a favor, pero la EFSA no aceptó que mejore las funciones mentales.
 - Cómo funciona: Las células guardan energía como fosfocreatina para recargarse en segundos cuando la gastan de golpe. El cerebro gasta mucha energía, y cuando falta sueño se le acaba esa reserva. Tomando creatina a diario, la reserva sube poco a poco en unas semanas.
 - Dosis estudiada: 3 a 5 g de creatina monohidrato al día. Cuándo: A cualquier hora, todos los días; lo que cuenta es la constancia.
 - Qué encontraron los estudios:
+  - La Sociedad Internacional de Nutrición Deportiva concluye que es el suplemento más eficaz para rendir en esfuerzos cortos e intensos y ganar masa magra con el entrenamiento, y que a las dosis habituales es segura, también a largo plazo. [Kreider RB et al., 2017, J Int Soc Sports Nutr 14:18, PMID 28615996]
   - En 16 ensayos con 492 personas, la creatina mejoró la memoria, la atención y la velocidad para procesar información frente a placebo, pero no el funcionamiento mental en general. El efecto fue mayor en mujeres y en personas con alguna enfermedad. [Xu C et al., 2024, Front Nutr 11:1424972, PMID 39070254]
   - En una noche sin dormir, una sola dosis alta (0,35 g por kilo de peso) mejoró las pruebas de rendimiento mental de las horas siguientes frente a placebo. Es un ensayo pequeño y con una dosis muy por encima de la normal. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
   - La EFSA, que decide qué se puede decir en la etiqueta en Europa, revisó 23 estudios en 2024 y concluyó que no está demostrado que la creatina mejore las funciones mentales. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
@@ -355,6 +357,52 @@ FICHA: Magnesio (Mineral) · https://marcalvear.github.io/mi-web/biohacking/#mag
 - Precauciones: Si tienes una enfermedad del riñón, no lo tomes sin hablar con tu médico. Separa 2 horas el magnesio de antibióticos como las tetraciclinas o las quinolonas y de la levotiroxina. A dosis altas puede soltar el vientre; el óxido de magnesio, más.
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Thorne, Magnesium Bisglycinate (Estados Unidos): lleva 200 mg de magnesio en bisglicinato por cacito; toma 1 cacito en un vaso grande de agua al día; bote Polvo, 60 tomas; precio 52 $. https://www.thorne.com/products/dp/magnesium-bisglycinate
+
+PROBLEMA: RECUPERARSE ANTES (https://marcalvear.github.io/mi-web/biohacking/#recuperarse-antes)
+- Agujetas que duran días, piernas que no rinden en el siguiente entreno o la sensación de no progresar. Lo que más recupera es dormir, comer suficiente proteína y no entrenar a tope todos los días. Estas fichas ayudan con el resto, y la creatina es la que tiene más pruebas.
+- Qué pasa en el cuerpo: Al entrenar fuerte, sobre todo al frenar un peso o bajar cuestas, las fibras del músculo se rompen un poco. El cuerpo las inflama para limpiarlas y después las repara más fuertes: eso es progresar. Las agujetas no aparecen al momento, sino a las 24-72 horas, que es cuando más duele. El esquema de al lado marca qué suplemento actúa justo después, cuál en los días siguientes y cuál hay que tomar todos los días.
+- Combinarlos: La creatina y la proteína sí se suelen tomar juntas, en el batido de después de entrenar, y no hay problema. La cereza y los omega-3 bajan la inflamación: úsalos para competiciones o semanas muy duras, no siempre, porque un poco de inflamación es parte de cómo el músculo se adapta.
+- Ve al médico antes que a un suplemento si además: la orina sale oscura, como coca-cola, después de un entreno muy duro (puede ser rabdomiólisis: urgencias); el dolor es en un punto concreto, aparece de golpe o no deja apoyar; las agujetas duran más de una semana o vienen con hinchazón grande; te notas cansado y sin rendir durante semanas aunque descanses.
+
+FICHA: Creatina (Aminoácido) · https://marcalvear.github.io/mi-web/biohacking/#creatina
+- Qué es: Es la reserva de energía rápida de los músculos y también del cerebro. Con entrenamiento da más fuerza y más músculo, y para la cabeza ayuda algo a la memoria, sobre todo cuando no has dormido.
+- Evidencia: Fuerte (Varios ensayos grandes, o un metaanálisis, que coinciden). Por qué este nivel: Para la fuerza y el músculo es el suplemento deportivo con más pruebas. Para la cabeza, la evidencia es moderada: un metaanálisis sale a favor, pero la EFSA no aceptó que mejore las funciones mentales.
+- Cómo funciona: Las células guardan energía como fosfocreatina para recargarse en segundos cuando la gastan de golpe. El cerebro gasta mucha energía, y cuando falta sueño se le acaba esa reserva. Tomando creatina a diario, la reserva sube poco a poco en unas semanas.
+- Dosis estudiada: 3 a 5 g de creatina monohidrato al día. Cuándo: A cualquier hora, todos los días; lo que cuenta es la constancia.
+- Qué encontraron los estudios:
+  - La Sociedad Internacional de Nutrición Deportiva concluye que es el suplemento más eficaz para rendir en esfuerzos cortos e intensos y ganar masa magra con el entrenamiento, y que a las dosis habituales es segura, también a largo plazo. [Kreider RB et al., 2017, J Int Soc Sports Nutr 14:18, PMID 28615996]
+  - En 16 ensayos con 492 personas, la creatina mejoró la memoria, la atención y la velocidad para procesar información frente a placebo, pero no el funcionamiento mental en general. El efecto fue mayor en mujeres y en personas con alguna enfermedad. [Xu C et al., 2024, Front Nutr 11:1424972, PMID 39070254]
+  - En una noche sin dormir, una sola dosis alta (0,35 g por kilo de peso) mejoró las pruebas de rendimiento mental de las horas siguientes frente a placebo. Es un ensayo pequeño y con una dosis muy por encima de la normal. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
+  - La EFSA, que decide qué se puede decir en la etiqueta en Europa, revisó 23 estudios en 2024 y concluyó que no está demostrado que la creatina mejore las funciones mentales. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
+- Precauciones: Si tienes una enfermedad del riñón, no la tomes sin hablar con tu médico. En gente sana, a 3-5 g, no daña el riñón, pero sube un poco la creatinina de los análisis: avisa si te los hacen. Puede subir uno o dos kilos de peso por el agua que guarda el músculo. Busca creatina monohidrato sola; el sello Creapure garantiza su pureza.
+
+FICHA: Proteína de suero (Proteína de la leche) · https://marcalvear.github.io/mi-web/biohacking/#proteina-suero
+- Qué es: Es la proteína del suero de la leche, la que se separa al hacer queso. No es mágica: sirve para llegar a la proteína que necesitas si entrenas fuerza, y con ella se gana algo más de músculo.
+- Evidencia: Fuerte (Varios ensayos grandes, o un metaanálisis, que coinciden). Por qué este nivel: Un metaanálisis de 49 ensayos con casi 1.900 personas sale a favor en fuerza y músculo, con un límite claro: por encima de 1,6 g de proteína por kilo al día ya no suma.
+- Cómo funciona: Al entrenar fuerza, las fibras del músculo se dañan un poco y el cuerpo las repara más gruesas. Para eso necesita aminoácidos, sobre todo leucina, que es la señal que enciende la fabricación de músculo. El suero se digiere rápido y lleva mucha leucina.
+- Dosis estudiada: 20 a 40 g por toma, hasta llegar a unos 1,6 g de proteína por kilo de peso al día contando la comida. Cuándo: En las 2 horas después de entrenar, o con una comida a la que le falte proteína.
+- Qué encontraron los estudios:
+  - En 49 ensayos con 1.863 personas que entrenaban fuerza, la proteína añadida subió la fuerza máxima unos 2,5 kg y la masa magra unos 0,3 kg más que sin ella. Por encima de 1,6 g por kilo al día no hubo más ganancia, y el efecto fue menor con la edad. [Morton RW et al., 2018, Br J Sports Med 52(6):376-384, PMID 28698222]
+- Precauciones: Si tienes intolerancia a la lactosa, busca el aislado, que casi no lleva; si eres alérgico a la leche, no la tomes. Si tienes una enfermedad del riñón, consulta antes cuánta proteína puedes tomar. Es comida, no un suplemento milagro: si ya llegas a tu proteína con la dieta, no suma.
+
+FICHA: Cereza ácida Montmorency (Zumo de fruta concentrado) · https://marcalvear.github.io/mi-web/biohacking/#cereza-acida
+- Qué es: Es una cereza muy ácida, rica en antocianos, los pigmentos rojos. En zumo concentrado ayuda a recuperar antes la fuerza tras un esfuerzo duro, aunque las agujetas no bajan.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Un metaanálisis de 19 ensayos sale a favor en recuperar la fuerza, pero no en las agujetas, con resultados muy dispares y una certeza baja o muy baja.
+- Cómo funciona: Después de un entreno muy exigente, el músculo dañado se inflama durante unos días y pierde fuerza. Los antocianos de la cereza frenan parte de esa inflamación y del daño oxidativo, así que la fuerza vuelve antes. Por eso se toma unos días antes y unos días después del esfuerzo.
+- Dosis estudiada: Unos 30 ml de concentrado (o 2 cápsulas) dos veces al día. Cuándo: Desde 2-4 días antes de una competición o entreno muy duro hasta 2-3 días después.
+- Qué encontraron los estudios:
+  - Juntando 19 ensayos en deportistas, el zumo de cereza ácida ayudó a recuperar la fuerza máxima en los días siguientes y bajó la proteína C reactiva, una señal de inflamación. No redujo las agujetas ni los marcadores de daño muscular, y la certeza es baja. [Daab W et al., 2026, Sports Med Open 12(1):40, PMID 41945263]
+- Precauciones: El zumo lleva bastante azúcar: si cuidas el azúcar, mejor en cápsula. Puede bajar algo la adaptación al entreno si se toma siempre: resérvala para competiciones o semanas muy duras.
+
+FICHA: Omega-3 (EPA y DHA) (Ácidos grasos del pescado) · https://marcalvear.github.io/mi-web/biohacking/#omega-3
+- Qué es: Son las grasas del pescado azul. Tomadas a diario durante semanas, bajan algo las agujetas y la inflamación después de un esfuerzo que daña el músculo.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los metaanálisis salen a favor en las agujetas, pero uno dice que el efecto es tan pequeño que no se nota, y el más reciente avisa de fallos de método en casi todos los ensayos.
+- Cómo funciona: El EPA y el DHA se meten en las membranas de las células y cambian las señales de inflamación que sueltan cuando se dañan. Para que eso pase tienen que acumularse, y eso lleva semanas: no sirven tomados solo el día del entreno.
+- Dosis estudiada: De 2 a 3 g al día de EPA más DHA. Cuándo: Con una comida con grasa, todos los días.
+- Qué encontraron los estudios:
+  - En 12 ensayos, los omega-3 bajaron las agujetas tras ejercicio excéntrico, pero menos de lo que una persona llega a notar, y no mejoraron la fuerza. La calidad de las pruebas es baja. [Lv ZT et al., 2020, Biomed Res Int 2020:8062017, PMID 32382573]
+  - Con 9 ensayos con placebo, en 2026 los omega-3 bajaron las agujetas, la hinchazón y un marcador de daño muscular, y mejoraron la fuerza en el peor momento. Los autores avisan de fallos de método en casi todo lo publicado. [Yaghoobi E et al., 2026, Nutrients 18(9):1447, PMID 42124047]
+- Precauciones: Si tomas anticoagulantes o te van a operar, consúltalo: a dosis altas puede aumentar el sangrado. Puede repetir a pescado; tomado con comida se nota menos. Si eres alérgico al pescado, busca omega-3 de algas.
 `,
   en: `BIOHACKING COMPENDIUM: https://marcalvear.github.io/mi-web/en/biohacking/
 Notice on the page: This is science writing, not medical advice. I write it from reading studies, not as a health professional. If you take medication, are pregnant or your symptoms don't go away, talk to your doctor or pharmacist first.
@@ -567,11 +615,12 @@ SHEET: Caffeine with L-theanine (Stimulant and amino acid) · https://marcalvear
 - Cautions: Don't go over 400 mg of caffeine a day from everything (coffee, tea, soft drinks); in pregnancy, 200 mg. If you have anxiety, an irregular heartbeat or high blood pressure, check first. Taken in the afternoon it spoils your sleep, even if you don't notice.
 
 SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#creatina
-- What it is: It's the quick energy reserve of muscles and also of the brain. It's the most studied sports supplement and, for the mind, it helps memory a little, especially when you haven't slept.
-- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: A meta-analysis of 16 trials comes out in favour for memory and attention, but EFSA reviewed the same evidence and didn't accept that it improves mental function. It works better when you're short of sleep.
+- What it is: It's the quick energy reserve of muscles and also of the brain. With training it gives more strength and more muscle, and for the mind it helps memory a little, especially when you haven't slept.
+- Evidence: Strong (Several large trials, or a meta-analysis, that agree). Why this level: For strength and muscle it's the sports supplement with the most evidence. For the mind, the evidence is moderate: a meta-analysis comes out in favour, but EFSA didn't accept that it improves mental function.
 - How it works: Cells store energy as phosphocreatine to recharge in seconds when they use it up suddenly. The brain uses a lot of energy, and when you're short of sleep that reserve runs low. Taking creatine daily, the reserve rises gradually over a few weeks.
 - Dose studied: 3 to 5 g of creatine monohydrate a day. When: Any time, every day; what counts is consistency.
 - What the studies found:
+  - The International Society of Sports Nutrition concludes it's the most effective supplement for performing in short, intense efforts and gaining lean mass with training, and that at usual doses it's safe, also long term. [Kreider RB et al., 2017, J Int Soc Sports Nutr 14:18, PMID 28615996]
   - In 16 trials with 492 people, creatine improved memory, attention and processing speed compared with placebo, but not overall mental function. The effect was larger in women and in people with an illness. [Xu C et al., 2024, Front Nutr 11:1424972, PMID 39070254]
   - During a night without sleep, a single high dose (0.35 g per kilo of body weight) improved mental performance tests over the following hours compared with placebo. It's a small trial with a dose far above the usual one. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
   - EFSA, which decides what labels can claim in Europe, reviewed 23 studies in 2024 and concluded it isn't proven that creatine improves mental function. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
@@ -644,5 +693,51 @@ SHEET: Magnesium (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/
 - Cautions: If you have kidney disease, don't take it without talking to your doctor. Keep magnesium 2 hours apart from antibiotics such as tetracyclines or quinolones and from levothyroxine. At high doses it can loosen your stools; magnesium oxide more so.
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Thorne, Magnesium Bisglycinate (United States): contains 200 mg of magnesium as bisglycinate per scoop; dose 1 scoop in a large glass of water a day; tub Powder, 60 servings; price $52. https://www.thorne.com/products/dp/magnesium-bisglycinate
+
+PROBLEM: RECOVERING FASTER (https://marcalvear.github.io/mi-web/en/biohacking/#recuperarse-antes)
+- Soreness that lasts days, legs that won't perform in the next session or the feeling of not making progress. What helps recovery most is sleep, enough protein and not going all-out every day. These sheets help with the rest, and creatine is the one with the most evidence.
+- What's going on in the body: When you train hard, especially when braking a weight or running downhill, muscle fibres tear slightly. The body inflames them to clear them out and then repairs them stronger: that's progress. Soreness doesn't appear right away, but at 24–72 hours, when it hurts most. The diagram beside it shows which supplement acts right after, which over the following days and which needs taking every day.
+- Combining them: Creatine and protein are often taken together, in the post-workout shake, and that's fine. Tart cherry and omega-3 lower inflammation: use them for competitions or very hard weeks, not all the time, because a bit of inflammation is part of how muscle adapts.
+- See a doctor before trying a supplement if you also: your urine is dark, like cola, after a very hard workout (it may be rhabdomyolysis: go to A&E); the pain is in one specific spot, comes on suddenly or stops you putting weight on it; soreness lasts more than a week or comes with a lot of swelling; you feel tired and can't perform for weeks even when you rest.
+
+SHEET: Creatine (Amino acid) · https://marcalvear.github.io/mi-web/en/biohacking/#creatina
+- What it is: It's the quick energy reserve of muscles and also of the brain. With training it gives more strength and more muscle, and for the mind it helps memory a little, especially when you haven't slept.
+- Evidence: Strong (Several large trials, or a meta-analysis, that agree). Why this level: For strength and muscle it's the sports supplement with the most evidence. For the mind, the evidence is moderate: a meta-analysis comes out in favour, but EFSA didn't accept that it improves mental function.
+- How it works: Cells store energy as phosphocreatine to recharge in seconds when they use it up suddenly. The brain uses a lot of energy, and when you're short of sleep that reserve runs low. Taking creatine daily, the reserve rises gradually over a few weeks.
+- Dose studied: 3 to 5 g of creatine monohydrate a day. When: Any time, every day; what counts is consistency.
+- What the studies found:
+  - The International Society of Sports Nutrition concludes it's the most effective supplement for performing in short, intense efforts and gaining lean mass with training, and that at usual doses it's safe, also long term. [Kreider RB et al., 2017, J Int Soc Sports Nutr 14:18, PMID 28615996]
+  - In 16 trials with 492 people, creatine improved memory, attention and processing speed compared with placebo, but not overall mental function. The effect was larger in women and in people with an illness. [Xu C et al., 2024, Front Nutr 11:1424972, PMID 39070254]
+  - During a night without sleep, a single high dose (0.35 g per kilo of body weight) improved mental performance tests over the following hours compared with placebo. It's a small trial with a dose far above the usual one. [Gordji-Nejad A et al., 2024, Sci Rep 14(1):4937, PMID 38418482]
+  - EFSA, which decides what labels can claim in Europe, reviewed 23 studies in 2024 and concluded it isn't proven that creatine improves mental function. [EFSA Panel on Nutrition et al., 2024, EFSA J 22(11):e9100, PMID 39564533]
+- Cautions: If you have kidney disease, don't take it without talking to your doctor. In healthy people, at 3–5 g, it doesn't harm the kidneys, but it slightly raises creatinine in blood tests: mention it if you get tested. It can add a kilo or two of weight from the water muscles hold. Look for plain creatine monohydrate; the Creapure seal guarantees its purity.
+
+SHEET: Whey protein (Milk protein) · https://marcalvear.github.io/mi-web/en/biohacking/#proteina-suero
+- What it is: It's the protein from milk whey, what separates when making cheese. It's not magic: it helps you reach the protein you need if you do strength training, and with it you gain a bit more muscle.
+- Evidence: Strong (Several large trials, or a meta-analysis, that agree). Why this level: A meta-analysis of 49 trials with nearly 1,900 people comes out in favour for strength and muscle, with a clear limit: above 1.6 g of protein per kilo a day it adds nothing.
+- How it works: Strength training slightly damages muscle fibres and the body repairs them thicker. For that it needs amino acids, especially leucine, which is the signal that switches on muscle building. Whey digests quickly and has a lot of leucine.
+- Dose studied: 20 to 40 g per serving, up to about 1.6 g of protein per kilo of body weight a day including food. When: Within 2 hours after training, or with a meal that's short on protein.
+- What the studies found:
+  - In 49 trials with 1,863 people doing strength training, added protein raised maximum strength by about 2.5 kg and lean mass by about 0.3 kg more than without it. Above 1.6 g per kilo a day there was no extra gain, and the effect was smaller with age. [Morton RW et al., 2018, Br J Sports Med 52(6):376-384, PMID 28698222]
+- Cautions: If you're lactose intolerant, look for isolate, which has almost none; if you're allergic to milk, don't take it. If you have kidney disease, check first how much protein you can have. It's food, not a miracle supplement: if you already reach your protein from your diet, it adds nothing.
+
+SHEET: Montmorency tart cherry (Concentrated fruit juice) · https://marcalvear.github.io/mi-web/en/biohacking/#cereza-acida
+- What it is: It's a very sour cherry, rich in anthocyanins, the red pigments. As concentrated juice it helps you get your strength back sooner after hard exercise, although soreness doesn't drop.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: A meta-analysis of 19 trials comes out in favour for recovering strength, but not for soreness, with very mixed results and low or very low certainty.
+- How it works: After a very demanding workout, the damaged muscle stays inflamed for a few days and loses strength. The cherry's anthocyanins hold back part of that inflammation and oxidative damage, so strength comes back sooner. That's why it's taken a few days before and a few days after the effort.
+- Dose studied: About 30 ml of concentrate (or 2 capsules) twice a day. When: From 2–4 days before a competition or very hard session until 2–3 days after.
+- What the studies found:
+  - Pooling 19 trials in athletes, tart cherry juice helped recover maximum strength over the following days and lowered C-reactive protein, a sign of inflammation. It didn't reduce soreness or markers of muscle damage, and certainty is low. [Daab W et al., 2026, Sports Med Open 12(1):40, PMID 41945263]
+- Cautions: The juice has quite a lot of sugar: if you watch your sugar, capsules are better. It may slightly blunt training adaptation if taken all the time: save it for competitions or very hard weeks.
+
+SHEET: Omega-3 (EPA and DHA) (Fish fatty acids) · https://marcalvear.github.io/mi-web/en/biohacking/#omega-3
+- What it is: They're the fats in oily fish. Taken daily for weeks, they slightly lower soreness and inflammation after effort that damages the muscle.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: Meta-analyses come out in favour for soreness, but one says the effect is so small it's not noticeable, and the most recent warns of method flaws in almost all trials.
+- How it works: EPA and DHA build into cell membranes and change the inflammation signals cells release when damaged. For that to happen they have to build up, which takes weeks: they don't work taken only on training day.
+- Dose studied: 2 to 3 g a day of EPA plus DHA. When: With a meal that has fat, every day.
+- What the studies found:
+  - In 12 trials, omega-3 lowered soreness after eccentric exercise, but by less than a person can notice, and didn't improve strength. The quality of evidence is low. [Lv ZT et al., 2020, Biomed Res Int 2020:8062017, PMID 32382573]
+  - With 9 placebo-controlled trials, in 2026 omega-3 lowered soreness, swelling and a muscle damage marker, and improved strength at the worst point. The authors warn of method flaws in almost everything published. [Yaghoobi E et al., 2026, Nutrients 18(9):1447, PMID 42124047]
+- Cautions: If you take blood thinners or are having surgery, check first: at high doses it can increase bleeding. It can repeat on you with a fishy taste; taken with food it's less noticeable. If you're allergic to fish, look for algae-based omega-3.
 `,
 };

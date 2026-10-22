@@ -68,6 +68,14 @@ export const compendio = {
       curve: "cortisol",
       zones: { despertar: "Al despertar", dia: "Durante el día", cena: "Por la noche" },
     },
+    recovery: {
+      title: "Cuándo actúa cada suplemento después de entrenar",
+      hint: "La curva son las agujetas de los días siguientes. Pulsa un suplemento para ver cuándo actúa.",
+      desc: "Esquema de izquierda a derecha: la sesión de entreno, la primera hora después, en la que va la proteína, y los días siguientes, con la curva de las agujetas, que pican hacia las 48 horas, donde va la cereza ácida. Debajo, una barra de lo que se toma todos los días: la creatina y el omega-3.",
+      doms: "agujetas",
+      ticks: { session: "entreno", h1: "1 h", h24: "24 h", h48: "48 h", h96: "96 h" },
+      zones: { despues: "Después", dias: "Los días siguientes", semanas: "Todos los días" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -168,6 +176,14 @@ export const compendio = {
       desc: "Cortisol curve from 6 am to midnight: it shoots up on waking, peaking around 7:30, and falls through the day until night. Rhodiola acts on waking; ashwagandha during the day; and lavender and magnesium at night.",
       curve: "cortisol",
       zones: { despertar: "On waking", dia: "During the day", cena: "At night" },
+    },
+    recovery: {
+      title: "When each supplement acts after training",
+      hint: "The curve is muscle soreness over the following days. Tap a supplement to see when it acts.",
+      desc: "Diagram from left to right: the training session, the first hour after, where protein goes, and the following days, with the soreness curve, which peaks around 48 hours, where tart cherry goes. Below, a bar for what's taken every day: creatine and omega-3.",
+      doms: "soreness",
+      ticks: { session: "workout", h1: "1 h", h24: "24 h", h48: "48 h", h96: "96 h" },
+      zones: { despues: "After", dias: "The following days", semanas: "Every day" },
     },
     card: {
       id: "Sheet",
