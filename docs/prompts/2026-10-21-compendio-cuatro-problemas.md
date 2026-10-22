@@ -31,3 +31,13 @@ Conversación con Claude Code (Claude Opus 5.5) del 21 de octubre de 2026.
 ## Ojo con el Boticario
 
 El contexto del compendio ha pasado de 161 a 568 líneas por idioma, así que cada respuesta gasta más del cupo gratuito de Workers AI (10.000 neurons al día).
+
+## Boticario por problema (#103)
+
+> Recórtalo para que resuelva solo el problema de la página.
+
+- El contexto del compendio va en trozos: un índice de 12 líneas con todos los problemas y fichas (nombre, evidencia y dosis), y el detalle de cada problema aparte.
+- La página manda el problema que ocupa el centro de la pantalla, y el Worker solo añade su detalle.
+- Si preguntas por otro problema, el Boticario contesta con el índice y enlaza a su sección.
+- Cada pregunta pasa de unas 600 líneas a 94 (40 si no se está en ningún problema).
+- Se actualizan los ejemplos de temas no cubiertos (acné, caída del pelo), porque sueño, estrés y concentración ya están.

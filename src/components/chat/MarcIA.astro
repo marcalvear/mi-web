@@ -150,7 +150,8 @@ const id = `marc-ia-${lang}`;
         const res = await fetch(root.dataset.endpoint!, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ lang: root.dataset.lang, mode, messages: turns.slice(-MAX_TURNS) }),
+          // En el compendio, el problema que se está leyendo (#103)
+          body: JSON.stringify({ lang: root.dataset.lang, mode, problem: root.dataset.problem, messages: turns.slice(-MAX_TURNS) }),
         });
         const data = await res.json().catch(() => ({}));
         thinking.remove();

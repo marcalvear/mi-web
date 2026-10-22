@@ -20,7 +20,8 @@ const LANGS = { es: "español", en: "inglés" };
 // más de espacio para la evidencia, la dosis y las precauciones
 const MODES = {
   general: { prompt: () => SYSTEM_PROMPT, maxTokens: 350 },
-  boticario: { prompt: (lang) => boticarioPrompt(lang), maxTokens: 450 },
+  // Solo con el detalle del problema que se está leyendo, que manda la página (#103)
+  boticario: { prompt: (lang, problem) => boticarioPrompt(lang, problem), maxTokens: 450 },
 };
 
 // El widget pinta texto plano: fuera las negritas y los títulos de Markdown
@@ -91,7 +92,8 @@ export default {
       // Las instrucciones están en español: en la versión inglesa se lo
       // recuerda en inglés, o el modelo tiende a contestar en español
       const reminder = code === "en" ? "\nThe page is in English: reply in English unless the user writes in Spanish." : "";
-      const system = `${mode.prompt(code)}\n\nLa página desde la que te escriben está en ${LANGS[code]}.${reminder}`;
+      const problem = typeof body?.problem === "string" ? body.problem.slice(0, 64) : undefined;
+      const system = `${mode.prompt(code, problem)}\n\nLa página desde la que te escriben está en ${LANGS[code]}.${reminder}`;
       const result = await env.AI.run(MODEL, {
         messages: [{ role: "system", content: system }, ...messages],
         max_tokens: mode.maxTokens,

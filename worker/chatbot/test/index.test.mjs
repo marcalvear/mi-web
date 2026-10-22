@@ -99,9 +99,12 @@ test("acepta la web en local con Astro (puertos 4321 y 4322)", async () => {
   assert.equal(old.status, 403);
 });
 
-test("en el compendio usa las instrucciones del boticario con todo el compendio", async () => {
+test("en el compendio usa las instrucciones del boticario con el problema que se lee", async () => {
   const env = fakeEnv();
-  await worker.fetch(post({ mode: "boticario", messages: [{ role: "user", content: "Tengo digestiones pesadas" }] }), env);
+  await worker.fetch(
+    post({ mode: "boticario", problem: "digestiones-pesadas", messages: [{ role: "user", content: "Tengo digestiones pesadas" }] }),
+    env,
+  );
   const { messages, max_tokens } = env.calls[0].input;
   assert.match(messages[0].content, /Eres «Boticario IA»/);
   assert.match(messages[0].content, /FICHA: Jengibre/);
@@ -114,6 +117,20 @@ test("en el compendio usa las instrucciones del boticario con todo el compendio"
   assert.match(messages[0].content, /no nombres ninguna ficha ni ningún suplemento/);
   assert.match(messages[0].content, /Recomienda una ficha solo para el problema en el que está/);
   assert.equal(max_tokens, 450);
+  // Del resto solo va el índice: ahorra cupo de Workers AI (#103)
+  assert.match(messages[0].content, /ÍNDICE DEL COMPENDIO/);
+  assert.match(messages[0].content, /Melatonina \[/);
+  assert.doesNotMatch(messages[0].content, /FICHA: Melatonina/);
+});
+
+test("sin problema, o con uno que no existe, el boticario solo lleva el índice", async () => {
+  for (const problem of [undefined, "no-existe", "__proto__"]) {
+    const env = fakeEnv();
+    await worker.fetch(post({ mode: "boticario", problem, messages: [{ role: "user", content: "hola" }] }), env);
+    const system = env.calls[0].input.messages[0].content;
+    assert.match(system, /ÍNDICE DEL COMPENDIO/);
+    assert.doesNotMatch(system, /FICHA:/);
+  }
 });
 
 test("sin modo, o con uno desconocido, se queda en el asistente general", async () => {
@@ -136,7 +153,10 @@ test("el asistente general sabe que existe el compendio", async () => {
 
 test("el boticario usa el compendio en el idioma de la página", async () => {
   const env = fakeEnv();
-  await worker.fetch(post({ lang: "en", mode: "boticario", messages: [{ role: "user", content: "Heavy digestion" }] }), env);
+  await worker.fetch(
+    post({ lang: "en", mode: "boticario", problem: "digestiones-pesadas", messages: [{ role: "user", content: "Heavy digestion" }] }),
+    env,
+  );
   const system = env.calls[0].input.messages[0].content;
   assert.match(system, /SHEET: Ginger/);
   assert.match(system, /\/mi-web\/en\/biohacking\//);
