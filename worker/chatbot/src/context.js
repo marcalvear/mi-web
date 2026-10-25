@@ -57,6 +57,7 @@ COMPENDIO DE BIOHACKING
 - Testosterona: Tongkat ali, Fenogreco, Ashwagandha, Vitamina D.
 - Ciclo y menopausia: Sauzgatillo (Vitex), Calcio, Mio-inositol, Isoflavonas de soja.
 - Cansancio: Hierro, Vitamina B12, Coenzima Q10, Rhodiola.
+- Corazón y colesterol: Fitoesteroles (esteroles vegetales), Psyllium (cáscara de ispágula), Levadura roja de arroz, Omega-3 (EPA y DHA).
 - Cada ficha se puede guardar con una estrella y aparece en «Mi espacio». Dentro del compendio, este asistente hace de «boticario»: si alguien quiere saber qué suplemento mirar para lo que le pasa, recomiéndale preguntarle allí.
 
 CONTACTO Y USUARIOS
@@ -308,6 +309,25 @@ export const PROBLEM_KEYS = {
     "vitamin b12",
     "coenzima q10",
     "coenzyme q10"
+  ],
+  "corazon-colesterol": [
+    "colesterol",
+    "ldl",
+    "triglicerid",
+    "corazon",
+    "infarto",
+    "arteria",
+    "estatina",
+    "cholesterol",
+    "triglycerid",
+    "heart",
+    "statin",
+    "artery",
+    "fitoesteroles",
+    "plant sterols",
+    "psyllium",
+    "levadura roja de arroz",
+    "red yeast rice"
   ]
 };
 
@@ -327,6 +347,7 @@ Aviso de la página: Esto es divulgación, no consejo médico. Lo escribo leyend
 - Testosterona (https://marcalvear.github.io/mi-web/biohacking/testosterona/): Tongkat ali [preliminar; 200 a 400 mg al día de extracto estandarizado]; Fenogreco [preliminar; 500 a 600 mg al día de extracto]; Ashwagandha [moderada; De 250 a 600 mg al día de extracto de raíz]; Vitamina D [preliminar; Entre 800 y 2.000 UI (20 a 50 µg) al día. Si tienes déficit, la dosis la decide tu médico con un análisis]
 - Ciclo y menopausia (https://marcalvear.github.io/mi-web/biohacking/ciclo-menopausia/): Sauzgatillo (Vitex) [moderada; 20 a 40 mg al día de extracto estandarizado, como los estudiados (Ze 440 o BNO 1095)]; Calcio [moderada; 1.200 mg al día de carbonato de calcio, contando el de la dieta]; Mio-inositol [moderada; 2 a 4 g al día; a veces con D-chiro-inositol en proporción 40 a 1]; Isoflavonas de soja [preliminar; 50 a 100 mg de isoflavonas al día]
 - Cansancio (https://marcalvear.github.io/mi-web/biohacking/menos-cansancio/): Hierro [moderada; Unos 60 a 80 mg de hierro elemental, solo si la ferritina está baja y con seguimiento de tu médico]; Vitamina B12 [moderada; Si eres vegano, unos 250 µg al día o 2.000 µg a la semana; si te falta, la dosis la decide tu médico]; Coenzima Q10 [moderada; 100 a 300 mg al día; el ubiquinol se absorbe algo mejor]; Rhodiola [preliminar; De 200 a 600 mg al día de extracto estandarizado]
+- Corazón y colesterol (https://marcalvear.github.io/mi-web/biohacking/corazon-colesterol/): Fitoesteroles (esteroles vegetales) [fuerte; De 1,5 a 3 g al día; el efecto deja de crecer hacia los 3 g]; Psyllium (cáscara de ispágula) [moderada; Unos 10 g al día, en 2 o 3 tomas]; Levadura roja de arroz [moderada; En los ensayos, unos 10 mg de monacolina K al día; en la UE, desde 2022, los suplementos no pueden pasar de 3 mg]; Omega-3 (EPA y DHA) [preliminar; De 2 a 3 g al día de EPA más DHA]
 `,
     problems: {
       "digestiones-pesadas": `PROBLEMA: DIGESTIONES PESADAS (https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/)
@@ -910,6 +931,63 @@ FICHA: Rhodiola (Planta adaptógena) · https://marcalvear.github.io/mi-web/bioh
 - Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - NOW Foods, Rhodiola 500 mg (Estados Unidos): lleva 500 mg de extracto con un 3 % de rosavinas y un 1 % de salidrosida; toma 1 cápsula; bote 60 cápsulas; precio 36,99 $. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
 `,
+      "corazon-colesterol": `PROBLEMA: CORAZÓN Y COLESTEROL (https://marcalvear.github.io/mi-web/biohacking/corazon-colesterol/)
+- Un análisis con el LDL alto, sin ningún síntoma, es de lo más común a partir de los 30. Antes que cualquier cápsula van la dieta, el ejercicio y no fumar, y si el riesgo es alto, las estatinas, que tienen muchos más estudios que nada de lo que hay aquí.
+- Qué pasa en el cuerpo: El colesterol hace un viaje. Una parte viene de la comida y se absorbe en el intestino; la mayor parte la fabrica el hígado. De ahí viaja por la sangre dentro de unas partículas, el LDL, y cuando sobra, se cuela en la pared de las arterias y va formando placa sin que notes nada, hasta que un día tapa una. El esquema de al lado sigue ese viaje: cada suplemento actúa en un punto distinto. Las guías europeas los aceptan como ayuda, nunca en lugar de un fármaco cuando hace falta.
+- Combinarlos: Los fitoesteroles y el psyllium se pueden juntar, porque actúan de forma distinta en el intestino, y se suman a la dieta o a una estatina. La levadura roja no se junta con una estatina: es lo mismo. El omega-3 baja los triglicéridos, pero para el corazón los ensayos grandes con 1 g al día no encontraron menos infartos; solo un fármaco de EPA purificado, a 4 g al día, los bajó en gente con los triglicéridos altos.
+- Ve al médico antes que a un suplemento si además: dolor u opresión en el pecho, sobre todo al hacer esfuerzo; te falta el aire, te mareas o el corazón va muy rápido o a saltos; tienes el LDL por encima de 190 mg/dl o hay infartos jóvenes en tu familia; tomas una estatina y te duelen los músculos o la orina sale oscura.
+- Fuente: Mach F et al., 2020, Eur Heart J 41(1):111-188, PMID 31504418
+- Fuente: Abdelhamid AS et al., 2020, Cochrane Database Syst Rev (3):CD003177, PMID 32114706
+- Fuente: Manson JE et al., 2019, N Engl J Med 380(1):23-32, PMID 30415637
+- Fuente: Bhatt DL et al., 2019, N Engl J Med 380(1):11-22, PMID 30415628
+
+FICHA: Fitoesteroles (esteroles vegetales) (Grasas de las plantas) · https://marcalvear.github.io/mi-web/biohacking/corazon-colesterol/#fitoesteroles
+- Qué es: Son el «colesterol» de las plantas. Tomados con la comida, le quitan el sitio al colesterol en el intestino, se absorbe menos y baja el LDL.
+- Evidencia: Fuerte (Varios ensayos grandes, o un metaanálisis, que coinciden). Por qué este nivel: Más de 120 ensayos dicen lo mismo: con unos 2 g al día el colesterol LDL baja entre un 8 y un 10 %. Lo que no hay es un ensayo que demuestre que eso evite infartos.
+- Cómo funciona: Se parecen tanto al colesterol que ocupan su sitio en las bolitas de grasa con las que el intestino lo absorbe. El colesterol que no cabe sigue de largo y sale con las heces. El hígado compensa fabricando un poco más, y por eso el efecto se queda en torno al 10 % aunque tomes más de 3 g.
+- Dosis estudiada: De 1,5 a 3 g al día; el efecto deja de crecer hacia los 3 g. Cuándo: Con la comida principal, todos los días: sin colesterol en el plato no tienen nada que bloquear.
+- Qué encontraron los estudios:
+  - En 124 estudios, tomar entre 0,6 y 3,3 g al día bajó el LDL entre un 6 y un 12 %: más cuanto más dosis, hasta unos 3 g. [Ras RT et al., 2014, Br J Nutr 112(2):214-219, PMID 24780090]
+  - El consenso de la Sociedad Europea de Aterosclerosis concluye que con 2 g al día el LDL baja entre un 8 y un 10 %, y los propone para quien tiene el colesterol alto sin necesitar fármacos, o como añadido a ellos. [Gylling H et al., 2014, Atherosclerosis 232(2):346-360, PMID 24468148]
+- Precauciones: Si tienes sitosterolemia, una enfermedad genética rara, no los tomes. Pueden bajar un poco el betacaroteno en sangre: come fruta y verdura de colores. No sustituyen a una estatina si te la han recetado; se pueden sumar.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Danacol, Danacol Fresa x6 (España): lleva 1,6 g de esteroles vegetales por botellita; toma Una botellita al día con la comida, la dosis estudiada; pack 6 botellitas de 100 g; precio Su web no lo da: se vende en supermercados. https://danacol.es/producto/fresa-x6/
+
+FICHA: Psyllium (cáscara de ispágula) (Fibra soluble) · https://marcalvear.github.io/mi-web/biohacking/corazon-colesterol/#psyllium
+- Qué es: Es la cáscara de una semilla que, con agua, se convierte en un gel. Tomada a diario baja el colesterol LDL alrededor de un 7 %, y además ayuda a ir al baño.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: 28 ensayos con casi 2.000 personas salen a favor, pero el efecto varía bastante de uno a otro, así que la calidad de la prueba es moderada.
+- Cómo funciona: En el intestino forma un gel que atrapa los ácidos biliares, que el hígado fabrica con colesterol, y se los lleva con las heces. Para reponerlos, el hígado gasta colesterol de la sangre, y así baja el LDL.
+- Dosis estudiada: Unos 10 g al día, en 2 o 3 tomas. Cuándo: Antes de las comidas, con un vaso grande de agua.
+- Qué encontraron los estudios:
+  - En 28 ensayos con 1.924 personas, unos 10 g al día bajaron el LDL 0,33 mmol/L (unos 13 mg/dl) y también la apoB, otra medida del riesgo. [Jovanovski E et al., 2018, Am J Clin Nutr 108(5):922-932, PMID 30239559]
+  - Sumados a una dieta baja en grasa, 10,2 g al día bajaron el LDL un 7 % más que el placebo, sin cambiar el HDL ni los triglicéridos. [Anderson JW et al., 2000, Am J Clin Nutr 71(2):472-479, PMID 10648260]
+- Precauciones: Tómalo siempre con mucha agua: sin agua puede atascarse en la garganta o en el intestino. Separa 2 horas los medicamentos: puede frenar su absorción. Al principio da gases; empieza con poco y sube poco a poco.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Psyllium Husk Powder (Estados Unidos): lleva Cáscara de psyllium en polvo: 7 g de fibra por cucharada (9 g); toma Una cucharada al día en un vaso grande de agua, cerca de lo estudiado; bote 340 g; precio 15,99 $. https://www.nowfoods.com/products/supplements/psyllium-husk-powder
+
+FICHA: Levadura roja de arroz (Arroz fermentado con un hongo) · https://marcalvear.github.io/mi-web/biohacking/corazon-colesterol/#levadura-roja-arroz
+- Qué es: Es arroz fermentado con un hongo que fabrica monacolina K, la misma molécula que la lovastatina, un fármaco para el colesterol. Por eso funciona, y por eso hay que tratarla como un medicamento.
+- Evidencia: Moderada (Al menos un ensayo con placebo que sale a favor). Por qué este nivel: Baja el LDL de verdad, y un ensayo con casi 5.000 personas que ya habían tenido un infarto redujo los nuevos. Pero es porque funciona como una estatina, con sus mismos riesgos, y cada producto lleva una cantidad distinta.
+- Cómo funciona: La monacolina K frena en el hígado la enzima que fabrica el colesterol (la HMG-CoA reductasa), igual que una estatina. Con menos colesterol propio, el hígado saca más LDL de la sangre.
+- Dosis estudiada: En los ensayos, unos 10 mg de monacolina K al día; en la UE, desde 2022, los suplementos no pueden pasar de 3 mg. Cuándo: Con la cena, que es cuando el hígado fabrica más colesterol.
+- Qué encontraron los estudios:
+  - En 13 ensayos con 804 personas, bajó el LDL 0,87 mmol/L (unos 34 mg/dl) frente al placebo, sin efectos graves. [Li Y et al., 2014, PLoS One 9(6):e98611, PMID 24897342]
+  - En casi 5.000 personas que ya habían tenido un infarto, 4,5 años de un extracto concreto (Xuezhikang) bajaron los nuevos infartos y las muertes por el corazón del 10,4 % al 5,7 %. Fue en China, con ese extracto. [Lu Z et al., 2008, Am J Cardiol 101(12):1689-1693, PMID 18549841]
+  - Una revisión de seguridad de los ensayos no encontró más efectos adversos graves que con el placebo. [Fogacci F et al., 2019, Pharmacol Res 143:1-16, PMID 30844537]
+- Precauciones: Si ya tomas una estatina, no la sumes: sería tomar dos veces lo mismo. Puede dar los mismos efectos que una estatina, como dolor muscular o problemas de hígado. Si notas dolor o debilidad en los músculos, déjala y avisa a tu médico. No la tomes en el embarazo, ni con zumo de pomelo o fármacos que suben la lovastatina en sangre. Algunos productos llevaban citrinina, una toxina del propio hongo: si la tomas, que el bote diga que no la lleva.
+
+FICHA: Omega-3 (EPA y DHA) (Ácidos grasos del pescado) · https://marcalvear.github.io/mi-web/biohacking/recuperarse-antes/#omega-3
+- Qué es: Son las grasas del pescado azul. Tomadas a diario durante semanas, bajan algo las agujetas y la inflamación después de un esfuerzo que daña el músculo.
+- Evidencia: Preliminar (Estudios pequeños o resultados indirectos). Por qué este nivel: Los metaanálisis salen a favor en las agujetas, pero uno dice que el efecto es tan pequeño que no se nota, y el más reciente avisa de fallos de método en casi todos los ensayos.
+- Cómo funciona: El EPA y el DHA se meten en las membranas de las células y cambian las señales de inflamación que sueltan cuando se dañan. Para que eso pase tienen que acumularse, y eso lleva semanas: no sirven tomados solo el día del entreno.
+- Dosis estudiada: De 2 a 3 g al día de EPA más DHA. Cuándo: Con una comida con grasa, todos los días.
+- Qué encontraron los estudios:
+  - En 12 ensayos, los omega-3 bajaron las agujetas tras ejercicio excéntrico, pero menos de lo que una persona llega a notar, y no mejoraron la fuerza. La calidad de las pruebas es baja. [Lv ZT et al., 2020, Biomed Res Int 2020:8062017, PMID 32382573]
+  - Con 9 ensayos con placebo, en 2026 los omega-3 bajaron las agujetas, la hinchazón y un marcador de daño muscular, y mejoraron la fuerza en el peor momento. Los autores avisan de fallos de método en casi todo lo publicado. [Yaghoobi E et al., 2026, Nutrients 18(9):1447, PMID 42124047]
+- Precauciones: Si tomas anticoagulantes o te van a operar, consúltalo: a dosis altas puede aumentar el sangrado. Puede repetir a pescado; tomado con comida se nota menos. Si eres alérgico al pescado, busca omega-3 de algas.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Sports Research, Triple Strength Omega-3 Fish Oil (Estados Unidos): lleva 1.040 mg de omega-3 por cápsula, de abadejo de Alaska; toma 2 a 3 cápsulas para llegar a la dosis estudiada; bote 90 cápsulas; precio 31,63 $ (90 cápsulas). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
+`,
     },
   },
   en: {
@@ -927,6 +1005,7 @@ COMPENDIUM INDEX (full detail only for the problem being read)
 - Testosterone (https://marcalvear.github.io/mi-web/en/biohacking/testosterona/): Tongkat ali [preliminary; 200 to 400 mg a day of standardised extract]; Fenugreek [preliminary; 500 to 600 mg a day of extract]; Ashwagandha [moderate; 250 to 600 mg a day of root extract]; Vitamin D [preliminary; Between 800 and 2,000 IU (20 to 50 µg) a day. If you're deficient, your doctor sets the dose with a blood test]
 - Cycle and menopause (https://marcalvear.github.io/mi-web/en/biohacking/ciclo-menopausia/): Chasteberry (Vitex) [moderate; 20 to 40 mg a day of standardised extract, like those studied (Ze 440 or BNO 1095)]; Calcium [moderate; 1,200 mg a day of calcium carbonate, counting what's in your diet]; Myo-inositol [moderate; 2 to 4 g a day; sometimes with D-chiro-inositol in a 40-to-1 ratio]; Soy isoflavones [preliminary; 50 to 100 mg of isoflavones a day]
 - Tiredness (https://marcalvear.github.io/mi-web/en/biohacking/menos-cansancio/): Iron [moderate; About 60 to 80 mg of elemental iron, only if ferritin is low and with your doctor monitoring]; Vitamin B12 [moderate; If you're vegan, about 250 µg a day or 2,000 µg a week; if you're deficient, your doctor sets the dose]; Coenzyme Q10 [moderate; 100 to 300 mg a day; ubiquinol is absorbed somewhat better]; Rhodiola [preliminary; 200 to 600 mg a day of standardised extract]
+- Heart and cholesterol (https://marcalvear.github.io/mi-web/en/biohacking/corazon-colesterol/): Plant sterols [strong; 1.5 to 3 g a day; the effect stops growing at around 3 g]; Psyllium (ispaghula husk) [moderate; About 10 g a day, in 2 or 3 doses]; Red yeast rice [moderate; In the trials, about 10 mg of monacolin K a day; in the EU, since 2022, supplements can't go above 3 mg]; Omega-3 (EPA and DHA) [preliminary; 2 to 3 g a day of EPA plus DHA]
 `,
     problems: {
       "digestiones-pesadas": `PROBLEM: HEAVY DIGESTION (https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/)
@@ -1509,6 +1588,63 @@ SHEET: Rhodiola (Adaptogenic herb) · https://marcalvear.github.io/mi-web/en/bio
 - Cautions: It can cause jitters or insomnia if taken late. If you have bipolar disorder or take antidepressants, check first. In pregnancy and breastfeeding, better not to take it.
 - Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - NOW Foods, Rhodiola 500 mg (United States): contains 500 mg of extract with 3% rosavins and 1% salidroside; dose 1 capsule; bottle 60 capsules; price $36.99. https://www.nowfoods.com/products/supplements/rhodiola-500-mg-veg-capsules
+`,
+      "corazon-colesterol": `PROBLEM: HEART AND CHOLESTEROL (https://marcalvear.github.io/mi-web/en/biohacking/corazon-colesterol/)
+- A blood test with high LDL and no symptoms at all is very common from your 30s on. Before any capsule come diet, exercise and not smoking, and if the risk is high, statins, which have far more studies behind them than anything here.
+- What's going on in the body: Cholesterol goes on a journey. Some comes from food and is absorbed in the gut; most of it is made by the liver. From there it travels in the blood inside particles called LDL, and when there's too much, it seeps into artery walls and builds up plaque without you noticing, until one day it blocks one. The diagram alongside follows that journey: each supplement acts at a different point. European guidelines accept them as a help, never instead of a drug when one is needed.
+- Combining them: Plant sterols and psyllium can be combined, because they work differently in the gut, and they add to diet or to a statin. Red yeast rice isn't combined with a statin: it's the same thing. Omega-3 lowers triglycerides, but for the heart the big trials with 1 g a day found no fewer heart attacks; only a purified EPA drug, at 4 g a day, lowered them in people with high triglycerides.
+- See a doctor before trying a supplement if you also: chest pain or tightness, especially on exertion; you get breathless, dizzy, or your heart races or skips; your LDL is above 190 mg/dl or there are early heart attacks in your family; you take a statin and your muscles ache or your urine is dark.
+- Source: Mach F et al., 2020, Eur Heart J 41(1):111-188, PMID 31504418
+- Source: Abdelhamid AS et al., 2020, Cochrane Database Syst Rev (3):CD003177, PMID 32114706
+- Source: Manson JE et al., 2019, N Engl J Med 380(1):23-32, PMID 30415637
+- Source: Bhatt DL et al., 2019, N Engl J Med 380(1):11-22, PMID 30415628
+
+SHEET: Plant sterols (Plant fats) · https://marcalvear.github.io/mi-web/en/biohacking/corazon-colesterol/#fitoesteroles
+- What it is: They're the plant version of cholesterol. Taken with food, they take cholesterol's place in the gut, less of it is absorbed and LDL goes down.
+- Evidence: Strong (Several large trials, or a meta-analysis, that agree). Why this level: More than 120 trials say the same thing: with about 2 g a day, LDL cholesterol drops by 8 to 10%. What there isn't is a trial showing that this prevents heart attacks.
+- How it works: They look so much like cholesterol that they take its place in the little fat droplets the gut uses to absorb it. The cholesterol that doesn't fit passes on and leaves with the stool. The liver makes up for it by producing a bit more, which is why the effect levels off at around 10% even if you take more than 3 g.
+- Dose studied: 1.5 to 3 g a day; the effect stops growing at around 3 g. When: With your main meal, every day: with no cholesterol on the plate, there's nothing to block.
+- What the studies found:
+  - In 124 studies, taking 0.6 to 3.3 g a day lowered LDL by 6 to 12%: more with higher doses, up to about 3 g. [Ras RT et al., 2014, Br J Nutr 112(2):214-219, PMID 24780090]
+  - The European Atherosclerosis Society consensus concludes that 2 g a day lowers LDL by 8 to 10%, and suggests them for people with high cholesterol who don't need drugs, or as an add-on to them. [Gylling H et al., 2014, Atherosclerosis 232(2):346-360, PMID 24468148]
+- Cautions: If you have sitosterolaemia, a rare genetic disease, don't take them. They can slightly lower beta-carotene in the blood: eat colourful fruit and vegetables. They don't replace a statin if you've been prescribed one; they can be added to it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Danacol, Danacol Fresa x6 (Spain): contains 1.6 g of plant sterols per bottle; dose One bottle a day with a meal, the studied dose; pack 6 bottles of 100 g; price Not on its website: sold in supermarkets. https://danacol.es/producto/fresa-x6/
+
+SHEET: Psyllium (ispaghula husk) (Soluble fibre) · https://marcalvear.github.io/mi-web/en/biohacking/corazon-colesterol/#psyllium
+- What it is: It's the husk of a seed that turns into a gel with water. Taken daily, it lowers LDL cholesterol by around 7%, and it also helps you go to the toilet.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: 28 trials with almost 2,000 people come out in favour, but the effect varies quite a lot from one to another, so the quality of the evidence is moderate.
+- How it works: In the gut it forms a gel that traps bile acids, which the liver makes from cholesterol, and carries them out with the stool. To replace them, the liver uses up cholesterol from the blood, and that's how LDL goes down.
+- Dose studied: About 10 g a day, in 2 or 3 doses. When: Before meals, with a large glass of water.
+- What the studies found:
+  - In 28 trials with 1,924 people, about 10 g a day lowered LDL by 0.33 mmol/L (about 13 mg/dl) and also apoB, another risk marker. [Jovanovski E et al., 2018, Am J Clin Nutr 108(5):922-932, PMID 30239559]
+  - On top of a low-fat diet, 10.2 g a day lowered LDL by 7% more than placebo, without changing HDL or triglycerides. [Anderson JW et al., 2000, Am J Clin Nutr 71(2):472-479, PMID 10648260]
+- Cautions: Always take it with plenty of water: without water it can get stuck in the throat or the gut. Keep it 2 hours apart from medicines: it can slow their absorption. At first it causes wind; start with a little and build up slowly.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Psyllium Husk Powder (United States): contains Powdered psyllium husk: 7 g of fibre per tablespoon (9 g); dose One tablespoon a day in a large glass of water, close to the studied dose; tub 340 g; price $15.99. https://www.nowfoods.com/products/supplements/psyllium-husk-powder
+
+SHEET: Red yeast rice (Rice fermented with a fungus) · https://marcalvear.github.io/mi-web/en/biohacking/corazon-colesterol/#levadura-roja-arroz
+- What it is: It's rice fermented with a fungus that makes monacolin K, the same molecule as lovastatin, a cholesterol drug. That's why it works, and why it should be treated like a medicine.
+- Evidence: Moderate (At least one placebo-controlled trial in favour). Why this level: It really does lower LDL, and a trial with almost 5,000 people who'd already had a heart attack cut new ones. But that's because it works like a statin, with the same risks, and every product contains a different amount.
+- How it works: Monacolin K blocks the enzyme that makes cholesterol in the liver (HMG-CoA reductase), just like a statin. With less of its own cholesterol, the liver pulls more LDL out of the blood.
+- Dose studied: In the trials, about 10 mg of monacolin K a day; in the EU, since 2022, supplements can't go above 3 mg. When: With dinner, which is when the liver makes the most cholesterol.
+- What the studies found:
+  - In 13 trials with 804 people, it lowered LDL by 0.87 mmol/L (about 34 mg/dl) compared with placebo, with no serious side effects. [Li Y et al., 2014, PLoS One 9(6):e98611, PMID 24897342]
+  - In almost 5,000 people who'd already had a heart attack, 4.5 years of one specific extract (Xuezhikang) cut new heart attacks and heart deaths from 10.4% to 5.7%. It was in China, with that extract. [Lu Z et al., 2008, Am J Cardiol 101(12):1689-1693, PMID 18549841]
+  - A safety review of the trials found no more serious side effects than with placebo. [Fogacci F et al., 2019, Pharmacol Res 143:1-16, PMID 30844537]
+- Cautions: If you already take a statin, don't add it: it would be taking the same thing twice. It can cause the same side effects as a statin, like muscle pain or liver problems. If you notice muscle pain or weakness, stop it and tell your doctor. Don't take it in pregnancy, or with grapefruit juice or drugs that raise lovastatin levels in the blood. Some products contained citrinin, a toxin from the fungus itself: if you take it, the bottle should say it's citrinin-free.
+
+SHEET: Omega-3 (EPA and DHA) (Fish fatty acids) · https://marcalvear.github.io/mi-web/en/biohacking/recuperarse-antes/#omega-3
+- What it is: They're the fats in oily fish. Taken daily for weeks, they slightly lower soreness and inflammation after effort that damages the muscle.
+- Evidence: Preliminary (Small studies or indirect results). Why this level: Meta-analyses come out in favour for soreness, but one says the effect is so small it's not noticeable, and the most recent warns of method flaws in almost all trials.
+- How it works: EPA and DHA build into cell membranes and change the inflammation signals cells release when damaged. For that to happen they have to build up, which takes weeks: they don't work taken only on training day.
+- Dose studied: 2 to 3 g a day of EPA plus DHA. When: With a meal that has fat, every day.
+- What the studies found:
+  - In 12 trials, omega-3 lowered soreness after eccentric exercise, but by less than a person can notice, and didn't improve strength. The quality of evidence is low. [Lv ZT et al., 2020, Biomed Res Int 2020:8062017, PMID 32382573]
+  - With 9 placebo-controlled trials, in 2026 omega-3 lowered soreness, swelling and a muscle damage marker, and improved strength at the worst point. The authors warn of method flaws in almost everything published. [Yaghoobi E et al., 2026, Nutrients 18(9):1447, PMID 42124047]
+- Cautions: If you take blood thinners or are having surgery, check first: at high doses it can increase bleeding. It can repeat on you with a fishy taste; taken with food it's less noticeable. If you're allergic to fish, look for algae-based omega-3.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Sports Research, Triple Strength Omega-3 Fish Oil (United States): contains 1,040 mg of omega-3 per softgel, from Alaska pollock; dose 2 to 3 softgels to reach the studied dose; bottle 90 softgels; price $31.63 (90 softgels). https://www.sportsresearch.com/products/omega-3-fish-oil-alaskaomegar-1250mg
 `,
     },
   },
