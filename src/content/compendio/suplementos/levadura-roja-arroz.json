@@ -1,0 +1,103 @@
+{
+  "nombre": {
+    "es": "Levadura roja de arroz",
+    "en": "Red yeast rice"
+  },
+  "tipo": {
+    "es": "Arroz fermentado con un hongo",
+    "en": "Rice fermented with a fungus"
+  },
+  "evidencia": "moderada",
+  "porQue": {
+    "es": "Baja el LDL de verdad, y un ensayo con casi 5.000 personas que ya habían tenido un infarto redujo los nuevos. Pero es porque funciona como una estatina, con sus mismos riesgos, y cada producto lleva una cantidad distinta.",
+    "en": "It really does lower LDL, and a trial with almost 5,000 people who'd already had a heart attack cut new ones. But that's because it works like a statin, with the same risks, and every product contains a different amount."
+  },
+  "zona": "higado",
+  "resumen": {
+    "es": "Es arroz fermentado con un hongo que fabrica monacolina K, la misma molécula que la lovastatina, un fármaco para el colesterol. Por eso funciona, y por eso hay que tratarla como un medicamento.",
+    "en": "It's rice fermented with a fungus that makes monacolin K, the same molecule as lovastatin, a cholesterol drug. That's why it works, and why it should be treated like a medicine."
+  },
+  "mecanismo": {
+    "es": "La monacolina K frena en el hígado la enzima que fabrica el colesterol (la HMG-CoA reductasa), igual que una estatina. Con menos colesterol propio, el hígado saca más LDL de la sangre.",
+    "en": "Monacolin K blocks the enzyme that makes cholesterol in the liver (HMG-CoA reductase), just like a statin. With less of its own cholesterol, the liver pulls more LDL out of the blood."
+  },
+  "dosis": {
+    "es": "En los ensayos, unos 10 mg de monacolina K al día; en la UE, desde 2022, los suplementos no pueden pasar de 3 mg",
+    "en": "In the trials, about 10 mg of monacolin K a day; in the EU, since 2022, supplements can't go above 3 mg"
+  },
+  "cuando": {
+    "es": "Con la cena, que es cuando el hígado fabrica más colesterol",
+    "en": "With dinner, which is when the liver makes the most cholesterol"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 13 ensayos con 804 personas, bajó el LDL 0,87 mmol/L (unos 34 mg/dl) frente al placebo, sin efectos graves.",
+        "en": "In 13 trials with 804 people, it lowered LDL by 0.87 mmol/L (about 34 mg/dl) compared with placebo, with no serious side effects."
+      },
+      "fuente": "24897342"
+    },
+    {
+      "texto": {
+        "es": "En casi 5.000 personas que ya habían tenido un infarto, 4,5 años de un extracto concreto (Xuezhikang) bajaron los nuevos infartos y las muertes por el corazón del 10,4 % al 5,7 %. Fue en China, con ese extracto.",
+        "en": "In almost 5,000 people who'd already had a heart attack, 4.5 years of one specific extract (Xuezhikang) cut new heart attacks and heart deaths from 10.4% to 5.7%. It was in China, with that extract."
+      },
+      "fuente": "18549841"
+    },
+    {
+      "texto": {
+        "es": "Una revisión de seguridad de los ensayos no encontró más efectos adversos graves que con el placebo.",
+        "en": "A safety review of the trials found no more serious side effects than with placebo."
+      },
+      "fuente": "30844537"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si ya tomas una estatina, no la sumes: sería tomar dos veces lo mismo.",
+      "en": "If you already take a statin, don't add it: it would be taking the same thing twice."
+    },
+    {
+      "es": "Puede dar los mismos efectos que una estatina, como dolor muscular o problemas de hígado. Si notas dolor o debilidad en los músculos, déjala y avisa a tu médico.",
+      "en": "It can cause the same side effects as a statin, like muscle pain or liver problems. If you notice muscle pain or weakness, stop it and tell your doctor."
+    },
+    {
+      "es": "No la tomes en el embarazo, ni con zumo de pomelo o fármacos que suben la lovastatina en sangre.",
+      "en": "Don't take it in pregnancy, or with grapefruit juice or drugs that raise lovastatin levels in the blood."
+    },
+    {
+      "es": "Algunos productos llevaban citrinina, una toxina del propio hongo: si la tomas, que el bote diga que no la lleva.",
+      "en": "Some products contained citrinin, a toxin from the fungus itself: if you take it, the bottle should say it's citrinin-free."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Li Y, Jiang L, Jia Z, et al.",
+      "anio": 2014,
+      "titulo": "A meta-analysis of red yeast rice: an effective and relatively safe alternative approach for dyslipidemia",
+      "revista": "PLoS One 9(6):e98611",
+      "pmid": "24897342",
+      "doi": "10.1371/journal.pone.0098611"
+    },
+    {
+      "autores": "Lu Z, Kou W, Du B, et al.",
+      "anio": 2008,
+      "titulo": "Effect of Xuezhikang, an extract from red yeast Chinese rice, on coronary events in a Chinese population with previous myocardial infarction",
+      "revista": "Am J Cardiol 101(12):1689-1693",
+      "pmid": "18549841",
+      "doi": "10.1016/j.amjcard.2008.02.056"
+    },
+    {
+      "autores": "Fogacci F, Banach M, Mikhailidis DP, et al.",
+      "anio": 2019,
+      "titulo": "Safety of red yeast rice supplementation: a systematic review and meta-analysis of randomized controlled trials",
+      "revista": "Pharmacol Res 143:1-16",
+      "pmid": "30844537",
+      "doi": "10.1016/j.phrs.2019.02.028"
+    }
+  ],
+  "sinProducto": {
+    "es": "Sin producto a propósito: en la UE, desde 2022, la levadura roja no puede llevar más de 3 mg de monacolina al día, muy por debajo de lo estudiado, y por encima de eso ya es un fármaco. Si tienes el colesterol alto, mejor hablar de una estatina con tu médico.",
+    "en": "No product on purpose: in the EU, since 2022, red yeast rice can't contain more than 3 mg of monacolin a day, far below what was studied, and above that it's a drug. If your cholesterol is high, it's better to talk to your doctor about a statin."
+  }
+}

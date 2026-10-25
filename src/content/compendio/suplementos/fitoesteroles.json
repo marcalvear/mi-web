@@ -1,0 +1,133 @@
+{
+  "nombre": {
+    "es": "Fitoesteroles (esteroles vegetales)",
+    "en": "Plant sterols"
+  },
+  "tipo": {
+    "es": "Grasas de las plantas",
+    "en": "Plant fats"
+  },
+  "evidencia": "fuerte",
+  "porQue": {
+    "es": "Más de 120 ensayos dicen lo mismo: con unos 2 g al día el colesterol LDL baja entre un 8 y un 10 %. Lo que no hay es un ensayo que demuestre que eso evite infartos.",
+    "en": "More than 120 trials say the same thing: with about 2 g a day, LDL cholesterol drops by 8 to 10%. What there isn't is a trial showing that this prevents heart attacks."
+  },
+  "zona": "intestino",
+  "resumen": {
+    "es": "Son el «colesterol» de las plantas. Tomados con la comida, le quitan el sitio al colesterol en el intestino, se absorbe menos y baja el LDL.",
+    "en": "They're the plant version of cholesterol. Taken with food, they take cholesterol's place in the gut, less of it is absorbed and LDL goes down."
+  },
+  "mecanismo": {
+    "es": "Se parecen tanto al colesterol que ocupan su sitio en las bolitas de grasa con las que el intestino lo absorbe. El colesterol que no cabe sigue de largo y sale con las heces. El hígado compensa fabricando un poco más, y por eso el efecto se queda en torno al 10 % aunque tomes más de 3 g.",
+    "en": "They look so much like cholesterol that they take its place in the little fat droplets the gut uses to absorb it. The cholesterol that doesn't fit passes on and leaves with the stool. The liver makes up for it by producing a bit more, which is why the effect levels off at around 10% even if you take more than 3 g."
+  },
+  "dosis": {
+    "es": "De 1,5 a 3 g al día; el efecto deja de crecer hacia los 3 g",
+    "en": "1.5 to 3 g a day; the effect stops growing at around 3 g"
+  },
+  "cuando": {
+    "es": "Con la comida principal, todos los días: sin colesterol en el plato no tienen nada que bloquear",
+    "en": "With your main meal, every day: with no cholesterol on the plate, there's nothing to block"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 124 estudios, tomar entre 0,6 y 3,3 g al día bajó el LDL entre un 6 y un 12 %: más cuanto más dosis, hasta unos 3 g.",
+        "en": "In 124 studies, taking 0.6 to 3.3 g a day lowered LDL by 6 to 12%: more with higher doses, up to about 3 g."
+      },
+      "fuente": "24780090"
+    },
+    {
+      "texto": {
+        "es": "El consenso de la Sociedad Europea de Aterosclerosis concluye que con 2 g al día el LDL baja entre un 8 y un 10 %, y los propone para quien tiene el colesterol alto sin necesitar fármacos, o como añadido a ellos.",
+        "en": "The European Atherosclerosis Society consensus concludes that 2 g a day lowers LDL by 8 to 10%, and suggests them for people with high cholesterol who don't need drugs, or as an add-on to them."
+      },
+      "fuente": "24468148"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Si tienes sitosterolemia, una enfermedad genética rara, no los tomes.",
+      "en": "If you have sitosterolaemia, a rare genetic disease, don't take them."
+    },
+    {
+      "es": "Pueden bajar un poco el betacaroteno en sangre: come fruta y verdura de colores.",
+      "en": "They can slightly lower beta-carotene in the blood: eat colourful fruit and vegetables."
+    },
+    {
+      "es": "No sustituyen a una estatina si te la han recetado; se pueden sumar.",
+      "en": "They don't replace a statin if you've been prescribed one; they can be added to it."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Ras RT, Geleijnse JM, Trautwein EA",
+      "anio": 2014,
+      "titulo": "LDL-cholesterol-lowering effect of plant sterols and stanols across different dose ranges: a meta-analysis of randomised controlled studies",
+      "revista": "Br J Nutr 112(2):214-219",
+      "pmid": "24780090",
+      "doi": "10.1017/S0007114514000750"
+    },
+    {
+      "autores": "Gylling H, Plat J, Turley S, et al.",
+      "anio": 2014,
+      "titulo": "Plant sterols and plant stanols in the management of dyslipidaemia and prevention of cardiovascular disease",
+      "revista": "Atherosclerosis 232(2):346-360",
+      "pmid": "24468148",
+      "doi": "10.1016/j.atherosclerosis.2013.11.043"
+    }
+  ],
+  "productos": [
+    {
+      "id": "danacol-fresa-x6",
+      "marca": "Danacol",
+      "nombre": "Danacol Fresa x6",
+      "foto": "danacol-fresa.webp",
+      "alt": {
+        "es": "Pack de seis botellitas de Danacol de fresa.",
+        "en": "Pack of six strawberry Danacol bottles."
+      },
+      "url": "https://danacol.es/producto/fresa-x6/",
+      "pais": {
+        "es": "España",
+        "en": "Spain"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "1,6 g de esteroles vegetales por botellita",
+            "en": "1.6 g of plant sterols per bottle"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "Una botellita al día con la comida, la dosis estudiada",
+            "en": "One bottle a day with a meal, the studied dose"
+          }
+        },
+        {
+          "k": {
+            "es": "Pack",
+            "en": "Pack"
+          },
+          "v": {
+            "es": "6 botellitas de 100 g",
+            "en": "6 bottles of 100 g"
+          }
+        }
+      ],
+      "precio": {
+        "es": "Su web no lo da: se vende en supermercados",
+        "en": "Not on its website: sold in supermarkets"
+      }
+    }
+  ]
+}
