@@ -17,8 +17,10 @@ interface Props {
   text: CompendioText;
   /** Si el problema tiene esquema, la ficha lleva el botón para verla en él */
   hasMap?: boolean;
+  /** Zona del esquema en este problema, si el problema la cambia (campo «zonas») */
+  zone?: string;
 }
-const { entry, n, lang, text, hasMap = false } = Astro.props;
+const { entry, n, lang, text, hasMap = false, zone } = Astro.props;
 const s = entry.data;
 const c = text.card;
 const code = `S-${String(n).padStart(2, "0")}`;
@@ -27,7 +29,7 @@ const refN = Object.fromEntries(s.fuentes.map((f, i) => [f.pmid, i + 1]));
 const refId = (pmid: string) => `${entry.id}-ref-${pmid}`;
 ---
 
-<li class="sheet" id={entry.id} data-sheet={entry.id} data-evidence={s.evidencia} data-zone={s.zona}>
+<li class="sheet" id={entry.id} data-sheet={entry.id} data-evidence={s.evidencia} data-zone={zone ?? s.zona}>
   <article aria-labelledby={`${entry.id}-name`}>
     <header class="head">
       <div class="top">

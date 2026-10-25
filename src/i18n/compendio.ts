@@ -108,6 +108,15 @@ export const compendio = {
       battery: "tu energía",
       zones: { hierro: "Hierro bajo", b12: "B12 baja", mitocondria: "Energía celular", estres: "Estrés" },
     },
+    oxidation: {
+      title: "Dónde actúa cada suplemento contra el desgaste",
+      hint: "La mitocondria suelta radicales libres que desgastan la vista, la piel y los huesos. Pulsa un suplemento para ver dónde actúa.",
+      desc: "Una mitocondria, la central de energía de la célula, suelta radicales libres: moléculas a las que les falta un electrón y lo roban de lo que tocan. Tres flechas van hacia la vista, la piel y los huesos. En la mitocondria están las defensas de la propia célula: la NAC y la vitamina C. En el ojo, la luteína y la zeaxantina. En la piel, la astaxantina, el licopeno y el colágeno. En el hueso, la vitamina K.",
+      mito: "Mitocondria",
+      radicals: "Radicales libres",
+      electron: "(les falta un electrón)",
+      zones: { celula: "Defensas de la célula", ojo: "Vista", piel: "Piel", hueso: "Huesos" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -258,6 +267,15 @@ export const compendio = {
       desc: "A battery with three cells, one for each cause of tiredness a supplement can fix: low iron, with iron; low vitamin B12, with B12; and cell energy, with coenzyme Q10. On the right, a lightning bolt for stress, with rhodiola.",
       battery: "your energy",
       zones: { hierro: "Low iron", b12: "Low B12", mitocondria: "Cell energy", estres: "Stress" },
+    },
+    oxidation: {
+      title: "Where each supplement works against wear and tear",
+      hint: "The mitochondrion releases free radicals that wear down your eyes, skin and bones. Tap a supplement to see where it works.",
+      desc: "A mitochondrion, the cell's power plant, releases free radicals: molecules missing an electron that steal one from whatever they touch. Three arrows point to the eyes, the skin and the bones. In the mitochondrion are the cell's own defences: NAC and vitamin C. In the eye, lutein and zeaxanthin. In the skin, astaxanthin, lycopene and collagen. In the bone, vitamin K.",
+      mito: "Mitochondrion",
+      radicals: "Free radicals",
+      electron: "(missing an electron)",
+      zones: { celula: "Cell defences", ojo: "Eyesight", piel: "Skin", hueso: "Bones" },
     },
     card: {
       id: "Sheet",
