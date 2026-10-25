@@ -22,9 +22,9 @@ const c = home[lang];
 <Base lang={lang} fullTitle={c.meta.title} description={c.meta.description}>
   <Hero content={c.hero} />
   <div class="wrap">
-    <About content={c.about} />
+    <About lang={lang} content={c.about} />
     <Work lang={lang} content={c.work} />
-    <Vivencias content={c.vivencias} />
+    <Vivencias lang={lang} content={c.vivencias} />
     <Likes lang={lang} content={c.likes} />
     <Contact content={c.contact}>
       <ContactForm lang={lang} />

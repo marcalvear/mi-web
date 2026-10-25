@@ -11,6 +11,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import MarcIA from "../components/chat/MarcIA.astro";
 import CommandPalette from "../components/CommandPalette.astro";
+import Visor from "../components/Visor.astro";
 import { useTranslations, type Lang } from "../i18n/ui";
 
 interface Props {
@@ -92,5 +93,6 @@ const ogImage = new URL(`${base}og/${lang}.png`, Astro.site);
     <SiteFooter lang={lang} />
     <MarcIA lang={lang} mode={chat} />
     <CommandPalette lang={lang} path={path} />
+    <Visor lang={lang} />
   </body>
 </html>

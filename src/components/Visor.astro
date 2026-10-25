@@ -1,0 +1,186 @@
+---
+// Visor de fotos, como la Vista Rápida de macOS: la foto pulsada crece desde
+// su sitio hasta el centro y el fondo se oscurece. Va una vez en Base y lo
+// abren los botones de Ampliable.astro ([data-full]). Si el botón está dentro
+// de un [data-visor-origen], la animación sale de ese elemento (la ficha
+// entera en Mis vivencias).
+import { visor } from "../i18n/visor";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const t = visor[Astro.props.lang];
+---
+
+<dialog class="visor" aria-label={t.title} data-visor>
+  <figure data-visor-ficha>
+    <img data-visor-img alt="" />
+    <figcaption data-visor-pie></figcaption>
+  </figure>
+  <button type="button" class="cerrar" aria-label={t.close} data-visor-cerrar>
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="2" fill="none"></path>
+    </svg>
+  </button>
+</dialog>
+
+<script>
+  // La ficha grande sale desde la miniatura pulsada (FLIP) y vuelve a ella al
+  // cerrar. Con «reducir movimiento» se abre y se cierra sin más.
+  const visor = document.querySelector<HTMLDialogElement>("[data-visor]");
+  if (visor && document.querySelector("[data-full]")) init(visor);
+
+  function init(visor: HTMLDialogElement) {
+    const ficha = visor.querySelector<HTMLElement>("[data-visor-ficha]")!;
+    const img = visor.querySelector<HTMLImageElement>("[data-visor-img]")!;
+    const pie = visor.querySelector<HTMLElement>("[data-visor-pie]")!;
+    const cerrar = visor.querySelector<HTMLButtonElement>("[data-visor-cerrar]")!;
+    const quieto = matchMedia("(prefers-reduced-motion: reduce)");
+    let boton: HTMLButtonElement | null = null;
+    let origen: HTMLElement | null = null;
+
+    // Transformación que coloca la ficha grande encima de la miniatura
+    const desde = (el: HTMLElement) => {
+      const a = el.getBoundingClientRect();
+      const b = ficha.getBoundingClientRect();
+      const dx = a.left + a.width / 2 - (b.left + b.width / 2);
+      const dy = a.top + a.height / 2 - (b.top + b.height / 2);
+      return `translate(${dx}px, ${dy}px) scale(${a.width / b.width})`;
+    };
+
+    document.querySelectorAll<HTMLButtonElement>("[data-full]").forEach((b) => {
+      b.addEventListener("click", () => {
+        boton = b;
+        origen = b.closest<HTMLElement>("[data-visor-origen]") ?? b;
+        const d = b.dataset;
+        img.src = d.full!;
+        img.width = Number(d.w);
+        img.height = Number(d.h);
+        img.alt = d.alt ?? "";
+        pie.textContent = d.caption ?? "";
+        pie.hidden = !d.caption;
+        visor.showModal();
+        if (!quieto.matches) {
+          ficha.animate([{ transform: desde(origen), opacity: 0.5 }, { transform: "none", opacity: 1 }], {
+            duration: 340,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+          });
+        }
+      });
+    });
+
+    let cerrando = false;
+    const cerrarVisor = () => {
+      if (!visor.open || cerrando) return;
+      if (!origen || quieto.matches) return visor.close();
+      cerrando = true;
+      visor.classList.add("saliendo");
+      ficha
+        .animate([{ transform: "none", opacity: 1 }, { transform: desde(origen), opacity: 0 }], {
+          duration: 220,
+          easing: "cubic-bezier(0.4, 0, 1, 1)",
+        })
+        .finished.finally(() => {
+          visor.classList.remove("saliendo");
+          visor.close();
+          cerrando = false;
+        });
+    };
+
+    cerrar.addEventListener("click", cerrarVisor);
+    // Pulsar fuera de la foto (en el fondo oscuro) también cierra
+    visor.addEventListener("click", (e) => {
+      if (e.target === visor) cerrarVisor();
+    });
+    // Al cerrar, el foco vuelve a la foto que se abrió
+    visor.addEventListener("close", () => boton?.focus({ preventScroll: true }));
+    visor.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      cerrarVisor();
+    });
+  }
+</script>
+
+<style>
+  .visor {
+    margin: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    max-width: none;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .visor::backdrop {
+    background: rgb(8 10 14 / 0.6);
+    backdrop-filter: blur(3px);
+    animation: oscurecer var(--mid) var(--ease-out);
+    transition: opacity var(--fast) ease-in;
+  }
+
+  .visor.saliendo::backdrop {
+    opacity: 0;
+  }
+
+  @keyframes oscurecer {
+    from {
+      opacity: 0;
+    }
+  }
+
+  figure {
+    display: grid;
+    gap: var(--space-1);
+    padding: var(--space-1);
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 70px -20px rgb(0 0 0 / 0.65);
+  }
+
+  /* La foto entera, sin recortar: cabe en el 80 % del alto y deja sitio
+     a los lados para el botón de cerrar */
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 78vw;
+    max-height: 80vh;
+    max-height: 80dvh;
+  }
+
+  @media (min-width: 40rem) {
+    img {
+      max-width: 88vw;
+    }
+  }
+
+  /* El pie se ajusta al ancho de la foto, sin ensancharla */
+  figcaption {
+    inline-size: 0;
+    min-inline-size: 100%;
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+
+  .cerrar {
+    position: absolute;
+    inset-block-start: -14px;
+    inset-inline-end: -14px;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1.5px solid var(--paper);
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+  }
+
+  :global(html:has(.visor[open])) {
+    overflow: hidden;
+  }
+</style>
