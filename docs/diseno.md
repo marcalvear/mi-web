@@ -24,6 +24,8 @@ El muestrario con todas las piezas está en [`/sistema/`](https://marcalvear.git
 | **Logo**: la M como flujo de cinco nodos | Una M hecha de nodos conectados, como los flujos de IA que monto. El nodo rojo del centro es la IA, el punto donde el trabajo aburrido cambia de manos. Es SVG propio y hereda el color del tema |
 | **Diagramas SVG animados** | Los cables se dibujan al entrar en pantalla y un punto rojo recorre el flujo como un dato. Explican cómo funcionan las cosas (contacto, chatbot) en vez de decorar |
 | **Esquemas a mano** en el compendio (rough.js) | Cada problema tiene un dibujo estilo pizarra (aparato digestivo, reloj del sueño, curva del cortisol…). Se pintan al compilar, sin JavaScript en la página, y parecen apuntes, no gráficos de informe |
+| **Mis vivencias** como un collage de fichas | Las fotos personales van pegadas con cinta y un giro leve, como en una libreta. Al pasar el ratón la ficha se endereza y se levanta: invita a pulsarla sin necesidad de texto |
+| **Visor de fotos** como la Vista Rápida de macOS | Al pulsar, la foto aparece grande en el centro y el fondo se oscurece. Todas las fotos se abren con la misma animación, se cierra con Esc o pulsando fuera y el foco vuelve a la foto. Es un solo componente (`Visor.astro`) para toda la web |
 | **Modo oscuro**: la libreta de noche | Papel grafito, tinta crema y el rojo más claro para mantener el contraste. Sigue al sistema y se puede fijar a mano |
 
 ## Paleta
