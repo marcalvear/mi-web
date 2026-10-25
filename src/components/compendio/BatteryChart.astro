@@ -41,6 +41,12 @@ const cellDrawn = Object.entries(cells).map(([zone, [x0, x1]], i) => {
 // Un rayo a la derecha: el estrés que vacía la pila
 const bolt = draw("M352 50 L332 112 L350 112 L336 176 L374 96 L354 96 L370 50 Z", 20);
 
+const cellLabels: [keyof typeof text.zones, number][] = [
+  ["hierro", 76],
+  ["b12", 166],
+  ["mitocondria", 252],
+];
+
 const groups: SketchGroup[] = [
   { outline: [...shell.outline, ...cap.outline], hachure: [], details: [] },
   ...cellDrawn,
@@ -64,9 +70,18 @@ const placed = markers.map((m) => {
 
 <SketchMap viewBox="0 0 400 250" idPrefix="pila" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
   <g class="names" font-size="11">
-    <text x="76" y="200" text-anchor="middle">{text.zones.hierro}</text>
-    <text x="166" y="200" text-anchor="middle">{text.zones.b12}</text>
-    <text x="252" y="200" text-anchor="middle">{text.zones.mitocondria}</text>
+    {
+      /* En dos líneas: en una, «B12 baja» y «Energía celular» se juntaban */
+      cellLabels.map(([zone, x]) => {
+        const [first, ...rest] = text.zones[zone].split(" ");
+        return (
+          <text x={x} y="196" text-anchor="middle">
+            <tspan x={x}>{first}</tspan>
+            <tspan x={x} dy="12">{rest.join(" ")}</tspan>
+          </text>
+        );
+      })
+    }
     <text x="352" y="236" text-anchor="middle">{text.zones.estres}</text>
     <text x="162" y="44" text-anchor="middle">{text.battery}</text>
   </g>

@@ -80,10 +80,14 @@ const placed = markers.map((m) => {
   if (m.zone === "menopausia") return { ...m, x: 352, y: 290 + (k - (total - 1) / 2) * 28 };
   return { ...m, x: C + (k - (total - 1) / 2) * 28, y: CY + 8 };
 });
-const labels = [1, 8, 15, 22].map((d) => ({ d, xy: at(d, R1 + 24) }));
+// Los días de los lados, más lejos: a la misma distancia, la marca pisaba el número
+const labels = [1, 8, 15, 22].map((d) => ({ d, xy: at(d, d === 8 || d === 22 ? R1 + 36 : R1 + 24) }));
 const [px, py] = at(3.2, (R0 + R1) / 2);
-// La etiqueta de la fase lútea, arriba a la izquierda, fuera del anillo
-const [lx, ly] = at(25.2, R1 + 22);
+// La etiqueta de la fase lútea, arriba a la izquierda y por encima del anillo,
+// con una raya que señala su tramo; la de la ovulación, dentro del suyo
+const [lx, ly] = [80, 30];
+const [tx, ty] = at(25.2, R1);
+const [vx, vy] = at(12.4, (R0 + R1) / 2);
 ---
 
 <SketchMap viewBox="0 0 400 344" idPrefix="ciclo" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
@@ -96,9 +100,10 @@ const [lx, ly] = at(25.2, R1 + 22);
       ))
     }
     <text x={px} y={py + 4} text-anchor="middle">{text.period}</text>
-    <text x={ox + 14} y={oy - 12}>{text.ovulation}</text>
+    <text x={vx} y={vy + 4} text-anchor="middle">{text.ovulation}</text>
     <text x={C} y={CY - 20} text-anchor="middle">{text.zones.ciclo}</text>
     <text x={lx} y={ly} text-anchor="middle">{text.zones.lutea}</text>
+    <line x1={lx + 6} y1={ly + 6} x2={tx - 2} y2={ty - 8} />
     <text x="352" y="246" text-anchor="middle">{text.zones.menopausia}</text>
   </g>
 </SketchMap>
