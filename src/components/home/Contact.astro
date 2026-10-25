@@ -12,27 +12,38 @@ const { content } = Astro.props;
 ---
 
 <Entry id="contacto" number={4} kicker={content.kicker} title={content.title}>
-  <p class="lead">{content.lead}</p>
-  <ul class="channels" role="list">
-    {
-      content.channels.map((c) => (
-        <li>
-          <a href={c.href} target="_blank" rel="me noopener">
-            <span class="name">{c.name}</span>
-            <span class="label handle">{c.handle}</span>
-            <svg class="arrow" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
-              <path d="M2 18 17 3M6 2.5h11.5V14" fill="none" stroke="currentColor" stroke-width="1.8" />
-            </svg>
-            <NewTab />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-  <slot />
+  <div class="contact">
+    <div class="info">
+      <p class="lead">{content.lead}</p>
+      <ul class="channels" role="list">
+        {
+          content.channels.map((c) => (
+            <li>
+              <a href={c.href} target="_blank" rel="me noopener">
+                <span class="name">{c.name}</span>
+                <span class="label handle">{c.handle}</span>
+                <svg class="arrow" width="20" height="20" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M2 18 17 3M6 2.5h11.5V14" fill="none" stroke="currentColor" stroke-width="1.8" />
+                </svg>
+                <NewTab />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <div class="form">
+      <slot />
+    </div>
+  </div>
 </Entry>
 
 <style>
+  .contact {
+    display: grid;
+    gap: var(--space-4) var(--space-5);
+  }
+
   .lead {
     max-width: 34ch;
     font-size: var(--step-2);
@@ -90,6 +101,14 @@ const { content } = Astro.props;
     .channels a:hover .arrow {
       transform: translate(4px, -4px);
       color: var(--accent);
+    }
+  }
+
+  /* Canales a la izquierda y formulario a la derecha: sin medio ancho vacío */
+  @media (min-width: 60rem) {
+    .contact {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
     }
   }
 
