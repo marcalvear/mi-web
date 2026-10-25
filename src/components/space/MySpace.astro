@@ -60,7 +60,7 @@ const catalog = Object.fromEntries([
     <header class="intro">
       <p class="label">{c.kicker}</p>
       <h1 data-title>{c.title}</h1>
-      <p class="lead">{c.lead}</p>
+      <p class="lead" data-lead>{c.lead}</p>
     </header>
 
     <noscript><p>{c.noscript}</p></noscript>
@@ -87,7 +87,7 @@ const catalog = Object.fromEntries([
         </p>
         </section>
 
-        <section class="thread" aria-labelledby={id("thread")}>
+        <section class="thread" aria-labelledby={id("thread")} data-thread>
           <header class="thread-head">
             <h2 id={id("thread")}>{c.thread.title}</h2>
             <p class="label" data-summary></p>
@@ -145,7 +145,10 @@ const catalog = Object.fromEntries([
             <dd data-since></dd>
           </div>
         </dl>
-        <p class="admin" data-admin hidden>{c.profile.admin} <a href={adminPanel}>{c.profile.panel}</a></p>
+        <div class="admin" data-admin hidden>
+          <p>{c.profile.admin}</p>
+          <Button href={adminPanel}>{c.profile.panel}</Button>
+        </div>
         <Button variant="ghost" arrow={false} data-signout>{c.profile.signOut}</Button>
       </aside>
     </div>
@@ -320,9 +323,16 @@ const catalog = Object.fromEntries([
       }
 
       showName(profile.data.name);
-      $("[data-email]").textContent = profile.data.email;
+      // El email puede cortar justo después de la @, no en cualquier letra
+      const [local, domain] = profile.data.email.split("@");
+      $("[data-email]").replaceChildren(...(domain ? [`${local}@`, document.createElement("wbr"), domain] : [local]));
       $("[data-since]").textContent = day.format(new Date(profile.data.created_at));
-      $("[data-admin]").hidden = profile.data.role !== "admin";
+      // El administrador no se escribe a sí mismo: sin conversación y con el
+      // panel a un clic. Sus fichas guardadas sí se quedan aquí
+      const isAdmin = profile.data.role === "admin";
+      $("[data-admin]").hidden = !isAdmin;
+      $("[data-thread]").hidden = isAdmin;
+      if (isAdmin) $("[data-lead]").textContent = t.adminLead;
 
       messages = thread.data;
       // Si falla, el espacio se ve igual, con la lista de favoritos vacía
@@ -708,6 +718,14 @@ const catalog = Object.fromEntries([
   }
 
   .admin {
+    display: grid;
+    gap: var(--space-2);
+    justify-items: start;
+    padding-block-start: var(--space-2);
+    border-top: 1px dashed var(--rule);
+  }
+
+  .admin p {
     color: var(--ink-soft);
     font-size: var(--step--1);
     font-style: italic;
