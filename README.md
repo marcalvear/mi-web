@@ -11,20 +11,23 @@ Tercera versión, con estética de **cuaderno de laboratorio**: papel
 cuadriculado, Newsreader y JetBrains Mono, rotulador rojo y diagramas SVG que
 se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema.
 
-- **Portada**: quién soy, lo que he hecho, lo que me gusta y contacto.
+- **Portada**: quién soy, lo que he hecho, **Mis vivencias** (un collage con mis
+  fotos de deporte, viajes y conciertos), lo que me gusta y contacto.
 - **Caso de estudio** de Sonrisa Imperial, contado como un informe de laboratorio.
 - **Me gusta**, en tres páginas a las que se entra desde las tarjetas de la
   portada:
-  - **Videojuegos**: Zelda, Bloodborne y Pokémon, con arte oficial y una
-    Pokédex con modelos 3D.
+  - **Videojuegos**: Zelda, Bloodborne y Pokémon, con arte oficial, una galería
+    de capturas y una Pokédex con modelos 3D.
   - **Anime y manga**: Naruto y JoJo maquetados como páginas de manga, con un
     mazo de 200 frases traducidas.
   - **Biohacking**: mi radar de aparatos.
-- **Compendio de biohacking**: 10 problemas (dormir, estrés, defensas…), cada
-  uno en su página con un esquema dibujado a mano, y 38 suplementos con su nivel
-  de evidencia, la dosis estudiada, las precauciones y cada estudio de PubMed
-  enlazado. Las fichas se guardan con una estrella en Mi espacio, y dentro
-  Marc IA hace de «boticario».
+- **Compendio de biohacking**: 11 problemas (dormir, estrés, colesterol…), cada
+  uno en su página con un esquema interactivo dibujado a mano, y 41 fichas con
+  su nivel de evidencia, la dosis estudiada, las precauciones, los productos que
+  miraría y 83 estudios de PubMed enlazados. Las fichas se guardan con una
+  estrella en Mi espacio, y dentro Marc IA hace de «boticario».
+- **Visor de fotos**: las fotos de la portada y de Me gusta se abren en grande,
+  como la Vista Rápida de macOS.
 - **Formulario de contacto** conectado a n8n: captcha, crea la cuenta de quien
   escribe, clasifica el mensaje con IA y responde por correo.
 - **Mi espacio**: cada persona ve su conversación conmigo, entrando sin
@@ -65,7 +68,7 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
 ├── astro.config.mjs        base /mi-web/ e idiomas (es, en)
 ├── src/
 │   ├── pages/              una ruta por fichero; en/ para el inglés
-│   ├── layouts/Base.astro  plantilla común: cabecera, pie, chat y paleta
+│   ├── layouts/Base.astro  plantilla común: cabecera, pie, chat, paleta y visor de fotos
 │   ├── components/         home/, case/, likes/, compendio/, auth/, space/, panel/, chat/…
 │   ├── content/            el compendio: problemas y suplementos en JSON
 │   ├── i18n/               todos los textos en los dos idiomas
@@ -82,7 +85,7 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
     ├── adr/                decisiones de arquitectura
     ├── diseno.md           el sistema de diseño y sus contrastes
     ├── lighthouse.md       mediciones de cada página
-    ├── prompts/            las órdenes que le di a la IA, bloque a bloque
+    ├── prompts/            las órdenes que le di a la IA, con un índice (README.md)
     └── video/              script para regenerar la demo de Sonrisa Imperial
 ```
 
@@ -123,15 +126,20 @@ node scripts/descargar-frases.mjs   # vuelve a descargar las frases de Animechan
 ## Calidad
 
 Lighthouse en móvil, en todas las páginas: ver [docs/lighthouse.md](docs/lighthouse.md).
+En la entrega final, todas las páginas medidas sacan 95 o más en rendimiento y
+100 en accesibilidad y buenas prácticas, y 100 en SEO salvo Mi espacio y el
+panel, que llevan `noindex` a propósito por ser privadas.
 Accesibilidad AA (contrastes en [docs/diseno.md](docs/diseno.md)), navegable con
 teclado y con `prefers-reduced-motion`.
 
 ## Cómo se ha trabajado
 
 Cada bloque tiene su issue, su rama desde `main` (durante la v3, desde `v3`) y su pull request, con commits
-pequeños en español. Las órdenes que le di a la IA están en
-[docs/prompts/](docs/prompts/). La issue que lo agrupa todo es la
-[#21](https://github.com/marcalvear/mi-web/issues/21).
+pequeños en español: en la entrega, 62 pull requests fusionados y 52 issues
+cerradas. Las órdenes que le di a la IA están en [docs/prompts/](docs/prompts/),
+con un [índice por fases](docs/prompts/README.md). La issue que agrupa la v3 es
+la [#21](https://github.com/marcalvear/mi-web/issues/21) y la del compendio, la
+[#63](https://github.com/marcalvear/mi-web/issues/63).
 
 ## Decisiones de arquitectura
 
@@ -151,3 +159,4 @@ Cada versión tiene su etiqueta y su release en GitHub:
 - [`v1`](https://github.com/marcalvear/mi-web/releases/tag/v1): primera versión, una página con estética Cyberpunk 2077.
 - [`v2`](https://github.com/marcalvear/mi-web/releases/tag/v2): rediseño espacial inspirado en Super Mario Galaxy, con Web Components sin build ([#19](https://github.com/marcalvear/mi-web/pull/19)).
 - [`v3`](https://github.com/marcalvear/mi-web/releases/tag/v3): cuaderno de laboratorio con Astro, dos idiomas, usuarios, Mi espacio, panel de administrador, chatbot con IA y paleta ⌘K ([#21](https://github.com/marcalvear/mi-web/issues/21), [#51](https://github.com/marcalvear/mi-web/pull/51)).
+- [`v3.1`](https://github.com/marcalvear/mi-web/releases/tag/v3.1): entrega final. Me gusta en tres páginas, compendio de biohacking con 11 problemas y Boticario IA, Mis vivencias y visor de fotos ([#63](https://github.com/marcalvear/mi-web/issues/63), [#115](https://github.com/marcalvear/mi-web/issues/115)).
