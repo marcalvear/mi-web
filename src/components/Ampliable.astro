@@ -39,6 +39,14 @@ const { src, alt, caption = "", lang, fill = false } = Astro.props;
     color: inherit;
     font: inherit;
     cursor: zoom-in;
+    /* Sin esto, un clic rápido seleccionaba la foto y ::selection la teñía
+       del rojo del rotulador */
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .ampliable :global(img) {
+    -webkit-user-drag: none;
   }
 
   .fill {
