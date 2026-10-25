@@ -218,6 +218,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
               alt: "Kakashi con la máscara de Anbu delante de una luna llena.",
               caption: "Kakashi en Anbu, 2013",
             },
+            {
+              file: "naruto-2",
+              alt: "Naruto y Sasuke, cada uno en un extremo del Valle del Fin, con el título «Last Battle» entre los dos.",
+              caption: "La batalla final, 2016",
+            },
+            {
+              file: "naruto-5",
+              alt: "Naruto, Sasuke y Sakura delante de los Hokage.",
+              caption: "Verano, 2014",
+            },
           ],
         },
         {
@@ -427,6 +437,16 @@ export const hobbies: Record<Lang, HobbiesText> = {
               file: "naruto-4",
               alt: "Kakashi in his Anbu mask in front of a full moon.",
               caption: "Kakashi in the Anbu, 2013",
+            },
+            {
+              file: "naruto-2",
+              alt: "Naruto and Sasuke at each end of the Valley of the End, with the title “Last Battle” between them.",
+              caption: "The final battle, 2016",
+            },
+            {
+              file: "naruto-5",
+              alt: "Naruto, Sasuke and Sakura in front of the Hokage.",
+              caption: "Summer, 2014",
             },
           ],
         },
