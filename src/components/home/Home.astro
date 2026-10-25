@@ -5,6 +5,7 @@ import Base from "../../layouts/Base.astro";
 import Hero from "./Hero.astro";
 import About from "./About.astro";
 import Work from "./Work.astro";
+import Vivencias from "./Vivencias.astro";
 import Likes from "./Likes.astro";
 import Contact from "./Contact.astro";
 import ContactForm from "./ContactForm.astro";
@@ -23,6 +24,7 @@ const c = home[lang];
   <div class="wrap">
     <About content={c.about} />
     <Work lang={lang} content={c.work} />
+    <Vivencias content={c.vivencias} />
     <Likes lang={lang} content={c.likes} />
     <Contact content={c.contact}>
       <ContactForm lang={lang} />

@@ -1,0 +1,108 @@
+---
+// Mis vivencias: fotos personales en tres subapartados (deportes, viajes y
+// conciertos), pegadas como un collage. Van entre la bitácora de «Lo que he
+// hecho» y «Me gusta». Las fotos ya están en WebP y sin metadatos.
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import Entry from "../Entry.astro";
+import type { HomeContent } from "../../i18n/home";
+
+interface Props {
+  content: HomeContent["vivencias"];
+}
+const { content } = Astro.props;
+
+const fotos = import.meta.glob<{ default: ImageMetadata }>("../../assets/img/vivencias/*.webp", {
+  eager: true,
+});
+const foto = (nombre: string) => fotos[`../../assets/img/vivencias/${nombre}.webp`].default;
+---
+
+<Entry id="vivencias" number={3} kicker={content.kicker} title={content.title}>
+  {
+    content.groups.map((grupo, gi) => (
+      <section class="grupo" aria-labelledby={`vivencias-${gi}`}>
+        <h3 id={`vivencias-${gi}`}>{grupo.title}</h3>
+        <ul class="collage" role="list">
+          {grupo.photos.map((p, i) => (
+            <li class="snap" style={`--tilt: ${i % 2 ? 0.9 : -1.2}deg`}>
+              <figure>
+                <Picture
+                  src={foto(p.image)}
+                  alt={p.alt}
+                  formats={["avif", "webp"]}
+                  widths={[400, 800]}
+                  sizes="(min-width: 64rem) 14rem, (min-width: 40rem) 30vw, 45vw"
+                  loading="lazy"
+                />
+                <figcaption>{p.caption}</figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+</Entry>
+
+<style>
+  .grupo + .grupo {
+    margin-block-start: var(--space-4);
+  }
+
+  h3 {
+    margin-block-end: var(--space-2);
+    font-size: var(--step-1);
+  }
+
+  .collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: var(--space-3) var(--space-2);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  /* Cada foto, pegada en una ficha con un giro leve, como en la libreta */
+  .snap {
+    position: relative;
+    padding: var(--space-1);
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: 0 1px 0 var(--rule), 0 10px 24px -18px rgb(0 0 0 / 0.4);
+    rotate: var(--tilt);
+  }
+
+  .snap::before {
+    content: "";
+    position: absolute;
+    inset-block-start: -9px;
+    inset-inline-start: 50%;
+    width: 56px;
+    height: 18px;
+    translate: -50% 0;
+    rotate: 2deg;
+    background: color-mix(in srgb, var(--mark) 65%, transparent);
+    pointer-events: none;
+  }
+
+  figure {
+    margin: 0;
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .snap img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  figcaption {
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    font-style: italic;
+  }
+</style>
