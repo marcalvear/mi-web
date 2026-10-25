@@ -1,5 +1,29 @@
 # Lighthouse
 
+## Entrega final (26/10/2026, #115)
+
+Lighthouse 12 en móvil, sobre la web publicada en GitHub Pages.
+
+| Página | Rendimiento | Accesibilidad | Buenas prácticas | SEO | CLS | Peso |
+|---|---|---|---|---|---|---|
+| Inicio | 96 | 100 | 100 | 100 | 0 | 368 KB |
+| Inicio (EN) | 96 | 100 | 100 | 100 | 0 | 368 KB |
+| Sonrisa Imperial | 96 | 100 | 100 | 100 | 0 | 356 KB |
+| Videojuegos | 95 | 100 | 100 | 100 | 0 | 501 KB |
+| Anime y manga | 96 | 100 | 100 | 100 | 0 | 598 KB |
+| Biohacking (Me gusta) | 96 | 100 | 100 | 100 | 0 | 372 KB |
+| Compendio (índice) | 99 | 100 | 100 | 100 | 0 | — |
+| Dormir mejor | 96 | 100 | 100 | 100 | 0 | 408 KB |
+| Corazón y colesterol | 100 | 100 | 100 | 100 | 0,02 | — |
+| Entrar | 100 | 100 | 100 | 100 | 0 | 387 KB |
+| Mi espacio | 100 | 100 | 100 | 60\* | 0 | 389 KB |
+| Privacidad | 96 | 100 | 100 | 100 | 0 | 329 KB |
+
+\* Mi espacio y el panel llevan `noindex` a propósito: son páginas privadas de
+cada persona y no deben salir en los buscadores. Lighthouse lo cuenta como
+fallo de SEO. La 404 no se puede medir: Lighthouse no puntúa páginas que
+responden con estado 404.
+
 ## Índice y una página por problema (22/10/2026, #105)
 
 Lighthouse 12 en móvil, esta vez sobre la web publicada en GitHub Pages. El
