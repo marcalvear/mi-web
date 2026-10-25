@@ -2,13 +2,16 @@
 import { Picture } from "astro:assets";
 import Entry from "../Entry.astro";
 import Figure from "../Figure.astro";
+import Ampliable from "../Ampliable.astro";
 import photo from "../../assets/img/marc/marc.jpg";
 import type { HomeContent } from "../../i18n/home";
+import type { Lang } from "../../i18n/ui";
 
 interface Props {
+  lang: Lang;
   content: HomeContent["about"];
 }
-const { content } = Astro.props;
+const { lang, content } = Astro.props;
 ---
 
 <Entry id="sobre-mi" number={1} kicker={content.kicker} title={content.title}>
@@ -28,14 +31,16 @@ const { content } = Astro.props;
     </div>
 
     <Figure number={2} caption={content.photoCaption}>
-      <Picture
-        src={photo}
-        alt={content.photoAlt}
-        formats={["avif", "webp"]}
-        widths={[360, 720]}
-        sizes="(min-width: 60rem) 360px, 85vw"
-        loading="lazy"
-      />
+      <Ampliable src={photo} alt={content.photoAlt} caption={content.photoCaption} lang={lang}>
+        <Picture
+          src={photo}
+          alt={content.photoAlt}
+          formats={["avif", "webp"]}
+          widths={[360, 720]}
+          sizes="(min-width: 60rem) 360px, 85vw"
+          loading="lazy"
+        />
+      </Ampliable>
     </Figure>
   </div>
 </Entry>
