@@ -30,8 +30,9 @@ se dibujan solos. En español y en inglés, con tema claro, oscuro o del sistema
   como la Vista Rápida de macOS.
 - **Formulario de contacto** conectado a n8n: captcha, crea la cuenta de quien
   escribe, clasifica el mensaje con IA y responde por correo.
-- **Mi espacio**: cada persona ve su conversación conmigo, entrando sin
-  contraseña con un código por email.
+- **Mi espacio**: cada persona ve su conversación conmigo y sus fichas
+  guardadas, entrando sin contraseña con un código por email. Como
+  administrador, ahí solo veo mis fichas y el acceso al panel.
 - **Panel de administrador**: bandeja con sin leer y sin responder, respuestas
   que avisan por correo, usuarios y su actividad.
 - **Marc IA**: asistente con IA que responde con lo que dice la web. En el
@@ -135,8 +136,8 @@ teclado y con `prefers-reduced-motion`.
 ## Cómo se ha trabajado
 
 Cada bloque tiene su issue, su rama desde `main` (durante la v3, desde `v3`) y su pull request, con commits
-pequeños en español: en la entrega, 62 pull requests fusionados y 52 issues
-cerradas. Las órdenes que le di a la IA están en [docs/prompts/](docs/prompts/),
+pequeños en español: al cerrar el proyecto, 66 pull requests fusionados y 54
+issues cerradas. Las órdenes que le di a la IA están en [docs/prompts/](docs/prompts/),
 con un [índice por fases](docs/prompts/README.md). La issue que agrupa la v3 es
 la [#21](https://github.com/marcalvear/mi-web/issues/21) y la del compendio, la
 [#63](https://github.com/marcalvear/mi-web/issues/63).
@@ -160,3 +161,4 @@ Cada versión tiene su etiqueta y su release en GitHub:
 - [`v2`](https://github.com/marcalvear/mi-web/releases/tag/v2): rediseño espacial inspirado en Super Mario Galaxy, con Web Components sin build ([#19](https://github.com/marcalvear/mi-web/pull/19)).
 - [`v3`](https://github.com/marcalvear/mi-web/releases/tag/v3): cuaderno de laboratorio con Astro, dos idiomas, usuarios, Mi espacio, panel de administrador, chatbot con IA y paleta ⌘K ([#21](https://github.com/marcalvear/mi-web/issues/21), [#51](https://github.com/marcalvear/mi-web/pull/51)).
 - [`v3.1`](https://github.com/marcalvear/mi-web/releases/tag/v3.1): entrega final. Me gusta en tres páginas, compendio de biohacking con 11 problemas y Boticario IA, Mis vivencias y visor de fotos ([#63](https://github.com/marcalvear/mi-web/issues/63), [#115](https://github.com/marcalvear/mi-web/issues/115)).
+- [`v3.1.1`](https://github.com/marcalvear/mi-web/releases/tag/v3.1.1): cierre del proyecto. Mi espacio con vista propia para el administrador y tabla de usuarios del panel alineada ([#117](https://github.com/marcalvear/mi-web/pull/117), [#118](https://github.com/marcalvear/mi-web/pull/118), [#119](https://github.com/marcalvear/mi-web/issues/119)).
