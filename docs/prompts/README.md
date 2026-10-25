@@ -50,4 +50,4 @@ Cada una enlaza con su issue o su pull request.
 ## Entrega (25-26/10/2026)
 
 - [Mis vivencias, visor de fotos y repaso de los esquemas (#109-#112)](2026-10-25-portada-vivencias-y-visor.md)
-- [Entrega final: revisión completa (#115)](2026-10-26-entrega-final.md)
+- [Entrega final: revisión completa, y ajustes de Mi espacio y el panel (#115-#119)](2026-10-26-entrega-final.md)
