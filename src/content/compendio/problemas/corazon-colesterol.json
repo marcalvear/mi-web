@@ -1,0 +1,99 @@
+{
+  "orden": 11,
+  "nombre": {
+    "es": "Corazón y colesterol",
+    "en": "Heart and cholesterol"
+  },
+  "titular": {
+    "es": "¿Te han dicho que tienes el colesterol alto?",
+    "en": "Have you been told your cholesterol is high?"
+  },
+  "intro": {
+    "es": "Un análisis con el LDL alto, sin ningún síntoma, es de lo más común a partir de los 30. Antes que cualquier cápsula van la dieta, el ejercicio y no fumar, y si el riesgo es alto, las estatinas, que tienen muchos más estudios que nada de lo que hay aquí.",
+    "en": "A blood test with high LDL and no symptoms at all is very common from your 30s on. Before any capsule come diet, exercise and not smoking, and if the risk is high, statins, which have far more studies behind them than anything here."
+  },
+  "queOcurre": {
+    "es": "El colesterol hace un viaje. Una parte viene de la comida y se absorbe en el intestino; la mayor parte la fabrica el hígado. De ahí viaja por la sangre dentro de unas partículas, el LDL, y cuando sobra, se cuela en la pared de las arterias y va formando placa sin que notes nada, hasta que un día tapa una. El esquema de al lado sigue ese viaje: cada suplemento actúa en un punto distinto. Las guías europeas los aceptan como ayuda, nunca en lugar de un fármaco cuando hace falta.",
+    "en": "Cholesterol goes on a journey. Some comes from food and is absorbed in the gut; most of it is made by the liver. From there it travels in the blood inside particles called LDL, and when there's too much, it seeps into artery walls and builds up plaque without you noticing, until one day it blocks one. The diagram alongside follows that journey: each supplement acts at a different point. European guidelines accept them as a help, never instead of a drug when one is needed."
+  },
+  "fuentes": [
+    {
+      "autores": "Mach F, Baigent C, Catapano AL, et al.",
+      "anio": 2020,
+      "titulo": "2019 ESC/EAS Guidelines for the management of dyslipidaemias: lipid modification to reduce cardiovascular risk",
+      "revista": "Eur Heart J 41(1):111-188",
+      "pmid": "31504418",
+      "doi": "10.1093/eurheartj/ehz455"
+    },
+    {
+      "autores": "Abdelhamid AS, Brown TJ, Brainard JS, et al.",
+      "anio": 2020,
+      "titulo": "Omega-3 fatty acids for the primary and secondary prevention of cardiovascular disease",
+      "revista": "Cochrane Database Syst Rev (3):CD003177",
+      "pmid": "32114706",
+      "doi": "10.1002/14651858.CD003177.pub5"
+    },
+    {
+      "autores": "Manson JE, Cook NR, Lee IM, et al.",
+      "anio": 2019,
+      "titulo": "Marine n-3 fatty acids and prevention of cardiovascular disease and cancer",
+      "revista": "N Engl J Med 380(1):23-32",
+      "pmid": "30415637",
+      "doi": "10.1056/NEJMoa1811403"
+    },
+    {
+      "autores": "Bhatt DL, Steg PG, Miller M, et al.",
+      "anio": 2019,
+      "titulo": "Cardiovascular risk reduction with icosapent ethyl for hypertriglyceridemia",
+      "revista": "N Engl J Med 380(1):11-22",
+      "pmid": "30415628",
+      "doi": "10.1056/NEJMoa1812792"
+    }
+  ],
+  "combinar": {
+    "es": "Los fitoesteroles y el psyllium se pueden juntar, porque actúan de forma distinta en el intestino, y se suman a la dieta o a una estatina. La levadura roja no se junta con una estatina: es lo mismo. El omega-3 baja los triglicéridos, pero para el corazón los ensayos grandes con 1 g al día no encontraron menos infartos; solo un fármaco de EPA purificado, a 4 g al día, los bajó en gente con los triglicéridos altos.",
+    "en": "Plant sterols and psyllium can be combined, because they work differently in the gut, and they add to diet or to a statin. Red yeast rice isn't combined with a statin: it's the same thing. Omega-3 lowers triglycerides, but for the heart the big trials with 1 g a day found no fewer heart attacks; only a purified EPA drug, at 4 g a day, lowered them in people with high triglycerides."
+  },
+  "alarma": [
+    {
+      "es": "Dolor u opresión en el pecho, sobre todo al hacer esfuerzo",
+      "en": "Chest pain or tightness, especially on exertion"
+    },
+    {
+      "es": "Te falta el aire, te mareas o el corazón va muy rápido o a saltos",
+      "en": "You get breathless, dizzy, or your heart races or skips"
+    },
+    {
+      "es": "Tienes el LDL por encima de 190 mg/dl o hay infartos jóvenes en tu familia",
+      "en": "Your LDL is above 190 mg/dl or there are early heart attacks in your family"
+    },
+    {
+      "es": "Tomas una estatina y te duelen los músculos o la orina sale oscura",
+      "en": "You take a statin and your muscles ache or your urine is dark"
+    }
+  ],
+  "suplementos": [
+    "fitoesteroles",
+    "psyllium",
+    "levadura-roja-arroz",
+    "omega-3"
+  ],
+  "mapa": "arteria",
+  "zonas": {
+    "omega-3": "sangre"
+  },
+  "claves": [
+    "colesterol",
+    "ldl",
+    "triglicerid",
+    "corazon",
+    "infarto",
+    "arteria",
+    "estatina",
+    "cholesterol",
+    "triglycerid",
+    "heart",
+    "statin",
+    "artery"
+  ]
+}

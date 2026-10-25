@@ -1,0 +1,133 @@
+{
+  "nombre": {
+    "es": "Psyllium (cáscara de ispágula)",
+    "en": "Psyllium (ispaghula husk)"
+  },
+  "tipo": {
+    "es": "Fibra soluble",
+    "en": "Soluble fibre"
+  },
+  "evidencia": "moderada",
+  "porQue": {
+    "es": "28 ensayos con casi 2.000 personas salen a favor, pero el efecto varía bastante de uno a otro, así que la calidad de la prueba es moderada.",
+    "en": "28 trials with almost 2,000 people come out in favour, but the effect varies quite a lot from one to another, so the quality of the evidence is moderate."
+  },
+  "zona": "intestino",
+  "resumen": {
+    "es": "Es la cáscara de una semilla que, con agua, se convierte en un gel. Tomada a diario baja el colesterol LDL alrededor de un 7 %, y además ayuda a ir al baño.",
+    "en": "It's the husk of a seed that turns into a gel with water. Taken daily, it lowers LDL cholesterol by around 7%, and it also helps you go to the toilet."
+  },
+  "mecanismo": {
+    "es": "En el intestino forma un gel que atrapa los ácidos biliares, que el hígado fabrica con colesterol, y se los lleva con las heces. Para reponerlos, el hígado gasta colesterol de la sangre, y así baja el LDL.",
+    "en": "In the gut it forms a gel that traps bile acids, which the liver makes from cholesterol, and carries them out with the stool. To replace them, the liver uses up cholesterol from the blood, and that's how LDL goes down."
+  },
+  "dosis": {
+    "es": "Unos 10 g al día, en 2 o 3 tomas",
+    "en": "About 10 g a day, in 2 or 3 doses"
+  },
+  "cuando": {
+    "es": "Antes de las comidas, con un vaso grande de agua",
+    "en": "Before meals, with a large glass of water"
+  },
+  "hallazgos": [
+    {
+      "texto": {
+        "es": "En 28 ensayos con 1.924 personas, unos 10 g al día bajaron el LDL 0,33 mmol/L (unos 13 mg/dl) y también la apoB, otra medida del riesgo.",
+        "en": "In 28 trials with 1,924 people, about 10 g a day lowered LDL by 0.33 mmol/L (about 13 mg/dl) and also apoB, another risk marker."
+      },
+      "fuente": "30239559"
+    },
+    {
+      "texto": {
+        "es": "Sumados a una dieta baja en grasa, 10,2 g al día bajaron el LDL un 7 % más que el placebo, sin cambiar el HDL ni los triglicéridos.",
+        "en": "On top of a low-fat diet, 10.2 g a day lowered LDL by 7% more than placebo, without changing HDL or triglycerides."
+      },
+      "fuente": "10648260"
+    }
+  ],
+  "precauciones": [
+    {
+      "es": "Tómalo siempre con mucha agua: sin agua puede atascarse en la garganta o en el intestino.",
+      "en": "Always take it with plenty of water: without water it can get stuck in the throat or the gut."
+    },
+    {
+      "es": "Separa 2 horas los medicamentos: puede frenar su absorción.",
+      "en": "Keep it 2 hours apart from medicines: it can slow their absorption."
+    },
+    {
+      "es": "Al principio da gases; empieza con poco y sube poco a poco.",
+      "en": "At first it causes wind; start with a little and build up slowly."
+    }
+  ],
+  "fuentes": [
+    {
+      "autores": "Jovanovski E, Yashpal S, Komishon A, et al.",
+      "anio": 2018,
+      "titulo": "Effect of psyllium (Plantago ovata) fiber on LDL cholesterol and alternative lipid targets, non-HDL cholesterol and apolipoprotein B: a systematic review and meta-analysis of randomized controlled trials",
+      "revista": "Am J Clin Nutr 108(5):922-932",
+      "pmid": "30239559",
+      "doi": "10.1093/ajcn/nqy115"
+    },
+    {
+      "autores": "Anderson JW, Allgood LD, Lawrence A, et al.",
+      "anio": 2000,
+      "titulo": "Cholesterol-lowering effects of psyllium intake adjunctive to diet therapy in men and women with hypercholesterolemia: meta-analysis of 8 controlled trials",
+      "revista": "Am J Clin Nutr 71(2):472-479",
+      "pmid": "10648260",
+      "doi": "10.1093/ajcn/71.2.472"
+    }
+  ],
+  "productos": [
+    {
+      "id": "now-psyllium-husk-powder",
+      "marca": "NOW Foods",
+      "nombre": "Psyllium Husk Powder",
+      "foto": "now-psyllium-husk-powder.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta verde de Psyllium Husk Powder de NOW.",
+        "en": "White tub with green label of NOW Psyllium Husk Powder."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/psyllium-husk-powder",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Cáscara de psyllium en polvo: 7 g de fibra por cucharada (9 g)",
+            "en": "Powdered psyllium husk: 7 g of fibre per tablespoon (9 g)"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "Una cucharada al día en un vaso grande de agua, cerca de lo estudiado",
+            "en": "One tablespoon a day in a large glass of water, close to the studied dose"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Tub"
+          },
+          "v": {
+            "es": "340 g",
+            "en": "340 g"
+          }
+        }
+      ],
+      "precio": {
+        "es": "15,99 $",
+        "en": "$15.99"
+      }
+    }
+  ]
+}
