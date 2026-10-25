@@ -100,8 +100,15 @@ que entrarían todas.
 Se añadieron las 14 que faltaban de los juegos (4 de Zelda, 6 de Bloodborne
 y 4 de Arceus), de las mismas fuentes oficiales, en WebP, sin metadatos y como
 mucho a 1600 px. Las capturas pasan a una galería de tres columnas (dos en el
-móvil). En Anime y manga quedaron fuera 2 de Naruto y la versión vertical de
-una de JoJo; esa página es una maqueta de manga con viñetas fijas.
+móvil). Después, a petición de Marc, también las 2 de Naruto que faltaban
+(la batalla final, 2016, y verano de 2014), como una cuarta fila de dos
+viñetas altas. De JoJo solo quedó fuera la versión vertical de una que ya
+está.
+
+Todas pasan por lo mismo que el resto de fotos de la web: AVIF y WebP con
+tamaños para cada pantalla, carga diferida, texto alternativo en los dos
+idiomas, el visor (Ampliable.astro) y el efecto al pasar el ratón de su
+página.
 
 **Lección:** cuando la respuesta a una hoja de revisión no dice qué códigos,
 preguntar si es la propuesta o todas.
