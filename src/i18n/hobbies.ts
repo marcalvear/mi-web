@@ -98,6 +98,10 @@ export const hobbies: Record<Lang, HobbiesText> = {
           strip: [
             { file: "zelda-3", alt: "Link galopa por la hierba alta mientras un enemigo a caballo le persigue." },
             { file: "zelda-4", alt: "La princesa Zelda mira hacia arriba en un bosque iluminado por el sol." },
+            { file: "zelda-7", alt: "Link planea con la paravela sobre un cañón." },
+            { file: "zelda-6", alt: "Link y una guerrera con espada frente a frente en una sala roja." },
+            { file: "zelda-5", alt: "Un enorme Guardián entre chispas y fuego." },
+            { file: "zelda-2", alt: "Cartel de los Game Awards 2017: Link en lo alto de un risco mirando Hyrule." },
           ],
         },
         {
@@ -124,6 +128,12 @@ export const hobbies: Record<Lang, HobbiesText> = {
           strip: [
             { file: "bloodborne-2", alt: "Primer plano de un cazador que apunta con un trabuco en un callejón oscuro." },
             { file: "bloodborne-6", alt: "Dos cazadores frente a frente en la oscuridad; uno lleva una antorcha." },
+            { file: "bloodborne-3", alt: "Un cazador camina entre árboles retorcidos en un bosque oscuro." },
+            { file: "bloodborne-4", alt: "Un cazador con antorcha en una cripta oscura." },
+            { file: "bloodborne-5", alt: "Un cazador se enfrenta a una bestia en llamas." },
+            { file: "bloodborne-7", alt: "Cazadores luchan con sierras y hachas en una calle de Yharnam." },
+            { file: "bloodborne-8", alt: "Un cazador ante un paisaje de agujas góticas y niebla." },
+            { file: "bloodborne-9", alt: "Una criatura esquelética envuelta en rayos azules ataca a un cazador." },
           ],
         },
         {
@@ -150,6 +160,10 @@ export const hobbies: Record<Lang, HobbiesText> = {
           strip: [
             { file: "pokemon-arceus-5", alt: "Un Wyrdeer en una pradera, con montañas al fondo." },
             { file: "pokemon-arceus-6", alt: "Un Piloswine y dos Swinub en una zona nevada entre abetos." },
+            { file: "pokemon-arceus-2", alt: "Una pradera con árboles y Pokémon salvajes, con un volcán al fondo." },
+            { file: "pokemon-arceus-4", alt: "El personaje del jugador lanza una Poké Ball en una pradera." },
+            { file: "pokemon-arceus-3", alt: "El personaje del jugador camina por la calle de la aldea, entre casas de madera." },
+            { file: "pokemon-arceus-7", alt: "El personaje del jugador con otros personajes en un despacho." },
           ],
         },
       ],
@@ -295,6 +309,10 @@ export const hobbies: Record<Lang, HobbiesText> = {
           strip: [
             { file: "zelda-3", alt: "Link gallops through tall grass while an enemy on horseback chases him." },
             { file: "zelda-4", alt: "Princess Zelda looks up in a sunlit forest." },
+            { file: "zelda-7", alt: "Link glides with the paraglider over a canyon." },
+            { file: "zelda-6", alt: "Link and a sword-wielding warrior face each other in a red room." },
+            { file: "zelda-5", alt: "A huge Guardian amid sparks and fire." },
+            { file: "zelda-2", alt: "The Game Awards 2017 banner: Link on a cliff looking out over Hyrule." },
           ],
         },
         {
@@ -321,6 +339,12 @@ export const hobbies: Record<Lang, HobbiesText> = {
           strip: [
             { file: "bloodborne-2", alt: "Close-up of a hunter aiming a blunderbuss in a dark alley." },
             { file: "bloodborne-6", alt: "Two hunters face each other in the dark; one carries a torch." },
+            { file: "bloodborne-3", alt: "A hunter walks among twisted trees in a dark forest." },
+            { file: "bloodborne-4", alt: "A hunter with a torch in a dark crypt." },
+            { file: "bloodborne-5", alt: "A hunter faces a flaming beast." },
+            { file: "bloodborne-7", alt: "Hunters fight with saws and axes in a Yharnam street." },
+            { file: "bloodborne-8", alt: "A hunter before a landscape of gothic spires and mist." },
+            { file: "bloodborne-9", alt: "A skeletal creature wrapped in blue lightning attacks a hunter." },
           ],
         },
         {
@@ -347,6 +371,10 @@ export const hobbies: Record<Lang, HobbiesText> = {
           strip: [
             { file: "pokemon-arceus-5", alt: "A Wyrdeer in a meadow, with mountains in the background." },
             { file: "pokemon-arceus-6", alt: "A Piloswine and two Swinub in a snowy area among fir trees." },
+            { file: "pokemon-arceus-2", alt: "A meadow with trees and wild Pokémon, with a volcano in the background." },
+            { file: "pokemon-arceus-4", alt: "The player character throws a Poké Ball in a meadow." },
+            { file: "pokemon-arceus-3", alt: "The player character walks down the village street, among wooden houses." },
+            { file: "pokemon-arceus-7", alt: "The player character with other characters in an office." },
           ],
         },
       ],

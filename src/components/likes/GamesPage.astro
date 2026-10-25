@@ -101,7 +101,7 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
                     alt={s.alt}
                     formats={["avif", "webp"]}
                     widths={[400, 800]}
-                    sizes="(min-width: 72rem) 34rem, (min-width: 40rem) 46vw, 94vw"
+                    sizes="(min-width: 72rem) 23rem, (min-width: 48rem) 31vw, 47vw"
                     loading="lazy"
                   />
                 </Ampliable>
@@ -352,9 +352,11 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     font-size: var(--step--1);
   }
 
+  /* Galería de capturas: dos columnas en el móvil y tres a partir de la
+     tableta, para que 6 u 8 capturas formen filas completas */
   .strip {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-2);
     margin: 0;
     padding: 0;
@@ -364,6 +366,12 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     overflow: hidden;
     border: 1.5px solid var(--ink);
     background: #000;
+  }
+
+  @media (min-width: 48rem) {
+    .strip {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   [data-game="bloodborne"] .strip li,
