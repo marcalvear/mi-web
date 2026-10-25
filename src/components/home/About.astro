@@ -85,6 +85,25 @@ const { lang, content } = Astro.props;
     transform: rotate(1.2deg);
   }
 
+  /* Como las fotos de Mis vivencias: al pasar el ratón se endereza, se
+     levanta y crece un poco. Con teclado, igual al enfocarla */
+  .about :global(.figure) {
+    transition:
+      transform var(--mid) var(--ease-out),
+      box-shadow var(--mid) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .about :global(.figure:hover) {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 1px 0 var(--rule), 0 22px 40px -22px rgb(0 0 0 / 0.55);
+    }
+  }
+
+  .about :global(.figure:has(:focus-visible)) {
+    transform: translateY(-6px);
+  }
+
   .about :global(img) {
     width: 100%;
     height: auto;
