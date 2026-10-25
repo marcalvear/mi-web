@@ -2,6 +2,8 @@
 // Mis vivencias: fotos personales en tres subapartados (deportes, viajes y
 // conciertos), pegadas como un collage. Van entre la bitácora de «Lo que he
 // hecho» y «Me gusta». Las fotos ya están en WebP y sin metadatos.
+// Al pulsar una foto se abre un visor como la Vista Rápida de macOS: la foto
+// crece desde su sitio hasta el centro y el fondo se oscurece.
 import { Picture } from "astro:assets";
 import type { ImageMetadata } from "astro";
 import Entry from "../Entry.astro";
@@ -24,44 +26,156 @@ const foto = (nombre: string) => fotos[`../../assets/img/vivencias/${nombre}.web
       <section class="grupo" aria-labelledby={`vivencias-${gi}`}>
         <h3 id={`vivencias-${gi}`}>{grupo.title}</h3>
         <ul class="collage" role="list">
-          {grupo.photos.map((p, i) => (
-            <li class="snap" style={`--tilt: ${i % 2 ? 0.9 : -1.2}deg`}>
-              <figure>
-                <Picture
-                  src={foto(p.image)}
-                  alt={p.alt}
-                  formats={["avif", "webp"]}
-                  widths={[400, 800]}
-                  sizes="(min-width: 64rem) 14rem, (min-width: 40rem) 30vw, 45vw"
-                  loading="lazy"
-                />
-                <figcaption>{p.caption}</figcaption>
-              </figure>
-            </li>
-          ))}
+          {grupo.photos.map((p, i) => {
+            const img = foto(p.image);
+            return (
+              <li class="snap" style={`--tilt: ${i % 2 ? 0.9 : -1.2}deg`}>
+                <figure>
+                  <button
+                    type="button"
+                    class="abrir"
+                    data-full={img.src}
+                    data-w={img.width}
+                    data-h={img.height}
+                    data-alt={p.alt}
+                    data-caption={p.caption}
+                    aria-label={`${content.zoom}: ${p.caption}`}
+                  >
+                    <Picture
+                      src={img}
+                      alt={p.alt}
+                      formats={["avif", "webp"]}
+                      widths={[400, 800]}
+                      sizes="(min-width: 64rem) 20rem, (min-width: 48rem) 30vw, 45vw"
+                      loading="lazy"
+                    />
+                  </button>
+                  <figcaption>{p.caption}</figcaption>
+                </figure>
+              </li>
+            );
+          })}
         </ul>
       </section>
     ))
   }
 </Entry>
 
+<!-- Fuera de Entry: sus reglas de espaciado le quitaban el margin: auto -->
+<dialog class="visor" aria-label={content.title} data-visor>
+  <figure data-visor-ficha>
+    <img data-visor-img alt="" />
+    <figcaption data-visor-pie></figcaption>
+  </figure>
+  <button type="button" class="cerrar" aria-label={content.close} data-visor-cerrar>
+    <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+      <path d="M3 3l10 10M13 3 3 13" stroke="currentColor" stroke-width="2" fill="none" />
+    </svg>
+  </button>
+</dialog>
+
+<script>
+  // Visor: la ficha grande sale desde la miniatura pulsada (FLIP) y vuelve a
+  // ella al cerrar. Con «reducir movimiento» se abre y se cierra sin más.
+  const visor = document.querySelector<HTMLDialogElement>("[data-visor]");
+  if (visor) init(visor);
+
+  function init(visor: HTMLDialogElement) {
+    const ficha = visor.querySelector<HTMLElement>("[data-visor-ficha]")!;
+    const img = visor.querySelector<HTMLImageElement>("[data-visor-img]")!;
+    const pie = visor.querySelector<HTMLElement>("[data-visor-pie]")!;
+    const cerrar = visor.querySelector<HTMLButtonElement>("[data-visor-cerrar]")!;
+    const quieto = matchMedia("(prefers-reduced-motion: reduce)");
+    const curva = "cubic-bezier(0.22, 1, 0.36, 1)";
+    let origen: HTMLElement | null = null;
+
+    // Transformación que coloca la ficha grande encima de la miniatura
+    const desde = (el: HTMLElement) => {
+      const a = el.getBoundingClientRect();
+      const b = ficha.getBoundingClientRect();
+      const dx = a.left + a.width / 2 - (b.left + b.width / 2);
+      const dy = a.top + a.height / 2 - (b.top + b.height / 2);
+      return `translate(${dx}px, ${dy}px) scale(${a.width / b.width})`;
+    };
+
+    document.querySelectorAll<HTMLButtonElement>("[data-full]").forEach((boton) => {
+      boton.addEventListener("click", () => {
+        origen = boton.closest<HTMLElement>(".snap");
+        const d = boton.dataset;
+        img.src = d.full!;
+        img.width = Number(d.w);
+        img.height = Number(d.h);
+        img.alt = d.alt ?? "";
+        pie.textContent = d.caption ?? "";
+        visor.showModal();
+        if (origen && !quieto.matches) {
+          ficha.animate([{ transform: desde(origen), opacity: 0.5 }, { transform: "none", opacity: 1 }], {
+            duration: 340,
+            easing: curva,
+          });
+        }
+      });
+    });
+
+    let cerrando = false;
+    const cerrarVisor = () => {
+      if (!visor.open || cerrando) return;
+      if (!origen || quieto.matches) return visor.close();
+      cerrando = true;
+      visor.classList.add("saliendo");
+      ficha
+        .animate([{ transform: "none", opacity: 1 }, { transform: desde(origen), opacity: 0 }], {
+          duration: 220,
+          easing: "cubic-bezier(0.4, 0, 1, 1)",
+        })
+        .finished.finally(() => {
+          visor.classList.remove("saliendo");
+          visor.close();
+          cerrando = false;
+        });
+    };
+
+    cerrar.addEventListener("click", cerrarVisor);
+    // Pulsar fuera de la foto (en el fondo oscuro) también cierra
+    visor.addEventListener("click", (e) => {
+      if (e.target === visor) cerrarVisor();
+    });
+    // Al cerrar, el foco vuelve a la foto que se abrió
+    visor.addEventListener("close", () => {
+      origen?.querySelector<HTMLButtonElement>(".abrir")?.focus({ preventScroll: true });
+    });
+    visor.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      cerrarVisor();
+    });
+  }
+</script>
+
 <style>
   .grupo + .grupo {
-    margin-block-start: var(--space-4);
+    margin-block-start: var(--space-5);
   }
 
   h3 {
-    margin-block-end: var(--space-2);
+    margin-block-end: var(--space-3);
     font-size: var(--step-1);
   }
 
+  /* Dos columnas en el móvil y tres grandes a partir de la tableta */
   .collage {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
-    gap: var(--space-3) var(--space-2);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4) var(--space-2);
     padding: 0;
     margin: 0;
     list-style: none;
+  }
+
+  @media (min-width: 48rem) {
+    .collage {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5) var(--space-4);
+    }
   }
 
   /* Cada foto, pegada en una ficha con un giro leve, como en la libreta */
@@ -72,19 +186,47 @@ const foto = (nombre: string) => fotos[`../../assets/img/vivencias/${nombre}.web
     border: 1px solid var(--rule);
     box-shadow: 0 1px 0 var(--rule), 0 10px 24px -18px rgb(0 0 0 / 0.4);
     rotate: var(--tilt);
+    transition:
+      rotate var(--mid) var(--ease-out),
+      translate var(--mid) var(--ease-out),
+      scale var(--mid) var(--ease-out),
+      box-shadow var(--mid) var(--ease-out);
   }
 
   .snap::before {
     content: "";
     position: absolute;
-    inset-block-start: -9px;
+    z-index: 1;
+    inset-block-start: -10px;
     inset-inline-start: 50%;
-    width: 56px;
-    height: 18px;
+    width: 72px;
+    height: 20px;
     translate: -50% 0;
     rotate: 2deg;
     background: color-mix(in srgb, var(--mark) 65%, transparent);
     pointer-events: none;
+  }
+
+  /* Al pasar el ratón la ficha se endereza, se levanta y crece un poco.
+     Con teclado, igual al enfocar la foto */
+  @media (hover: hover) and (pointer: fine) {
+    .snap:hover {
+      z-index: 2;
+      rotate: 0deg;
+      translate: 0 -6px;
+      scale: 1.04;
+      box-shadow: 0 1px 0 var(--rule), 0 22px 40px -22px rgb(0 0 0 / 0.55);
+    }
+  }
+
+  .snap:has(.abrir:focus-visible) {
+    z-index: 2;
+    rotate: 0deg;
+    translate: 0 -6px;
+  }
+
+  .snap:active {
+    scale: 0.98;
   }
 
   figure {
@@ -93,7 +235,17 @@ const foto = (nombre: string) => fotos[`../../assets/img/vivencias/${nombre}.web
     gap: var(--space-1);
   }
 
-  .snap img {
+  .abrir {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: zoom-in;
+  }
+
+  .abrir img {
+    display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 3 / 4;
@@ -104,5 +256,68 @@ const foto = (nombre: string) => fotos[`../../assets/img/vivencias/${nombre}.web
     color: var(--ink-soft);
     font-size: var(--step--1);
     font-style: italic;
+  }
+
+  /* Visor: la foto grande en su ficha, centrada, con el fondo oscurecido */
+  .visor {
+    margin: auto;
+    padding: 0;
+    border: 0;
+    background: none;
+    max-width: none;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .visor::backdrop {
+    background: rgb(8 10 14 / 0.6);
+    backdrop-filter: blur(3px);
+    animation: oscurecer var(--mid) var(--ease-out);
+    transition: opacity var(--fast) ease-in;
+  }
+
+  .visor.saliendo::backdrop {
+    opacity: 0;
+  }
+
+  @keyframes oscurecer {
+    from {
+      opacity: 0;
+    }
+  }
+
+  .visor figure {
+    padding: var(--space-1);
+    background: var(--sheet);
+    border: 1px solid var(--rule);
+    box-shadow: 0 30px 70px -20px rgb(0 0 0 / 0.65);
+  }
+
+  .visor img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: min(78vw, 40rem);
+    max-height: 80vh;
+    max-height: 80dvh;
+  }
+
+  .cerrar {
+    position: absolute;
+    inset-block-start: -14px;
+    inset-inline-end: -14px;
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1.5px solid var(--paper);
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    cursor: pointer;
+  }
+
+  :global(html:has(.visor[open])) {
+    overflow: hidden;
   }
 </style>

@@ -37,6 +37,13 @@ export interface HomeContent {
   vivencias: {
     kicker: string;
     title: string;
+    /** Etiqueta del botón de cada foto: «Ver en grande: <pie>» */
+    zoom: string;
+    /** Botón de cerrar del visor */
+    close: string;
+    /** Textos del visor: el botón de cerrar y el aviso de cada foto */
+    cerrar: string;
+    abrir: string;
     groups: {
       title: string;
       photos: { image: string; alt: string; caption: string }[];
@@ -154,6 +161,10 @@ export const home: Record<Lang, HomeContent> = {
     vivencias: {
       kicker: "Lo que vivo",
       title: "Mis vivencias",
+      zoom: "Ver en grande",
+      close: "Cerrar",
+      cerrar: "Cerrar",
+      abrir: "Ver la foto grande",
       groups: [
         {
           title: "Deportes favoritos",
@@ -312,6 +323,10 @@ export const home: Record<Lang, HomeContent> = {
     vivencias: {
       kicker: "What I live",
       title: "My experiences",
+      zoom: "View larger",
+      close: "Close",
+      cerrar: "Close",
+      abrir: "View the photo larger",
       groups: [
         {
           title: "Favorite sports",
