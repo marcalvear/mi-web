@@ -24,8 +24,8 @@ const year = new Date().getFullYear();
       <a href="https://github.com/marcalvear/mi-web" target="_blank" rel="noopener">{t("footer.code")} <span aria-hidden="true">↗</span><NewTab /></a>
       <a href={getRelativeLocaleUrl(lang, "mi-espacio/")}>{t("footer.space")}</a>
       <a href={getRelativeLocaleUrl(lang, "privacidad/")}>{t("footer.privacy")}</a>
-      <a href="#main">{t("footer.top")} ↑</a>
     </p>
+    <p class="top label"><a href="#main">{t("footer.top")} ↑</a></p>
   </div>
 </footer>
 
@@ -56,14 +56,27 @@ const year = new Date().getFullYear();
     font-style: italic;
   }
 
+  /* Centrados: los enlaces llevan relleno para el dedo y el texto de
+     «Cuaderno nº 3» no, así que con la alineación por defecto quedaba más
+     arriba que ellos */
   .meta {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: var(--space-1) var(--space-3);
   }
 
-  .meta a {
+  .meta a,
+  .top a {
     display: inline-block;
     padding-block: 0.6rem;
+  }
+
+  /* «Volver arriba» va aparte, más abajo, para no confundirlo con los
+     enlaces del resto de la web */
+  .top {
+    margin-block-start: var(--space-3);
+    padding-block-start: var(--space-2);
+    border-top: 1px dashed var(--rule);
   }
 </style>
