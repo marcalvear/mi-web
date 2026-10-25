@@ -114,8 +114,15 @@ const refId = (pmid: string) => `${entry.id}-ref-${pmid}`;
     </details>
 
     {
-      s.productos && (
-        <ProductList products={s.productos} lang={lang} text={c} id={`${entry.id}-products`} heading={c.products} />
+      (s.productos || s.sinProducto) && (
+        <ProductList
+          products={s.productos ?? []}
+          lang={lang}
+          text={c}
+          id={`${entry.id}-products`}
+          heading={c.products}
+          empty={s.sinProducto?.[lang]}
+        />
       )
     }
 

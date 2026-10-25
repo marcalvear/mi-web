@@ -50,6 +50,8 @@ const suplementos = defineCollection({
     precauciones: z.array(t).min(1),
     fuentes: z.array(fuente).min(1),
     productos: z.array(producto).optional(),
+    /** Por qué una ficha no lleva producto, cuando es a propósito */
+    sinProducto: t.optional(),
   }),
 });
 
