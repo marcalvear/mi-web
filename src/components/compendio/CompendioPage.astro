@@ -181,7 +181,9 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                         ? c.cycle.zones
                         : p.mapa === "pila"
                           ? c.battery.zones
-                          : c.map.zones;
+                          : p.mapa === "oxidacion"
+                            ? c.oxidation.zones
+                            : c.map.zones;
         // Una ficha compartida puede ir en otra zona del esquema de este problema
         const zoneOf = (s: (typeof supplements)[number]) => p.zonas?.[s.id] ?? s.data.zona;
         const markers: MapMarker[] = supplements.map((s, i) => ({
@@ -283,7 +285,7 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                 <ol class="sheets" role="list">
                   {supplements.map((s, i) =>
                     home.get(s.id)!.id === problem.id ? (
-                      <SupplementCard entry={s} n={i + 1} lang={lang} text={c} hasMap={hasMap} />
+                      <SupplementCard entry={s} n={i + 1} lang={lang} text={c} hasMap={hasMap} zone={zoneOf(s)} />
                     ) : (
                       <SharedSheet
                         entry={s}

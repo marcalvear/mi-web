@@ -99,7 +99,8 @@ const placed = markers.map((m) => {
 });
 const hours = [0, 3, 6, 9, 12, 15, 18, 21].map((h) => ({ h, xy: at(h, 186) }));
 // «Dormir», en el hueco de dentro, junto a su anillo
-const [lx, ly] = at(3, 38);
+// Más cerca del centro: a 38 tocaba el borde interior del arco
+const [lx, ly] = at(3, 26);
 ---
 
 <SketchMap viewBox="0 0 400 412" idPrefix="reloj" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
