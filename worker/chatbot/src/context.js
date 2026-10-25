@@ -359,6 +359,8 @@ FICHA: Aceite de menta y alcaravea (Aceites esenciales en cápsula gastrorresist
   - En 96 pacientes con dispepsia funcional, la presión, la pesadez y la sensación de lleno bajaron un 43 % con la combinación y un 22 % con placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
   - El dolor bajó un 40 % frente a un 22 % con placebo, y los médicos vieron mucho mejor al 67 % de los pacientes, frente al 21 % con placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
 - Precauciones: La menta puede empeorar el ardor si tienes reflujo. La cápsula gastrorresistente lo reduce, pero no lo elimina. No abras ni mastiques la cápsula: la menta se liberaría en el estómago. En el embarazo y la lactancia, solo si te lo indica tu médico.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - FDgard, FDgard (Estados Unidos): lleva Mentol de menta y aceite de alcaravea en microesferas; no es la cápsula de los ensayos, pero junta lo mismo; toma 2 cápsulas 2 veces al día; como mucho, 6 al día; caja 36 cápsulas; precio Su web no lo da: depende de la tienda. https://www.yourgard.com/products/fdgard
 
 FICHA: Extracto de hoja de alcachofa (Extracto vegetal) · https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/#alcachofa
 - Qué es: Hace que el hígado suelte más bilis, que es lo que necesitas para digerir las grasas.
@@ -370,6 +372,8 @@ FICHA: Extracto de hoja de alcachofa (Extracto vegetal) · https://marcalvear.gi
   - La calidad de vida, medida con un cuestionario de dispepsia, mejoró 41 puntos con alcachofa y 25 con placebo. [Holtmann G et al., 2003, Aliment Pharmacol Ther 18(11-12):1099-1105, PMID 14653829]
   - En 20 voluntarios, la bilis que llega al intestino subió un 151 % a la hora de tomar 1,92 g de extracto, mucho más que con placebo. [Kirchhoff R et al., 1994, Phytomedicine 1(2):107-115, PMID 23195882]
 - Precauciones: No la tomes si tienes piedras en la vesícula o las vías biliares obstruidas: más bilis puede provocar un cólico. Si tienes alergia a las margaritas, la manzanilla o la ambrosía, puedes tenerla también a la alcachofa: son de la misma familia.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Artichoke Extract 450 mg Veg Capsules (Estados Unidos): lleva 450 mg de extracto de hoja de alcachofa (5 % de cinarina); toma Para llegar a lo del ensayo (1.920 mg), unas 4 al día repartidas en las comidas; bote 90 cápsulas; precio 21,99 $. https://www.nowfoods.com/products/supplements/artichoke-extract-450-mg-veg-capsules
 
 FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/biohacking/digestiones-pesadas/#jengibre
 - Qué es: Hace que el estómago se vacíe antes. En los ensayos eso no se tradujo en menos molestias.
@@ -380,6 +384,8 @@ FICHA: Jengibre (Raíz en cápsulas) · https://marcalvear.github.io/mi-web/bioh
   - En 24 personas sanas, el estómago tardó 13 minutos en vaciarse a la mitad con jengibre y 27 con placebo. Las molestias fueron las mismas. [Wu KL et al., 2008, Eur J Gastroenterol Hepatol 20(5):436-440, PMID 18403946]
   - En 11 pacientes con dispepsia funcional, el estómago también se vació antes (12 minutos frente a 16), pero los síntomas no cambiaron. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
 - Precauciones: En dosis altas puede dar ardor de estómago. Puede sumarse al efecto de los anticoagulantes. Si los tomas, consulta antes.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Ginger Root 550 mg Veg Capsules (Estados Unidos): lleva 550 mg de raíz de jengibre en polvo por cápsula; toma 2 cápsulas una hora antes de comer (1,1 g, cerca de lo estudiado); bote 100 cápsulas; precio 11,99 $. https://www.nowfoods.com/products/supplements/ginger-root-550-mg-veg-capsules
 `,
       "envejecer-mejor": `PROBLEMA: ENVEJECER MEJOR (https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/)
 - Casi todas las cápsulas «antienvejecimiento» son antioxidantes o colágeno. Para vivir más, los ensayos grandes dicen que los antioxidantes no sirven. Para cosas concretas, como la vista, la piel, los huesos o los resfriados, algunos sí tienen estudios, y eso es lo que recoge este problema.
@@ -439,6 +445,8 @@ FICHA: NAC (N-acetilcisteína) (Aminoácido antioxidante) · https://marcalvear.
   - En 24 personas mayores, 16 semanas de GlyNAC frente a placebo subieron el glutatión, bajaron el daño oxidativo y la inflamación y mejoraron la fuerza y la velocidad al andar. Es pequeño y lo firman los creadores de la mezcla. [Kumar P et al., 2023, J Gerontol A Biol Sci Med Sci 78(1):75-89, PMID 35975308]
   - En 114 adultos mayores sanos, dos semanas de GlyNAC a tres dosis no subieron el glutatión frente a placebo, que era el objetivo principal. Solo subió en quienes empezaban con más daño oxidativo y menos glutatión. Lo firma Nestlé. [Lizzo G et al., 2022, Front Aging 3:852569, PMID 35821844]
 - Precauciones: Puede dar náuseas, ardor o gases; tomada con comida se tolera mejor. Si tomas nitroglicerina para el corazón, no la tomes sin hablar con tu médico. En España la NAC también es un medicamento para la mucosidad: no la sumes a un mucolítico que ya tomes.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, NAC 600 mg Capsules (Estados Unidos): lleva 600 mg de NAC y 25 µg de selenio por cápsula; toma 1 cápsula; los ensayos usaron bastante más, junto con glicina; bote 30 cápsulas; precio 9,99 $. https://www.nowfoods.com/products/supplements/nac-600-mg-capsules
 
 FICHA: Colágeno hidrolizado (Proteína) · https://marcalvear.github.io/mi-web/biohacking/envejecer-mejor/#colageno
 - Qué es: Es colágeno partido en trozos pequeños para que se absorba. Se toma para la piel: en muchos ensayos mejora la hidratación y la elasticidad, pero en los independientes no.
@@ -463,6 +471,8 @@ FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/e
   - Tomada a diario, acortó los resfriados un 8 % en adultos y un 14 % en niños. Empezar a tomarla cuando ya estás resfriado no mostró un efecto claro. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
   - En la revisión de 78 ensayos de antioxidantes con casi 300.000 personas, la vitamina C no alargó la vida. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
 - Precauciones: Por encima de 1 g al día puede dar diarrea, y en algunas personas, piedras en el riñón. Si tienes hemocromatosis (exceso de hierro), no la tomes en cápsula sin hablar con tu médico: sube la absorción del hierro.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Vitamin C-1000 Tablets (Estados Unidos): lleva 1 g de vitamina C, con escaramujo y bioflavonoides; toma 1 comprimido al día con una comida, el máximo estudiado; bote 100 comprimidos; precio 14,99 $. https://www.nowfoods.com/products/supplements/vitamin-c-1000-tablets
 
 Producto que junta varios suplementos de este problema (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
   - Blueprint, Advanced Antioxidants (Estados Unidos): carotenoides Luteína 10 mg, zeaxantina 2 mg, licopeno 15 mg y astaxantina 12 mg; vitamina K K1 1.500 mcg (12,5 veces la cantidad diaria), K2 MK-4 5 mg y MK-7 600 mcg; toma 1 cápsula al día con comida; bote 30 cápsulas; precio 56,49 € (30 cápsulas). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
@@ -723,6 +733,8 @@ FICHA: Vitamina C (Vitamina) · https://marcalvear.github.io/mi-web/biohacking/e
   - Tomada a diario, acortó los resfriados un 8 % en adultos y un 14 % en niños. Empezar a tomarla cuando ya estás resfriado no mostró un efecto claro. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
   - En la revisión de 78 ensayos de antioxidantes con casi 300.000 personas, la vitamina C no alargó la vida. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
 - Precauciones: Por encima de 1 g al día puede dar diarrea, y en algunas personas, piedras en el riñón. Si tienes hemocromatosis (exceso de hierro), no la tomes en cápsula sin hablar con tu médico: sube la absorción del hierro.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Vitamin C-1000 Tablets (Estados Unidos): lleva 1 g de vitamina C, con escaramujo y bioflavonoides; toma 1 comprimido al día con una comida, el máximo estudiado; bote 100 comprimidos; precio 14,99 $. https://www.nowfoods.com/products/supplements/vitamin-c-1000-tablets
 
 FICHA: Zinc en pastillas para chupar (Mineral) · https://marcalvear.github.io/mi-web/biohacking/mas-defensas/#zinc
 - Qué es: Chupadas desde el primer día, las pastillas de zinc acortan el resfriado. Tienen que ser de acetato o gluconato de zinc y deshacerse en la boca, no tragarse.
@@ -743,6 +755,8 @@ FICHA: Saúco negro (Extracto de baya) · https://marcalvear.github.io/mi-web/bi
 - Qué encontraron los estudios:
   - Juntando ensayos con 180 personas, el saúco redujo bastante los síntomas de resfriado y gripe frente a placebo, con un efecto grande. Los autores piden ensayos más grandes. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
 - Precauciones: Nunca bayas crudas ni hojas: sin procesar son tóxicas. Solo extractos preparados. Si tienes una enfermedad autoinmune o tomas inmunosupresores, consúltalo antes. En embarazo y lactancia no hay datos: mejor no tomarlo.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - Sambucol, Original Liquid 120 ml (Reino Unido): lleva Jarabe de zumo de saúco negro, la marca de los ensayos; toma 10 ml al día; como refuerzo, hasta 4 veces al día (en los ensayos, 15 ml 4 veces); frasco 120 ml; precio 6,49 £. https://sambucol.co.uk/product/sambucol-original/
 `,
       "testosterona": `PROBLEMA: TESTOSTERONA (https://marcalvear.github.io/mi-web/biohacking/testosterona/)
 - La testosterona baja con la edad, pero sobre todo con el sueño corto, la grasa abdominal, el estrés y el alcohol. Ningún suplemento la sube como un tratamiento: dormir 7-8 horas, entrenar fuerza y perder grasa hacen mucho más. Estas fichas cuentan qué sí y qué no se ha medido.
@@ -870,6 +884,8 @@ FICHA: Vitamina B12 (Vitamina) · https://marcalvear.github.io/mi-web/biohacking
 - Qué encontraron los estudios:
   - La revisión clínica del New England Journal of Medicine explica que la falta de B12 da cansancio, anemia y daño en los nervios, que es frecuente en mayores, veganos y personas que toman metformina o protectores de estómago, y que tomarla, por boca a dosis altas o pinchada, lo corrige. [Stabler SP et al., 2013, N Engl J Med 368(2):149-160, PMID 23301732]
 - Precauciones: Si tienes hormigueos en manos y pies o te falla la memoria, no te la tomes por tu cuenta: hazte un análisis antes, porque tomarla puede esconder el diagnóstico. Es muy segura: lo que sobra se elimina por la orina.
+- Productos que miraría Marc (Datos de las webs oficiales en octubre de 2026. No he probado ninguno a fondo y no gano nada si compras.):
+  - NOW Foods, Methyl B-12 1,000 mcg Lozenges (Estados Unidos): lleva 1.000 µg de vitamina B12 (metilcobalamina) por pastilla para chupar; toma Si eres vegano, 2 a la semana; si te falta, lo que diga tu médico; bote 100 pastillas; precio 12,99 $. https://www.nowfoods.com/products/supplements/methyl-b-12-1000-mcg-lozenges
 
 FICHA: Coenzima Q10 (Molécula de las mitocondrias) · https://marcalvear.github.io/mi-web/biohacking/menos-cansancio/#coenzima-q10
 - Qué es: Es una pieza de las mitocondrias, las centrales de energía de las células. El cuerpo la fabrica, pero menos con la edad o con las estatinas. En cápsula baja algo el cansancio.
@@ -943,6 +959,8 @@ SHEET: Peppermint and caraway oil (Essential oils in an enteric-coated capsule) 
   - In 96 patients with functional dyspepsia, pressure, heaviness and fullness dropped 43% with the combination and 22% with placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
   - Pain dropped 40% versus 22% with placebo, and doctors rated 67% of patients much better, versus 21% with placebo. [May B et al., 2000, Aliment Pharmacol Ther 14(12):1671-1677, PMID 11121917]
 - Cautions: Peppermint can make heartburn worse if you have reflux. The enteric coating reduces this but doesn't remove it. Don't open or chew the capsule, or the peppermint is released in the stomach. During pregnancy or breastfeeding, only if your doctor says so.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - FDgard, FDgard (United States): contains Menthol from peppermint and caraway oil in microspheres; not the capsule from the trials, but the same combination; dose 2 capsules twice a day; 6 a day at most; box 36 capsules; price Not on its website: it depends on the shop. https://www.yourgard.com/products/fdgard
 
 SHEET: Artichoke leaf extract (Plant extract) · https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/#alcachofa
 - What it is: It makes the liver release more bile, which is what you need to digest fat.
@@ -954,6 +972,8 @@ SHEET: Artichoke leaf extract (Plant extract) · https://marcalvear.github.io/mi
   - Quality of life, measured with a dyspepsia questionnaire, improved 41 points with artichoke and 25 with placebo. [Holtmann G et al., 2003, Aliment Pharmacol Ther 18(11-12):1099-1105, PMID 14653829]
   - In 20 volunteers, bile reaching the gut rose 151% an hour after 1.92 g of extract, far more than with placebo. [Kirchhoff R et al., 1994, Phytomedicine 1(2):107-115, PMID 23195882]
 - Cautions: Don't take it if you have gallstones or blocked bile ducts, because more bile can trigger an attack. If you're allergic to daisies, chamomile or ragweed, you may react to artichoke too, as they're the same plant family.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Artichoke Extract 450 mg Veg Capsules (United States): contains 450 mg of artichoke leaf extract (5% cynarin); dose To match the trial (1,920 mg), about 4 a day spread over meals; bottle 90 capsules; price $21.99. https://www.nowfoods.com/products/supplements/artichoke-extract-450-mg-veg-capsules
 
 SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/biohacking/digestiones-pesadas/#jengibre
 - What it is: It makes the stomach empty sooner. In the trials, that didn't translate into less discomfort.
@@ -964,6 +984,8 @@ SHEET: Ginger (Root, in capsules) · https://marcalvear.github.io/mi-web/en/bioh
   - In 24 healthy people, the stomach took 13 minutes to empty by half with ginger and 27 with placebo. Discomfort was the same. [Wu KL et al., 2008, Eur J Gastroenterol Hepatol 20(5):436-440, PMID 18403946]
   - In 11 patients with functional dyspepsia, the stomach also emptied sooner (12 minutes versus 16), but symptoms didn't change. [Hu ML et al., 2011, World J Gastroenterol 17(1):105-110, PMID 21218090]
 - Cautions: High doses can cause heartburn. It can add to the effect of blood thinners. If you take them, check first.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Ginger Root 550 mg Veg Capsules (United States): contains 550 mg of powdered ginger root per capsule; dose 2 capsules an hour before eating (1.1 g, close to what was studied); bottle 100 capsules; price $11.99. https://www.nowfoods.com/products/supplements/ginger-root-550-mg-veg-capsules
 `,
       "envejecer-mejor": `PROBLEM: AGEING WELL (https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/)
 - Almost every "anti-ageing" capsule is an antioxidant or collagen. For living longer, the big trials say antioxidants don't work. For specific things, like eyesight, skin, bones or colds, some do have studies, and that's what this page covers.
@@ -1023,6 +1045,8 @@ SHEET: NAC (N-acetylcysteine) (Antioxidant amino acid) · https://marcalvear.git
   - In 24 older people, 16 weeks of GlyNAC compared with placebo raised glutathione, lowered oxidative damage and inflammation and improved strength and walking speed. It's small and authored by the blend's creators. [Kumar P et al., 2023, J Gerontol A Biol Sci Med Sci 78(1):75-89, PMID 35975308]
   - In 114 healthy older adults, two weeks of GlyNAC at three doses didn't raise glutathione compared with placebo, which was the main goal. It only rose in people who started with more oxidative damage and less glutathione. It's authored by Nestlé. [Lizzo G et al., 2022, Front Aging 3:852569, PMID 35821844]
 - Cautions: It can cause nausea, heartburn or wind; taken with food it's easier to tolerate. If you take nitroglycerin for your heart, don't take it without talking to your doctor. In Spain NAC is also a mucus medicine: don't add it to a mucolytic you already take.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, NAC 600 mg Capsules (United States): contains 600 mg of NAC and 25 µg of selenium per capsule; dose 1 capsule; the trials used quite a lot more, together with glycine; bottle 30 capsules; price $9.99. https://www.nowfoods.com/products/supplements/nac-600-mg-capsules
 
 SHEET: Hydrolysed collagen (Protein) · https://marcalvear.github.io/mi-web/en/biohacking/envejecer-mejor/#colageno
 - What it is: It's collagen broken into small pieces so it can be absorbed. It's taken for the skin: in many trials it improves hydration and elasticity, but not in the independent ones.
@@ -1047,6 +1071,8 @@ SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
   - Taken daily, it shortened colds by 8% in adults and 14% in children. Starting it once you already have a cold showed no clear effect. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
   - In the review of 78 antioxidant trials with almost 300,000 people, vitamin C didn't make people live longer. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
 - Cautions: Above 1 g a day it can cause diarrhoea, and in some people, kidney stones. If you have haemochromatosis (iron overload), don't take it as a capsule without talking to your doctor: it increases iron absorption.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Vitamin C-1000 Tablets (United States): contains 1 g of vitamin C, with rose hips and bioflavonoids; dose 1 tablet a day with a meal, the most that was studied; bottle 100 tablets; price $14.99. https://www.nowfoods.com/products/supplements/vitamin-c-1000-tablets
 
 Product that combines several supplements in this problem (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
   - Blueprint, Advanced Antioxidants (United States): carotenoids Lutein 10 mg, zeaxanthin 2 mg, lycopene 15 mg and astaxanthin 12 mg; vitamin K K1 1,500 mcg (12.5 times the daily value), K2 MK-4 5 mg and MK-7 600 mcg; dose 1 capsule a day with food; bottle 30 capsules; price €56.49 (30 capsules). https://blueprint.bryanjohnson.com/en-de/products/advanced-antioxidants
@@ -1307,6 +1333,8 @@ SHEET: Vitamin C (Vitamin) · https://marcalvear.github.io/mi-web/en/biohacking/
   - Taken daily, it shortened colds by 8% in adults and 14% in children. Starting it once you already have a cold showed no clear effect. [Hemilä H et al., 2013, Cochrane Database Syst Rev (1):CD000980, PMID 23440782]
   - In the review of 78 antioxidant trials with almost 300,000 people, vitamin C didn't make people live longer. [Bjelakovic G et al., 2012, Cochrane Database Syst Rev (3):CD007176, PMID 22419320]
 - Cautions: Above 1 g a day it can cause diarrhoea, and in some people, kidney stones. If you have haemochromatosis (iron overload), don't take it as a capsule without talking to your doctor: it increases iron absorption.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Vitamin C-1000 Tablets (United States): contains 1 g of vitamin C, with rose hips and bioflavonoids; dose 1 tablet a day with a meal, the most that was studied; bottle 100 tablets; price $14.99. https://www.nowfoods.com/products/supplements/vitamin-c-1000-tablets
 
 SHEET: Zinc lozenges (Mineral) · https://marcalvear.github.io/mi-web/en/biohacking/mas-defensas/#zinc
 - What it is: Sucked from the first day, zinc lozenges shorten a cold. They have to be zinc acetate or gluconate and dissolve in the mouth, not be swallowed.
@@ -1327,6 +1355,8 @@ SHEET: Black elderberry (Berry extract) · https://marcalvear.github.io/mi-web/e
 - What the studies found:
   - Pooling trials with 180 people, elderberry substantially reduced cold and flu symptoms compared with placebo, with a large effect. The authors call for larger trials. [Hawkins J et al., 2019, Complement Ther Med 42:361-365, PMID 30670267]
 - Cautions: Never raw berries or leaves: unprocessed they're toxic. Only prepared extracts. If you have an autoimmune disease or take immunosuppressants, check first. In pregnancy and breastfeeding there's no data: better not to take it.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - Sambucol, Original Liquid 120 ml (United Kingdom): contains Black elderberry juice syrup, the brand used in the trials; dose 10 ml a day; for extra support, up to 4 times a day (15 ml 4 times in the trials); bottle 120 ml; price £6.49. https://sambucol.co.uk/product/sambucol-original/
 `,
       "testosterona": `PROBLEM: TESTOSTERONE (https://marcalvear.github.io/mi-web/en/biohacking/testosterona/)
 - Testosterone falls with age, but mostly with short sleep, belly fat, stress and alcohol. No supplement raises it like a treatment: sleeping 7–8 hours, strength training and losing fat do far more. These sheets cover what has and hasn't been measured.
@@ -1454,6 +1484,8 @@ SHEET: Vitamin B12 (Vitamin) · https://marcalvear.github.io/mi-web/en/biohackin
 - What the studies found:
   - The New England Journal of Medicine clinical review explains that low B12 causes tiredness, anaemia and nerve damage, that it's common in older people, vegans and people taking metformin or stomach protectors, and that taking it, by mouth at high doses or injected, corrects it. [Stabler SP et al., 2013, N Engl J Med 368(2):149-160, PMID 23301732]
 - Cautions: If you have tingling in your hands and feet or your memory is failing, don't self-treat: get a blood test first, because taking it can mask the diagnosis. It's very safe: what's left over goes out in the urine.
+- Products Marc would look at (Data from the official websites in October 2026. I haven't tested any of them properly and I don't earn anything if you buy.):
+  - NOW Foods, Methyl B-12 1,000 mcg Lozenges (United States): contains 1,000 µg of vitamin B12 (methylcobalamin) per lozenge; dose If you're vegan, 2 a week; if you're low, whatever your doctor says; bottle 100 lozenges; price $12.99. https://www.nowfoods.com/products/supplements/methyl-b-12-1000-mcg-lozenges
 
 SHEET: Coenzyme Q10 (Mitochondrial molecule) · https://marcalvear.github.io/mi-web/en/biohacking/menos-cansancio/#coenzima-q10
 - What it is: It's a part of the mitochondria, the cells' power stations. The body makes it, but less with age or with statins. As a capsule it lowers tiredness somewhat.
