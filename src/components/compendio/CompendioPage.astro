@@ -268,20 +268,6 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                   </dl>
                 </details>
 
-                {/* El producto que junta varios va antes que sus fichas: primero se ve qué
-                    lleva y debajo, cada ingrediente (#93) */}
-                {p.productos && (
-                  <ProductList
-                    products={p.productos}
-                    lang={lang}
-                    text={c.card}
-                    id={`${problem.id}-productos`}
-                    heading={c.bundle}
-                    level={3}
-                    fav={c.fav}
-                  />
-                )}
-
                 <ol class="sheets" role="list">
                   {supplements.map((s, i) =>
                     home.get(s.id)!.id === problem.id ? (
@@ -300,6 +286,20 @@ const mySpace = getRelativeLocaleUrl(lang, "mi-espacio/");
                     ),
                   )}
                 </ol>
+
+                {/* El producto que junta varios va después de sus fichas: primero cada
+                    ingrediente con su ciencia y debajo, la cápsula que los lleva todos */}
+                {p.productos && (
+                  <ProductList
+                    products={p.productos}
+                    lang={lang}
+                    text={c.card}
+                    id={`${problem.id}-productos`}
+                    heading={c.bundle}
+                    level={3}
+                    fav={c.fav}
+                  />
+                )}
 
                 <section class="combine" aria-labelledby={`${problem.id}-combinar`}>
                   <h3 class="label" id={`${problem.id}-combinar`}>{c.combine}</h3>
