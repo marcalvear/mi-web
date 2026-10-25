@@ -75,5 +75,58 @@
       "pmid": "35821844",
       "doi": "10.3389/fragi.2022.852569"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-nac-600",
+      "marca": "NOW Foods",
+      "nombre": "NAC 600 mg Capsules",
+      "foto": "now-nac.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de NAC 600 mg de NOW.",
+        "en": "White bottle with orange label of NOW NAC 600 mg."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/nac-600-mg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "600 mg de NAC y 25 µg de selenio por cápsula",
+            "en": "600 mg of NAC and 25 µg of selenium per capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 cápsula; los ensayos usaron bastante más, junto con glicina",
+            "en": "1 capsule; the trials used quite a lot more, together with glycine"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "30 cápsulas",
+            "en": "30 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "9,99 $",
+        "en": "$9.99"
+      }
+    }
   ]
 }

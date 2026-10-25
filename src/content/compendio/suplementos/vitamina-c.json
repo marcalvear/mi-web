@@ -79,5 +79,58 @@
       "doi": "10.1002/14651858.CD007176.pub2"
     }
   ],
-  "zona": "temporada"
+  "zona": "temporada",
+  "productos": [
+    {
+      "id": "now-vitamin-c-1000",
+      "marca": "NOW Foods",
+      "nombre": "Vitamin C-1000 Tablets",
+      "foto": "now-vitamin-c-1000.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de C-1000 de NOW.",
+        "en": "White bottle with orange label of NOW C-1000."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/vitamin-c-1000-tablets",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "1 g de vitamina C, con escaramujo y bioflavonoides",
+            "en": "1 g of vitamin C, with rose hips and bioflavonoids"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "1 comprimido al día con una comida, el máximo estudiado",
+            "en": "1 tablet a day with a meal, the most that was studied"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "100 comprimidos",
+            "en": "100 tablets"
+          }
+        }
+      ],
+      "precio": {
+        "es": "14,99 $",
+        "en": "$14.99"
+      }
+    }
+  ]
 }
