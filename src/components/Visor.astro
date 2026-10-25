@@ -1,9 +1,7 @@
 ---
-// Visor de fotos, como la Vista Rápida de macOS: la foto pulsada crece desde
-// su sitio hasta el centro y el fondo se oscurece. Va una vez en Base y lo
-// abren los botones de Ampliable.astro ([data-full]). Si el botón está dentro
-// de un [data-visor-origen], la animación sale de ese elemento (la ficha
-// entera en Mis vivencias).
+// Visor de fotos, como la Vista Rápida de macOS: la foto aparece grande en el
+// centro y el fondo se oscurece. Va una vez en Base y lo abren los botones de
+// Ampliable.astro ([data-full]).
 import { visor } from "../i18n/visor";
 import type { Lang } from "../i18n/ui";
 
@@ -26,8 +24,10 @@ const t = visor[Astro.props.lang];
 </dialog>
 
 <script>
-  // La ficha grande sale desde la miniatura pulsada (FLIP) y vuelve a ella al
-  // cerrar. Con «reducir movimiento» se abre y se cierra sin más.
+  // Todas las fotos se abren igual: la ficha aparece en el centro creciendo
+  // un poco y el fondo se oscurece. Antes salía volando desde la miniatura
+  // (FLIP), y cada foto llegaba desde un sitio distinto según dónde estuviera.
+  // Con «reducir movimiento» se abre y se cierra sin animación.
   const visor = document.querySelector<HTMLDialogElement>("[data-visor]");
   if (visor && document.querySelector("[data-full]")) init(visor);
 
@@ -38,47 +38,43 @@ const t = visor[Astro.props.lang];
     const cerrar = visor.querySelector<HTMLButtonElement>("[data-visor-cerrar]")!;
     const quieto = matchMedia("(prefers-reduced-motion: reduce)");
     let boton: HTMLButtonElement | null = null;
-    let origen: HTMLElement | null = null;
-
-    // Transformación que coloca la ficha grande encima de la miniatura
-    const desde = (el: HTMLElement) => {
-      const a = el.getBoundingClientRect();
-      const b = ficha.getBoundingClientRect();
-      const dx = a.left + a.width / 2 - (b.left + b.width / 2);
-      const dy = a.top + a.height / 2 - (b.top + b.height / 2);
-      return `translate(${dx}px, ${dy}px) scale(${a.width / b.width})`;
-    };
+    let abriendo = false;
+    let cerrando = false;
 
     document.querySelectorAll<HTMLButtonElement>("[data-full]").forEach((b) => {
-      b.addEventListener("click", () => {
+      b.addEventListener("click", async () => {
+        if (visor.open || abriendo) return;
+        abriendo = true;
         boton = b;
-        origen = b.closest<HTMLElement>("[data-visor-origen]") ?? b;
         const d = b.dataset;
-        img.src = d.full!;
         img.width = Number(d.w);
         img.height = Number(d.h);
         img.alt = d.alt ?? "";
+        img.src = d.full!;
         pie.textContent = d.caption ?? "";
         pie.hidden = !d.caption;
+        // Se espera a que la foto grande esté lista (como mucho 300 ms) para
+        // que no aparezca la ficha vacía y luego salte la imagen
+        await Promise.race([img.decode().catch(() => {}), new Promise((r) => setTimeout(r, 300))]);
         visor.showModal();
         if (!quieto.matches) {
-          ficha.animate([{ transform: desde(origen), opacity: 0.5 }, { transform: "none", opacity: 1 }], {
-            duration: 340,
+          ficha.animate([{ opacity: 0, transform: "scale(0.94)" }, { opacity: 1, transform: "none" }], {
+            duration: 260,
             easing: "cubic-bezier(0.22, 1, 0.36, 1)",
           });
         }
+        abriendo = false;
       });
     });
 
-    let cerrando = false;
     const cerrarVisor = () => {
       if (!visor.open || cerrando) return;
-      if (!origen || quieto.matches) return visor.close();
+      if (quieto.matches) return visor.close();
       cerrando = true;
       visor.classList.add("saliendo");
       ficha
-        .animate([{ transform: "none", opacity: 1 }, { transform: desde(origen), opacity: 0 }], {
-          duration: 220,
+        .animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "scale(0.96)" }], {
+          duration: 180,
           easing: "cubic-bezier(0.4, 0, 1, 1)",
         })
         .finished.finally(() => {
@@ -105,6 +101,7 @@ const t = visor[Astro.props.lang];
 <style>
   .visor {
     margin: auto;
+    user-select: none;
     padding: 0;
     border: 0;
     background: none;
@@ -180,7 +177,10 @@ const t = visor[Astro.props.lang];
     cursor: pointer;
   }
 
+  /* Sin scroll detrás del visor. El hueco de la barra se mantiene para que
+     la página no se mueva de lado al abrirlo */
   :global(html:has(.visor[open])) {
     overflow: hidden;
+    scrollbar-gutter: stable;
   }
 </style>
