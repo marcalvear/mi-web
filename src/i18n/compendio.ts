@@ -117,6 +117,15 @@ export const compendio = {
       electron: "(les falta un electrón)",
       zones: { celula: "Defensas de la célula", ojo: "Vista", piel: "Piel", hueso: "Huesos" },
     },
+    artery: {
+      title: "En qué punto del viaje del colesterol actúa cada suplemento",
+      hint: "El colesterol entra por el intestino, el hígado lo manda a la sangre y acaba en la arteria. Pulsa un suplemento para ver dónde actúa.",
+      desc: "Abajo a la izquierda, el intestino, por donde entra el colesterol de la comida; ahí actúan los fitoesteroles y el psyllium. Una flecha sube al hígado, que fabrica la mayor parte del colesterol; ahí actúa la levadura roja de arroz. Otra flecha lleva el LDL a una arteria cortada a lo largo, con partículas en la sangre y una placa en la pared; en la sangre actúa el omega-3, que baja los triglicéridos.",
+      food: ["Colesterol", "de la comida"],
+      ldl: "LDL",
+      plaque: "Placa",
+      zones: { intestino: "Intestino", higado: "Hígado", sangre: "Sangre" },
+    },
     card: {
       id: "Ficha",
       dose: "Dosis estudiada",
@@ -276,6 +285,15 @@ export const compendio = {
       radicals: "Free radicals",
       electron: "(missing an electron)",
       zones: { celula: "Cell defences", ojo: "Eyesight", piel: "Skin", hueso: "Bones" },
+    },
+    artery: {
+      title: "Where on cholesterol's journey each supplement acts",
+      hint: "Cholesterol comes in through the gut, the liver sends it into the blood and it ends up in the artery. Tap a supplement to see where it acts.",
+      desc: "Bottom left, the gut, where cholesterol from food comes in; plant sterols and psyllium act there. An arrow goes up to the liver, which makes most of the cholesterol; red yeast rice acts there. Another arrow carries LDL to an artery cut lengthwise, with particles in the blood and plaque on the wall; in the blood, omega-3 acts by lowering triglycerides.",
+      food: ["Cholesterol", "from food"],
+      ldl: "LDL",
+      plaque: "Plaque",
+      zones: { intestino: "Gut", higado: "Liver", sangre: "Blood" },
     },
     card: {
       id: "Sheet",

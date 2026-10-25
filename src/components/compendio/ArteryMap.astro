@@ -1,0 +1,96 @@
+---
+// El viaje del colesterol para «Corazón y colesterol»: una parte entra por el
+// intestino con la comida, el hígado fabrica el resto y lo manda a la sangre
+// dentro del LDL, que acaba formando placa en la pared de la arteria. Cada
+// suplemento se coloca en el punto del viaje donde actúa.
+import rough from "roughjs";
+import type { CompendioText } from "../../i18n/compendio";
+import SketchMap, { type MapMarker, type SketchGroup } from "./SketchMap.astro";
+
+interface Props {
+  markers: MapMarker[];
+  text: CompendioText["artery"];
+  thumb?: boolean;
+}
+const { markers, text, thumb = false } = Astro.props;
+
+const gen = rough.generator();
+const toPath = (set: Parameters<typeof gen.opsToPath>[0]) =>
+  gen.opsToPath(set).replace(/-?\d+\.\d+/g, (n) => String(Math.round(Number(n) * 10) / 10));
+const base = { roughness: 1.1, bowing: 1, stroke: "currentColor", strokeWidth: 1.6 };
+function draw(d: string, seed: number, fill = true, roughness = base.roughness) {
+  const outline: string[] = [];
+  const fills: string[] = [];
+  const opts = fill ? { fill: "currentColor", fillStyle: "hachure", hachureGap: 6.5, fillWeight: 0.6, hachureAngle: -41 + seed * 7 } : {};
+  for (const set of gen.path(d, { ...base, ...opts, roughness, seed }).sets) {
+    if (set.type === "fillSketch") fills.push(toPath(set));
+    else if (set.type === "path") outline.push(toPath(set));
+  }
+  return { outline, fills };
+}
+const line = (d: string, seed: number, roughness?: number) => draw(d, seed, false, roughness).outline;
+const circle = (x: number, y: number, r: number) =>
+  `M${x - r} ${y} C${x - r} ${y - r * 0.55} ${x - r * 0.55} ${y - r} ${x} ${y - r} C${x + r * 0.55} ${y - r} ${x + r} ${y - r * 0.55} ${x + r} ${y} C${x + r} ${y + r * 0.55} ${x + r * 0.55} ${y + r} ${x} ${y + r} C${x - r * 0.55} ${y + r} ${x - r} ${y + r * 0.55} ${x - r} ${y} Z`;
+
+// El hígado, arriba a la izquierda, y el intestino debajo, con sus pliegues
+const liver = draw("M36 64 C34 40 70 26 120 28 C160 30 184 40 178 54 C172 68 140 86 104 100 C80 110 52 106 42 92 C36 84 36 74 36 64 Z", 3);
+const gut = draw("M40 195 C40 168 70 160 105 162 C140 164 170 170 170 195 C170 220 140 230 105 230 C70 230 40 222 40 195 Z", 4);
+const folds = [
+  ...line("M52 186 C70 178 88 194 106 186 C124 178 142 194 160 186", 5),
+  ...line("M52 206 C70 198 88 214 106 206 C124 198 142 214 160 206", 6),
+];
+
+// La arteria, cortada a lo largo y abierta por los lados: el hueco por donde va
+// la sangre es la zona (solo sus dos paredes de contorno), y en la pared de
+// abajo crece la placa
+const lumen = draw("M240 104 C290 98 360 110 430 104 L430 176 C360 170 290 182 240 176 Z", 7);
+const walls = [...line("M240 98 C290 92 360 104 430 98", 8), ...line("M240 182 C290 188 360 176 430 182", 9)];
+const plaque = draw("M332 178 C340 150 382 148 394 176 Z", 10);
+const particles: [number, number][] = [
+  [268, 154],
+  [292, 116],
+  [352, 124],
+  [412, 154],
+];
+const ldl = particles.map(([x, y], i) => line(circle(x, y, 6), 20 + i, 0.4));
+
+// El viaje: del intestino al hígado, y del hígado a la sangre
+const arrows = [
+  ...line("M105 158 L105 116 M98 126 L105 114 L112 126", 11),
+  ...line("M172 66 C214 66 236 96 250 126 M239 121 L251 128 L254 115", 12),
+];
+
+const groups: SketchGroup[] = [
+  { zone: "higado", outline: liver.outline, hachure: liver.fills, details: [] },
+  { zone: "intestino", outline: gut.outline, hachure: gut.fills, details: folds },
+  { zone: "sangre", outline: walls, hachure: lumen.fills, details: [] },
+  { outline: [...plaque.outline, ...arrows], hachure: plaque.fills, details: ldl.flat() },
+];
+
+// En fila dentro de cada zona
+const anchors: Record<string, [number, number]> = {
+  higado: [105, 70],
+  intestino: [105, 196],
+  sangre: [306, 140],
+};
+const byZone: Record<string, number> = {};
+const placed = markers.map((m) => {
+  const k = byZone[m.zone] ?? 0;
+  byZone[m.zone] = k + 1;
+  const total = markers.filter((x) => x.zone === m.zone).length;
+  const [x, y] = anchors[m.zone] ?? [220, 240];
+  return { ...m, x: x + (k - (total - 1) / 2) * 30, y };
+});
+---
+
+<SketchMap viewBox="0 0 440 260" idPrefix="arteria" groups={groups} placed={placed} markers={markers} text={text} thumb={thumb}>
+  <g class="names" font-size="11">
+    <text x="100" y="18" text-anchor="middle">{text.zones.higado}</text>
+    <text x="105" y="250" text-anchor="middle">{text.zones.intestino}</text>
+    <text x="114" y="134">{text.food[0]}</text>
+    <text x="114" y="146">{text.food[1]}</text>
+    <text x="214" y="52" text-anchor="middle">{text.ldl}</text>
+    <text x="335" y="84" text-anchor="middle">{text.zones.sangre}</text>
+    <text x="363" y="202" text-anchor="middle">{text.plaque}</text>
+  </g>
+</SketchMap>
