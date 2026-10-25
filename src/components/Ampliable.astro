@@ -1,0 +1,56 @@
+---
+// Envuelve una foto en un botón que la abre en el visor (Visor.astro, que va
+// una vez en Base). La foto va en el slot; aquí solo van los datos de la
+// versión grande. «fill» es para las fotos que rellenan su caja en absoluto.
+import type { ImageMetadata } from "astro";
+import { visor } from "../i18n/visor";
+import type { Lang } from "../i18n/ui";
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  caption?: string;
+  lang: Lang;
+  fill?: boolean;
+}
+const { src, alt, caption = "", lang, fill = false } = Astro.props;
+---
+
+<button
+  type="button"
+  class:list={["ampliable", { fill }]}
+  data-full={src.src}
+  data-w={src.width}
+  data-h={src.height}
+  data-alt={alt}
+  data-caption={caption}
+  aria-label={`${visor[lang].zoom}: ${caption || alt}`}
+>
+  <slot />
+</button>
+
+<style>
+  .ampliable {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: zoom-in;
+    /* Sin esto, un clic rápido seleccionaba la foto y ::selection la teñía
+       del rojo del rotulador */
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .ampliable :global(img) {
+    -webkit-user-drag: none;
+  }
+
+  .fill {
+    position: absolute;
+    inset: 0;
+  }
+</style>

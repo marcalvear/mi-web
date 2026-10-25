@@ -2,13 +2,16 @@
 import { Picture } from "astro:assets";
 import Entry from "../Entry.astro";
 import Figure from "../Figure.astro";
+import Ampliable from "../Ampliable.astro";
 import photo from "../../assets/img/marc/marc.jpg";
 import type { HomeContent } from "../../i18n/home";
+import type { Lang } from "../../i18n/ui";
 
 interface Props {
+  lang: Lang;
   content: HomeContent["about"];
 }
-const { content } = Astro.props;
+const { lang, content } = Astro.props;
 ---
 
 <Entry id="sobre-mi" number={1} kicker={content.kicker} title={content.title}>
@@ -28,14 +31,16 @@ const { content } = Astro.props;
     </div>
 
     <Figure number={2} caption={content.photoCaption}>
-      <Picture
-        src={photo}
-        alt={content.photoAlt}
-        formats={["avif", "webp"]}
-        widths={[360, 720]}
-        sizes="(min-width: 60rem) 360px, 85vw"
-        loading="lazy"
-      />
+      <Ampliable src={photo} alt={content.photoAlt} caption={content.photoCaption} lang={lang}>
+        <Picture
+          src={photo}
+          alt={content.photoAlt}
+          formats={["avif", "webp"]}
+          widths={[360, 720]}
+          sizes="(min-width: 60rem) 360px, 85vw"
+          loading="lazy"
+        />
+      </Ampliable>
     </Figure>
   </div>
 </Entry>
@@ -78,6 +83,25 @@ const { content } = Astro.props;
     max-width: 24rem;
     justify-self: center;
     transform: rotate(1.2deg);
+  }
+
+  /* Como las fotos de Mis vivencias: al pasar el ratón se endereza, se
+     levanta y crece un poco. Con teclado, igual al enfocarla */
+  .about :global(.figure) {
+    transition:
+      transform var(--mid) var(--ease-out),
+      box-shadow var(--mid) var(--ease-out);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .about :global(.figure:hover) {
+      transform: translateY(-6px) scale(1.04);
+      box-shadow: 0 1px 0 var(--rule), 0 22px 40px -22px rgb(0 0 0 / 0.55);
+    }
+  }
+
+  .about :global(.figure:has(:focus-visible)) {
+    transform: translateY(-6px);
   }
 
   .about :global(img) {

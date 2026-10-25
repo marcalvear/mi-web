@@ -34,6 +34,17 @@ export interface HomeContent {
     logTitle: string;
     log: { type: string; title: string; text: string; href?: string; linkText?: string }[];
   };
+  vivencias: {
+    kicker: string;
+    title: string;
+    /** Textos del visor: el botón de cerrar y el aviso de cada foto */
+    cerrar: string;
+    abrir: string;
+    groups: {
+      title: string;
+      photos: { image: string; alt: string; caption: string }[];
+    }[];
+  };
   likes: {
     kicker: string;
     title: string;
@@ -140,6 +151,40 @@ export const home: Record<Lang, HomeContent> = {
           type: "Deporte",
           title: "Pádel",
           text: "Dos años jugando como aficionado con mis amigos.",
+        },
+      ],
+    },
+    vivencias: {
+      kicker: "Lo que vivo",
+      title: "Mis vivencias",
+      cerrar: "Cerrar",
+      abrir: "Ver la foto grande",
+      groups: [
+        {
+          title: "Deportes favoritos",
+          photos: [
+            { image: "senderismo-atardecer", alt: "Pinos al atardecer sobre un valle", caption: "Senderismo al atardecer" },
+            { image: "padel-anochecer", alt: "Pistas de pádel al anochecer, con las luces encendidas", caption: "Pádel al anochecer" },
+            { image: "padel-pabellon", alt: "Pistas de pádel con palmeras y el pabellón detrás", caption: "Pádel con el pabellón detrás" },
+          ],
+        },
+        {
+          title: "Viajes",
+          photos: [
+            { image: "viaje-milan-duomo", alt: "La catedral de Milán con gente en la plaza", caption: "La catedral de Milán" },
+            { image: "viaje-milan-galeria", alt: "Galería de cristal y hierro en Milán, con gente", caption: "La Galería Vittorio Emanuele II" },
+            { image: "viaje-lago", alt: "Lago con montañas al fondo y una lancha", caption: "Un lago con montañas al fondo" },
+            { image: "viaje-malta", alt: "Moto de agua con una costa rocosa al fondo", caption: "Malta, desde el mar" },
+            { image: "viaje-valencia-pergola", alt: "Camino bajo una pérgola cubierta de plantas", caption: "Una pérgola en Valencia" },
+          ],
+        },
+        {
+          title: "Conciertos",
+          photos: [
+            { image: "weeknd-estadio", alt: "Estadio lleno de público durante un concierto de The Weeknd", caption: "The Weeknd en directo" },
+            { image: "weeknd-pantalla", alt: "Cantante de traje oscuro proyectado en una pantalla gigante", caption: "The Weeknd, en la pantalla" },
+            { image: "travis-circus-maximus", alt: "Público con las luces encendidas bajo el cartel Circus Maximus", caption: "Travis Scott, Circus Maximus" },
+          ],
         },
       ],
     },
@@ -266,6 +311,40 @@ export const home: Record<Lang, HomeContent> = {
           type: "Sport",
           title: "Padel",
           text: "Two years playing for fun with my friends.",
+        },
+      ],
+    },
+    vivencias: {
+      kicker: "What I live",
+      title: "My experiences",
+      cerrar: "Close",
+      abrir: "View the photo larger",
+      groups: [
+        {
+          title: "Favorite sports",
+          photos: [
+            { image: "senderismo-atardecer", alt: "Pine trees at sunset over a valley", caption: "Hiking at sunset" },
+            { image: "padel-anochecer", alt: "Padel courts at dusk, with the lights on", caption: "Padel at dusk" },
+            { image: "padel-pabellon", alt: "Padel courts with palm trees and the sports hall behind", caption: "Padel with the sports hall behind" },
+          ],
+        },
+        {
+          title: "Trips",
+          photos: [
+            { image: "viaje-milan-duomo", alt: "Milan cathedral with people in the square", caption: "Milan Cathedral" },
+            { image: "viaje-milan-galeria", alt: "Glass and iron gallery in Milan, with people", caption: "Galleria Vittorio Emanuele II" },
+            { image: "viaje-lago", alt: "Lake with mountains behind and a boat", caption: "A lake with mountains behind" },
+            { image: "viaje-malta", alt: "Jet ski with a rocky coast behind", caption: "Malta, from the sea" },
+            { image: "viaje-valencia-pergola", alt: "Path under a pergola covered in plants", caption: "A pergola in Valencia" },
+          ],
+        },
+        {
+          title: "Concerts",
+          photos: [
+            { image: "weeknd-estadio", alt: "Stadium full of people during a The Weeknd concert", caption: "The Weeknd live" },
+            { image: "weeknd-pantalla", alt: "Singer in a dark suit projected on a giant screen", caption: "The Weeknd, on the screen" },
+            { image: "travis-circus-maximus", alt: "Crowd with lights on under the Circus Maximus sign", caption: "Travis Scott, Circus Maximus" },
+          ],
         },
       ],
     },

@@ -84,3 +84,31 @@ tres de Arceus que eligió en otra hoja de revisión.
 
 - Advanced Antioxidants al compendio, en un PR aparte.
 - Desplegar el Worker de Marc IA con el contexto nuevo.
+
+## Las fotos que faltaban (25/10/2026)
+
+Marc recordaba haber visto muchas más fotos en la hoja de revisión que las
+que acabaron en la web. Era así: la hoja tenía 7 de Zelda, 9 de Bloodborne y
+7 de Arceus (en otra hoja), con una propuesta de 3 por juego marcada en verde.
+Marc contestó «Las fotos están bien, entonces descárgalas y continúa», y se
+tomó como «vale la propuesta», así que solo se usaron las verdes. Él pensaba
+que entrarían todas.
+
+> Quiero que añadas más fotos de esas que me enseñaste, porque había algunas
+> que me parecían más bonitas.
+
+Se añadieron las 14 que faltaban de los juegos (4 de Zelda, 6 de Bloodborne
+y 4 de Arceus), de las mismas fuentes oficiales, en WebP, sin metadatos y como
+mucho a 1600 px. Las capturas pasan a una galería de tres columnas (dos en el
+móvil). Después, a petición de Marc, también las 2 de Naruto que faltaban
+(la batalla final, 2016, y verano de 2014), como una cuarta fila de dos
+viñetas altas. De JoJo solo quedó fuera la versión vertical de una que ya
+está.
+
+Todas pasan por lo mismo que el resto de fotos de la web: AVIF y WebP con
+tamaños para cada pantalla, carga diferida, texto alternativo en los dos
+idiomas, el visor (Ampliable.astro) y el efecto al pasar el ratón de su
+página.
+
+**Lección:** cuando la respuesta a una hoja de revisión no dice qué códigos,
+preguntar si es la propuesta o todas.

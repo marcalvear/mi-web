@@ -3,6 +3,7 @@
 // grueso y distinto tamaño, una de texto con trama de puntos y las cartelas
 // con el título de cada ilustración. Al final, el mazo de frases.
 import { Picture } from "astro:assets";
+import Ampliable from "../Ampliable.astro";
 import type { ImageMetadata } from "astro";
 import Base from "../../layouts/Base.astro";
 import QuoteDeck from "./QuoteDeck.astro";
@@ -34,15 +35,17 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
           <div class="page" data-series={s.id}>
             {s.panels.map((p, j) => (
               <figure class={`panel img p${j}`}>
-                <Picture
-                  src={photo(p.file)}
-                  alt={p.alt}
-                  formats={["avif", "webp"]}
-                  widths={j === 0 ? [480, 800, 1200] : [360, 720]}
-                  sizes={j === 0 ? "(min-width: 72rem) 36rem, 94vw" : "(min-width: 72rem) 24rem, 94vw"}
-                  loading="lazy"
-                  decoding="async"
-                />
+                <Ampliable src={photo(p.file)} alt={p.alt} caption={p.caption} lang={lang} fill>
+                  <Picture
+                    src={photo(p.file)}
+                    alt={p.alt}
+                    formats={["avif", "webp"]}
+                    widths={j === 0 || j >= 4 ? [480, 800, 1200] : [360, 720]}
+                    sizes={j === 0 || j >= 4 ? "(min-width: 72rem) 36rem, 94vw" : "(min-width: 72rem) 24rem, 94vw"}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </Ampliable>
                 {p.caption && <figcaption class="caption">{p.caption}</figcaption>}
               </figure>
             ))}
@@ -240,7 +243,8 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
     font-size: var(--step--1);
   }
 
-  /* Naruto: viñeta alta a la izquierda; texto y viñeta a la derecha; dos abajo */
+  /* Naruto: viñeta alta a la izquierda; texto y viñeta a la derecha; dos
+     abajo y, al final, dos viñetas altas una al lado de otra */
   [data-series="naruto"] {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
@@ -276,6 +280,20 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
 
   [data-series="naruto"] .p3 :global(img) {
     object-position: center 15%;
+  }
+
+  [data-series="naruto"] .p4,
+  [data-series="naruto"] .p5 {
+    grid-row: 4;
+    aspect-ratio: 1200 / 1690;
+  }
+
+  [data-series="naruto"] .p4 {
+    grid-column: 1 / 4;
+  }
+
+  [data-series="naruto"] .p5 {
+    grid-column: 4 / 7;
   }
 
   /* JoJo: viñeta panorámica arriba, texto y dos viñetas debajo */
@@ -328,6 +346,13 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
 
     [data-series="naruto"] .p0 {
       aspect-ratio: 4 / 5;
+    }
+
+    /* Enteras también en el móvil: la de la batalla final tiene una mitad
+       arriba y otra abajo */
+    [data-series="naruto"] .p4,
+    [data-series="naruto"] .p5 {
+      aspect-ratio: 1200 / 1690;
     }
 
     [data-series="naruto"] .text {

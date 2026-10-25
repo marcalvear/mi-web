@@ -13,7 +13,7 @@ interface Props {
 const { lang, content } = Astro.props;
 ---
 
-<Entry id="me-gusta" number={3} kicker={content.kicker} title={content.title}>
+<Entry id="me-gusta" number={4} kicker={content.kicker} title={content.title}>
   <p class="intro">{content.intro}</p>
   <HobbyCards lang={lang} groups={content.groups} open={content.open} />
 </Entry>
