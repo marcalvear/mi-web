@@ -130,8 +130,8 @@ const sheets = Object.fromEntries([
                 <th scope="col">{c.users.email}</th>
                 <th scope="col">{c.users.role}</th>
                 <th scope="col">{c.users.since}</th>
-                <th scope="col">{c.users.messages}</th>
-                <th scope="col">{c.users.favorites}</th>
+                <th scope="col" class="num">{c.users.messages}</th>
+                <th scope="col" class="num">{c.users.favorites}</th>
                 <th scope="col">{c.users.last}</th>
               </tr>
             </thead>
@@ -408,7 +408,8 @@ const sheets = Object.fromEntries([
         .map((p) => {
           const tr = el("tr");
           const nameCell = el("td");
-          const button = el("button", "text-button", nameOf(p));
+          // Sin nombre, «Sin nombre» en gris: repetir el email ensanchaba la tabla
+          const button = el("button", p.name ? "text-button" : "text-button no-name", p.name || t.inbox.noName);
           button.type = "button";
           button.addEventListener("click", () => showActivity(p));
           nameCell.append(button);
@@ -417,10 +418,10 @@ const sheets = Object.fromEntries([
             nameCell,
             el("td", "mono", p.email),
             el("td", "", t.users.roles[p.role]),
-            el("td", "", day.format(new Date(p.created_at))),
+            el("td", "date", day.format(new Date(p.created_at))),
             el("td", "num", String(messages.filter((m) => m.user_id === p.id && m.author === "user").length)),
             el("td", "num", String(favorites.filter((f) => f.user_id === p.id).length)),
-            el("td", "", last ? when.format(new Date(last.created_at)) : t.users.never),
+            el("td", "date", last ? when.format(new Date(last.created_at)) : t.users.never),
           );
           return tr;
         });
@@ -817,15 +818,27 @@ const sheets = Object.fromEntries([
     color: var(--ink-soft);
   }
 
+  /* El email y las fechas en una línea: si no caben, la tabla se desplaza
+     dentro de su caja, que es lo que pasa en el móvil */
   .users :global(.mono) {
     font-family: var(--font-mono);
     font-size: var(--step--1);
-    overflow-wrap: anywhere;
+    white-space: nowrap;
   }
 
+  .users :global(.date) {
+    white-space: nowrap;
+  }
+
+  /* Los números, centrados bajo su encabezado y separados de la fecha */
   .users :global(.num) {
     font-family: var(--font-mono);
-    text-align: right;
+    text-align: center;
+  }
+
+  .users :global(.text-button.no-name) {
+    color: var(--ink-soft);
+    font-style: italic;
   }
 
   .favorites {
