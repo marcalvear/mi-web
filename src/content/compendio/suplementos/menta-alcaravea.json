@@ -1,6 +1,12 @@
 {
-  "nombre": { "es": "Aceite de menta y alcaravea", "en": "Peppermint and caraway oil" },
-  "tipo": { "es": "Aceites esenciales en cápsula gastrorresistente", "en": "Essential oils in an enteric-coated capsule" },
+  "nombre": {
+    "es": "Aceite de menta y alcaravea",
+    "en": "Peppermint and caraway oil"
+  },
+  "tipo": {
+    "es": "Aceites esenciales en cápsula gastrorresistente",
+    "en": "Essential oils in an enteric-coated capsule"
+  },
   "evidencia": "moderada",
   "porQue": {
     "es": "Un ensayo con placebo de 96 pacientes muestra una mejora clara, con números grandes, pero es un solo ensayo con esta dosis.",
@@ -19,7 +25,10 @@
     "es": "90 mg de aceite de menta y 50 mg de alcaravea, 2 veces al día, durante 4 semanas",
     "en": "90 mg peppermint oil and 50 mg caraway oil, twice a day, for 4 weeks"
   },
-  "cuando": { "es": "Mañana y noche, sin masticar la cápsula", "en": "Morning and evening, without chewing the capsule" },
+  "cuando": {
+    "es": "Mañana y noche, sin masticar la cápsula",
+    "en": "Morning and evening, without chewing the capsule"
+  },
   "hallazgos": [
     {
       "texto": {
@@ -58,6 +67,59 @@
       "revista": "Aliment Pharmacol Ther 14(12):1671-1677",
       "pmid": "11121917",
       "doi": "10.1046/j.1365-2036.2000.00873.x"
+    }
+  ],
+  "productos": [
+    {
+      "id": "fdgard-capsules",
+      "marca": "FDgard",
+      "nombre": "FDgard",
+      "foto": "fdgard.webp",
+      "alt": {
+        "es": "Caja morada de FDgard con una hoja de menta y semillas de alcaravea.",
+        "en": "Purple FDgard box with a mint leaf and caraway seeds."
+      },
+      "url": "https://www.yourgard.com/products/fdgard",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Mentol de menta y aceite de alcaravea en microesferas; no es la cápsula de los ensayos, pero junta lo mismo",
+            "en": "Menthol from peppermint and caraway oil in microspheres; not the capsule from the trials, but the same combination"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "2 cápsulas 2 veces al día; como mucho, 6 al día",
+            "en": "2 capsules twice a day; 6 a day at most"
+          }
+        },
+        {
+          "k": {
+            "es": "Caja",
+            "en": "Box"
+          },
+          "v": {
+            "es": "36 cápsulas",
+            "en": "36 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "Su web no lo da: depende de la tienda",
+        "en": "Not on its website: it depends on the shop"
+      }
     }
   ]
 }

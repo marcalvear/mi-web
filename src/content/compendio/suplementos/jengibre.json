@@ -1,6 +1,12 @@
 {
-  "nombre": { "es": "Jengibre", "en": "Ginger" },
-  "tipo": { "es": "Raíz en cápsulas", "en": "Root, in capsules" },
+  "nombre": {
+    "es": "Jengibre",
+    "en": "Ginger"
+  },
+  "tipo": {
+    "es": "Raíz en cápsulas",
+    "en": "Root, in capsules"
+  },
   "evidencia": "preliminar",
   "porQue": {
     "es": "Los estudios miden que el estómago se vacía antes, pero en los dos ensayos las molestias no cambiaron.",
@@ -19,7 +25,10 @@
     "es": "1,2 g en cápsulas, una sola toma",
     "en": "1.2 g in capsules, a single dose"
   },
-  "cuando": { "es": "Una hora antes de comer", "en": "An hour before eating" },
+  "cuando": {
+    "es": "Una hora antes de comer",
+    "en": "An hour before eating"
+  },
   "hallazgos": [
     {
       "texto": {
@@ -62,6 +71,59 @@
       "revista": "World J Gastroenterol 17(1):105-110",
       "pmid": "21218090",
       "doi": "10.3748/wjg.v17.i1.105"
+    }
+  ],
+  "productos": [
+    {
+      "id": "now-ginger-root-550",
+      "marca": "NOW Foods",
+      "nombre": "Ginger Root 550 mg Veg Capsules",
+      "foto": "now-ginger-root.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Ginger Root de NOW.",
+        "en": "White bottle with orange label of NOW Ginger Root."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/ginger-root-550-mg-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "550 mg de raíz de jengibre en polvo por cápsula",
+            "en": "550 mg of powdered ginger root per capsule"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "2 cápsulas una hora antes de comer (1,1 g, cerca de lo estudiado)",
+            "en": "2 capsules an hour before eating (1.1 g, close to what was studied)"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "100 cápsulas",
+            "en": "100 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "11,99 $",
+        "en": "$11.99"
+      }
     }
   ]
 }

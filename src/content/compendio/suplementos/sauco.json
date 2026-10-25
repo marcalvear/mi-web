@@ -61,5 +61,58 @@
       "pmid": "30670267",
       "doi": "10.1016/j.ctim.2018.12.004"
     }
+  ],
+  "productos": [
+    {
+      "id": "sambucol-original-liquid",
+      "marca": "Sambucol",
+      "nombre": "Original Liquid 120 ml",
+      "foto": "sambucol-original.webp",
+      "alt": {
+        "es": "Caja morada y frasco oscuro de jarabe Sambucol Original.",
+        "en": "Purple box and dark bottle of Sambucol Original syrup."
+      },
+      "url": "https://sambucol.co.uk/product/sambucol-original/",
+      "pais": {
+        "es": "Reino Unido",
+        "en": "United Kingdom"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "Jarabe de zumo de saúco negro, la marca de los ensayos",
+            "en": "Black elderberry juice syrup, the brand used in the trials"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "10 ml al día; como refuerzo, hasta 4 veces al día (en los ensayos, 15 ml 4 veces)",
+            "en": "10 ml a day; for extra support, up to 4 times a day (15 ml 4 times in the trials)"
+          }
+        },
+        {
+          "k": {
+            "es": "Frasco",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "120 ml",
+            "en": "120 ml"
+          }
+        }
+      ],
+      "precio": {
+        "es": "6,49 £",
+        "en": "£6.49"
+      }
+    }
   ]
 }

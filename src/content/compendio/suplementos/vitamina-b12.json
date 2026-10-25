@@ -57,5 +57,58 @@
       "pmid": "23301732",
       "doi": "10.1056/NEJMcp1113996"
     }
+  ],
+  "productos": [
+    {
+      "id": "now-methyl-b12-1000",
+      "marca": "NOW Foods",
+      "nombre": "Methyl B-12 1,000 mcg Lozenges",
+      "foto": "now-methyl-b12.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Methyl B-12 de NOW.",
+        "en": "White bottle with orange label of NOW Methyl B-12."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/methyl-b-12-1000-mcg-lozenges",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "1.000 µg de vitamina B12 (metilcobalamina) por pastilla para chupar",
+            "en": "1,000 µg of vitamin B12 (methylcobalamin) per lozenge"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "Si eres vegano, 2 a la semana; si te falta, lo que diga tu médico",
+            "en": "If you're vegan, 2 a week; if you're low, whatever your doctor says"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "100 pastillas",
+            "en": "100 lozenges"
+          }
+        }
+      ],
+      "precio": {
+        "es": "12,99 $",
+        "en": "$12.99"
+      }
+    }
   ]
 }

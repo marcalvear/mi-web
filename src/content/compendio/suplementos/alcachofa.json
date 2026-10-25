@@ -1,6 +1,12 @@
 {
-  "nombre": { "es": "Extracto de hoja de alcachofa", "en": "Artichoke leaf extract" },
-  "tipo": { "es": "Extracto vegetal", "en": "Plant extract" },
+  "nombre": {
+    "es": "Extracto de hoja de alcachofa",
+    "en": "Artichoke leaf extract"
+  },
+  "tipo": {
+    "es": "Extracto vegetal",
+    "en": "Plant extract"
+  },
   "evidencia": "moderada",
   "porQue": {
     "es": "Lo respalda un ensayo grande, de 247 pacientes en varios hospitales, más un estudio que mide cómo sube la bilis. Falta que otros grupos lo repitan.",
@@ -19,7 +25,10 @@
     "es": "2 cápsulas de 320 mg, 3 veces al día (1.920 mg al día), durante 6 semanas",
     "en": "2 × 320 mg capsules, three times a day (1,920 mg a day), for 6 weeks"
   },
-  "cuando": { "es": "Con las comidas", "en": "With meals" },
+  "cuando": {
+    "es": "Con las comidas",
+    "en": "With meals"
+  },
   "hallazgos": [
     {
       "texto": {
@@ -69,6 +78,59 @@
       "revista": "Phytomedicine 1(2):107-115",
       "pmid": "23195882",
       "doi": "10.1016/S0944-7113(11)80027-9"
+    }
+  ],
+  "productos": [
+    {
+      "id": "now-artichoke-450",
+      "marca": "NOW Foods",
+      "nombre": "Artichoke Extract 450 mg Veg Capsules",
+      "foto": "now-artichoke.webp",
+      "alt": {
+        "es": "Bote blanco con etiqueta naranja de Artichoke Extract de NOW.",
+        "en": "White bottle with orange label of NOW Artichoke Extract."
+      },
+      "url": "https://www.nowfoods.com/products/supplements/artichoke-extract-450-mg-veg-capsules",
+      "pais": {
+        "es": "Estados Unidos",
+        "en": "United States"
+      },
+      "datos": [
+        {
+          "k": {
+            "es": "Lleva",
+            "en": "Contains"
+          },
+          "v": {
+            "es": "450 mg de extracto de hoja de alcachofa (5 % de cinarina)",
+            "en": "450 mg of artichoke leaf extract (5% cynarin)"
+          }
+        },
+        {
+          "k": {
+            "es": "Toma",
+            "en": "Dose"
+          },
+          "v": {
+            "es": "Para llegar a lo del ensayo (1.920 mg), unas 4 al día repartidas en las comidas",
+            "en": "To match the trial (1,920 mg), about 4 a day spread over meals"
+          }
+        },
+        {
+          "k": {
+            "es": "Bote",
+            "en": "Bottle"
+          },
+          "v": {
+            "es": "90 cápsulas",
+            "en": "90 capsules"
+          }
+        }
+      ],
+      "precio": {
+        "es": "21,99 $",
+        "en": "$21.99"
+      }
     }
   ]
 }
