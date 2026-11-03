@@ -1,5 +1,33 @@
 # Lighthouse
 
+## Fotos de Me gusta (03/11/2026, mejora de la corrección)
+
+El profesor señaló que algunas fotos de `src/assets/img/me-gusta/` pesaban
+demasiado (jojo-3 425 KB y otras de más de 200 KB) y que las páginas de Me
+gusta llegaban a 500-600 KB. Cambios:
+
+- **Originales más ligeros:** recomprimidos con `cwebp` y con un tope de
+  1600 px de ancho (1500 de alto en las verticales). Pasan de 4,1 MB a
+  3,1 MB y ninguno supera los 170 KB (jojo-3: 425 → 164 KB). El visor de
+  fotos carga el original, así que es lo que baja al ampliar una foto.
+- **Respaldo en WebP:** `<Picture>` servía AVIF y WebP, y como `<img>` de
+  respaldo un PNG de hasta 4 MB. Ahora es `formats={["avif"]}` con
+  `fallbackFormat="webp"`: ya no se genera ningún PNG.
+
+Lighthouse 13 en móvil, en local (`astro preview`), antes y después:
+
+| Página | Rendimiento | Peso | Fotos | LCP |
+|---|---|---|---|---|
+| Videojuegos | 90 → 97 | 503 → 502 KB | 163 → 163 KB | 3,6 → 2,6 s |
+| Anime y manga | 100 → 100 | 601 → 574 KB | 268 → 240 KB | 0,9 → 0,9 s |
+| Biohacking (Me gusta) | 100 → 100 | 374 → 373 KB | 42 → 42 KB | 0,9 → 0,9 s |
+| Me gusta (índice) | 94 → 94 | 418 → 413 KB | 89 → 84 KB | 3,2 → 3,2 s |
+
+Lo que sale de la medición: el srcset ya hacía su trabajo. El navegador
+descarga AVIF de 20-60 KB, no los originales, así que el peso de las fotos
+apenas cambia. Más de la mitad de cada página son **las fuentes**: Newsreader
+con eje óptico (normal 129 KB + cursiva 144 KB) y JetBrains Mono (40 KB).
+
 ## Entrega final (26/10/2026, #115)
 
 Lighthouse 12 en móvil, sobre la web publicada en GitHub Pages.
