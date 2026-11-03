@@ -54,7 +54,8 @@ const goals = Object.keys(text.goals) as Goal[];
             <Picture
               src={photos[p.id].src}
               alt={p.alt}
-              formats={["avif", "webp"]}
+              formats={["avif"]}
+              fallbackFormat="webp"
               widths={[440, 880, 1320]}
               sizes="(min-width: 52rem) 27rem, 90vw"
               loading="lazy"

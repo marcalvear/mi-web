@@ -37,7 +37,8 @@ const foto = (nombre: string) => fotos[`../../assets/img/vivencias/${nombre}.web
                     <Picture
                       src={img}
                       alt={p.alt}
-                      formats={["avif", "webp"]}
+                      formats={["avif"]}
+                      fallbackFormat="webp"
                       widths={[400, 800]}
                       sizes="(min-width: 64rem) 20rem, (min-width: 48rem) 30vw, 45vw"
                       loading="lazy"

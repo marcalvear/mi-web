@@ -46,7 +46,8 @@ const photo = (file: string) => photos[`../../assets/img/compendio/${file}`]?.de
                 <Picture
                   src={img}
                   alt={p.alt[lang]}
-                  formats={["avif", "webp"]}
+                  formats={["avif"]}
+                  fallbackFormat="webp"
                   widths={[240, 480, 720]}
                   sizes="(min-width: 30rem) 11rem, 8rem"
                   loading="lazy"

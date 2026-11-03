@@ -47,6 +47,53 @@ const contactFlow = {
     ["db", "mail"],
   ] as [string, string][],
 };
+
+// Esquemas de la defensa (docs/defensa.md): el mismo recorrido paso a paso y
+// cómo filtra RLS lo que pide Mi espacio
+const dataFlow = {
+  title:
+    "Del formulario al correo: el navegador envía a n8n, n8n comprueba el captcha, crea el usuario en Supabase, la IA clasifica, se guarda el mensaje y se envía el correo.",
+  nodes: [
+    { id: "form", label: "1 · Formulario", x: 150, y: 30 },
+    { id: "n8n", label: "2 · n8n valida", x: 150, y: 100 },
+    { id: "captcha", label: "3 · Captcha", x: 150, y: 170 },
+    { id: "auth", label: "4 · Crea el usuario", x: 150, y: 240 },
+    { id: "ai", label: "5 · IA clasifica", x: 150, y: 310, accent: true },
+    { id: "db", label: "6 · Guarda el mensaje", x: 150, y: 380 },
+    { id: "mail", label: "7 · Correo", x: 150, y: 450 },
+  ],
+  edges: [
+    ["form", "n8n"],
+    ["n8n", "captcha"],
+    ["captcha", "auth"],
+    ["auth", "ai"],
+    ["ai", "db"],
+    ["db", "mail"],
+  ] as [string, string][],
+  direction: "vertical" as const,
+  width: 300,
+  height: 480,
+  minWidth: "16rem",
+};
+
+const rlsFlow = {
+  title:
+    "Cómo protege RLS Mi espacio: la web pide los mensajes con su JWT, Postgres aplica las reglas y devuelve solo el hilo de esa persona, o todos si es el admin.",
+  nodes: [
+    { id: "web", label: "Mi espacio + JWT", x: 80, y: 110 },
+    { id: "api", label: "API REST", x: 240, y: 110 },
+    { id: "rls", label: "Postgres + RLS", x: 400, y: 110, accent: true },
+    { id: "own", label: "user_id = auth.uid()", x: 600, y: 50 },
+    { id: "all", label: "is_admin() → todos", x: 600, y: 170 },
+  ],
+  edges: [
+    ["web", "api"],
+    ["api", "rls"],
+    ["rls", "own"],
+    ["rls", "all"],
+  ] as [string, string][],
+  width: 720,
+};
 ---
 
 <Base lang="es" title="Sistema de diseño" noindex>
@@ -117,6 +164,36 @@ const contactFlow = {
         <FlowDiagram {...contactFlow} />
       </Figure>
     </Entry>
+
+    <Entry id="defensa" number={5} kicker="Defensa" title="Dos recorridos en un minuto">
+      <MarginNote label="La idea">
+        Todo lo que llega al navegador lo puede leer cualquiera. Lo que pide una clave secreta
+        pasa por n8n; lo que va con la pública lo vigila la base de datos.
+      </MarginNote>
+      <div class="defensa">
+        <Figure number={2} caption="Del formulario al correo (flujo «mi-web · Contacto»).">
+          <FlowDiagram {...dataFlow} />
+        </Figure>
+        <ol class="pasos">
+          <li>La web envía el formulario con <code>fetch</code> al webhook de n8n.</li>
+          <li>n8n lo vuelve a validar: al webhook se le puede llamar sin la web.</li>
+          <li>Comprueba el captcha con la clave secreta, que solo tiene n8n.</li>
+          <li>Crea el usuario en Supabase Auth; un trigger le crea el perfil.</li>
+          <li>Claude pone una de cinco categorías; si falla, se guarda igual.</li>
+          <li>Guarda el mensaje y el evento en Supabase.</li>
+          <li>Si no es spam, envía el correo con el enlace a <code>/entrar/</code>.</li>
+        </ol>
+      </div>
+      <Figure number={3} caption="Cómo protege RLS los datos de Mi espacio.">
+        <FlowDiagram {...rlsFlow} />
+      </Figure>
+      <p>
+        La web pide «los mensajes» sin filtro. Postgres mira quién firma el JWT y aplica la
+        regla antes de responder: cada persona recibe su hilo y yo, como <code>admin</code>, todos.
+        Aunque alguien cambie el JavaScript, no ve más.
+        Lo comprueban 39 pruebas de <code>supabase/tests/rls.sql</code>.
+      </p>
+    </Entry>
   </div>
 </Base>
 
@@ -176,6 +253,25 @@ const contactFlow = {
     gap: 0.2rem;
     max-width: none;
     line-height: 1.15;
+  }
+
+  .defensa {
+    display: grid;
+    gap: var(--space-4);
+    align-items: center;
+    margin-block-end: var(--space-5);
+  }
+
+  @media (min-width: 48rem) {
+    .defensa {
+      grid-template-columns: minmax(16rem, 20rem) 1fr;
+    }
+  }
+
+  .pasos {
+    display: grid;
+    gap: var(--space-2);
+    padding-inline-start: 1.4em;
   }
 
   .buttons {
