@@ -39,7 +39,8 @@ const photo = (file: string) => photos[`../../assets/img/me-gusta/${file}.webp`]
                   <Picture
                     src={photo(p.file)}
                     alt={p.alt}
-                    formats={["avif", "webp"]}
+                    formats={["avif"]}
+                    fallbackFormat="webp"
                     widths={j === 0 || j >= 4 ? [480, 800, 1200] : [360, 720]}
                     sizes={j === 0 || j >= 4 ? "(min-width: 72rem) 36rem, 94vw" : "(min-width: 72rem) 24rem, 94vw"}
                     loading="lazy"

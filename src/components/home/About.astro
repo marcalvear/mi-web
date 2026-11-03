@@ -35,7 +35,8 @@ const { lang, content } = Astro.props;
         <Picture
           src={photo}
           alt={content.photoAlt}
-          formats={["avif", "webp"]}
+          formats={["avif"]}
+          fallbackFormat="webp"
           widths={[360, 720]}
           sizes="(min-width: 60rem) 360px, 85vw"
           loading="lazy"

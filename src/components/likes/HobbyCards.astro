@@ -35,7 +35,8 @@ const photo = (name: string) => photos[`../../assets/img/${name}.webp`]?.default
               <Picture
                 src={img}
                 alt=""
-                formats={["avif", "webp"]}
+                formats={["avif"]}
+                fallbackFormat="webp"
                 widths={[400, 800]}
                 sizes="(min-width: 64rem) 22rem, (min-width: 40rem) 45vw, 90vw"
                 loading="lazy"
